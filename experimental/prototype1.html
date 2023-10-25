@@ -13,7 +13,7 @@
 
         html,
         body {
-            background-color: darkblue;
+            background-color: #222222;
             width: 100%;
             height: 100%;
             display: flex;
@@ -23,11 +23,15 @@
         }
 
         .container {
-            width: 300px;
+            width: 350px;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: aliceblue;
         }
 
         .lists.open {
             display: flex;
+            justify-content: space-between;
         }
 
         .lists {
@@ -36,6 +40,7 @@
 
         input {
             outline: none;
+            border: 0;
             border-bottom: 1px solid black;
             border-radius: 5px;
         }
@@ -47,7 +52,6 @@
 
         ul {
             list-style: none;
-            max-height: 300px;
             overflow: scroll;
             margin: 0;
             padding: 0;
@@ -57,15 +61,17 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            min-width: 160px;
-            /**/
             background-color: aliceblue;
             color: black;
             margin: 0;
+            border: 2px aliceblue solid;
         }
 
         ul:first-child {
-            border-right: 1px solid gray;
+            height: min-content;
+        }
+        ul:last-child {
+            border-left: 1px solid gray;
         }
 
         .title {
@@ -104,14 +110,19 @@
         .active {
             background-color: lightgreen;
         }
+
+        .focused {
+            border: 2px blue solid;
+        }
     </style>
 </head>
 
 <body>
     <main>
-        <div class="container">
+        <div class="container" tabindex="0">
             <div class="titleConainer">
-                <input class="continentTitle title open" id="currCountry" value="Angola" readonly />
+                <input class="continentTitle title open" id="currCountry" placeholder="Choose country" value=""
+                    readonly />
             </div>
             <div class="lists open">
                 <ul class="continentList list" id="continents"></ul>
@@ -123,61 +134,149 @@
     <script type="text/javascript" defer>
         const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
+        const container = document.querySelector(".container");
         const countryField = document.getElementById("currCountry");
         const listsElem = document.querySelector(".lists");
         const categoryListElem = document.getElementById("continents");
         const elementsListElem = document.getElementById("countries");
+        let focused = document.querySelector(".focused");
 
-        const toggleSelect = (close = false) => {
-            if (close) {
+        const timeContinent = Intl.DateTimeFormat().resolvedOptions().timeZone.split("/")[0];
+        let currContinent = continentList.includes(timeContinent) ? timeContinent : "All";
+
+        const toggleSelect = (state = 0) => {
+            if (state == 1) {
                 countryField.classList.remove("open");
                 listsElem.classList.remove("open");
+            } else if (state == 2) {
+                countryField.classList.add("open");
+                listsElem.classList.add("open");
             } else {
                 countryField.classList.toggle("open");
                 listsElem.classList.toggle("open");
             }
         };
 
-        const timeContinent = Intl.DateTimeFormat().resolvedOptions().timeZone.split("/")[0];
-        let currContinent = continentList.includes(timeContinent) ? timeContinent : "All";
+        const fillCountry = () => {
+            elementsListElem.innerHTML = "";
+            const cons = countryList.filter(e => e.continent == currContinent || currContinent == "All");
+            for (const country of cons) {
+                let isCurrentCountry = (countryField.value == country.name) ? "active focused" : "";
+                const countryElem = `<li class="element country ${isCurrentCountry}" onclick="changeValue(this)" onmouseover="changeFocus(this)">${country.name}</li>`;
+                elementsListElem.innerHTML += countryElem;
+            }
+        };
 
-        countryField.value = countryField.value ? countryField.value : "Choose a country";
+        const changeFocus = (e) => {
+            focused.classList.remove("focused");
+            focused = e;
+            focused.classList.add("focused");
+        };
+
+        const changeValue = (e) => {
+            countryField.value = e.innerHTML;
+            if (elementsListElem.querySelector(".active")) {
+                elementsListElem.querySelector(".active").classList.remove("active");
+            }
+            e.classList.add("active");
+            // toggleSelect(1);
+        };
+
+        const changeCategory = (e) => {
+            currContinent = e.innerHTML;
+            if (categoryListElem.querySelector(".active")) {
+                categoryListElem.querySelector(".active").classList.remove("active");
+            }
+            e.classList.add("active");
+            fillCountry();
+
+        };
+
+        countryField.onfocus = () => toggleSelect(2);
+        container.onfocus = () => countryField.focus();
+        countryField.onchange = () => toggleSelect(2);
+        // countryField.onblur = () => toggleSelect(1);
         document.querySelector(".titleConainer").onclick = () => toggleSelect();
+        container.onmouseover = (e) => countryField.focus();
         countryField.onkeyup = (e) => {
             console.log(e.key, e.keyCode);
+            focused = document.querySelector(".focused");
             if (e.key == "ArrowLeft" || e.keyCode == 37) {
-
+                if (focused.classList.contains("country")) {
+                    focused.classList.remove("focused");
+                    if (categoryListElem.querySelector(".active")) {
+                        focused = categoryListElem.querySelector(".active")
+                    } else {
+                        focused = document.querySelector(".country");
+                    }
+                    focused.classList.add("focused");
+                }
             } else if (e.key == "ArrowUp" || e.keyCode == 38) {
-
+                if (focused.previousSibling) {
+                    focused.classList.remove("focused");
+                    focused.previousSibling.classList.add("focused");
+                    focused = document.querySelector(".focused");
+                }
             } else if (e.key == "ArrowRight" || e.keyCode == 39) {
-
+                if (focused.classList.contains("continent")) {
+                    focused.classList.remove("focused");
+                    if (elementsListElem.querySelector(".active")) {
+                        focused = elementsListElem.querySelector(".active")
+                    } else {
+                        focused = document.querySelector(".country");
+                    }
+                    focused.classList.add("focused");
+                }
             } else if (e.key == "ArrowDown" || e.keyCode == 40) {
-
+                if (focused.nextSibling) {
+                    focused.classList.remove("focused");
+                    focused.nextSibling.classList.add("focused");
+                    focused = document.querySelector(".focused");
+                }
+            } else if (e.key == "Enter" || e.keyCode == 13
+                || e.key == " " || e.keyCode == 32) {
+                if (focused.classList.contains("country")) {
+                    if (elementsListElem.querySelector(".active")) {
+                        elementsListElem.querySelector(".active").classList.remove("active");
+                    }
+                    focused.classList.add("active");
+                    countryField.value = focused.innerHTML;
+                } else if (focused.classList.contains("continent")) {
+                    currContinent = focused.innerHTML;
+                    if (categoryListElem.querySelector(".active")) {
+                        categoryListElem.querySelector(".active").classList.remove("active");
+                    }
+                    focused.classList.add("active");
+                    fillCountry();
+                    focused.classList.remove("focused");
+                    if (elementsListElem.querySelector(".active")) {
+                        focused = elementsListElem.querySelector(".active")
+                    } else {
+                        focused = document.querySelector(".country");
+                    }
+                    focused.classList.add("focused");
+                }
             } else if (e.key == "Tab" || e.keyCode == 9) {
-
-            } else if (e.key == "Enter" || e.keyCode == 13) {
-
+                // next field
             } else if (e.key == "Escape" || e.keyCode == 27) {
-
+                toggleSelect(1);
             } else if (e.key == "BackSpace" || e.keyCode == 8) {
-
-            } else if (e.key == " " || e.keyCode == 32) {
-
+                countryField.value = "";
             }
         };
 
         categoryListElem.innerHTML = "";
         for (const continent of continentList) {
-            let isCurrentContinent = (currContinent == continent) ? "active" : "";
-            const continentElem = `<li class="element continent ${isCurrentContinent}">${continent}</li>`;
+            let isCurrentContinent = (currContinent == continent) ? "active focused" : "";
+            const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">${continent}</li>`;
             categoryListElem.innerHTML += continentElem;
         }
 
-        for (const country of countryList) {
-            let isCurrentContinent = (countryField.value == country.name) ? "active" : "";
-            const countryElem = `<li class="element country ${isCurrentContinent}">${country.name}</li>`;
-            elementsListElem.innerHTML += countryElem;
-        }
+        fillCountry();
+
+        focused = document.querySelector(".focused");
+        listsElem.style.height = categoryListElem.offsetHeight + "px";
+
     </script>
 </body>
 
