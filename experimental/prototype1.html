@@ -70,6 +70,7 @@
         ul:first-child {
             height: min-content;
         }
+
         ul:last-child {
             border-left: 1px solid gray;
         }
@@ -121,10 +122,9 @@
     <main>
         <div class="container" tabindex="0">
             <div class="titleConainer">
-                <input class="continentTitle title open" id="currCountry" placeholder="Choose country" value=""
-                    readonly />
+                <input class="continentTitle title" id="currCountry" placeholder="Choose country" value="" readonly />
             </div>
-            <div class="lists open">
+            <div class="lists">
                 <ul class="continentList list" id="continents"></ul>
                 <ul class="countryList list" id="countries"></ul>
             </div>
@@ -155,13 +155,14 @@
                 countryField.classList.toggle("open");
                 listsElem.classList.toggle("open");
             }
+            listsElem.style.height = categoryListElem.offsetHeight + "px";
         };
 
         const fillCountry = () => {
             elementsListElem.innerHTML = "";
             const cons = countryList.filter(e => e.continent == currContinent || currContinent == "All");
             for (const country of cons) {
-                let isCurrentCountry = (countryField.value == country.name) ? "active focused" : "";
+                let isCurrentCountry = (countryField.value == country.name) ? "active" : "";
                 const countryElem = `<li class="element country ${isCurrentCountry}" onclick="changeValue(this)" onmouseover="changeFocus(this)">${country.name}</li>`;
                 elementsListElem.innerHTML += countryElem;
             }
@@ -189,13 +190,24 @@
             }
             e.classList.add("active");
             fillCountry();
-
         };
 
-        countryField.onfocus = () => toggleSelect(2);
+        countryField.onfocus = () => {
+            toggleSelect(2);
+            if (categoryListElem.querySelector(".active")) {
+                focused = categoryListElem.querySelector(".active")
+            } else {
+                focused = document.querySelector(".continent");
+            }
+            focused.classList.add("focused");
+        };
         container.onfocus = () => countryField.focus();
-        countryField.onchange = () => toggleSelect(2);
-        // countryField.onblur = () => toggleSelect(1);
+        //countryField.onchange = () => {toggleSelect(2);};
+        countryField.onblur = () => {
+            focused = document.querySelector(".active");
+            focused.classList.remove("focused");
+            //toggleSelect(1);
+        };
         document.querySelector(".titleConainer").onclick = () => toggleSelect();
         container.onmouseover = (e) => countryField.focus();
         countryField.onkeyup = (e) => {
@@ -267,15 +279,12 @@
 
         categoryListElem.innerHTML = "";
         for (const continent of continentList) {
-            let isCurrentContinent = (currContinent == continent) ? "active focused" : "";
+            let isCurrentContinent = (currContinent == continent) ? "active" : "";
             const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">${continent}</li>`;
             categoryListElem.innerHTML += continentElem;
         }
 
         fillCountry();
-
-        focused = document.querySelector(".focused");
-        listsElem.style.height = categoryListElem.offsetHeight + "px";
 
     </script>
 </body>
