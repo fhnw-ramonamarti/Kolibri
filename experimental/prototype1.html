@@ -23,7 +23,7 @@
         }
 
         .container {
-            width: 350px;
+            width: 400px;
             border-radius: 5px;
             overflow: hidden;
             background-color: aliceblue;
@@ -50,6 +50,10 @@
             border-bottom-right-radius: 0;
         }
 
+        input:focus {
+            border: 1px blue solid;
+        }
+
         ul {
             list-style: none;
             overflow: scroll;
@@ -69,10 +73,11 @@
 
         ul:first-child {
             height: min-content;
+            border-right: 1px solid gray;
         }
 
         ul:last-child {
-            border-left: 1px solid gray;
+            /*border-left: 1px solid gray;*/
         }
 
         .title {
@@ -144,6 +149,12 @@
         const timeContinent = Intl.DateTimeFormat().resolvedOptions().timeZone.split("/")[0];
         let currContinent = continentList.includes(timeContinent) ? timeContinent : "All";
 
+        const scrollCountry = (e) => {
+            const curr = focused && focused.classList.contains("country") ? focused :
+                (document.querySelector(".country.active") ? document.querySelector(".country.active") : document.querySelector(".country"));
+            elementsListElem.scrollTo({ top: curr.offsetTop - 20 });
+        };
+
         const toggleSelect = (state = 0) => {
             if (state == 1) {
                 countryField.classList.remove("open");
@@ -166,12 +177,15 @@
                 const countryElem = `<li class="element country ${isCurrentCountry}" onclick="changeValue(this)" onmouseover="changeFocus(this)">${country.name}</li>`;
                 elementsListElem.innerHTML += countryElem;
             }
+
         };
 
         const changeFocus = (e) => {
             focused.classList.remove("focused");
-            focused = e;
-            focused.classList.add("focused");
+            if (e) {
+                focused = e;
+                focused.classList.add("focused");
+            }
         };
 
         const changeValue = (e) => {
@@ -180,6 +194,7 @@
                 elementsListElem.querySelector(".active").classList.remove("active");
             }
             e.classList.add("active");
+            changeFocus(e);
             // toggleSelect(1);
         };
 
@@ -190,6 +205,8 @@
             }
             e.classList.add("active");
             fillCountry();
+            scrollCountry();
+            changeFocus(e)
         };
 
         countryField.onfocus = () => {
@@ -208,8 +225,8 @@
             focused.classList.remove("focused");
             //toggleSelect(1);
         };
-        document.querySelector(".titleConainer").onclick = () => toggleSelect();
-        container.onmouseover = (e) => countryField.focus();
+        container.onclick = (e) => countryField.focus();
+        container.onmouseleave = () => changeFocus(null);
         countryField.onkeyup = (e) => {
             console.log(e.key, e.keyCode);
             focused = document.querySelector(".focused");
@@ -234,8 +251,10 @@
                     focused.classList.remove("focused");
                     if (elementsListElem.querySelector(".active")) {
                         focused = elementsListElem.querySelector(".active")
+                        elementsListElem.scrollTo({ top: focused.offsetTop - 20 });
                     } else {
                         focused = document.querySelector(".country");
+                        elementsListElem.scrollTo({ top: 0 });
                     }
                     focused.classList.add("focused");
                 }
@@ -267,6 +286,7 @@
                         focused = document.querySelector(".country");
                     }
                     focused.classList.add("focused");
+                    scrollCountry(focused);
                 }
             } else if (e.key == "Tab" || e.keyCode == 9) {
                 // next field
@@ -283,6 +303,7 @@
             const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">${continent}</li>`;
             categoryListElem.innerHTML += continentElem;
         }
+        focused = document.querySelector(".active") ? document.querySelector(".active") : document.querySelector(".continent");
 
         fillCountry();
 
