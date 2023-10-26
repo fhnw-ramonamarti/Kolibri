@@ -76,10 +76,6 @@
             border-right: 1px solid gray;
         }
 
-        ul:last-child {
-            /*border-left: 1px solid gray;*/
-        }
-
         .title {
             background-color: aliceblue;
             padding: 10px;
@@ -210,23 +206,24 @@
         };
 
         countryField.onfocus = () => {
-            toggleSelect(2);
             if (categoryListElem.querySelector(".active")) {
-                focused = categoryListElem.querySelector(".active")
+                changeFocus(categoryListElem.querySelector(".active"))
             } else {
-                focused = document.querySelector(".continent");
+                changeFocus(document.querySelector(".continent"));
             }
-            focused.classList.add("focused");
+        };
+        document.querySelector(".titleConainer").onclick = () => {
+            toggleSelect();
         };
         container.onfocus = () => countryField.focus();
-        //countryField.onchange = () => {toggleSelect(2);};
         countryField.onblur = () => {
             focused = document.querySelector(".active");
             focused.classList.remove("focused");
             //toggleSelect(1);
         };
         container.onclick = (e) => countryField.focus();
-        container.onmouseleave = () => changeFocus(null);
+        //countryField.onchange = () => {toggleSelect(2);};
+        //container.onmouseleave = () => changeFocus(null);
         countryField.onkeyup = (e) => {
             console.log(e.key, e.keyCode);
             focused = document.querySelector(".focused");
@@ -289,6 +286,7 @@
                     scrollCountry(focused);
                 }
             } else if (e.key == "Tab" || e.keyCode == 9) {
+                toggleSelect(2);
                 // next field
             } else if (e.key == "Escape" || e.keyCode == 27) {
                 toggleSelect(1);
