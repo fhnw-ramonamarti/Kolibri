@@ -162,6 +162,9 @@
                 countryField.classList.toggle("open");
                 listsElem.classList.toggle("open");
             }
+            if (!listsElem.classList.contains("open")) {
+                changeFocus(null);
+            }
             listsElem.style.height = categoryListElem.offsetHeight + "px";
         };
 
@@ -177,7 +180,9 @@
         };
 
         const changeFocus = (e) => {
-            focused.classList.remove("focused");
+            if (focus != null) {
+                focused.classList.remove("focused");
+            }
             if (e) {
                 focused = e;
                 focused.classList.add("focused");
@@ -228,62 +233,82 @@
             console.log(e.key, e.keyCode);
             focused = document.querySelector(".focused");
             if (e.key == "ArrowLeft" || e.keyCode == 37) {
-                if (focused.classList.contains("country")) {
-                    focused.classList.remove("focused");
-                    if (categoryListElem.querySelector(".active")) {
-                        focused = categoryListElem.querySelector(".active")
-                    } else {
-                        focused = document.querySelector(".country");
+                if (focused != null) {
+                    if (focused.classList.contains("country")) {
+                        focused.classList.remove("focused");
+                        if (categoryListElem.querySelector(".active")) {
+                            focused = categoryListElem.querySelector(".active")
+                        } else {
+                            focused = document.querySelector(".country");
+                        }
+                        focused.classList.add("focused");
                     }
-                    focused.classList.add("focused");
                 }
             } else if (e.key == "ArrowUp" || e.keyCode == 38) {
-                if (focused.previousSibling) {
-                    focused.classList.remove("focused");
-                    focused.previousSibling.classList.add("focused");
-                    focused = document.querySelector(".focused");
+                if (focused != null) {
+                    if (focused.previousSibling) {
+                        focused.classList.remove("focused");
+                        focused.previousSibling.classList.add("focused");
+                        focused = document.querySelector(".focused");
+                    }
+                    if (focused.classList.contains("country")) {
+                        const pH = focused.parentElement.offsetHeight;
+                        const h = (pH - focused.offsetHeight) / 2;
+                        elementsListElem.scrollTo({ top: focused.offsetTop - h });
+                    }
                 }
             } else if (e.key == "ArrowRight" || e.keyCode == 39) {
-                if (focused.classList.contains("continent")) {
-                    focused.classList.remove("focused");
-                    if (elementsListElem.querySelector(".active")) {
-                        focused = elementsListElem.querySelector(".active")
-                        elementsListElem.scrollTo({ top: focused.offsetTop - 20 });
-                    } else {
-                        focused = document.querySelector(".country");
-                        elementsListElem.scrollTo({ top: 0 });
+                if (focused != null) {
+                    if (focused.classList.contains("continent")) {
+                        focused.classList.remove("focused");
+                        if (elementsListElem.querySelector(".active")) {
+                            focused = elementsListElem.querySelector(".active")
+                            elementsListElem.scrollTo({ top: focused.offsetTop - 20 });
+                        } else {
+                            focused = document.querySelector(".country");
+                            elementsListElem.scrollTo({ top: 0 });
+                        }
+                        focused.classList.add("focused");
                     }
-                    focused.classList.add("focused");
                 }
             } else if (e.key == "ArrowDown" || e.keyCode == 40) {
-                if (focused.nextSibling) {
-                    focused.classList.remove("focused");
-                    focused.nextSibling.classList.add("focused");
-                    focused = document.querySelector(".focused");
+                if (focused != null) {
+                    if (focused.nextSibling) {
+                        focused.classList.remove("focused");
+                        focused.nextSibling.classList.add("focused");
+                        focused = document.querySelector(".focused");
+                        if (focused.classList.contains("country")) {
+                            const pH = focused.parentElement.offsetHeight;
+                            const h = (pH - focused.offsetHeight) / 2;
+                            elementsListElem.scrollTo({ top: focused.offsetTop - h });
+                        }
+                    }
                 }
             } else if (e.key == "Enter" || e.keyCode == 13
                 || e.key == " " || e.keyCode == 32) {
-                if (focused.classList.contains("country")) {
-                    if (elementsListElem.querySelector(".active")) {
-                        elementsListElem.querySelector(".active").classList.remove("active");
+                if (focused != null) {
+                    if (focused.classList.contains("country")) {
+                        if (elementsListElem.querySelector(".active")) {
+                            elementsListElem.querySelector(".active").classList.remove("active");
+                        }
+                        focused.classList.add("active");
+                        countryField.value = focused.innerHTML;
+                    } else if (focused.classList.contains("continent")) {
+                        currContinent = focused.innerHTML;
+                        if (categoryListElem.querySelector(".active")) {
+                            categoryListElem.querySelector(".active").classList.remove("active");
+                        }
+                        focused.classList.add("active");
+                        fillCountry();
+                        focused.classList.remove("focused");
+                        if (elementsListElem.querySelector(".active")) {
+                            focused = elementsListElem.querySelector(".active")
+                        } else {
+                            focused = document.querySelector(".country");
+                        }
+                        focused.classList.add("focused");
+                        scrollCountry(focused);
                     }
-                    focused.classList.add("active");
-                    countryField.value = focused.innerHTML;
-                } else if (focused.classList.contains("continent")) {
-                    currContinent = focused.innerHTML;
-                    if (categoryListElem.querySelector(".active")) {
-                        categoryListElem.querySelector(".active").classList.remove("active");
-                    }
-                    focused.classList.add("active");
-                    fillCountry();
-                    focused.classList.remove("focused");
-                    if (elementsListElem.querySelector(".active")) {
-                        focused = elementsListElem.querySelector(".active")
-                    } else {
-                        focused = document.querySelector(".country");
-                    }
-                    focused.classList.add("focused");
-                    scrollCountry(focused);
                 }
             } else if (e.key == "Tab" || e.keyCode == 9) {
                 toggleSelect(2);

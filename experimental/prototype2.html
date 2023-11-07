@@ -273,6 +273,11 @@
                         scrollContinent(focused);
                         changeCategory(focused);
                     }
+                    if (focused.classList.contains("country")) {
+                        const pH = focused.parentElement.offsetHeight;
+                        const h = (pH - focused.offsetHeight) / 2;
+                        scrollCountry();
+                    }
                 }
             } else if (e.key == "ArrowRight" || e.keyCode == 39) {
 
@@ -282,6 +287,11 @@
                     if (focused.classList.contains("continent")) {
                         scrollContinent(focused);
                         changeCategory(focused);
+                    }
+                    if (focused.classList.contains("country")) {
+                        const pH = focused.parentElement.offsetHeight;
+                        const h = (pH - focused.offsetHeight) / 2;
+                        scrollCountry();
                     }
                 }
             } else if (e.key == "Enter" || e.keyCode == 13
