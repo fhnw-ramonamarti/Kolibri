@@ -20,7 +20,7 @@
             --color-font-black: var(--kb-color-black, #14141B);
             --color-font-body: var(--kb-color-body, #4E4B66);
             --color-placeholder: var(--kb-color-plachold, #A0A3BD);
-            --color-dezent: #E1E1E1;
+            --color-dezent: var(--kb-color-line, #D9DBE9);
             --color-dezent-active: var(--kb-secondary-bg, #E5EFFF);
             --color-dezent-font: var(--kb-color-label, #6E7191);
 
@@ -64,26 +64,8 @@
             padding: 20px;
         }
 
-        @media (prefers-color-scheme: light) {
-            body {
-                background: green !important;
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                /* background: blue !important;*/
-            }
-        }
-
-        body {
-            accent-color: red;
-            /* background-color: highlight !important;*/
-            /* background-color: AccentColor !important;*/
-        }
-
         .container {
-            width: 460px;
+            width: 320px;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -165,10 +147,18 @@
 
         ul:first-child {
             height: min-content;
+            padding-left: 0;
         }
 
         ul:first-child li {
             min-width: max-content;
+            border-radius: var(--border-radius-big);
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-left: none;
+            background: var(--color-dezent);
+            color: var(--color-dezent-font);
+            margin: 2px 0;
         }
 
         ul:last-child {
@@ -220,11 +210,7 @@
             padding: var(--padding-icon);
         }
 
-        .clear {
-            display: none;
-        }
-
-        .shortcut {
+        .country .shortcut {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -235,6 +221,18 @@
             width: 25px;
 
             background: var(--color-dezent);
+        }
+
+        .active.country .shortcut {
+            background: var(--color-dezent-active);
+        }
+
+        .clear {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
         }
 
         .active .shortcut {
@@ -249,25 +247,21 @@
             display: none;
         }
 
+        .active.continent {
+            background: var(--color-placeholder);
+        }
+
         .active {
             background: var(--color-active);
         }
-        
-        .active div:first-child {
-            color: var(--color-black);
-            font-weight: 700;
-            /*text-shadow: var(--font-bold-shadow);*/
-            margin-right: -6px;
+
+        .active div {
+            color: var(--color-background);
+            color: var(--color-font-black);
         }
-        
+
         .focused {
             border: var(--border-focused);
-        }
-        .focused div:first-child {
-            color: var(--color-black);
-            /*font-weight: 700;*/
-            /*text-shadow: var(--font-bold-shadow);*/
-            /*margin-right: -6px;*/
         }
     </style>
 </head>
@@ -275,16 +269,19 @@
 <body>
     <main>
         <div class="container" tabindex="0">
-            <input type="checkbox" name="" id="cont">
-            <input type="checkbox" name="" id="count">
-            <br>
             <div class="titleConainer">
                 <input class="continentTitle title" id="currCountry" placeholder="Choose country" value="" readonly />
                 <div class="clear" id="clear">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="0.4" y="0.4" width="19.2" height="19.2" rx="2.93333" stroke="#A0A3BD"
+                            stroke-width="0.8" />
                         <path d="M5 5.00002L15.6452 15.6452M5 15.6452L15.6452 5" stroke="#A0A3BD" stroke-width="1.66667"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 5.00002L15.6452 15.6452M5 15.6452L15.6452 5" stroke="#A0A3BD" stroke-width="1.66667"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg> -->
                 </div>
                 <div class="icon close active">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -301,7 +298,6 @@
             </div>
             <div class="lists">
                 <ul class="continentList list" id="continents"></ul>
-                <div class="line"></div>
                 <ul class="countryList list" id="countries"></ul>
             </div>
         </div>
@@ -529,8 +525,8 @@
             let isCurrentContinent = (currContinent == continent) ? "active" : "";
 
             const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">
-                <div>${continent}</div>
-                <div class="shortcut">${countryList.filter(e => e.continent == continent || continent == "All").length}</div>
+                <div class="hidden">${continent}</div>
+                <div>${(continent == "All") ? "All" : continent.substr(0, 2).toUpperCase()}</div>
             </li>`;
             categoryListElem.innerHTML += continentElem;
         }
