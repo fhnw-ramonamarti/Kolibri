@@ -6,19 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototype 3 - HiFi</title>
     <style>
-        :root{
-            --color-active: ;
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --padding: 10px 16px;
+            --padding-icon: 0 4px;
+            --thin-line: 0.8px;
+            --font-family: Rubik, sans-serif;
+
+            --color-background: var(--kb-color-bg-light, #F7F7FC);
+            --color-active: #E2DDFD;
+            --color-focused: var(--kb-primary-accent, #6000FF);
+            --color-font-black: var(--kb-color-black, #14141B);
+            --color-font-body: var(--kb-color-body, #4E4B66);
+            --color-placeholder: var(--kb-color-plachold, #A0A3BD);
+            --color-dezent: #E1E1E1;
+            --color-dezent-active: var(--kb-secondary-bg, #E5EFFF);
+            --color-dezent-font: var(--kb-color-label, #6E7191);
+
+            --border-dark: var(--thin-line) solid var(--color-font-body);
+            --border-transparent: var(--thin-line) solid var(--color-background);
+            --border-focused: var(--thin-line) solid var(--color-focused);
+
+            --border-radius-big: 8px;
+            --border-radius-small: 4px;
+            --border-radius-big-bottom: 0 0 8px 8px;
+
+            --font-size-dezent: 8px;
+            --font-size-default: 12px;
+            --font-bold-shadow: -0.6px 0 0 var(--color-font-black);
         }
+
         * {
             box-sizing: border-box;
             position: relative;
 
-            color: var(--kb-color-black, #14141B);
+            color: var(--color-font-body);
             font-feature-settings: 'clig' off, 'liga' off;
 
             /* Kolibri-Serif/Body 4 */
-            font-family: Rubik, sans-serif;
-            font-size: 12px;
+            font-family: var(--font-family);
+            font-size: var(--font-size-default);
             font-style: normal;
             font-weight: 400;
             line-height: 18px;
@@ -27,196 +55,13 @@
 
         html,
         body {
-            /*background-color: #222222;*/
-            background-color: #222222;
+            background-color: #cccccc;
             width: 100%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: start;
             padding: 20px;
-        }
-
-        .container {
-            width: 400px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            border-radius: 8px;
-        }
-
-        .lists.open {
-            display: flex;
-            justify-content: stretch;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-            width: calc(100%);
-            border: 0.8px solid var(--kb-color-body, #4E4B66);
-            background: var(--kb-color-bg-light, #F7F7FC);
-        }
-
-        .lists {
-            display: none;
-        }
-
-        .tite {
-            border: 0.8px solid var(--kb-color-body, #4E4B66);
-        }
-
-        input {
-            outline: none;
-            border-radius: 8px;
-            border: 0.8px solid var(--kb-color-body, #4E4B66);
-            width: 100%;
-        }
-
-        input.open {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
-        input:focus {
-            border: 0.8px solid var(--kb-primary-accent, #6000FF);
-        }
-
-        input:focus:has(+.open) {
-            border: 0.8px solid var(--kb-color-body, #4E4B66);
-        }
-
-        .line {
-            height: 100%;
-            width: 0;
-            flex-grow: 0;
-            border: 0.8px solid var(--kb-color-body, #4E4B66);
-            background: var(--kb-color-bg-light, #F7F7FC);
-        }
-
-        ul {
-            list-style: none;
-            overflow: scroll;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            flex-grow: 0;
-            padding: 1px;
-        }
-
-        li {
-            color: black;
-            background: var(--kb-color-bg-light, #F7F7FC);
-            border: 0.8px var(--kb-color-bg-light, #F7F7FC) solid;
-
-            display: flex;
-            padding: 10px 16px;
-            justify-content: space-between;
-            align-items: center;
-            gap: 32px;
-            width: 100%;
-            border-radius: 4px;
-        }
-
-        ul:first-child {
-            height: min-content;
-        }
-
-        ul:first-child li {
-            min-width: max-content;
-        }
-
-        ul:last-child {
-            flex-grow: 1;
-        }
-
-        .title {
-            background: var(--kb-color-bg-light, #F7F7FC);
-            color: black;
-            padding: 10px 16px;
-            border-radius: 8px;
-            width: 100%;
-        }
-
-        .container:focus .title {
-            border: 0.8px solid var(--kb-primary-accent, #6000FF);
-        }
-
-        .titleConainer {
-            width: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        .icon {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 0;
-            /*border-left: 0.8px solid var(--kb-color-body, #4E4B66);*/
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            padding: 0 10px;
-        }
-
-        .icon.active {
-            display: flex;
-            background: transparent;
-        }
-
-        .clear {
-            display: flex;
-            position: absolute;
-            right: 50px;
-            top: 0;
-            height: 100%;
-            border-radius: 4px;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-
-        .shortcut {
-            display: flex;
-            padding: 0px 3px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 4px;
-            color: #000;
-            font-size: 9px;
-
-            /* V 1 */
-            /*
-            background: var(--kb-color-plachold, #A0A3BD);
-            /**/
-
-            /* V 2 */
-            background: var(--kb-primary-light, #BFBEFC);
-            /**/
-
-            /* V3 */
-            /*
-            color: var(--kb-color-label, #6E7191);
-            border: 0.8px solid var(--kb-color-label, #6E7191);
-            /**/
-        }
-
-        #cont:checked~.lists .continent .shortcut {
-            display: none;
-        }
-
-        #count:checked~.lists .country .shortcut {
-            display: none;
-        }
-
-        .active {
-            background: var(--kb-color-line, #D9DBE9);
-        }
-
-        .focused {
-            border: 0.8px solid var(--kb-primary-accent, #6000FF);
         }
 
         @media (prefers-color-scheme: light) {
@@ -236,21 +81,213 @@
             /* background-color: highlight !important;*/
             /* background-color: AccentColor !important;*/
         }
+
+        .container {
+            width: 460px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            border-radius: var(--border-radius-big);
+        }
+
+        .lists.open {
+            display: flex;
+            justify-content: stretch;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            width: 100%;
+            border: var(--border-dark);
+            background: var(--color-background);
+            border-radius: var(--border-radius-big-bottom);
+        }
+
+        .lists {
+            display: none;
+        }
+
+        .tite {
+            border: var(--border-dark);
+        }
+
+        input {
+            outline: none;
+            border-radius: var(--border-radius-big);
+            border: var(--border-dark);
+            width: 100%;
+        }
+
+        input.open {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        input:focus {
+            border: var(--border-focused);
+        }
+
+        input:focus:has(+.open) {
+            border: var(--border-dark);
+        }
+
+        .line {
+            height: calc(100% - 10px);
+            width: 0;
+            flex-grow: 0;
+            border-left: var(--border-dark);
+        }
+
+        ul {
+            list-style: none;
+            overflow: scroll;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            flex-grow: 0;
+            padding: 4px 1px;
+        }
+
+        li {
+            background: var(--color-background);
+            border: var(--border-transparent);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            padding: var(--padding);
+            border-radius: var(--border-radius-small);
+        }
+
+        ul:first-child {
+            height: min-content;
+        }
+
+        ul:first-child li {
+            min-width: max-content;
+        }
+
+        ul:last-child {
+            flex-grow: 1;
+        }
+
+        .title {
+            background: var(--color-background);
+            color: var(--color-font-body);
+            padding: var(--padding);
+            border-radius: var(--border-radius-big);
+            width: 100%;
+        }
+
+        .container:focus .title {
+            border: var(--border-focused);
+        }
+
+        .titleConainer {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            padding: 0 10px;
+        }
+
+        .icon.active {
+            display: flex;
+            background: transparent;
+        }
+
+        .clear.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 50px;
+            top: 0;
+            height: 100%;
+            padding: var(--padding-icon);
+        }
+
+        .clear {
+            display: none;
+        }
+
+        .shortcut {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--padding-icon);
+            border-radius: var(--border-radius-small);
+            color: var(--color-dezent-font);
+            font-size: var(--font-size-dezent);
+            width: 25px;
+
+            background: var(--color-dezent);
+        }
+
+        .active .shortcut {
+            background: var(--color-dezent-active);
+        }
+
+        #cont:checked~.lists .continent .shortcut {
+            display: none;
+        }
+
+        #count:checked~.lists .country .shortcut {
+            display: none;
+        }
+
+        .active {
+            background: var(--color-active);
+        }
+        
+        .active div:first-child {
+            color: var(--color-black);
+            font-weight: 700;
+            /*text-shadow: var(--font-bold-shadow);*/
+            margin-right: -6px;
+        }
+        
+        .focused {
+            border: var(--border-focused);
+        }
+        .focused div:first-child {
+            color: var(--color-black);
+            /*font-weight: 700;*/
+            /*text-shadow: var(--font-bold-shadow);*/
+            /*margin-right: -6px;*/
+        }
     </style>
 </head>
 
 <body>
     <main>
         <div class="container" tabindex="0">
-            <input type="checkbox" name="" id="cont" checked>
-            <input type="checkbox" name="" id="count" checked>
+            <input type="checkbox" name="" id="cont">
+            <input type="checkbox" name="" id="count">
             <br>
             <div class="titleConainer">
                 <input class="continentTitle title" id="currCountry" placeholder="Choose country" value="" readonly />
                 <div class="clear" id="clear">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <rect x="0.4" y="0.4" width="19.2" height="19.2" rx="2.93333" stroke="#A0A3BD"
                             stroke-width="0.8" />
+                        <path d="M5 5.00002L15.6452 15.6452M5 15.6452L15.6452 5" stroke="#A0A3BD" stroke-width="1.66667"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M5 5.00002L15.6452 15.6452M5 15.6452L15.6452 5" stroke="#A0A3BD" stroke-width="1.66667"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
@@ -293,7 +330,9 @@
         const scrollCountry = (e) => {
             const curr = focused && focused.classList.contains("country") ? focused :
                 (document.querySelector(".country.active") ? document.querySelector(".country.active") : document.querySelector(".country"));
-            elementsListElem.scrollTo({ top: curr.offsetTop - 20 });
+            if (curr) {
+                elementsListElem.scrollTo({ top: curr.offsetTop - 20 });
+            }
         };
 
         const toggleSelect = (state = 0) => {
@@ -324,9 +363,10 @@
             const cons = countryList.filter(e => e.continent == currContinent || currContinent == "All");
             for (const country of cons) {
                 let isCurrentCountry = (countryField.value == country.name) ? "active" : "";
+                const shortContinent = (currContinent == "All") ? `<div class="shortcut">${country.continent.substr(0, 2).toUpperCase()}</div>` : "";
                 const countryElem = `<li class="element country ${isCurrentCountry}" onclick="changeValue(this)" onmouseover="changeFocus(this)">
                     <div>${country.name}</div>
-                    <div class="shortcut">${country.continent.substr(0, 2).toUpperCase()}</div>
+                    ${shortContinent}
                 </li>`;
                 elementsListElem.innerHTML += countryElem;
             }
@@ -343,6 +383,7 @@
         };
 
         const changeValue = (e) => {
+            document.querySelector(".clear").classList.add("show");
             countryField.value = e.querySelector("div").innerHTML;
             if (elementsListElem.querySelector(".active")) {
                 elementsListElem.querySelector(".active").classList.remove("active");
@@ -353,7 +394,7 @@
         };
 
         const changeCategory = (e) => {
-            currContinent = e.innerHTML;
+            currContinent = e.querySelector("div").innerHTML;
             if (categoryListElem.querySelector(".active")) {
                 categoryListElem.querySelector(".active").classList.remove("active");
             }
@@ -365,6 +406,7 @@
 
         clearElem.onclick = () => {
             countryField.value = "";
+            document.querySelector(".clear").classList.remove("show");
         };
         countryField.onfocus = () => {
             if (categoryListElem.querySelector(".active")) {
@@ -480,6 +522,7 @@
                 toggleSelect(1);
             } else if (e.key == "BackSpace" || e.keyCode == 8) {
                 countryField.value = "";
+                document.querySelector(".clear").classList.remove("show");
             }
         };
 
