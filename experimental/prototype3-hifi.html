@@ -6,13 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototype 3 - HiFi</title>
     <style>
+        :root{
+            --color-active: ;
+        }
         * {
             box-sizing: border-box;
             position: relative;
+
+            color: var(--kb-color-black, #14141B);
+            font-feature-settings: 'clig' off, 'liga' off;
+
+            /* Kolibri-Serif/Body 4 */
+            font-family: Rubik, sans-serif;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0.25px;
         }
 
         html,
         body {
+            /*background-color: #222222;*/
             background-color: #222222;
             width: 100%;
             height: 100%;
@@ -39,7 +54,8 @@
             align-items: center;
             gap: 10px;
             flex-shrink: 0;
-            width: calc(100% - 2px);
+            width: calc(100%);
+            border: 0.8px solid var(--kb-color-body, #4E4B66);
             background: var(--kb-color-bg-light, #F7F7FC);
         }
 
@@ -47,10 +63,14 @@
             display: none;
         }
 
+        .tite {
+            border: 0.8px solid var(--kb-color-body, #4E4B66);
+        }
+
         input {
             outline: none;
             border-radius: 8px;
-            border: 1px solid var(--kb-color-body, #4E4B66);
+            border: 0.8px solid var(--kb-color-body, #4E4B66);
             width: 100%;
         }
 
@@ -60,18 +80,19 @@
         }
 
         input:focus {
-            border: 1px solid var(--kb-primary-accent, #6000FF);
+            border: 0.8px solid var(--kb-primary-accent, #6000FF);
         }
 
         input:focus:has(+.open) {
-            border: 1px solid var(--kb-color-body, #4E4B66);
+            border: 0.8px solid var(--kb-color-body, #4E4B66);
         }
 
         .line {
             height: 100%;
-            width: 0.5px;
-            background: var(--kb-placeholder, #A0A3BD);
+            width: 0;
             flex-grow: 0;
+            border: 0.8px solid var(--kb-color-body, #4E4B66);
+            background: var(--kb-color-bg-light, #F7F7FC);
         }
 
         ul {
@@ -87,14 +108,15 @@
         li {
             color: black;
             background: var(--kb-color-bg-light, #F7F7FC);
-            border: 1px var(--kb-color-bg-light, #F7F7FC) solid;
+            border: 0.8px var(--kb-color-bg-light, #F7F7FC) solid;
 
             display: flex;
             padding: 10px 16px;
-            justify-content: left;
+            justify-content: space-between;
             align-items: center;
             gap: 32px;
             width: 100%;
+            border-radius: 4px;
         }
 
         ul:first-child {
@@ -118,11 +140,13 @@
         }
 
         .container:focus .title {
-            border: 1px solid var(--kb-primary-accent, #6000FF);
+            border: 0.8px solid var(--kb-primary-accent, #6000FF);
         }
 
         .titleConainer {
             width: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .icon {
@@ -130,11 +154,11 @@
             position: absolute;
             right: 0;
             top: 0;
-            border-left: 0.7px solid var(--kb-color-body, #4E4B66);
+            /*border-left: 0.8px solid var(--kb-color-body, #4E4B66);*/
             height: 100%;
             justify-content: center;
             align-items: center;
-            width: 30px;
+            padding: 0 10px;
         }
 
         .icon.active {
@@ -142,12 +166,75 @@
             background: transparent;
         }
 
-        .active {
+        .clear {
+            display: flex;
+            position: absolute;
+            right: 50px;
+            top: 0;
+            height: 100%;
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .shortcut {
+            display: flex;
+            padding: 0px 3px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            color: #000;
+            font-size: 9px;
+
+            /* V 1 */
+            /*
+            background: var(--kb-color-plachold, #A0A3BD);
+            /**/
+
+            /* V 2 */
             background: var(--kb-primary-light, #BFBEFC);
+            /**/
+
+            /* V3 */
+            /*
+            color: var(--kb-color-label, #6E7191);
+            border: 0.8px solid var(--kb-color-label, #6E7191);
+            /**/
+        }
+
+        #cont:checked~.lists .continent .shortcut {
+            display: none;
+        }
+
+        #count:checked~.lists .country .shortcut {
+            display: none;
+        }
+
+        .active {
+            background: var(--kb-color-line, #D9DBE9);
         }
 
         .focused {
-            border: 1px solid var(--kb-primary-accent, #6000FF);
+            border: 0.8px solid var(--kb-primary-accent, #6000FF);
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background: green !important;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                /* background: blue !important;*/
+            }
+        }
+
+        body {
+            accent-color: red;
+            /* background-color: highlight !important;*/
+            /* background-color: AccentColor !important;*/
         }
     </style>
 </head>
@@ -155,17 +242,28 @@
 <body>
     <main>
         <div class="container" tabindex="0">
+            <input type="checkbox" name="" id="cont" checked>
+            <input type="checkbox" name="" id="count" checked>
+            <br>
             <div class="titleConainer">
                 <input class="continentTitle title" id="currCountry" placeholder="Choose country" value="" readonly />
+                <div class="clear" id="clear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <rect x="0.4" y="0.4" width="19.2" height="19.2" rx="2.93333" stroke="#A0A3BD"
+                            stroke-width="0.8" />
+                        <path d="M5 5.00002L15.6452 15.6452M5 15.6452L15.6452 5" stroke="#A0A3BD" stroke-width="1.66667"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
                 <div class="icon close active">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 9.03658L11.9632 15.9998L18.9263 9.03658" stroke="#14141B" stroke-width="2"
+                        <path d="M5 9.03658L11.9632 15.9998L18.9263 9.03658" stroke="#A0A3BD" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
                 <div class="icon open">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 16L11.9632 8.96317L18.9263 16" stroke="#14141B" stroke-width="2"
+                        <path d="M5 16L11.9632 8.96317L18.9263 16" stroke="#A0A3BD" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
@@ -186,6 +284,7 @@
         const listsElem = document.querySelector(".lists");
         const categoryListElem = document.getElementById("continents");
         const elementsListElem = document.getElementById("countries");
+        const clearElem = document.getElementById("clear");
         let focused = document.querySelector(".focused");
 
         const timeContinent = Intl.DateTimeFormat().resolvedOptions().timeZone.split("/")[0];
@@ -225,7 +324,10 @@
             const cons = countryList.filter(e => e.continent == currContinent || currContinent == "All");
             for (const country of cons) {
                 let isCurrentCountry = (countryField.value == country.name) ? "active" : "";
-                const countryElem = `<li class="element country ${isCurrentCountry}" onclick="changeValue(this)" onmouseover="changeFocus(this)">${country.name}</li>`;
+                const countryElem = `<li class="element country ${isCurrentCountry}" onclick="changeValue(this)" onmouseover="changeFocus(this)">
+                    <div>${country.name}</div>
+                    <div class="shortcut">${country.continent.substr(0, 2).toUpperCase()}</div>
+                </li>`;
                 elementsListElem.innerHTML += countryElem;
             }
         };
@@ -241,7 +343,7 @@
         };
 
         const changeValue = (e) => {
-            countryField.value = e.innerHTML;
+            countryField.value = e.querySelector("div").innerHTML;
             if (elementsListElem.querySelector(".active")) {
                 elementsListElem.querySelector(".active").classList.remove("active");
             }
@@ -261,6 +363,9 @@
             changeFocus(e)
         };
 
+        clearElem.onclick = () => {
+            countryField.value = "";
+        };
         countryField.onfocus = () => {
             if (categoryListElem.querySelector(".active")) {
                 changeFocus(categoryListElem.querySelector(".active"))
@@ -268,7 +373,13 @@
                 changeFocus(document.querySelector(".continent"));
             }
         };
-        document.querySelector(".titleConainer").onclick = () => {
+        document.querySelector(".titleConainer input").onclick = () => {
+            toggleSelect();
+        };
+        document.querySelector(".titleConainer .icon.open").onclick = () => {
+            toggleSelect();
+        };
+        document.querySelector(".titleConainer .icon.close").onclick = () => {
             toggleSelect();
         };
         container.onfocus = () => countryField.focus();
@@ -280,6 +391,7 @@
         container.onclick = (e) => countryField.focus();
         //countryField.onchange = () => {toggleSelect(2);};
         //container.onmouseleave = () => changeFocus(null);
+        // countryField.onblur = () => toggleSelect(1);
         countryField.onkeyup = (e) => {
             console.log(e.key, e.keyCode);
             focused = document.querySelector(".focused");
@@ -374,13 +486,20 @@
         categoryListElem.innerHTML = "";
         for (const continent of continentList) {
             let isCurrentContinent = (currContinent == continent) ? "active" : "";
-            const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">${continent}</li>`;
+
+            const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">
+                <div>${continent}</div>
+                <div class="shortcut">${countryList.filter(e => e.continent == continent || continent == "All").length}</div>
+            </li>`;
             categoryListElem.innerHTML += continentElem;
         }
         focused = document.querySelector(".active") ? document.querySelector(".active") : document.querySelector(".continent");
 
         fillCountry();
 
+        let para = document.querySelector("body");
+        let col = window.getComputedStyle(para).getPropertyValue("accent-color");
+        console.log();   
     </script>
 </body>
 
