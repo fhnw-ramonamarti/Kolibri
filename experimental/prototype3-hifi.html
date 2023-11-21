@@ -15,8 +15,9 @@
             --font-family: Rubik, sans-serif;
 
             --color-background: var(--kb-color-bg-light, #F7F7FC);
-            --color-active: #E2DDFD;
-            --color-focused: var(--kb-primary-accent, #6000FF);
+            /*--kolibri-color-accent:  hsl( 322, 73%, 52%);*/
+            --color-active:var(--kolibri-color-select,hsl(  46, 90%, 84%));/* #E2DDFD;*/
+            --color-focused: hsl( 322, 73%, 52%)/*var(--kb-primary-accent, #6000FF)*/;
             --color-font-black: var(--kb-color-black, #14141B);
             --color-font-body: var(--kb-color-body, #4E4B66);
             --color-placeholder: var(--kb-color-plachold, #A0A3BD);
@@ -147,7 +148,7 @@
             padding: 0;
             height: 100%;
             flex-grow: 0;
-            padding: 4px 1px;
+            padding: 4px 4px;
         }
 
         li {
@@ -261,13 +262,10 @@
         }
         
         .focused {
-            border: var(--border-focused);
+           /*border: var(--border-focused);*/
         }
         .focused div:first-child {
-            color: var(--color-black);
-            /*font-weight: 700;*/
-            /*text-shadow: var(--font-bold-shadow);*/
-            /*margin-right: -6px;*/
+            color: var(--color-focused);
         }
     </style>
 </head>
@@ -496,9 +494,9 @@
                             elementsListElem.querySelector(".active").classList.remove("active");
                         }
                         focused.classList.add("active");
-                        countryField.value = focused.innerHTML;
+                        countryField.value = focused.querySelector("div").innerHTML;
                     } else if (focused.classList.contains("continent")) {
-                        currContinent = focused.innerHTML;
+                        currContinent = focused.querySelector("div").innerHTML;
                         if (categoryListElem.querySelector(".active")) {
                             categoryListElem.querySelector(".active").classList.remove("active");
                         }
