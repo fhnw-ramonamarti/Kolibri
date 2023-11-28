@@ -20,7 +20,7 @@
             --color-background: var(--kb-color-bg-light, #F7F7FC);
             /*--kolibri-color-accent:  hsl( 322, 73%, 52%);*/
             --color-select: var(--kolibri-color-select, hsl(46, 90%, 84%));
-            --color-select-secondary: var(--kolibri-color-select-secondary, hsl(46, 70%, 95%));
+            --color-select-secondary: var(--kolibri-color-shadow, hsl(45, 100%, 92%));
             /* #E2DDFD;*/
             --color-focused: hsl(322, 73%, 52%)
                 /*var(--kb-primary-accent, #6000FF)*/
@@ -29,7 +29,7 @@
             --color-font-body: var(--kb-color-body, #4E4B66);
             --color-placeholder: var(--kb-color-plachold, #A0A3BD);
             --color-dezent: #E1E1E1;
-            --color-dezent-active: var(--kb-secondary-bg, #E5EFFF);
+            --color-dezent-select: var(--kb-secondary-bg, #E5EFFF);
             --color-dezent-font: var(--kb-color-label, #6E7191);
 
             --border-dark: var(--thin-line) solid var(--color-font-body);
@@ -68,6 +68,7 @@
             justify-content: center;
             align-items: start;
             padding: 20px;
+            overflow: hidden;
         }
 
         @media (prefers-color-scheme: light) {
@@ -212,7 +213,7 @@
             padding: 0 10px;
         }
 
-        .icon.active {
+        .icon.select {
             display: flex;
             background: transparent;
         }
@@ -245,8 +246,8 @@
             background: var(--color-dezent);
         }
 
-        .active .shortcut {
-            background: var(--color-dezent-active);
+        .select .shortcut {
+            background: var(--color-dezent-select);
         }
 
         #cont:checked~.lists .continent .shortcut {
@@ -257,21 +258,22 @@
             display: none;
         }
 
-        .active {
+        .select {
             background: var(--color-select);
         }
 
-        .active2{
+        #contTOcount:checked~.lists .select-secondary{
             background: var(--color-select-secondary);
         }
 
-        .active2 div:first-child {
-            /*color: var(--color-active);*/
+        #contTOcount:checked~.lists .select-secondary div:first-child {
+            
+            /*color: var(--color-select);*/
             color: var(--color-black);
             font-family: var(--font-family-bold);
         }
 
-        .active div:first-child {
+        .select div:first-child {
             color: var(--color-black);
             font-family: var(--font-family-bold);
             /*text-shadow: var(--font-bold-shadow);*/
@@ -293,6 +295,7 @@
         <div class="container" tabindex="0">
             <input type="checkbox" name="" id="cont">
             <input type="checkbox" name="" id="count" checked>
+            <input type="checkbox" name="" id="contTOcount" >
             <div>
                 <span style="font-family:'Rubik-Light'">Light</span>
                 <span style="font-family:'Rubik-Regular'">Regular</span>
@@ -308,7 +311,7 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <div class="icon close active">
+                <div class="icon close select">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M5 9.03658L11.9632 15.9998L18.9263 9.03658" stroke="#A0A3BD" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" />
@@ -345,7 +348,7 @@
 
         const scrollCountry = (e) => {
             const curr = focused && focused.classList.contains("country") ? focused :
-                (document.querySelector(".country.active") ? document.querySelector(".country.active") : document.querySelector(".country"));
+                (document.querySelector(".country.select") ? document.querySelector(".country.select") : document.querySelector(".country"));
             if (curr) {
                 elementsListElem.scrollTo({ top: curr.offsetTop - 20 });
             }
@@ -354,28 +357,29 @@
         const resetValue = () => {
             countryField.value = "";
             document.querySelector(".clear").classList.remove("show");
-            elementsListElem.querySelector(".active").classList.remove("active");
+            elementsListElem.querySelector(".select").classList.remove("select");
         };
 
         const toggleSelect = (state = 0) => {
             if (state == 1) {
                 countryField.classList.remove("open");
                 listsElem.classList.remove("open");
-                document.querySelector(".icon.open").classList.add("active");
-                document.querySelector(".icon.close").classList.remove("active");
+                document.querySelector(".icon.open").classList.add("select");
+                document.querySelector(".icon.close").classList.remove("select");
             } else if (state == 2) {
                 countryField.classList.add("open");
                 listsElem.classList.add("open");
-                document.querySelector(".icon.open").classList.remove("active");
-                document.querySelector(".icon.close").classList.add("active");
+                document.querySelector(".icon.open").classList.remove("select");
+                document.querySelector(".icon.close").classList.add("select");
             } else {
                 countryField.classList.toggle("open");
                 listsElem.classList.toggle("open");
-                document.querySelector(".icon.open").classList.toggle("active");
-                document.querySelector(".icon.close").classList.toggle("active");
+                document.querySelector(".icon.open").classList.toggle("select");
+                document.querySelector(".icon.close").classList.toggle("select");
             }
             if (!listsElem.classList.contains("open")) {
                 changeFocus(null);
+                document.querySelector(".country.select").classList.remove("select");
             }
             listsElem.style.height = categoryListElem.offsetHeight + 1 + "px";
         };
@@ -384,7 +388,7 @@
             elementsListElem.innerHTML = "";
             const cons = countryList.filter(e => e.continent == currContinent || currContinent == "All");
             for (const country of cons) {
-                let isCurrentCountry = (countryField.value == country.name) ? "active" : "";
+                let isCurrentCountry = (countryField.value == country.name) ? "select" : "";
                 const shortContinent = (currContinent == "All") ? `<div class="shortcut">${country.continent.substr(0, 2).toUpperCase()}</div>` : "";
                 const countryElem = `<li class="element country ${isCurrentCountry}" onclick="changeValue(this)" onmouseover="changeFocus(this)">
                     <div>${country.name}</div>
@@ -402,9 +406,9 @@
                 focused = e;
                 focused.classList.add("focused");
             }
-            let pseudoContient = document.querySelector(".active2");
+            let pseudoContient = document.querySelector(".select2");
             if (pseudoContient != null) {
-                pseudoContient.classList.remove("active2");
+                pseudoContient.classList.remove("select2");
             }
             if (currContinent == "All" && e.classList.contains("country")) {
                 [...document.querySelectorAll(".continent")]
@@ -414,27 +418,27 @@
                         let val = con ? con : '--';
                         return c.querySelector("div").innerHTML == val; 
                     })
-                    .forEach(c => c.classList.add("active2"));
+                    .forEach(c => c.classList.add("select2"));
             }
         };
 
         const changeValue = (e) => {
             document.querySelector(".clear").classList.add("show");
             countryField.value = e.querySelector("div").innerHTML;
-            if (elementsListElem.querySelector(".active")) {
-                elementsListElem.querySelector(".active").classList.remove("active");
+            if (elementsListElem.querySelector(".select")) {
+                elementsListElem.querySelector(".select").classList.remove("select");
             }
-            e.classList.add("active");
+            e.classList.add("select");
             changeFocus(e);
             // toggleSelect(1);
         };
 
         const changeCategory = (e) => {
             currContinent = e.querySelector("div").innerHTML;
-            if (categoryListElem.querySelector(".active")) {
-                categoryListElem.querySelector(".active").classList.remove("active");
+            if (categoryListElem.querySelector(".select")) {
+                categoryListElem.querySelector(".select").classList.remove("select");
             }
-            e.classList.add("active");
+            e.classList.add("select");
             fillCountry();
             scrollCountry();
             changeFocus(e)
@@ -444,8 +448,8 @@
             resetValue();
         };
         countryField.onfocus = () => {
-            if (categoryListElem.querySelector(".active")) {
-                changeFocus(categoryListElem.querySelector(".active"))
+            if (categoryListElem.querySelector(".select")) {
+                changeFocus(categoryListElem.querySelector(".select"))
             } else {
                 changeFocus(document.querySelector(".continent"));
             }
@@ -461,7 +465,7 @@
         };
         container.onfocus = () => countryField.focus();
         countryField.onblur = () => {
-            focused = document.querySelector(".active");
+            focused = document.querySelector(".select");
             focused.classList.remove("focused");
             //toggleSelect(1);
         };
@@ -476,12 +480,13 @@
                 if (focused != null) {
                     if (focused.classList.contains("country")) {
                         focused.classList.remove("focused");
-                        if (categoryListElem.querySelector(".active")) {
-                            focused = categoryListElem.querySelector(".active")
+                        if (categoryListElem.querySelector(".select")) {
+                            focused = categoryListElem.querySelector(".select")
                         } else {
                             focused = document.querySelector(".country");
                         }
                         changeFocus(focused);
+                        document.querySelector(".country.select").classList.remove("select");
                     }
                 }
             } else if (e.key == "ArrowUp" || e.keyCode == 38) {
@@ -495,20 +500,24 @@
                         const pH = focused.parentElement.offsetHeight;
                         const h = (pH - focused.offsetHeight) / 2;
                         elementsListElem.scrollTo({ top: focused.offsetTop - h });
+                        changeValue(focused);
+                    } else {
+                        changeCategory(focused);
                     }
                 }
             } else if (e.key == "ArrowRight" || e.keyCode == 39) {
                 if (focused != null) {
                     if (focused.classList.contains("continent")) {
                         focused.classList.remove("focused");
-                        if (elementsListElem.querySelector(".active")) {
-                            focused = elementsListElem.querySelector(".active")
+                        if (elementsListElem.querySelector(".select")) {
+                            focused = elementsListElem.querySelector(".select")
                             elementsListElem.scrollTo({ top: focused.offsetTop - 20 });
                         } else {
                             focused = document.querySelector(".country");
                             elementsListElem.scrollTo({ top: 0 });
                         }
                         changeFocus(focused);
+                        changeValue(focused);
                     }
                 }
             } else if (e.key == "ArrowDown" || e.keyCode == 40) {
@@ -521,6 +530,9 @@
                             const pH = focused.parentElement.offsetHeight;
                             const h = (pH - focused.offsetHeight) / 2;
                             elementsListElem.scrollTo({ top: focused.offsetTop - h });
+                            changeValue(focused);
+                        } else {
+                            changeCategory(focused);
                         }
                     }
                 }
@@ -528,21 +540,21 @@
                 || e.key == " " || e.keyCode == 32) {
                 if (focused != null) {
                     if (focused.classList.contains("country")) {
-                        if (elementsListElem.querySelector(".active")) {
-                            elementsListElem.querySelector(".active").classList.remove("active");
+                        if (elementsListElem.querySelector(".select")) {
+                            elementsListElem.querySelector(".select").classList.remove("select");
                         }
-                        focused.classList.add("active");
+                        focused.classList.add("select");
                         countryField.value = focused.querySelector("div").innerHTML;
                     } else if (focused.classList.contains("continent")) {
                         currContinent = focused.querySelector("div").innerHTML;
-                        if (categoryListElem.querySelector(".active")) {
-                            categoryListElem.querySelector(".active").classList.remove("active");
+                        if (categoryListElem.querySelector(".select")) {
+                            categoryListElem.querySelector(".select").classList.remove("select");
                         }
-                        focused.classList.add("active");
+                        focused.classList.add("select");
                         fillCountry();
                         focused.classList.remove("focused");
-                        if (elementsListElem.querySelector(".active")) {
-                            focused = elementsListElem.querySelector(".active")
+                        if (elementsListElem.querySelector(".select")) {
+                            focused = elementsListElem.querySelector(".select")
                         } else {
                             focused = document.querySelector(".country");
                         }
@@ -562,7 +574,7 @@
 
         categoryListElem.innerHTML = "";
         for (const continent of continentList) {
-            let isCurrentContinent = (currContinent == continent) ? "active" : "";
+            let isCurrentContinent = (currContinent == continent) ? "select" : "";
 
             const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">
                 <div>${continent}</div>
@@ -570,7 +582,7 @@
             </li>`;
             categoryListElem.innerHTML += continentElem;
         }
-        focused = document.querySelector(".active") ? document.querySelector(".active") : document.querySelector(".continent");
+        focused = document.querySelector(".select") ? document.querySelector(".select") : document.querySelector(".continent");
 
         fillCountry();
 
