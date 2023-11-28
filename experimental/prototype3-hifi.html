@@ -19,8 +19,8 @@
 
             --color-background: var(--kb-color-bg-light, #F7F7FC);
             /*--kolibri-color-accent:  hsl( 322, 73%, 52%);*/
-            --color-active: var(--kolibri-color-select, hsl(46, 90%, 84%));
-            --color-active2: var(--kolibri-color-select2, hsl(45, 100%, 92%));
+            --color-select: var(--kolibri-color-select, hsl(46, 90%, 84%));
+            --color-select-secondary: var(--kolibri-color-select-secondary, hsl(46, 70%, 95%));
             /* #E2DDFD;*/
             --color-focused: hsl(322, 73%, 52%)
                 /*var(--kb-primary-accent, #6000FF)*/
@@ -258,11 +258,11 @@
         }
 
         .active {
-            background: var(--color-active);
+            background: var(--color-select);
         }
 
         .active2{
-            background: var(--color-active2);
+            background: var(--color-select-secondary);
         }
 
         .active2 div:first-child {
