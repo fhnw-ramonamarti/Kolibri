@@ -22,7 +22,7 @@
             padding: 20px;
         }
 
-        .container {
+        .countrySelectionView {
             width: 200px;
             border-radius: 5px;
             overflow: hidden;
@@ -104,7 +104,7 @@
             padding: 5px 10px;
         }
 
-        .title {
+        .selectedCountry {
             background-color: aliceblue;
             padding: 10px;
             border-radius: 5px;
@@ -115,11 +115,11 @@
             background-color: lightblue;
         }
 
-        .container:focus .title {
+        .countrySelectionView:focus .selectedCountry {
             border: 2px lightblue solid;
         }
 
-        .titleConainer:has(.title)::after {
+        .selectedCountryLine:has(.selectedCountry)::after {
             content: "v";
             right: 0;
             top: 0;
@@ -133,7 +133,7 @@
             align-items: center;
         }
 
-        .titleConainer:has(.title.open)::after {
+        .selectedCountryLine:has(.selectedCountry.open)::after {
             content: "^";
         }
 
@@ -164,7 +164,7 @@
     <script type="text/javascript" defer>
         const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
-        const container = document.querySelector(".container");
+        const container = document.querySelector(".countrySelectionView");
         const countryField = document.getElementById("currCountry");
         const listsElem = document.querySelector(".lists");
         const categoryListElem = document.getElementById("continents");
@@ -249,7 +249,7 @@
                 changeFocus(document.querySelector(".continent"));
             }
         };
-        document.querySelector(".titleConainer").onclick = () => {
+        document.querySelector(".selectedCountryLine").onclick = () => {
             toggleSelect();
         };
         container.onfocus = () => countryField.focus();
