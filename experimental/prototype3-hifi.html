@@ -11,17 +11,18 @@
         @import url("../docs/css/kolibri-light-fonts.css");
 
         :root {
-            --padding: 10px 16px;
-            --padding-icon: 0 4px;
-            --thin-line: 0.8px;
-            --font-family: "Rubik-Regular", sans-serif;
-            --font-family-bold: "Rubik-SemiBold", sans-serif;
+            --padding:                  10px 16px;
+            --padding-icon:             0 4px;
+            --thin-line:                0.8px;
+            --font-family:              "Rubik-Regular", sans-serif;
+            --font-family-bold:         "Rubik-SemiBold", sans-serif;
+            --font-family-dezent:       "Rubik-Light", sans-serif;
 
             --color-background:         var(--kb-color-hsl-bg-light, #F7F7FC);
             /*--kolibri-color-accent:   hsl( 322, 73%, 52%);*/
             --color-select:             var(--kolibri-color-select, hsl(46, 90%, 84%));
             --color-select-secondary:   var(--kolibri-color-shadow, hsl(46, 80%, 92%));
-            /* #E2DDFD;*/
+                                        /* #E2DDFD;*/
             --color-focused:            hsl(322, 73%, 52%)
                                         /*var(--kb-primary-accent, #6000FF)*/
             ;
@@ -32,43 +33,43 @@
             --color-dezent-select:      var(--kb-hsla-secondary-bg, #E5EFFF);
             --color-dezent-font:        var(--kb-color-hsl-label, #6E7191);
 
-            --border-dark: var(--thin-line) solid var(--color-font-body);
-            --border-transparent: var(--thin-line) solid var(--color-background);
-            --border-focused: var(--thin-line) solid var(--color-focused);
+            --border-dark:              var(--thin-line) solid var(--color-font-body);
+            --border-transparent:       var(--thin-line) solid var(--color-background);
+            --border-focused:           var(--thin-line) solid var(--color-focused);
 
-            --border-radius-big: 8px;
-            --border-radius-small: 4px;
+            --border-radius-big:        8px;
+            --border-radius-small:      4px;
             --border-radius-big-bottom: 0 0 8px 8px;
 
-            --font-size-dezent: 8px;
-            --font-size-default: 12px;
-            --font-bold-shadow: -0.6px 0 0 var(--color-font-black);
+            --font-size-dezent:         8px;
+            --font-size-default:        12px;
+            --font-bold-shadow:         -0.6px 0 0 var(--color-font-black);
         }
 
         * {
             box-sizing: border-box;
-            position: relative;
+            position  : relative;
 
-            color: var(--color-font-body);
+            color                : var(--color-font-body);
             font-feature-settings: 'clig' off, 'liga' off;
 
-            /* Kolibri-Serif/Body 4 */
-            font-family: var(--font-family);
-            font-size: var(--font-size-default);
-            line-height: 18px;
+              /* Kolibri-Serif/Body 4 */
+            font-family   : var(--font-family);
+            font-size     : var(--font-size-default);
+            line-height   : 18px;
             letter-spacing: 0.25px;
         }
 
         html,
         body {
             background-color: #cccccc;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: start;
-            padding: 20px;
-            overflow: hidden;
+            width           : 100%;
+            height          : 100%;
+            display         : flex;
+            justify-content : center;
+            align-items     : start;
+            padding         : 20px;
+            overflow        : hidden;
         }
 
         @media (prefers-color-scheme: light) {
@@ -79,37 +80,37 @@
 
         @media (prefers-color-scheme: dark) {
             body {
-                /* background: blue !important;*/
+                  /* background: blue !important;*/
             }
         }
 
         body {
-            accent-color: red;
-            /* background-color: highlight !important;*/
-            /* background-color: AccentColor !important;*/
+              /* accent-color: red;*/
+              /* background-color: highlight !important;*/
+              /* background-color: AccentColor !important;*/
         }
 
         .container {
-            width: 460px;
-            overflow: hidden;
-            display: flex;
+            width          : 460px;
+            overflow       : hidden;
+            display        : flex;
             justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            align-items    : center;
+            flex-direction : column;
 
             border-radius: var(--border-radius-big);
         }
 
         .lists.open {
-            display: flex;
+            display        : flex;
             justify-content: stretch;
-            align-items: center;
-            /*gap: 10px;*/
-            flex-shrink: 0;
-            width: 100%;
-            border: var(--border-dark);
-            background: var(--color-background);
-            overflow: hidden;
+            align-items    : center;
+              /*gap: 10px;*/
+            flex-shrink  : 0;
+            width        : 100%;
+            border       : var(--border-dark);
+            background   : var(--color-background);
+            overflow     : hidden;
             border-radius: var(--border-radius-big-bottom);
         }
 
@@ -122,14 +123,14 @@
         }
 
         input {
-            outline: none;
+            outline      : none;
             border-radius: var(--border-radius-big);
-            border: var(--border-dark);
-            width: 100%;
+            border       : var(--border-dark);
+            width        : 100%;
         }
 
         input.open {
-            border-bottom-left-radius: 0;
+            border-bottom-left-radius : 0;
             border-bottom-right-radius: 0;
         }
 
@@ -142,34 +143,34 @@
         }
 
         .line {
-            height: calc(100%);
-            width: 0;
-            flex-grow: 0;
+            height     : calc(100%);
+            width      : 0;
+            flex-grow  : 0;
             border-left: var(--border-dark);
         }
 
         ul {
             list-style: none;
-            overflow: scroll;
-            margin: 0;
-            padding: 0;
-            height: calc(100%);
-            flex-grow: 0;
-            border: none;
-            /*padding: 4px 4px;*/
+            overflow  : scroll;
+            margin    : 0;
+            padding   : 0;
+            height    : calc(100%);
+            flex-grow : 0;
+            border    : none;
+              /*padding: 4px 4px;*/
         }
 
         li {
             background: var(--color-background);
-            /*border: var(--border-transparent);*/
+              /*border: var(--border-transparent);*/
 
-            display: flex;
+            display        : flex;
             justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            width: 100%;
-            padding: var(--padding);
-            /*border-radius: var(--border-radius-small);*/
+            align-items    : center;
+            gap            : 16px;
+            width          : 100%;
+            padding        : var(--padding);
+              /*border-radius: var(--border-radius-small);*/
         }
 
         ul:first-child {
@@ -185,11 +186,11 @@
         }
 
         .title {
-            background: var(--color-background);
-            color: var(--color-font-body);
-            padding: var(--padding);
+            background   : var(--color-background);
+            color        : var(--color-font-body);
+            padding      : var(--padding);
             border-radius: var(--border-radius-big);
-            width: 100%;
+            width        : 100%;
         }
 
         .container:focus .title {
@@ -197,36 +198,36 @@
         }
 
         .titleConainer {
-            width: 100%;
-            display: flex;
+            width      : 100%;
+            display    : flex;
             align-items: center;
         }
 
         .icon {
-            display: none;
+            display        : none;
             justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            padding: 0 10px;
+            align-items    : center;
+            position       : absolute;
+            right          : 0;
+            top            : 0;
+            height         : 100%;
+            padding        : 0 10px;
         }
 
         .icon.select {
-            display: flex;
+            display   : flex;
             background: transparent;
         }
 
         .clear.show {
-            display: flex;
+            display        : flex;
             justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 50px;
-            top: 0;
-            height: 100%;
-            padding: var(--padding-icon);
+            align-items    : center;
+            position       : absolute;
+            right          : 50px;
+            top            : 0;
+            height         : 100%;
+            padding        : var(--padding-icon);
         }
 
         .clear {
@@ -234,20 +235,21 @@
         }
 
         .shortcut {
-            display: flex;
+            display        : flex;
             justify-content: center;
-            align-items: center;
-            padding: var(--padding-icon);
-            border-radius: var(--border-radius-small);
-            color: var(--color-dezent-font);
-            font-size: var(--font-size-dezent);
-            width: 25px;
+            align-items    : center;
+            padding        : var(--padding-icon);
+            border-radius  : var(--border-radius-small);
+            color          : var(--color-dezent-font);
+            font-size      : var(--font-size-dezent);
+            width          : 25px;
 
             background: var(--color-dezent);
         }
 
         .select .shortcut {
-            background: var(--color-dezent-select);
+            background : var(--color-dezent-select);
+            font-family: var(--font-family-dezent);
         }
 
         #cont:checked~.lists .continent .shortcut {
@@ -268,20 +270,20 @@
 
         #contTOcount:checked~.lists .select-secondary div:first-child {
             
-            /*color: var(--color-select);*/
-            color: var(--kb-color-hsl-black);
+              /*color: var(--color-select);*/
+            color      : var(--kb-color-hsl-black);
             font-family: var(--font-family-bold);
         }
 
         .select div:first-child {
-            color: var(--kb-color-hsl-black);
+            color      : var(--kb-color-hsl-black);
             font-family: var(--font-family-bold);
-            /*text-shadow: var(--font-bold-shadow);*/
+              /*text-shadow: var(--font-bold-shadow);*/
             margin-right: -6px;
         }
 
         .focused {
-            /*border: var(--border-focused);*/
+              /*border: var(--border-focused);*/
         }
 
         .focused div:first-child {
