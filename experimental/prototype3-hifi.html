@@ -23,9 +23,9 @@
             --color-select:             var(--kolibri-color-select, hsl(46, 90%, 84%));
             --color-select-secondary:   var(--kolibri-color-shadow, hsl(46, 80%, 92%));
                                         /* #E2DDFD;*/
-            --color-focused:            hsl(322, 73%, 52%)
+            --color-focused:            hsl(322, 73%, 52%);
                                         /*var(--kb-primary-accent, #6000FF)*/
-            ;
+
             --color-font-black:         var(--kb-color-hsl-black, #14141B);
             --color-font-body:          var(--kb-color-hsl-body, #4E4B66);
             --color-placeholder:        var(--kb-color-hsl-placeholder, #A0A3BD);
@@ -47,38 +47,38 @@
         }
 
         * {
-            box-sizing: border-box;
-            position  : relative;
+            box-sizing:                 border-box;
+            position:                   relative;
 
-            color                : var(--color-font-body);
-            font-feature-settings: 'clig' off, 'liga' off;
+            color:                      var(--color-font-body);
+            font-feature-settings:      'clig' off, 'liga' off;
 
               /* Kolibri-Serif/Body 4 */
-            font-family   : var(--font-family);
-            font-size     : var(--font-size-default);
-            line-height   : 18px;
-            letter-spacing: 0.25px;
+            font-family:                var(--font-family);
+            font-size:                  var(--font-size-default);
+            line-height:                18px;
+            letter-spacing:             0.25px;
         }
 
         html,
         body {
-            background-color: #cccccc;
-            width           : 100%;
-            height          : 100%;
-            display         : flex;
-            justify-content : center;
-            align-items     : start;
-            padding         : 20px;
-            overflow        : hidden;
+            background-color:           #cccccc;
+            width:                      100%;
+            height:                     100%;
+            display:                    flex;
+            justify-content:            center;
+            align-items:                start;
+            padding:                    20px;
+            overflow:                   hidden;
         }
 
-        @media (prefers-color-scheme: light) {
+        @media (prefers-color-scheme:   light) {
             body {
-                background: green !important;
+                background:             green !important;
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme:   dark) {
             body {
                   /* background: blue !important;*/
             }
@@ -95,38 +95,38 @@
             struts open the width for the input field and the country drop-down
         */
         .countrySelectionView {
-            min-width      : 30em;
-            /*overflow       : hidden;*/
+            min-width:                  30em;
+            /*overflow:                 hidden;*/
 
             border-radius: var(--border-radius-big);
         }
 
         .lists.open {
-            display        : flex;
-            justify-content: stretch;
-            align-items    : center;
+            display:                    flex;
+            justify-content:            stretch;
+            align-items:                center;
               /*gap: 10px;*/
-            flex-shrink  : 0;
-            width        : 100%;
-            border       : var(--border-dark);
-            background   : var(--color-background);
-            overflow     : hidden;
-            border-radius: var(--border-radius-big-bottom);
+            flex-shrink:                0;
+            width:                      100%;
+            border:                     var(--border-dark);
+            background:                 var(--color-background);
+            overflow:                   hidden;
+            border-radius:              var(--border-radius-big-bottom);
         }
 
         .lists {
-            display: none;
+            display:                    none;
         }
 
         .selectedCountry {
-            border: var(--border-dark);
+            border:                     var(--border-dark);
         }
 
         input {
-            outline      : none;
-            border-radius: var(--border-radius-big);
-            border       : var(--border-dark);
-            width        : 100%;
+            outline:                    none;
+            border-radius:              var(--border-radius-big);
+            border:                     var(--border-dark);
+            width:                      100%;
         }
 
         input.open {
@@ -135,160 +135,160 @@
         }
 
         input:focus {
-            border: var(--border-focused);
+            border:                     var(--border-focused);
         }
 
         input:focus:has(+.open) {
-            border: var(--border-dark);
+            border:                     var(--border-dark);
         }
 
         .line {
-            height     : calc(100%);
-            width      : 0;
-            flex-grow  : 0;
-            border-left: var(--border-dark);
+            height:                     calc(100%);
+            width:                      0;
+            flex-grow:                  0;
+            border-left:                var(--border-dark);
         }
 
         ul {
-            list-style: none;
-            overflow  : scroll;
-            margin    : 0;
-            padding   : 0;
-            height    : calc(100%);
-            flex-grow : 0;
-            border    : none;
+            list-style:                 none;
+            overflow:                   scroll;
+            margin:                     0;
+            padding:                    0;
+            height:                     calc(100%);
+            flex-grow:                  0;
+            border:                     none;
               /*padding: 4px 4px;*/
         }
 
         li {
-            background: var(--color-background);
-              /*border: var(--border-transparent);*/
+            background:                 var(--color-background);
+            /*border:                   var(--border-transparent);*/
 
-            display        : flex;
-            justify-content: space-between;
-            align-items    : center;
-            gap            : 16px;
-            width          : 100%;
-            padding        : var(--padding);
-              /*border-radius: var(--border-radius-small);*/
+            display:                    flex;
+            justify-content:            space-between;
+            align-items:                center;
+            gap:                        16px;
+            width:                      100%;
+            padding:                    var(--padding);
+            /*border-radius:            var(--border-radius-small);*/
         }
 
         ul:first-child {
-            height: min-content;
+            height:                     min-content;
         }
 
         ul:first-child li {
-            min-width: max-content;
+            min-width:                  max-content;
         }
 
         ul:last-child {
-            flex-grow: 1;
+            flex-grow:                  1;
         }
 
         .selectedCountry {
-            background   : var(--color-background);
-            color        : var(--color-font-body);
-            padding      : var(--padding);
-            border-radius: var(--border-radius-big);
-            width        : 100%;
+            background:                 var(--color-background);
+            color:                      var(--color-font-body);
+            padding:                    var(--padding);
+            border-radius:              var(--border-radius-big);
+            width:                      100%;
         }
 
         .countrySelectionView:focus .selectedCountry {
-            border: var(--border-focused);
+            border:                     var(--border-focused);
         }
 
         .selectedCountryLine {
-            width      : 100%; /* must stretch through the parent*/
-            display    : flex;
+            width:                      100%; /* must stretch through the parent*/
+            display:                    flex;
             /*justify-content: stretch;*/
-            align-items: baseline;
+            align-items:                baseline;
         }
 
         .icon {
-            display        : none;
-            justify-content: center;
-            align-items    : center;
-            position       : absolute;
-            right          : 0;
-            top            : 0;
-            height         : 100%;
-            padding        : 0 10px;
+            display:                    none;
+            justify-content:            center;
+            align-items:                center;
+            position:                   absolute;
+            right:                      0;
+            top:                        0;
+            height:                     100%;
+            padding:                    0 10px;
         }
 
         .icon.select {
-            display   : flex;
-            background: transparent;
+            display:                    flex;
+            background:                 transparent;
         }
 
         .clear.show {
-            display        : flex;
-            justify-content: center;
-            align-items    : center;
-            position       : absolute;
-            right          : 50px;
-            top            : 0;
-            height         : 100%;
-            padding        : var(--padding-icon);
+            display:                    flex;
+            justify-content:            center;
+            align-items:                center;
+            position:                   absolute;
+            right:                      50px;
+            top:                        0;
+            height:                     100%;
+            padding:                    var(--padding-icon);
         }
 
         .clear {
-            display: none;
+            display:                    none;
         }
 
         .shortcut {
-            display        : flex;
-            justify-content: center;
-            align-items    : center;
-            padding        : var(--padding-icon);
-            border-radius  : var(--border-radius-small);
-            color          : var(--color-dezent-font);
-            font-size      : var(--font-size-dezent);
-            width          : 25px;
+            display:                    flex;
+            justify-content:            center;
+            align-items:                center;
+            padding:                    var(--padding-icon);
+            border-radius:              var(--border-radius-small);
+            color:                      var(--color-dezent-font);
+            font-size:                  var(--font-size-dezent);
+            width:                      25px;
 
-            background: var(--color-dezent);
+            background:                 var(--color-dezent);
         }
 
         .select .shortcut {
-            background : var(--color-dezent-select);
-            font-family: var(--font-family-dezent);
+            background:                 var(--color-dezent-select);
+            font-family:                var(--font-family-dezent);
         }
 
         #cont:checked~.lists .continent .shortcut {
-            display: none;
+            display:                    none;
         }
 
         #count:checked~.lists .country .shortcut {
-            display: none;
+            display:                    none;
         }
 
         .select {
-            background: var(--color-select);
+            background:                 var(--color-select);
         }
 
         #contTOcount:checked~.lists .select-secondary{
-            background: var(--color-select-secondary);
+            background:                 var(--color-select-secondary);
         }
 
         #contTOcount:checked~.lists .select-secondary div:first-child {
             
-              /*color: var(--color-select);*/
-            color      : var(--kb-color-hsl-black);
-            font-family: var(--font-family-bold);
+            /*color:                    var(--color-select);*/
+            color:                      var(--kb-color-hsl-black);
+            font-family:                var(--font-family-bold);
         }
 
         .select div:first-child {
-            color      : var(--kb-color-hsl-black);
-            font-family: var(--font-family-bold);
-              /*text-shadow: var(--font-bold-shadow);*/
-            margin-right: -6px;
+            color:                      var(--kb-color-hsl-black);
+            font-family:                var(--font-family-bold);
+            /*text-shadow:              var(--font-bold-shadow);*/
+            margin-right:               -6px;
         }
 
         .focused {
-              /*border: var(--border-focused);*/
+              /*border:                 var(--border-focused);*/
         }
 
         .focused div:first-child {
-            color: var(--color-focused);
+            color:                      var(--color-focused);
         }
 
     </style>
