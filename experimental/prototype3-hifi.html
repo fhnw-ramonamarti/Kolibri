@@ -336,7 +336,7 @@
 
     </main>
     <script src="countries.js" type="text/javascript"></script>
-    <script type="text/javascript" defer>
+    <script defer>
         const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
         const container =           document.querySelector(".countrySelectionView");
@@ -351,8 +351,11 @@
         let currContinent = continentList.includes(timeContinent) ? timeContinent : "All";
 
         const scrollCountry = (e) => {
-            const curr = focused && focused.classList.contains("country") ? focused :
-                (document.querySelector(".country.select") ? document.querySelector(".country.select") : document.querySelector(".country"));
+            const curr = focused && focused.classList.contains("country")
+                         ? focused
+                         : (document.querySelector(".country.select")
+                            ? document.querySelector(".country.select")
+                            : document.querySelector(".country"));
             if (curr) {
                 elementsListElem.scrollTo({ top: curr.offsetTop - 20 });
             }
@@ -365,12 +368,12 @@
         };
 
         const toggleSelect = (state = 0) => {
-            if (state == 1) {
+            if (state === 1) {
                 countryField.classList.remove("open");
-                listsElem.classList.remove("open");
-                document.querySelector(".icon.open").classList.add("select");
+                listsElem   .classList.remove("open");
+                document.querySelector(".icon.open") .classList.add   ("select");
                 document.querySelector(".icon.close").classList.remove("select");
-            } else if (state == 2) {
+            } else if (state === 2) {
                 countryField.classList.add("open");
                 listsElem.classList.add("open");
                 document.querySelector(".icon.open").classList.remove("select");
@@ -578,11 +581,11 @@
 
         categoryListElem.innerHTML = "";
         for (const continent of continentList) {
-            let isCurrentContinent = (currContinent == continent) ? "select" : "";
+            const isCurrentContinent = (currContinent === continent) ? "select" : "";
 
             const continentElem = `<li class="element continent ${isCurrentContinent}" onmouseover="changeFocus(this)" onclick="changeCategory(this)">
                 <div>${continent}</div>
-                <div class="shortcut">${countryList.filter(e => e.continent == continent || continent == "All").length}</div>
+                <div class="shortcut">${countryList.filter(e => e.continent === continent || continent === "All").length}</div>
             </li>`;
             categoryListElem.innerHTML += continentElem;
         }
@@ -590,8 +593,8 @@
 
         fillCountry();
 
-        let para = document.querySelector("body");
-        let col = window.getComputedStyle(para).getPropertyValue("accent-color");
+        const para = document.querySelector("body");
+        const col = window.getComputedStyle(para).getPropertyValue("accent-color");
 
         console.log(document.querySelector(":focus"));
 
