@@ -15,7 +15,7 @@ const DEFAULT_CONTINENT = "All",
       DEFAULT_COUNTRY   = countryList[0].name;
 
 const SelectObject = () => {
-    let continent     = "All";
+    let continent     = DEFAULT_CONTINENT;
     let country       = "";
     let currentColumn = 1;
     let currentFocus  = DEFAULT_COUNTRY;
@@ -149,7 +149,6 @@ const buildContinents = () => {
         "continent",
         (e) => {
             selectObject.setContinent(e.target.innerHTML);
-            changeFocus(e.target.innerHTML);
             changeContinent();
         },
         (e) => {
@@ -165,7 +164,6 @@ const buildCountries = () => {
         activeCountryList(),
         "country",
         (e) => {
-            selectObject.setCountry(e.target.innerHTML);
             changeFocus(e.target.innerHTML);
             changeCountry();
         },
@@ -226,12 +224,11 @@ const changeContinent = () => {
     selectObject.toggleUpdateNeeded(true);
     selectObject.setCurrentColumn(0);
     changeFocus(selectObject.getContinent());
-    display();
     scrollCountry();
 };
 
 const changeCountry = () => {
-    selectObject.setCurrentFocus(selectObject.getCountry());
+    selectObject.setCountry(selectObject.getCurrentFocus());
     selectObject.setCurrentColumn(1);
     updateFieldValue();
     display();
@@ -366,10 +363,10 @@ document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e)
                 changeFocus(selectObject.getCurrentFocus());
             }
             if (selectObject.getCurrentColumn() === 1) {
-                selectObject.setCountry(selectObject.getCurrentFocus());
-                changeCountry(selectObject.getCurrentFocus());
+                changeCountry();
             }
             selectObject.incCurrentColumn();
+            display();
             break;
         case 27:   // Escape
             toggleSelect(CLOSE);

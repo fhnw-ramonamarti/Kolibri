@@ -124,7 +124,7 @@ const display = () => {
     displayCurrentPosition();
 };
 
-const buildColumn = (containerId, list, name, onClick) => {
+const buildColumn = (containerId, list, name, onClick, onHover) => {
     const cloumnContainer           = document.querySelector("#" + containerId);
           cloumnContainer.innerHTML = "";
     for (let i = 0; i < list.length; i++) {
@@ -132,10 +132,10 @@ const buildColumn = (containerId, list, name, onClick) => {
         element.setAttribute("ID", name + "-" + i);
         element.setAttribute("CLASS", "entry " + name);
         element.onclick = (e) => {
-            onClick();
+            onClick(e);
         };
         element.onmouseover = (e) => {
-            changeFocus(e.target.innerHTML);
+            onHover(e);
         };
         element.innerHTML = list[i];
         cloumnContainer.appendChild(element);
@@ -143,19 +143,36 @@ const buildColumn = (containerId, list, name, onClick) => {
 };
 
 const buildContinents = () => {
-    buildColumn("continents", continentList, "continent", () => {
-        selectObject.setContinent(e.target.innerHTML);
-        changeFocus(e.target.innerHTML);
-        changeContinent();
-    });
+    buildColumn(
+        "continents",
+        continentList,
+        "continent",
+        (e) => {
+            selectObject.setContinent(e.target.innerHTML);
+            changeContinent();
+        },
+        (e) => {
+            selectObject.setCurrentColumn(0);
+            changeFocus(e.target.innerHTML);
+        }
+    );
 };
 
 const buildCountries = () => {
-    buildColumn("countries", activeCountryList(), "country", () => {
-        selectObject.setCountry(e.target.innerHTML);
-        changeFocus(e.target.innerHTML);
-        changeCountry();
-    });
+    buildColumn(
+        "countries",
+        activeCountryList(),
+        "country",
+        (e) => {
+            selectObject.setCountry(e.target.innerHTML);
+            changeFocus(e.target.innerHTML);
+            changeCountry();
+        },
+        (e) => {
+            selectObject.setCurrentColumn(1);
+            changeFocus(e.target.innerHTML);
+        }
+    );
 };
 
 const toggleSelect = (state = TOGGLE) => {
@@ -209,8 +226,8 @@ const changeContinent = () => {
         selectObject.setCountryFirst();
     }
     selectObject.setCurrentFocus(selectObject.getContinent());
-    selectObject.setCurrentColumn(0);
     selectObject.toggleUpdateNeeded(true);
+    selectObject.setCurrentColumn(0);
     updateFieldValue();
     display();
     scrollCountry();
@@ -269,7 +286,7 @@ document.querySelector(".countrySelectionView").onclick = () => {
       // toggleSelect();
 };
 
-document.querySelector(".selectedCountryLine input").onfocus = (e) => {
+document.querySelector(".selectedCountryLine input").onfocus = () => {
     display();
     toggleSelect(OPEN);
 };
@@ -345,12 +362,11 @@ document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e)
             }
             if (selectObject.getCurrentColumn() === 0) {
                 selectObject.setCountryFirst();
-                changeFocus();
-            }
-            if (selectObject.getCurrentColumn() === 1) {
-                changeCountry(selectObject.getCountry());
+                changeFocus(selectObject.getCountry());
             }
             selectObject.incCurrentColumn();
+            changeCountry();
+            display();
             break;
         case 27:   // Escape
             toggleSelect(CLOSE);
