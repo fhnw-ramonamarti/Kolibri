@@ -1,33 +1,52 @@
-// import { countryList } from "./countries.js";
+  // import { countryList } from "./countries.js";
 
 const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
-const OPEN = 0,
-    CLOSE = 1,
-    TOGGLE = 2;
+const activeCountryList = () =>
+    countryList.filter((e) => [e.continent, "All"].includes(selectObject.getContinent())).map((e) => e.name);
+
+const NUMB_COLUMN = 2;
+
+const OPEN   = 0,
+      CLOSE  = 1,
+      TOGGLE = 2;
+
+const DEFAULT_CONTINENT = "All",
+      DEFAULT_COUNTRY   = countryList[0].name;
 
 const SelectObject = () => {
-    let continent = "All";
-    let country = countryList[0].name;
-    let currentFocus = country; // todo over think this
-    let updateNeeded = true;
+    let continent     = DEFAULT_CONTINENT;
+    let country       = DEFAULT_COUNTRY;
+    let currentColumn = 1;
+    let currentFocus  = country;
+    let updateNeeded  = true;
 
     return {
-        getCurrentFocus: () => currentFocus,
-        setCurrentFocus: (newVal) => (currentFocus = newVal), // todo change side
-        toggleUpdateNeeded: (newVal) => (updateNeeded = newVal),
-        getUpdateNeeded: () => updateNeeded,
-
-        getContinent: () => continent,
-        setContinent: (newVal) => (continent = newVal),
+        getContinent      : () => continent,
+        setContinent      : (newVal) => (continent = newVal),
         setContinentToPrev: () => (continent = getNeighborPrevContintent(continent)),
         setContinentToNext: () => (continent = getNeighborNextContintent(continent)),
 
-        getCountry: () => country,
-        setCountry: (newVal) => (country = newVal),
+        getCountry      : () => country,
+        setCountry      : (newVal) => (country = newVal),
         setCountryToPrev: () => (country = getNeighborPrevCountry(country)),
         setCountryToNext: () => (country = getNeighborNextCountry(country)),
-        setCountryFirst: () => (country = activeCountryList()[0]),
+        setCountryFirst : () => (country = activeCountryList()[0]),
+
+        getCurrentColumn: () => currentColumn,
+        setCurrentColumn: (newVal) => (currentColumn = newVal),
+        decCurrentColumn: () => {
+            if (currentColumn > 0) currentColumn--;
+        },
+        incCurrentColumn: () => {
+            if (currentColumn < NUMB_COLUMN - 1) currentColumn++;
+        },
+
+        getCurrentFocus: () => currentFocus,
+        setCurrentFocus: (newVal) => (currentFocus = newVal),
+
+        toggleUpdateNeeded: (newVal) => (updateNeeded = newVal),
+        getUpdateNeeded   : () => updateNeeded,
     };
 };
 
@@ -62,19 +81,20 @@ const getNeighbor = (currentElem, list, operation) => {
     return list[operation(currentIndex)] ?? currentElem;
 };
 
-const activeCountryList = () =>
-    countryList.filter((e) => [e.continent, "All"].includes(selectObject.getContinent())).map((e) => e.name);
+const displayConcreteField = (list, name, currentValue, className) => {
+    const currentIndex = list.findIndex((e) => e === currentValue);
+    if (currentIndex >= 0) {
+        const currentColValue = document.getElementById(name + "-" + currentIndex);
+        currentColValue.classList.add(className);
+    }
+};
 
 const displayColumn = (list, name, currentValue) => {
     for (let i = 0; i < list.length; i++) {
         let element = document.getElementById(name + "-" + i);
         element.setAttribute("CLASS", "entry " + name);
     }
-    const currentIndex = list.findIndex((e) => e === currentValue);
-    if (currentIndex >= 0) {
-        const currentColValue = document.getElementById(name + "-" + currentIndex);
-        currentColValue.classList.add("selected");
-    }
+    displayConcreteField(list, name, currentValue, "selected");
 };
 
 const displayContinents = () => {
@@ -89,34 +109,12 @@ const displayCountries = () => {
     displayColumn(activeCountryList(), "country", selectObject.getCountry());
 };
 
-const buildCountries = () => {
-    let countriesContainer = document.querySelector("#countries");
-    countriesContainer.innerHTML = "";
-    for (let i = 0; i < activeCountryList().length; i++) {
-        let element = document.createElement("LI");
-        element.setAttribute("ID", "country-" + i);
-        element.setAttribute("CLASS", "entry country");
-        element.innerHTML = activeCountryList()[i];
-        element.onclick = (e) => {
-            changeCountry(e.target.innerHTML);
-        };
-        element.onmouseover = (e) => {
-            changeFocus(e.target.innerHTML);
-        };
-        countriesContainer.appendChild(element);
-    }
-};
-
 const displayCurrentPosition = () => {
-    const currentContinentIndex = continentList.findIndex((e) => e === selectObject.getCurrentFocus());
-    if (currentContinentIndex >= 0) {
-        const currentFocus = document.getElementById("continent-" + currentContinentIndex);
-        currentFocus.classList.add("focused");
+    if (selectObject.getCurrentColumn() === 0) {
+        displayConcreteField(continentList, "continent", selectObject.getCurrentFocus(), "focused");
     }
-    const currentCountryIndex = activeCountryList().findIndex((e) => e === selectObject.getCurrentFocus());
-    if (currentCountryIndex >= 0) {
-        const currentFocus = document.getElementById("country-" + currentCountryIndex);
-        currentFocus.classList.add("focused");
+    if (selectObject.getCurrentColumn() === 1) {
+        displayConcreteField(activeCountryList(), "country", selectObject.getCurrentFocus(), "focused");
     }
 };
 
@@ -126,69 +124,101 @@ const display = () => {
     displayCurrentPosition();
 };
 
+const buildColumn = (containerId, list, name, onClick) => {
+    const cloumnContainer           = document.querySelector("#" + containerId);
+          cloumnContainer.innerHTML = "";
+    for (let i = 0; i < list.length; i++) {
+        let element = document.createElement("LI");
+        element.setAttribute("ID", name + "-" + i);
+        element.setAttribute("CLASS", "entry " + name);
+        element.onclick = (e) => {
+            onClick();
+        };
+        element.onmouseover = (e) => {
+            changeFocus(e.target.innerHTML);
+        };
+        element.innerHTML = list[i];
+        cloumnContainer.appendChild(element);
+    }
+};
+
+const buildContinents = () => {
+    buildColumn("continents", continentList, "continent", () => {
+        selectObject.setContinent(e.target.innerHTML);
+        changeFocus(e.target.innerHTML);
+        changeContinent();
+    });
+};
+
+const buildCountries = () => {
+    buildColumn("countries", activeCountryList(), "country", () => {
+        selectObject.setCountry(e.target.innerHTML);
+        changeFocus(e.target.innerHTML);
+        changeCountry();
+    });
+};
+
 const toggleSelect = (state = TOGGLE) => {
-    const countryField = document.querySelector(".countrySelectionView .selectedCountry");
-    const listsElem = document.querySelector(".lists");
+    const countryField   = document.querySelector(".countrySelectionView .selectedCountry").classList;
+    const listsContainer = document.querySelector(".lists");
+    const iconOpen       = document.querySelector(".icon.open").classList;
+    const iconClose      = document.querySelector(".icon.close").classList;
 
     if (state === OPEN) {
-        countryField.classList.add("open");
-        listsElem.classList.add("open");
+        countryField.add("open");
+        listsContainer.classList.add("open");
 
-        // todo in style
-        const continentsContainer = document.querySelector("#continents");
-        document.querySelector(".icon.open").classList.add("show");
-        document.querySelector(".icon.close").classList.remove("show");
-        listsElem.style.height =
+        iconOpen.add("show");
+        iconClose.remove("show");
+
+          // todo in style
+        const continentsContainer         = document.querySelector("#continents");
+              listsContainer.style.height = 
             continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
+
         displayCurrentPosition();
         return;
     }
     if (state === CLOSE) {
-        countryField.classList.remove("open");
-        listsElem.classList.remove("open");
-        document.querySelector(".icon.open").classList.remove("show");
-        document.querySelector(".icon.close").classList.add("show");
+        countryField.remove("open");
+        listsContainer.classList.remove("open");
+
+        iconOpen.remove("show");
+        iconClose.add("show");
         return;
     }
     if (state === TOGGLE) {
-        countryField.classList.toggle("open");
-        listsElem.classList.toggle("open");
+        countryField.toggle("open");
+        listsContainer.classList.toggle("open");
 
-        // todo in style
-        const continentsContainer = document.querySelector("#continents");
-        document.querySelector(".icon.open").classList.toggle("show");
-        document.querySelector(".icon.close").classList.toggle("show");
+        iconOpen.toggle("show");
+        iconClose.toggle("show");
 
-        listsElem.style.height =
+          // todo in style
+        const continentsContainer         = document.querySelector("#continents");
+              listsContainer.style.height = 
             continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
+
         displayCurrentPosition();
         return;
     }
 };
 
-const changeContinent = (e) => {
-    if (e) {
-        changeFocus(e);
-        selectObject.setContinent(e);
-    }
+const changeContinent = () => {
     if (!activeCountryList().includes(selectObject.getCountry())) {
         selectObject.setCountryFirst();
-    } else {
-        selectObject.setCurrentFocus(selectObject.getCountry());
     }
-    selectObject.toggleUpdateNeeded(true);
     selectObject.setCurrentFocus(selectObject.getContinent());
+    selectObject.setCurrentColumn(0);
+    selectObject.toggleUpdateNeeded(true);
     updateFieldValue();
     display();
     scrollCountry();
 };
 
-const changeCountry = (e) => {
-    if (e) {
-        changeFocus(e);
-        selectObject.setCountry(e);
-    }
+const changeCountry = () => {
     selectObject.setCurrentFocus(selectObject.getCountry());
+    selectObject.setCurrentColumn(1);
     updateFieldValue();
     display();
 };
@@ -199,8 +229,8 @@ const changeFocus = (e) => {
 };
 
 const updateFieldValue = () => {
-    const countryField = document.querySelector(".countrySelectionView .selectedCountry");
-    countryField.value = selectObject.getCountry();
+    const countryField       = document.querySelector(".countrySelectionView .selectedCountry");
+          countryField.value = selectObject.getCountry();
     if (selectObject.getCountry() === "") {
         document.querySelector(".clear").classList.remove("show");
     } else {
@@ -210,45 +240,33 @@ const updateFieldValue = () => {
 
 const resetValue = () => {
     selectObject.setCountry("");
+    selectObject.decCurrentColumn();
     selectObject.setCurrentFocus(selectObject.getContinent());
     updateFieldValue();
     display();
 };
 
 const scrollCountry = () => {
-    const currentCountry =
+    const currentCountry = 
         document.querySelector(".country.focused") ??
         document.querySelector(".country.selected") ??
         document.querySelector(".country");
     if (currentCountry) {
         const countriesContainer = document.querySelector("#countries");
-        countriesContainer.scrollTo({ top: currentCountry.offsetTop - 20 });
+        const height             = countriesContainer.offsetHeight / 2 - currentCountry.offsetHeight / 2;
+        countriesContainer.scrollTo({ top: currentCountry.offsetTop - height });
     }
 };
 
 document.querySelector("body").onload = () => {
-    const continentsContainer = document.querySelector("#continents");
-    for (let i = 0; i < continentList.length; i++) {
-        let element = document.createElement("LI");
-        element.setAttribute("ID", "continent-" + i);
-        element.setAttribute("CLASS", "entry continent");
-        element.onclick = (e) => {
-            changeContinent(e.target.innerHTML);
-        };
-        element.onmouseover = (e) => {
-            changeFocus(e.target.innerHTML);
-        };
-        element.innerHTML = continentList[i];
-        continentsContainer.appendChild(element);
-    }
-
+    buildContinents();
     display();
 };
 
-// todo fix bug mouse open
+  // todo fix bug mouse open
 document.querySelector(".countrySelectionView").onclick = () => {
     document.querySelector(".selectedCountryLine input").focus();
-    // toggleSelect();
+      // toggleSelect();
 };
 
 document.querySelector(".selectedCountryLine input").onfocus = (e) => {
@@ -257,100 +275,94 @@ document.querySelector(".selectedCountryLine input").onfocus = (e) => {
 };
 
 document.querySelector(".selectedCountryLine input").onblur = () => {
-    // toggleSelect(CLOSE); // todo
+      // toggleSelect(CLOSE); // todo
 };
 
-document.querySelector(".selectedCountryLine input").onclick = () => {
-    toggleSelect();
-};
+document.querySelector(".selectedCountryLine input").onclick = toggleSelect;
 
-document.querySelector(".selectedCountryLine .open").onclick =
-    document.querySelector(".selectedCountryLine input").onclick;
+document.querySelector(".selectedCountryLine .open").onclick = () => toggleSelect(OPEN);
 
-document.querySelector(".selectedCountryLine .close").onclick =
-    document.querySelector(".selectedCountryLine input").onclick;
+document.querySelector(".selectedCountryLine .close").onclick = () => toggleSelect(CLOSE);
 
-document.getElementById("clear").onclick = () => {
-    resetValue();
-};
+document.getElementById("clear").onclick = resetValue;
 
 document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e) => {
     console.log(e.key, e.keyCode);
 
     switch (e.keyCode) {
-        case 37: // ArrowLeft
+        case 37:   // ArrowLeft
             if (!document.querySelector(".lists.open")) {
                 break;
             }
-            scrollCountry();
+            selectObject.decCurrentColumn();
             changeFocus(selectObject.getContinent());
             break;
-        case 38: // ArrowUp
+        case 38:   // ArrowUp
             if (!document.querySelector(".lists.open")) {
                 break;
             }
-            if (continentList.includes(selectObject.getCurrentFocus())) {
+            if (selectObject.getCurrentColumn() === 0) {
                 selectObject.setContinentToPrev();
                 changeContinent();
             }
-            if (activeCountryList().includes(selectObject.getCurrentFocus())) {
+            if (selectObject.getCurrentColumn() === 1) {
                 selectObject.setCountryToPrev();
                 changeCountry();
             }
             scrollCountry();
             break;
-        case 39: // ArrowRight
+        case 39:   // ArrowRight
             if (!document.querySelector(".lists.open")) {
                 break;
             }
             if (!activeCountryList().includes(selectObject.getCountry())) {
                 selectObject.setCountryFirst();
             }
+            selectObject.incCurrentColumn();
             changeFocus(selectObject.getCountry());
             scrollCountry();
             break;
-        case 40: // ArrowDown
+        case 40:   // ArrowDown
             if (!document.querySelector(".lists.open")) {
                 toggleSelect(OPEN);
                 break;
             }
-            if (continentList.includes(selectObject.getCurrentFocus())) {
+            if (selectObject.getCurrentColumn() === 0) {
                 selectObject.setContinentToNext();
                 changeContinent();
             }
-            if (activeCountryList().includes(selectObject.getCurrentFocus())) {
+            if (selectObject.getCurrentColumn() === 1) {
                 selectObject.setCountryToNext();
                 changeCountry();
             }
             scrollCountry();
             break;
-        case 13: // Enter
-        case 32: // " " - Space
+        case 13:   // Enter
+        case 32:   // " " - Space
             if (!document.querySelector(".lists.open")) {
                 toggleSelect(OPEN);
                 break;
             }
-            if (continentList.includes(selectObject.getCurrentFocus())) {
+            if (selectObject.getCurrentColumn() === 0) {
                 selectObject.setCountryFirst();
                 changeFocus();
             }
-            if (activeCountryList().includes(selectObject.getCurrentFocus())) {
+            if (selectObject.getCurrentColumn() === 1) {
                 changeCountry(selectObject.getCountry());
             }
+            selectObject.incCurrentColumn();
             break;
-        case 27: // Escape
+        case 27:   // Escape
             toggleSelect(CLOSE);
             break;
-        case 8: // BackSpace
+        case 8:   // BackSpace
             resetValue();
             break;
-        case 9: // Tab
+        case 9:   // Tab
             toggleSelect(CLOSE);
             break;
-        default:
-            // nothing
+        default: 
+              // nothing
             break;
     }
 };
-
-// todo problem antarctica
