@@ -1,4 +1,6 @@
 import { countryList } from "../experimental/countries.js";
+import { SimpleInputController } from "../docs/src/kolibri/projector/simpleForm/simpleInputController.js";
+import { InputProjector } from "../docs/src/kolibri/projector/simpleForm/simpleInputProjector.js";
 
 const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
@@ -7,24 +9,24 @@ const activeCountryList = () =>
 
 const NUMB_COLUMN = 2;
 
-const OPEN   = 0,
-      CLOSE  = 1,
-      TOGGLE = 2;
+const OPEN = 0,
+    CLOSE = 1,
+    TOGGLE = 2;
 
 const DEFAULT_CONTINENT = "All",
-      DEFAULT_COUNTRY   = countryList[0].name;
+    DEFAULT_COUNTRY = countryList[0].name;
 
 const SelectObject = () => {
-    let continent     = DEFAULT_CONTINENT;
-    let country       = "";
+    let continent = DEFAULT_CONTINENT;
+    let country = "";
     let currentColumn = 1;
-    let currentFocus  = DEFAULT_COUNTRY;
-    let updateNeeded  = true;
-    let debouceTyping = "";
+    let currentFocus = DEFAULT_COUNTRY;
+    let updateNeeded = true;
+    let debouceText = "";
 
     return {
-        getContinent      : () => continent,
-        setContinent      : (newVal) => (continent = newVal),
+        getContinent: () => continent,
+        setContinent: (newVal) => (continent = newVal),
         setContinentToPrev: () => (continent = getNeighborPrevContinent(continent)),
         setContinentToNext: () => (continent = getNeighborNextContinent(continent)),
 
@@ -40,21 +42,60 @@ const SelectObject = () => {
             if (currentColumn < NUMB_COLUMN - 1) currentColumn++;
         },
 
-        getCurrentFocus      : () => currentFocus,
-        setCurrentFocus      : (newVal) => (currentFocus = newVal),
+        getCurrentFocus: () => currentFocus,
+        setCurrentFocus: (newVal) => (currentFocus = newVal),
         setFocusCountryToPrev: () => (currentFocus = getNeighborPrevCountry(currentFocus)),
         setFocusCountryToNext: () => (currentFocus = getNeighborNextCountry(currentFocus)),
-        setFocusCountryFirst : () => (currentFocus = activeCountryList()[0]),
+        setFocusCountryFirst: () => (currentFocus = activeCountryList()[0]),
 
         toggleUpdateNeeded: (newVal) => (updateNeeded = newVal),
-        getUpdateNeeded   : () => updateNeeded,
+        getUpdateNeeded: () => updateNeeded,
 
-        getDebouncingTyping : () => debouceTyping,
-        setDebouncingTyping : (newVal) => debouceTyping = newVal,
+        getDebouncingText: () => debouceText,
+        setDebouncingText: (newVal) => (debouceText = newVal),
     };
 };
 
 const selectObject = SelectObject();
+
+// ------Debounce-start---------------------------------------------
+
+const controller = SimpleInputController({
+    value: "",
+    name: "debounce",
+    type: "text",
+});
+
+const [_, input] = InputProjector.projectDebounceInput(800)(controller, "countryField");
+
+controller.onValueChanged((text) => {
+    if (text !== "") {
+        selectObject.setDebouncingText(text);
+        let firstFittingCountry = activeCountryList().find((e) =>
+            e.toLowerCase().startsWith(selectObject.getDebouncingText().toLowerCase())
+        );
+        console.debug("Debounce: " + text + " - " + firstFittingCountry); // todo DEBUG
+        if (firstFittingCountry) {
+            selectObject.setCurrentFocus(firstFittingCountry);
+            if (!document.querySelector(".lists.open")) {
+                selectObject.setCountry(firstFittingCountry);
+                changeCountry();
+            }
+            display();
+            scrollCountry();
+        }
+    }
+    input.querySelector("input").value = "";
+});
+
+const defaultKeyAction = (key) => {
+    // todo filter keys pattern
+    selectObject.setCurrentColumn(1);
+    controller.setValue(controller.getValue() + key);
+    input.querySelector("input").dispatchEvent(new Event("input"));
+};
+
+// ------Debounce-end-----------------------------------------------
 
 const getNeighborPrevContinent = (currentElem) => {
     return getNeighborPrev(currentElem, continentList);
@@ -129,8 +170,8 @@ const display = () => {
 };
 
 const buildColumn = (containerId, list, name, onClick, onHover) => {
-    const columnContainer           = document.querySelector("#" + containerId);
-          columnContainer.innerHTML = "";
+    const columnContainer = document.querySelector("#" + containerId);
+    columnContainer.innerHTML = "";
     for (let i = 0; i < list.length; i++) {
         let element = document.createElement("LI");
         element.setAttribute("ID", name + "-" + i);
@@ -179,10 +220,10 @@ const buildCountries = () => {
 };
 
 const toggleSelect = (state = TOGGLE) => {
-    const countryField   = document.querySelector(".countrySelectionView .selectedCountry").classList;
+    const countryField = document.querySelector(".countrySelectionView .selectedCountry").classList;
     const listsContainer = document.querySelector(".lists");
-    const iconOpen       = document.querySelector(".icon.open").classList;
-    const iconClose      = document.querySelector(".icon.close").classList;
+    const iconOpen = document.querySelector(".icon.open").classList;
+    const iconClose = document.querySelector(".icon.close").classList;
 
     if (state === OPEN) {
         countryField.add("open");
@@ -191,9 +232,9 @@ const toggleSelect = (state = TOGGLE) => {
         iconOpen.add("show");
         iconClose.remove("show");
 
-          // todo in style
-        const continentsContainer         = document.querySelector("#continents");
-              listsContainer.style.height = 
+        // todo in style
+        const continentsContainer = document.querySelector("#continents");
+        listsContainer.style.height =
             continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
 
         displayCurrentPosition();
@@ -214,9 +255,9 @@ const toggleSelect = (state = TOGGLE) => {
         iconOpen.toggle("show");
         iconClose.toggle("show");
 
-          // todo in style
-        const continentsContainer         = document.querySelector("#continents");
-              listsContainer.style.height = 
+        // todo in style
+        const continentsContainer = document.querySelector("#continents");
+        listsContainer.style.height =
             continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
 
         displayCurrentPosition();
@@ -243,8 +284,8 @@ const changeFocus = (e) => {
 };
 
 const updateFieldValue = () => {
-    const countryField       = document.querySelector(".countrySelectionView .selectedCountry");
-          countryField.value = selectObject.getCountry();
+    const countryField = document.querySelector(".countrySelectionView .selectedCountry");
+    countryField.value = selectObject.getCountry();
     if (selectObject.getCountry() === "") {
         document.querySelector(".clear").classList.remove("show");
     } else {
@@ -259,14 +300,14 @@ const resetValue = () => {
 };
 
 const scrollCountry = () => {
-    const currentCountry = 
+    const currentCountry =
         document.querySelector(".country.focused") ??
         document.querySelector(".country.selected") ??
         document.querySelector(".country");
     if (currentCountry) {
         const countriesContainer = document.querySelector("#countries");
-        const height             = countriesContainer.offsetHeight / 2 - currentCountry.offsetHeight / 2;
-        countriesContainer.scrollTo({top: currentCountry.offsetTop - height});
+        const height = countriesContainer.offsetHeight / 2 - currentCountry.offsetHeight / 2;
+        countriesContainer.scrollTo({ top: currentCountry.offsetTop - height });
     }
 };
 
@@ -289,20 +330,23 @@ document.querySelector(".selectedCountryLine .open").onclick = () => toggleSelec
 
 document.querySelector(".selectedCountryLine .close").onclick = () => toggleSelect(CLOSE);
 
-document.getElementById("clear").onclick = resetValue;
+document.getElementById("clear").onclick = () => {
+    resetValue();
+    toggleSelect();
+};
 
 document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e) => {
-    console.log(e.key, e.keyCode);
+    console.debug(e.key + " - " + e.keyCode); // todo DEBUG
 
     switch (e.keyCode) {
-        case 37:   // ArrowLeft
+        case 37: // ArrowLeft
             if (!document.querySelector(".lists.open")) {
                 break;
             }
             selectObject.decCurrentColumn();
             changeFocus(selectObject.getContinent());
             break;
-        case 38:   // ArrowUp
+        case 38: // ArrowUp
             if (!document.querySelector(".lists.open")) {
                 break;
             }
@@ -316,7 +360,7 @@ document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e)
             }
             scrollCountry();
             break;
-        case 39:   // ArrowRight
+        case 39: // ArrowRight
             if (!document.querySelector(".lists.open")) {
                 break;
             }
@@ -329,7 +373,7 @@ document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e)
             changeFocus(selectObject.getCurrentFocus());
             scrollCountry();
             break;
-        case 40:   // ArrowDown
+        case 40: // ArrowDown
             if (!document.querySelector(".lists.open")) {
                 toggleSelect(OPEN);
                 break;
@@ -344,8 +388,8 @@ document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e)
             }
             scrollCountry();
             break;
-        case 13:   // Enter
-        case 32:   // " " - Space
+        case 13: // Enter
+        case 32: // " " - Space
             if (!document.querySelector(".lists.open")) {
                 toggleSelect(OPEN);
                 break;
@@ -364,17 +408,20 @@ document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e)
             selectObject.incCurrentColumn();
             display();
             break;
-        case 27:   // Escape
+        case 27: // Escape
             toggleSelect(CLOSE);
             break;
-        case 8:   // BackSpace
+        case 8: // BackSpace
             resetValue();
             break;
-        case 9:   // Tab
+        case 9: // Tab
             toggleSelect(CLOSE);
             break;
-        default: 
-              // nothing
+        default:
+            // nothing
+            if (e.key.length === 1) {
+                defaultKeyAction(e.key);
+            }
             break;
     }
 };
