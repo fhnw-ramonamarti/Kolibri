@@ -1,3 +1,5 @@
+import { countryList } from "../experimental/countries.js";
+
 const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
 const activeCountryList = () =>
@@ -18,6 +20,7 @@ const SelectObject = () => {
     let currentColumn = 1;
     let currentFocus  = DEFAULT_COUNTRY;
     let updateNeeded  = true;
+    let debouceTyping = "";
 
     return {
         getContinent      : () => continent,
@@ -45,6 +48,9 @@ const SelectObject = () => {
 
         toggleUpdateNeeded: (newVal) => (updateNeeded = newVal),
         getUpdateNeeded   : () => updateNeeded,
+
+        getDebouncingTyping : () => debouceTyping,
+        setDebouncingTyping : (newVal) => debouceTyping = newVal,
     };
 };
 

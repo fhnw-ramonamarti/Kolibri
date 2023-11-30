@@ -1,4 +1,4 @@
-const countryList = [
+export const countryList = [
     {
         name: "Afghanistan",
         code: "AF",

@@ -1,3 +1,5 @@
+import { countryList } from "../experimental/countries.js";
+
 const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
 const activeCountryList = () =>

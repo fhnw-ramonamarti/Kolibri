@@ -24,7 +24,8 @@
             --color-selected-secondary: var(--kolibri-color-shadow, hsl(46, 80%, 92%));
             /* #E2DDFD;*/
             --color-focused: hsl(322, 73%, 52%)
-            /*var(--kb-primary-accent, #6000FF)*/;
+                /*var(--kb-primary-accent, #6000FF)*/
+            ;
             --color-font-black: var(--kb-color-hsl-black, #14141B);
             --color-font-body: var(--kb-color-hsl-body, #4E4B66);
             --color-placeholder: var(--kb-color-hsl-placeholder, #A0A3BD);
@@ -267,11 +268,11 @@
             font-family: var(--font-family-dezent);
         }
 
-        #cont:checked ~ .lists .continent .shortcut {
+        #cont:checked~.lists .continent .shortcut {
             display: none;
         }
 
-        #count:checked ~ .lists .country .shortcut {
+        #count:checked~.lists .country .shortcut {
             display: none;
         }
 
@@ -279,11 +280,11 @@
             background: var(--color-selected);
         }
 
-        #contTOcount:checked ~ .lists .selected-secondary {
+        #contTOcount:checked~.lists .selected-secondary {
             background: var(--color-selected-secondary);
         }
 
-        #contTOcount:checked ~ .lists .selected-secondary div:first-child {
+        #contTOcount:checked~.lists .selected-secondary div:first-child {
 
             /*color: var(--color-selected);*/
             color: var(--kb-color-hsl-black);
@@ -322,42 +323,41 @@
 </head>
 
 <body>
-<main>
+    <main>
 
-    <div class="countrySelectionView">
-        <div class="selectedCountryLine">
-            <input class="selectedCountry" name="" placeholder="Choose country" readonly value=""/>
-            <!-- extract to files svg -->
-            <div class="clear" id="clear">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 5.00002L15.6452 15.6452M5 15.6452L15.6452 5" stroke="#A0A3BD" stroke-width="1.66667"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+        <div class="countrySelectionView">
+            <div class="selectedCountryLine">
+                <input class="selectedCountry" name="" placeholder="Choose country" readonly value="" />
+                <!-- extract to files svg -->
+                <div class="clear" id="clear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 5.00002L15.6452 15.6452M5 15.6452L15.6452 5" stroke="#A0A3BD" stroke-width="1.66667"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="icon close show">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 9.03658L11.9632 15.9998L18.9263 9.03658" stroke="#A0A3BD" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="icon open">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 16L11.9632 8.96317L18.9263 16" stroke="#A0A3BD" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
             </div>
-            <div class="icon close show">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 9.03658L11.9632 15.9998L18.9263 9.03658" stroke="#A0A3BD" stroke-width="2"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <div class="icon open">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 16L11.9632 8.96317L18.9263 16" stroke="#A0A3BD" stroke-width="2"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            <div class="lists">
+                <ul class="continentList list" id="continents"></ul>
+                <div class="line"></div>
+                <ul class="countryList list" id="countries"></ul>
             </div>
         </div>
-        <div class="lists">
-            <ul class="continentList list" id="continents"></ul>
-            <div class="line"></div>
-            <ul class="countryList list" id="countries"></ul>
-        </div>
-    </div>
-</main>
-<script src="countries.js" defer></script>
-<!--    <script src="prototype3a.js" defer></script>-->
-<!--    <script src="prototype3b.js" defer></script> -->
-<script src="prototype3c.js" defer></script>
+    </main>
+    <!-- <script src="prototype3a.js" type="module" defer></script> -->
+    <!-- <script src="prototype3b.js" type="module" defer></script> -->
+    <script src="prototype3c.js" type="module" defer></script>
 </body>
 
 </html>
