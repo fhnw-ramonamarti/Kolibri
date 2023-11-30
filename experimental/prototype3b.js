@@ -285,7 +285,10 @@ document.querySelector(".selectedCountryLine .open").onclick = () => toggleSelec
 
 document.querySelector(".selectedCountryLine .close").onclick = () => toggleSelect(CLOSE);
 
-document.getElementById("clear").onclick = resetValue;
+document.getElementById("clear").onclick = () => {
+    resetValue();
+    toggleSelect();
+};
 
 document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e) => {
     console.log(e.key, e.keyCode);
