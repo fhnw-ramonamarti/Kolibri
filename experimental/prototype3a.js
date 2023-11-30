@@ -186,7 +186,7 @@ const toggleSelect = (state = TOGGLE) => {
         iconOpen.add("show");
         iconClose.remove("show");
 
-          // todo in style
+            // todo in style
         const continentsContainer         = document.querySelector("#continents");
               listsContainer.style.height = 
             continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
@@ -209,7 +209,7 @@ const toggleSelect = (state = TOGGLE) => {
         iconOpen.toggle("show");
         iconClose.toggle("show");
 
-          // todo in style
+            // todo in style
         const continentsContainer         = document.querySelector("#continents");
               listsContainer.style.height = 
             continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
@@ -268,7 +268,7 @@ const scrollCountry = () => {
     if (currentCountry) {
         const countriesContainer = document.querySelector("#countries");
         const height             = countriesContainer.offsetHeight / 2 - currentCountry.offsetHeight / 2;
-        countriesContainer.scrollTo({top: currentCountry.offsetTop - height});
+        countriesContainer.scrollTo({ top: currentCountry.offsetTop - height });
     }
 };
 
@@ -277,22 +277,15 @@ document.querySelector("body").onload = () => {
     display();
 };
 
-  // todo fix bug mouse open
 document.querySelector(".countrySelectionView").onclick = () => {
     document.querySelector(".selectedCountryLine input").focus();
-      // toggleSelect();
-};
-
-document.querySelector(".selectedCountryLine input").onfocus = () => {
-    display();
-    toggleSelect(OPEN);
 };
 
 document.querySelector(".selectedCountryLine input").onblur = () => {
-      // toggleSelect(CLOSE); // todo
+        // toggleSelect(CLOSE); // todo
 };
 
-document.querySelector(".selectedCountryLine input").onclick = toggleSelect;
+document.querySelector(".selectedCountryLine").onclick = () => toggleSelect();
 
 document.querySelector(".selectedCountryLine .open").onclick = () => toggleSelect(OPEN);
 
@@ -375,7 +368,7 @@ document.querySelector(".countrySelectionView .selectedCountry").onkeydown = (e)
             toggleSelect(CLOSE);
             break;
         default: 
-              // nothing
+                // nothing
             break;
     }
 };

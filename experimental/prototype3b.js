@@ -269,22 +269,15 @@ document.querySelector("body").onload = () => {
     display();
 };
 
-  // todo fix bug mouse open
 document.querySelector(".countrySelectionView").onclick = () => {
     document.querySelector(".selectedCountryLine input").focus();
-      // toggleSelect();
-};
-
-document.querySelector(".selectedCountryLine input").onfocus = () => {
-    display();
-    toggleSelect(OPEN);
 };
 
 document.querySelector(".selectedCountryLine input").onblur = () => {
-      // toggleSelect(CLOSE); // todo
+    // toggleSelect(CLOSE); // todo
 };
 
-document.querySelector(".selectedCountryLine input").onclick = toggleSelect;
+document.querySelector(".selectedCountryLine").onclick = () => toggleSelect();
 
 document.querySelector(".selectedCountryLine .open").onclick = () => toggleSelect(OPEN);
 
