@@ -1,5 +1,3 @@
-  // import { countryList } from "./countries.js";
-
 const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
 const activeCountryList = () =>
@@ -24,8 +22,8 @@ const SelectObject = () => {
     return {
         getContinent      : () => continent,
         setContinent      : (newVal) => (continent = newVal),
-        setContinentToPrev: () => (continent = getNeighborPrevContintent(continent)),
-        setContinentToNext: () => (continent = getNeighborNextContintent(continent)),
+        setContinentToPrev: () => (continent = getNeighborPrevContinent(continent)),
+        setContinentToNext: () => (continent = getNeighborNextContinent(continent)),
 
         getCountry      : () => country,
         setCountry      : (newVal) => (country = newVal),
@@ -52,11 +50,11 @@ const SelectObject = () => {
 
 const selectObject = SelectObject();
 
-const getNeighborPrevContintent = (currentElem) => {
+const getNeighborPrevContinent = (currentElem) => {
     return getNeighborPrev(currentElem, continentList);
 };
 
-const getNeighborNextContintent = (currentElem) => {
+const getNeighborNextContinent = (currentElem) => {
     return getNeighborNext(currentElem, continentList);
 };
 
@@ -125,8 +123,8 @@ const display = () => {
 };
 
 const buildColumn = (containerId, list, name, onClick, onHover) => {
-    const cloumnContainer           = document.querySelector("#" + containerId);
-          cloumnContainer.innerHTML = "";
+    const columnContainer           = document.querySelector("#" + containerId);
+          columnContainer.innerHTML = "";
     for (let i = 0; i < list.length; i++) {
         let element = document.createElement("LI");
         element.setAttribute("ID", name + "-" + i);
@@ -138,7 +136,7 @@ const buildColumn = (containerId, list, name, onClick, onHover) => {
             onHover(e);
         };
         element.innerHTML = list[i];
-        cloumnContainer.appendChild(element);
+        columnContainer.appendChild(element);
     }
 };
 
@@ -217,7 +215,6 @@ const toggleSelect = (state = TOGGLE) => {
             continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
 
         displayCurrentPosition();
-        return;
     }
 };
 
@@ -271,7 +268,7 @@ const scrollCountry = () => {
     if (currentCountry) {
         const countriesContainer = document.querySelector("#countries");
         const height             = countriesContainer.offsetHeight / 2 - currentCountry.offsetHeight / 2;
-        countriesContainer.scrollTo({ top: currentCountry.offsetTop - height });
+        countriesContainer.scrollTo({top: currentCountry.offsetTop - height});
     }
 };
 
