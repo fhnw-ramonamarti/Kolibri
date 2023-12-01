@@ -1,7 +1,4 @@
-.dropdown *{
-
-}
-:root {
+.dropdown * {
     --padding: 10px 16px;
     --padding-icon: 0 4px;
     --thin-line: 1px;
@@ -170,7 +167,6 @@ ul {
 
 li {
     background: var(--color-background);
-    /*border: var(--border-transparent);*/
 
     display: flex;
     justify-content: space-between;
@@ -178,7 +174,6 @@ li {
     gap: 16px;
     width: 100%;
     padding: var(--padding);
-    /*border-radius: var(--border-radius-small);*/
 }
 
 ul:first-child {
@@ -237,7 +232,6 @@ ul:last-child {
 .selected {
     color: var(--kb-color-hsl-black);
     font-family: var(--font-family-bold);
-    /*text-shadow: var(--font-bold-shadow);*/
     margin-right: -6px;
 }
 
