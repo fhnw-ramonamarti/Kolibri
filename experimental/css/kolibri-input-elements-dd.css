@@ -26,6 +26,12 @@
     color: var(--color-font-body);
     font-feature-settings: 'clig' off, 'liga' off;
 
+    font-family: var(--font-family);
+    font-size: var(--font-size-default);
+    line-height: 18px;
+    letter-spacing: 0.25px;
+
+
 }
 
 html,
