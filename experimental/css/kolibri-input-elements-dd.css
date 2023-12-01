@@ -10,8 +10,8 @@
     --font-family-dezent: "Rubik-Light", sans-serif;
 
 
-    --border-radius-big: 8px;
-    --border-radius-small: 4px;
+    --border-radius-big: 0.3em;
+    --border-radius-small: 0.4em;
     --border-radius-big-bottom: 0 0 8px 8px;
 
     --font-size-dezent: 8px;
