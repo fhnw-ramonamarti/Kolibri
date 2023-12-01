@@ -1,4 +1,4 @@
-.dropdown * {
+:root {
     --padding: 10px 16px;
     --padding-icon: 0 4px;
     --thin-line: 1px;
@@ -11,14 +11,12 @@
     --border-radius-small: 0.4em;
     --border-radius-big-bottom: 0 0 8px 8px;
 
-    --font-size-dezent: 8px;
-    --font-size-default: 12px;
+    --font-size-dezent: 3em;
+    --font-size-default: 1em;
     --font-bold-shadow: -0.6px 0 0 var(--color-font-black);
 }
 
 .dropdown * {
-    box-sizing: border-box;
-    position: relative;
 
     color: var(--color-font-body);
     font-feature-settings: 'clig' off, 'liga' off;
