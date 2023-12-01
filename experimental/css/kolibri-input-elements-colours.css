@@ -1,0 +1,20 @@
+:root {
+    /* --- dropdown colours --- */
+    --color-background: var(--kb-color-hsl-bg-light, #F7F7FC);
+
+    --color-selected: var(--kolibri-color-select, hsl(46, 90%, 84%));
+    --color-selected-secondary: var(--kolibri-color-shadow, hsl(46, 80%, 92%));
+    --color-focused: hsl(322, 73%, 52%)
+;
+    --color-font-black: var(--kb-color-hsl-black, #14141B);
+    --color-font-body: var(--kb-color-hsl-body, #4E4B66);
+    --color-placeholder: var(--kb-color-hsl-placeholder, #A0A3BD);
+    --color-dezent: var(--kb-hsla-secondary-bg, #E1E1E1);
+    --color-dezent-selected: var(--kb-hsla-secondary-bg, #E5EFFF);
+    --color-dezent-font: var(--kb-color-hsl-label, #6E7191);
+
+    --border-dark: var(--thin-line) solid var(--color-font-body);
+    --border-transparent: var(--thin-line) solid var(--color-background);
+    --border-focused: var(--thin-line) solid var(--color-focused);
+}
+
