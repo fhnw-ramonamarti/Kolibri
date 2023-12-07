@@ -1,10 +1,12 @@
 import { countryList } from "../countries.js";
-import { display, scrollCountry } from "./choiceInputProjector.js";
-import { SimpleInputController } from "../../docs/src/kolibri/projector/simpleForm/simpleInputController.js";
-import { InputProjector } from "../../docs/src/kolibri/projector/simpleForm/simpleInputProjector.js";
-// import { dom, TEXT } from "../../docs/src/kolibri/util/dom.js";
+import {
+    getNeighborPrevContinent,
+    getNeighborNextContinent,
+    getNeighborPrevCountry,
+    getNeighborNextCountry,
+} from "./choiceInputController.js";
 
-export { controller,input,model, changeContinent, changeCountry, changeFocus, activeCountryList, continentList };
+export { model, activeCountryList, continentList };
 
 const continentList = ["All", ...[...new Set(countryList.map((e) => e.continent))].sort()];
 
@@ -28,6 +30,7 @@ const ChoiceInputModel = ({
     let currentFocus = currentFocus1;
     let updateNeeded = true;
     let debounceText = "";
+    let listOpened = false;
 
     return {
         getContinent: () => continent,
@@ -58,11 +61,15 @@ const ChoiceInputModel = ({
 
         getDebouncingText: () => debounceText,
         setDebouncingText: (newVal) => (debounceText = newVal),
+
+        getListOpened: () => listOpened,
+        setListOpened: (newVal) => listOpened = newVal,
+        toggleListOpened: () => listOpened = !listOpened,
     };
 };
 
 const model = ChoiceInputModel({});
-
+/*
 // ------Debounce-start---------------------------------------------
 
 const controller = SimpleInputController({
@@ -154,3 +161,4 @@ const updateFieldValue = () => {
         document.querySelector(".clear").classList.add("show");
     }
 };
+//*/

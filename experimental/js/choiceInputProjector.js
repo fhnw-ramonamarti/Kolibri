@@ -1,18 +1,10 @@
 import { InputProjector } from "../../docs/src/kolibri/projector/simpleForm/simpleInputProjector.js";
 import { dom, TEXT } from "../../docs/src/kolibri/util/dom.js";
 import { SimpleInputController } from "../../docs/src/kolibri/projector/simpleForm/simpleInputController.js";
-import {
-    model,
-    changeContinent,
-    changeCountry,
-    changeFocus,
-    activeCountryList,
-    continentList,
-    controller,
-    input,
-} from "./choiceInputModel.js";
+import { model, activeCountryList, continentList } from "./choiceInputModel.js";
+import { changeContinent, changeCountry, changeFocus, resetValue, controller, input } from "./choiceInputController.js";
 
-export { projectChoiceInput, display, scrollCountry,addActions };
+export { projectChoiceInput, display, scrollCountry, addActions, toggleSelect };
 
 let counter = 0;
 
@@ -22,11 +14,12 @@ const projectChoiceInput = (timeout) => (inputController, formCssClassName) => {
         return;
     }
     const id = formCssClassName + "-id-" + counter++;
+
     // debounce
     const controller = SimpleInputController({
         value: "",
         name: "debounce",
-        type: "text",
+        type: TEXT,
     });
 
     const debounceElements = InputProjector.projectDebounceInput(timeout)(controller, "debounce-" + formCssClassName);
@@ -43,9 +36,19 @@ const projectChoiceInput = (timeout) => (inputController, formCssClassName) => {
     const dropdownLine = dom(`
         <div class="selectedCountryLine"></div>
     `)[0];
+    const dropdownElement = dom(`
+        <div class="countrySelectionElement"></div>
+    `)[0];
     // todo svg
+    const dropdownBody = dom(`
+        <div class="lists" id="lists-${id}">
+            <ul class="continentList list" id="continents"></ul>
+            <div class="line" id="line-${id}"></div>
+            <ul class="countryList list" id="countries"></ul>
+        </div>
+    `)[0];
     dropdownLine.append(
-        ...elements,
+        spanElement,
         ...dom(`
             <div class="clear" id="clear">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -67,24 +70,10 @@ const projectChoiceInput = (timeout) => (inputController, formCssClassName) => {
             </div>
         `)
     );
-    const dropdownBody = dom(`
-        <div class="lists" id="lists-${id}">
-            <ul class="continentList list" id="continents"></ul>
-            <div class="line" id="line-${id}"></div>
-            <ul class="countryList list" id="countries"></ul>
-        </div>
-    `)[0];
-    spanElement.appendChild(dropdownBody);
-    return [dropdownLine];
-};
 
-// const formHolder = document.querySelector(".countrySelectionView");
-// if (null != formHolder) {
-//     // there is no such element when called via test case
-//     const formStructure = { value: "", name: "country", type: TEXT };
-//     const controller = SimpleInputController(formStructure);
-//     formHolder.append(...projectChoiceInput(800)(controller, "selectedCountry"));
-// }
+    dropdownElement.append(dropdownLine, dropdownBody);
+    return [labelElement, dropdownElement];
+};
 
 const OPEN = 0,
     CLOSE = 1,
@@ -96,7 +85,6 @@ const defaultKeyAction = (key) => {
     // todo filter keys pattern
     model.setCurrentColumn(1);
     controller.setValue(controller.getValue() + key);
-    // input.querySelector("input").value += key;
     input.querySelector("input").dispatchEvent(new Event("input"));
 };
 
@@ -252,7 +240,6 @@ const scrollCountry = () => {
     }
 };
 
-// todo toggel not working
 const addActions = () => {
     document.querySelector("body").onload = () => {
         buildContinents();
@@ -344,6 +331,7 @@ const addActions = () => {
                     } else {
                         model.setFocusCountryFirst();
                     }
+                    scrollCountry();
                     changeFocus(model.getCurrentFocus());
                 }
                 if (model.getCurrentColumn() === 1) {
