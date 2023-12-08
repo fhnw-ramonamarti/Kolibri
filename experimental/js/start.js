@@ -1,20 +1,23 @@
-import {} from "./choiceInputModel.js";
-import {} from "./choiceInputController.js";
-import {projectChoiceInput,addActions} from "./choiceInputProjector.js";
+import { projectChoiceInput } from "./choiceInputProjector.js";
+import { ChoiceInputController } from "./choiceInputController.js";
 
-import { SimpleInputController } from "../../docs/src/kolibri/projector/simpleForm/simpleInputController.js";
-import { TEXT } from "../../docs/src/kolibri/util/dom.js";
+import { countryList } from "../countries.js";
 
 const formHolder = document.querySelector(".countrySelectionView");
 if (null != formHolder) {
     // there is no such element when called via test case
-    const formStructure = { value: "", name: "country", type: TEXT, /* label: "Country" */ };
-    const controller = SimpleInputController(formStructure);
+    const formStructure = {
+        listObjects: countryList,
+        selcectedObject: { continent: "Europe" },
+        focusedValue: "",
+        filledValue: "",
+        placeholder: "Choose Country",
+        label: "",
+        name: "country",
+    };
+    const controller = ChoiceInputController(formStructure);
     formHolder.append(...projectChoiceInput(800)(controller, "selectedCountry"));
 }
-
-addActions();
-
 
 // controller für toggle, model hat state für open
 // check selection close display after open dd

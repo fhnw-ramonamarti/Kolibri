@@ -8,10 +8,11 @@ import { id }         from "./stdlib.js";
 export { Attribute, QualifiedAttribute,
          presentationModelFromAttributeNames,
          valueOf, readQualifierValue,
-         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE }
+         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE, 
+         PLACEHOLDER, LIST_ELEMENTS, SELECTION_ELEMENTS, FOCUS_ELEMENT }
 
 /**
- * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'} ObservableTypeString
+ * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'|'placeholder'|'listElements'|'focusElement'} ObservableTypeString
  * Feel free to extend this type with new unique type strings as needed for your application.
  */
 
@@ -20,7 +21,12 @@ export { Attribute, QualifiedAttribute,
 /** @type ObservableTypeString */ const EDITABLE = "editable";
 /** @type ObservableTypeString */ const LABEL    = "label";
 /** @type ObservableTypeString */ const NAME     = "name";
-/** @type ObservableTypeString */ const TYPE     = "type"; // HTML input types: text, number, checkbox, etc.
+/** @type ObservableTypeString */ const TYPE     = "type";      // HTML input types: text, number, checkbox, etc.
+
+/** @type ObservableTypeString */ const PLACEHOLDER        = "placeholder";
+/** @type ObservableTypeString */ const LIST_ELEMENTS      = "listElements";
+/** @type ObservableTypeString */ const SELECTION_ELEMENTS = "selectionElements";
+/** @type ObservableTypeString */ const FOCUS_ELEMENT      = "focusElement";
 
 /**
  * Convenience function to read the current state of the attribute's VALUE observable for the given attribute.
