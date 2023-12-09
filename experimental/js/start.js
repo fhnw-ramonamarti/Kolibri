@@ -1,19 +1,19 @@
-import { projectChoiceInput } from "./choiceInputProjector.js";
-import { ChoiceInputController } from "./choiceInputController.js";
-
 import { countryList } from "../countries.js";
+import { ChoiceInputController } from "./choiceInputController.js";
+import { projectChoiceInput } from "./choiceInputProjector.js";
 
 const formHolder = document.querySelector(".countrySelectionView");
 if (null != formHolder) {
     // there is no such element when called via test case
     const formStructure = {
-        listObjects: countryList,
-        selcectedObject: { continent: "Europe" },
-        focusedValue: "",
-        filledValue: "",
-        placeholder: "Choose Country",
-        label: "",
-        name: "country",
+        listObjects    : countryList,
+        selcectedObject: { continent: "All" },
+        focusedObject  : {},
+        filledValue    : "",
+        placeholder    : "Choose Country",
+        label          : "",
+        name           : "country",
+        colNames       : ["continent", "name"],
     };
     const controller = ChoiceInputController(formStructure);
     formHolder.append(...projectChoiceInput(800)(controller, "selectedCountry"));
