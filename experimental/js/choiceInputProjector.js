@@ -60,13 +60,13 @@ const projectChoiceInput = (timeout) => (inputController, formCssClassName) => {
             </svg>
         </div>
         <div class="icon close show">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M 5 9 L 12 16 L 19 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                <path d="M 5 9  L 12 16  L 19 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </div>
         <div class="icon open">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                <path d="M 5 16 L 12 9 L 19 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M 5 16  L 12 9  L 19 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </div>
     `);
