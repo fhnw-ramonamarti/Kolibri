@@ -50,7 +50,7 @@ const ChoiceDetailAttributeController = (attribute) => {
 
 const ChoiceMasterAttributeController = (categoryColumn, valueColumn, timeout) => (attribute) => {
     const colNames = [categoryColumn, valueColumn];
-    const categories = ()=>[
+    const categories = () => [
         ALL,
         ...[
             ...new Set(
@@ -62,11 +62,18 @@ const ChoiceMasterAttributeController = (categoryColumn, valueColumn, timeout) =
         ].sort(),
     ];
 
-    const elements = ()=>attribute
-        .getObs(LIST_ELEMENTS)
-        .getValue()
-        .filter((e) => [e[categoryColumn], ALL].includes(attribute.getObs(VALUE).getValue()[categoryColumn]))
-        .map((e) => e[valueColumn]);
+    const elements = () =>
+        attribute
+            .getObs(LIST_ELEMENTS)
+            .getValue()
+            .map((e) => e[valueColumn]);
+
+            const filteredElements = () =>
+        attribute
+            .getObs(LIST_ELEMENTS)
+            .getValue()
+            .filter((e) => [e[categoryColumn], ALL].includes(attribute.getObs(VALUE).getValue()[categoryColumn]))
+            .map((e) => e[valueColumn]);
 
     // ------Debounce-start---------------------------------------------
 
@@ -121,17 +128,18 @@ const ChoiceMasterAttributeController = (categoryColumn, valueColumn, timeout) =
     };
 
     const setNeighborPrevValue = () => {
-        setFocusedObject(getNeighborPrev(focusValue(), elements()));
+        setFocusedObject(getNeighborPrev(focusValue(), filteredElements()));
     };
 
     const setNeighborNextValue = () => {
-        setFocusedObject(getNeighborNext(focusValue(), elements()));
+        setFocusedObject(getNeighborNext(focusValue(), filteredElements()));
     };
 
     return {
         getColNames: () => colNames,
         getCategories: categories,
         getElements: elements,
+        getFilteredElements: filteredElements,
 
         getValue: attribute.getObs(VALUE).getValue,
         setValue: (val) => attribute.getObs(VALUE).setValue({ ...attribute.getObs(VALUE).getValue(), ...val }),
@@ -139,22 +147,43 @@ const ChoiceMasterAttributeController = (categoryColumn, valueColumn, timeout) =
         setValueList: attribute.getObs(LIST_ELEMENTS).setValue,
 
         getFocusObject: attribute.getObs(FOCUS_ELEMENT).getValue,
-        setFocusObject: (val) =>
-            attribute.getObs(FOCUS_ELEMENT).setValue({ ...attribute.getObs(FOCUS_ELEMENT).getValue(), ...val }),
-        setFocusToPrev: (val) => {
+        setFocusObject: (val) => {
+            if (val.column == null && attribute.getObs(FOCUS_ELEMENT).getValue().column == null) {
+                val.column = colNames.length - 1;
+            }
+            if (val.column < 0) {
+                val.column = 0;
+            }
+            if (val.column >= colNames.length) {
+                val.column = colNames.length - 1;
+            }
+            if (val.value == null && attribute.getObs(FOCUS_ELEMENT).getValue().value == null) {
+                if(attribute.getObs(FOCUS_ELEMENT).getValue().column === 0){
+                    val.value = attribute.getObs(VALUE).getValue()[categoryColumn];
+                }
+                if(attribute.getObs(FOCUS_ELEMENT).getValue().column === 1){
+                    val.value = filteredElements()[0];
+                }
+            }
+            if(!filteredElements().includes(val.value) && !categories().includes(val.value)){
+                val.value = filteredElements()[0];
+            }
+            attribute.getObs(FOCUS_ELEMENT).setValue({ ...attribute.getObs(FOCUS_ELEMENT).getValue(), ...val });
+        },
+        setFocusToPrev: () => {
             if (attribute.getObs(FOCUS_ELEMENT).getValue().column === 0) {
-                setNeighborPrevCategory(val);
+                setNeighborPrevCategory();
             }
             if (attribute.getObs(FOCUS_ELEMENT).getValue().column === 1) {
-                setNeighborPrevValue(val);
+                setNeighborPrevValue();
             }
         },
-        setFocusToNext: (val) => {
+        setFocusToNext: () => {
             if (attribute.getObs(FOCUS_ELEMENT).getValue().column === 0) {
-                setNeighborNextCategory(val);
+                setNeighborNextCategory();
             }
             if (attribute.getObs(FOCUS_ELEMENT).getValue().column === 1) {
-                setNeighborNextValue(val);
+                setNeighborNextValue();
             }
         },
 

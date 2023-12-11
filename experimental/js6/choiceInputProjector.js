@@ -5,7 +5,6 @@ import { TEXT, dom } from "../../docs/src/kolibri/util/dom.js";
 import { ALL } from "./choiceInputController.js";
 
 export { projectChoiceInput };
-// export { scrollCountry };
 
 /**
 // todo future usage
@@ -45,15 +44,24 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     /** @type {HTMLSpanElement}  */ const spanElement = elements[1];
     /** @type {HTMLInputElement} */ const inputElement = spanElement.firstElementChild;
 
+    // todo naming
     inputElement.classList.add("input-" + formCssClassName);
+    inputElement.classList.add(formCssClassName);
     inputElement.setAttribute("id", "input-" + id);
 
-    // create container, master & detail view of elements
+    // ------------ CREATE CONTAINER & DETAIL VIEW START -----------------
+
+    // create container, master & detail view of choice input
     /** @type {HTMLSpanElement}  */ const dropdownElement = dom(`
-        <div class="countrySelectionElement"></div>
+        <div class="selectionElement"></div>
     `)[0];
+
+    // create detail view of choice input
+    const valueClassName =
+        masterController.getColNames()[1].substr(0, 1).toUpperCase() +
+        masterController.getColNames()[1].substr(1).toLowerCase();
     /** @type {HTMLSpanElement}  */ const dropdownLine = dom(`
-        <div class="selectedCountryLine"></div>
+        <div class="selected${valueClassName}Line selectionDetailView"></div>
     `)[0];
     /** @type {List<HTMLSpanElement>}  */ const [svgClear, svgClose, svgOpen] = dom(`
         <span class="clear" id="clear">
@@ -73,14 +81,20 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         </span>
     `);
     /** @type {HTMLSpanElement}  */ const dropdownBody = dom(`
-        <div class="lists" id="lists-${id}">
-            <ul class="continentList list" id="continents"></ul>
+        <div class="lists selectionMasterView" id="master-${id}">
+            <ul class="${masterController.getColNames()[0]}List categoryList list" 
+                id="${masterController.getColNames()[0]}List"></ul>
             <div class="line" id="line-${id}"></div>
-            <ul class="countryList list" id="countries"></ul>
+            <ul class="${masterController.getColNames()[1]}List valueList list" 
+                id="${masterController.getColNames()[1]}List"></ul>
         </div>
     `)[0];
     dropdownLine.append(spanElement, svgClear, svgClose, svgOpen);
     dropdownElement.append(dropdownLine, dropdownBody);
+
+    // ------------ CREATE CONTAINER & DETAIL VIEW END -------------------
+
+    // ------------ CREATE MASTER VIEW START -----------------------------
 
     const buildColumn = (containerId, list, name, onClick, onHover) => {
         const columnContainer = dropdownElement.querySelector("#" + containerId);
@@ -100,17 +114,13 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         }
     };
 
-    const buildContinents = () => {
+    const buildCategories = () => {
         buildColumn(
-            "continents",
+            masterController.getColNames()[0] + "List",
             masterController.getCategories(),
-            "continent",
+            masterController.getColNames()[0],
             (e) => {
-                const colName = masterController.getColNames()[0];
-                masterController.setValue({
-                    [colName]: e.target.innerHTML,
-                });
-                changeContinent();
+                changeCategory(e.target.innerHTML);
             },
             (e) => {
                 masterController.setFocusObject({
@@ -121,14 +131,13 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         );
     };
 
-    const buildCountries = () => {
+    const buildValues = () => {
         buildColumn(
-            "countries",
+            masterController.getColNames()[1] + "List",
             masterController.getElements(),
-            "country",
+            masterController.getColNames()[1],
             (e) => {
-                changeFocus(e.target.innerHTML);
-                changeCountry();
+                changeValue(e.target.innerHTML);
             },
             (e) => {
                 masterController.setFocusObject({
@@ -138,8 +147,12 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
             }
         );
     };
-    buildContinents();
-    buildCountries();
+    buildCategories();
+    buildValues();
+
+    // ------------ CREATE MASTER VIEW END -------------------------------
+
+    // ------------ UPDATE MASTER VIEW START -----------------------------
 
     const displayConcreteField = (list, name, currentValue, className) => {
         const currentIndex = list.findIndex((e) => e === currentValue);
@@ -155,30 +168,31 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
             element.setAttribute("CLASS", "entry " + name);
             exec(element, i);
         }
+
         displayConcreteField(list, name, currentValue, "selected");
     };
 
-    const displayContinents = () => {
+    const displayCategories = () => {
         displayColumn(
             masterController.getCategories(),
-            "continent",
+            masterController.getColNames()[0],
             masterController.getValue()[masterController.getColNames()[0]]
         );
     };
 
-    const displayCountries = () => {
+    const displayValues = () => {
         displayColumn(
             masterController.getElements(),
-            "country",
+            masterController.getColNames()[1],
             masterController.getValue()[masterController.getColNames()[1]],
             (element, i) => {
                 if (
-                    masterController.getValueList()[i][masterController.getColNames()[0]] !==
-                        masterController.getValue()[masterController.getColNames()[0]] &&
-                    ALL !== masterController.getValue()[masterController.getColNames()[0]]
+                    !masterController
+                        .getFilteredElements()
+                        .includes(masterController.getValueList()[i][masterController.getColNames()[1]])
                 ) {
                     element.classList.add("hidden");
-                }
+                } 
             }
         );
     };
@@ -187,62 +201,63 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         if (masterController.getFocusObject().column === 0) {
             displayConcreteField(
                 masterController.getCategories(),
-                "continent",
+                masterController.getColNames()[0],
                 masterController.getFocusObject().value,
                 "focused"
             );
         }
         if (masterController.getFocusObject().column === 1) {
             displayConcreteField(
-                masterController.getValueList().map((e) => e[masterController.getColNames()[1]]),
-                "country",
+                masterController.getElements(),
+                masterController.getColNames()[1],
                 masterController.getFocusObject().value,
                 "focused"
             );
         }
     };
 
-    const scrollCountry = () => {
-        const currentCountry =
-            dropdownElement.querySelector(".country.focused") ??
-            dropdownElement.querySelector(".country.selected") ??
-            dropdownElement.querySelector(".country");
-        if (currentCountry) {
-            const countriesContainer = dropdownElement.querySelector("#countries");
-            const height = countriesContainer.offsetHeight / 2 - currentCountry.offsetHeight / 2;
-            countriesContainer.scrollTo({ top: currentCountry.offsetTop - height });
-        }
-    };
-
     const display = () => {
-        displayContinents();
-        displayCountries();
+        displayCategories();
+        displayValues();
         displayCurrentPosition();
     };
 
-    const toggleSelect = (isOpen) => {
+    const scrollColumn = (column = 1) => {
+        const currentValueElement =
+            dropdownElement.querySelector(`.${masterController.getColNames()[column]}.focused`) ??
+            dropdownElement.querySelector(`.${masterController.getColNames()[column]}.selected`) ??
+            dropdownElement.querySelector(`.${masterController.getColNames()[column]}`);
+        if (currentValueElement) {
+            const valueListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[column]}List`);
+            const height = valueListContainer.offsetHeight / 2 - currentValueElement.offsetHeight / 2;
+            valueListContainer.scrollTo({ top: currentValueElement.offsetTop - height });
+        }
+    };
+
+    const toggleSelect = () => {
         const className = "open";
         const classNameIcon = "show";
 
-        const countryField = inputElement.classList;
+        const valueField = inputElement.classList;
         const iconOpen = svgOpen.classList;
         const iconClose = svgClose.classList;
 
-        if (isOpen) {
-            countryField.add(className);
+        if (masterController.getChoiceboxOpen()) {
+            valueField.add(className);
             dropdownBody.classList.add(className);
 
             iconOpen.add(classNameIcon);
             iconClose.remove(classNameIcon);
 
             // todo in style
-            const continentsContainer = dropdownElement.querySelector("#continents");
+            const categoryListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[0]}List`);
             dropdownBody.style.height =
-                continentsContainer.childElementCount * continentsContainer.firstChild.offsetHeight + 1 + "px";
+                categoryListContainer.childElementCount * categoryListContainer.firstChild.offsetHeight + 1 + "px";
 
             displayCurrentPosition();
+            scrollColumn();
         } else {
-            countryField.remove(className);
+            valueField.remove(className);
             dropdownBody.classList.remove(className);
 
             iconOpen.remove(classNameIcon);
@@ -250,92 +265,38 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         }
     };
 
-    // todo move to top
-    const filteredCountries = () =>
-        masterController
-            .getValueList()
-            .filter((e) =>
-                [e[masterController.getColNames()[0]], ALL].includes(
-                    masterController.getValue()[masterController.getColNames()[0]]
-                )
-            )
-            .map((e) => e[masterController.getColNames()[1]]);
+    // ------------ UPDATE MASTER VIEW END -------------------------------
 
-    // todo future change if editable select
-    detailController.onEditableChanged((_) => inputElement.setAttribute("readonly", "on"));
-    detailController.onPlaceholderChanged((val) => inputElement.setAttribute("placeholder", val ? val : ""));
+    // ------------ UPDATE FIELDS START ----------------------------------
 
-    masterController.onValueListChanged((val) => {
-        display();
-    });
-    masterController.onValueChanged((val) => {
-        display();
-    });
-    masterController.onFocusObjectChanged((val) => {
-        if (val.column < 0) {
-            masterController.setFocusObject({ column: 0 });
-            return;
-        }
-        if (val.column >= masterController.getColNames().length) {
-            masterController.setFocusObject({ column: masterController.getColNames().length - 1 });
-            return;
-        }
-        if (!masterController.getFocusObject().value) {
-            masterController.setFocusObject({
-                value: filteredCountries()[0],
-            });
-        }
-        if (masterController.getFocusObject().column == null) {
-            masterController.setFocusObject({
-                column: Math.min(
-                    Object.keys(masterController.getValue()).length,
-                    masterController.getColNames().length - 1
-                ),
-            });
-        }
-        display();
-    });
-    masterController.onDebounceTextChanged((val) => {
-        masterController.setDebounceText(val);
-    });
-    masterController.onChoiceboxOpenChanged((val) => {
-        masterController.setChoiceboxOpen(val);
-    });
-    detailController.onValueChanged((val) => {
-        detailController.setValue(val);
-        inputElement.value = val;
-        display();
-    });
-
-    const changeFocus = (e) => {
-        masterController.setFocusObject({ value: e });
-        scrollCountry();
-        display();
+    const changeSelection = (newVal) => {
+        const colNumber = masterController.getFocusObject().column;
+        const colName = masterController.getColNames()[colNumber];
+        masterController.setValue({
+            [colName]: newVal,
+        });
+        masterController.setFocusObject({
+            value: newVal,
+        });
+        // display();
     };
 
-    const changeContinent = () => {
+    const changeCategory = (newVal) => {
         masterController.setFocusObject({ column: 0 });
-        const colName = masterController.getColNames()[0];
-        masterController.setValue({
-            [colName]: masterController.getFocusObject().value,
-        });
-        changeFocus(masterController.getValue()[masterController.getColNames()[0]]);
-        scrollCountry();
+        changeSelection(newVal);
+        scrollColumn();
     };
 
-    const changeCountry = () => {
-        const colName = masterController.getColNames()[1];
-        masterController.setValue({
-            [colName]: masterController.getFocusObject().value,
-        });
+    const changeValue = (newVal) => {
         masterController.setFocusObject({ column: 1 });
-        changeFocus(masterController.getValue()[masterController.getColNames()[1]]);
+        changeSelection(newVal);
         updateFieldValue();
     };
 
     const updateFieldValue = () => {
-        inputElement.value = masterController.getValue()[masterController.getColNames()[1]];
-        if (inputElement.value === "") {
+        const colName = masterController.getColNames()[1];
+        // masterController.setValue({ [colName]: masterController.getValue()[colName] });
+        if (detailController.getValue() === "") {
             svgClear.classList.remove("show");
         } else {
             svgClear.classList.add("show");
@@ -348,21 +309,71 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         updateFieldValue();
     };
 
-    // add actions to elements
+    // ------------ UPDATE FIELDS END ------------------------------------
+
+    // ------------ BIND DETAIL CONTROLLER ACTIONS START -----------------
+
+    detailController.onValueChanged((val) => {
+        inputElement.value = val;
+    });
+    detailController.onPlaceholderChanged((val) => inputElement.setAttribute("placeholder", val ? val : ""));
+
+    // todo future change if editable select
+    detailController.onEditableChanged((_) => inputElement.setAttribute("readonly", "on"));
+
+    // ------------ BIND DETAIL CONTROLLER  ACTIONS END ------------------
+
+    // ------------ BIND MASTER CONTROLLER ACTIONS START -----------------
+
+    masterController.onValueListChanged((val) => {
+        display();
+    });
+    masterController.onValueChanged((val) => {
+        if (val[masterController.getColNames()[1]] != null) {
+            detailController.setValue(val[masterController.getColNames()[1]]);
+        }
+        display();
+    });
+    masterController.onFocusObjectChanged((val) => {
+        display();
+    });
+    masterController.onDebounceTextChanged((val) => {
+        masterController.setFocusObject({ column: masterController.getColNames().length - 1 });
+        display();
+    });
+    masterController.onChoiceboxOpenChanged((val) => {
+        masterController.setChoiceboxOpen(val);
+        toggleSelect();
+    });
+
+    // ------------ BIND MASTER CONTROLLER  ACTIONS END ------------------
+
+    // ------------ BIND HTML ELEMENT ACTIONS START ----------------------
+
+    dropdownBody.onclick = () => {
+        inputElement.focus();
+        masterController.setChoiceboxOpen(true);
+    };
+
     dropdownLine.onclick = () => {
         inputElement.focus();
     };
-    dropdownBody.onclick = () => {
-        inputElement.focus();
+    svgClear.onclick = () => {
+        resetValue();
+    };
+    svgOpen.onclick = () => {
+        masterController.setChoiceboxOpen(false);
+    };
+    svgClose.onclick = () => {
+        masterController.setChoiceboxOpen(true);
     };
     inputElement.onblur = () => {
-        masterController.setChoiceboxOpen(false);
-        // toggleSelect(masterController.getChoiceboxOpen()); // todo DEBUG
+        // masterController.setChoiceboxOpen(false); // todo DEBUG
     };
     inputElement.onclick = () => {
         masterController.setChoiceboxOpen(!masterController.getChoiceboxOpen());
-        toggleSelect(masterController.getChoiceboxOpen());
     };
+    // todo key board bugs long press
     inputElement.onkeydown = (e) => {
         console.debug(e.key + " - " + e.keyCode); // todo DEBUG
         // todo keycode depricated
@@ -373,8 +384,8 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                 }
                 masterController.setFocusObject({
                     column: masterController.getFocusObject().column - 1,
+                    value: masterController.getValue()[masterController.getColNames()[0]],
                 });
-                changeFocus(masterController.getValue()[masterController.getColNames()[0]]);
                 break;
             case 38: // ArrowUp
                 if (!dropdownBody.classList.contains("open")) {
@@ -382,109 +393,91 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                 }
                 masterController.setFocusToPrev();
                 if (masterController.getFocusObject().column === 0) {
-                    masterController.setValue({
-                        [masterController.getColNames()[0]]:
-                            masterController.getFocusObject()[masterController.getColNames()[0]],
-                    });
-                    changeContinent();
+                    changeCategory(masterController.getFocusObject().value);
                 }
-                scrollCountry();
+                scrollColumn();
                 break;
             case 39: // ArrowRight
                 if (!dropdownBody.classList.contains("open")) {
                     break;
                 }
-                if (filteredCountries().includes(masterController.getValue()[masterController.getColNames()[1]])) {
-                    masterController.setFocusObject({
-                        value: masterController.getValue()[masterController.getColNames()[1]],
-                    });
+                let defaulValue = null;
+                if (
+                    masterController
+                        .getFilteredElements()
+                        .includes(masterController.getValue()[masterController.getColNames()[1]])
+                ) {
+                    defaulValue = masterController.getValue()[masterController.getColNames()[1]];
                 } else {
-                    masterController.setFocusObject({
-                        value: filteredCountries()[0],
-                    });
+                    defaulValue = masterController.getFilteredElements()[0];
                 }
                 masterController.setFocusObject({
                     column: masterController.getFocusObject().column + 1,
+                    value: defaulValue,
                 });
-                changeFocus(masterController.getFocusObject().value);
-                scrollCountry();
+                scrollColumn();
                 break;
             case 40: // ArrowDown
                 if (!dropdownBody.classList.contains("open")) {
                     masterController.setChoiceboxOpen(true);
-                    toggleSelect(masterController.getChoiceboxOpen());
                     break;
                 }
                 masterController.setFocusToNext();
                 if (masterController.getFocusObject().column === 0) {
-                    masterController.setValue({
-                        [masterController.getColNames()[0]]:
-                        masterController.getFocusObject()[masterController.getColNames()[0]],
-                    });
-                    changeContinent();
+                    changeCategory(masterController.getFocusObject().value);
                 }
-                scrollCountry();
+                scrollColumn();
                 break;
             case 13: // Enter
             case 32: // " " - Space
                 if (!dropdownBody.classList.contains("open")) {
                     masterController.setChoiceboxOpen(true);
-                    toggleSelect(masterController.getChoiceboxOpen());
                     break;
                 }
                 if (masterController.getFocusObject().column === 0) {
-                    if (filteredCountries().includes(masterController.getValue()[masterController.getColNames()[1]])) {
-                        masterController.setFocusObject({
-                            value: masterController.getValue()[masterController.getColNames()[1]],
-                        });
+                    let defaulValue = null;
+                    if (
+                        masterController
+                            .getFilteredElements()
+                            .includes(masterController.getValue()[masterController.getColNames()[1]])
+                    ) {
+                        defaulValue = masterController.getValue()[masterController.getColNames()[1]];
                     } else {
-                        masterController.setFocusObject({
-                            value: filteredCountries()[0],
-                        });
+                        defaulValue = masterController.getFilteredElements()[0];
                     }
-                    changeFocus(masterController.getFocusObject().value);
+                    masterController.setFocusObject({
+                        column: masterController.getFocusObject().column + 1,
+                        value: defaulValue,
+                    });
                 }
                 if (masterController.getFocusObject().column === 1) {
-                    changeCountry();
+                    changeValue(masterController.getFocusObject().value);
                 }
-                masterController.setFocusObject({
-                    column: masterController.getFocusObject().column + 1,
-                });
                 break;
             case 27: // Escape
                 masterController.setChoiceboxOpen(false);
-                toggleSelect(masterController.getChoiceboxOpen());
                 break;
             case 8: // BackSpace
                 resetValue();
                 break;
             case 9: // Tab
                 masterController.setChoiceboxOpen(false);
-                toggleSelect(masterController.getChoiceboxOpen());
                 break;
             default:
                 // e.preventDefault();
                 if (e.key.length === 1) {
-                    masterController.setFocusObject({ column: 1 });
                     masterController.triggerDebounceInput(e.key);
-                    detailController.setValue(masterController.getValue()[masterController.getColNames()[1]]);
-                    updateFieldValue();
-                    scrollCountry();
+                    if (masterController.getChoiceboxOpen()) {
+                        scrollColumn();
+                    } else {
+                        updateFieldValue();
+                    }
                 }
                 break;
         }
     };
-    svgClear.onclick = () => {
-        resetValue();
-    };
-    svgOpen.onclick = () => {
-        masterController.setChoiceboxOpen(false);
-        toggleSelect(masterController.getChoiceboxOpen());
-    };
-    svgClose.onclick = () => {
-        masterController.setChoiceboxOpen(true);
-        toggleSelect(masterController.getChoiceboxOpen());
-    };
+
+    // ------------ BIND HTML ELEMEMT ACTIONS END ------------------------
 
     return [labelElement, dropdownElement];
 };
