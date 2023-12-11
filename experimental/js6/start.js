@@ -1,7 +1,7 @@
-import { countryList } from "../countries.js";
-// import { ChoiceInputController } from "./choiceInputController.js";
-import { ChoiceDetailController, ChoiceMasterController } from "./choiceInputController.js";
-import { projectChoiceInput } from "./choiceInputProjector.js";
+import {countryList} from "../countries.js";
+
+import {ChoiceDetailController, ChoiceMasterController} from "./choiceInputController.js";
+import {projectChoiceInput} from "./choiceInputProjector.js";
 
 const formHolder = document.querySelector(".countrySelectionView");
 if (null != formHolder) {
@@ -13,8 +13,8 @@ if (null != formHolder) {
         name: "country",
     };
     const formStructureMaster = {
-        valueList: countryList,
-        sectionValue: { continent: "All" },
+        elementList: countryList,
+        sectionElement: {continent: "All"},
         focusObject: {},
     };
     const detailController = ChoiceDetailController(formStructureDetail);

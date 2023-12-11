@@ -1,3 +1,5 @@
+// noinspection JSValidateJSDoc
+
 import {
     VALID,
     EDITABLE,
@@ -11,21 +13,56 @@ import {
     Attribute,
 } from "../../docs/src/kolibri/presentationModel.js";
 
-export { ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute };
+export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
 
-/**
+/** todo remove later
  * @typedef { object } Country
- * @property { String } country
- * @property { String } continent
+ * @property { !String } country
+ * @property { !String } continent
+ * @property { ?String } shortcut
  */
 
 /**
  * @typedef { object } FocusObject
- * @property { String } value
- * @property { Number } column
+ * @property { ?String } value
+ * @property { ?Number } column
  */
 
-const ChoiceDetailModel = ({ value, placeholder, label, name }) => {
+/**
+ * @typedef { object } ChoiceDetailAttributes
+ * @template _T_
+ * @property { ?_T_ }     value           - optional value, will become the value sent in the form
+ * @property { ?String }  placeholder     - optional placeholder that reflects the placeholder attribute of an input
+ * @property { ?String }  label           - optional label, defaults to undefined
+ * @property { ?String }  name            - optional name that reflects the name attribute of an input element, used in forms
+ */
+
+/**
+ * @typedef { object } ChoiceMasterAttributes
+ * @template { object } _T_ - object with category and element entry
+ * @property { !List<_T_> }     elementList    - mandatory list of elements, will become all possible input value, to be chosen from
+ * @property { ?_T_ }           sectionElement - optional selected elements, will become the selected category & element
+ * @property { ?FocusObject }   focusObject  - optional focus object, will become the focused category or element, used in navigation
+ */
+
+/**
+ * Create a presentation model for the purpose of being used to bind against the detail view of selection Input element.
+ * It provides a single readonly HTML text Input in combinations with its pairing Label element and
+ * buttons to toggle and clear the selection component.
+ * For a selection detail element, it only needs one attribute.
+ * @constructor
+ * @template _T_
+ * @param  { ChoiceDetailModel<_T_> }
+ * @return { AttributeType<_T_> }
+ * @example
+ *     const model = ChoiceDetailModel({
+ *         value: "",
+ *         placeholder: "Choose a country",
+ *         label: "",
+ *         name: "country"
+ *     });
+ */
+const ChoiceDetailModel = ({value, placeholder, label, name}) => {
     const attr = Attribute(value);
     attr.getObs(EDITABLE).setValue(false);
     attr.getObs(VALID).setValue(true);
@@ -34,65 +71,43 @@ const ChoiceDetailModel = ({ value, placeholder, label, name }) => {
     if (null != label) attr.getObs(LABEL).setValue(label);
     if (null != name) attr.getObs(NAME).setValue(name);
 
-    return { ...attr };
+    return {...attr};
 };
 
-const ChoiceMasterModel = ({ valueList, sectionValue, focusObject }) => {
-    const multiAttr = ChoiceAttribute(valueList, focusObject)(sectionValue);
+/**
+ * Create a presentation model for the purpose of being used to bind against the master view of selection Input element.
+ * It provides a container with the given categories and elements in combination with the current
+ * selection and position in focus to use for the navigation in the list.
+ * For a selection master element, it only needs one attribute.
+ * @constructor
+ * @template { object } _T_ - object with category and element entry
+ * @param  { ChoiceMasterAttributes<_T_> }
+ * @return { AttributeType<_T_> }
+ * @example
+ *     const model = ChoiceMasterModel({
+ *         elementList: [{country: "Switzerland", continent: "Europe"}, 
+ *                      {country: "United States", continent:"North America"}, 
+ *                      {country: "Germany", continent: "Europe"}],
+ *         sectionElement: { continent: "All" },
+ *         focusObject: {}
+ *     });
+ */
+const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
+    const multiAttr = ChoiceAttribute(elementList, focusObject, sectionElement);
     multiAttr.getObs(EDITABLE).setValue(false);
     multiAttr.getObs(DEBOUNCE_TEXT, "");
     multiAttr.getObs(CHOICEBOX_OPEN, false);
 
-    return { ...multiAttr };
+    return {...multiAttr};
 };
 
-/*
- * @typedef { object } ChoiceInputAttributes
- * @template _T_
- * @property { !List<Map<String,_T_>> } listObjects - mandatory list of value objects, will become the possible input values, to be chosen from
- * @property { !List<String> }      colNames        - mandatory names of the map elements, used to extract the values from the objects
- * @property { ?Map<String,_T_> }   selcectedObject - optional selected value object, will become the selected category & value
- * @property { ?_T_ }               focusedObject    - optional focused value, will become the focused category or value for navigation
- * @property { ?_T_ }               filledValue     - optional filled value, will become the value sent in the form
- * @property { ?String }            placeholder     - optional placeholder that reflects the placeholder attribute of an input of no element is selected
- * @property { ?String }            label           - optional label, defaults to undefined
- * @property { ?String }            name            - optional name that reflects the name attribute of an input element, used in forms
- */
-
-/*
- * Create a presentation model for the purpose of being used to bind against a single readonly HTML Input in
- * combinations with its pairing Label element and the content of the possible selections.
- * For a selection element, it only needs one attribute.
- * @constructor
- * @template _T_
- * @param  { ChoiceInputAttributes<_T_> }
- * @return { AttributeType<_T_> } 
- * @example
- *     const model = SimpleInputModel({
-            listObjects :   [{country: "Switzerland", continent: "Europe"}, 
-                                {country: "United States", continent:"North America"}, 
-                                {country: "Germany", continent: "Europe"}],
-            selcectedObject :  {continent: "Europe"},
-            focusedObject : {column: 1, value: "Switzerland"},
-            filledValue :   "",
-            placeholder:    "Choose Country",
-            label:          "Country",
-            name:           "country",
-            colNames:       ["continent","country"],
-     });
- */
-// const ChoiceInputModel = ({ listObjects, selcectedObject, focusedObject, filledValue, placeholder, label, name }) => {
-    
-// };
-
-/**
- * Constructor that creates a new choice attribute with a value and an optional qualifier.
- * @template _T_
- * @param  { List<Map<String,_T_>> }    listValues     - the initial list of value objects
- * @param  { Map<String,_T_> }          selcectedObject - the initial selected value object
- * @param  { _T_ }                      focusedObject    - the initial focused end value 
- * @param  { _T_ }                      filledValue        - the initial selected end value
- * @param  { String? }                  qualifier       - the optional qualifier. If provided and non-nullish it will put the attribute
+/** todo qualifier not tested an integrated jet
+ * Constructor that creates a new choice attribute with a element list, focus object, value object and an optional qualifier.
+ * @template { object } _T_ - object with category and element entry
+ * @param  { List<_T_> }       elementList       - the initial list of element objects
+ * @param  { FocusObject }     focusObject     - the initial focus object with current column and current element
+ * @param  { _T_ }             value           - the initial selection object
+ * @param  { String? }         qualifier       - the optional qualifier. If provided and non-nullish it will put the attribute
  *          in the ModelWorld and all existing attributes with the same qualifier will be updated to the initial value.
  *          In case that the automatic update is to be omitted, consider using {@link QualifiedAttribute}.
  * @return { AttributeType<_T_> }
@@ -100,14 +115,14 @@ const ChoiceMasterModel = ({ valueList, sectionValue, focusObject }) => {
  * @impure since it changes the ModelWorld in case of a given non-nullish qualifier.
  * @example
  * const firstNameAttr = ChoiceAttribute([
-                                {continent: "North America", country: "United States"},
-                                {continent: "Europe", country: "Switzerland"},
-                                {continent: "Europe", country: "Germany"},
-                            ])("Switzerland", "Country.Living");
+ *                                 {continent: "North America", country: "United States"},
+ *                                 {continent: "Europe", country: "Switzerland"},
+ *                                 {continent: "Europe", country: "Germany"},
+ *                             ], "Switzerland");
  */
-const ChoiceAttribute = (valueList, focusObject) => (value, qualifier) => {
+const ChoiceAttribute = (elementList, focusObject, value, qualifier) => {
     const attr = Attribute(value, qualifier);
-    attr.getObs(LIST_ELEMENTS, valueList);
+    attr.getObs(LIST_ELEMENTS, elementList);
     attr.getObs(FOCUS_ELEMENT, focusObject);
-    return { ...attr };
+    return {...attr};
 };
