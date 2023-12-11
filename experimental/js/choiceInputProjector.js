@@ -514,3 +514,22 @@ const projectChoiceInput = (timeout) => (inputController, formCssClassName) => {
 
     return [labelElement, dropdownElement];
 };
+const changeCategory = () => {
+    masterController.setFocusObject({ column: 0 });
+    const colName = masterController.getColNames()[0];
+    masterController.setValue({
+        [colName]: masterController.getFocusObject().value,
+    });
+    changeFocus(masterController.getValue()[masterController.getColNames()[0]]);
+    scrollValues();
+};
+
+const changeValue = () => {
+    const colName = masterController.getColNames()[1];
+    masterController.setValue({
+        [colName]: masterController.getFocusObject().value,
+    });
+    masterController.setFocusObject({ column: 1 });
+    changeFocus(masterController.getValue()[masterController.getColNames()[1]]);
+    updateFieldValue();
+};

@@ -3,6 +3,18 @@
  * Projection function that creates a view for input purposes, binds the information that is available through
  * the inputController, and returns the generated views.
 
+ * @typedef { <_T_> // todo change ctrl types
+ *     (choiceDetailController: !ChoiceInputControllerType<_T_>, choiceMasterController: !ChoiceInputControllerType<_T_>, formCssClassName: !String )
+ *      => [HTMLLabelElement, HTMLInputElement]
+ *     } ChoiceInputProjectionType
+ * @impure since calling the controller functions changes underlying models. The DOM remains unchanged.
+ * @note   in the future we might want to depend on a more general controller than SimpleInputControllerType.
+ */
+
+/**
+ * Projection function that creates a view for input purposes, binds the information that is available through
+ * the inputController, and returns the generated views.
+
  * @typedef { <_T_>
  *     (inputController: !SimpleInputControllerType<_T_>, formCssClassName: !String )
  *      => [HTMLLabelElement, HTMLInputElement]

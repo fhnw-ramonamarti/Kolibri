@@ -13,7 +13,7 @@ if (null != formHolder) {
         placeholder    : "Choose Country",
         label          : "",
         name           : "country",
-        colNames       : ["continent", "name"],
+        colNames       : ["continent", "country"],
     };
     const controller = ChoiceInputController(formStructure);
     formHolder.append(...projectChoiceInput(800)(controller, "selectedCountry"));
