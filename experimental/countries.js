@@ -1,1679 +1,1679 @@
 export const countryList = [
     {
-        name: "Afghanistan",
+        country: "Afghanistan",
         code: "AF",
         code2: "AFG",
         domain: "af",
         continent: "Asia",
     },
     {
-        name: "Albania",
+        country: "Albania",
         code: "AL",
         code2: "ALB",
         domain: "al",
         continent: "Europe",
     },
     {
-        name: "Algeria",
+        country: "Algeria",
         code: "DZ",
         code2: "DZA",
         domain: "dz",
         continent: "Africa",
     },
     {
-        name: "American Samoa",
+        country: "American Samoa",
         code: "AS",
         code2: "ASM",
         domain: "as",
         continent: "Oceania",
     },
     {
-        name: "Andorra",
+        country: "Andorra",
         code: "AD",
         code2: "AND",
         domain: "ad",
         continent: "Europe",
     },
     {
-        name: "Angola",
+        country: "Angola",
         code: "AO",
         code2: "AGO",
         domain: "ao",
         continent: "Africa",
     },
     {
-        name: "Anguilla",
+        country: "Anguilla",
         code: "AI",
         code2: "AIA",
         domain: "ai",
         continent: "North America",
     },
     {
-        name: "Antarctica",
+        country: "Antarctica",
         code: "AQ",
         code2: "ATA",
         domain: "aq",
         continent: "Antarctica",
     },
     {
-        name: "Antigua and Barbuda",
+        country: "Antigua and Barbuda",
         code: "AG",
         code2: "ATG",
         domain: "ag",
         continent: "North America",
     },
     {
-        name: "Argentina",
+        country: "Argentina",
         code: "AR",
         code2: "ARG",
         domain: "ar",
         continent: "South America",
     },
     {
-        name: "Armenia",
+        country: "Armenia",
         code: "AM",
         code2: "ARM",
         domain: "am",
         continent: "Asia",
     },
     {
-        name: "Aruba",
+        country: "Aruba",
         code: "AW",
         code2: "ABW",
         domain: "aw",
         continent: "North America",
     },
     {
-        name: "Australia",
+        country: "Australia",
         code: "AU",
         code2: "AUS",
         domain: "au",
         continent: "Oceania",
     },
     {
-        name: "Austria",
+        country: "Austria",
         code: "AT",
         code2: "AUT",
         domain: "at",
         continent: "Europe",
     },
     {
-        name: "Azerbaijan",
+        country: "Azerbaijan",
         code: "AZ",
         code2: "AZE",
         domain: "az",
         continent: "Asia",
     },
     {
-        name: "Bahamas",
+        country: "Bahamas",
         code: "BS",
         code2: "BHS",
         domain: "bs",
         continent: "North America",
     },
     {
-        name: "Bahrain",
+        country: "Bahrain",
         code: "BH",
         code2: "BHR",
         domain: "bh",
         continent: "Asia",
     },
     {
-        name: "Bangladesh",
+        country: "Bangladesh",
         code: "BD",
         code2: "BGD",
         domain: "bd",
         continent: "Asia",
     },
     {
-        name: "Barbados",
+        country: "Barbados",
         code: "BB",
         code2: "BRB",
         domain: "bb",
         continent: "North America",
     },
     {
-        name: "Belarus",
+        country: "Belarus",
         code: "BY",
         code2: "BLR",
         domain: "by",
         continent: "Europe",
     },
     {
-        name: "Belgium",
+        country: "Belgium",
         code: "BE",
         code2: "BEL",
         domain: "be",
         continent: "Europe",
     },
     {
-        name: "Belize",
+        country: "Belize",
         code: "BZ",
         code2: "BLZ",
         domain: "bz",
         continent: "North America",
     },
     {
-        name: "Benin",
+        country: "Benin",
         code: "BJ",
         code2: "BEN",
         domain: "bj",
         continent: "Africa",
     },
     {
-        name: "Bermuda",
+        country: "Bermuda",
         code: "BM",
         code2: "BMU",
         domain: "bm",
         continent: "North America",
     },
     {
-        name: "Bhutan",
+        country: "Bhutan",
         code: "BT",
         code2: "BTN",
         domain: "bt",
         continent: "Asia",
     },
     {
-        name: "Bolivia",
+        country: "Bolivia",
         code: "BO",
         code2: "BOL",
         domain: "bo",
         continent: "South America",
     },
     {
-        name: "Bosnia and Herzegovina",
+        country: "Bosnia and Herzegovina",
         code: "BA",
         code2: "BIH",
         domain: "ba",
         continent: "Europe",
     },
     {
-        name: "Botswana",
+        country: "Botswana",
         code: "BW",
         code2: "BWA",
         domain: "bw",
         continent: "Africa",
     },
     {
-        name: "Brazil",
+        country: "Brazil",
         code: "BR",
         code2: "BRA",
         domain: "br",
         continent: "South America",
     },
     {
-        name: "British Indian Ocean Territory",
+        country: "British Indian Ocean Territory",
         code: "IO",
         code2: "IOT",
         domain: "io",
         continent: "Asia",
     },
     {
-        name: "British Virgin Islands",
+        country: "British Virgin Islands",
         code: "VG",
         code2: "VGB",
         domain: "vg",
         continent: "North America",
     },
     {
-        name: "Brunei",
+        country: "Brunei",
         code: "BN",
         code2: "BRN",
         domain: "bn",
         continent: "Asia",
     },
     {
-        name: "Bulgaria",
+        country: "Bulgaria",
         code: "BG",
         code2: "BGR",
         domain: "bg",
         continent: "Europe",
     },
     {
-        name: "Burkina Faso",
+        country: "Burkina Faso",
         code: "BF",
         code2: "BFA",
         domain: "bf",
         continent: "Africa",
     },
     {
-        name: "Burundi",
+        country: "Burundi",
         code: "BI",
         code2: "BDI",
         domain: "bi",
         continent: "Africa",
     },
     {
-        name: "Cambodia",
+        country: "Cambodia",
         code: "KH",
         code2: "KHM",
         domain: "kh",
         continent: "Asia",
     },
     {
-        name: "Cameroon",
+        country: "Cameroon",
         code: "CM",
         code2: "CMR",
         domain: "cm",
         continent: "Africa",
     },
     {
-        name: "Canada",
+        country: "Canada",
         code: "CA",
         code2: "CAN",
         domain: "ca",
         continent: "North America",
     },
     {
-        name: "Cape Verde",
+        country: "Cape Verde",
         code: "CV",
         code2: "CPV",
         domain: "cv",
         continent: "Africa",
     },
     {
-        name: "Cayman Islands",
+        country: "Cayman Islands",
         code: "KY",
         code2: "CYM",
         domain: "ky",
         continent: "North America",
     },
     {
-        name: "Central African Republic",
+        country: "Central African Republic",
         code: "CF",
         code2: "CAF",
         domain: "cf",
         continent: "Africa",
     },
     {
-        name: "Chad",
+        country: "Chad",
         code: "TD",
         code2: "TCD",
         domain: "td",
         continent: "Africa",
     },
     {
-        name: "Chile",
+        country: "Chile",
         code: "CL",
         code2: "CHL",
         domain: "cl",
         continent: "South America",
     },
     {
-        name: "China",
+        country: "China",
         code: "CN",
         code2: "CHN",
         domain: "cn",
         continent: "Asia",
     },
     {
-        name: "Christmas Island",
+        country: "Christmas Island",
         code: "CX",
         code2: "CXR",
         domain: "cx",
         continent: "Asia",
     },
     {
-        name: "Cocos Islands",
+        country: "Cocos Islands",
         code: "CC",
         code2: "CCK",
         domain: "cc",
         continent: "Asia",
     },
     {
-        name: "Colombia",
+        country: "Colombia",
         code: "CO",
         code2: "COL",
         domain: "co",
         continent: "South America",
     },
     {
-        name: "Comoros",
+        country: "Comoros",
         code: "KM",
         code2: "COM",
         domain: "km",
         continent: "Africa",
     },
     {
-        name: "Cook Islands",
+        country: "Cook Islands",
         code: "CK",
         code2: "COK",
         domain: "ck",
         continent: "Oceania",
     },
     {
-        name: "Costa Rica",
+        country: "Costa Rica",
         code: "CR",
         code2: "CRI",
         domain: "cr",
         continent: "North America",
     },
     {
-        name: "Croatia",
+        country: "Croatia",
         code: "HR",
         code2: "HRV",
         domain: "hr",
         continent: "Europe",
     },
     {
-        name: "Cuba",
+        country: "Cuba",
         code: "CU",
         code2: "CUB",
         domain: "cu",
         continent: "North America",
     },
     {
-        name: "Curacao",
+        country: "Curacao",
         code: "CW",
         code2: "CUW",
         domain: "cw",
         continent: "North America",
     },
     {
-        name: "Cyprus",
+        country: "Cyprus",
         code: "CY",
         code2: "CYP",
         domain: "cy",
         continent: "Europe",
     },
     {
-        name: "Czech Republic",
+        country: "Czech Republic",
         code: "CZ",
         code2: "CZE",
         domain: "cz",
         continent: "Europe",
     },
     {
-        name: "Democratic Republic of the Congo",
+        country: "Democratic Republic of the Congo",
         code: "CD",
         code2: "COD",
         domain: "cd",
         continent: "Africa",
     },
     {
-        name: "Denmark",
+        country: "Denmark",
         code: "DK",
         code2: "DNK",
         domain: "dk",
         continent: "Europe",
     },
     {
-        name: "Djibouti",
+        country: "Djibouti",
         code: "DJ",
         code2: "DJI",
         domain: "dj",
         continent: "Africa",
     },
     {
-        name: "Dominica",
+        country: "Dominica",
         code: "DM",
         code2: "DMA",
         domain: "dm",
         continent: "North America",
     },
     {
-        name: "Dominican Republic",
+        country: "Dominican Republic",
         code: "DO",
         code2: "DOM",
         domain: "do",
         continent: "North America",
     },
     {
-        name: "Timor-Leste",
+        country: "Timor-Leste",
         code: "TL",
         code2: "TLS",
         domain: "tl",
         continent: "Oceania",
     },
     {
-        name: "Ecuador",
+        country: "Ecuador",
         code: "EC",
         code2: "ECU",
         domain: "ec",
         continent: "South America",
     },
     {
-        name: "Egypt",
+        country: "Egypt",
         code: "EG",
         code2: "EGY",
         domain: "eg",
         continent: "Africa",
     },
     {
-        name: "El Salvador",
+        country: "El Salvador",
         code: "SV",
         code2: "SLV",
         domain: "sv",
         continent: "North America",
     },
     {
-        name: "Equatorial Guinea",
+        country: "Equatorial Guinea",
         code: "GQ",
         code2: "GNQ",
         domain: "gq",
         continent: "Africa",
     },
     {
-        name: "Eritrea",
+        country: "Eritrea",
         code: "ER",
         code2: "ERI",
         domain: "er",
         continent: "Africa",
     },
     {
-        name: "Estonia",
+        country: "Estonia",
         code: "EE",
         code2: "EST",
         domain: "ee",
         continent: "Europe",
     },
     {
-        name: "Ethiopia",
+        country: "Ethiopia",
         code: "ET",
         code2: "ETH",
         domain: "et",
         continent: "Africa",
     },
     {
-        name: "Falkland Islands",
+        country: "Falkland Islands",
         code: "FK",
         code2: "FLK",
         domain: "fk",
         continent: "South America",
     },
     {
-        name: "Faroe Islands",
+        country: "Faroe Islands",
         code: "FO",
         code2: "FRO",
         domain: "fo",
         continent: "Europe",
     },
     {
-        name: "Fiji",
+        country: "Fiji",
         code: "FJ",
         code2: "FJI",
         domain: "fj",
         continent: "Oceania",
     },
     {
-        name: "Finland",
+        country: "Finland",
         code: "FI",
         code2: "FIN",
         domain: "fi",
         continent: "Europe",
     },
     {
-        name: "France",
+        country: "France",
         code: "FR",
         code2: "FRA",
         domain: "fr",
         continent: "Europe",
     },
     {
-        name: "French Polynesia",
+        country: "French Polynesia",
         code: "PF",
         code2: "PYF",
         domain: "pf",
         continent: "Oceania",
     },
     {
-        name: "Gabon",
+        country: "Gabon",
         code: "GA",
         code2: "GAB",
         domain: "ga",
         continent: "Africa",
     },
     {
-        name: "Gambia",
+        country: "Gambia",
         code: "GM",
         code2: "GMB",
         domain: "gm",
         continent: "Africa",
     },
     {
-        name: "Georgia",
+        country: "Georgia",
         code: "GE",
         code2: "GEO",
         domain: "ge",
         continent: "Asia",
     },
     {
-        name: "Germany",
+        country: "Germany",
         code: "DE",
         code2: "DEU",
         domain: "de",
         continent: "Europe",
     },
     {
-        name: "Ghana",
+        country: "Ghana",
         code: "GH",
         code2: "GHA",
         domain: "gh",
         continent: "Africa",
     },
     {
-        name: "Gibraltar",
+        country: "Gibraltar",
         code: "GI",
         code2: "GIB",
         domain: "gi",
         continent: "Europe",
     },
     {
-        name: "Greece",
+        country: "Greece",
         code: "GR",
         code2: "GRC",
         domain: "gr",
         continent: "Europe",
     },
     {
-        name: "Greenland",
+        country: "Greenland",
         code: "GL",
         code2: "GRL",
         domain: "gl",
         continent: "North America",
     },
     {
-        name: "Grenada",
+        country: "Grenada",
         code: "GD",
         code2: "GRD",
         domain: "gd",
         continent: "North America",
     },
     {
-        name: "Guam",
+        country: "Guam",
         code: "GU",
         code2: "GUM",
         domain: "gu",
         continent: "Oceania",
     },
     {
-        name: "Guatemala",
+        country: "Guatemala",
         code: "GT",
         code2: "GTM",
         domain: "gt",
         continent: "North America",
     },
     {
-        name: "Guernsey",
+        country: "Guernsey",
         code: "GG",
         code2: "GGY",
         domain: "gg",
         continent: "Europe",
     },
     {
-        name: "Guinea",
+        country: "Guinea",
         code: "GN",
         code2: "GIN",
         domain: "gn",
         continent: "Africa",
     },
     {
-        name: "Guinea-Bissau",
+        country: "Guinea-Bissau",
         code: "GW",
         code2: "GNB",
         domain: "gw",
         continent: "Africa",
     },
     {
-        name: "Guyana",
+        country: "Guyana",
         code: "GY",
         code2: "GUY",
         domain: "gy",
         continent: "South America",
     },
     {
-        name: "Haiti",
+        country: "Haiti",
         code: "HT",
         code2: "HTI",
         domain: "ht",
         continent: "North America",
     },
     {
-        name: "Honduras",
+        country: "Honduras",
         code: "HN",
         code2: "HND",
         domain: "hn",
         continent: "North America",
     },
     {
-        name: "Hong Kong",
+        country: "Hong Kong",
         code: "HK",
         code2: "HKG",
         domain: "hk",
         continent: "Asia",
     },
     {
-        name: "Hungary",
+        country: "Hungary",
         code: "HU",
         code2: "HUN",
         domain: "hu",
         continent: "Europe",
     },
     {
-        name: "Iceland",
+        country: "Iceland",
         code: "IS",
         code2: "ISL",
         domain: "is",
         continent: "Europe",
     },
     {
-        name: "India",
+        country: "India",
         code: "IN",
         code2: "IND",
         domain: "in",
         continent: "Asia",
     },
     {
-        name: "Indonesia",
+        country: "Indonesia",
         code: "ID",
         code2: "IDN",
         domain: "id",
         continent: "Asia",
     },
     {
-        name: "Iran",
+        country: "Iran",
         code: "IR",
         code2: "IRN",
         domain: "ir",
         continent: "Asia",
     },
     {
-        name: "Iraq",
+        country: "Iraq",
         code: "IQ",
         code2: "IRQ",
         domain: "iq",
         continent: "Asia",
     },
     {
-        name: "Ireland",
+        country: "Ireland",
         code: "IE",
         code2: "IRL",
         domain: "ie",
         continent: "Europe",
     },
     {
-        name: "Isle of Man",
+        country: "Isle of Man",
         code: "IM",
         code2: "IMN",
         domain: "im",
         continent: "Europe",
     },
     {
-        name: "Israel",
+        country: "Israel",
         code: "IL",
         code2: "ISR",
         domain: "il",
         continent: "Asia",
     },
     {
-        name: "Italy",
+        country: "Italy",
         code: "IT",
         code2: "ITA",
         domain: "it",
         continent: "Europe",
     },
     {
-        name: "Ivory Coast",
+        country: "Ivory Coast",
         code: "CI",
         code2: "CIV",
         domain: "ci",
         continent: "Africa",
     },
     {
-        name: "Jamaica",
+        country: "Jamaica",
         code: "JM",
         code2: "JAM",
         domain: "jm",
         continent: "North America",
     },
     {
-        name: "Japan",
+        country: "Japan",
         code: "JP",
         code2: "JPN",
         domain: "jp",
         continent: "Asia",
     },
     {
-        name: "Jersey",
+        country: "Jersey",
         code: "JE",
         code2: "JEY",
         domain: "je",
         continent: "Europe",
     },
     {
-        name: "Jordan",
+        country: "Jordan",
         code: "JO",
         code2: "JOR",
         domain: "jo",
         continent: "Asia",
     },
     {
-        name: "Kazakhstan",
+        country: "Kazakhstan",
         code: "KZ",
         code2: "KAZ",
         domain: "kz",
         continent: "Asia",
     },
     {
-        name: "Kenya",
+        country: "Kenya",
         code: "KE",
         code2: "KEN",
         domain: "ke",
         continent: "Africa",
     },
     {
-        name: "Kiribati",
+        country: "Kiribati",
         code: "KI",
         code2: "KIR",
         domain: "ki",
         continent: "Oceania",
     },
     {
-        name: "Kosovo",
+        country: "Kosovo",
         code: "XK",
         code2: "XKX",
         domain: "",
         continent: "Europe",
     },
     {
-        name: "Kuwait",
+        country: "Kuwait",
         code: "KW",
         code2: "KWT",
         domain: "kw",
         continent: "Asia",
     },
     {
-        name: "Kyrgyzstan",
+        country: "Kyrgyzstan",
         code: "KG",
         code2: "KGZ",
         domain: "kg",
         continent: "Asia",
     },
     {
-        name: "Laos",
+        country: "Laos",
         code: "LA",
         code2: "LAO",
         domain: "la",
         continent: "Asia",
     },
     {
-        name: "Latvia",
+        country: "Latvia",
         code: "LV",
         code2: "LVA",
         domain: "lv",
         continent: "Europe",
     },
     {
-        name: "Lebanon",
+        country: "Lebanon",
         code: "LB",
         code2: "LBN",
         domain: "lb",
         continent: "Asia",
     },
     {
-        name: "Lesotho",
+        country: "Lesotho",
         code: "LS",
         code2: "LSO",
         domain: "ls",
         continent: "Africa",
     },
     {
-        name: "Liberia",
+        country: "Liberia",
         code: "LR",
         code2: "LBR",
         domain: "lr",
         continent: "Africa",
     },
     {
-        name: "Libya",
+        country: "Libya",
         code: "LY",
         code2: "LBY",
         domain: "ly",
         continent: "Africa",
     },
     {
-        name: "Liechtenstein",
+        country: "Liechtenstein",
         code: "LI",
         code2: "LIE",
         domain: "li",
         continent: "Europe",
     },
     {
-        name: "Lithuania",
+        country: "Lithuania",
         code: "LT",
         code2: "LTU",
         domain: "lt",
         continent: "Europe",
     },
     {
-        name: "Luxembourg",
+        country: "Luxembourg",
         code: "LU",
         code2: "LUX",
         domain: "lu",
         continent: "Europe",
     },
     {
-        name: "Macau",
+        country: "Macau",
         code: "MO",
         code2: "MAC",
         domain: "mo",
         continent: "Asia",
     },
     {
-        name: "Macedonia",
+        country: "Macedonia",
         code: "MK",
         code2: "MKD",
         domain: "mk",
         continent: "Europe",
     },
     {
-        name: "Madagascar",
+        country: "Madagascar",
         code: "MG",
         code2: "MDG",
         domain: "mg",
         continent: "Africa",
     },
     {
-        name: "Malawi",
+        country: "Malawi",
         code: "MW",
         code2: "MWI",
         domain: "mw",
         continent: "Africa",
     },
     {
-        name: "Malaysia",
+        country: "Malaysia",
         code: "MY",
         code2: "MYS",
         domain: "my",
         continent: "Asia",
     },
     {
-        name: "Maldives",
+        country: "Maldives",
         code: "MV",
         code2: "MDV",
         domain: "mv",
         continent: "Asia",
     },
     {
-        name: "Mali",
+        country: "Mali",
         code: "ML",
         code2: "MLI",
         domain: "ml",
         continent: "Africa",
     },
     {
-        name: "Malta",
+        country: "Malta",
         code: "MT",
         code2: "MLT",
         domain: "mt",
         continent: "Europe",
     },
     {
-        name: "Marshall Islands",
+        country: "Marshall Islands",
         code: "MH",
         code2: "MHL",
         domain: "mh",
         continent: "Oceania",
     },
     {
-        name: "Mauritania",
+        country: "Mauritania",
         code: "MR",
         code2: "MRT",
         domain: "mr",
         continent: "Africa",
     },
     {
-        name: "Mauritius",
+        country: "Mauritius",
         code: "MU",
         code2: "MUS",
         domain: "mu",
         continent: "Africa",
     },
     {
-        name: "Mayotte",
+        country: "Mayotte",
         code: "YT",
         code2: "MYT",
         domain: "yt",
         continent: "Africa",
     },
     {
-        name: "Mexico",
+        country: "Mexico",
         code: "MX",
         code2: "MEX",
         domain: "mx",
         continent: "North America",
     },
     {
-        name: "Micronesia",
+        country: "Micronesia",
         code: "FM",
         code2: "FSM",
         domain: "fm",
         continent: "Oceania",
     },
     {
-        name: "Moldova",
+        country: "Moldova",
         code: "MD",
         code2: "MDA",
         domain: "md",
         continent: "Europe",
     },
     {
-        name: "Monaco",
+        country: "Monaco",
         code: "MC",
         code2: "MCO",
         domain: "mc",
         continent: "Europe",
     },
     {
-        name: "Mongolia",
+        country: "Mongolia",
         code: "MN",
         code2: "MNG",
         domain: "mn",
         continent: "Asia",
     },
     {
-        name: "Montenegro",
+        country: "Montenegro",
         code: "ME",
         code2: "MNE",
         domain: "me",
         continent: "Europe",
     },
     {
-        name: "Montserrat",
+        country: "Montserrat",
         code: "MS",
         code2: "MSR",
         domain: "ms",
         continent: "North America",
     },
     {
-        name: "Morocco",
+        country: "Morocco",
         code: "MA",
         code2: "MAR",
         domain: "ma",
         continent: "Africa",
     },
     {
-        name: "Mozambique",
+        country: "Mozambique",
         code: "MZ",
         code2: "MOZ",
         domain: "mz",
         continent: "Africa",
     },
     {
-        name: "Myanmar",
+        country: "Myanmar",
         code: "MM",
         code2: "MMR",
         domain: "mm",
         continent: "Asia",
     },
     {
-        name: "Namibia",
+        country: "Namibia",
         code: "NA",
         code2: "NAM",
         domain: "na",
         continent: "Africa",
     },
     {
-        name: "Nauru",
+        country: "Nauru",
         code: "NR",
         code2: "NRU",
         domain: "nr",
         continent: "Oceania",
     },
     {
-        name: "Nepal",
+        country: "Nepal",
         code: "NP",
         code2: "NPL",
         domain: "np",
         continent: "Asia",
     },
     {
-        name: "Netherlands",
+        country: "Netherlands",
         code: "NL",
         code2: "NLD",
         domain: "nl",
         continent: "Europe",
     },
     {
-        name: "Netherlands Antilles",
+        country: "Netherlands Antilles",
         code: "AN",
         code2: "ANT",
         domain: "an",
         continent: "North America",
     },
     {
-        name: "New Caledonia",
+        country: "New Caledonia",
         code: "NC",
         code2: "NCL",
         domain: "nc",
         continent: "Oceania",
     },
     {
-        name: "New Zealand",
+        country: "New Zealand",
         code: "NZ",
         code2: "NZL",
         domain: "nz",
         continent: "Oceania",
     },
     {
-        name: "Nicaragua",
+        country: "Nicaragua",
         code: "NI",
         code2: "NIC",
         domain: "ni",
         continent: "North America",
     },
     {
-        name: "Niger",
+        country: "Niger",
         code: "NE",
         code2: "NER",
         domain: "ne",
         continent: "Africa",
     },
     {
-        name: "Nigeria",
+        country: "Nigeria",
         code: "NG",
         code2: "NGA",
         domain: "ng",
         continent: "Africa",
     },
     {
-        name: "Niue",
+        country: "Niue",
         code: "NU",
         code2: "NIU",
         domain: "nu",
         continent: "Oceania",
     },
     {
-        name: "North Korea",
+        country: "North Korea",
         code: "KP",
         code2: "PRK",
         domain: "kp",
         continent: "Asia",
     },
     {
-        name: "Northern Mariana Islands",
+        country: "Northern Mariana Islands",
         code: "MP",
         code2: "MNP",
         domain: "mp",
         continent: "Oceania",
     },
     {
-        name: "Norway",
+        country: "Norway",
         code: "NO",
         code2: "NOR",
         domain: "no",
         continent: "Europe",
     },
     {
-        name: "Oman",
+        country: "Oman",
         code: "OM",
         code2: "OMN",
         domain: "om",
         continent: "Asia",
     },
     {
-        name: "Pakistan",
+        country: "Pakistan",
         code: "PK",
         code2: "PAK",
         domain: "pk",
         continent: "Asia",
     },
     {
-        name: "Palau",
+        country: "Palau",
         code: "PW",
         code2: "PLW",
         domain: "pw",
         continent: "Oceania",
     },
     {
-        name: "Palestine",
+        country: "Palestine",
         code: "PS",
         code2: "PSE",
         domain: "ps",
         continent: "Asia",
     },
     {
-        name: "Panama",
+        country: "Panama",
         code: "PA",
         code2: "PAN",
         domain: "pa",
         continent: "North America",
     },
     {
-        name: "Papua New Guinea",
+        country: "Papua New Guinea",
         code: "PG",
         code2: "PNG",
         domain: "pg",
         continent: "Oceania",
     },
     {
-        name: "Paraguay",
+        country: "Paraguay",
         code: "PY",
         code2: "PRY",
         domain: "py",
         continent: "South America",
     },
     {
-        name: "Peru",
+        country: "Peru",
         code: "PE",
         code2: "PER",
         domain: "pe",
         continent: "South America",
     },
     {
-        name: "Philippines",
+        country: "Philippines",
         code: "PH",
         code2: "PHL",
         domain: "ph",
         continent: "Asia",
     },
     {
-        name: "Pitcairn",
+        country: "Pitcairn",
         code: "PN",
         code2: "PCN",
         domain: "pn",
         continent: "Oceania",
     },
     {
-        name: "Poland",
+        country: "Poland",
         code: "PL",
         code2: "POL",
         domain: "pl",
         continent: "Europe",
     },
     {
-        name: "Portugal",
+        country: "Portugal",
         code: "PT",
         code2: "PRT",
         domain: "pt",
         continent: "Europe",
     },
     {
-        name: "Puerto Rico",
+        country: "Puerto Rico",
         code: "PR",
         code2: "PRI",
         domain: "pr",
         continent: "North America",
     },
     {
-        name: "Qatar",
+        country: "Qatar",
         code: "QA",
         code2: "QAT",
         domain: "qa",
         continent: "Asia",
     },
     {
-        name: "Republic of the Congo",
+        country: "Republic of the Congo",
         code: "CG",
         code2: "COG",
         domain: "cg",
         continent: "Africa",
     },
     {
-        name: "Reunion",
+        country: "Reunion",
         code: "RE",
         code2: "REU",
         domain: "re",
         continent: "Africa",
     },
     {
-        name: "Romania",
+        country: "Romania",
         code: "RO",
         code2: "ROU",
         domain: "ro",
         continent: "Europe",
     },
     {
-        name: "Russia",
+        country: "Russia",
         code: "RU",
         code2: "RUS",
         domain: "ru",
         continent: "Europe",
     },
     {
-        name: "Rwanda",
+        country: "Rwanda",
         code: "RW",
         code2: "RWA",
         domain: "rw",
         continent: "Africa",
     },
     {
-        name: "Saint Barthelemy",
+        country: "Saint Barthelemy",
         code: "BL",
         code2: "BLM",
         domain: "gp",
         continent: "North America",
     },
     {
-        name: "Saint Helena",
+        country: "Saint Helena",
         code: "SH",
         code2: "SHN",
         domain: "sh",
         continent: "Africa",
     },
     {
-        name: "Saint Kitts and Nevis",
+        country: "Saint Kitts and Nevis",
         code: "KN",
         code2: "KNA",
         domain: "kn",
         continent: "North America",
     },
     {
-        name: "Saint Lucia",
+        country: "Saint Lucia",
         code: "LC",
         code2: "LCA",
         domain: "lc",
         continent: "North America",
     },
     {
-        name: "Saint Martin",
+        country: "Saint Martin",
         code: "MF",
         code2: "MAF",
         domain: "gp",
         continent: "North America",
     },
     {
-        name: "Saint Pierre and Miquelon",
+        country: "Saint Pierre and Miquelon",
         code: "PM",
         code2: "SPM",
         domain: "pm",
         continent: "North America",
     },
     {
-        name: "Saint Vincent and the Grenadines",
+        country: "Saint Vincent and the Grenadines",
         code: "VC",
         code2: "VCT",
         domain: "vc",
         continent: "North America",
     },
     {
-        name: "Samoa",
+        country: "Samoa",
         code: "WS",
         code2: "WSM",
         domain: "ws",
         continent: "Oceania",
     },
     {
-        name: "San Marino",
+        country: "San Marino",
         code: "SM",
         code2: "SMR",
         domain: "sm",
         continent: "Europe",
     },
     {
-        name: "Sao Tome and Principe",
+        country: "Sao Tome and Principe",
         code: "ST",
         code2: "STP",
         domain: "st",
         continent: "Africa",
     },
     {
-        name: "Saudi Arabia",
+        country: "Saudi Arabia",
         code: "SA",
         code2: "SAU",
         domain: "sa",
         continent: "Asia",
     },
     {
-        name: "Senegal",
+        country: "Senegal",
         code: "SN",
         code2: "SEN",
         domain: "sn",
         continent: "Africa",
     },
     {
-        name: "Serbia",
+        country: "Serbia",
         code: "RS",
         code2: "SRB",
         domain: "rs",
         continent: "Europe",
     },
     {
-        name: "Seychelles",
+        country: "Seychelles",
         code: "SC",
         code2: "SYC",
         domain: "sc",
         continent: "Africa",
     },
     {
-        name: "Sierra Leone",
+        country: "Sierra Leone",
         code: "SL",
         code2: "SLE",
         domain: "sl",
         continent: "Africa",
     },
     {
-        name: "Singapore",
+        country: "Singapore",
         code: "SG",
         code2: "SGP",
         domain: "sg",
         continent: "Asia",
     },
     {
-        name: "Sint Maarten",
+        country: "Sint Maarten",
         code: "SX",
         code2: "SXM",
         domain: "sx",
         continent: "North America",
     },
     {
-        name: "Slovakia",
+        country: "Slovakia",
         code: "SK",
         code2: "SVK",
         domain: "sk",
         continent: "Europe",
     },
     {
-        name: "Slovenia",
+        country: "Slovenia",
         code: "SI",
         code2: "SVN",
         domain: "si",
         continent: "Europe",
     },
     {
-        name: "Solomon Islands",
+        country: "Solomon Islands",
         code: "SB",
         code2: "SLB",
         domain: "sb",
         continent: "Oceania",
     },
     {
-        name: "Somalia",
+        country: "Somalia",
         code: "SO",
         code2: "SOM",
         domain: "so",
         continent: "Africa",
     },
     {
-        name: "South Africa",
+        country: "South Africa",
         code: "ZA",
         code2: "ZAF",
         domain: "za",
         continent: "Africa",
     },
     {
-        name: "South Korea",
+        country: "South Korea",
         code: "KR",
         code2: "KOR",
         domain: "kr",
         continent: "Asia",
     },
     {
-        name: "South Sudan",
+        country: "South Sudan",
         code: "SS",
         code2: "SSD",
         domain: "ss",
         continent: "Africa",
     },
     {
-        name: "Spain",
+        country: "Spain",
         code: "ES",
         code2: "ESP",
         domain: "es",
         continent: "Europe",
     },
     {
-        name: "Sri Lanka",
+        country: "Sri Lanka",
         code: "LK",
         code2: "LKA",
         domain: "lk",
         continent: "Asia",
     },
     {
-        name: "Sudan",
+        country: "Sudan",
         code: "SD",
         code2: "SDN",
         domain: "sd",
         continent: "Africa",
     },
     {
-        name: "Suriname",
+        country: "Suriname",
         code: "SR",
         code2: "SUR",
         domain: "sr",
         continent: "South America",
     },
     {
-        name: "Svalbard and Jan Mayen",
+        country: "Svalbard and Jan Mayen",
         code: "SJ",
         code2: "SJM",
         domain: "sj",
         continent: "Europe",
     },
     {
-        name: "Swaziland",
+        country: "Swaziland",
         code: "SZ",
         code2: "SWZ",
         domain: "sz",
         continent: "Africa",
     },
     {
-        name: "Sweden",
+        country: "Sweden",
         code: "SE",
         code2: "SWE",
         domain: "se",
         continent: "Europe",
     },
     {
-        name: "Switzerland",
+        country: "Switzerland",
         code: "CH",
         code2: "CHE",
         domain: "ch",
         continent: "Europe",
     },
     {
-        name: "Syria",
+        country: "Syria",
         code: "SY",
         code2: "SYR",
         domain: "sy",
         continent: "Asia",
     },
     {
-        name: "Taiwan",
+        country: "Taiwan",
         code: "TW",
         code2: "TWN",
         domain: "tw",
         continent: "Asia",
     },
     {
-        name: "Tajikistan",
+        country: "Tajikistan",
         code: "TJ",
         code2: "TJK",
         domain: "tj",
         continent: "Asia",
     },
     {
-        name: "Tanzania",
+        country: "Tanzania",
         code: "TZ",
         code2: "TZA",
         domain: "tz",
         continent: "Africa",
     },
     {
-        name: "Thailand",
+        country: "Thailand",
         code: "TH",
         code2: "THA",
         domain: "th",
         continent: "Asia",
     },
     {
-        name: "Togo",
+        country: "Togo",
         code: "TG",
         code2: "TGO",
         domain: "tg",
         continent: "Africa",
     },
     {
-        name: "Tokelau",
+        country: "Tokelau",
         code: "TK",
         code2: "TKL",
         domain: "tk",
         continent: "Oceania",
     },
     {
-        name: "Tonga",
+        country: "Tonga",
         code: "TO",
         code2: "TON",
         domain: "to",
         continent: "Oceania",
     },
     {
-        name: "Trinidad and Tobago",
+        country: "Trinidad and Tobago",
         code: "TT",
         code2: "TTO",
         domain: "tt",
         continent: "North America",
     },
     {
-        name: "Tunisia",
+        country: "Tunisia",
         code: "TN",
         code2: "TUN",
         domain: "tn",
         continent: "Africa",
     },
     {
-        name: "Turkey",
+        country: "Turkey",
         code: "TR",
         code2: "TUR",
         domain: "tr",
         continent: "Asia",
     },
     {
-        name: "Turkmenistan",
+        country: "Turkmenistan",
         code: "TM",
         code2: "TKM",
         domain: "tm",
         continent: "Asia",
     },
     {
-        name: "Turks and Caicos Islands",
+        country: "Turks and Caicos Islands",
         code: "TC",
         code2: "TCA",
         domain: "tc",
         continent: "North America",
     },
     {
-        name: "Tuvalu",
+        country: "Tuvalu",
         code: "TV",
         code2: "TUV",
         domain: "tv",
         continent: "Oceania",
     },
     {
-        name: "U.S. Virgin Islands",
+        country: "U.S. Virgin Islands",
         code: "VI",
         code2: "VIR",
         domain: "vi",
         continent: "North America",
     },
     {
-        name: "Uganda",
+        country: "Uganda",
         code: "UG",
         code2: "UGA",
         domain: "ug",
         continent: "Africa",
     },
     {
-        name: "Ukraine",
+        country: "Ukraine",
         code: "UA",
         code2: "UKR",
         domain: "ua",
         continent: "Europe",
     },
     {
-        name: "United Arab Emirates",
+        country: "United Arab Emirates",
         code: "AE",
         code2: "ARE",
         domain: "ae",
         continent: "Asia",
     },
     {
-        name: "United Kingdom",
+        country: "United Kingdom",
         code: "GB",
         code2: "GBR",
         domain: "uk",
         continent: "Europe",
     },
     {
-        name: "United States",
+        country: "United States",
         code: "US",
         code2: "USA",
         domain: "us",
         continent: "North America",
     },
     {
-        name: "Uruguay",
+        country: "Uruguay",
         code: "UY",
         code2: "URY",
         domain: "uy",
         continent: "South America",
     },
     {
-        name: "Uzbekistan",
+        country: "Uzbekistan",
         code: "UZ",
         code2: "UZB",
         domain: "uz",
         continent: "Asia",
     },
     {
-        name: "Vanuatu",
+        country: "Vanuatu",
         code: "VU",
         code2: "VUT",
         domain: "vu",
         continent: "Oceania",
     },
     {
-        name: "Vatican",
+        country: "Vatican",
         code: "VA",
         code2: "VAT",
         domain: "va",
         continent: "Europe",
     },
     {
-        name: "Venezuela",
+        country: "Venezuela",
         code: "VE",
         code2: "VEN",
         domain: "ve",
         continent: "South America",
     },
     {
-        name: "Vietnam",
+        country: "Vietnam",
         code: "VN",
         code2: "VNM",
         domain: "vn",
         continent: "Asia",
     },
     {
-        name: "Wallis and Futuna",
+        country: "Wallis and Futuna",
         code: "WF",
         code2: "WLF",
         domain: "wf",
         continent: "Oceania",
     },
     {
-        name: "Western Sahara",
+        country: "Western Sahara",
         code: "EH",
         code2: "ESH",
         domain: "eh",
         continent: "Africa",
     },
     {
-        name: "Yemen",
+        country: "Yemen",
         code: "YE",
         code2: "YEM",
         domain: "ye",
         continent: "Asia",
     },
     {
-        name: "Zambia",
+        country: "Zambia",
         code: "ZM",
         code2: "ZMB",
         domain: "zm",
         continent: "Africa",
     },
     {
-        name: "Zimbabwe",
+        country: "Zimbabwe",
         code: "ZW",
         code2: "ZWE",
         domain: "zw",
@@ -1687,139 +1687,139 @@ const countyRegion = [
         countryShortCode: "AF",
         regions: [
             {
-                name: "Badakhshan",
+                country: "Badakhshan",
                 shortCode: "BDS",
             },
             {
-                name: "Badghis",
+                country: "Badghis",
                 shortCode: "BDG",
             },
             {
-                name: "Baghlan",
+                country: "Baghlan",
                 shortCode: "BGL",
             },
             {
-                name: "Balkh",
+                country: "Balkh",
                 shortCode: "BAL",
             },
             {
-                name: "Bamyan",
+                country: "Bamyan",
                 shortCode: "BAM",
             },
             {
-                name: "Daykundi",
+                country: "Daykundi",
                 shortCode: "DAY",
             },
             {
-                name: "Farah",
+                country: "Farah",
                 shortCode: "FRA",
             },
             {
-                name: "Faryab",
+                country: "Faryab",
                 shortCode: "FYB",
             },
             {
-                name: "Ghazni",
+                country: "Ghazni",
                 shortCode: "GHA",
             },
             {
-                name: "Ghor",
+                country: "Ghor",
                 shortCode: "GHO",
             },
             {
-                name: "Helmand",
+                country: "Helmand",
                 shortCode: "HEL",
             },
             {
-                name: "Herat",
+                country: "Herat",
                 shortCode: "HER",
             },
             {
-                name: "Jowzjan",
+                country: "Jowzjan",
                 shortCode: "JOW",
             },
             {
-                name: "Kabul",
+                country: "Kabul",
                 shortCode: "KAB",
             },
             {
-                name: "Kandahar",
+                country: "Kandahar",
                 shortCode: "KAN",
             },
             {
-                name: "Kapisa",
+                country: "Kapisa",
                 shortCode: "KAP",
             },
             {
-                name: "Khost",
+                country: "Khost",
                 shortCode: "KHO",
             },
             {
-                name: "Kunar",
+                country: "Kunar",
                 shortCode: "KNR",
             },
             {
-                name: "Kunduz",
+                country: "Kunduz",
                 shortCode: "KDZ",
             },
             {
-                name: "Laghman",
+                country: "Laghman",
                 shortCode: "LAG",
             },
             {
-                name: "Logar",
+                country: "Logar",
                 shortCode: "LOW",
             },
             {
-                name: "Maidan Wardak",
+                country: "Maidan Wardak",
                 shortCode: "WAR",
             },
             {
-                name: "Nangarhar",
+                country: "Nangarhar",
                 shortCode: "NAN",
             },
             {
-                name: "Nimruz",
+                country: "Nimruz",
                 shortCode: "NIM",
             },
             {
-                name: "Nuristan",
+                country: "Nuristan",
                 shortCode: "NUR",
             },
             {
-                name: "Paktia",
+                country: "Paktia",
                 shortCode: "PIA",
             },
             {
-                name: "Paktika",
+                country: "Paktika",
                 shortCode: "PKA",
             },
             {
-                name: "Panjshir",
+                country: "Panjshir",
                 shortCode: "PAN",
             },
             {
-                name: "Parwan",
+                country: "Parwan",
                 shortCode: "PAR",
             },
             {
-                name: "Samangan",
+                country: "Samangan",
                 shortCode: "SAM",
             },
             {
-                name: "Sar-e Pol",
+                country: "Sar-e Pol",
                 shortCode: "SAR",
             },
             {
-                name: "Takhar",
+                country: "Takhar",
                 shortCode: "TAK",
             },
             {
-                name: "Urozgan",
+                country: "Urozgan",
                 shortCode: "ORU",
             },
             {
-                name: "Zabul",
+                country: "Zabul",
                 shortCode: "ZAB",
             },
         ],
@@ -1829,67 +1829,67 @@ const countyRegion = [
         countryShortCode: "AX",
         regions: [
             {
-                name: "Brändö",
+                country: "Brändö",
                 shortCode: "BR",
             },
             {
-                name: "Eckerö",
+                country: "Eckerö",
                 shortCode: "EC",
             },
             {
-                name: "Finström",
+                country: "Finström",
                 shortCode: "FN",
             },
             {
-                name: "Föglö",
+                country: "Föglö",
                 shortCode: "FG",
             },
             {
-                name: "Geta",
+                country: "Geta",
                 shortCode: "GT",
             },
             {
-                name: "Hammarland",
+                country: "Hammarland",
                 shortCode: "HM",
             },
             {
-                name: "Jomala",
+                country: "Jomala",
                 shortCode: "JM",
             },
             {
-                name: "Kumlinge",
+                country: "Kumlinge",
                 shortCode: "KM",
             },
             {
-                name: "Kökar",
+                country: "Kökar",
                 shortCode: "KK",
             },
             {
-                name: "Lemland",
+                country: "Lemland",
                 shortCode: "LE",
             },
             {
-                name: "Lumparland",
+                country: "Lumparland",
                 shortCode: "LU",
             },
             {
-                name: "Mariehamn",
+                country: "Mariehamn",
                 shortCode: "MH",
             },
             {
-                name: "Saltvik",
+                country: "Saltvik",
                 shortCode: "SV",
             },
             {
-                name: "Sottunga",
+                country: "Sottunga",
                 shortCode: "ST",
             },
             {
-                name: "Sund",
+                country: "Sund",
                 shortCode: "SD",
             },
             {
-                name: "Vårdö",
+                country: "Vårdö",
                 shortCode: "VR",
             },
         ],
@@ -1899,51 +1899,51 @@ const countyRegion = [
         countryShortCode: "AL",
         regions: [
             {
-                name: "Berat",
+                country: "Berat",
                 shortCode: "01",
             },
             {
-                name: "Dibër",
+                country: "Dibër",
                 shortCode: "09",
             },
             {
-                name: "Durrës",
+                country: "Durrës",
                 shortCode: "02",
             },
             {
-                name: "Elbasan",
+                country: "Elbasan",
                 shortCode: "03",
             },
             {
-                name: "Fier",
+                country: "Fier",
                 shortCode: "04",
             },
             {
-                name: "Gjirokastër",
+                country: "Gjirokastër",
                 shortCode: "05",
             },
             {
-                name: "Korçë",
+                country: "Korçë",
                 shortCode: "06",
             },
             {
-                name: "Kukës",
+                country: "Kukës",
                 shortCode: "07",
             },
             {
-                name: "Lezhë",
+                country: "Lezhë",
                 shortCode: "08",
             },
             {
-                name: "Shkodër",
+                country: "Shkodër",
                 shortCode: "10",
             },
             {
-                name: "Tirana",
+                country: "Tirana",
                 shortCode: "11",
             },
             {
-                name: "Vlorë",
+                country: "Vlorë",
                 shortCode: "12",
             },
         ],
@@ -1953,195 +1953,195 @@ const countyRegion = [
         countryShortCode: "DZ",
         regions: [
             {
-                name: "Adrar",
+                country: "Adrar",
                 shortCode: "01",
             },
             {
-                name: "Aïn Defla",
+                country: "Aïn Defla",
                 shortCode: "44",
             },
             {
-                name: "Aïn Témouchent",
+                country: "Aïn Témouchent",
                 shortCode: "46",
             },
             {
-                name: "Algiers",
+                country: "Algiers",
                 shortCode: "16",
             },
             {
-                name: "Annaba",
+                country: "Annaba",
                 shortCode: "23",
             },
             {
-                name: "Batna",
+                country: "Batna",
                 shortCode: "05",
             },
             {
-                name: "Béchar",
+                country: "Béchar",
                 shortCode: "08",
             },
             {
-                name: "Béjaïa",
+                country: "Béjaïa",
                 shortCode: "06",
             },
             {
-                name: "Biskra",
+                country: "Biskra",
                 shortCode: "07",
             },
             {
-                name: "Blida",
+                country: "Blida",
                 shortCode: "09",
             },
             {
-                name: "Bordj Bou Arréridj",
+                country: "Bordj Bou Arréridj",
                 shortCode: "34",
             },
             {
-                name: "Bouïra",
+                country: "Bouïra",
                 shortCode: "10",
             },
             {
-                name: "Boumerdès",
+                country: "Boumerdès",
                 shortCode: "35",
             },
             {
-                name: "Chlef",
+                country: "Chlef",
                 shortCode: "02",
             },
             {
-                name: "Constantine",
+                country: "Constantine",
                 shortCode: "25",
             },
             {
-                name: "Djelfa",
+                country: "Djelfa",
                 shortCode: "17",
             },
             {
-                name: "El Bayadh",
+                country: "El Bayadh",
                 shortCode: "32",
             },
             {
-                name: "El Oued",
+                country: "El Oued",
                 shortCode: "39",
             },
             {
-                name: "El Tarf",
+                country: "El Tarf",
                 shortCode: "36",
             },
             {
-                name: "Ghardaïa",
+                country: "Ghardaïa",
                 shortCode: "47",
             },
             {
-                name: "Guelma",
+                country: "Guelma",
                 shortCode: "24",
             },
             {
-                name: "Illizi",
+                country: "Illizi",
                 shortCode: "33",
             },
             {
-                name: "Jijel",
+                country: "Jijel",
                 shortCode: "18",
             },
             {
-                name: "Khenchela",
+                country: "Khenchela",
                 shortCode: "40",
             },
             {
-                name: "Laghouat",
+                country: "Laghouat",
                 shortCode: "03",
             },
             {
-                name: "Mascara",
+                country: "Mascara",
                 shortCode: "29",
             },
             {
-                name: "Médéa",
+                country: "Médéa",
                 shortCode: "26",
             },
             {
-                name: "Mila",
+                country: "Mila",
                 shortCode: "43",
             },
             {
-                name: "Mostaganem",
+                country: "Mostaganem",
                 shortCode: "27",
             },
             {
-                name: "Msila",
+                country: "Msila",
                 shortCode: "28",
             },
             {
-                name: "Naâma",
+                country: "Naâma",
                 shortCode: "45",
             },
             {
-                name: "Oran",
+                country: "Oran",
                 shortCode: "31",
             },
             {
-                name: "Ouargla",
+                country: "Ouargla",
                 shortCode: "30",
             },
             {
-                name: "Oum el Bouaghi",
+                country: "Oum el Bouaghi",
                 shortCode: "04",
             },
             {
-                name: "Relizane",
+                country: "Relizane",
                 shortCode: "48",
             },
             {
-                name: "Saïda",
+                country: "Saïda",
                 shortCode: "20",
             },
             {
-                name: "Sétif",
+                country: "Sétif",
                 shortCode: "19",
             },
             {
-                name: "Sidi Bel Abbès",
+                country: "Sidi Bel Abbès",
                 shortCode: "22",
             },
             {
-                name: "Skikda",
+                country: "Skikda",
                 shortCode: "21",
             },
             {
-                name: "Souk Ahras",
+                country: "Souk Ahras",
                 shortCode: "41",
             },
             {
-                name: "Tamanghasset",
+                country: "Tamanghasset",
                 shortCode: "11",
             },
             {
-                name: "Tébessa",
+                country: "Tébessa",
                 shortCode: "12",
             },
             {
-                name: "Tiaret",
+                country: "Tiaret",
                 shortCode: "14",
             },
             {
-                name: "Tindouf",
+                country: "Tindouf",
                 shortCode: "37",
             },
             {
-                name: "Tipaza",
+                country: "Tipaza",
                 shortCode: "42",
             },
             {
-                name: "Tissemsilt",
+                country: "Tissemsilt",
                 shortCode: "38",
             },
             {
-                name: "Tizi Ouzou",
+                country: "Tizi Ouzou",
                 shortCode: "15",
             },
             {
-                name: "Tlemcen",
+                country: "Tlemcen",
                 shortCode: "13",
             },
         ],
@@ -2151,27 +2151,27 @@ const countyRegion = [
         countryShortCode: "AS",
         regions: [
             {
-                name: "Tutuila",
+                country: "Tutuila",
                 shortCode: "01",
             },
             {
-                name: "Aunu'u",
+                country: "Aunu'u",
                 shortCode: "02",
             },
             {
-                name: "Ta'ū",
+                country: "Ta'ū",
                 shortCode: "03",
             },
             {
-                name: "Ofu‑Olosega",
+                country: "Ofu‑Olosega",
                 shortCode: "04",
             },
             {
-                name: "Rose Atoll",
+                country: "Rose Atoll",
                 shortCode: "21",
             },
             {
-                name: "Swains Island",
+                country: "Swains Island",
                 shortCode: "22",
             },
         ],
@@ -2181,31 +2181,31 @@ const countyRegion = [
         countryShortCode: "AD",
         regions: [
             {
-                name: "Andorra la Vella",
+                country: "Andorra la Vella",
                 shortCode: "07",
             },
             {
-                name: "Canillo",
+                country: "Canillo",
                 shortCode: "02",
             },
             {
-                name: "Encamp",
+                country: "Encamp",
                 shortCode: "03",
             },
             {
-                name: "Escaldes-Engordany",
+                country: "Escaldes-Engordany",
                 shortCode: "08",
             },
             {
-                name: "La Massana",
+                country: "La Massana",
                 shortCode: "04",
             },
             {
-                name: "Ordino",
+                country: "Ordino",
                 shortCode: "05",
             },
             {
-                name: "Sant Julià de Lòria",
+                country: "Sant Julià de Lòria",
                 shortCode: "06",
             },
         ],
@@ -2215,75 +2215,75 @@ const countyRegion = [
         countryShortCode: "AO",
         regions: [
             {
-                name: "Bengo",
+                country: "Bengo",
                 shortCode: "BGO",
             },
             {
-                name: "Benguela",
+                country: "Benguela",
                 shortCode: "BGU",
             },
             {
-                name: "Bié",
+                country: "Bié",
                 shortCode: "BIE",
             },
             {
-                name: "Cabinda",
+                country: "Cabinda",
                 shortCode: "CAB",
             },
             {
-                name: "Cuando Cubango",
+                country: "Cuando Cubango",
                 shortCode: "CCU",
             },
             {
-                name: "Cuanza Norte",
+                country: "Cuanza Norte",
                 shortCode: "CNO",
             },
             {
-                name: "Cuanza Sul",
+                country: "Cuanza Sul",
                 shortCode: "CUS",
             },
             {
-                name: "Cunene",
+                country: "Cunene",
                 shortCode: "CNN",
             },
             {
-                name: "Huambo",
+                country: "Huambo",
                 shortCode: "HUA",
             },
             {
-                name: "Huíla",
+                country: "Huíla",
                 shortCode: "HUI",
             },
             {
-                name: "Luanda",
+                country: "Luanda",
                 shortCode: "LUA",
             },
             {
-                name: "Lunda Norte",
+                country: "Lunda Norte",
                 shortCode: "LNO",
             },
             {
-                name: "Lunda Sul",
+                country: "Lunda Sul",
                 shortCode: "LSU",
             },
             {
-                name: "Malanje",
+                country: "Malanje",
                 shortCode: "MAL",
             },
             {
-                name: "Moxico",
+                country: "Moxico",
                 shortCode: "MOX",
             },
             {
-                name: "Namibe",
+                country: "Namibe",
                 shortCode: "NAM",
             },
             {
-                name: "Uíge",
+                country: "Uíge",
                 shortCode: "UIG",
             },
             {
-                name: "Zaire",
+                country: "Zaire",
                 shortCode: "ZAI",
             },
         ],
@@ -2293,91 +2293,91 @@ const countyRegion = [
         countryShortCode: "AI",
         regions: [
             {
-                name: "Anguilla",
+                country: "Anguilla",
                 shortCode: "01",
             },
             {
-                name: "Anguillita Island",
+                country: "Anguillita Island",
                 shortCode: "02",
             },
             {
-                name: "Blowing Rock",
+                country: "Blowing Rock",
                 shortCode: "03",
             },
             {
-                name: "Cove Cay",
+                country: "Cove Cay",
                 shortCode: "04",
             },
             {
-                name: "Crocus Cay",
+                country: "Crocus Cay",
                 shortCode: "05",
             },
             {
-                name: "Deadman's Cay",
+                country: "Deadman's Cay",
                 shortCode: "06",
             },
             {
-                name: "Dog Island",
+                country: "Dog Island",
                 shortCode: "07",
             },
             {
-                name: "East Cay",
+                country: "East Cay",
                 shortCode: "08",
             },
             {
-                name: "Little Island",
+                country: "Little Island",
                 shortCode: "09",
             },
             {
-                name: "Little Scrub Island",
+                country: "Little Scrub Island",
                 shortCode: "10",
             },
             {
-                name: "Mid Cay",
+                country: "Mid Cay",
                 shortCode: "11",
             },
             {
-                name: "North Cay",
+                country: "North Cay",
                 shortCode: "12",
             },
             {
-                name: "Prickly Pear Cays",
+                country: "Prickly Pear Cays",
                 shortCode: "13",
             },
             {
-                name: "Rabbit Island",
+                country: "Rabbit Island",
                 shortCode: "14",
             },
             {
-                name: "Sandy Island/Sand Island",
+                country: "Sandy Island/Sand Island",
                 shortCode: "15",
             },
             {
-                name: "Scilly Cay",
+                country: "Scilly Cay",
                 shortCode: "16",
             },
             {
-                name: "Scrub Island",
+                country: "Scrub Island",
                 shortCode: "17",
             },
             {
-                name: "Seal Island",
+                country: "Seal Island",
                 shortCode: "18",
             },
             {
-                name: "Sombrero/Hat Island",
+                country: "Sombrero/Hat Island",
                 shortCode: "19",
             },
             {
-                name: "South Cay",
+                country: "South Cay",
                 shortCode: "20",
             },
             {
-                name: "South Wager Island",
+                country: "South Wager Island",
                 shortCode: "21",
             },
             {
-                name: "West Cay",
+                country: "West Cay",
                 shortCode: "22",
             },
         ],
@@ -2387,7 +2387,7 @@ const countyRegion = [
         countryShortCode: "AQ",
         regions: [
             {
-                name: "Antarctica",
+                country: "Antarctica",
                 shortCode: "AQ",
             },
         ],
@@ -2397,131 +2397,131 @@ const countyRegion = [
         countryShortCode: "AG",
         regions: [
             {
-                name: "Antigua Island",
+                country: "Antigua Island",
                 shortCode: "01",
             },
             {
-                name: "Barbuda Island",
+                country: "Barbuda Island",
                 shortCode: "02",
             },
             {
-                name: "Bird Island",
+                country: "Bird Island",
                 shortCode: "04",
             },
             {
-                name: "Bishop Island",
+                country: "Bishop Island",
                 shortCode: "05",
             },
             {
-                name: "Blake Island",
+                country: "Blake Island",
                 shortCode: "06",
             },
             {
-                name: "Crump Island",
+                country: "Crump Island",
                 shortCode: "09",
             },
             {
-                name: "Dulcina Island",
+                country: "Dulcina Island",
                 shortCode: "10",
             },
             {
-                name: "Exchange Island",
+                country: "Exchange Island",
                 shortCode: "11",
             },
             {
-                name: "Five Islands",
+                country: "Five Islands",
                 shortCode: "12",
             },
             {
-                name: "Great Bird Island",
+                country: "Great Bird Island",
                 shortCode: "13",
             },
             {
-                name: "Green Island",
+                country: "Green Island",
                 shortCode: "14",
             },
             {
-                name: "Guiana Island",
+                country: "Guiana Island",
                 shortCode: "15",
             },
             {
-                name: "Hawes Island",
+                country: "Hawes Island",
                 shortCode: "17",
             },
             {
-                name: "Hells Gate Island",
+                country: "Hells Gate Island",
                 shortCode: "16",
             },
             {
-                name: "Henry Island",
+                country: "Henry Island",
                 shortCode: "18",
             },
             {
-                name: "Johnson Island",
+                country: "Johnson Island",
                 shortCode: "19",
             },
             {
-                name: "Kid Island",
+                country: "Kid Island",
                 shortCode: "20",
             },
             {
-                name: "Lobster Island",
+                country: "Lobster Island",
                 shortCode: "22",
             },
             {
-                name: "Maiden Island",
+                country: "Maiden Island",
                 shortCode: "24",
             },
             {
-                name: "Moor Island",
+                country: "Moor Island",
                 shortCode: "25",
             },
             {
-                name: "Nanny Island",
+                country: "Nanny Island",
                 shortCode: "26",
             },
             {
-                name: "Pelican Island",
+                country: "Pelican Island",
                 shortCode: "27",
             },
             {
-                name: "Prickly Pear Island",
+                country: "Prickly Pear Island",
                 shortCode: "28",
             },
             {
-                name: "Rabbit Island",
+                country: "Rabbit Island",
                 shortCode: "29",
             },
             {
-                name: "Red Head Island",
+                country: "Red Head Island",
                 shortCode: "31",
             },
             {
-                name: "Redonda Island",
+                country: "Redonda Island",
                 shortCode: "03",
             },
             {
-                name: "Sandy Island",
+                country: "Sandy Island",
                 shortCode: "32",
             },
             {
-                name: "Smith Island",
+                country: "Smith Island",
                 shortCode: "33",
             },
             {
-                name: "The Sisters",
+                country: "The Sisters",
                 shortCode: "34",
             },
             {
-                name: "Vernon Island",
+                country: "Vernon Island",
                 shortCode: "35",
             },
             {
-                name: "Wicked Will Island",
+                country: "Wicked Will Island",
                 shortCode: "36",
             },
             {
-                name: "York Island",
+                country: "York Island",
                 shortCode: "37",
             },
         ],
@@ -2531,99 +2531,99 @@ const countyRegion = [
         countryShortCode: "AR",
         regions: [
             {
-                name: "Buenos Aires",
+                country: "Buenos Aires",
                 shortCode: "B",
             },
             {
-                name: "Capital Federal",
+                country: "Capital Federal",
                 shortCode: "C",
             },
             {
-                name: "Catamarca",
+                country: "Catamarca",
                 shortCode: "K",
             },
             {
-                name: "Chaco",
+                country: "Chaco",
                 shortCode: "H",
             },
             {
-                name: "Chubut",
+                country: "Chubut",
                 shortCode: "U",
             },
             {
-                name: "Córdoba",
+                country: "Córdoba",
                 shortCode: "X",
             },
             {
-                name: "Corrientes",
+                country: "Corrientes",
                 shortCode: "W",
             },
             {
-                name: "Entre Ríos",
+                country: "Entre Ríos",
                 shortCode: "E",
             },
             {
-                name: "Formosa",
+                country: "Formosa",
                 shortCode: "P",
             },
             {
-                name: "Jujuy",
+                country: "Jujuy",
                 shortCode: "Y",
             },
             {
-                name: "La Pampa",
+                country: "La Pampa",
                 shortCode: "L",
             },
             {
-                name: "La Rioja",
+                country: "La Rioja",
                 shortCode: "F",
             },
             {
-                name: "Mendoza",
+                country: "Mendoza",
                 shortCode: "M",
             },
             {
-                name: "Misiones",
+                country: "Misiones",
                 shortCode: "N",
             },
             {
-                name: "Neuquén",
+                country: "Neuquén",
                 shortCode: "Q",
             },
             {
-                name: "Río Negro",
+                country: "Río Negro",
                 shortCode: "R",
             },
             {
-                name: "Salta",
+                country: "Salta",
                 shortCode: "A",
             },
             {
-                name: "San Juan",
+                country: "San Juan",
                 shortCode: "J",
             },
             {
-                name: "San Luis",
+                country: "San Luis",
                 shortCode: "D",
             },
             {
-                name: "Santa Cruz",
+                country: "Santa Cruz",
                 shortCode: "Z",
             },
             {
-                name: "Santa Fe",
+                country: "Santa Fe",
                 shortCode: "S",
             },
             {
-                name: "Santiago del Estero",
+                country: "Santiago del Estero",
                 shortCode: "G",
             },
             {
-                name: "Tierra del Fuego",
+                country: "Tierra del Fuego",
                 shortCode: "V",
             },
             {
-                name: "Tucumán",
+                country: "Tucumán",
                 shortCode: "T",
             },
         ],
@@ -2633,47 +2633,47 @@ const countyRegion = [
         countryShortCode: "AM",
         regions: [
             {
-                name: "Aragatsotn",
+                country: "Aragatsotn",
                 shortCode: "AG",
             },
             {
-                name: "Ararat",
+                country: "Ararat",
                 shortCode: "AR",
             },
             {
-                name: "Armavir",
+                country: "Armavir",
                 shortCode: "AV",
             },
             {
-                name: "Gegharkunik",
+                country: "Gegharkunik",
                 shortCode: "GR",
             },
             {
-                name: "Kotayk",
+                country: "Kotayk",
                 shortCode: "KT",
             },
             {
-                name: "Lori",
+                country: "Lori",
                 shortCode: "LO",
             },
             {
-                name: "Shirak",
+                country: "Shirak",
                 shortCode: "SH",
             },
             {
-                name: "Syunik",
+                country: "Syunik",
                 shortCode: "SU",
             },
             {
-                name: "Tavush",
+                country: "Tavush",
                 shortCode: "TV",
             },
             {
-                name: "Vayots Dzor",
+                country: "Vayots Dzor",
                 shortCode: "VD",
             },
             {
-                name: "Yerevan",
+                country: "Yerevan",
                 shortCode: "ER",
             },
         ],
@@ -2683,7 +2683,7 @@ const countyRegion = [
         countryShortCode: "AW",
         regions: [
             {
-                name: "Aruba",
+                country: "Aruba",
                 shortCode: "AW",
             },
         ],
@@ -2693,35 +2693,35 @@ const countyRegion = [
         countryShortCode: "AU",
         regions: [
             {
-                name: "Australian Capital Territory",
+                country: "Australian Capital Territory",
                 shortCode: "ACT",
             },
             {
-                name: "New South Wales",
+                country: "New South Wales",
                 shortCode: "NSW",
             },
             {
-                name: "Northern Territory",
+                country: "Northern Territory",
                 shortCode: "NT",
             },
             {
-                name: "Queensland",
+                country: "Queensland",
                 shortCode: "QLD",
             },
             {
-                name: "South Australia",
+                country: "South Australia",
                 shortCode: "SA",
             },
             {
-                name: "Tasmania",
+                country: "Tasmania",
                 shortCode: "TAS",
             },
             {
-                name: "Victoria",
+                country: "Victoria",
                 shortCode: "VIC",
             },
             {
-                name: "Western Australia",
+                country: "Western Australia",
                 shortCode: "WA",
             },
         ],
@@ -2731,39 +2731,39 @@ const countyRegion = [
         countryShortCode: "AT",
         regions: [
             {
-                name: "Burgenland",
+                country: "Burgenland",
                 shortCode: "1",
             },
             {
-                name: "Kärnten",
+                country: "Kärnten",
                 shortCode: "2",
             },
             {
-                name: "Niederösterreich",
+                country: "Niederösterreich",
                 shortCode: "3",
             },
             {
-                name: "Oberösterreich",
+                country: "Oberösterreich",
                 shortCode: "4",
             },
             {
-                name: "Salzburg",
+                country: "Salzburg",
                 shortCode: "5",
             },
             {
-                name: "Steiermark",
+                country: "Steiermark",
                 shortCode: "6",
             },
             {
-                name: "Tirol",
+                country: "Tirol",
                 shortCode: "7",
             },
             {
-                name: "Vorarlberg",
+                country: "Vorarlberg",
                 shortCode: "8",
             },
             {
-                name: "Wien",
+                country: "Wien",
                 shortCode: "9",
             },
         ],
@@ -2773,271 +2773,271 @@ const countyRegion = [
         countryShortCode: "AZ",
         regions: [
             {
-                name: "Abşeron",
+                country: "Abşeron",
                 shortCode: "ABS",
             },
             {
-                name: "Ağcabədi",
+                country: "Ağcabədi",
                 shortCode: "AGC",
             },
             {
-                name: "Ağdam",
+                country: "Ağdam",
                 shortCode: "AGM",
             },
             {
-                name: "Ağdaş",
+                country: "Ağdaş",
                 shortCode: "AGS",
             },
             {
-                name: "Ağstafa",
+                country: "Ağstafa",
                 shortCode: "AGA",
             },
             {
-                name: "Ağsu",
+                country: "Ağsu",
                 shortCode: "AGU",
             },
             {
-                name: "Astara",
+                country: "Astara",
                 shortCode: "AST",
             },
             {
-                name: "Bakı",
+                country: "Bakı",
                 shortCode: "BAK",
             },
             {
-                name: "Babək",
+                country: "Babək",
                 shortCode: "BAB",
             },
             {
-                name: "Balakən",
+                country: "Balakən",
                 shortCode: "BAL",
             },
             {
-                name: "Bərdə",
+                country: "Bərdə",
                 shortCode: "BAR",
             },
             {
-                name: "Beyləqan",
+                country: "Beyləqan",
                 shortCode: "BEY",
             },
             {
-                name: "Biləsuvar",
+                country: "Biləsuvar",
                 shortCode: "BIL",
             },
             {
-                name: "Cəbrayıl",
+                country: "Cəbrayıl",
                 shortCode: "CAB",
             },
             {
-                name: "Cəlilabad",
+                country: "Cəlilabad",
                 shortCode: "CAL",
             },
             {
-                name: "Culfa",
+                country: "Culfa",
                 shortCode: "CUL",
             },
             {
-                name: "Daşkəsən",
+                country: "Daşkəsən",
                 shortCode: "DAS",
             },
             {
-                name: "Füzuli",
+                country: "Füzuli",
                 shortCode: "FUZ",
             },
             {
-                name: "Gədəbəy",
+                country: "Gədəbəy",
                 shortCode: "GAD",
             },
             {
-                name: "Goranboy",
+                country: "Goranboy",
                 shortCode: "GOR",
             },
             {
-                name: "Göyçay",
+                country: "Göyçay",
                 shortCode: "GOY",
             },
             {
-                name: "Göygöl",
+                country: "Göygöl",
                 shortCode: "GYG",
             },
             {
-                name: "Hacıqabul",
+                country: "Hacıqabul",
                 shortCode: "HAC",
             },
             {
-                name: "İmişli",
+                country: "İmişli",
                 shortCode: "IMI",
             },
             {
-                name: "İsmayıllı",
+                country: "İsmayıllı",
                 shortCode: "ISM",
             },
             {
-                name: "Kəlbəcər",
+                country: "Kəlbəcər",
                 shortCode: "KAL",
             },
             {
-                name: "Kǝngǝrli",
+                country: "Kǝngǝrli",
                 shortCode: "KAN",
             },
             {
-                name: "Kürdəmir",
+                country: "Kürdəmir",
                 shortCode: "KUR",
             },
             {
-                name: "Laçın",
+                country: "Laçın",
                 shortCode: "LAC",
             },
             {
-                name: "Lənkəran",
+                country: "Lənkəran",
                 shortCode: "LAN",
             },
             {
-                name: "Lerik",
+                country: "Lerik",
                 shortCode: "LER",
             },
             {
-                name: "Masallı",
+                country: "Masallı",
                 shortCode: "MAS",
             },
             {
-                name: "Neftçala",
+                country: "Neftçala",
                 shortCode: "NEF",
             },
             {
-                name: "Oğuz",
+                country: "Oğuz",
                 shortCode: "OGU",
             },
             {
-                name: "Ordubad",
+                country: "Ordubad",
                 shortCode: "ORD",
             },
             {
-                name: "Qəbələ",
+                country: "Qəbələ",
                 shortCode: "QAB",
             },
             {
-                name: "Qax",
+                country: "Qax",
                 shortCode: "QAX",
             },
             {
-                name: "Qazax",
+                country: "Qazax",
                 shortCode: "QAZ",
             },
             {
-                name: "Qobustan",
+                country: "Qobustan",
                 shortCode: "QOB",
             },
             {
-                name: "Quba",
+                country: "Quba",
                 shortCode: "QBA",
             },
             {
-                name: "Qubadli",
+                country: "Qubadli",
                 shortCode: "QBI",
             },
             {
-                name: "Qusar",
+                country: "Qusar",
                 shortCode: "QUS",
             },
             {
-                name: "Saatlı",
+                country: "Saatlı",
                 shortCode: "SAT",
             },
             {
-                name: "Sabirabad",
+                country: "Sabirabad",
                 shortCode: "SAB",
             },
             {
-                name: "Şabran",
+                country: "Şabran",
                 shortCode: "SBN",
             },
             {
-                name: "Sədərək",
+                country: "Sədərək",
                 shortCode: "SAD",
             },
             {
-                name: "Şahbuz",
+                country: "Şahbuz",
                 shortCode: "SAH",
             },
             {
-                name: "Şəki",
+                country: "Şəki",
                 shortCode: "SAK",
             },
             {
-                name: "Salyan",
+                country: "Salyan",
                 shortCode: "SAL",
             },
             {
-                name: "Şamaxı",
+                country: "Şamaxı",
                 shortCode: "SMI",
             },
             {
-                name: "Şəmkir",
+                country: "Şəmkir",
                 shortCode: "SKR",
             },
             {
-                name: "Samux",
+                country: "Samux",
                 shortCode: "SMX",
             },
             {
-                name: "Şərur",
+                country: "Şərur",
                 shortCode: "SAR",
             },
             {
-                name: "Siyəzən",
+                country: "Siyəzən",
                 shortCode: "SIY",
             },
             {
-                name: "Şuşa",
+                country: "Şuşa",
                 shortCode: "SUS",
             },
             {
-                name: "Tərtər",
+                country: "Tərtər",
                 shortCode: "TAR",
             },
             {
-                name: "Tovuz",
+                country: "Tovuz",
                 shortCode: "TOV",
             },
             {
-                name: "Ucar",
+                country: "Ucar",
                 shortCode: "UCA",
             },
             {
-                name: "Xaçmaz",
+                country: "Xaçmaz",
                 shortCode: "XAC",
             },
             {
-                name: "Xızı",
+                country: "Xızı",
                 shortCode: "XIZ",
             },
             {
-                name: "Xocalı",
+                country: "Xocalı",
                 shortCode: "XCI",
             },
             {
-                name: "Xocavənd",
+                country: "Xocavənd",
                 shortCode: "XVD",
             },
             {
-                name: "Yardımlı",
+                country: "Yardımlı",
                 shortCode: "YAR",
             },
             {
-                name: "Yevlax",
+                country: "Yevlax",
                 shortCode: "YEV",
             },
             {
-                name: "Zəngilan",
+                country: "Zəngilan",
                 shortCode: "ZAN",
             },
             {
-                name: "Zaqatala",
+                country: "Zaqatala",
                 shortCode: "ZAQ",
             },
             {
-                name: "Zərdab",
+                country: "Zərdab",
                 shortCode: "ZAR",
             },
         ],
@@ -3047,139 +3047,139 @@ const countyRegion = [
         countryShortCode: "BS",
         regions: [
             {
-                name: "Acklins Island",
+                country: "Acklins Island",
                 shortCode: "01",
             },
             {
-                name: "Berry Islands",
+                country: "Berry Islands",
                 shortCode: "22",
             },
             {
-                name: "Bimini",
+                country: "Bimini",
                 shortCode: "02",
             },
             {
-                name: "Black Point",
+                country: "Black Point",
                 shortCode: "23",
             },
             {
-                name: "Cat Island",
+                country: "Cat Island",
                 shortCode: "03",
             },
             {
-                name: "Central Abaco",
+                country: "Central Abaco",
                 shortCode: "24",
             },
             {
-                name: "Crooked Island and Long Cay",
+                country: "Crooked Island and Long Cay",
                 shortCode: "28",
             },
             {
-                name: "East Grand Bahama",
+                country: "East Grand Bahama",
                 shortCode: "29",
             },
             {
-                name: "Exuma",
+                country: "Exuma",
                 shortCode: "04",
             },
             {
-                name: "Freeport",
+                country: "Freeport",
                 shortCode: "05",
             },
             {
-                name: "Fresh Creek",
+                country: "Fresh Creek",
                 shortCode: "06",
             },
             {
-                name: "Governor's Harbour",
+                country: "Governor's Harbour",
                 shortCode: "07",
             },
             {
-                name: "Green Turtle Cay",
+                country: "Green Turtle Cay",
                 shortCode: "08",
             },
             {
-                name: "Harbour Island",
+                country: "Harbour Island",
                 shortCode: "09",
             },
             {
-                name: "High Rock",
+                country: "High Rock",
                 shortCode: "10",
             },
             {
-                name: "Inagua",
+                country: "Inagua",
                 shortCode: "11",
             },
             {
-                name: "Kemps Bay",
+                country: "Kemps Bay",
                 shortCode: "12",
             },
             {
-                name: "Long Island",
+                country: "Long Island",
                 shortCode: "13",
             },
             {
-                name: "Marsh Harbour",
+                country: "Marsh Harbour",
                 shortCode: "14",
             },
             {
-                name: "Mayaguana",
+                country: "Mayaguana",
                 shortCode: "15",
             },
             {
-                name: "Moore’s Island",
+                country: "Moore’s Island",
                 shortCode: "40",
             },
             {
-                name: "New Providence",
+                country: "New Providence",
                 shortCode: "16",
             },
             {
-                name: "Nichollstown and Berry Islands",
+                country: "Nichollstown and Berry Islands",
                 shortCode: "17",
             },
             {
-                name: "North Abaco",
+                country: "North Abaco",
                 shortCode: "42",
             },
             {
-                name: "North Andros",
+                country: "North Andros",
                 shortCode: "41",
             },
             {
-                name: "North Eleuthera",
+                country: "North Eleuthera",
                 shortCode: "33",
             },
             {
-                name: "Ragged Island",
+                country: "Ragged Island",
                 shortCode: "18",
             },
             {
-                name: "Rock Sound",
+                country: "Rock Sound",
                 shortCode: "19",
             },
             {
-                name: "San Salvador and Rum Cay",
+                country: "San Salvador and Rum Cay",
                 shortCode: "20",
             },
             {
-                name: "Sandy Point",
+                country: "Sandy Point",
                 shortCode: "21",
             },
             {
-                name: "South Abaco",
+                country: "South Abaco",
                 shortCode: "35",
             },
             {
-                name: "South Andros",
+                country: "South Andros",
                 shortCode: "36",
             },
             {
-                name: "South Eleuthera",
+                country: "South Eleuthera",
                 shortCode: "37",
             },
             {
-                name: "West Grand Bahama",
+                country: "West Grand Bahama",
                 shortCode: "39",
             },
         ],
@@ -3189,23 +3189,23 @@ const countyRegion = [
         countryShortCode: "BH",
         regions: [
             {
-                name: "Al Janūbīyah",
+                country: "Al Janūbīyah",
                 shortCode: "14",
             },
             {
-                name: "Al Manāmah",
+                country: "Al Manāmah",
                 shortCode: "13",
             },
             {
-                name: "Al Muḩarraq",
+                country: "Al Muḩarraq",
                 shortCode: "15",
             },
             {
-                name: "Al Wusţá",
+                country: "Al Wusţá",
                 shortCode: "16",
             },
             {
-                name: "Ash Shamālīyah",
+                country: "Ash Shamālīyah",
                 shortCode: "17",
             },
         ],
@@ -3215,35 +3215,35 @@ const countyRegion = [
         countryShortCode: "BD",
         regions: [
             {
-                name: "Barisal",
+                country: "Barisal",
                 shortCode: "A",
             },
             {
-                name: "Chittagong",
+                country: "Chittagong",
                 shortCode: "B",
             },
             {
-                name: "Dhaka",
+                country: "Dhaka",
                 shortCode: "C",
             },
             {
-                name: "Khulna",
+                country: "Khulna",
                 shortCode: "D",
             },
             {
-                name: "Mymensingh",
+                country: "Mymensingh",
                 shortCode: "M",
             },
             {
-                name: "Rajshahi",
+                country: "Rajshahi",
                 shortCode: "E",
             },
             {
-                name: "Rangpur",
+                country: "Rangpur",
                 shortCode: "F",
             },
             {
-                name: "Sylhet",
+                country: "Sylhet",
                 shortCode: "G",
             },
         ],
@@ -3253,47 +3253,47 @@ const countyRegion = [
         countryShortCode: "BB",
         regions: [
             {
-                name: "Christ Church",
+                country: "Christ Church",
                 shortCode: "01",
             },
             {
-                name: "Saint Andrew",
+                country: "Saint Andrew",
                 shortCode: "02",
             },
             {
-                name: "Saint George",
+                country: "Saint George",
                 shortCode: "03",
             },
             {
-                name: "Saint James",
+                country: "Saint James",
                 shortCode: "04",
             },
             {
-                name: "Saint John",
+                country: "Saint John",
                 shortCode: "05",
             },
             {
-                name: "Saint Joseph",
+                country: "Saint Joseph",
                 shortCode: "06",
             },
             {
-                name: "Saint Lucy",
+                country: "Saint Lucy",
                 shortCode: "07",
             },
             {
-                name: "Saint Michael",
+                country: "Saint Michael",
                 shortCode: "08",
             },
             {
-                name: "Saint Peter",
+                country: "Saint Peter",
                 shortCode: "09",
             },
             {
-                name: "Saint Philip",
+                country: "Saint Philip",
                 shortCode: "10",
             },
             {
-                name: "Saint Thomas",
+                country: "Saint Thomas",
                 shortCode: "11",
             },
         ],
@@ -3303,31 +3303,31 @@ const countyRegion = [
         countryShortCode: "BY",
         regions: [
             {
-                name: "Brest voblast",
+                country: "Brest voblast",
                 shortCode: "BR",
             },
             {
-                name: "Gorod Minsk",
+                country: "Gorod Minsk",
                 shortCode: "HM",
             },
             {
-                name: "Homiel voblast",
+                country: "Homiel voblast",
                 shortCode: "HO",
             },
             {
-                name: "Hrodna voblast",
+                country: "Hrodna voblast",
                 shortCode: "HR",
             },
             {
-                name: "Mahilyow voblast",
+                country: "Mahilyow voblast",
                 shortCode: "MA",
             },
             {
-                name: "Minsk voblast",
+                country: "Minsk voblast",
                 shortCode: "MI",
             },
             {
-                name: "Vitsebsk voblast",
+                country: "Vitsebsk voblast",
                 shortCode: "VI",
             },
         ],
@@ -3337,15 +3337,15 @@ const countyRegion = [
         countryShortCode: "BE",
         regions: [
             {
-                name: "Brussels",
+                country: "Brussels",
                 shortCode: "BRU",
             },
             {
-                name: "Flanders",
+                country: "Flanders",
                 shortCode: "VLG",
             },
             {
-                name: "Wallonia",
+                country: "Wallonia",
                 shortCode: "WAL",
             },
         ],
@@ -3355,27 +3355,27 @@ const countyRegion = [
         countryShortCode: "BZ",
         regions: [
             {
-                name: "Belize District",
+                country: "Belize District",
                 shortCode: "BZ",
             },
             {
-                name: "Cayo District",
+                country: "Cayo District",
                 shortCode: "CY",
             },
             {
-                name: "Corozal District",
+                country: "Corozal District",
                 shortCode: "CZL",
             },
             {
-                name: "Orange Walk District",
+                country: "Orange Walk District",
                 shortCode: "OW",
             },
             {
-                name: "Stann Creek District",
+                country: "Stann Creek District",
                 shortCode: "SC",
             },
             {
-                name: "Toledo District",
+                country: "Toledo District",
                 shortCode: "TOL",
             },
         ],
@@ -3385,51 +3385,51 @@ const countyRegion = [
         countryShortCode: "BJ",
         regions: [
             {
-                name: "Alibori",
+                country: "Alibori",
                 shortCode: "AL",
             },
             {
-                name: "Atakora",
+                country: "Atakora",
                 shortCode: "AK",
             },
             {
-                name: "Atlantique",
+                country: "Atlantique",
                 shortCode: "AQ",
             },
             {
-                name: "Borgou",
+                country: "Borgou",
                 shortCode: "BO",
             },
             {
-                name: "Collines Department",
+                country: "Collines Department",
                 shortCode: "CO",
             },
             {
-                name: "Donga",
+                country: "Donga",
                 shortCode: "DO",
             },
             {
-                name: "Kouffo",
+                country: "Kouffo",
                 shortCode: "KO",
             },
             {
-                name: "Littoral Department",
+                country: "Littoral Department",
                 shortCode: "LI",
             },
             {
-                name: "Mono Department",
+                country: "Mono Department",
                 shortCode: "MO",
             },
             {
-                name: "Ouémé",
+                country: "Ouémé",
                 shortCode: "OU",
             },
             {
-                name: "Plateau",
+                country: "Plateau",
                 shortCode: "PL",
             },
             {
-                name: "Zou",
+                country: "Zou",
                 shortCode: "ZO",
             },
         ],
@@ -3439,47 +3439,47 @@ const countyRegion = [
         countryShortCode: "BM",
         regions: [
             {
-                name: "City of Hamilton",
+                country: "City of Hamilton",
                 shortCode: "03",
             },
             {
-                name: "Devonshire Parish",
+                country: "Devonshire Parish",
                 shortCode: "01",
             },
             {
-                name: "Hamilton Parish",
+                country: "Hamilton Parish",
                 shortCode: "02",
             },
             {
-                name: "Paget Parish",
+                country: "Paget Parish",
                 shortCode: "04",
             },
             {
-                name: "Pembroke Parish",
+                country: "Pembroke Parish",
                 shortCode: "05",
             },
             {
-                name: "Sandys Parish",
+                country: "Sandys Parish",
                 shortCode: "08",
             },
             {
-                name: "Smith's Parish",
+                country: "Smith's Parish",
                 shortCode: "09",
             },
             {
-                name: "Southampton Parish",
+                country: "Southampton Parish",
                 shortCode: "10",
             },
             {
-                name: "St. George's Parish",
+                country: "St. George's Parish",
                 shortCode: "07",
             },
             {
-                name: "Town of St. George",
+                country: "Town of St. George",
                 shortCode: "06",
             },
             {
-                name: "Warwick Parish",
+                country: "Warwick Parish",
                 shortCode: "11",
             },
         ],
@@ -3489,83 +3489,83 @@ const countyRegion = [
         countryShortCode: "BT",
         regions: [
             {
-                name: "Bumthang",
+                country: "Bumthang",
                 shortCode: "33",
             },
             {
-                name: "Chhukha",
+                country: "Chhukha",
                 shortCode: "12",
             },
             {
-                name: "Dagana",
+                country: "Dagana",
                 shortCode: "22",
             },
             {
-                name: "Gasa",
+                country: "Gasa",
                 shortCode: "GA",
             },
             {
-                name: "Haa",
+                country: "Haa",
                 shortCode: "13",
             },
             {
-                name: "Lhuntse",
+                country: "Lhuntse",
                 shortCode: "44",
             },
             {
-                name: "Mongar",
+                country: "Mongar",
                 shortCode: "42",
             },
             {
-                name: "Paro",
+                country: "Paro",
                 shortCode: "11",
             },
             {
-                name: "Pemagatshel",
+                country: "Pemagatshel",
                 shortCode: "43",
             },
             {
-                name: "Punakha",
+                country: "Punakha",
                 shortCode: "23",
             },
             {
-                name: "Samdrup Jongkhar",
+                country: "Samdrup Jongkhar",
                 shortCode: "45",
             },
             {
-                name: "Samtse",
+                country: "Samtse",
                 shortCode: "14",
             },
             {
-                name: "Sarpang",
+                country: "Sarpang",
                 shortCode: "31",
             },
             {
-                name: "Thimphu",
+                country: "Thimphu",
                 shortCode: "15",
             },
             {
-                name: "Trashigang",
+                country: "Trashigang",
                 shortCode: "41",
             },
             {
-                name: "Trashiyangtse",
+                country: "Trashiyangtse",
                 shortCode: "TY",
             },
             {
-                name: "Trongsa",
+                country: "Trongsa",
                 shortCode: "32",
             },
             {
-                name: "Tsirang",
+                country: "Tsirang",
                 shortCode: "21",
             },
             {
-                name: "Wangdue Phodrang",
+                country: "Wangdue Phodrang",
                 shortCode: "24",
             },
             {
-                name: "Zhemgang",
+                country: "Zhemgang",
                 shortCode: "34",
             },
         ],
@@ -3575,39 +3575,39 @@ const countyRegion = [
         countryShortCode: "BO",
         regions: [
             {
-                name: "Beni",
+                country: "Beni",
                 shortCode: "BE",
             },
             {
-                name: "Chuquisaca",
+                country: "Chuquisaca",
                 shortCode: "CH",
             },
             {
-                name: "Cochabamba",
+                country: "Cochabamba",
                 shortCode: "CB",
             },
             {
-                name: "La Paz",
+                country: "La Paz",
                 shortCode: "LP",
             },
             {
-                name: "Oruro",
+                country: "Oruro",
                 shortCode: "OR",
             },
             {
-                name: "Pando",
+                country: "Pando",
                 shortCode: "PD",
             },
             {
-                name: "Potosí",
+                country: "Potosí",
                 shortCode: "PT",
             },
             {
-                name: "Santa Cruz",
+                country: "Santa Cruz",
                 shortCode: "SC",
             },
             {
-                name: "Tarija",
+                country: "Tarija",
                 shortCode: "TJ",
             },
         ],
@@ -3617,15 +3617,15 @@ const countyRegion = [
         countryShortCode: "BQ",
         regions: [
             {
-                name: "Bonaire",
+                country: "Bonaire",
                 shortCode: "BO",
             },
             {
-                name: "Saba Isand",
+                country: "Saba Isand",
                 shortCode: "SA",
             },
             {
-                name: "Sint Eustatius",
+                country: "Sint Eustatius",
                 shortCode: "SE",
             },
         ],
@@ -3635,15 +3635,15 @@ const countyRegion = [
         countryShortCode: "BA",
         regions: [
             {
-                name: "Brčko Distrikt",
+                country: "Brčko Distrikt",
                 shortCode: "BRC",
             },
             {
-                name: "Federacija Bosne i Hercegovine",
+                country: "Federacija Bosne i Hercegovine",
                 shortCode: "BIH",
             },
             {
-                name: "Republika Srpska",
+                country: "Republika Srpska",
                 shortCode: "SRP",
             },
         ],
@@ -3653,39 +3653,39 @@ const countyRegion = [
         countryShortCode: "BW",
         regions: [
             {
-                name: "Central",
+                country: "Central",
                 shortCode: "CE",
             },
             {
-                name: "Ghanzi",
+                country: "Ghanzi",
                 shortCode: "GH",
             },
             {
-                name: "Kgalagadi",
+                country: "Kgalagadi",
                 shortCode: "KG",
             },
             {
-                name: "Kgatleng",
+                country: "Kgatleng",
                 shortCode: "KL",
             },
             {
-                name: "Kweneng",
+                country: "Kweneng",
                 shortCode: "KW",
             },
             {
-                name: "North West",
+                country: "North West",
                 shortCode: "NW",
             },
             {
-                name: "North-East",
+                country: "North-East",
                 shortCode: "NE",
             },
             {
-                name: "South East",
+                country: "South East",
                 shortCode: "SE",
             },
             {
-                name: "Southern",
+                country: "Southern",
                 shortCode: "SO",
             },
         ],
@@ -3695,7 +3695,7 @@ const countyRegion = [
         countryShortCode: "BV",
         regions: [
             {
-                name: "Bouvet Island",
+                country: "Bouvet Island",
                 shortCode: "BV",
             },
         ],
@@ -3705,111 +3705,111 @@ const countyRegion = [
         countryShortCode: "BR",
         regions: [
             {
-                name: "Acre",
+                country: "Acre",
                 shortCode: "AC",
             },
             {
-                name: "Alagoas",
+                country: "Alagoas",
                 shortCode: "AL",
             },
             {
-                name: "Amapá",
+                country: "Amapá",
                 shortCode: "AP",
             },
             {
-                name: "Amazonas",
+                country: "Amazonas",
                 shortCode: "AM",
             },
             {
-                name: "Bahia",
+                country: "Bahia",
                 shortCode: "BA",
             },
             {
-                name: "Ceará",
+                country: "Ceará",
                 shortCode: "CE",
             },
             {
-                name: "Distrito Federal",
+                country: "Distrito Federal",
                 shortCode: "DF",
             },
             {
-                name: "Espírito Santo",
+                country: "Espírito Santo",
                 shortCode: "ES",
             },
             {
-                name: "Goiás",
+                country: "Goiás",
                 shortCode: "GO",
             },
             {
-                name: "Maranhão",
+                country: "Maranhão",
                 shortCode: "MA",
             },
             {
-                name: "Mato Grosso",
+                country: "Mato Grosso",
                 shortCode: "MT",
             },
             {
-                name: "Mato Grosso do Sul",
+                country: "Mato Grosso do Sul",
                 shortCode: "MS",
             },
             {
-                name: "Minas Gerais",
+                country: "Minas Gerais",
                 shortCode: "MG",
             },
             {
-                name: "Pará",
+                country: "Pará",
                 shortCode: "PA",
             },
             {
-                name: "Paraíba",
+                country: "Paraíba",
                 shortCode: "PB",
             },
             {
-                name: "Paraná",
+                country: "Paraná",
                 shortCode: "PR",
             },
             {
-                name: "Pernambuco",
+                country: "Pernambuco",
                 shortCode: "PE",
             },
             {
-                name: "Piauí",
+                country: "Piauí",
                 shortCode: "PI",
             },
             {
-                name: "Rio de Janeiro",
+                country: "Rio de Janeiro",
                 shortCode: "RJ",
             },
             {
-                name: "Rio Grande do Norte",
+                country: "Rio Grande do Norte",
                 shortCode: "RN",
             },
             {
-                name: "Rio Grande do Sul",
+                country: "Rio Grande do Sul",
                 shortCode: "RS",
             },
             {
-                name: "Rondônia",
+                country: "Rondônia",
                 shortCode: "RO",
             },
             {
-                name: "Roraima",
+                country: "Roraima",
                 shortCode: "RR",
             },
             {
-                name: "Santa Catarina",
+                country: "Santa Catarina",
                 shortCode: "SC",
             },
             {
-                name: "São Paulo",
+                country: "São Paulo",
                 shortCode: "SP",
             },
             {
-                name: "Sergipe",
+                country: "Sergipe",
                 shortCode: "SE",
             },
             {
-                name: "Tocantins",
+                country: "Tocantins",
                 shortCode: "TO",
             },
         ],
@@ -3819,7 +3819,7 @@ const countyRegion = [
         countryShortCode: "IO",
         regions: [
             {
-                name: "British Indian Ocean Territory",
+                country: "British Indian Ocean Territory",
                 shortCode: "IO",
             },
         ],
@@ -3829,19 +3829,19 @@ const countyRegion = [
         countryShortCode: "BN",
         regions: [
             {
-                name: "Belait",
+                country: "Belait",
                 shortCode: "BE",
             },
             {
-                name: "Brunei Muara",
+                country: "Brunei Muara",
                 shortCode: "BM",
             },
             {
-                name: "Temburong",
+                country: "Temburong",
                 shortCode: "TE",
             },
             {
-                name: "Tutong",
+                country: "Tutong",
                 shortCode: "TU",
             },
         ],
@@ -3851,115 +3851,115 @@ const countyRegion = [
         countryShortCode: "BG",
         regions: [
             {
-                name: "Blagoevgrad",
+                country: "Blagoevgrad",
                 shortCode: "01",
             },
             {
-                name: "Burgas",
+                country: "Burgas",
                 shortCode: "02",
             },
             {
-                name: "Dobrich",
+                country: "Dobrich",
                 shortCode: "08",
             },
             {
-                name: "Gabrovo",
+                country: "Gabrovo",
                 shortCode: "07",
             },
             {
-                name: "Jambol",
+                country: "Jambol",
                 shortCode: "28",
             },
             {
-                name: "Khaskovo",
+                country: "Khaskovo",
                 shortCode: "26",
             },
             {
-                name: "Kjustendil",
+                country: "Kjustendil",
                 shortCode: "10",
             },
             {
-                name: "Kurdzhali",
+                country: "Kurdzhali",
                 shortCode: "09",
             },
             {
-                name: "Lovech",
+                country: "Lovech",
                 shortCode: "11",
             },
             {
-                name: "Montana",
+                country: "Montana",
                 shortCode: "12",
             },
             {
-                name: "Pazardzhik",
+                country: "Pazardzhik",
                 shortCode: "13",
             },
             {
-                name: "Pernik",
+                country: "Pernik",
                 shortCode: "14",
             },
             {
-                name: "Pleven",
+                country: "Pleven",
                 shortCode: "15",
             },
             {
-                name: "Plovdiv",
+                country: "Plovdiv",
                 shortCode: "16",
             },
             {
-                name: "Razgrad",
+                country: "Razgrad",
                 shortCode: "17",
             },
             {
-                name: "Ruse",
+                country: "Ruse",
                 shortCode: "18",
             },
             {
-                name: "Shumen",
+                country: "Shumen",
                 shortCode: "27",
             },
             {
-                name: "Silistra",
+                country: "Silistra",
                 shortCode: "19",
             },
             {
-                name: "Sliven",
+                country: "Sliven",
                 shortCode: "20",
             },
             {
-                name: "Smoljan",
+                country: "Smoljan",
                 shortCode: "21",
             },
             {
-                name: "Sofija",
+                country: "Sofija",
                 shortCode: "23",
             },
             {
-                name: "Sofija-Grad",
+                country: "Sofija-Grad",
                 shortCode: "22",
             },
             {
-                name: "Stara Zagora",
+                country: "Stara Zagora",
                 shortCode: "24",
             },
             {
-                name: "Turgovishhe",
+                country: "Turgovishhe",
                 shortCode: "25",
             },
             {
-                name: "Varna",
+                country: "Varna",
                 shortCode: "03",
             },
             {
-                name: "Veliko Turnovo",
+                country: "Veliko Turnovo",
                 shortCode: "04",
             },
             {
-                name: "Vidin",
+                country: "Vidin",
                 shortCode: "05",
             },
             {
-                name: "Vraca",
+                country: "Vraca",
                 shortCode: "06",
             },
         ],
@@ -3969,183 +3969,183 @@ const countyRegion = [
         countryShortCode: "BF",
         regions: [
             {
-                name: "Balé",
+                country: "Balé",
                 shortCode: "BAL",
             },
             {
-                name: "Bam/Lake Bam",
+                country: "Bam/Lake Bam",
                 shortCode: "BAM",
             },
             {
-                name: "Banwa Province",
+                country: "Banwa Province",
                 shortCode: "BAN",
             },
             {
-                name: "Bazèga",
+                country: "Bazèga",
                 shortCode: "BAZ",
             },
             {
-                name: "Bougouriba",
+                country: "Bougouriba",
                 shortCode: "BGR",
             },
             {
-                name: "Boulgou Province",
+                country: "Boulgou Province",
                 shortCode: "BLG",
             },
             {
-                name: "Boulkiemdé",
+                country: "Boulkiemdé",
                 shortCode: "BLK",
             },
             {
-                name: "Comoé/Komoe",
+                country: "Comoé/Komoe",
                 shortCode: "COM",
             },
             {
-                name: "Ganzourgou Province",
+                country: "Ganzourgou Province",
                 shortCode: "GAN",
             },
             {
-                name: "Gnagna",
+                country: "Gnagna",
                 shortCode: "GNA",
             },
             {
-                name: "Gourma Province",
+                country: "Gourma Province",
                 shortCode: "GOU",
             },
             {
-                name: "Houet",
+                country: "Houet",
                 shortCode: "HOU",
             },
             {
-                name: "Ioba",
+                country: "Ioba",
                 shortCode: "IOB",
             },
             {
-                name: "Kadiogo",
+                country: "Kadiogo",
                 shortCode: "KAD",
             },
             {
-                name: "Kénédougou",
+                country: "Kénédougou",
                 shortCode: "KEN",
             },
             {
-                name: "Komondjari",
+                country: "Komondjari",
                 shortCode: "KMD",
             },
             {
-                name: "Kompienga",
+                country: "Kompienga",
                 shortCode: "KMP",
             },
             {
-                name: "Kossi Province",
+                country: "Kossi Province",
                 shortCode: "KOS",
             },
             {
-                name: "Koulpélogo",
+                country: "Koulpélogo",
                 shortCode: "KOP",
             },
             {
-                name: "Kouritenga",
+                country: "Kouritenga",
                 shortCode: "KOT",
             },
             {
-                name: "Kourwéogo",
+                country: "Kourwéogo",
                 shortCode: "KOW",
             },
             {
-                name: "Léraba",
+                country: "Léraba",
                 shortCode: "LER",
             },
             {
-                name: "Loroum",
+                country: "Loroum",
                 shortCode: "LOR",
             },
             {
-                name: "Mouhoun",
+                country: "Mouhoun",
                 shortCode: "MOU",
             },
             {
-                name: "Namentenga",
+                country: "Namentenga",
                 shortCode: "NAM",
             },
             {
-                name: "Naouri/Nahouri",
+                country: "Naouri/Nahouri",
                 shortCode: "NAO",
             },
             {
-                name: "Nayala",
+                country: "Nayala",
                 shortCode: "NAY",
             },
             {
-                name: "Noumbiel",
+                country: "Noumbiel",
                 shortCode: "NOU",
             },
             {
-                name: "Oubritenga",
+                country: "Oubritenga",
                 shortCode: "OUB",
             },
             {
-                name: "Oudalan",
+                country: "Oudalan",
                 shortCode: "OUD",
             },
             {
-                name: "Passoré",
+                country: "Passoré",
                 shortCode: "PAS",
             },
             {
-                name: "Poni",
+                country: "Poni",
                 shortCode: "PON",
             },
             {
-                name: "Sanguié",
+                country: "Sanguié",
                 shortCode: "SNG",
             },
             {
-                name: "Sanmatenga",
+                country: "Sanmatenga",
                 shortCode: "SMT",
             },
             {
-                name: "Séno",
+                country: "Séno",
                 shortCode: "SEN",
             },
             {
-                name: "Sissili",
+                country: "Sissili",
                 shortCode: "SIS",
             },
             {
-                name: "Soum",
+                country: "Soum",
                 shortCode: "SOM",
             },
             {
-                name: "Sourou",
+                country: "Sourou",
                 shortCode: "SOR",
             },
             {
-                name: "Tapoa",
+                country: "Tapoa",
                 shortCode: "TAP",
             },
             {
-                name: "Tui/Tuy",
+                country: "Tui/Tuy",
                 shortCode: "TUI",
             },
             {
-                name: "Yagha",
+                country: "Yagha",
                 shortCode: "YAG",
             },
             {
-                name: "Yatenga",
+                country: "Yatenga",
                 shortCode: "YAT",
             },
             {
-                name: "Ziro",
+                country: "Ziro",
                 shortCode: "ZIR",
             },
             {
-                name: "Zondoma",
+                country: "Zondoma",
                 shortCode: "ZON",
             },
             {
-                name: "Zoundwéogo",
+                country: "Zoundwéogo",
                 shortCode: "ZOU",
             },
         ],
@@ -4155,71 +4155,71 @@ const countyRegion = [
         countryShortCode: "BI",
         regions: [
             {
-                name: "Bubanza",
+                country: "Bubanza",
                 shortCode: "BB",
             },
             {
-                name: "Bujumbura Mairie",
+                country: "Bujumbura Mairie",
                 shortCode: "BM",
             },
             {
-                name: "Bujumbura Rural",
+                country: "Bujumbura Rural",
                 shortCode: "BL",
             },
             {
-                name: "Bururi",
+                country: "Bururi",
                 shortCode: "BR",
             },
             {
-                name: "Cankuzo",
+                country: "Cankuzo",
                 shortCode: "CA",
             },
             {
-                name: "Cibitoke",
+                country: "Cibitoke",
                 shortCode: "CI",
             },
             {
-                name: "Gitega",
+                country: "Gitega",
                 shortCode: "GI",
             },
             {
-                name: "Karuzi",
+                country: "Karuzi",
                 shortCode: "KR",
             },
             {
-                name: "Kayanza",
+                country: "Kayanza",
                 shortCode: "KY",
             },
             {
-                name: "Kirundo",
+                country: "Kirundo",
                 shortCode: "KI",
             },
             {
-                name: "Makamba",
+                country: "Makamba",
                 shortCode: "MA",
             },
             {
-                name: "Muramvya",
+                country: "Muramvya",
                 shortCode: "MU",
             },
             {
-                name: "Muyinga",
+                country: "Muyinga",
                 shortCode: "MY",
             },
             {
-                name: "Mwaro",
+                country: "Mwaro",
                 shortCode: "MW",
             },
             {
-                name: "Ngozi",
+                country: "Ngozi",
                 shortCode: "NG",
             },
             {
-                name: "Rutana",
+                country: "Rutana",
                 shortCode: "RT",
             },
             {
-                name: "Ruyigi",
+                country: "Ruyigi",
                 shortCode: "RY",
             },
         ],
@@ -4229,103 +4229,103 @@ const countyRegion = [
         countryShortCode: "KH",
         regions: [
             {
-                name: "Baat Dambang",
+                country: "Baat Dambang",
                 shortCode: "2",
             },
             {
-                name: "Banteay Mean Chey",
+                country: "Banteay Mean Chey",
                 shortCode: "1",
             },
             {
-                name: "Kampong Chaam",
+                country: "Kampong Chaam",
                 shortCode: "3",
             },
             {
-                name: "Kampong Chhnang",
+                country: "Kampong Chhnang",
                 shortCode: "4",
             },
             {
-                name: "Kampong Spueu",
+                country: "Kampong Spueu",
                 shortCode: "5",
             },
             {
-                name: "Kampong Thum",
+                country: "Kampong Thum",
                 shortCode: "6",
             },
             {
-                name: "Kampot",
+                country: "Kampot",
                 shortCode: "7",
             },
             {
-                name: "Kandaal",
+                country: "Kandaal",
                 shortCode: "8",
             },
             {
-                name: "Kaoh Kong",
+                country: "Kaoh Kong",
                 shortCode: "9",
             },
             {
-                name: "Kracheh",
+                country: "Kracheh",
                 shortCode: "10",
             },
             {
-                name: "Krong Kaeb",
+                country: "Krong Kaeb",
                 shortCode: "23",
             },
             {
-                name: "Krong Pailin",
+                country: "Krong Pailin",
                 shortCode: "24",
             },
             {
-                name: "Krong Preah Sihanouk",
+                country: "Krong Preah Sihanouk",
                 shortCode: "18",
             },
             {
-                name: "Mondol Kiri",
+                country: "Mondol Kiri",
                 shortCode: "11",
             },
             {
-                name: "Otdar Mean Chey",
+                country: "Otdar Mean Chey",
                 shortCode: "22",
             },
             {
-                name: "Phnom Penh",
+                country: "Phnom Penh",
                 shortCode: "12",
             },
             {
-                name: "Pousaat",
+                country: "Pousaat",
                 shortCode: "15",
             },
             {
-                name: "Preah Vihear",
+                country: "Preah Vihear",
                 shortCode: "13",
             },
             {
-                name: "Prey Veaeng",
+                country: "Prey Veaeng",
                 shortCode: "14",
             },
             {
-                name: "Rotanah Kiri",
+                country: "Rotanah Kiri",
                 shortCode: "16",
             },
             {
-                name: "Siem Reab",
+                country: "Siem Reab",
                 shortCode: "17",
             },
             {
-                name: "Stueng Treng",
+                country: "Stueng Treng",
                 shortCode: "19",
             },
             {
-                name: "Svaay Rieng",
+                country: "Svaay Rieng",
                 shortCode: "20",
             },
             {
-                name: "Taakaev",
+                country: "Taakaev",
                 shortCode: "21",
             },
             {
-                name: "Tbong Khmum",
+                country: "Tbong Khmum",
                 shortCode: "25",
             },
         ],
@@ -4335,43 +4335,43 @@ const countyRegion = [
         countryShortCode: "CM",
         regions: [
             {
-                name: "Adamaoua",
+                country: "Adamaoua",
                 shortCode: "AD",
             },
             {
-                name: "Centre",
+                country: "Centre",
                 shortCode: "CE",
             },
             {
-                name: "Est",
+                country: "Est",
                 shortCode: "ES",
             },
             {
-                name: "Extrême-Nord",
+                country: "Extrême-Nord",
                 shortCode: "EN",
             },
             {
-                name: "Littoral",
+                country: "Littoral",
                 shortCode: "LT",
             },
             {
-                name: "Nord",
+                country: "Nord",
                 shortCode: "NO",
             },
             {
-                name: "Nord-Ouest",
+                country: "Nord-Ouest",
                 shortCode: "NW",
             },
             {
-                name: "Ouest",
+                country: "Ouest",
                 shortCode: "OU",
             },
             {
-                name: "Sud",
+                country: "Sud",
                 shortCode: "SU",
             },
             {
-                name: "Sud-Ouest",
+                country: "Sud-Ouest",
                 shortCode: "SW",
             },
         ],
@@ -4381,55 +4381,55 @@ const countyRegion = [
         countryShortCode: "CA",
         regions: [
             {
-                name: "Alberta",
+                country: "Alberta",
                 shortCode: "AB",
             },
             {
-                name: "British Columbia",
+                country: "British Columbia",
                 shortCode: "BC",
             },
             {
-                name: "Manitoba",
+                country: "Manitoba",
                 shortCode: "MB",
             },
             {
-                name: "New Brunswick",
+                country: "New Brunswick",
                 shortCode: "NB",
             },
             {
-                name: "Newfoundland and Labrador",
+                country: "Newfoundland and Labrador",
                 shortCode: "NL",
             },
             {
-                name: "Northwest Territories",
+                country: "Northwest Territories",
                 shortCode: "NT",
             },
             {
-                name: "Nova Scotia",
+                country: "Nova Scotia",
                 shortCode: "NS",
             },
             {
-                name: "Nunavut",
+                country: "Nunavut",
                 shortCode: "NU",
             },
             {
-                name: "Ontario",
+                country: "Ontario",
                 shortCode: "ON",
             },
             {
-                name: "Prince Edward Island",
+                country: "Prince Edward Island",
                 shortCode: "PE",
             },
             {
-                name: "Quebec",
+                country: "Quebec",
                 shortCode: "QC",
             },
             {
-                name: "Saskatchewan",
+                country: "Saskatchewan",
                 shortCode: "SK",
             },
             {
-                name: "Yukon",
+                country: "Yukon",
                 shortCode: "YT",
             },
         ],
@@ -4439,79 +4439,79 @@ const countyRegion = [
         countryShortCode: "CV",
         regions: [
             {
-                name: "Boa Vista",
+                country: "Boa Vista",
                 shortCode: "BV",
             },
             {
-                name: "Brava",
+                country: "Brava",
                 shortCode: "BR",
             },
             {
-                name: "Calheta de São Miguel",
+                country: "Calheta de São Miguel",
                 shortCode: "CS",
             },
             {
-                name: "Maio",
+                country: "Maio",
                 shortCode: "MA",
             },
             {
-                name: "Mosteiros",
+                country: "Mosteiros",
                 shortCode: "MO",
             },
             {
-                name: "Paúl",
+                country: "Paúl",
                 shortCode: "PA",
             },
             {
-                name: "Porto Novo",
+                country: "Porto Novo",
                 shortCode: "PN",
             },
             {
-                name: "Praia",
+                country: "Praia",
                 shortCode: "PR",
             },
             {
-                name: "Ribeira Brava",
+                country: "Ribeira Brava",
                 shortCode: "RB",
             },
             {
-                name: "Ribeira Grande",
+                country: "Ribeira Grande",
                 shortCode: "RG",
             },
             {
-                name: "Sal",
+                country: "Sal",
                 shortCode: "SL",
             },
             {
-                name: "Santa Catarina",
+                country: "Santa Catarina",
                 shortCode: "CA",
             },
             {
-                name: "Santa Cruz",
+                country: "Santa Cruz",
                 shortCode: "CR",
             },
             {
-                name: "São Domingos",
+                country: "São Domingos",
                 shortCode: "SD",
             },
             {
-                name: "São Filipe",
+                country: "São Filipe",
                 shortCode: "SF",
             },
             {
-                name: "São Nicolau",
+                country: "São Nicolau",
                 shortCode: "SN",
             },
             {
-                name: "São Vicente",
+                country: "São Vicente",
                 shortCode: "SV",
             },
             {
-                name: "Tarrafal",
+                country: "Tarrafal",
                 shortCode: "TA",
             },
             {
-                name: "Tarrafal de São Nicolau",
+                country: "Tarrafal de São Nicolau",
                 shortCode: "TS",
             },
         ],
@@ -4521,27 +4521,27 @@ const countyRegion = [
         countryShortCode: "KY",
         regions: [
             {
-                name: "Bodden Town",
+                country: "Bodden Town",
                 shortCode: "BT",
             },
             {
-                name: "East End",
+                country: "East End",
                 shortCode: "EE",
             },
             {
-                name: "George Town",
+                country: "George Town",
                 shortCode: "GT",
             },
             {
-                name: "North Side",
+                country: "North Side",
                 shortCode: "NS",
             },
             {
-                name: "Sister Islands",
+                country: "Sister Islands",
                 shortCode: "SI",
             },
             {
-                name: "West Bay",
+                country: "West Bay",
                 shortCode: "WB",
             },
         ],
@@ -4551,71 +4551,71 @@ const countyRegion = [
         countryShortCode: "CF",
         regions: [
             {
-                name: "Bamingui-Bangoran",
+                country: "Bamingui-Bangoran",
                 shortCode: "BB",
             },
             {
-                name: "Bangui",
+                country: "Bangui",
                 shortCode: "BGF",
             },
             {
-                name: "Basse-Kotto",
+                country: "Basse-Kotto",
                 shortCode: "BK",
             },
             {
-                name: "Haute-Kotto",
+                country: "Haute-Kotto",
                 shortCode: "HK",
             },
             {
-                name: "Haut-Mbomou",
+                country: "Haut-Mbomou",
                 shortCode: "HM",
             },
             {
-                name: "Kémo",
+                country: "Kémo",
                 shortCode: "KG",
             },
             {
-                name: "Lobaye",
+                country: "Lobaye",
                 shortCode: "LB",
             },
             {
-                name: "Mambéré-Kadéï",
+                country: "Mambéré-Kadéï",
                 shortCode: "HS",
             },
             {
-                name: "Mbomou",
+                country: "Mbomou",
                 shortCode: "MB",
             },
             {
-                name: "Nana-Grebizi",
+                country: "Nana-Grebizi",
                 shortCode: "10",
             },
             {
-                name: "Nana-Mambéré",
+                country: "Nana-Mambéré",
                 shortCode: "NM",
             },
             {
-                name: "Ombella-M'Poko",
+                country: "Ombella-M'Poko",
                 shortCode: "MP",
             },
             {
-                name: "Ouaka",
+                country: "Ouaka",
                 shortCode: "UK",
             },
             {
-                name: "Ouham",
+                country: "Ouham",
                 shortCode: "AC",
             },
             {
-                name: "Ouham Péndé",
+                country: "Ouham Péndé",
                 shortCode: "OP",
             },
             {
-                name: "Sangha-Mbaéré",
+                country: "Sangha-Mbaéré",
                 shortCode: "SE",
             },
             {
-                name: "Vakaga",
+                country: "Vakaga",
                 shortCode: "VK",
             },
         ],
@@ -4625,91 +4625,91 @@ const countyRegion = [
         countryShortCode: "TD",
         regions: [
             {
-                name: "Bahr el Ghazal",
+                country: "Bahr el Ghazal",
                 shortCode: "BG",
             },
             {
-                name: "Batha",
+                country: "Batha",
                 shortCode: "BA",
             },
             {
-                name: "Borkou",
+                country: "Borkou",
                 shortCode: "BO",
             },
             {
-                name: "Chari-Baguirmi",
+                country: "Chari-Baguirmi",
                 shortCode: "CB",
             },
             {
-                name: "Ennedi-Est",
+                country: "Ennedi-Est",
                 shortCode: "EE",
             },
             {
-                name: "Ennedi-Ouest",
+                country: "Ennedi-Ouest",
                 shortCode: "EO",
             },
             {
-                name: "Guéra",
+                country: "Guéra",
                 shortCode: "GR",
             },
             {
-                name: "Hadjer Lamis",
+                country: "Hadjer Lamis",
                 shortCode: "HL",
             },
             {
-                name: "Kanem",
+                country: "Kanem",
                 shortCode: "KA",
             },
             {
-                name: "Lac",
+                country: "Lac",
                 shortCode: "LC",
             },
             {
-                name: "Logone Occidental",
+                country: "Logone Occidental",
                 shortCode: "LO",
             },
             {
-                name: "Logone Oriental",
+                country: "Logone Oriental",
                 shortCode: "LR",
             },
             {
-                name: "Mondoul",
+                country: "Mondoul",
                 shortCode: "MA",
             },
             {
-                name: "Mayo-Kébbi-Est",
+                country: "Mayo-Kébbi-Est",
                 shortCode: "ME",
             },
             {
-                name: "Moyen-Chari",
+                country: "Moyen-Chari",
                 shortCode: "MC",
             },
             {
-                name: "Ouaddai",
+                country: "Ouaddai",
                 shortCode: "OD",
             },
             {
-                name: "Salamat",
+                country: "Salamat",
                 shortCode: "SA",
             },
             {
-                name: "Sila",
+                country: "Sila",
                 shortCode: "SI",
             },
             {
-                name: "Tandjilé",
+                country: "Tandjilé",
                 shortCode: "TA",
             },
             {
-                name: "Tibesti",
+                country: "Tibesti",
                 shortCode: "TI",
             },
             {
-                name: "Ville de Ndjamena",
+                country: "Ville de Ndjamena",
                 shortCode: "ND",
             },
             {
-                name: "Wadi Fira",
+                country: "Wadi Fira",
                 shortCode: "WF",
             },
         ],
@@ -4719,71 +4719,71 @@ const countyRegion = [
         countryShortCode: "CL",
         regions: [
             {
-                name: "Aisén del General Carlos Ibáñez del Campo",
+                country: "Aisén del General Carlos Ibáñez del Campo",
                 shortCode: "AI",
             },
             {
-                name: "Antofagasta",
+                country: "Antofagasta",
                 shortCode: "AN",
             },
             {
-                name: "Araucanía",
+                country: "Araucanía",
                 shortCode: "AR",
             },
             {
-                name: "Arica y Parinacota",
+                country: "Arica y Parinacota",
                 shortCode: "AP",
             },
             {
-                name: "Atacama",
+                country: "Atacama",
                 shortCode: "AT",
             },
             {
-                name: "Bío-Bío",
+                country: "Bío-Bío",
                 shortCode: "BI",
             },
             {
-                name: "Coquimbo",
+                country: "Coquimbo",
                 shortCode: "CO",
             },
             {
-                name: "Libertador General Bernardo O'Higgins",
+                country: "Libertador General Bernardo O'Higgins",
                 shortCode: "LI",
             },
             {
-                name: "Los Lagos",
+                country: "Los Lagos",
                 shortCode: "LL",
             },
             {
-                name: "Los Ríos",
+                country: "Los Ríos",
                 shortCode: "LR",
             },
             {
-                name: "Magallanes y Antartica Chilena",
+                country: "Magallanes y Antartica Chilena",
                 shortCode: "MA",
             },
             {
-                name: "Marga-Marga",
+                country: "Marga-Marga",
                 shortCode: "",
             },
             {
-                name: "Maule",
+                country: "Maule",
                 shortCode: "ML",
             },
             {
-                name: "Ñuble",
+                country: "Ñuble",
                 shortCode: "NB",
             },
             {
-                name: "Región Metropolitana de Santiago",
+                country: "Región Metropolitana de Santiago",
                 shortCode: "RM",
             },
             {
-                name: "Tarapacá",
+                country: "Tarapacá",
                 shortCode: "TA",
             },
             {
-                name: "Valparaíso",
+                country: "Valparaíso",
                 shortCode: "VS",
             },
         ],
@@ -4793,135 +4793,135 @@ const countyRegion = [
         countryShortCode: "CN",
         regions: [
             {
-                name: "Anhui",
+                country: "Anhui",
                 shortCode: "AH",
             },
             {
-                name: "Beijing",
+                country: "Beijing",
                 shortCode: "BJ",
             },
             {
-                name: "Chongqing",
+                country: "Chongqing",
                 shortCode: "CQ",
             },
             {
-                name: "Fujian",
+                country: "Fujian",
                 shortCode: "FJ",
             },
             {
-                name: "Gansu",
+                country: "Gansu",
                 shortCode: "GS",
             },
             {
-                name: "Guangdong",
+                country: "Guangdong",
                 shortCode: "GD",
             },
             {
-                name: "Guangxi",
+                country: "Guangxi",
                 shortCode: "GX",
             },
             {
-                name: "Guizhou",
+                country: "Guizhou",
                 shortCode: "GZ",
             },
             {
-                name: "Hainan",
+                country: "Hainan",
                 shortCode: "HI",
             },
             {
-                name: "Hebei",
+                country: "Hebei",
                 shortCode: "HE",
             },
             {
-                name: "Heilongjiang",
+                country: "Heilongjiang",
                 shortCode: "HL",
             },
             {
-                name: "Henan",
+                country: "Henan",
                 shortCode: "HA",
             },
             {
-                name: "Hong Kong",
+                country: "Hong Kong",
                 shortCode: "HK",
             },
             {
-                name: "Hubei",
+                country: "Hubei",
                 shortCode: "HB",
             },
             {
-                name: "Hunan",
+                country: "Hunan",
                 shortCode: "HN",
             },
             {
-                name: "Inner Mongolia",
+                country: "Inner Mongolia",
                 shortCode: "NM",
             },
             {
-                name: "Jiangsu",
+                country: "Jiangsu",
                 shortCode: "JS",
             },
             {
-                name: "Jiangxi",
+                country: "Jiangxi",
                 shortCode: "JX",
             },
             {
-                name: "Jilin",
+                country: "Jilin",
                 shortCode: "JL",
             },
             {
-                name: "Liaoning",
+                country: "Liaoning",
                 shortCode: "LN",
             },
             {
-                name: "Macau",
+                country: "Macau",
                 shortCode: "MO",
             },
             {
-                name: "Ningxia",
+                country: "Ningxia",
                 shortCode: "NX",
             },
             {
-                name: "Qinghai",
+                country: "Qinghai",
                 shortCode: "QH",
             },
             {
-                name: "Shaanxi",
+                country: "Shaanxi",
                 shortCode: "SN",
             },
             {
-                name: "Shandong",
+                country: "Shandong",
                 shortCode: "SD",
             },
             {
-                name: "Shanghai",
+                country: "Shanghai",
                 shortCode: "SH",
             },
             {
-                name: "Shanxi",
+                country: "Shanxi",
                 shortCode: "SX",
             },
             {
-                name: "Sichuan",
+                country: "Sichuan",
                 shortCode: "SC",
             },
             {
-                name: "Tianjin",
+                country: "Tianjin",
                 shortCode: "TJ",
             },
             {
-                name: "Tibet",
+                country: "Tibet",
                 shortCode: "XZ",
             },
             {
-                name: "Xinjiang",
+                country: "Xinjiang",
                 shortCode: "XJ",
             },
             {
-                name: "Yunnan",
+                country: "Yunnan",
                 shortCode: "YN",
             },
             {
-                name: "Zhejiang",
+                country: "Zhejiang",
                 shortCode: "ZJ",
             },
         ],
@@ -4931,7 +4931,7 @@ const countyRegion = [
         countryShortCode: "CX",
         regions: [
             {
-                name: "Christmas Island",
+                country: "Christmas Island",
                 shortCode: "CX",
             },
         ],
@@ -4941,27 +4941,27 @@ const countyRegion = [
         countryShortCode: "CC",
         regions: [
             {
-                name: "Direction Island",
+                country: "Direction Island",
                 shortCode: "DI",
             },
             {
-                name: "Home Island",
+                country: "Home Island",
                 shortCode: "HM",
             },
             {
-                name: "Horsburgh Island",
+                country: "Horsburgh Island",
                 shortCode: "HR",
             },
             {
-                name: "North Keeling Island",
+                country: "North Keeling Island",
                 shortCode: "NK",
             },
             {
-                name: "South Island",
+                country: "South Island",
                 shortCode: "SI",
             },
             {
-                name: "West Island",
+                country: "West Island",
                 shortCode: "WI",
             },
         ],
@@ -4971,135 +4971,135 @@ const countyRegion = [
         countryShortCode: "CO",
         regions: [
             {
-                name: "Amazonas",
+                country: "Amazonas",
                 shortCode: "AMA",
             },
             {
-                name: "Antioquia",
+                country: "Antioquia",
                 shortCode: "ANT",
             },
             {
-                name: "Arauca",
+                country: "Arauca",
                 shortCode: "ARA",
             },
             {
-                name: "Archipiélago de San Andrés",
+                country: "Archipiélago de San Andrés",
                 shortCode: "SAP",
             },
             {
-                name: "Atlántico",
+                country: "Atlántico",
                 shortCode: "ATL",
             },
             {
-                name: "Bogotá D.C.",
+                country: "Bogotá D.C.",
                 shortCode: "DC",
             },
             {
-                name: "Bolívar",
+                country: "Bolívar",
                 shortCode: "BOL",
             },
             {
-                name: "Boyacá",
+                country: "Boyacá",
                 shortCode: "BOY",
             },
             {
-                name: "Caldas",
+                country: "Caldas",
                 shortCode: "CAL",
             },
             {
-                name: "Caquetá",
+                country: "Caquetá",
                 shortCode: "CAQ",
             },
             {
-                name: "Casanare",
+                country: "Casanare",
                 shortCode: "CAS",
             },
             {
-                name: "Cauca",
+                country: "Cauca",
                 shortCode: "CAU",
             },
             {
-                name: "Cesar",
+                country: "Cesar",
                 shortCode: "CES",
             },
             {
-                name: "Chocó",
+                country: "Chocó",
                 shortCode: "CHO",
             },
             {
-                name: "Córdoba",
+                country: "Córdoba",
                 shortCode: "COR",
             },
             {
-                name: "Cundinamarca",
+                country: "Cundinamarca",
                 shortCode: "CUN",
             },
             {
-                name: "Guainía",
+                country: "Guainía",
                 shortCode: "GUA",
             },
             {
-                name: "Guaviare",
+                country: "Guaviare",
                 shortCode: "GUV",
             },
             {
-                name: "Huila",
+                country: "Huila",
                 shortCode: "HUI",
             },
             {
-                name: "La Guajira",
+                country: "La Guajira",
                 shortCode: "LAG",
             },
             {
-                name: "Magdalena",
+                country: "Magdalena",
                 shortCode: "MAG",
             },
             {
-                name: "Meta",
+                country: "Meta",
                 shortCode: "MET",
             },
             {
-                name: "Nariño",
+                country: "Nariño",
                 shortCode: "NAR",
             },
             {
-                name: "Norte de Santander",
+                country: "Norte de Santander",
                 shortCode: "NSA",
             },
             {
-                name: "Putumayo",
+                country: "Putumayo",
                 shortCode: "PUT",
             },
             {
-                name: "Quindío",
+                country: "Quindío",
                 shortCode: "QUI",
             },
             {
-                name: "Risaralda",
+                country: "Risaralda",
                 shortCode: "RIS",
             },
             {
-                name: "Santander",
+                country: "Santander",
                 shortCode: "SAN",
             },
             {
-                name: "Sucre",
+                country: "Sucre",
                 shortCode: "SUC",
             },
             {
-                name: "Tolima",
+                country: "Tolima",
                 shortCode: "TOL",
             },
             {
-                name: "Valle del Cauca",
+                country: "Valle del Cauca",
                 shortCode: "VAC",
             },
             {
-                name: "Vaupés",
+                country: "Vaupés",
                 shortCode: "VAU",
             },
             {
-                name: "Vichada",
+                country: "Vichada",
                 shortCode: "VID",
             },
         ],
@@ -5109,15 +5109,15 @@ const countyRegion = [
         countryShortCode: "KM",
         regions: [
             {
-                name: "Andjazîdja",
+                country: "Andjazîdja",
                 shortCode: "G",
             },
             {
-                name: "Andjouân",
+                country: "Andjouân",
                 shortCode: "A",
             },
             {
-                name: "Moûhîlî",
+                country: "Moûhîlî",
                 shortCode: "M",
             },
         ],
@@ -5127,51 +5127,51 @@ const countyRegion = [
         countryShortCode: "CG",
         regions: [
             {
-                name: "Bouenza",
+                country: "Bouenza",
                 shortCode: "11",
             },
             {
-                name: "Brazzaville",
+                country: "Brazzaville",
                 shortCode: "BZV",
             },
             {
-                name: "Cuvette",
+                country: "Cuvette",
                 shortCode: "8",
             },
             {
-                name: "Cuvette-Ouest",
+                country: "Cuvette-Ouest",
                 shortCode: "15",
             },
             {
-                name: "Kouilou",
+                country: "Kouilou",
                 shortCode: "5",
             },
             {
-                name: "Lékoumou",
+                country: "Lékoumou",
                 shortCode: "2",
             },
             {
-                name: "Likouala",
+                country: "Likouala",
                 shortCode: "7",
             },
             {
-                name: "Niari",
+                country: "Niari",
                 shortCode: "9",
             },
             {
-                name: "Plateaux",
+                country: "Plateaux",
                 shortCode: "14",
             },
             {
-                name: "Pointe-Noire",
+                country: "Pointe-Noire",
                 shortCode: "16",
             },
             {
-                name: "Pool",
+                country: "Pool",
                 shortCode: "12",
             },
             {
-                name: "Sangha",
+                country: "Sangha",
                 shortCode: "13",
             },
         ],
@@ -5181,47 +5181,47 @@ const countyRegion = [
         countryShortCode: "CD",
         regions: [
             {
-                name: "Bandundu",
+                country: "Bandundu",
                 shortCode: "BN",
             },
             {
-                name: "Bas-Congo",
+                country: "Bas-Congo",
                 shortCode: "BC",
             },
             {
-                name: "Équateur",
+                country: "Équateur",
                 shortCode: "EQ",
             },
             {
-                name: "Kasaï-Occidental",
+                country: "Kasaï-Occidental",
                 shortCode: "KE",
             },
             {
-                name: "Kasaï-Oriental",
+                country: "Kasaï-Oriental",
                 shortCode: "KW",
             },
             {
-                name: "Katanga",
+                country: "Katanga",
                 shortCode: "KA",
             },
             {
-                name: "Kinshasa",
+                country: "Kinshasa",
                 shortCode: "KN",
             },
             {
-                name: "Maniema",
+                country: "Maniema",
                 shortCode: "MA",
             },
             {
-                name: "Nord-Kivu",
+                country: "Nord-Kivu",
                 shortCode: "NK",
             },
             {
-                name: "Orientale",
+                country: "Orientale",
                 shortCode: "OR",
             },
             {
-                name: "Sud-Kivu",
+                country: "Sud-Kivu",
                 shortCode: "SK",
             },
         ],
@@ -5231,40 +5231,40 @@ const countyRegion = [
         countryShortCode: "CK",
         regions: [
             {
-                name: "Aitutaki",
+                country: "Aitutaki",
             },
             {
-                name: "Atiu",
+                country: "Atiu",
             },
             {
-                name: "Avarua",
+                country: "Avarua",
             },
             {
-                name: "Mangaia",
+                country: "Mangaia",
             },
             {
-                name: "Manihiki",
+                country: "Manihiki",
             },
             {
-                name: "Ma'uke",
+                country: "Ma'uke",
             },
             {
-                name: "Mitiaro",
+                country: "Mitiaro",
             },
             {
-                name: "Nassau",
+                country: "Nassau",
             },
             {
-                name: "Palmerston",
+                country: "Palmerston",
             },
             {
-                name: "Penrhyn",
+                country: "Penrhyn",
             },
             {
-                name: "Pukapuka",
+                country: "Pukapuka",
             },
             {
-                name: "Rakahanga",
+                country: "Rakahanga",
             },
         ],
     },
@@ -5273,31 +5273,31 @@ const countyRegion = [
         countryShortCode: "CR",
         regions: [
             {
-                name: "Alajuela",
+                country: "Alajuela",
                 shortCode: "2",
             },
             {
-                name: "Cartago",
+                country: "Cartago",
                 shortCode: "3",
             },
             {
-                name: "Guanacaste",
+                country: "Guanacaste",
                 shortCode: "5",
             },
             {
-                name: "Heredia",
+                country: "Heredia",
                 shortCode: "4",
             },
             {
-                name: "Limón",
+                country: "Limón",
                 shortCode: "7",
             },
             {
-                name: "Puntarenas",
+                country: "Puntarenas",
                 shortCode: "6",
             },
             {
-                name: "San José",
+                country: "San José",
                 shortCode: "1",
             },
         ],
@@ -5307,79 +5307,79 @@ const countyRegion = [
         countryShortCode: "CI",
         regions: [
             {
-                name: "Agnéby",
+                country: "Agnéby",
                 shortCode: "16",
             },
             {
-                name: "Bafing",
+                country: "Bafing",
                 shortCode: "17",
             },
             {
-                name: "Bas-Sassandra",
+                country: "Bas-Sassandra",
                 shortCode: "09",
             },
             {
-                name: "Denguélé",
+                country: "Denguélé",
                 shortCode: "10",
             },
             {
-                name: "Dix-Huit Montagnes",
+                country: "Dix-Huit Montagnes",
                 shortCode: "06",
             },
             {
-                name: "Fromager",
+                country: "Fromager",
                 shortCode: "18",
             },
             {
-                name: "Haut-Sassandra",
+                country: "Haut-Sassandra",
                 shortCode: "02",
             },
             {
-                name: "Lacs",
+                country: "Lacs",
                 shortCode: "07",
             },
             {
-                name: "Lagunes",
+                country: "Lagunes",
                 shortCode: "01",
             },
             {
-                name: "Marahoué",
+                country: "Marahoué",
                 shortCode: "12",
             },
             {
-                name: "Moyen-Cavally",
+                country: "Moyen-Cavally",
                 shortCode: "19",
             },
             {
-                name: "Moyen-Comoé",
+                country: "Moyen-Comoé",
                 shortCode: "05",
             },
             {
-                name: "N'zi-Comoé",
+                country: "N'zi-Comoé",
                 shortCode: "11",
             },
             {
-                name: "Savanes",
+                country: "Savanes",
                 shortCode: "03",
             },
             {
-                name: "Sud-Bandama",
+                country: "Sud-Bandama",
                 shortCode: "15",
             },
             {
-                name: "Sud-Comoé",
+                country: "Sud-Comoé",
                 shortCode: "13",
             },
             {
-                name: "Vallée du Bandama",
+                country: "Vallée du Bandama",
                 shortCode: "04",
             },
             {
-                name: "Worodougou",
+                country: "Worodougou",
                 shortCode: "14",
             },
             {
-                name: "Zanzan",
+                country: "Zanzan",
                 shortCode: "08",
             },
         ],
@@ -5389,87 +5389,87 @@ const countyRegion = [
         countryShortCode: "HR",
         regions: [
             {
-                name: "Bjelovarsko-bilogorska županija",
+                country: "Bjelovarsko-bilogorska županija",
                 shortCode: "07",
             },
             {
-                name: "Brodsko-posavska županija",
+                country: "Brodsko-posavska županija",
                 shortCode: "12",
             },
             {
-                name: "Dubrovačko-neretvanska županija",
+                country: "Dubrovačko-neretvanska županija",
                 shortCode: "19",
             },
             {
-                name: "Grad Zagreb",
+                country: "Grad Zagreb",
                 shortCode: "21",
             },
             {
-                name: "Istarska županija",
+                country: "Istarska županija",
                 shortCode: "18",
             },
             {
-                name: "Karlovačka županija",
+                country: "Karlovačka županija",
                 shortCode: "04",
             },
             {
-                name: "Koprivničko-križevačka županija",
+                country: "Koprivničko-križevačka županija",
                 shortCode: "06",
             },
             {
-                name: "Krapinsko-zagorska županija",
+                country: "Krapinsko-zagorska županija",
                 shortCode: "02",
             },
             {
-                name: "Ličko-senjska županija",
+                country: "Ličko-senjska županija",
                 shortCode: "09",
             },
             {
-                name: "Međimurska županija",
+                country: "Međimurska županija",
                 shortCode: "20",
             },
             {
-                name: "Osječko-baranjska županija",
+                country: "Osječko-baranjska županija",
                 shortCode: "14",
             },
             {
-                name: "Požeško-slavonska županija",
+                country: "Požeško-slavonska županija",
                 shortCode: "11",
             },
             {
-                name: "Primorsko-goranska županija",
+                country: "Primorsko-goranska županija",
                 shortCode: "08",
             },
             {
-                name: "Sisačko-moslavačka županija",
+                country: "Sisačko-moslavačka županija",
                 shortCode: "03",
             },
             {
-                name: "Splitsko-dalmatinska županija",
+                country: "Splitsko-dalmatinska županija",
                 shortCode: "17",
             },
             {
-                name: "Šibensko-kninska županija",
+                country: "Šibensko-kninska županija",
                 shortCode: "15",
             },
             {
-                name: "Varaždinska županija",
+                country: "Varaždinska županija",
                 shortCode: "05",
             },
             {
-                name: "Virovitičko-podravska županija",
+                country: "Virovitičko-podravska županija",
                 shortCode: "10",
             },
             {
-                name: "Vukovarsko-srijemska županija",
+                country: "Vukovarsko-srijemska županija",
                 shortCode: "16",
             },
             {
-                name: "Zadarska županija",
+                country: "Zadarska županija",
                 shortCode: "13",
             },
             {
-                name: "Zagrebačka županija",
+                country: "Zagrebačka županija",
                 shortCode: "01",
             },
         ],
@@ -5479,67 +5479,67 @@ const countyRegion = [
         countryShortCode: "CU",
         regions: [
             {
-                name: "Artemisa",
+                country: "Artemisa",
                 shortCode: "15",
             },
             {
-                name: "Camagüey",
+                country: "Camagüey",
                 shortCode: "09",
             },
             {
-                name: "Ciego de Ávila",
+                country: "Ciego de Ávila",
                 shortCode: "08",
             },
             {
-                name: "Cienfuegos",
+                country: "Cienfuegos",
                 shortCode: "06",
             },
             {
-                name: "Granma",
+                country: "Granma",
                 shortCode: "12",
             },
             {
-                name: "Guantánamo",
+                country: "Guantánamo",
                 shortCode: "14",
             },
             {
-                name: "Holguín",
+                country: "Holguín",
                 shortCode: "11",
             },
             {
-                name: "Isla de la Juventud",
+                country: "Isla de la Juventud",
                 shortCode: "99",
             },
             {
-                name: "La Habana",
+                country: "La Habana",
                 shortCode: "03",
             },
             {
-                name: "Las Tunas",
+                country: "Las Tunas",
                 shortCode: "10",
             },
             {
-                name: "Matanzas",
+                country: "Matanzas",
                 shortCode: "04",
             },
             {
-                name: "Mayabeque",
+                country: "Mayabeque",
                 shortCode: "16",
             },
             {
-                name: "Pinar del Río",
+                country: "Pinar del Río",
                 shortCode: "01",
             },
             {
-                name: "Sancti Spíritus",
+                country: "Sancti Spíritus",
                 shortCode: "07",
             },
             {
-                name: "Santiago de Cuba",
+                country: "Santiago de Cuba",
                 shortCode: "13",
             },
             {
-                name: "Villa Clara",
+                country: "Villa Clara",
                 shortCode: "05",
             },
         ],
@@ -5549,7 +5549,7 @@ const countyRegion = [
         countryShortCode: "CW",
         regions: [
             {
-                name: "Curaçao",
+                country: "Curaçao",
                 shortCode: "CW",
             },
         ],
@@ -5559,27 +5559,27 @@ const countyRegion = [
         countryShortCode: "CY",
         regions: [
             {
-                name: "Ammochostos",
+                country: "Ammochostos",
                 shortCode: "04",
             },
             {
-                name: "Keryneia",
+                country: "Keryneia",
                 shortCode: "06",
             },
             {
-                name: "Larnaka",
+                country: "Larnaka",
                 shortCode: "03",
             },
             {
-                name: "Lefkosia",
+                country: "Lefkosia",
                 shortCode: "01",
             },
             {
-                name: "Lemesos",
+                country: "Lemesos",
                 shortCode: "02",
             },
             {
-                name: "Pafos",
+                country: "Pafos",
                 shortCode: "05",
             },
         ],
@@ -5589,59 +5589,59 @@ const countyRegion = [
         countryShortCode: "CZ",
         regions: [
             {
-                name: "Hlavní město Praha",
+                country: "Hlavní město Praha",
                 shortCode: "10",
             },
             {
-                name: "Jihočeský kraj",
+                country: "Jihočeský kraj",
                 shortCode: "31",
             },
             {
-                name: "Jihomoravský kraj",
+                country: "Jihomoravský kraj",
                 shortCode: "64",
             },
             {
-                name: "Karlovarský kraj",
+                country: "Karlovarský kraj",
                 shortCode: "41",
             },
             {
-                name: "Královéhradecký kraj",
+                country: "Královéhradecký kraj",
                 shortCode: "52",
             },
             {
-                name: "Liberecký kraj",
+                country: "Liberecký kraj",
                 shortCode: "51",
             },
             {
-                name: "Moravskoslezský kraj",
+                country: "Moravskoslezský kraj",
                 shortCode: "80",
             },
             {
-                name: "Olomoucký kraj",
+                country: "Olomoucký kraj",
                 shortCode: "71",
             },
             {
-                name: "Pardubický kraj",
+                country: "Pardubický kraj",
                 shortCode: "53",
             },
             {
-                name: "Plzeňský kraj",
+                country: "Plzeňský kraj",
                 shortCode: "32",
             },
             {
-                name: "Středočeský kraj",
+                country: "Středočeský kraj",
                 shortCode: "20",
             },
             {
-                name: "Ústecký kraj",
+                country: "Ústecký kraj",
                 shortCode: "42",
             },
             {
-                name: "Vysočina",
+                country: "Vysočina",
                 shortCode: "63",
             },
             {
-                name: "Zlínský kraj",
+                country: "Zlínský kraj",
                 shortCode: "72",
             },
         ],
@@ -5651,23 +5651,23 @@ const countyRegion = [
         countryShortCode: "DK",
         regions: [
             {
-                name: "Hovedstaden",
+                country: "Hovedstaden",
                 shortCode: "DK-84",
             },
             {
-                name: "Midtjylland",
+                country: "Midtjylland",
                 shortCode: "DK-82",
             },
             {
-                name: "Nordjylland",
+                country: "Nordjylland",
                 shortCode: "DK-81",
             },
             {
-                name: "Sjælland",
+                country: "Sjælland",
                 shortCode: "DK-85",
             },
             {
-                name: "Syddanmark",
+                country: "Syddanmark",
                 shortCode: "DK-83",
             },
         ],
@@ -5677,23 +5677,23 @@ const countyRegion = [
         countryShortCode: "DJ",
         regions: [
             {
-                name: "Ali Sabieh",
+                country: "Ali Sabieh",
                 shortCode: "AS",
             },
             {
-                name: "Arta",
+                country: "Arta",
                 shortCode: "AR",
             },
             {
-                name: "Dikhil",
+                country: "Dikhil",
                 shortCode: "DI",
             },
             {
-                name: "Obock",
+                country: "Obock",
                 shortCode: "OB",
             },
             {
-                name: "Tadjourah",
+                country: "Tadjourah",
                 shortCode: "TA",
             },
         ],
@@ -5703,43 +5703,43 @@ const countyRegion = [
         countryShortCode: "DM",
         regions: [
             {
-                name: "Saint Andrew Parish",
+                country: "Saint Andrew Parish",
                 shortCode: "02",
             },
             {
-                name: "Saint David Parish",
+                country: "Saint David Parish",
                 shortCode: "03",
             },
             {
-                name: "Saint George Parish",
+                country: "Saint George Parish",
                 shortCode: "04",
             },
             {
-                name: "Saint John Parish",
+                country: "Saint John Parish",
                 shortCode: "05",
             },
             {
-                name: "Saint Joseph Parish",
+                country: "Saint Joseph Parish",
                 shortCode: "06",
             },
             {
-                name: "Saint Luke Parish",
+                country: "Saint Luke Parish",
                 shortCode: "07",
             },
             {
-                name: "Saint Mark Parish",
+                country: "Saint Mark Parish",
                 shortCode: "08",
             },
             {
-                name: "Saint Patrick Parish",
+                country: "Saint Patrick Parish",
                 shortCode: "09",
             },
             {
-                name: "Saint Paul Parish",
+                country: "Saint Paul Parish",
                 shortCode: "10",
             },
             {
-                name: "Saint Peter Parish",
+                country: "Saint Peter Parish",
                 shortCode: "11",
             },
         ],
@@ -5749,39 +5749,39 @@ const countyRegion = [
         countryShortCode: "DO",
         regions: [
             {
-                name: "Cibao Central",
+                country: "Cibao Central",
                 shortCode: "02",
             },
             {
-                name: "Del Valle",
+                country: "Del Valle",
                 shortCode: "37",
             },
             {
-                name: "Distrito Nacional",
+                country: "Distrito Nacional",
                 shortCode: "01",
             },
             {
-                name: "Enriquillo",
+                country: "Enriquillo",
                 shortCode: "38",
             },
             {
-                name: "Norcentral",
+                country: "Norcentral",
                 shortCode: "04",
             },
             {
-                name: "Nordeste",
+                country: "Nordeste",
                 shortCode: "33",
             },
             {
-                name: "Noroeste",
+                country: "Noroeste",
                 shortCode: "34",
             },
             {
-                name: "Norte",
+                country: "Norte",
                 shortCode: "35",
             },
             {
-                name: "Valdesia",
+                country: "Valdesia",
                 shortCode: "42",
             },
         ],
@@ -5791,99 +5791,99 @@ const countyRegion = [
         countryShortCode: "EC",
         regions: [
             {
-                name: "Azuay",
+                country: "Azuay",
                 shortCode: "A",
             },
             {
-                name: "Bolívar",
+                country: "Bolívar",
                 shortCode: "B",
             },
             {
-                name: "Cañar",
+                country: "Cañar",
                 shortCode: "F",
             },
             {
-                name: "Carchi",
+                country: "Carchi",
                 shortCode: "C",
             },
             {
-                name: "Chimborazo",
+                country: "Chimborazo",
                 shortCode: "H",
             },
             {
-                name: "Cotopaxi",
+                country: "Cotopaxi",
                 shortCode: "X",
             },
             {
-                name: "El Oro",
+                country: "El Oro",
                 shortCode: "O",
             },
             {
-                name: "Esmeraldas",
+                country: "Esmeraldas",
                 shortCode: "E",
             },
             {
-                name: "Galápagos",
+                country: "Galápagos",
                 shortCode: "W",
             },
             {
-                name: "Guayas",
+                country: "Guayas",
                 shortCode: "G",
             },
             {
-                name: "Imbabura",
+                country: "Imbabura",
                 shortCode: "I",
             },
             {
-                name: "Loja",
+                country: "Loja",
                 shortCode: "L",
             },
             {
-                name: "Los Ríos",
+                country: "Los Ríos",
                 shortCode: "R",
             },
             {
-                name: "Manabí",
+                country: "Manabí",
                 shortCode: "M",
             },
             {
-                name: "Morona-Santiago",
+                country: "Morona-Santiago",
                 shortCode: "S",
             },
             {
-                name: "Napo",
+                country: "Napo",
                 shortCode: "N",
             },
             {
-                name: "Orellana",
+                country: "Orellana",
                 shortCode: "D",
             },
             {
-                name: "Pastaza",
+                country: "Pastaza",
                 shortCode: "Y",
             },
             {
-                name: "Pichincha",
+                country: "Pichincha",
                 shortCode: "P",
             },
             {
-                name: "Santa Elena",
+                country: "Santa Elena",
                 shortCode: "SE",
             },
             {
-                name: "Santo Domingo de los Tsáchilas",
+                country: "Santo Domingo de los Tsáchilas",
                 shortCode: "SD",
             },
             {
-                name: "Sucumbíos",
+                country: "Sucumbíos",
                 shortCode: "U",
             },
             {
-                name: "Tungurahua",
+                country: "Tungurahua",
                 shortCode: "T",
             },
             {
-                name: "Zamora-Chinchipe",
+                country: "Zamora-Chinchipe",
                 shortCode: "Z",
             },
         ],
@@ -5893,119 +5893,119 @@ const countyRegion = [
         countryShortCode: "EG",
         regions: [
             {
-                name: "Alexandria",
+                country: "Alexandria",
                 shortCode: "ALX",
             },
             {
-                name: "Aswan",
+                country: "Aswan",
                 shortCode: "ASN",
             },
             {
-                name: "Asyout",
+                country: "Asyout",
                 shortCode: "AST",
             },
             {
-                name: "Bani Sueif",
+                country: "Bani Sueif",
                 shortCode: "BNS",
             },
             {
-                name: "Beheira",
+                country: "Beheira",
                 shortCode: "BH",
             },
             {
-                name: "Cairo",
+                country: "Cairo",
                 shortCode: "C",
             },
             {
-                name: "Daqahlia",
+                country: "Daqahlia",
                 shortCode: "DK",
             },
             {
-                name: "Dumiat",
+                country: "Dumiat",
                 shortCode: "DT",
             },
             {
-                name: "El Bahr El Ahmar",
+                country: "El Bahr El Ahmar",
                 shortCode: "BA",
             },
             {
-                name: "El Ismailia",
+                country: "El Ismailia",
                 shortCode: "IS",
             },
             {
-                name: "El Suez",
+                country: "El Suez",
                 shortCode: "SUZ",
             },
             {
-                name: "El Wadi El Gedeed",
+                country: "El Wadi El Gedeed",
                 shortCode: "WAD",
             },
             {
-                name: "Fayoum",
+                country: "Fayoum",
                 shortCode: "FYM",
             },
             {
-                name: "Gharbia",
+                country: "Gharbia",
                 shortCode: "GH",
             },
             {
-                name: "Giza",
+                country: "Giza",
                 shortCode: "GZ",
             },
             {
-                name: "Helwan",
+                country: "Helwan",
                 shortCode: "HU",
             },
             {
-                name: "Kafr El Sheikh",
+                country: "Kafr El Sheikh",
                 shortCode: "KFS",
             },
             {
-                name: "Luxor",
+                country: "Luxor",
                 shortCode: "LX",
             },
             {
-                name: "Matrouh",
+                country: "Matrouh",
                 shortCode: "MT",
             },
             {
-                name: "Menia",
+                country: "Menia",
                 shortCode: "MN",
             },
             {
-                name: "Menofia",
+                country: "Menofia",
                 shortCode: "MNF",
             },
             {
-                name: "North Sinai",
+                country: "North Sinai",
                 shortCode: "SIN",
             },
             {
-                name: "Port Said",
+                country: "Port Said",
                 shortCode: "PTS",
             },
             {
-                name: "Qalubia",
+                country: "Qalubia",
                 shortCode: "KB",
             },
             {
-                name: "Qena",
+                country: "Qena",
                 shortCode: "KN",
             },
             {
-                name: "Sharqia",
+                country: "Sharqia",
                 shortCode: "SHR",
             },
             {
-                name: "Sixth of October",
+                country: "Sixth of October",
                 shortCode: "SU",
             },
             {
-                name: "Sohag",
+                country: "Sohag",
                 shortCode: "SHG",
             },
             {
-                name: "South Sinai",
+                country: "South Sinai",
                 shortCode: "JS",
             },
         ],
@@ -6015,59 +6015,59 @@ const countyRegion = [
         countryShortCode: "SV",
         regions: [
             {
-                name: "Ahuachapán",
+                country: "Ahuachapán",
                 shortCode: "AH",
             },
             {
-                name: "Cabañas",
+                country: "Cabañas",
                 shortCode: "CA",
             },
             {
-                name: "Cuscatlán",
+                country: "Cuscatlán",
                 shortCode: "CU",
             },
             {
-                name: "Chalatenango",
+                country: "Chalatenango",
                 shortCode: "CH",
             },
             {
-                name: "La Libertad",
+                country: "La Libertad",
                 shortCode: "LI",
             },
             {
-                name: "La Paz",
+                country: "La Paz",
                 shortCode: "PA",
             },
             {
-                name: "La Unión",
+                country: "La Unión",
                 shortCode: "UN",
             },
             {
-                name: "Morazán",
+                country: "Morazán",
                 shortCode: "MO",
             },
             {
-                name: "San Miguel",
+                country: "San Miguel",
                 shortCode: "SM",
             },
             {
-                name: "San Salvador",
+                country: "San Salvador",
                 shortCode: "SS",
             },
             {
-                name: "Santa Ana",
+                country: "Santa Ana",
                 shortCode: "SA",
             },
             {
-                name: "San Vicente",
+                country: "San Vicente",
                 shortCode: "SV",
             },
             {
-                name: "Sonsonate",
+                country: "Sonsonate",
                 shortCode: "SO",
             },
             {
-                name: "Usulután",
+                country: "Usulután",
                 shortCode: "US",
             },
         ],
@@ -6077,31 +6077,31 @@ const countyRegion = [
         countryShortCode: "GQ",
         regions: [
             {
-                name: "Annobón",
+                country: "Annobón",
                 shortCode: "AN",
             },
             {
-                name: "Bioko Norte",
+                country: "Bioko Norte",
                 shortCode: "BN",
             },
             {
-                name: "Bioko Sur",
+                country: "Bioko Sur",
                 shortCode: "BS",
             },
             {
-                name: "Centro Sur",
+                country: "Centro Sur",
                 shortCode: "CS",
             },
             {
-                name: "Kié-Ntem",
+                country: "Kié-Ntem",
                 shortCode: "KN",
             },
             {
-                name: "Litoral",
+                country: "Litoral",
                 shortCode: "LI",
             },
             {
-                name: "Wele-Nzas",
+                country: "Wele-Nzas",
                 shortCode: "WN",
             },
         ],
@@ -6111,27 +6111,27 @@ const countyRegion = [
         countryShortCode: "ER",
         regions: [
             {
-                name: "Anseba",
+                country: "Anseba",
                 shortCode: "AN",
             },
             {
-                name: "Debub",
+                country: "Debub",
                 shortCode: "DU",
             },
             {
-                name: "Debub-Keih-Bahri",
+                country: "Debub-Keih-Bahri",
                 shortCode: "DK",
             },
             {
-                name: "Gash-Barka",
+                country: "Gash-Barka",
                 shortCode: "GB",
             },
             {
-                name: "Maekel",
+                country: "Maekel",
                 shortCode: "MA",
             },
             {
-                name: "Semien-Keih-Bahri",
+                country: "Semien-Keih-Bahri",
                 shortCode: "SK",
             },
         ],
@@ -6141,63 +6141,63 @@ const countyRegion = [
         countryShortCode: "EE",
         regions: [
             {
-                name: "Harjumaa (Tallinn)",
+                country: "Harjumaa (Tallinn)",
                 shortCode: "37",
             },
             {
-                name: "Hiiumaa (Kardla)",
+                country: "Hiiumaa (Kardla)",
                 shortCode: "39",
             },
             {
-                name: "Ida-Virumaa (Johvi)",
+                country: "Ida-Virumaa (Johvi)",
                 shortCode: "44",
             },
             {
-                name: "Järvamaa (Paide)",
+                country: "Järvamaa (Paide)",
                 shortCode: "41",
             },
             {
-                name: "Jõgevamaa (Jogeva)",
+                country: "Jõgevamaa (Jogeva)",
                 shortCode: "49",
             },
             {
-                name: "Läänemaa",
+                country: "Läänemaa",
                 shortCode: "57",
             },
             {
-                name: "Lääne-Virumaa (Rakvere)",
+                country: "Lääne-Virumaa (Rakvere)",
                 shortCode: "59",
             },
             {
-                name: "Pärnumaa (Parnu)",
+                country: "Pärnumaa (Parnu)",
                 shortCode: "67",
             },
             {
-                name: "Põlvamaa (Polva)",
+                country: "Põlvamaa (Polva)",
                 shortCode: "65",
             },
             {
-                name: "Raplamaa (Rapla)",
+                country: "Raplamaa (Rapla)",
                 shortCode: "70",
             },
             {
-                name: "Saaremaa (Kuessaare)",
+                country: "Saaremaa (Kuessaare)",
                 shortCode: "74",
             },
             {
-                name: "Tartumaa (Tartu)",
+                country: "Tartumaa (Tartu)",
                 shortCode: "78",
             },
             {
-                name: "Valgamaa (Valga)",
+                country: "Valgamaa (Valga)",
                 shortCode: "82",
             },
             {
-                name: "Viljandimaa (Viljandi)",
+                country: "Viljandimaa (Viljandi)",
                 shortCode: "84",
             },
             {
-                name: "Võrumaa (Voru)",
+                country: "Võrumaa (Voru)",
                 shortCode: "86",
             },
         ],
@@ -6207,47 +6207,47 @@ const countyRegion = [
         countryShortCode: "ET",
         regions: [
             {
-                name: "Addis Ababa",
+                country: "Addis Ababa",
                 shortCode: "AA",
             },
             {
-                name: "Afar",
+                country: "Afar",
                 shortCode: "AF",
             },
             {
-                name: "Amhara",
+                country: "Amhara",
                 shortCode: "AM",
             },
             {
-                name: "Benshangul-Gumaz",
+                country: "Benshangul-Gumaz",
                 shortCode: "BE",
             },
             {
-                name: "Dire Dawa",
+                country: "Dire Dawa",
                 shortCode: "DD",
             },
             {
-                name: "Gambela",
+                country: "Gambela",
                 shortCode: "GA",
             },
             {
-                name: "Harari",
+                country: "Harari",
                 shortCode: "HA",
             },
             {
-                name: "Oromia",
+                country: "Oromia",
                 shortCode: "OR",
             },
             {
-                name: "Somali",
+                country: "Somali",
                 shortCode: "SO",
             },
             {
-                name: "Southern Nations Nationalities and People's Region",
+                country: "Southern Nations Nationalities and People's Region",
                 shortCode: "SN",
             },
             {
-                name: "Tigray",
+                country: "Tigray",
                 shortCode: "TI",
             },
         ],
@@ -6257,7 +6257,7 @@ const countyRegion = [
         countryShortCode: "FK",
         regions: [
             {
-                name: "Falkland Islands (Islas Malvinas)",
+                country: "Falkland Islands (Islas Malvinas)",
             },
         ],
     },
@@ -6266,31 +6266,31 @@ const countyRegion = [
         countryShortCode: "FO",
         regions: [
             {
-                name: "Bordoy",
+                country: "Bordoy",
             },
             {
-                name: "Eysturoy",
+                country: "Eysturoy",
             },
             {
-                name: "Mykines",
+                country: "Mykines",
             },
             {
-                name: "Sandoy",
+                country: "Sandoy",
             },
             {
-                name: "Skuvoy",
+                country: "Skuvoy",
             },
             {
-                name: "Streymoy",
+                country: "Streymoy",
             },
             {
-                name: "Suduroy",
+                country: "Suduroy",
             },
             {
-                name: "Tvoroyri",
+                country: "Tvoroyri",
             },
             {
-                name: "Vagar",
+                country: "Vagar",
             },
         ],
     },
@@ -6299,63 +6299,63 @@ const countyRegion = [
         countryShortCode: "FJ",
         regions: [
             {
-                name: "Ba",
+                country: "Ba",
                 shortCode: "01",
             },
             {
-                name: "Bua",
+                country: "Bua",
                 shortCode: "02",
             },
             {
-                name: "Cakaudrove",
+                country: "Cakaudrove",
                 shortCode: "03",
             },
             {
-                name: "Kadavu",
+                country: "Kadavu",
                 shortCode: "04",
             },
             {
-                name: "Lau",
+                country: "Lau",
                 shortCode: "05",
             },
             {
-                name: "Lomaiviti",
+                country: "Lomaiviti",
                 shortCode: "06",
             },
             {
-                name: "Macuata",
+                country: "Macuata",
                 shortCode: "07",
             },
             {
-                name: "Nadroga and Navosa",
+                country: "Nadroga and Navosa",
                 shortCode: "08",
             },
             {
-                name: "Naitasiri",
+                country: "Naitasiri",
                 shortCode: "09",
             },
             {
-                name: "Namosi",
+                country: "Namosi",
                 shortCode: "10",
             },
             {
-                name: "Ra",
+                country: "Ra",
                 shortCode: "11",
             },
             {
-                name: "Rewa",
+                country: "Rewa",
                 shortCode: "12",
             },
             {
-                name: "Rotuma",
+                country: "Rotuma",
                 shortCode: "R",
             },
             {
-                name: "Serua",
+                country: "Serua",
                 shortCode: "13",
             },
             {
-                name: "Tailevu",
+                country: "Tailevu",
                 shortCode: "14",
             },
         ],
@@ -6365,79 +6365,79 @@ const countyRegion = [
         countryShortCode: "FI",
         regions: [
             {
-                name: "Ahvenanmaan maakunta",
+                country: "Ahvenanmaan maakunta",
                 shortCode: "FI-01",
             },
             {
-                name: "Etelä-Karjala",
+                country: "Etelä-Karjala",
                 shortCode: "FI-02",
             },
             {
-                name: "Etelä-Pohjanmaa",
+                country: "Etelä-Pohjanmaa",
                 shortCode: "FI-03",
             },
             {
-                name: "Etelä-Savo",
+                country: "Etelä-Savo",
                 shortCode: "FI-04",
             },
             {
-                name: "Kainuu",
+                country: "Kainuu",
                 shortCode: "FI-05",
             },
             {
-                name: "Kanta-Häme",
+                country: "Kanta-Häme",
                 shortCode: "FI-06",
             },
             {
-                name: "Keski-Pohjanmaa",
+                country: "Keski-Pohjanmaa",
                 shortCode: "FI-07",
             },
             {
-                name: "Keski-Suomi",
+                country: "Keski-Suomi",
                 shortCode: "FI-08",
             },
             {
-                name: "Kymenlaakso",
+                country: "Kymenlaakso",
                 shortCode: "FI-09",
             },
             {
-                name: "Lappi",
+                country: "Lappi",
                 shortCode: "FI-10",
             },
             {
-                name: "Pirkanmaa",
+                country: "Pirkanmaa",
                 shortCode: "FI-11",
             },
             {
-                name: "Pohjanmaa",
+                country: "Pohjanmaa",
                 shortCode: "FI-12",
             },
             {
-                name: "Pohjois-Karjala",
+                country: "Pohjois-Karjala",
                 shortCode: "FI-13",
             },
             {
-                name: "Pohjois-Pohjanmaa",
+                country: "Pohjois-Pohjanmaa",
                 shortCode: "FI-14",
             },
             {
-                name: "Pohjois-Savo",
+                country: "Pohjois-Savo",
                 shortCode: "FI-15",
             },
             {
-                name: "Päijät-Häme",
+                country: "Päijät-Häme",
                 shortCode: "FI-16",
             },
             {
-                name: "Satakunta",
+                country: "Satakunta",
                 shortCode: "FI-17",
             },
             {
-                name: "Uusimaa",
+                country: "Uusimaa",
                 shortCode: "FI-18",
             },
             {
-                name: "Varsinais-Suomi",
+                country: "Varsinais-Suomi",
                 shortCode: "FI-19",
             },
         ],
@@ -6447,107 +6447,107 @@ const countyRegion = [
         countryShortCode: "FR",
         regions: [
             {
-                name: "Auvergne-Rhône-Alpes",
+                country: "Auvergne-Rhône-Alpes",
                 shortCode: "ARA",
             },
             {
-                name: "Bourgogne-Franche-Comté",
+                country: "Bourgogne-Franche-Comté",
                 shortCode: "BFC",
             },
             {
-                name: "Bretagne",
+                country: "Bretagne",
                 shortCode: "BRE",
             },
             {
-                name: "Centre-Val de Loire",
+                country: "Centre-Val de Loire",
                 shortCode: "CVL",
             },
             {
-                name: "Corse",
+                country: "Corse",
                 shortCode: "COR",
             },
             {
-                name: "Grand Est",
+                country: "Grand Est",
                 shortCode: "GES",
             },
             {
-                name: "Hauts-de-France",
+                country: "Hauts-de-France",
                 shortCode: "HDF",
             },
             {
-                name: "Île-de-France",
+                country: "Île-de-France",
                 shortCode: "IDF",
             },
             {
-                name: "Normandie",
+                country: "Normandie",
                 shortCode: "NOR",
             },
             {
-                name: "Nouvelle-Aquitaine",
+                country: "Nouvelle-Aquitaine",
                 shortCode: "NAQ",
             },
             {
-                name: "Occitanie",
+                country: "Occitanie",
                 shortCode: "OCC",
             },
             {
-                name: "Pays de la Loire",
+                country: "Pays de la Loire",
                 shortCode: "PDL",
             },
             {
-                name: "Provence-Alpes-Cote d'Azur",
+                country: "Provence-Alpes-Cote d'Azur",
                 shortCode: "PAC",
             },
             {
-                name: "Clipperton",
+                country: "Clipperton",
                 shortCode: "CP",
             },
             {
-                name: "Guadeloupe",
+                country: "Guadeloupe",
                 shortCode: "GP",
             },
             {
-                name: "Guyane",
+                country: "Guyane",
                 shortCode: "GF",
             },
             {
-                name: "Martinique",
+                country: "Martinique",
                 shortCode: "MQ",
             },
             {
-                name: "Mayotte",
+                country: "Mayotte",
                 shortCode: "YT",
             },
             {
-                name: "Nouvelle-Calédonie",
+                country: "Nouvelle-Calédonie",
                 shortCode: "NC",
             },
             {
-                name: "Polynésie",
+                country: "Polynésie",
                 shortCode: "PF",
             },
             {
-                name: "Saint-Pierre-et-Miquelon",
+                country: "Saint-Pierre-et-Miquelon",
                 shortCode: "PM",
             },
             {
-                name: "Saint Barthélemy",
+                country: "Saint Barthélemy",
                 shortCode: "BL",
             },
             {
-                name: "Saint Martin",
+                country: "Saint Martin",
                 shortCode: "MF",
             },
             {
-                name: "Réunion",
+                country: "Réunion",
                 shortCode: "RE",
             },
             {
-                name: "Terres Australes Françaises",
+                country: "Terres Australes Françaises",
                 shortCode: "TF",
             },
             {
-                name: "Wallis-et-Futuna",
+                country: "Wallis-et-Futuna",
                 shortCode: "WF",
             },
         ],
@@ -6557,7 +6557,7 @@ const countyRegion = [
         countryShortCode: "GF",
         regions: [
             {
-                name: "French Guiana",
+                country: "French Guiana",
             },
         ],
     },
@@ -6566,19 +6566,19 @@ const countyRegion = [
         countryShortCode: "PF",
         regions: [
             {
-                name: "Archipel des Marquises",
+                country: "Archipel des Marquises",
             },
             {
-                name: "Archipel des Tuamotu",
+                country: "Archipel des Tuamotu",
             },
             {
-                name: "Archipel des Tubuai",
+                country: "Archipel des Tubuai",
             },
             {
-                name: "Iles du Vent",
+                country: "Iles du Vent",
             },
             {
-                name: "Iles Sous-le-Vent",
+                country: "Iles Sous-le-Vent",
             },
         ],
     },
@@ -6587,16 +6587,16 @@ const countyRegion = [
         countryShortCode: "TF",
         regions: [
             {
-                name: "Adelie Land",
+                country: "Adelie Land",
             },
             {
-                name: "Ile Crozet",
+                country: "Ile Crozet",
             },
             {
-                name: "Iles Kerguelen",
+                country: "Iles Kerguelen",
             },
             {
-                name: "Iles Saint-Paul et Amsterdam",
+                country: "Iles Saint-Paul et Amsterdam",
             },
         ],
     },
@@ -6605,39 +6605,39 @@ const countyRegion = [
         countryShortCode: "GA",
         regions: [
             {
-                name: "Estuaire",
+                country: "Estuaire",
                 shortCode: "1",
             },
             {
-                name: "Haut-Ogooué",
+                country: "Haut-Ogooué",
                 shortCode: "2",
             },
             {
-                name: "Moyen-Ogooué",
+                country: "Moyen-Ogooué",
                 shortCode: "3",
             },
             {
-                name: "Ngounié",
+                country: "Ngounié",
                 shortCode: "4",
             },
             {
-                name: "Nyanga",
+                country: "Nyanga",
                 shortCode: "5",
             },
             {
-                name: "Ogooué-Ivindo",
+                country: "Ogooué-Ivindo",
                 shortCode: "6",
             },
             {
-                name: "Ogooué-Lolo",
+                country: "Ogooué-Lolo",
                 shortCode: "7",
             },
             {
-                name: "Ogooué-Maritime",
+                country: "Ogooué-Maritime",
                 shortCode: "8",
             },
             {
-                name: "Woleu-Ntem",
+                country: "Woleu-Ntem",
                 shortCode: "9",
             },
         ],
@@ -6647,27 +6647,27 @@ const countyRegion = [
         countryShortCode: "GM",
         regions: [
             {
-                name: "Banjul",
+                country: "Banjul",
                 shortCode: "B",
             },
             {
-                name: "Central River",
+                country: "Central River",
                 shortCode: "M",
             },
             {
-                name: "Lower River",
+                country: "Lower River",
                 shortCode: "L",
             },
             {
-                name: "North Bank",
+                country: "North Bank",
                 shortCode: "N",
             },
             {
-                name: "Upper River",
+                country: "Upper River",
                 shortCode: "U",
             },
             {
-                name: "Western",
+                country: "Western",
                 shortCode: "W",
             },
         ],
@@ -6677,51 +6677,51 @@ const countyRegion = [
         countryShortCode: "GE",
         regions: [
             {
-                name: "Abkhazia (Sokhumi)",
+                country: "Abkhazia (Sokhumi)",
                 shortCode: "AB",
             },
             {
-                name: "Ajaria (Bat'umi)",
+                country: "Ajaria (Bat'umi)",
                 shortCode: "AJ",
             },
             {
-                name: "Guria",
+                country: "Guria",
                 shortCode: "GU",
             },
             {
-                name: "Imereti",
+                country: "Imereti",
                 shortCode: "IM",
             },
             {
-                name: "K'akheti",
+                country: "K'akheti",
                 shortCode: "KA",
             },
             {
-                name: "Kvemo Kartli",
+                country: "Kvemo Kartli",
                 shortCode: "KK",
             },
             {
-                name: "Mtshkheta-Mtianeti",
+                country: "Mtshkheta-Mtianeti",
                 shortCode: "MM",
             },
             {
-                name: "Rach'a-Lexhkumi-KvemoSvaneti",
+                country: "Rach'a-Lexhkumi-KvemoSvaneti",
                 shortCode: "RL",
             },
             {
-                name: "Samegrelo-Zemo Svaneti",
+                country: "Samegrelo-Zemo Svaneti",
                 shortCode: "SZ",
             },
             {
-                name: "Samtskhe-Javakheti",
+                country: "Samtskhe-Javakheti",
                 shortCode: "SJ",
             },
             {
-                name: "Shida Kartli",
+                country: "Shida Kartli",
                 shortCode: "SK",
             },
             {
-                name: "Tbilisi",
+                country: "Tbilisi",
                 shortCode: "TB",
             },
         ],
@@ -6731,67 +6731,67 @@ const countyRegion = [
         countryShortCode: "DE",
         regions: [
             {
-                name: "Baden-Württemberg",
+                country: "Baden-Württemberg",
                 shortCode: "BW",
             },
             {
-                name: "Bayern",
+                country: "Bayern",
                 shortCode: "BY",
             },
             {
-                name: "Berlin",
+                country: "Berlin",
                 shortCode: "BE",
             },
             {
-                name: "Brandenburg",
+                country: "Brandenburg",
                 shortCode: "BB",
             },
             {
-                name: "Bremen",
+                country: "Bremen",
                 shortCode: "HB",
             },
             {
-                name: "Hamburg",
+                country: "Hamburg",
                 shortCode: "HH",
             },
             {
-                name: "Hessen",
+                country: "Hessen",
                 shortCode: "HE",
             },
             {
-                name: "Mecklenburg-Vorpommern",
+                country: "Mecklenburg-Vorpommern",
                 shortCode: "MV",
             },
             {
-                name: "Niedersachsen",
+                country: "Niedersachsen",
                 shortCode: "NI",
             },
             {
-                name: "Nordrhein-Westfalen",
+                country: "Nordrhein-Westfalen",
                 shortCode: "NW",
             },
             {
-                name: "Rheinland-Pfalz",
+                country: "Rheinland-Pfalz",
                 shortCode: "RP",
             },
             {
-                name: "Saarland",
+                country: "Saarland",
                 shortCode: "SL",
             },
             {
-                name: "Sachsen",
+                country: "Sachsen",
                 shortCode: "SN",
             },
             {
-                name: "Sachsen-Anhalt",
+                country: "Sachsen-Anhalt",
                 shortCode: "ST",
             },
             {
-                name: "Schleswig-Holstein",
+                country: "Schleswig-Holstein",
                 shortCode: "SH",
             },
             {
-                name: "Thüringen",
+                country: "Thüringen",
                 shortCode: "TH",
             },
         ],
@@ -6801,61 +6801,61 @@ const countyRegion = [
         countryShortCode: "GH",
         regions: [
             {
-                name: "Ahafo",
+                country: "Ahafo",
             },
             {
-                name: "Ashanti",
+                country: "Ashanti",
                 shortCode: "AH",
             },
             {
-                name: "Bono",
+                country: "Bono",
             },
             {
-                name: "Bono East",
+                country: "Bono East",
             },
             {
-                name: "Central",
+                country: "Central",
                 shortCode: "CP",
             },
             {
-                name: "Eastern",
+                country: "Eastern",
                 shortCode: "EP",
             },
             {
-                name: "Greater Accra",
+                country: "Greater Accra",
                 shortCode: "AA",
             },
             {
-                name: "Northern",
+                country: "Northern",
                 shortCode: "NP",
             },
             {
-                name: "North East",
+                country: "North East",
             },
             {
-                name: "Oti",
+                country: "Oti",
             },
             {
-                name: "Savannah",
+                country: "Savannah",
             },
             {
-                name: "Upper East",
+                country: "Upper East",
                 shortCode: "UE",
             },
             {
-                name: "Upper West",
+                country: "Upper West",
                 shortCode: "UW",
             },
             {
-                name: "Volta",
+                country: "Volta",
                 shortCode: "TV",
             },
             {
-                name: "Western",
+                country: "Western",
                 shortCode: "WP",
             },
             {
-                name: "Western North",
+                country: "Western North",
             },
         ],
     },
@@ -6864,7 +6864,7 @@ const countyRegion = [
         countryShortCode: "GI",
         regions: [
             {
-                name: "Gibraltar",
+                country: "Gibraltar",
             },
         ],
     },
@@ -6873,59 +6873,59 @@ const countyRegion = [
         countryShortCode: "GR",
         regions: [
             {
-                name: "Anatolikí Makedonía kai Thráki",
+                country: "Anatolikí Makedonía kai Thráki",
                 shortCode: "A",
             },
             {
-                name: "Attikḯ",
+                country: "Attikḯ",
                 shortCode: "I",
             },
             {
-                name: "Dytikí Elláda",
+                country: "Dytikí Elláda",
                 shortCode: "G",
             },
             {
-                name: "Dytikí Makedonía",
+                country: "Dytikí Makedonía",
                 shortCode: "C",
             },
             {
-                name: "Ionía Nísia",
+                country: "Ionía Nísia",
                 shortCode: "F",
             },
             {
-                name: "Kentrikí Makedonía",
+                country: "Kentrikí Makedonía",
                 shortCode: "B",
             },
             {
-                name: "Krítí",
+                country: "Krítí",
                 shortCode: "M",
             },
             {
-                name: "Notío Aigaío",
+                country: "Notío Aigaío",
                 shortCode: "L",
             },
             {
-                name: "Peloponnísos",
+                country: "Peloponnísos",
                 shortCode: "J",
             },
             {
-                name: "Stereá Elláda",
+                country: "Stereá Elláda",
                 shortCode: "H",
             },
             {
-                name: "Thessalía",
+                country: "Thessalía",
                 shortCode: "E",
             },
             {
-                name: "Voreío Aigaío",
+                country: "Voreío Aigaío",
                 shortCode: "K",
             },
             {
-                name: "Ípeiros",
+                country: "Ípeiros",
                 shortCode: "D",
             },
             {
-                name: "Ágion Óros",
+                country: "Ágion Óros",
                 shortCode: "69",
             },
         ],
@@ -6935,19 +6935,19 @@ const countyRegion = [
         countryShortCode: "GL",
         regions: [
             {
-                name: "Kommune Kujalleq",
+                country: "Kommune Kujalleq",
                 shortCode: "KU",
             },
             {
-                name: "Kommuneqarfik Sermersooq",
+                country: "Kommuneqarfik Sermersooq",
                 shortCode: "SM",
             },
             {
-                name: "Qaasuitsup Kommunia",
+                country: "Qaasuitsup Kommunia",
                 shortCode: "QA",
             },
             {
-                name: "Qeqqata Kommunia",
+                country: "Qeqqata Kommunia",
                 shortCode: "QE",
             },
         ],
@@ -6957,31 +6957,31 @@ const countyRegion = [
         countryShortCode: "GD",
         regions: [
             {
-                name: "Saint Andrew",
+                country: "Saint Andrew",
                 shortCode: "01",
             },
             {
-                name: "Saint David",
+                country: "Saint David",
                 shortCode: "02",
             },
             {
-                name: "Saint George",
+                country: "Saint George",
                 shortCode: "03",
             },
             {
-                name: "Saint John",
+                country: "Saint John",
                 shortCode: "04",
             },
             {
-                name: "Saint Mark",
+                country: "Saint Mark",
                 shortCode: "05",
             },
             {
-                name: "Saint Patrick",
+                country: "Saint Patrick",
                 shortCode: "06",
             },
             {
-                name: "Southern Grenadine Islands",
+                country: "Southern Grenadine Islands",
                 shortCode: "10",
             },
         ],
@@ -6991,7 +6991,7 @@ const countyRegion = [
         countryShortCode: "GP",
         regions: [
             {
-                name: "Guadeloupe",
+                country: "Guadeloupe",
             },
         ],
     },
@@ -7000,7 +7000,7 @@ const countyRegion = [
         countryShortCode: "GU",
         regions: [
             {
-                name: "Guam",
+                country: "Guam",
             },
         ],
     },
@@ -7009,91 +7009,91 @@ const countyRegion = [
         countryShortCode: "GT",
         regions: [
             {
-                name: "Alta Verapaz",
+                country: "Alta Verapaz",
                 shortCode: "AV",
             },
             {
-                name: "Baja Verapaz",
+                country: "Baja Verapaz",
                 shortCode: "BV",
             },
             {
-                name: "Chimaltenango",
+                country: "Chimaltenango",
                 shortCode: "CM",
             },
             {
-                name: "Chiquimula",
+                country: "Chiquimula",
                 shortCode: "CQ",
             },
             {
-                name: "El Progreso",
+                country: "El Progreso",
                 shortCode: "PR",
             },
             {
-                name: "Escuintla",
+                country: "Escuintla",
                 shortCode: "ES",
             },
             {
-                name: "Guatemala",
+                country: "Guatemala",
                 shortCode: "GU",
             },
             {
-                name: "Huehuetenango",
+                country: "Huehuetenango",
                 shortCode: "HU",
             },
             {
-                name: "Izabal",
+                country: "Izabal",
                 shortCode: "IZ",
             },
             {
-                name: "Jalapa",
+                country: "Jalapa",
                 shortCode: "JA",
             },
             {
-                name: "Jutiapa",
+                country: "Jutiapa",
                 shortCode: "JU",
             },
             {
-                name: "Petén",
+                country: "Petén",
                 shortCode: "PE",
             },
             {
-                name: "Quetzaltenango",
+                country: "Quetzaltenango",
                 shortCode: "QZ",
             },
             {
-                name: "Quiché",
+                country: "Quiché",
                 shortCode: "QC",
             },
             {
-                name: "Retalhuleu",
+                country: "Retalhuleu",
                 shortCode: "Re",
             },
             {
-                name: "Sacatepéquez",
+                country: "Sacatepéquez",
                 shortCode: "SA",
             },
             {
-                name: "San Marcos",
+                country: "San Marcos",
                 shortCode: "SM",
             },
             {
-                name: "Santa Rosa",
+                country: "Santa Rosa",
                 shortCode: "SR",
             },
             {
-                name: "Sololá",
+                country: "Sololá",
                 shortCode: "SO",
             },
             {
-                name: "Suchitepéquez",
+                country: "Suchitepéquez",
                 shortCode: "SU",
             },
             {
-                name: "Totonicapán",
+                country: "Totonicapán",
                 shortCode: "TO",
             },
             {
-                name: "Zacapa",
+                country: "Zacapa",
                 shortCode: "ZA",
             },
         ],
@@ -7103,34 +7103,34 @@ const countyRegion = [
         countryShortCode: "GG",
         regions: [
             {
-                name: "Castel",
+                country: "Castel",
             },
             {
-                name: "Forest",
+                country: "Forest",
             },
             {
-                name: "St. Andrew",
+                country: "St. Andrew",
             },
             {
-                name: "St. Martin",
+                country: "St. Martin",
             },
             {
-                name: "St. Peter Port",
+                country: "St. Peter Port",
             },
             {
-                name: "St. Pierre du Bois",
+                country: "St. Pierre du Bois",
             },
             {
-                name: "St. Sampson",
+                country: "St. Sampson",
             },
             {
-                name: "St. Saviour",
+                country: "St. Saviour",
             },
             {
-                name: "Torteval",
+                country: "Torteval",
             },
             {
-                name: "Vale",
+                country: "Vale",
             },
         ],
     },
@@ -7139,35 +7139,35 @@ const countyRegion = [
         countryShortCode: "GN",
         regions: [
             {
-                name: "Boké",
+                country: "Boké",
                 shortCode: "B",
             },
             {
-                name: "Conakry",
+                country: "Conakry",
                 shortCode: "C",
             },
             {
-                name: "Faranah",
+                country: "Faranah",
                 shortCode: "F",
             },
             {
-                name: "Kankan",
+                country: "Kankan",
                 shortCode: "K",
             },
             {
-                name: "Kindia",
+                country: "Kindia",
                 shortCode: "D",
             },
             {
-                name: "Labé",
+                country: "Labé",
                 shortCode: "L",
             },
             {
-                name: "Mamou",
+                country: "Mamou",
                 shortCode: "M",
             },
             {
-                name: "Nzérékoré",
+                country: "Nzérékoré",
                 shortCode: "N",
             },
         ],
@@ -7177,39 +7177,39 @@ const countyRegion = [
         countryShortCode: "GW",
         regions: [
             {
-                name: "Bafatá",
+                country: "Bafatá",
                 shortCode: "BA",
             },
             {
-                name: "Biombo",
+                country: "Biombo",
                 shortCode: "BM",
             },
             {
-                name: "Bissau",
+                country: "Bissau",
                 shortCode: "BS",
             },
             {
-                name: "Bolama-Bijagos",
+                country: "Bolama-Bijagos",
                 shortCode: "BL",
             },
             {
-                name: "Cacheu",
+                country: "Cacheu",
                 shortCode: "CA",
             },
             {
-                name: "Gabú",
+                country: "Gabú",
                 shortCode: "GA",
             },
             {
-                name: "Oio",
+                country: "Oio",
                 shortCode: "OI",
             },
             {
-                name: "Quinara",
+                country: "Quinara",
                 shortCode: "QU",
             },
             {
-                name: "Tombali",
+                country: "Tombali",
                 shortCode: "TO",
             },
         ],
@@ -7219,43 +7219,43 @@ const countyRegion = [
         countryShortCode: "GY",
         regions: [
             {
-                name: "Barima-Waini",
+                country: "Barima-Waini",
                 shortCode: "BA",
             },
             {
-                name: "Cuyuni-Mazaruni",
+                country: "Cuyuni-Mazaruni",
                 shortCode: "CU",
             },
             {
-                name: "Demerara-Mahaica",
+                country: "Demerara-Mahaica",
                 shortCode: "DE",
             },
             {
-                name: "East Berbice-Corentyne",
+                country: "East Berbice-Corentyne",
                 shortCode: "EB",
             },
             {
-                name: "Essequibo Islands-West Demerara",
+                country: "Essequibo Islands-West Demerara",
                 shortCode: "ES",
             },
             {
-                name: "Mahaica-Berbice",
+                country: "Mahaica-Berbice",
                 shortCode: "MA",
             },
             {
-                name: "Pomeroon-Supenaam",
+                country: "Pomeroon-Supenaam",
                 shortCode: "PM",
             },
             {
-                name: "Potaro-Siparuni",
+                country: "Potaro-Siparuni",
                 shortCode: "PT",
             },
             {
-                name: "Upper Demerara-Berbice",
+                country: "Upper Demerara-Berbice",
                 shortCode: "UD",
             },
             {
-                name: "Upper Takutu-Upper Essequibo",
+                country: "Upper Takutu-Upper Essequibo",
                 shortCode: "UT",
             },
         ],
@@ -7265,43 +7265,43 @@ const countyRegion = [
         countryShortCode: "HT",
         regions: [
             {
-                name: "Artibonite",
+                country: "Artibonite",
                 shortCode: "AR",
             },
             {
-                name: "Centre",
+                country: "Centre",
                 shortCode: "CE",
             },
             {
-                name: "Grand'Anse",
+                country: "Grand'Anse",
                 shortCode: "GA",
             },
             {
-                name: "Nippes",
+                country: "Nippes",
                 shortCode: "NI",
             },
             {
-                name: "Nord",
+                country: "Nord",
                 shortCode: "ND",
             },
             {
-                name: "Nord-Est",
+                country: "Nord-Est",
                 shortCode: "NE",
             },
             {
-                name: "Nord-Ouest",
+                country: "Nord-Ouest",
                 shortCode: "NO",
             },
             {
-                name: "Ouest",
+                country: "Ouest",
                 shortCode: "OU",
             },
             {
-                name: "Sud",
+                country: "Sud",
                 shortCode: "SD",
             },
             {
-                name: "Sud-Est",
+                country: "Sud-Est",
                 shortCode: "SE",
             },
         ],
@@ -7311,7 +7311,7 @@ const countyRegion = [
         countryShortCode: "HM",
         regions: [
             {
-                name: "Heard Island and McDonald Islands",
+                country: "Heard Island and McDonald Islands",
             },
         ],
     },
@@ -7320,7 +7320,7 @@ const countyRegion = [
         countryShortCode: "VA",
         regions: [
             {
-                name: "Holy See (Vatican City)",
+                country: "Holy See (Vatican City)",
                 shortCode: "01",
             },
         ],
@@ -7330,75 +7330,75 @@ const countyRegion = [
         countryShortCode: "HN",
         regions: [
             {
-                name: "Atlántida",
+                country: "Atlántida",
                 shortCode: "AT",
             },
             {
-                name: "Choluteca",
+                country: "Choluteca",
                 shortCode: "CH",
             },
             {
-                name: "Colón",
+                country: "Colón",
                 shortCode: "CL",
             },
             {
-                name: "Comayagua",
+                country: "Comayagua",
                 shortCode: "CM",
             },
             {
-                name: "Copán",
+                country: "Copán",
                 shortCode: "CP",
             },
             {
-                name: "Cortés",
+                country: "Cortés",
                 shortCode: "CR",
             },
             {
-                name: "El Paraíso",
+                country: "El Paraíso",
                 shortCode: "EP",
             },
             {
-                name: "Francisco Morazán",
+                country: "Francisco Morazán",
                 shortCode: "FM",
             },
             {
-                name: "Gracias a Dios",
+                country: "Gracias a Dios",
                 shortCode: "GD",
             },
             {
-                name: "Intibucá",
+                country: "Intibucá",
                 shortCode: "IN",
             },
             {
-                name: "Islas de la Bahía",
+                country: "Islas de la Bahía",
                 shortCode: "IB",
             },
             {
-                name: "La Paz",
+                country: "La Paz",
                 shortCode: "LP",
             },
             {
-                name: "Lempira",
+                country: "Lempira",
                 shortCode: "LE",
             },
             {
-                name: "Ocotepeque",
+                country: "Ocotepeque",
                 shortCode: "OC",
             },
             {
-                name: "Olancho",
+                country: "Olancho",
                 shortCode: "OL",
             },
             {
-                name: "Santa Bárbara",
+                country: "Santa Bárbara",
                 shortCode: "SB",
             },
             {
-                name: "Valle",
+                country: "Valle",
                 shortCode: "VA",
             },
             {
-                name: "Yoro",
+                country: "Yoro",
                 shortCode: "YO",
             },
         ],
@@ -7408,7 +7408,7 @@ const countyRegion = [
         countryShortCode: "HK",
         regions: [
             {
-                name: "Hong Kong",
+                country: "Hong Kong",
                 shortCode: "HK",
             },
         ],
@@ -7418,175 +7418,175 @@ const countyRegion = [
         countryShortCode: "HU",
         regions: [
             {
-                name: "Bács-Kiskun",
+                country: "Bács-Kiskun",
                 shortCode: "BK",
             },
             {
-                name: "Baranya",
+                country: "Baranya",
                 shortCode: "BA",
             },
             {
-                name: "Békés",
+                country: "Békés",
                 shortCode: "BE",
             },
             {
-                name: "Békéscsaba",
+                country: "Békéscsaba",
                 shortCode: "BC",
             },
             {
-                name: "Borsod-Abauj-Zemplen",
+                country: "Borsod-Abauj-Zemplen",
                 shortCode: "BZ",
             },
             {
-                name: "Budapest",
+                country: "Budapest",
                 shortCode: "BU",
             },
             {
-                name: "Csongrád",
+                country: "Csongrád",
                 shortCode: "CS",
             },
             {
-                name: "Debrecen",
+                country: "Debrecen",
                 shortCode: "DE",
             },
             {
-                name: "Dunaújváros",
+                country: "Dunaújváros",
                 shortCode: "DU",
             },
             {
-                name: "Eger",
+                country: "Eger",
                 shortCode: "EG",
             },
             {
-                name: "Érd",
+                country: "Érd",
                 shortCode: "ER",
             },
             {
-                name: "Fejér",
+                country: "Fejér",
                 shortCode: "FE",
             },
             {
-                name: "Győr",
+                country: "Győr",
                 shortCode: "GY",
             },
             {
-                name: "Győr-Moson-Sopron",
+                country: "Győr-Moson-Sopron",
                 shortCode: "GS",
             },
             {
-                name: "Hajdú-Bihar",
+                country: "Hajdú-Bihar",
                 shortCode: "HB",
             },
             {
-                name: "Heves",
+                country: "Heves",
                 shortCode: "HE",
             },
             {
-                name: "Hódmezővásárhely",
+                country: "Hódmezővásárhely",
                 shortCode: "HV",
             },
             {
-                name: "Jász-Nagykun-Szolnok",
+                country: "Jász-Nagykun-Szolnok",
                 shortCode: "JN",
             },
             {
-                name: "Kaposvár",
+                country: "Kaposvár",
                 shortCode: "KV",
             },
             {
-                name: "Kecskemét",
+                country: "Kecskemét",
                 shortCode: "KM",
             },
             {
-                name: "Komárom-Esztergom",
+                country: "Komárom-Esztergom",
                 shortCode: "KE",
             },
             {
-                name: "Miskolc",
+                country: "Miskolc",
                 shortCode: "MI",
             },
             {
-                name: "Nagykanizsa",
+                country: "Nagykanizsa",
                 shortCode: "NK",
             },
             {
-                name: "Nógrád",
+                country: "Nógrád",
                 shortCode: "NO",
             },
             {
-                name: "Nyíregyháza",
+                country: "Nyíregyháza",
                 shortCode: "NY",
             },
             {
-                name: "Pécs",
+                country: "Pécs",
                 shortCode: "PS",
             },
             {
-                name: "Pest",
+                country: "Pest",
                 shortCode: "PE",
             },
             {
-                name: "Salgótarján",
+                country: "Salgótarján",
                 shortCode: "ST",
             },
             {
-                name: "Somogy",
+                country: "Somogy",
                 shortCode: "SO",
             },
             {
-                name: "Sopron",
+                country: "Sopron",
                 shortCode: "SN",
             },
             {
-                name: "Szabolcs-á-Bereg",
+                country: "Szabolcs-á-Bereg",
                 shortCode: "SZ",
             },
             {
-                name: "Szeged",
+                country: "Szeged",
                 shortCode: "SD",
             },
             {
-                name: "Székesfehérvár",
+                country: "Székesfehérvár",
                 shortCode: "SF",
             },
             {
-                name: "Szekszárd",
+                country: "Szekszárd",
                 shortCode: "SS",
             },
             {
-                name: "Szolnok",
+                country: "Szolnok",
                 shortCode: "SK",
             },
             {
-                name: "Szombathely",
+                country: "Szombathely",
                 shortCode: "SH",
             },
             {
-                name: "Tatabánya",
+                country: "Tatabánya",
                 shortCode: "TB",
             },
             {
-                name: "Tolna",
+                country: "Tolna",
                 shortCode: "TO",
             },
             {
-                name: "Vas",
+                country: "Vas",
                 shortCode: "VA",
             },
             {
-                name: "Veszprém",
+                country: "Veszprém",
                 shortCode: "VE",
             },
             {
-                name: "Veszprém (City)",
+                country: "Veszprém (City)",
                 shortCode: "VM",
             },
             {
-                name: "Zala",
+                country: "Zala",
                 shortCode: "ZA",
             },
             {
-                name: "Zalaegerszeg",
+                country: "Zalaegerszeg",
                 shortCode: "ZE",
             },
         ],
@@ -7596,35 +7596,35 @@ const countyRegion = [
         countryShortCode: "IS",
         regions: [
             {
-                name: "Austurland",
+                country: "Austurland",
                 shortCode: "7",
             },
             {
-                name: "Höfuðborgarsvæði",
+                country: "Höfuðborgarsvæði",
                 shortCode: "1",
             },
             {
-                name: "Norðurland eystra",
+                country: "Norðurland eystra",
                 shortCode: "6",
             },
             {
-                name: "Norðurland vestra",
+                country: "Norðurland vestra",
                 shortCode: "5",
             },
             {
-                name: "Suðurland",
+                country: "Suðurland",
                 shortCode: "8",
             },
             {
-                name: "Suðurnes",
+                country: "Suðurnes",
                 shortCode: "2",
             },
             {
-                name: "Vestfirðir",
+                country: "Vestfirðir",
                 shortCode: "4",
             },
             {
-                name: "Vesturland",
+                country: "Vesturland",
                 shortCode: "3",
             },
         ],
@@ -7634,147 +7634,147 @@ const countyRegion = [
         countryShortCode: "IN",
         regions: [
             {
-                name: "Andaman and Nicobar Islands",
+                country: "Andaman and Nicobar Islands",
                 shortCode: "AN",
             },
             {
-                name: "Andhra Pradesh",
+                country: "Andhra Pradesh",
                 shortCode: "AP",
             },
             {
-                name: "Arunachal Pradesh",
+                country: "Arunachal Pradesh",
                 shortCode: "AR",
             },
             {
-                name: "Assam",
+                country: "Assam",
                 shortCode: "AS",
             },
             {
-                name: "Bihar",
+                country: "Bihar",
                 shortCode: "BR",
             },
             {
-                name: "Chandigarh",
+                country: "Chandigarh",
                 shortCode: "CH",
             },
             {
-                name: "Chhattisgarh",
+                country: "Chhattisgarh",
                 shortCode: "CT",
             },
             {
-                name: "Dadra and Nagar Haveli and Daman and Diu",
+                country: "Dadra and Nagar Haveli and Daman and Diu",
                 shortCode: "DH",
             },
             {
-                name: "Delhi",
+                country: "Delhi",
                 shortCode: "DL",
             },
             {
-                name: "Goa",
+                country: "Goa",
                 shortCode: "GA",
             },
             {
-                name: "Gujarat",
+                country: "Gujarat",
                 shortCode: "GJ",
             },
             {
-                name: "Haryana",
+                country: "Haryana",
                 shortCode: "HR",
             },
             {
-                name: "Himachal Pradesh",
+                country: "Himachal Pradesh",
                 shortCode: "HP",
             },
             {
-                name: "Jammu and Kashmir",
+                country: "Jammu and Kashmir",
                 shortCode: "JK",
             },
             {
-                name: "Jharkhand",
+                country: "Jharkhand",
                 shortCode: "JH",
             },
             {
-                name: "Karnataka",
+                country: "Karnataka",
                 shortCode: "KA",
             },
             {
-                name: "Kerala",
+                country: "Kerala",
                 shortCode: "KL",
             },
             {
-                name: "Ladakh",
+                country: "Ladakh",
                 shortCode: "LA",
             },
             {
-                name: "Lakshadweep",
+                country: "Lakshadweep",
                 shortCode: "LD",
             },
             {
-                name: "Madhya Pradesh",
+                country: "Madhya Pradesh",
                 shortCode: "MP",
             },
             {
-                name: "Maharashtra",
+                country: "Maharashtra",
                 shortCode: "MH",
             },
             {
-                name: "Manipur",
+                country: "Manipur",
                 shortCode: "MN",
             },
             {
-                name: "Meghalaya",
+                country: "Meghalaya",
                 shortCode: "ML",
             },
             {
-                name: "Mizoram",
+                country: "Mizoram",
                 shortCode: "MZ",
             },
             {
-                name: "Nagaland",
+                country: "Nagaland",
                 shortCode: "NL",
             },
             {
-                name: "Odisha",
+                country: "Odisha",
                 shortCode: "OR",
             },
             {
-                name: "Puducherry",
+                country: "Puducherry",
                 shortCode: "PY",
             },
             {
-                name: "Punjab",
+                country: "Punjab",
                 shortCode: "PB",
             },
             {
-                name: "Rajasthan",
+                country: "Rajasthan",
                 shortCode: "RJ",
             },
             {
-                name: "Sikkim",
+                country: "Sikkim",
                 shortCode: "SK",
             },
             {
-                name: "Tamil Nadu",
+                country: "Tamil Nadu",
                 shortCode: "TN",
             },
             {
-                name: "Telangana",
+                country: "Telangana",
                 shortCode: "TG",
             },
             {
-                name: "Tripura",
+                country: "Tripura",
                 shortCode: "TR",
             },
             {
-                name: "Uttarakhand",
+                country: "Uttarakhand",
                 shortCode: "UT",
             },
             {
-                name: "Uttar Pradesh",
+                country: "Uttar Pradesh",
                 shortCode: "UP",
             },
             {
-                name: "West Bengal",
+                country: "West Bengal",
                 shortCode: "WB",
             },
         ],
@@ -7784,135 +7784,135 @@ const countyRegion = [
         countryShortCode: "ID",
         regions: [
             {
-                name: "Aceh",
+                country: "Aceh",
                 shortCode: "AC",
             },
             {
-                name: "Bali",
+                country: "Bali",
                 shortCode: "BA",
             },
             {
-                name: "Bangka Belitung",
+                country: "Bangka Belitung",
                 shortCode: "BB",
             },
             {
-                name: "Banten",
+                country: "Banten",
                 shortCode: "BT",
             },
             {
-                name: "Bengkulu",
+                country: "Bengkulu",
                 shortCode: "BE",
             },
             {
-                name: "Gorontalo",
+                country: "Gorontalo",
                 shortCode: "GO",
             },
             {
-                name: "Jakarta Raya",
+                country: "Jakarta Raya",
                 shortCode: "JK",
             },
             {
-                name: "Jambi",
+                country: "Jambi",
                 shortCode: "JA",
             },
             {
-                name: "Jawa Barat",
+                country: "Jawa Barat",
                 shortCode: "JB",
             },
             {
-                name: "Jawa Tengah",
+                country: "Jawa Tengah",
                 shortCode: "JT",
             },
             {
-                name: "Jawa Timur",
+                country: "Jawa Timur",
                 shortCode: "JI",
             },
             {
-                name: "Kalimantan Barat",
+                country: "Kalimantan Barat",
                 shortCode: "KB",
             },
             {
-                name: "Kalimantan Selatan",
+                country: "Kalimantan Selatan",
                 shortCode: "KS",
             },
             {
-                name: "Kalimantan Tengah",
+                country: "Kalimantan Tengah",
                 shortCode: "KT",
             },
             {
-                name: "Kalimantan Timur",
+                country: "Kalimantan Timur",
                 shortCode: "KI",
             },
             {
-                name: "Kalimantan Utara",
+                country: "Kalimantan Utara",
                 shortCode: "KU",
             },
             {
-                name: "Kepulauan Riau",
+                country: "Kepulauan Riau",
                 shortCode: "KR",
             },
             {
-                name: "Lampung",
+                country: "Lampung",
                 shortCode: "LA",
             },
             {
-                name: "Maluku",
+                country: "Maluku",
                 shortCode: "MA",
             },
             {
-                name: "Maluku Utara",
+                country: "Maluku Utara",
                 shortCode: "MU",
             },
             {
-                name: "Nusa Tenggara Barat",
+                country: "Nusa Tenggara Barat",
                 shortCode: "NB",
             },
             {
-                name: "Nusa Tenggara Timur",
+                country: "Nusa Tenggara Timur",
                 shortCode: "NT",
             },
             {
-                name: "Papua",
+                country: "Papua",
                 shortCode: "PA",
             },
             {
-                name: "Papua Barat",
+                country: "Papua Barat",
                 shortCode: "PB",
             },
             {
-                name: "Riau",
+                country: "Riau",
                 shortCode: "RI",
             },
             {
-                name: "Sulawesi Selatan",
+                country: "Sulawesi Selatan",
                 shortCode: "SR",
             },
             {
-                name: "Sulawesi Tengah",
+                country: "Sulawesi Tengah",
                 shortCode: "ST",
             },
             {
-                name: "Sulawesi Tenggara",
+                country: "Sulawesi Tenggara",
                 shortCode: "SG",
             },
             {
-                name: "Sulawesi Utara",
+                country: "Sulawesi Utara",
                 shortCode: "SA",
             },
             {
-                name: "Sumatera Barat",
+                country: "Sumatera Barat",
                 shortCode: "SB",
             },
             {
-                name: "Sumatera Selatan",
+                country: "Sumatera Selatan",
                 shortCode: "SS",
             },
             {
-                name: "Sumatera Utara",
+                country: "Sumatera Utara",
                 shortCode: "SU",
             },
             {
-                name: "Yogyakarta",
+                country: "Yogyakarta",
                 shortCode: "YO",
             },
         ],
@@ -7922,127 +7922,127 @@ const countyRegion = [
         countryShortCode: "IR",
         regions: [
             {
-                name: "Alborz",
+                country: "Alborz",
                 shortCode: "32",
             },
             {
-                name: "Ardabīl",
+                country: "Ardabīl",
                 shortCode: "03",
             },
             {
-                name: "Āz̄arbāyjān-e Gharbī",
+                country: "Āz̄arbāyjān-e Gharbī",
                 shortCode: "02",
             },
             {
-                name: "Āz̄arbāyjān-e Sharqī",
+                country: "Āz̄arbāyjān-e Sharqī",
                 shortCode: "01",
             },
             {
-                name: "Būshehr",
+                country: "Būshehr",
                 shortCode: "06",
             },
             {
-                name: "Chahār Maḩāl va Bakhtīārī",
+                country: "Chahār Maḩāl va Bakhtīārī",
                 shortCode: "08",
             },
             {
-                name: "Eşfahān",
+                country: "Eşfahān",
                 shortCode: "04",
             },
             {
-                name: "Fārs",
+                country: "Fārs",
                 shortCode: "14",
             },
             {
-                name: "Gīlān",
+                country: "Gīlān",
                 shortCode: "19",
             },
             {
-                name: "Golestān",
+                country: "Golestān",
                 shortCode: "27",
             },
             {
-                name: "Hamadān",
+                country: "Hamadān",
                 shortCode: "24",
             },
             {
-                name: "Hormozgān",
+                country: "Hormozgān",
                 shortCode: "23",
             },
             {
-                name: "Īlām",
+                country: "Īlām",
                 shortCode: "05",
             },
             {
-                name: "Kermān",
+                country: "Kermān",
                 shortCode: "15",
             },
             {
-                name: "Kermānshāh",
+                country: "Kermānshāh",
                 shortCode: "17",
             },
             {
-                name: "Khorāsān-e Jonūbī",
+                country: "Khorāsān-e Jonūbī",
                 shortCode: "29",
             },
             {
-                name: "Khorāsān-e Raẕavī",
+                country: "Khorāsān-e Raẕavī",
                 shortCode: "30",
             },
             {
-                name: "Khorāsān-e Shomālī",
+                country: "Khorāsān-e Shomālī",
                 shortCode: "61",
             },
             {
-                name: "Khūzestān",
+                country: "Khūzestān",
                 shortCode: "10",
             },
             {
-                name: "Kohgīlūyeh va Bowyer Aḩmad",
+                country: "Kohgīlūyeh va Bowyer Aḩmad",
                 shortCode: "18",
             },
             {
-                name: "Kordestān",
+                country: "Kordestān",
                 shortCode: "16",
             },
             {
-                name: "Lorestān",
+                country: "Lorestān",
                 shortCode: "20",
             },
             {
-                name: "Markazi",
+                country: "Markazi",
                 shortCode: "22",
             },
             {
-                name: "Māzandarān",
+                country: "Māzandarān",
                 shortCode: "21",
             },
             {
-                name: "Qazvīn",
+                country: "Qazvīn",
                 shortCode: "28",
             },
             {
-                name: "Qom",
+                country: "Qom",
                 shortCode: "26",
             },
             {
-                name: "Semnān",
+                country: "Semnān",
                 shortCode: "12",
             },
             {
-                name: "Sīstān va Balūchestān",
+                country: "Sīstān va Balūchestān",
                 shortCode: "13",
             },
             {
-                name: "Tehrān",
+                country: "Tehrān",
                 shortCode: "07",
             },
             {
-                name: "Yazd",
+                country: "Yazd",
                 shortCode: "25",
             },
             {
-                name: "Zanjān",
+                country: "Zanjān",
                 shortCode: "11",
             },
         ],
@@ -8052,75 +8052,75 @@ const countyRegion = [
         countryShortCode: "IQ",
         regions: [
             {
-                name: "Al Anbār",
+                country: "Al Anbār",
                 shortCode: "AN",
             },
             {
-                name: "Al Başrah",
+                country: "Al Başrah",
                 shortCode: "BA",
             },
             {
-                name: "Al Muthanná",
+                country: "Al Muthanná",
                 shortCode: "MU",
             },
             {
-                name: "Al Qādisīyah",
+                country: "Al Qādisīyah",
                 shortCode: "QA",
             },
             {
-                name: "An Najaf",
+                country: "An Najaf",
                 shortCode: "NA",
             },
             {
-                name: "Arbīl",
+                country: "Arbīl",
                 shortCode: "AR",
             },
             {
-                name: "As Sulaymānīyah",
+                country: "As Sulaymānīyah",
                 shortCode: "SU",
             },
             {
-                name: "Bābil",
+                country: "Bābil",
                 shortCode: "BB",
             },
             {
-                name: "Baghdād",
+                country: "Baghdād",
                 shortCode: "BG",
             },
             {
-                name: "Dohuk",
+                country: "Dohuk",
                 shortCode: "DA",
             },
             {
-                name: "Dhī Qār",
+                country: "Dhī Qār",
                 shortCode: "DQ",
             },
             {
-                name: "Diyālá",
+                country: "Diyālá",
                 shortCode: "DI",
             },
             {
-                name: "Karbalā'",
+                country: "Karbalā'",
                 shortCode: "KA",
             },
             {
-                name: "Kirkuk",
+                country: "Kirkuk",
                 shortCode: "KI",
             },
             {
-                name: "Maysān",
+                country: "Maysān",
                 shortCode: "MA",
             },
             {
-                name: "Nīnawá",
+                country: "Nīnawá",
                 shortCode: "NI",
             },
             {
-                name: "Şalāḩ ad Dīn",
+                country: "Şalāḩ ad Dīn",
                 shortCode: "SD",
             },
             {
-                name: "Wāsiţ",
+                country: "Wāsiţ",
                 shortCode: "WA",
             },
         ],
@@ -8130,107 +8130,107 @@ const countyRegion = [
         countryShortCode: "IE",
         regions: [
             {
-                name: "Carlow",
+                country: "Carlow",
                 shortCode: "CW",
             },
             {
-                name: "Cavan",
+                country: "Cavan",
                 shortCode: "CN",
             },
             {
-                name: "Clare",
+                country: "Clare",
                 shortCode: "CE",
             },
             {
-                name: "Cork",
+                country: "Cork",
                 shortCode: "CO",
             },
             {
-                name: "Donegal",
+                country: "Donegal",
                 shortCode: "DL",
             },
             {
-                name: "Dublin",
+                country: "Dublin",
                 shortCode: "D",
             },
             {
-                name: "Galway",
+                country: "Galway",
                 shortCode: "G",
             },
             {
-                name: "Kerry",
+                country: "Kerry",
                 shortCode: "KY",
             },
             {
-                name: "Kildare",
+                country: "Kildare",
                 shortCode: "KE",
             },
             {
-                name: "Kilkenny",
+                country: "Kilkenny",
                 shortCode: "KK",
             },
             {
-                name: "Laois",
+                country: "Laois",
                 shortCode: "LS",
             },
             {
-                name: "Leitrim",
+                country: "Leitrim",
                 shortCode: "LM",
             },
             {
-                name: "Limerick",
+                country: "Limerick",
                 shortCode: "LK",
             },
             {
-                name: "Longford",
+                country: "Longford",
                 shortCode: "LD",
             },
             {
-                name: "Louth",
+                country: "Louth",
                 shortCode: "LH",
             },
             {
-                name: "Mayo",
+                country: "Mayo",
                 shortCode: "MO",
             },
             {
-                name: "Meath",
+                country: "Meath",
                 shortCode: "MH",
             },
             {
-                name: "Monaghan",
+                country: "Monaghan",
                 shortCode: "MN",
             },
             {
-                name: "Offaly",
+                country: "Offaly",
                 shortCode: "OY",
             },
             {
-                name: "Roscommon",
+                country: "Roscommon",
                 shortCode: "RN",
             },
             {
-                name: "Sligo",
+                country: "Sligo",
                 shortCode: "SO",
             },
             {
-                name: "Tipperary",
+                country: "Tipperary",
                 shortCode: "TA",
             },
             {
-                name: "Waterford",
+                country: "Waterford",
                 shortCode: "WD",
             },
             {
-                name: "Westmeath",
+                country: "Westmeath",
                 shortCode: "WH",
             },
             {
-                name: "Wexford",
+                country: "Wexford",
                 shortCode: "WX",
             },
             {
-                name: "Wicklow",
+                country: "Wicklow",
                 shortCode: "WW",
             },
         ],
@@ -8240,7 +8240,7 @@ const countyRegion = [
         countryShortCode: "IM",
         regions: [
             {
-                name: "Isle of Man",
+                country: "Isle of Man",
             },
         ],
     },
@@ -8249,27 +8249,27 @@ const countyRegion = [
         countryShortCode: "IL",
         regions: [
             {
-                name: "HaDarom",
+                country: "HaDarom",
                 shortCode: "D",
             },
             {
-                name: "HaMerkaz",
+                country: "HaMerkaz",
                 shortCode: "M",
             },
             {
-                name: "HaTsafon",
+                country: "HaTsafon",
                 shortCode: "Z",
             },
             {
-                name: "H̱efa",
+                country: "H̱efa",
                 shortCode: "HA",
             },
             {
-                name: "Tel-Aviv",
+                country: "Tel-Aviv",
                 shortCode: "TA",
             },
             {
-                name: "Yerushalayim",
+                country: "Yerushalayim",
                 shortCode: "JM",
             },
         ],
@@ -8279,83 +8279,83 @@ const countyRegion = [
         countryShortCode: "IT",
         regions: [
             {
-                name: "Abruzzo",
+                country: "Abruzzo",
                 shortCode: "65",
             },
             {
-                name: "Basilicata",
+                country: "Basilicata",
                 shortCode: "77",
             },
             {
-                name: "Calabria",
+                country: "Calabria",
                 shortCode: "78",
             },
             {
-                name: "Campania",
+                country: "Campania",
                 shortCode: "72",
             },
             {
-                name: "Emilia-Romagna",
+                country: "Emilia-Romagna",
                 shortCode: "45",
             },
             {
-                name: "Friuli-Venezia Giulia",
+                country: "Friuli-Venezia Giulia",
                 shortCode: "36",
             },
             {
-                name: "Lazio",
+                country: "Lazio",
                 shortCode: "62",
             },
             {
-                name: "Liguria",
+                country: "Liguria",
                 shortCode: "42",
             },
             {
-                name: "Lombardia",
+                country: "Lombardia",
                 shortCode: "25",
             },
             {
-                name: "Marche",
+                country: "Marche",
                 shortCode: "57",
             },
             {
-                name: "Molise",
+                country: "Molise",
                 shortCode: "67",
             },
             {
-                name: "Piemonte",
+                country: "Piemonte",
                 shortCode: "21",
             },
             {
-                name: "Puglia",
+                country: "Puglia",
                 shortCode: "75",
             },
             {
-                name: "Sardegna",
+                country: "Sardegna",
                 shortCode: "88",
             },
             {
-                name: "Sicilia",
+                country: "Sicilia",
                 shortCode: "82",
             },
             {
-                name: "Toscana",
+                country: "Toscana",
                 shortCode: "52",
             },
             {
-                name: "Trentino-Alto Adige",
+                country: "Trentino-Alto Adige",
                 shortCode: "32",
             },
             {
-                name: "Umbria",
+                country: "Umbria",
                 shortCode: "55",
             },
             {
-                name: "Valle d'Aosta",
+                country: "Valle d'Aosta",
                 shortCode: "23",
             },
             {
-                name: "Veneto",
+                country: "Veneto",
                 shortCode: "34",
             },
         ],
@@ -8365,59 +8365,59 @@ const countyRegion = [
         countryShortCode: "JM",
         regions: [
             {
-                name: "Clarendon",
+                country: "Clarendon",
                 shortCode: "13",
             },
             {
-                name: "Hanover",
+                country: "Hanover",
                 shortCode: "09",
             },
             {
-                name: "Kingston",
+                country: "Kingston",
                 shortCode: "01",
             },
             {
-                name: "Manchester",
+                country: "Manchester",
                 shortCode: "12",
             },
             {
-                name: "Portland",
+                country: "Portland",
                 shortCode: "04",
             },
             {
-                name: "Saint Andrew",
+                country: "Saint Andrew",
                 shortCode: "02",
             },
             {
-                name: "Saint Ann",
+                country: "Saint Ann",
                 shortCode: "06",
             },
             {
-                name: "Saint Catherine",
+                country: "Saint Catherine",
                 shortCode: "14",
             },
             {
-                name: "Saint Elizabeth",
+                country: "Saint Elizabeth",
                 shortCode: "11",
             },
             {
-                name: "Saint James",
+                country: "Saint James",
                 shortCode: "08",
             },
             {
-                name: "Saint Mary",
+                country: "Saint Mary",
                 shortCode: "05",
             },
             {
-                name: "Saint Thomas",
+                country: "Saint Thomas",
                 shortCode: "03",
             },
             {
-                name: "Trelawny",
+                country: "Trelawny",
                 shortCode: "07",
             },
             {
-                name: "Westmoreland",
+                country: "Westmoreland",
                 shortCode: "10",
             },
         ],
@@ -8427,191 +8427,191 @@ const countyRegion = [
         countryShortCode: "JP",
         regions: [
             {
-                name: "Aichi",
+                country: "Aichi",
                 shortCode: "23",
             },
             {
-                name: "Akita",
+                country: "Akita",
                 shortCode: "05",
             },
             {
-                name: "Aomori",
+                country: "Aomori",
                 shortCode: "02",
             },
             {
-                name: "Chiba",
+                country: "Chiba",
                 shortCode: "12",
             },
             {
-                name: "Ehime",
+                country: "Ehime",
                 shortCode: "38",
             },
             {
-                name: "Fukui",
+                country: "Fukui",
                 shortCode: "18",
             },
             {
-                name: "Fukuoka",
+                country: "Fukuoka",
                 shortCode: "40",
             },
             {
-                name: "Fukushima",
+                country: "Fukushima",
                 shortCode: "07",
             },
             {
-                name: "Gifu",
+                country: "Gifu",
                 shortCode: "21",
             },
             {
-                name: "Gunma",
+                country: "Gunma",
                 shortCode: "10",
             },
             {
-                name: "Hiroshima",
+                country: "Hiroshima",
                 shortCode: "34",
             },
             {
-                name: "Hokkaido",
+                country: "Hokkaido",
                 shortCode: "01",
             },
             {
-                name: "Hyogo",
+                country: "Hyogo",
                 shortCode: "28",
             },
             {
-                name: "Ibaraki",
+                country: "Ibaraki",
                 shortCode: "08",
             },
             {
-                name: "Ishikawa",
+                country: "Ishikawa",
                 shortCode: "17",
             },
             {
-                name: "Iwate",
+                country: "Iwate",
                 shortCode: "03",
             },
             {
-                name: "Kagawa",
+                country: "Kagawa",
                 shortCode: "37",
             },
             {
-                name: "Kagoshima",
+                country: "Kagoshima",
                 shortCode: "46",
             },
             {
-                name: "Kanagawa",
+                country: "Kanagawa",
                 shortCode: "14",
             },
             {
-                name: "Kochi",
+                country: "Kochi",
                 shortCode: "39",
             },
             {
-                name: "Kumamoto",
+                country: "Kumamoto",
                 shortCode: "43",
             },
             {
-                name: "Kyoto",
+                country: "Kyoto",
                 shortCode: "26",
             },
             {
-                name: "Mie",
+                country: "Mie",
                 shortCode: "24",
             },
             {
-                name: "Miyagi",
+                country: "Miyagi",
                 shortCode: "04",
             },
             {
-                name: "Miyazaki",
+                country: "Miyazaki",
                 shortCode: "45",
             },
             {
-                name: "Nagano",
+                country: "Nagano",
                 shortCode: "20",
             },
             {
-                name: "Nagasaki",
+                country: "Nagasaki",
                 shortCode: "42",
             },
             {
-                name: "Nara",
+                country: "Nara",
                 shortCode: "29",
             },
             {
-                name: "Niigata",
+                country: "Niigata",
                 shortCode: "15",
             },
             {
-                name: "Oita",
+                country: "Oita",
                 shortCode: "44",
             },
             {
-                name: "Okayama",
+                country: "Okayama",
                 shortCode: "33",
             },
             {
-                name: "Okinawa",
+                country: "Okinawa",
                 shortCode: "47",
             },
             {
-                name: "Osaka",
+                country: "Osaka",
                 shortCode: "27",
             },
             {
-                name: "Saga",
+                country: "Saga",
                 shortCode: "41",
             },
             {
-                name: "Saitama",
+                country: "Saitama",
                 shortCode: "11",
             },
             {
-                name: "Shiga",
+                country: "Shiga",
                 shortCode: "25",
             },
             {
-                name: "Shimane",
+                country: "Shimane",
                 shortCode: "32",
             },
             {
-                name: "Shizuoka",
+                country: "Shizuoka",
                 shortCode: "22",
             },
             {
-                name: "Tochigi",
+                country: "Tochigi",
                 shortCode: "09",
             },
             {
-                name: "Tokushima",
+                country: "Tokushima",
                 shortCode: "36",
             },
             {
-                name: "Tokyo",
+                country: "Tokyo",
                 shortCode: "13",
             },
             {
-                name: "Tottori",
+                country: "Tottori",
                 shortCode: "31",
             },
             {
-                name: "Toyama",
+                country: "Toyama",
                 shortCode: "16",
             },
             {
-                name: "Wakayama",
+                country: "Wakayama",
                 shortCode: "30",
             },
             {
-                name: "Yamagata",
+                country: "Yamagata",
                 shortCode: "06",
             },
             {
-                name: "Yamaguchi",
+                country: "Yamaguchi",
                 shortCode: "35",
             },
             {
-                name: "Yamanashi",
+                country: "Yamanashi",
                 shortCode: "19",
             },
         ],
@@ -8621,7 +8621,7 @@ const countyRegion = [
         countryShortCode: "JE",
         regions: [
             {
-                name: "Jersey",
+                country: "Jersey",
             },
         ],
     },
@@ -8630,51 +8630,51 @@ const countyRegion = [
         countryShortCode: "JO",
         regions: [
             {
-                name: "‘Ajlūn",
+                country: "‘Ajlūn",
                 shortCode: "AJ",
             },
             {
-                name: "Al 'Aqabah",
+                country: "Al 'Aqabah",
                 shortCode: "AQ",
             },
             {
-                name: "Al Balqā’",
+                country: "Al Balqā’",
                 shortCode: "BA",
             },
             {
-                name: "Al Karak",
+                country: "Al Karak",
                 shortCode: "KA",
             },
             {
-                name: "Al Mafraq",
+                country: "Al Mafraq",
                 shortCode: "MA",
             },
             {
-                name: "Al ‘A̅şimah",
+                country: "Al ‘A̅şimah",
                 shortCode: "AM",
             },
             {
-                name: "Aţ Ţafīlah",
+                country: "Aţ Ţafīlah",
                 shortCode: "AT",
             },
             {
-                name: "Az Zarqā’",
+                country: "Az Zarqā’",
                 shortCode: "AZ",
             },
             {
-                name: "Irbid",
+                country: "Irbid",
                 shortCode: "IR",
             },
             {
-                name: "Jarash",
+                country: "Jarash",
                 shortCode: "JA",
             },
             {
-                name: "Ma‘ān",
+                country: "Ma‘ān",
                 shortCode: "MN",
             },
             {
-                name: "Mādabā",
+                country: "Mādabā",
                 shortCode: "MD",
             },
         ],
@@ -8684,66 +8684,66 @@ const countyRegion = [
         countryShortCode: "KZ",
         regions: [
             {
-                name: "Almaty",
+                country: "Almaty",
                 shortCode: "ALA",
             },
             {
-                name: "Aqmola",
+                country: "Aqmola",
                 shortCode: "AKM",
             },
             {
-                name: "Aqtobe",
+                country: "Aqtobe",
                 shortCode: "AKT",
             },
             {
-                name: "Astana",
+                country: "Astana",
                 shortCode: "AST",
             },
             {
-                name: "Atyrau",
+                country: "Atyrau",
                 shortCode: "ATY",
             },
             {
-                name: "Batys Qazaqstan",
+                country: "Batys Qazaqstan",
                 shortCode: "ZAP",
             },
             {
-                name: "Bayqongyr",
+                country: "Bayqongyr",
             },
             {
-                name: "Mangghystau",
+                country: "Mangghystau",
                 shortCode: "MAN",
             },
             {
-                name: "Ongtustik Qazaqstan",
+                country: "Ongtustik Qazaqstan",
                 shortCode: "YUZ",
             },
             {
-                name: "Pavlodar",
+                country: "Pavlodar",
                 shortCode: "PAV",
             },
             {
-                name: "Qaraghandy",
+                country: "Qaraghandy",
                 shortCode: "KAR",
             },
             {
-                name: "Qostanay",
+                country: "Qostanay",
                 shortCode: "KUS",
             },
             {
-                name: "Qyzylorda",
+                country: "Qyzylorda",
                 shortCode: "KZY",
             },
             {
-                name: "Shyghys Qazaqstan",
+                country: "Shyghys Qazaqstan",
                 shortCode: "VOS",
             },
             {
-                name: "Soltustik Qazaqstan",
+                country: "Soltustik Qazaqstan",
                 shortCode: "SEV",
             },
             {
-                name: "Zhambyl",
+                country: "Zhambyl",
                 shortCode: "ZHA",
             },
         ],
@@ -8753,191 +8753,191 @@ const countyRegion = [
         countryShortCode: "KE",
         regions: [
             {
-                name: "Baringo",
+                country: "Baringo",
                 shortCode: "01",
             },
             {
-                name: "Bomet",
+                country: "Bomet",
                 shortCode: "02",
             },
             {
-                name: "Bungoma",
+                country: "Bungoma",
                 shortCode: "03",
             },
             {
-                name: "Busia",
+                country: "Busia",
                 shortCode: "04",
             },
             {
-                name: "Eleyo/Marakwet",
+                country: "Eleyo/Marakwet",
                 shortCode: "05",
             },
             {
-                name: "Embu",
+                country: "Embu",
                 shortCode: "06",
             },
             {
-                name: "Garissa",
+                country: "Garissa",
                 shortCode: "07",
             },
             {
-                name: "Homa Bay",
+                country: "Homa Bay",
                 shortCode: "08",
             },
             {
-                name: "Isiolo",
+                country: "Isiolo",
                 shortCode: "09",
             },
             {
-                name: "Kajiado",
+                country: "Kajiado",
                 shortCode: "10",
             },
             {
-                name: "Kakamega",
+                country: "Kakamega",
                 shortCode: "11",
             },
             {
-                name: "Kericho",
+                country: "Kericho",
                 shortCode: "12",
             },
             {
-                name: "Kiambu",
+                country: "Kiambu",
                 shortCode: "13",
             },
             {
-                name: "Kilifi",
+                country: "Kilifi",
                 shortCode: "14",
             },
             {
-                name: "Kirinyaga",
+                country: "Kirinyaga",
                 shortCode: "15",
             },
             {
-                name: "Kisii",
+                country: "Kisii",
                 shortCode: "16",
             },
             {
-                name: "Kisumu",
+                country: "Kisumu",
                 shortCode: "17",
             },
             {
-                name: "Kitui",
+                country: "Kitui",
                 shortCode: "18",
             },
             {
-                name: "Kwale",
+                country: "Kwale",
                 shortCode: "19",
             },
             {
-                name: "Laikipia",
+                country: "Laikipia",
                 shortCode: "20",
             },
             {
-                name: "Lamu",
+                country: "Lamu",
                 shortCode: "21",
             },
             {
-                name: "Machakos",
+                country: "Machakos",
                 shortCode: "22",
             },
             {
-                name: "Makueni",
+                country: "Makueni",
                 shortCode: "23",
             },
             {
-                name: "Mandera",
+                country: "Mandera",
                 shortCode: "24",
             },
             {
-                name: "Marsabit",
+                country: "Marsabit",
                 shortCode: "25",
             },
             {
-                name: "Meru",
+                country: "Meru",
                 shortCode: "26",
             },
             {
-                name: "Migori",
+                country: "Migori",
                 shortCode: "27",
             },
             {
-                name: "Mombasa",
+                country: "Mombasa",
                 shortCode: "28",
             },
             {
-                name: "Murang'a",
+                country: "Murang'a",
                 shortCode: "29",
             },
             {
-                name: "Nairobi City",
+                country: "Nairobi City",
                 shortCode: "30",
             },
             {
-                name: "Nakuru",
+                country: "Nakuru",
                 shortCode: "31",
             },
             {
-                name: "Nandi",
+                country: "Nandi",
                 shortCode: "32",
             },
             {
-                name: "Narok",
+                country: "Narok",
                 shortCode: "33",
             },
             {
-                name: "Nyamira",
+                country: "Nyamira",
                 shortCode: "34",
             },
             {
-                name: "Nyandarua",
+                country: "Nyandarua",
                 shortCode: "35",
             },
             {
-                name: "Nyeri",
+                country: "Nyeri",
                 shortCode: "36",
             },
             {
-                name: "Samburu",
+                country: "Samburu",
                 shortCode: "37",
             },
             {
-                name: "Siaya",
+                country: "Siaya",
                 shortCode: "38",
             },
             {
-                name: "Taita/Taveta",
+                country: "Taita/Taveta",
                 shortCode: "39",
             },
             {
-                name: "Tana River",
+                country: "Tana River",
                 shortCode: "40",
             },
             {
-                name: "Tharaka-Nithi",
+                country: "Tharaka-Nithi",
                 shortCode: "41",
             },
             {
-                name: "Trans Nzoia",
+                country: "Trans Nzoia",
                 shortCode: "42",
             },
             {
-                name: "Turkana",
+                country: "Turkana",
                 shortCode: "43",
             },
             {
-                name: "Uasin Gishu",
+                country: "Uasin Gishu",
                 shortCode: "44",
             },
             {
-                name: "Vihiga",
+                country: "Vihiga",
                 shortCode: "45",
             },
             {
-                name: "Wajir",
+                country: "Wajir",
                 shortCode: "46",
             },
             {
-                name: "West Pokot",
+                country: "West Pokot",
                 shortCode: "47",
             },
         ],
@@ -8947,88 +8947,88 @@ const countyRegion = [
         countryShortCode: "KI",
         regions: [
             {
-                name: "Abaiang",
+                country: "Abaiang",
             },
             {
-                name: "Abemama",
+                country: "Abemama",
             },
             {
-                name: "Aranuka",
+                country: "Aranuka",
             },
             {
-                name: "Arorae",
+                country: "Arorae",
             },
             {
-                name: "Banaba",
+                country: "Banaba",
             },
             {
-                name: "Beru",
+                country: "Beru",
             },
             {
-                name: "Butaritari",
+                country: "Butaritari",
             },
             {
-                name: "Central Gilberts",
+                country: "Central Gilberts",
             },
             {
-                name: "Gilbert Islands",
+                country: "Gilbert Islands",
                 shortCode: "G",
             },
             {
-                name: "Kanton",
+                country: "Kanton",
             },
             {
-                name: "Kiritimati",
+                country: "Kiritimati",
             },
             {
-                name: "Kuria",
+                country: "Kuria",
             },
             {
-                name: "Line Islands",
+                country: "Line Islands",
                 shortCode: "L",
             },
             {
-                name: "Maiana",
+                country: "Maiana",
             },
             {
-                name: "Makin",
+                country: "Makin",
             },
             {
-                name: "Marakei",
+                country: "Marakei",
             },
             {
-                name: "Nikunau",
+                country: "Nikunau",
             },
             {
-                name: "Nonouti",
+                country: "Nonouti",
             },
             {
-                name: "Northern Gilberts",
+                country: "Northern Gilberts",
             },
             {
-                name: "Onotoa",
+                country: "Onotoa",
             },
             {
-                name: "Phoenix Islands",
+                country: "Phoenix Islands",
                 shortCode: "P",
             },
             {
-                name: "Southern Gilberts",
+                country: "Southern Gilberts",
             },
             {
-                name: "Tabiteuea",
+                country: "Tabiteuea",
             },
             {
-                name: "Tabuaeran",
+                country: "Tabuaeran",
             },
             {
-                name: "Tamana",
+                country: "Tamana",
             },
             {
-                name: "Tarawa",
+                country: "Tarawa",
             },
             {
-                name: "Teraina",
+                country: "Teraina",
             },
         ],
     },
@@ -9037,47 +9037,47 @@ const countyRegion = [
         countryShortCode: "KP",
         regions: [
             {
-                name: "Chagang-do (Chagang Province)",
+                country: "Chagang-do (Chagang Province)",
                 shortCode: "04",
             },
             {
-                name: "Hamgyong-bukto (North Hamgyong Province)",
+                country: "Hamgyong-bukto (North Hamgyong Province)",
                 shortCode: "09",
             },
             {
-                name: "Hamgyong-namdo (South Hamgyong Province)",
+                country: "Hamgyong-namdo (South Hamgyong Province)",
                 shortCode: "08",
             },
             {
-                name: "Hwanghae-bukto (North Hwanghae Province)",
+                country: "Hwanghae-bukto (North Hwanghae Province)",
                 shortCode: "06",
             },
             {
-                name: "Hwanghae-namdo (South Hwanghae Province)",
+                country: "Hwanghae-namdo (South Hwanghae Province)",
                 shortCode: "05",
             },
             {
-                name: "Kangwon-do (Kangwon Province)",
+                country: "Kangwon-do (Kangwon Province)",
                 shortCode: "07",
             },
             {
-                name: "Nasŏn (Najin-Sŏnbong)",
+                country: "Nasŏn (Najin-Sŏnbong)",
                 shortCode: "13",
             },
             {
-                name: "P'yongan-bukto (North P'yongan Province)",
+                country: "P'yongan-bukto (North P'yongan Province)",
                 shortCode: "03",
             },
             {
-                name: "P'yongan-namdo (South P'yongan Province)",
+                country: "P'yongan-namdo (South P'yongan Province)",
                 shortCode: "02",
             },
             {
-                name: "P'yongyang-si (P'yongyang City)",
+                country: "P'yongyang-si (P'yongyang City)",
                 shortCode: "01",
             },
             {
-                name: "Yanggang-do (Yanggang Province)",
+                country: "Yanggang-do (Yanggang Province)",
                 shortCode: "10",
             },
         ],
@@ -9087,71 +9087,71 @@ const countyRegion = [
         countryShortCode: "KR",
         regions: [
             {
-                name: "Chungcheongbuk-do",
+                country: "Chungcheongbuk-do",
                 shortCode: "43",
             },
             {
-                name: "Chungcheongnam-do",
+                country: "Chungcheongnam-do",
                 shortCode: "44",
             },
             {
-                name: "Jeju-teukbyeoljachido",
+                country: "Jeju-teukbyeoljachido",
                 shortCode: "49",
             },
             {
-                name: "Jeollabuk-do",
+                country: "Jeollabuk-do",
                 shortCode: "45",
             },
             {
-                name: "Jeollanam-do",
+                country: "Jeollanam-do",
                 shortCode: "46",
             },
             {
-                name: "Incheon-gwangyeoksi",
+                country: "Incheon-gwangyeoksi",
                 shortCode: "28",
             },
             {
-                name: "Gangwon-do",
+                country: "Gangwon-do",
                 shortCode: "42",
             },
             {
-                name: "Gwangju-gwangyeoksi",
+                country: "Gwangju-gwangyeoksi",
                 shortCode: "29",
             },
             {
-                name: "Gyeonggi-do",
+                country: "Gyeonggi-do",
                 shortCode: "41",
             },
             {
-                name: "Gyeongsangbuk-do",
+                country: "Gyeongsangbuk-do",
                 shortCode: "47",
             },
             {
-                name: "Gyeongsangnam-do",
+                country: "Gyeongsangnam-do",
                 shortCode: "48",
             },
             {
-                name: "Busan-gwangyeoksi",
+                country: "Busan-gwangyeoksi",
                 shortCode: "26",
             },
             {
-                name: "Seoul-teukbyeolsi",
+                country: "Seoul-teukbyeolsi",
                 shortCode: "11",
             },
             {
-                name: "Sejong-teukbyeoljachisi",
+                country: "Sejong-teukbyeoljachisi",
                 shortCode: "50",
             },
             {
-                name: "Daegu-gwangyeoksi",
+                country: "Daegu-gwangyeoksi",
                 shortCode: "27",
             },
             {
-                name: "Daejeon-gwangyeoksi",
+                country: "Daejeon-gwangyeoksi",
                 shortCode: "30",
             },
             {
-                name: "Ulsan-gwangyeoksi",
+                country: "Ulsan-gwangyeoksi",
                 shortCode: "31",
             },
         ],
@@ -9161,31 +9161,31 @@ const countyRegion = [
         countryShortCode: "XK",
         regions: [
             {
-                name: "Farizaj",
+                country: "Farizaj",
                 shortCode: "FZ",
             },
             {
-                name: "Gjakova",
+                country: "Gjakova",
                 shortCode: "GK",
             },
             {
-                name: "Gjilan",
+                country: "Gjilan",
                 shortCode: "GL",
             },
             {
-                name: "Mitrovica",
+                country: "Mitrovica",
                 shortCode: "MI",
             },
             {
-                name: "Peja/Peć",
+                country: "Peja/Peć",
                 shortCode: "PE",
             },
             {
-                name: "Pristina",
+                country: "Pristina",
                 shortCode: "PR",
             },
             {
-                name: "Prizren",
+                country: "Prizren",
                 shortCode: "PZ",
             },
         ],
@@ -9195,27 +9195,27 @@ const countyRegion = [
         countryShortCode: "KW",
         regions: [
             {
-                name: "Al Aḩmadi",
+                country: "Al Aḩmadi",
                 shortCode: "AH",
             },
             {
-                name: "Al Farwānīyah",
+                country: "Al Farwānīyah",
                 shortCode: "FA",
             },
             {
-                name: "Al Jahrā’",
+                country: "Al Jahrā’",
                 shortCode: "JA",
             },
             {
-                name: "Al ‘Āşimah",
+                country: "Al ‘Āşimah",
                 shortCode: "KU",
             },
             {
-                name: "Ḩawallī",
+                country: "Ḩawallī",
                 shortCode: "HA",
             },
             {
-                name: "Mubārak al Kabir",
+                country: "Mubārak al Kabir",
                 shortCode: "MU",
             },
         ],
@@ -9225,35 +9225,35 @@ const countyRegion = [
         countryShortCode: "KG",
         regions: [
             {
-                name: "Batken Oblasty",
+                country: "Batken Oblasty",
                 shortCode: "B",
             },
             {
-                name: "Bishkek Shaary",
+                country: "Bishkek Shaary",
                 shortCode: "GB",
             },
             {
-                name: "Chuy Oblasty (Bishkek)",
+                country: "Chuy Oblasty (Bishkek)",
                 shortCode: "C",
             },
             {
-                name: "Jalal-Abad Oblasty",
+                country: "Jalal-Abad Oblasty",
                 shortCode: "J",
             },
             {
-                name: "Naryn Oblasty",
+                country: "Naryn Oblasty",
                 shortCode: "N",
             },
             {
-                name: "Osh Oblasty",
+                country: "Osh Oblasty",
                 shortCode: "O",
             },
             {
-                name: "Talas Oblasty",
+                country: "Talas Oblasty",
                 shortCode: "T",
             },
             {
-                name: "Ysyk-Kol Oblasty (Karakol)",
+                country: "Ysyk-Kol Oblasty (Karakol)",
                 shortCode: "Y",
             },
         ],
@@ -9263,71 +9263,71 @@ const countyRegion = [
         countryShortCode: "LA",
         regions: [
             {
-                name: "Attapu",
+                country: "Attapu",
                 shortCode: "AT",
             },
             {
-                name: "Bokèo",
+                country: "Bokèo",
                 shortCode: "BK",
             },
             {
-                name: "Bolikhamxai",
+                country: "Bolikhamxai",
                 shortCode: "BL",
             },
             {
-                name: "Champasak",
+                country: "Champasak",
                 shortCode: "CH",
             },
             {
-                name: "Houaphan",
+                country: "Houaphan",
                 shortCode: "HO",
             },
             {
-                name: "Khammouan",
+                country: "Khammouan",
                 shortCode: "KH",
             },
             {
-                name: "Louang Namtha",
+                country: "Louang Namtha",
                 shortCode: "LM",
             },
             {
-                name: "Louangphabang",
+                country: "Louangphabang",
                 shortCode: "LP",
             },
             {
-                name: "Oudômxai",
+                country: "Oudômxai",
                 shortCode: "OU",
             },
             {
-                name: "Phôngsali",
+                country: "Phôngsali",
                 shortCode: "PH",
             },
             {
-                name: "Salavan",
+                country: "Salavan",
                 shortCode: "SL",
             },
             {
-                name: "Savannakhét",
+                country: "Savannakhét",
                 shortCode: "SV",
             },
             {
-                name: "Vientiane",
+                country: "Vientiane",
                 shortCode: "VI",
             },
             {
-                name: "Xaignabouli",
+                country: "Xaignabouli",
                 shortCode: "XA",
             },
             {
-                name: "Xékong",
+                country: "Xékong",
                 shortCode: "XE",
             },
             {
-                name: "Xaisomboun",
+                country: "Xaisomboun",
                 shortCode: "XS",
             },
             {
-                name: "Xiangkhouang",
+                country: "Xiangkhouang",
                 shortCode: "XI",
             },
         ],
@@ -9337,479 +9337,479 @@ const countyRegion = [
         countryShortCode: "LV",
         regions: [
             {
-                name: "Aglona",
+                country: "Aglona",
                 shortCode: "001",
             },
             {
-                name: "Aizkraukle",
+                country: "Aizkraukle",
                 shortCode: "002",
             },
             {
-                name: "Aizpute",
+                country: "Aizpute",
                 shortCode: "003",
             },
             {
-                name: "Aknīste",
+                country: "Aknīste",
                 shortCode: "004",
             },
             {
-                name: "Aloja",
+                country: "Aloja",
                 shortCode: "005",
             },
             {
-                name: "Alsunga",
+                country: "Alsunga",
                 shortCode: "06",
             },
             {
-                name: "Alūksne",
+                country: "Alūksne",
                 shortCode: "007",
             },
             {
-                name: "Amata",
+                country: "Amata",
                 shortCode: "008",
             },
             {
-                name: "Ape",
+                country: "Ape",
                 shortCode: "009",
             },
             {
-                name: "Auce",
+                country: "Auce",
                 shortCode: "010",
             },
             {
-                name: "Ādaži",
+                country: "Ādaži",
                 shortCode: "011",
             },
             {
-                name: "Babīte",
+                country: "Babīte",
                 shortCode: "012",
             },
             {
-                name: "Baldone",
+                country: "Baldone",
                 shortCode: "013",
             },
             {
-                name: "Baltinava",
+                country: "Baltinava",
                 shortCode: "014",
             },
             {
-                name: "Balvi",
+                country: "Balvi",
                 shortCode: "015",
             },
             {
-                name: "Bauska",
+                country: "Bauska",
                 shortCode: "016",
             },
             {
-                name: "Beverīna",
+                country: "Beverīna",
                 shortCode: "017",
             },
             {
-                name: "Brocēni",
+                country: "Brocēni",
                 shortCode: "018",
             },
             {
-                name: "Burtnieki",
+                country: "Burtnieki",
                 shortCode: "019",
             },
             {
-                name: "Carnikava",
+                country: "Carnikava",
                 shortCode: "020",
             },
             {
-                name: "Cesvaine",
+                country: "Cesvaine",
                 shortCode: "021",
             },
             {
-                name: "Cēsis",
+                country: "Cēsis",
                 shortCode: "022",
             },
             {
-                name: "Cibla",
+                country: "Cibla",
                 shortCode: "023",
             },
             {
-                name: "Dagda",
+                country: "Dagda",
                 shortCode: "024",
             },
             {
-                name: "Daugavpils",
+                country: "Daugavpils",
                 shortCode: "025",
             },
             {
-                name: "Daugavpils (City)",
+                country: "Daugavpils (City)",
                 shortCode: "DGV",
             },
             {
-                name: "Dobele",
+                country: "Dobele",
                 shortCode: "026",
             },
             {
-                name: "Dundaga",
+                country: "Dundaga",
                 shortCode: "027",
             },
             {
-                name: "Durbe",
+                country: "Durbe",
                 shortCode: "028",
             },
             {
-                name: "Engure",
+                country: "Engure",
                 shortCode: "029",
             },
             {
-                name: "Ērgļi",
+                country: "Ērgļi",
                 shortCode: "030",
             },
             {
-                name: "Garkalne",
+                country: "Garkalne",
                 shortCode: "031",
             },
             {
-                name: "Grobiņa",
+                country: "Grobiņa",
                 shortCode: "032",
             },
             {
-                name: "Gulbene",
+                country: "Gulbene",
                 shortCode: "033",
             },
             {
-                name: "Iecava",
+                country: "Iecava",
                 shortCode: "034",
             },
             {
-                name: "Ikšķile",
+                country: "Ikšķile",
                 shortCode: "035",
             },
             {
-                name: "Ilūkste",
+                country: "Ilūkste",
                 shortCode: "036",
             },
             {
-                name: "Inčukalns",
+                country: "Inčukalns",
                 shortCode: "037",
             },
             {
-                name: "Jaunjelgava",
+                country: "Jaunjelgava",
                 shortCode: "038",
             },
             {
-                name: "Jaunpiebalga",
+                country: "Jaunpiebalga",
                 shortCode: "039",
             },
             {
-                name: "Jaunpils",
+                country: "Jaunpils",
                 shortCode: "040",
             },
             {
-                name: "Jelgava",
+                country: "Jelgava",
                 shortCode: "041",
             },
             {
-                name: "Jelgava (City)",
+                country: "Jelgava (City)",
                 shortCode: "JEL",
             },
             {
-                name: "Jēkabpils",
+                country: "Jēkabpils",
                 shortCode: "042",
             },
             {
-                name: "Jēkabpils (City)",
+                country: "Jēkabpils (City)",
                 shortCode: "JKB",
             },
             {
-                name: "Jūrmala (City)",
+                country: "Jūrmala (City)",
                 shortCode: "JUR",
             },
             {
-                name: "Kandava",
+                country: "Kandava",
                 shortCode: "043",
             },
             {
-                name: "Kārsava",
+                country: "Kārsava",
                 shortCode: "044",
             },
             {
-                name: "Kocēni",
+                country: "Kocēni",
                 shortCode: "045",
             },
             {
-                name: "Koknese",
+                country: "Koknese",
                 shortCode: "046",
             },
             {
-                name: "Krāslava",
+                country: "Krāslava",
                 shortCode: "047",
             },
             {
-                name: "Krimulda",
+                country: "Krimulda",
                 shortCode: "048",
             },
             {
-                name: "Krustpils",
+                country: "Krustpils",
                 shortCode: "049",
             },
             {
-                name: "Kuldīga",
+                country: "Kuldīga",
                 shortCode: "050",
             },
             {
-                name: "Ķegums",
+                country: "Ķegums",
                 shortCode: "051",
             },
             {
-                name: "Ķekava",
+                country: "Ķekava",
                 shortCode: "052",
             },
             {
-                name: "Lielvārde",
+                country: "Lielvārde",
                 shortCode: "053",
             },
             {
-                name: "Liepāja",
+                country: "Liepāja",
                 shortCode: "LPX",
             },
             {
-                name: "Limbaži",
+                country: "Limbaži",
                 shortCode: "054",
             },
             {
-                name: "Līgatne",
+                country: "Līgatne",
                 shortCode: "055",
             },
             {
-                name: "Līvāni",
+                country: "Līvāni",
                 shortCode: "056",
             },
             {
-                name: "Lubāna",
+                country: "Lubāna",
                 shortCode: "057",
             },
             {
-                name: "Ludza",
+                country: "Ludza",
                 shortCode: "058",
             },
             {
-                name: "Madona",
+                country: "Madona",
                 shortCode: "059",
             },
             {
-                name: "Mazsalaca",
+                country: "Mazsalaca",
                 shortCode: "060",
             },
             {
-                name: "Mālpils",
+                country: "Mālpils",
                 shortCode: "061",
             },
             {
-                name: "Mārupe",
+                country: "Mārupe",
                 shortCode: "062",
             },
             {
-                name: "Mērsrags",
+                country: "Mērsrags",
                 shortCode: "063",
             },
             {
-                name: "Naukšēni",
+                country: "Naukšēni",
                 shortCode: "064",
             },
             {
-                name: "Nereta",
+                country: "Nereta",
                 shortCode: "065",
             },
             {
-                name: "Nīca",
+                country: "Nīca",
                 shortCode: "066",
             },
             {
-                name: "Ogre",
+                country: "Ogre",
                 shortCode: "067",
             },
             {
-                name: "Olaine",
+                country: "Olaine",
                 shortCode: "068",
             },
             {
-                name: "Ozolnieki",
+                country: "Ozolnieki",
                 shortCode: "069",
             },
             {
-                name: "Pārgauja",
+                country: "Pārgauja",
                 shortCode: "070",
             },
             {
-                name: "Pāvilosta",
+                country: "Pāvilosta",
                 shortCode: "071",
             },
             {
-                name: "Pļaviņas",
+                country: "Pļaviņas",
                 shortCode: "072",
             },
             {
-                name: "Preiļi",
+                country: "Preiļi",
                 shortCode: "073",
             },
             {
-                name: "Priekule",
+                country: "Priekule",
                 shortCode: "074",
             },
             {
-                name: "Priekuļi",
+                country: "Priekuļi",
                 shortCode: "075",
             },
             {
-                name: "Rauna",
+                country: "Rauna",
                 shortCode: "076",
             },
             {
-                name: "Rēzekne",
+                country: "Rēzekne",
                 shortCode: "077",
             },
             {
-                name: "Rēzekne (City)",
+                country: "Rēzekne (City)",
                 shortCode: "REZ",
             },
             {
-                name: "Riebiņi",
+                country: "Riebiņi",
                 shortCode: "078",
             },
             {
-                name: "Rīga",
+                country: "Rīga",
                 shortCode: "RIX",
             },
             {
-                name: "Roja",
+                country: "Roja",
                 shortCode: "079",
             },
             {
-                name: "Ropaži",
+                country: "Ropaži",
                 shortCode: "080",
             },
             {
-                name: "Rucava",
+                country: "Rucava",
                 shortCode: "081",
             },
             {
-                name: "Rugāji",
+                country: "Rugāji",
                 shortCode: "082",
             },
             {
-                name: "Rundāle",
+                country: "Rundāle",
                 shortCode: "083",
             },
             {
-                name: "Rūjiena",
+                country: "Rūjiena",
                 shortCode: "084",
             },
             {
-                name: "Sala",
+                country: "Sala",
                 shortCode: "085",
             },
             {
-                name: "Salacgrīva",
+                country: "Salacgrīva",
                 shortCode: "086",
             },
             {
-                name: "Salaspils",
+                country: "Salaspils",
                 shortCode: "087",
             },
             {
-                name: "Saldus",
+                country: "Saldus",
                 shortCode: "088",
             },
             {
-                name: "Saulkrasti",
+                country: "Saulkrasti",
                 shortCode: "089",
             },
             {
-                name: "Sēja",
+                country: "Sēja",
                 shortCode: "090",
             },
             {
-                name: "Sigulda",
+                country: "Sigulda",
                 shortCode: "091",
             },
             {
-                name: "Skrīveri",
+                country: "Skrīveri",
                 shortCode: "092",
             },
             {
-                name: "Skrunda",
+                country: "Skrunda",
                 shortCode: "093",
             },
             {
-                name: "Smiltene",
+                country: "Smiltene",
                 shortCode: "094",
             },
             {
-                name: "Stopiņi",
+                country: "Stopiņi",
                 shortCode: "095",
             },
             {
-                name: "Strenči",
+                country: "Strenči",
                 shortCode: "096",
             },
             {
-                name: "Talsi",
+                country: "Talsi",
                 shortCode: "097",
             },
             {
-                name: "Tērvete",
+                country: "Tērvete",
                 shortCode: "098",
             },
             {
-                name: "Tukums",
+                country: "Tukums",
                 shortCode: "099",
             },
             {
-                name: "Vaiņode",
+                country: "Vaiņode",
                 shortCode: "100",
             },
             {
-                name: "Valka",
+                country: "Valka",
                 shortCode: "101",
             },
             {
-                name: "Valmiera",
+                country: "Valmiera",
                 shortCode: "VMR",
             },
             {
-                name: "Varakļāni",
+                country: "Varakļāni",
                 shortCode: "102",
             },
             {
-                name: "Vārkava",
+                country: "Vārkava",
                 shortCode: "103",
             },
             {
-                name: "Vecpiebalga",
+                country: "Vecpiebalga",
                 shortCode: "104",
             },
             {
-                name: "Vecumnieki",
+                country: "Vecumnieki",
                 shortCode: "105",
             },
             {
-                name: "Ventspils",
+                country: "Ventspils",
                 shortCode: "106",
             },
             {
-                name: "Ventspils (City)",
+                country: "Ventspils (City)",
                 shortCode: "VEN",
             },
             {
-                name: "Viesīte",
+                country: "Viesīte",
                 shortCode: "107",
             },
             {
-                name: "Viļaka",
+                country: "Viļaka",
                 shortCode: "108",
             },
             {
-                name: "Viļāni",
+                country: "Viļāni",
                 shortCode: "109",
             },
             {
-                name: "Zilupe",
+                country: "Zilupe",
                 shortCode: "110",
             },
         ],
@@ -9819,35 +9819,35 @@ const countyRegion = [
         countryShortCode: "LB",
         regions: [
             {
-                name: "Aakkâr",
+                country: "Aakkâr",
                 shortCode: "AK",
             },
             {
-                name: "Baalbelk-Hermel",
+                country: "Baalbelk-Hermel",
                 shortCode: "BH",
             },
             {
-                name: "Béqaa",
+                country: "Béqaa",
                 shortCode: "BI",
             },
             {
-                name: "Beyrouth",
+                country: "Beyrouth",
                 shortCode: "BA",
             },
             {
-                name: "Liban-Nord",
+                country: "Liban-Nord",
                 shortCode: "AS",
             },
             {
-                name: "Liban-Sud",
+                country: "Liban-Sud",
                 shortCode: "JA",
             },
             {
-                name: "Mont-Liban",
+                country: "Mont-Liban",
                 shortCode: "JL",
             },
             {
-                name: "Nabatîyé",
+                country: "Nabatîyé",
                 shortCode: "NA",
             },
         ],
@@ -9857,43 +9857,43 @@ const countyRegion = [
         countryShortCode: "LS",
         regions: [
             {
-                name: "Berea",
+                country: "Berea",
                 shortCode: "D",
             },
             {
-                name: "Butha-Buthe",
+                country: "Butha-Buthe",
                 shortCode: "B",
             },
             {
-                name: "Leribe",
+                country: "Leribe",
                 shortCode: "C",
             },
             {
-                name: "Mafeteng",
+                country: "Mafeteng",
                 shortCode: "E",
             },
             {
-                name: "Maseru",
+                country: "Maseru",
                 shortCode: "A",
             },
             {
-                name: "Mohales Hoek",
+                country: "Mohales Hoek",
                 shortCode: "F",
             },
             {
-                name: "Mokhotlong",
+                country: "Mokhotlong",
                 shortCode: "J",
             },
             {
-                name: "Qacha's Nek",
+                country: "Qacha's Nek",
                 shortCode: "H",
             },
             {
-                name: "Quthing",
+                country: "Quthing",
                 shortCode: "G",
             },
             {
-                name: "Thaba-Tseka",
+                country: "Thaba-Tseka",
                 shortCode: "K",
             },
         ],
@@ -9903,63 +9903,63 @@ const countyRegion = [
         countryShortCode: "LR",
         regions: [
             {
-                name: "Bomi",
+                country: "Bomi",
                 shortCode: "BM",
             },
             {
-                name: "Bong",
+                country: "Bong",
                 shortCode: "BG",
             },
             {
-                name: "Gbarpolu",
+                country: "Gbarpolu",
                 shortCode: "GP",
             },
             {
-                name: "Grand Bassa",
+                country: "Grand Bassa",
                 shortCode: "GB",
             },
             {
-                name: "Grand Cape Mount",
+                country: "Grand Cape Mount",
                 shortCode: "CM",
             },
             {
-                name: "Grand Gedeh",
+                country: "Grand Gedeh",
                 shortCode: "GG",
             },
             {
-                name: "Grand Kru",
+                country: "Grand Kru",
                 shortCode: "GK",
             },
             {
-                name: "Lofa",
+                country: "Lofa",
                 shortCode: "LO",
             },
             {
-                name: "Margibi",
+                country: "Margibi",
                 shortCode: "MG",
             },
             {
-                name: "Maryland",
+                country: "Maryland",
                 shortCode: "MY",
             },
             {
-                name: "Montserrado",
+                country: "Montserrado",
                 shortCode: "MO",
             },
             {
-                name: "Nimba",
+                country: "Nimba",
                 shortCode: "NI",
             },
             {
-                name: "River Cess",
+                country: "River Cess",
                 shortCode: "RI",
             },
             {
-                name: "River Geee",
+                country: "River Geee",
                 shortCode: "RG",
             },
             {
-                name: "Sinoe",
+                country: "Sinoe",
                 shortCode: "SI",
             },
         ],
@@ -9969,91 +9969,91 @@ const countyRegion = [
         countryShortCode: "LY",
         regions: [
             {
-                name: "Al Buţnān",
+                country: "Al Buţnān",
                 shortCode: "BU",
             },
             {
-                name: "Al Jabal al Akhḑar",
+                country: "Al Jabal al Akhḑar",
                 shortCode: "JA",
             },
             {
-                name: "Al Jabal al Gharbī",
+                country: "Al Jabal al Gharbī",
                 shortCode: "JG",
             },
             {
-                name: "Al Jafārah",
+                country: "Al Jafārah",
                 shortCode: "JI",
             },
             {
-                name: "Al Jufrah",
+                country: "Al Jufrah",
                 shortCode: "JU",
             },
             {
-                name: "Al Kufrah",
+                country: "Al Kufrah",
                 shortCode: "FK",
             },
             {
-                name: "Al Marj",
+                country: "Al Marj",
                 shortCode: "MJ",
             },
             {
-                name: "Al Marquab",
+                country: "Al Marquab",
                 shortCode: "MB",
             },
             {
-                name: "Al Wāḩāt",
+                country: "Al Wāḩāt",
                 shortCode: "WA",
             },
             {
-                name: "An Nuqaţ al Khams",
+                country: "An Nuqaţ al Khams",
                 shortCode: "NQ",
             },
             {
-                name: "Az Zāwiyah",
+                country: "Az Zāwiyah",
                 shortCode: "ZA",
             },
             {
-                name: "Banghāzī",
+                country: "Banghāzī",
                 shortCode: "BA",
             },
             {
-                name: "Darnah",
+                country: "Darnah",
                 shortCode: "DR",
             },
             {
-                name: "Ghāt",
+                country: "Ghāt",
                 shortCode: "GH",
             },
             {
-                name: "Mişrātah",
+                country: "Mişrātah",
                 shortCode: "MI",
             },
             {
-                name: "Murzuq",
+                country: "Murzuq",
                 shortCode: "MQ",
             },
             {
-                name: "Nālūt",
+                country: "Nālūt",
                 shortCode: "NL",
             },
             {
-                name: "Sabhā",
+                country: "Sabhā",
                 shortCode: "SB",
             },
             {
-                name: "Surt",
+                country: "Surt",
                 shortCode: "SR",
             },
             {
-                name: "Ţarābulus",
+                country: "Ţarābulus",
                 shortCode: "TB",
             },
             {
-                name: "Yafran",
+                country: "Yafran",
                 shortCode: "WD",
             },
             {
-                name: "Wādī ash Shāţiʾ",
+                country: "Wādī ash Shāţiʾ",
                 shortCode: "WS",
             },
         ],
@@ -10063,47 +10063,47 @@ const countyRegion = [
         countryShortCode: "LI",
         regions: [
             {
-                name: "Balzers",
+                country: "Balzers",
                 shortCode: "01",
             },
             {
-                name: "Eschen",
+                country: "Eschen",
                 shortCode: "02",
             },
             {
-                name: "Gamprin",
+                country: "Gamprin",
                 shortCode: "03",
             },
             {
-                name: "Mauren",
+                country: "Mauren",
                 shortCode: "04",
             },
             {
-                name: "Planken",
+                country: "Planken",
                 shortCode: "05",
             },
             {
-                name: "Ruggell",
+                country: "Ruggell",
                 shortCode: "06",
             },
             {
-                name: "Schaan",
+                country: "Schaan",
                 shortCode: "07",
             },
             {
-                name: "Schellenberg",
+                country: "Schellenberg",
                 shortCode: "08",
             },
             {
-                name: "Triesen",
+                country: "Triesen",
                 shortCode: "09",
             },
             {
-                name: "Triesenberg",
+                country: "Triesenberg",
                 shortCode: "10",
             },
             {
-                name: "Vaduz",
+                country: "Vaduz",
                 shortCode: "11",
             },
         ],
@@ -10113,43 +10113,43 @@ const countyRegion = [
         countryShortCode: "LT",
         regions: [
             {
-                name: "Alytaus",
+                country: "Alytaus",
                 shortCode: "AL",
             },
             {
-                name: "Kauno",
+                country: "Kauno",
                 shortCode: "KU",
             },
             {
-                name: "Klaipėdos",
+                country: "Klaipėdos",
                 shortCode: "KL",
             },
             {
-                name: "Marijampolės",
+                country: "Marijampolės",
                 shortCode: "MR",
             },
             {
-                name: "Panevėžio",
+                country: "Panevėžio",
                 shortCode: "PN",
             },
             {
-                name: "Šiaulių",
+                country: "Šiaulių",
                 shortCode: "SA",
             },
             {
-                name: "Tauragės",
+                country: "Tauragės",
                 shortCode: "TA",
             },
             {
-                name: "Telšių",
+                country: "Telšių",
                 shortCode: "TE",
             },
             {
-                name: "Utenos",
+                country: "Utenos",
                 shortCode: "UT",
             },
             {
-                name: "Vilniaus",
+                country: "Vilniaus",
                 shortCode: "VL",
             },
         ],
@@ -10159,51 +10159,51 @@ const countyRegion = [
         countryShortCode: "LU",
         regions: [
             {
-                name: "Capellen",
+                country: "Capellen",
                 shortCode: "CA",
             },
             {
-                name: "Clevaux",
+                country: "Clevaux",
                 shortCode: "CL",
             },
             {
-                name: "Diekirch",
+                country: "Diekirch",
                 shortCode: "DI",
             },
             {
-                name: "Echternach",
+                country: "Echternach",
                 shortCode: "EC",
             },
             {
-                name: "Esch-sur-Alzette",
+                country: "Esch-sur-Alzette",
                 shortCode: "ES",
             },
             {
-                name: "Grevenmacher",
+                country: "Grevenmacher",
                 shortCode: "GR",
             },
             {
-                name: "Luxembourg",
+                country: "Luxembourg",
                 shortCode: "LU",
             },
             {
-                name: "Mersch",
+                country: "Mersch",
                 shortCode: "ME",
             },
             {
-                name: "Redange",
+                country: "Redange",
                 shortCode: "RD",
             },
             {
-                name: "Remich",
+                country: "Remich",
                 shortCode: "RM",
             },
             {
-                name: "Vianden",
+                country: "Vianden",
                 shortCode: "VD",
             },
             {
-                name: "Wiltz",
+                country: "Wiltz",
                 shortCode: "WI",
             },
         ],
@@ -10213,7 +10213,7 @@ const countyRegion = [
         countryShortCode: "MO",
         regions: [
             {
-                name: "Macao",
+                country: "Macao",
             },
         ],
     },
@@ -10222,287 +10222,287 @@ const countyRegion = [
         countryShortCode: "MK",
         regions: [
             {
-                name: "Aračinovo",
+                country: "Aračinovo",
                 shortCode: "02",
             },
             {
-                name: "Berovo",
+                country: "Berovo",
                 shortCode: "03",
             },
             {
-                name: "Bitola",
+                country: "Bitola",
                 shortCode: "04",
             },
             {
-                name: "Bogdanci",
+                country: "Bogdanci",
                 shortCode: "05",
             },
             {
-                name: "Bogovinje",
+                country: "Bogovinje",
                 shortCode: "06",
             },
             {
-                name: "Bosilovo",
+                country: "Bosilovo",
                 shortCode: "07",
             },
             {
-                name: "Brvenica",
+                country: "Brvenica",
                 shortCode: "08",
             },
             {
-                name: "Centar Župa",
+                country: "Centar Župa",
                 shortCode: "78",
             },
             {
-                name: "Čaška",
+                country: "Čaška",
                 shortCode: "80",
             },
             {
-                name: "Češinovo-Obleševo",
+                country: "Češinovo-Obleševo",
                 shortCode: "81",
             },
             {
-                name: "Čučer Sandevo",
+                country: "Čučer Sandevo",
                 shortCode: "82",
             },
             {
-                name: "Debar",
+                country: "Debar",
                 shortCode: "21",
             },
             {
-                name: "Debarca",
+                country: "Debarca",
                 shortCode: "22",
             },
             {
-                name: "Delčevo",
+                country: "Delčevo",
                 shortCode: "23",
             },
             {
-                name: "Demir Hisar",
+                country: "Demir Hisar",
                 shortCode: "25",
             },
             {
-                name: "Demir Kapija",
+                country: "Demir Kapija",
                 shortCode: "24",
             },
             {
-                name: "Doran",
+                country: "Doran",
                 shortCode: "26",
             },
             {
-                name: "Dolneni",
+                country: "Dolneni",
                 shortCode: "27",
             },
             {
-                name: "Gevgelija",
+                country: "Gevgelija",
                 shortCode: "18",
             },
             {
-                name: "Gostivar",
+                country: "Gostivar",
                 shortCode: "19",
             },
             {
-                name: "Gradsko",
+                country: "Gradsko",
                 shortCode: "20",
             },
             {
-                name: "Ilinden",
+                country: "Ilinden",
                 shortCode: "34",
             },
             {
-                name: "Jegunovce",
+                country: "Jegunovce",
                 shortCode: "35",
             },
             {
-                name: "Karbinci",
+                country: "Karbinci",
                 shortCode: "37",
             },
             {
-                name: "Kavadarci",
+                country: "Kavadarci",
                 shortCode: "36",
             },
             {
-                name: "Kičevo",
+                country: "Kičevo",
                 shortCode: "40",
             },
             {
-                name: "Kočani",
+                country: "Kočani",
                 shortCode: "42",
             },
             {
-                name: "Konče",
+                country: "Konče",
                 shortCode: "41",
             },
             {
-                name: "Kratovo",
+                country: "Kratovo",
                 shortCode: "43",
             },
             {
-                name: "Kriva Palanka",
+                country: "Kriva Palanka",
                 shortCode: "44",
             },
             {
-                name: "Krivogaštani",
+                country: "Krivogaštani",
                 shortCode: "45",
             },
             {
-                name: "Kruševo",
+                country: "Kruševo",
                 shortCode: "46",
             },
             {
-                name: "Kumanovo",
+                country: "Kumanovo",
                 shortCode: "47",
             },
             {
-                name: "Lipkovo",
+                country: "Lipkovo",
                 shortCode: "48",
             },
             {
-                name: "Lozovo",
+                country: "Lozovo",
                 shortCode: "49",
             },
             {
-                name: "Makedonska Kamenica",
+                country: "Makedonska Kamenica",
                 shortCode: "51",
             },
             {
-                name: "Makedonski Brod",
+                country: "Makedonski Brod",
                 shortCode: "52",
             },
             {
-                name: "Mavrovo i Rostuša",
+                country: "Mavrovo i Rostuša",
                 shortCode: "50",
             },
             {
-                name: "Mogila",
+                country: "Mogila",
                 shortCode: "53",
             },
             {
-                name: "Negotino",
+                country: "Negotino",
                 shortCode: "54",
             },
             {
-                name: "Novaci",
+                country: "Novaci",
                 shortCode: "55",
             },
             {
-                name: "Novo Selo",
+                country: "Novo Selo",
                 shortCode: "56",
             },
             {
-                name: "Ohrid",
+                country: "Ohrid",
                 shortCode: "58",
             },
             {
-                name: "Pehčevo",
+                country: "Pehčevo",
                 shortCode: "60",
             },
             {
-                name: "Petrovec",
+                country: "Petrovec",
                 shortCode: "59",
             },
             {
-                name: "Plasnica",
+                country: "Plasnica",
                 shortCode: "61",
             },
             {
-                name: "Prilep",
+                country: "Prilep",
                 shortCode: "62",
             },
             {
-                name: "Probištip",
+                country: "Probištip",
                 shortCode: "63",
             },
             {
-                name: "Radoviš",
+                country: "Radoviš",
                 shortCode: "",
             },
             {
-                name: "Rankovce",
+                country: "Rankovce",
                 shortCode: "65",
             },
             {
-                name: "Resen",
+                country: "Resen",
                 shortCode: "66",
             },
             {
-                name: "Rosoman",
+                country: "Rosoman",
                 shortCode: "67",
             },
             {
-                name: "Skopje",
+                country: "Skopje",
                 shortCode: "85",
             },
             {
-                name: "Sopište",
+                country: "Sopište",
                 shortCode: "70",
             },
             {
-                name: "Staro Nagoričane",
+                country: "Staro Nagoričane",
                 shortCode: "71",
             },
             {
-                name: "Struga",
+                country: "Struga",
                 shortCode: "72",
             },
             {
-                name: "Strumica",
+                country: "Strumica",
                 shortCode: "73",
             },
             {
-                name: "Studeničani",
+                country: "Studeničani",
                 shortCode: "74",
             },
             {
-                name: "Sveti Nikole",
+                country: "Sveti Nikole",
                 shortCode: "69",
             },
             {
-                name: "Štip",
+                country: "Štip",
                 shortCode: "83",
             },
             {
-                name: "Tearce",
+                country: "Tearce",
                 shortCode: "75",
             },
             {
-                name: "Tetovo",
+                country: "Tetovo",
                 shortCode: "76",
             },
             {
-                name: "Valandovo",
+                country: "Valandovo",
                 shortCode: "10",
             },
             {
-                name: "Vasilevo",
+                country: "Vasilevo",
                 shortCode: "11",
             },
             {
-                name: "Veles",
+                country: "Veles",
                 shortCode: "13",
             },
             {
-                name: "Vevčani",
+                country: "Vevčani",
                 shortCode: "12",
             },
             {
-                name: "Vinica",
+                country: "Vinica",
                 shortCode: "14",
             },
             {
-                name: "Vrapčište",
+                country: "Vrapčište",
                 shortCode: "16",
             },
             {
-                name: "Zelenikovo",
+                country: "Zelenikovo",
                 shortCode: "32",
             },
             {
-                name: "Zrnovci",
+                country: "Zrnovci",
                 shortCode: "33",
             },
             {
-                name: "Želino",
+                country: "Želino",
                 shortCode: "30",
             },
         ],
@@ -10512,27 +10512,27 @@ const countyRegion = [
         countryShortCode: "MG",
         regions: [
             {
-                name: "Antananarivo",
+                country: "Antananarivo",
                 shortCode: "T",
             },
             {
-                name: "Antsiranana",
+                country: "Antsiranana",
                 shortCode: "D",
             },
             {
-                name: "Fianarantsoa",
+                country: "Fianarantsoa",
                 shortCode: "F",
             },
             {
-                name: "Mahajanga",
+                country: "Mahajanga",
                 shortCode: "M",
             },
             {
-                name: "Toamasina",
+                country: "Toamasina",
                 shortCode: "A",
             },
             {
-                name: "Toliara",
+                country: "Toliara",
                 shortCode: "U",
             },
         ],
@@ -10542,111 +10542,111 @@ const countyRegion = [
         countryShortCode: "MW",
         regions: [
             {
-                name: "Balaka",
+                country: "Balaka",
                 shortCode: "BA",
             },
             {
-                name: "Blantyre",
+                country: "Blantyre",
                 shortCode: "BL",
             },
             {
-                name: "Chikwawa",
+                country: "Chikwawa",
                 shortCode: "CK",
             },
             {
-                name: "Chiradzulu",
+                country: "Chiradzulu",
                 shortCode: "CR",
             },
             {
-                name: "Chitipa",
+                country: "Chitipa",
                 shortCode: "CT",
             },
             {
-                name: "Dedza",
+                country: "Dedza",
                 shortCode: "DE",
             },
             {
-                name: "Dowa",
+                country: "Dowa",
                 shortCode: "DO",
             },
             {
-                name: "Karonga",
+                country: "Karonga",
                 shortCode: "KR",
             },
             {
-                name: "Kasungu",
+                country: "Kasungu",
                 shortCode: "KS",
             },
             {
-                name: "Likoma",
+                country: "Likoma",
                 shortCode: "LK",
             },
             {
-                name: "Lilongwe",
+                country: "Lilongwe",
                 shortCode: "LI",
             },
             {
-                name: "Machinga",
+                country: "Machinga",
                 shortCode: "MH",
             },
             {
-                name: "Mangochi",
+                country: "Mangochi",
                 shortCode: "MG",
             },
             {
-                name: "Mchinji",
+                country: "Mchinji",
                 shortCode: "MC",
             },
             {
-                name: "Mulanje",
+                country: "Mulanje",
                 shortCode: "MU",
             },
             {
-                name: "Mwanza",
+                country: "Mwanza",
                 shortCode: "MW",
             },
             {
-                name: "Mzimba",
+                country: "Mzimba",
                 shortCode: "MZ",
             },
             {
-                name: "Nkhata Bay",
+                country: "Nkhata Bay",
                 shortCode: "NE",
             },
             {
-                name: "Nkhotakota",
+                country: "Nkhotakota",
                 shortCode: "NB",
             },
             {
-                name: "Nsanje",
+                country: "Nsanje",
                 shortCode: "NS",
             },
             {
-                name: "Ntcheu",
+                country: "Ntcheu",
                 shortCode: "NU",
             },
             {
-                name: "Ntchisi",
+                country: "Ntchisi",
                 shortCode: "NI",
             },
             {
-                name: "Phalombe",
+                country: "Phalombe",
                 shortCode: "PH",
             },
             {
-                name: "Rumphi",
+                country: "Rumphi",
                 shortCode: "RU",
             },
             {
-                name: "Salima",
+                country: "Salima",
                 shortCode: "SA",
             },
             {
-                name: "Thyolo",
+                country: "Thyolo",
                 shortCode: "TH",
             },
             {
-                name: "Zomba",
+                country: "Zomba",
                 shortCode: "ZO",
             },
         ],
@@ -10656,67 +10656,67 @@ const countyRegion = [
         countryShortCode: "MY",
         regions: [
             {
-                name: "Johor",
+                country: "Johor",
                 shortCode: "01",
             },
             {
-                name: "Kedah",
+                country: "Kedah",
                 shortCode: "02",
             },
             {
-                name: "Kelantan",
+                country: "Kelantan",
                 shortCode: "03",
             },
             {
-                name: "Melaka",
+                country: "Melaka",
                 shortCode: "04",
             },
             {
-                name: "Negeri Sembilan",
+                country: "Negeri Sembilan",
                 shortCode: "05",
             },
             {
-                name: "Pahang",
+                country: "Pahang",
                 shortCode: "06",
             },
             {
-                name: "Perak",
+                country: "Perak",
                 shortCode: "08",
             },
             {
-                name: "Perlis",
+                country: "Perlis",
                 shortCode: "09",
             },
             {
-                name: "Pulau Pinang",
+                country: "Pulau Pinang",
                 shortCode: "07",
             },
             {
-                name: "Sabah",
+                country: "Sabah",
                 shortCode: "12",
             },
             {
-                name: "Sarawak",
+                country: "Sarawak",
                 shortCode: "13",
             },
             {
-                name: "Selangor",
+                country: "Selangor",
                 shortCode: "10",
             },
             {
-                name: "Terengganu",
+                country: "Terengganu",
                 shortCode: "11",
             },
             {
-                name: "Wilayah Persekutuan (Kuala Lumpur)",
+                country: "Wilayah Persekutuan (Kuala Lumpur)",
                 shortCode: "14",
             },
             {
-                name: "Wilayah Persekutuan (Labuan)",
+                country: "Wilayah Persekutuan (Labuan)",
                 shortCode: "15",
             },
             {
-                name: "Wilayah Persekutuan (Putrajaya)",
+                country: "Wilayah Persekutuan (Putrajaya)",
                 shortCode: "16",
             },
         ],
@@ -10726,87 +10726,87 @@ const countyRegion = [
         countryShortCode: "MV",
         regions: [
             {
-                name: "Alifu Alifu",
+                country: "Alifu Alifu",
                 shortCode: "02",
             },
             {
-                name: "Alifu Dhaalu",
+                country: "Alifu Dhaalu",
                 shortCode: "00",
             },
             {
-                name: "Baa",
+                country: "Baa",
                 shortCode: "20",
             },
             {
-                name: "Dhaalu",
+                country: "Dhaalu",
                 shortCode: "17",
             },
             {
-                name: "Faafu",
+                country: "Faafu",
                 shortCode: "14",
             },
             {
-                name: "Gaafu Alifu",
+                country: "Gaafu Alifu",
                 shortCode: "27",
             },
             {
-                name: "Gaafu Dhaalu",
+                country: "Gaafu Dhaalu",
                 shortCode: "28",
             },
             {
-                name: "Gnaviyani",
+                country: "Gnaviyani",
                 shortCode: "29",
             },
             {
-                name: "Haa Alifu",
+                country: "Haa Alifu",
                 shortCode: "07",
             },
             {
-                name: "Haa Dhaalu",
+                country: "Haa Dhaalu",
                 shortCode: "23",
             },
             {
-                name: "Kaafu",
+                country: "Kaafu",
                 shortCode: "26",
             },
             {
-                name: "Laamu",
+                country: "Laamu",
                 shortCode: "05",
             },
             {
-                name: "Lhaviyani",
+                country: "Lhaviyani",
                 shortCode: "03",
             },
             {
-                name: "Malé",
+                country: "Malé",
                 shortCode: "MLE",
             },
             {
-                name: "Meemu",
+                country: "Meemu",
                 shortCode: "12",
             },
             {
-                name: "Noonu",
+                country: "Noonu",
                 shortCode: "25",
             },
             {
-                name: "Raa",
+                country: "Raa",
                 shortCode: "13",
             },
             {
-                name: "Seenu",
+                country: "Seenu",
                 shortCode: "01",
             },
             {
-                name: "Shaviyani",
+                country: "Shaviyani",
                 shortCode: "24",
             },
             {
-                name: "Thaa",
+                country: "Thaa",
                 shortCode: "08",
             },
             {
-                name: "Vaavu",
+                country: "Vaavu",
                 shortCode: "04",
             },
         ],
@@ -10816,47 +10816,47 @@ const countyRegion = [
         countryShortCode: "ML",
         regions: [
             {
-                name: "Bamako",
+                country: "Bamako",
                 shortCode: "BKO",
             },
             {
-                name: "Gao",
+                country: "Gao",
                 shortCode: "7",
             },
             {
-                name: "Kayes",
+                country: "Kayes",
                 shortCode: "1",
             },
             {
-                name: "Kidal",
+                country: "Kidal",
                 shortCode: "8",
             },
             {
-                name: "Koulikoro",
+                country: "Koulikoro",
                 shortCode: "2",
             },
             {
-                name: "Mopti",
+                country: "Mopti",
                 shortCode: "5",
             },
             {
-                name: "Segou",
+                country: "Segou",
                 shortCode: "4",
             },
             {
-                name: "Sikasso",
+                country: "Sikasso",
                 shortCode: "3",
             },
             {
-                name: "Tombouctou",
+                country: "Tombouctou",
                 shortCode: "6",
             },
             {
-                name: "Taoudénit",
+                country: "Taoudénit",
                 shortCode: "9",
             },
             {
-                name: "Ménaka",
+                country: "Ménaka",
                 shortCode: "10",
             },
         ],
@@ -10866,275 +10866,275 @@ const countyRegion = [
         countryShortCode: "MT",
         regions: [
             {
-                name: "Attard",
+                country: "Attard",
                 shortCode: "01",
             },
             {
-                name: "Balzan",
+                country: "Balzan",
                 shortCode: "02",
             },
             {
-                name: "Birgu",
+                country: "Birgu",
                 shortCode: "03",
             },
             {
-                name: "Birkirkara",
+                country: "Birkirkara",
                 shortCode: "04",
             },
             {
-                name: "Birżebbuġa",
+                country: "Birżebbuġa",
                 shortCode: "05",
             },
             {
-                name: "Bormla",
+                country: "Bormla",
                 shortCode: "06",
             },
             {
-                name: "Dingli",
+                country: "Dingli",
                 shortCode: "07",
             },
             {
-                name: "Fgura",
+                country: "Fgura",
                 shortCode: "08",
             },
             {
-                name: "Floriana",
+                country: "Floriana",
                 shortCode: "09",
             },
             {
-                name: "Fontana",
+                country: "Fontana",
                 shortCode: "10",
             },
             {
-                name: "Guda",
+                country: "Guda",
                 shortCode: "11",
             },
             {
-                name: "Gżira",
+                country: "Gżira",
                 shortCode: "12",
             },
             {
-                name: "Għajnsielem",
+                country: "Għajnsielem",
                 shortCode: "13",
             },
             {
-                name: "Għarb",
+                country: "Għarb",
                 shortCode: "14",
             },
             {
-                name: "Għargħur",
+                country: "Għargħur",
                 shortCode: "15",
             },
             {
-                name: "Għasri",
+                country: "Għasri",
                 shortCode: "16",
             },
             {
-                name: "Għaxaq",
+                country: "Għaxaq",
                 shortCode: "17",
             },
             {
-                name: "Ħamrun",
+                country: "Ħamrun",
                 shortCode: "18",
             },
             {
-                name: "Iklin",
+                country: "Iklin",
                 shortCode: "19",
             },
             {
-                name: "Isla",
+                country: "Isla",
                 shortCode: "20",
             },
             {
-                name: "Kalkara",
+                country: "Kalkara",
                 shortCode: "21",
             },
             {
-                name: "Kerċem",
+                country: "Kerċem",
                 shortCode: "22",
             },
             {
-                name: "Kirkop",
+                country: "Kirkop",
                 shortCode: "23",
             },
             {
-                name: "Lija",
+                country: "Lija",
                 shortCode: "24",
             },
             {
-                name: "Luqa",
+                country: "Luqa",
                 shortCode: "25",
             },
             {
-                name: "Marsa",
+                country: "Marsa",
                 shortCode: "26",
             },
             {
-                name: "Marsaskala",
+                country: "Marsaskala",
                 shortCode: "27",
             },
             {
-                name: "Marsaxlokk",
+                country: "Marsaxlokk",
                 shortCode: "28",
             },
             {
-                name: "Mdina",
+                country: "Mdina",
                 shortCode: "29",
             },
             {
-                name: "Mellieħa",
+                country: "Mellieħa",
                 shortCode: "30",
             },
             {
-                name: "Mġarr",
+                country: "Mġarr",
                 shortCode: "31",
             },
             {
-                name: "Mosta",
+                country: "Mosta",
                 shortCode: "32",
             },
             {
-                name: "Mqabba",
+                country: "Mqabba",
                 shortCode: "33",
             },
             {
-                name: "Msida",
+                country: "Msida",
                 shortCode: "34",
             },
             {
-                name: "Mtarfa",
+                country: "Mtarfa",
                 shortCode: "35",
             },
             {
-                name: "Munxar",
+                country: "Munxar",
                 shortCode: "36",
             },
             {
-                name: "Nadur",
+                country: "Nadur",
                 shortCode: "37",
             },
             {
-                name: "Naxxar",
+                country: "Naxxar",
                 shortCode: "38",
             },
             {
-                name: "Paola",
+                country: "Paola",
                 shortCode: "39",
             },
             {
-                name: "Pembroke",
+                country: "Pembroke",
                 shortCode: "40",
             },
             {
-                name: "Pietà",
+                country: "Pietà",
                 shortCode: "41",
             },
             {
-                name: "Qala",
+                country: "Qala",
                 shortCode: "42",
             },
             {
-                name: "Qormi",
+                country: "Qormi",
                 shortCode: "43",
             },
             {
-                name: "Qrendi",
+                country: "Qrendi",
                 shortCode: "44",
             },
             {
-                name: "Rabat Għawdex",
+                country: "Rabat Għawdex",
                 shortCode: "45",
             },
             {
-                name: "Rabat Malta",
+                country: "Rabat Malta",
                 shortCode: "46",
             },
             {
-                name: "Safi",
+                country: "Safi",
                 shortCode: "47",
             },
             {
-                name: "San Ġiljan",
+                country: "San Ġiljan",
                 shortCode: "48",
             },
             {
-                name: "San Ġwann",
+                country: "San Ġwann",
                 shortCode: "49",
             },
             {
-                name: "San Lawrenz",
+                country: "San Lawrenz",
                 shortCode: "50",
             },
             {
-                name: "San Pawl il-Baħar",
+                country: "San Pawl il-Baħar",
                 shortCode: "51",
             },
             {
-                name: "Sannat",
+                country: "Sannat",
                 shortCode: "52",
             },
             {
-                name: "Santa Luċija",
+                country: "Santa Luċija",
                 shortCode: "53",
             },
             {
-                name: "Santa Venera",
+                country: "Santa Venera",
                 shortCode: "54",
             },
             {
-                name: "Siġġiewi",
+                country: "Siġġiewi",
                 shortCode: "55",
             },
             {
-                name: "Sliema",
+                country: "Sliema",
                 shortCode: "56",
             },
             {
-                name: "Swieqi",
+                country: "Swieqi",
                 shortCode: "57",
             },
             {
-                name: "Tai Xbiex",
+                country: "Tai Xbiex",
                 shortCode: "58",
             },
             {
-                name: "Tarzien",
+                country: "Tarzien",
                 shortCode: "59",
             },
             {
-                name: "Valletta",
+                country: "Valletta",
                 shortCode: "60",
             },
             {
-                name: "Xagħra",
+                country: "Xagħra",
                 shortCode: "61",
             },
             {
-                name: "Xewkija",
+                country: "Xewkija",
                 shortCode: "62",
             },
             {
-                name: "Xgħajra",
+                country: "Xgħajra",
                 shortCode: "63",
             },
             {
-                name: "Żabbar",
+                country: "Żabbar",
                 shortCode: "64",
             },
             {
-                name: "Żebbuġ Għawde",
+                country: "Żebbuġ Għawde",
                 shortCode: "65",
             },
             {
-                name: "Żebbuġ Malta",
+                country: "Żebbuġ Malta",
                 shortCode: "66",
             },
             {
-                name: "Żejtun",
+                country: "Żejtun",
                 shortCode: "67",
             },
             {
-                name: "Żurrieq",
+                country: "Żurrieq",
                 shortCode: "68",
             },
         ],
@@ -11144,91 +11144,91 @@ const countyRegion = [
         countryShortCode: "MH",
         regions: [
             {
-                name: "Ailinglaplap",
+                country: "Ailinglaplap",
                 shortCode: "ALL",
             },
             {
-                name: "Ailuk",
+                country: "Ailuk",
                 shortCode: "ALK",
             },
             {
-                name: "Arno",
+                country: "Arno",
                 shortCode: "ARN",
             },
             {
-                name: "Aur",
+                country: "Aur",
                 shortCode: "AUR",
             },
             {
-                name: "Bikini and Kili",
+                country: "Bikini and Kili",
                 shortCode: "KIL",
             },
             {
-                name: "Ebon",
+                country: "Ebon",
                 shortCode: "EBO",
             },
             {
-                name: "Jabat",
+                country: "Jabat",
                 shortCode: "JAB",
             },
             {
-                name: "Jaluit",
+                country: "Jaluit",
                 shortCode: "JAL",
             },
             {
-                name: "Kwajalein",
+                country: "Kwajalein",
                 shortCode: "KWA",
             },
             {
-                name: "Lae",
+                country: "Lae",
                 shortCode: "LAE",
             },
             {
-                name: "Lib",
+                country: "Lib",
                 shortCode: "LIB",
             },
             {
-                name: "Likiep",
+                country: "Likiep",
                 shortCode: "LIK",
             },
             {
-                name: "Majuro",
+                country: "Majuro",
                 shortCode: "MAJ",
             },
             {
-                name: "Maloelap",
+                country: "Maloelap",
                 shortCode: "MAL",
             },
             {
-                name: "Mejit",
+                country: "Mejit",
                 shortCode: "MEJ",
             },
             {
-                name: "Namdrik",
+                country: "Namdrik",
                 shortCode: "NMK",
             },
             {
-                name: "Namu",
+                country: "Namu",
                 shortCode: "NMU",
             },
             {
-                name: "Rongelap",
+                country: "Rongelap",
                 shortCode: "RON",
             },
             {
-                name: "Ujae",
+                country: "Ujae",
                 shortCode: "UJA",
             },
             {
-                name: "Utrik",
+                country: "Utrik",
                 shortCode: "UTI",
             },
             {
-                name: "Wotho",
+                country: "Wotho",
                 shortCode: "WTH",
             },
             {
-                name: "Wotje",
+                country: "Wotje",
                 shortCode: "WTJ",
             },
         ],
@@ -11238,7 +11238,7 @@ const countyRegion = [
         countryShortCode: "MQ",
         regions: [
             {
-                name: "Martinique",
+                country: "Martinique",
             },
         ],
     },
@@ -11247,63 +11247,63 @@ const countyRegion = [
         countryShortCode: "MR",
         regions: [
             {
-                name: "Adrar",
+                country: "Adrar",
                 shortCode: "07",
             },
             {
-                name: "Assaba",
+                country: "Assaba",
                 shortCode: "03",
             },
             {
-                name: "Brakna",
+                country: "Brakna",
                 shortCode: "05",
             },
             {
-                name: "Dakhlet Nouadhibou",
+                country: "Dakhlet Nouadhibou",
                 shortCode: "08",
             },
             {
-                name: "Gorgol",
+                country: "Gorgol",
                 shortCode: "04",
             },
             {
-                name: "Guidimaka",
+                country: "Guidimaka",
                 shortCode: "10",
             },
             {
-                name: "Hodh Ech Chargui",
+                country: "Hodh Ech Chargui",
                 shortCode: "01",
             },
             {
-                name: "Hodh El Gharbi",
+                country: "Hodh El Gharbi",
                 shortCode: "02",
             },
             {
-                name: "Inchiri",
+                country: "Inchiri",
                 shortCode: "12",
             },
             {
-                name: "Nouakchott Nord",
+                country: "Nouakchott Nord",
                 shortCode: "14",
             },
             {
-                name: "Nouakchott Ouest",
+                country: "Nouakchott Ouest",
                 shortCode: "13",
             },
             {
-                name: "Nouakchott Sud",
+                country: "Nouakchott Sud",
                 shortCode: "15",
             },
             {
-                name: "Tagant",
+                country: "Tagant",
                 shortCode: "09",
             },
             {
-                name: "Tiris Zemmour",
+                country: "Tiris Zemmour",
                 shortCode: "11",
             },
             {
-                name: "Trarza",
+                country: "Trarza",
                 shortCode: "06",
             },
         ],
@@ -11313,67 +11313,67 @@ const countyRegion = [
         countryShortCode: "MU",
         regions: [
             {
-                name: "Agalega Islands",
+                country: "Agalega Islands",
                 shortCode: "AG",
             },
             {
-                name: "Beau Bassin-Rose Hill",
+                country: "Beau Bassin-Rose Hill",
                 shortCode: "BR",
             },
             {
-                name: "Black River",
+                country: "Black River",
                 shortCode: "BL",
             },
             {
-                name: "Cargados Carajos Shoals",
+                country: "Cargados Carajos Shoals",
                 shortCode: "CC",
             },
             {
-                name: "Curepipe",
+                country: "Curepipe",
                 shortCode: "CU",
             },
             {
-                name: "Flacq",
+                country: "Flacq",
                 shortCode: "FL",
             },
             {
-                name: "Grand Port",
+                country: "Grand Port",
                 shortCode: "GP",
             },
             {
-                name: "Moka",
+                country: "Moka",
                 shortCode: "MO",
             },
             {
-                name: "Pamplemousses",
+                country: "Pamplemousses",
                 shortCode: "PA",
             },
             {
-                name: "Plaines Wilhems",
+                country: "Plaines Wilhems",
                 shortCode: "PW",
             },
             {
-                name: "Port Louis (City)",
+                country: "Port Louis (City)",
                 shortCode: "PU",
             },
             {
-                name: "Port Louis",
+                country: "Port Louis",
                 shortCode: "PL",
             },
             {
-                name: "Riviere du Rempart",
+                country: "Riviere du Rempart",
                 shortCode: "RR",
             },
             {
-                name: "Rodrigues Island",
+                country: "Rodrigues Island",
                 shortCode: "RO",
             },
             {
-                name: "Savanne",
+                country: "Savanne",
                 shortCode: "SA",
             },
             {
-                name: "Vacoas-Phoenix",
+                country: "Vacoas-Phoenix",
                 shortCode: "CP",
             },
         ],
@@ -11383,71 +11383,71 @@ const countyRegion = [
         countryShortCode: "YT",
         regions: [
             {
-                name: "Dzaoudzi",
+                country: "Dzaoudzi",
                 shortCode: "01",
             },
             {
-                name: "Pamandzi",
+                country: "Pamandzi",
                 shortCode: "02",
             },
             {
-                name: "Mamoudzou",
+                country: "Mamoudzou",
                 shortCode: "03",
             },
             {
-                name: "Dembeni",
+                country: "Dembeni",
                 shortCode: "04",
             },
             {
-                name: "Bandrélé",
+                country: "Bandrélé",
                 shortCode: "05",
             },
             {
-                name: "Kani-Kéli",
+                country: "Kani-Kéli",
                 shortCode: "06",
             },
             {
-                name: "Bouéni",
+                country: "Bouéni",
                 shortCode: "07",
             },
             {
-                name: "Chirongui",
+                country: "Chirongui",
                 shortCode: "08",
             },
             {
-                name: "Sada",
+                country: "Sada",
                 shortCode: "09",
             },
             {
-                name: "Ouangani",
+                country: "Ouangani",
                 shortCode: "10",
             },
             {
-                name: "Chiconi",
+                country: "Chiconi",
                 shortCode: "11",
             },
             {
-                name: "Tsingoni",
+                country: "Tsingoni",
                 shortCode: "12",
             },
             {
-                name: "M'Tsangamouji",
+                country: "M'Tsangamouji",
                 shortCode: "13",
             },
             {
-                name: "Acoua",
+                country: "Acoua",
                 shortCode: "14",
             },
             {
-                name: "Mtsamboro",
+                country: "Mtsamboro",
                 shortCode: "15",
             },
             {
-                name: "Bandraboua",
+                country: "Bandraboua",
                 shortCode: "16",
             },
             {
-                name: "Koungou",
+                country: "Koungou",
                 shortCode: "17",
             },
         ],
@@ -11457,131 +11457,131 @@ const countyRegion = [
         countryShortCode: "MX",
         regions: [
             {
-                name: "Aguascalientes",
+                country: "Aguascalientes",
                 shortCode: "AGU",
             },
             {
-                name: "Baja California",
+                country: "Baja California",
                 shortCode: "BCN",
             },
             {
-                name: "Baja California Sur",
+                country: "Baja California Sur",
                 shortCode: "BCS",
             },
             {
-                name: "Campeche",
+                country: "Campeche",
                 shortCode: "CAM",
             },
             {
-                name: "Ciudad de México",
+                country: "Ciudad de México",
                 shortCode: "CMX",
             },
             {
-                name: "Chiapas",
+                country: "Chiapas",
                 shortCode: "CHP",
             },
             {
-                name: "Chihuahua",
+                country: "Chihuahua",
                 shortCode: "CHH",
             },
             {
-                name: "Coahuila de Zaragoza",
+                country: "Coahuila de Zaragoza",
                 shortCode: "COA",
             },
             {
-                name: "Colima",
+                country: "Colima",
                 shortCode: "COL",
             },
             {
-                name: "Durango",
+                country: "Durango",
                 shortCode: "DUR",
             },
             {
-                name: "Estado de México",
+                country: "Estado de México",
                 shortCode: "MEX",
             },
             {
-                name: "Guanajuato",
+                country: "Guanajuato",
                 shortCode: "GUA",
             },
             {
-                name: "Guerrero",
+                country: "Guerrero",
                 shortCode: "GRO",
             },
             {
-                name: "Hidalgo",
+                country: "Hidalgo",
                 shortCode: "HID",
             },
             {
-                name: "Jalisco",
+                country: "Jalisco",
                 shortCode: "JAL",
             },
             {
-                name: "Michoacán de Ocampo",
+                country: "Michoacán de Ocampo",
                 shortCode: "MIC",
             },
             {
-                name: "Morelos",
+                country: "Morelos",
                 shortCode: "MOR",
             },
             {
-                name: "Nayarit",
+                country: "Nayarit",
                 shortCode: "NAY",
             },
             {
-                name: "Nuevo León",
+                country: "Nuevo León",
                 shortCode: "NLE",
             },
             {
-                name: "Oaxaca",
+                country: "Oaxaca",
                 shortCode: "OAX",
             },
             {
-                name: "Puebla",
+                country: "Puebla",
                 shortCode: "PUE",
             },
             {
-                name: "Querétaro de Arteaga",
+                country: "Querétaro de Arteaga",
                 shortCode: "QUE",
             },
             {
-                name: "Quintana Roo",
+                country: "Quintana Roo",
                 shortCode: "ROO",
             },
             {
-                name: "San Luis Potosí",
+                country: "San Luis Potosí",
                 shortCode: "SLP",
             },
             {
-                name: "Sinaloa",
+                country: "Sinaloa",
                 shortCode: "SIN",
             },
             {
-                name: "Sonora",
+                country: "Sonora",
                 shortCode: "SON",
             },
             {
-                name: "Tabasco",
+                country: "Tabasco",
                 shortCode: "TAB",
             },
             {
-                name: "Tamaulipas",
+                country: "Tamaulipas",
                 shortCode: "TAM",
             },
             {
-                name: "Tlaxcala",
+                country: "Tlaxcala",
                 shortCode: "TLA",
             },
             {
-                name: "Veracruz",
+                country: "Veracruz",
                 shortCode: "VER",
             },
             {
-                name: "Yucatán",
+                country: "Yucatán",
                 shortCode: "YUC",
             },
             {
-                name: "Zacatecas",
+                country: "Zacatecas",
                 shortCode: "ZAC",
             },
         ],
@@ -11591,19 +11591,19 @@ const countyRegion = [
         countryShortCode: "FM",
         regions: [
             {
-                name: "Chuuk (Truk)",
+                country: "Chuuk (Truk)",
                 shortCode: "TRK",
             },
             {
-                name: "Kosrae",
+                country: "Kosrae",
                 shortCode: "KSA",
             },
             {
-                name: "Pohnpei",
+                country: "Pohnpei",
                 shortCode: "PNI",
             },
             {
-                name: "Yap",
+                country: "Yap",
                 shortCode: "YAP",
             },
         ],
@@ -11613,151 +11613,151 @@ const countyRegion = [
         countryShortCode: "MD",
         regions: [
             {
-                name: "Aenii Noi",
+                country: "Aenii Noi",
                 shortCode: "AN",
             },
             {
-                name: "Basarabeasca",
+                country: "Basarabeasca",
                 shortCode: "BS",
             },
             {
-                name: "Bălți",
+                country: "Bălți",
                 shortCode: "BA",
             },
             {
-                name: "Bender",
+                country: "Bender",
                 shortCode: "BD",
             },
             {
-                name: "Briceni",
+                country: "Briceni",
                 shortCode: "BR",
             },
             {
-                name: "Cahul",
+                country: "Cahul",
                 shortCode: "CA",
             },
             {
-                name: "Cantemir",
+                country: "Cantemir",
                 shortCode: "CT",
             },
             {
-                name: "Călărași",
+                country: "Călărași",
                 shortCode: "CL",
             },
             {
-                name: "Căușeni",
+                country: "Căușeni",
                 shortCode: "CS",
             },
             {
-                name: "Chișinău",
+                country: "Chișinău",
                 shortCode: "CU",
             },
             {
-                name: "Cimișlia",
+                country: "Cimișlia",
                 shortCode: "CM",
             },
             {
-                name: "Criuleni",
+                country: "Criuleni",
                 shortCode: "CR",
             },
             {
-                name: "Dondușeni",
+                country: "Dondușeni",
                 shortCode: "DO",
             },
             {
-                name: "Drochia",
+                country: "Drochia",
                 shortCode: "DR",
             },
             {
-                name: "Dubăsari",
+                country: "Dubăsari",
                 shortCode: "DU",
             },
             {
-                name: "Edineț",
+                country: "Edineț",
                 shortCode: "ED",
             },
             {
-                name: "Fălești",
+                country: "Fălești",
                 shortCode: "FA",
             },
             {
-                name: "Florești",
+                country: "Florești",
                 shortCode: "FL",
             },
             {
-                name: "Găgăuzia",
+                country: "Găgăuzia",
                 shortCode: "GA",
             },
             {
-                name: "Glodeni",
+                country: "Glodeni",
                 shortCode: "GL",
             },
             {
-                name: "Hîncești",
+                country: "Hîncești",
                 shortCode: "HI",
             },
             {
-                name: "Ialoveni",
+                country: "Ialoveni",
                 shortCode: "IA",
             },
             {
-                name: "Leova",
+                country: "Leova",
                 shortCode: "LE",
             },
             {
-                name: "Nisporeni",
+                country: "Nisporeni",
                 shortCode: "NI",
             },
             {
-                name: "Ocnița",
+                country: "Ocnița",
                 shortCode: "OC",
             },
             {
-                name: "Orhei",
+                country: "Orhei",
                 shortCode: "OR",
             },
             {
-                name: "Rezina",
+                country: "Rezina",
                 shortCode: "RE",
             },
             {
-                name: "Rîșcani",
+                country: "Rîșcani",
                 shortCode: "RI",
             },
             {
-                name: "Sîngerei",
+                country: "Sîngerei",
                 shortCode: "SI",
             },
             {
-                name: "Soroca",
+                country: "Soroca",
                 shortCode: "SO",
             },
             {
-                name: "Stânga Nistrului",
+                country: "Stânga Nistrului",
                 shortCode: "SN",
             },
             {
-                name: "Strășeni",
+                country: "Strășeni",
                 shortCode: "ST",
             },
             {
-                name: "Șoldănești",
+                country: "Șoldănești",
                 shortCode: "SD",
             },
             {
-                name: "Ștefan Vodă",
+                country: "Ștefan Vodă",
                 shortCode: "SV",
             },
             {
-                name: "Taraclia",
+                country: "Taraclia",
                 shortCode: "TA",
             },
             {
-                name: "Telenești",
+                country: "Telenești",
                 shortCode: "TE",
             },
             {
-                name: "Ungheni",
+                country: "Ungheni",
                 shortCode: "UN",
             },
         ],
@@ -11767,71 +11767,71 @@ const countyRegion = [
         countryShortCode: "MC",
         regions: [
             {
-                name: "Colle",
+                country: "Colle",
                 shortCode: "CL",
             },
             {
-                name: "Condamine",
+                country: "Condamine",
                 shortCode: "CO",
             },
             {
-                name: "Fontvieille",
+                country: "Fontvieille",
                 shortCode: "FO",
             },
             {
-                name: "Gare",
+                country: "Gare",
                 shortCode: "GA",
             },
             {
-                name: "Jardin Exotique",
+                country: "Jardin Exotique",
                 shortCode: "JE",
             },
             {
-                name: "Larvotto",
+                country: "Larvotto",
                 shortCode: "LA",
             },
             {
-                name: "Malbousquet",
+                country: "Malbousquet",
                 shortCode: "MA",
             },
             {
-                name: "Monaco-Ville",
+                country: "Monaco-Ville",
                 shortCode: "MO",
             },
             {
-                name: "Moneghetti",
+                country: "Moneghetti",
                 shortCode: "MG",
             },
             {
-                name: "Monte-Carlo",
+                country: "Monte-Carlo",
                 shortCode: "MC",
             },
             {
-                name: "Moulins",
+                country: "Moulins",
                 shortCode: "MU",
             },
             {
-                name: "Port-Hercule",
+                country: "Port-Hercule",
                 shortCode: "PH",
             },
             {
-                name: "Saint-Roman",
+                country: "Saint-Roman",
                 shortCode: "SR",
             },
             {
-                name: "Sainte-Dévote",
+                country: "Sainte-Dévote",
                 shortCode: "SD",
             },
             {
-                name: "Source",
+                country: "Source",
                 shortCode: "SO",
             },
             {
-                name: "Spélugues",
+                country: "Spélugues",
                 shortCode: "SP",
             },
             {
-                name: "Vallon de la Rousse",
+                country: "Vallon de la Rousse",
                 shortCode: "VR",
             },
         ],
@@ -11841,87 +11841,87 @@ const countyRegion = [
         countryShortCode: "MN",
         regions: [
             {
-                name: "Arhangay",
+                country: "Arhangay",
                 shortCode: "073",
             },
             {
-                name: "Bayan-Olgiy",
+                country: "Bayan-Olgiy",
                 shortCode: "071",
             },
             {
-                name: "Bayanhongor",
+                country: "Bayanhongor",
                 shortCode: "069",
             },
             {
-                name: "Bulgan",
+                country: "Bulgan",
                 shortCode: "067",
             },
             {
-                name: "Darhan",
+                country: "Darhan",
                 shortCode: "037",
             },
             {
-                name: "Dornod",
+                country: "Dornod",
                 shortCode: "061",
             },
             {
-                name: "Dornogovi",
+                country: "Dornogovi",
                 shortCode: "063",
             },
             {
-                name: "Dundgovi",
+                country: "Dundgovi",
                 shortCode: "059",
             },
             {
-                name: "Dzavhan",
+                country: "Dzavhan",
                 shortCode: "057",
             },
             {
-                name: "Govi-Altay",
+                country: "Govi-Altay",
                 shortCode: "065",
             },
             {
-                name: "Govi-Sumber",
+                country: "Govi-Sumber",
                 shortCode: "064",
             },
             {
-                name: "Hovd",
+                country: "Hovd",
                 shortCode: "043",
             },
             {
-                name: "Hovsgol",
+                country: "Hovsgol",
                 shortCode: "041",
             },
             {
-                name: "Omnogovi",
+                country: "Omnogovi",
                 shortCode: "053",
             },
             {
-                name: "Ovorhangay",
+                country: "Ovorhangay",
                 shortCode: "055",
             },
             {
-                name: "Selenge",
+                country: "Selenge",
                 shortCode: "049",
             },
             {
-                name: "Suhbaatar",
+                country: "Suhbaatar",
                 shortCode: "051",
             },
             {
-                name: "Tov",
+                country: "Tov",
                 shortCode: "047",
             },
             {
-                name: "Ulaanbaatar",
+                country: "Ulaanbaatar",
                 shortCode: "1",
             },
             {
-                name: "Uvs",
+                country: "Uvs",
                 shortCode: "046",
             },
             {
-                name: "Erdenet",
+                country: "Erdenet",
                 shortCode: "074",
             },
         ],
@@ -11931,95 +11931,95 @@ const countyRegion = [
         countryShortCode: "ME",
         regions: [
             {
-                name: "Andrijevica",
+                country: "Andrijevica",
                 shortCode: "01",
             },
             {
-                name: "Bar",
+                country: "Bar",
                 shortCode: "02",
             },
             {
-                name: "Berane",
+                country: "Berane",
                 shortCode: "03",
             },
             {
-                name: "Bijelo Polje",
+                country: "Bijelo Polje",
                 shortCode: "04",
             },
             {
-                name: "Budva",
+                country: "Budva",
                 shortCode: "05",
             },
             {
-                name: "Cetinje",
+                country: "Cetinje",
                 shortCode: "06",
             },
             {
-                name: "Danilovgrad",
+                country: "Danilovgrad",
                 shortCode: "07",
             },
             {
-                name: "Gusinje",
+                country: "Gusinje",
                 shortCode: "22",
             },
             {
-                name: "Herceg Novi",
+                country: "Herceg Novi",
                 shortCode: "08",
             },
             {
-                name: "Kolašin",
+                country: "Kolašin",
                 shortCode: "09",
             },
             {
-                name: "Kotor",
+                country: "Kotor",
                 shortCode: "10",
             },
             {
-                name: "Mojkovac",
+                country: "Mojkovac",
                 shortCode: "11",
             },
             {
-                name: "Nikšić",
+                country: "Nikšić",
                 shortCode: "12",
             },
             {
-                name: "Petnica",
+                country: "Petnica",
                 shortCode: "23",
             },
             {
-                name: "Plav",
+                country: "Plav",
                 shortCode: "13",
             },
             {
-                name: "Plužine",
+                country: "Plužine",
                 shortCode: "14",
             },
             {
-                name: "Pljevlja",
+                country: "Pljevlja",
                 shortCode: "15",
             },
             {
-                name: "Podgorica",
+                country: "Podgorica",
                 shortCode: "16",
             },
             {
-                name: "Rožaje",
+                country: "Rožaje",
                 shortCode: "17",
             },
             {
-                name: "Šavnik",
+                country: "Šavnik",
                 shortCode: "18",
             },
             {
-                name: "Tivat",
+                country: "Tivat",
                 shortCode: "19",
             },
             {
-                name: "Ulcinj",
+                country: "Ulcinj",
                 shortCode: "20",
             },
             {
-                name: "Žabljak",
+                country: "Žabljak",
                 shortCode: "21",
             },
         ],
@@ -12029,13 +12029,13 @@ const countyRegion = [
         countryShortCode: "MS",
         regions: [
             {
-                name: "Saint Anthony",
+                country: "Saint Anthony",
             },
             {
-                name: "Saint Georges",
+                country: "Saint Georges",
             },
             {
-                name: "Saint Peter's",
+                country: "Saint Peter's",
             },
         ],
     },
@@ -12044,51 +12044,51 @@ const countyRegion = [
         countryShortCode: "MA",
         regions: [
             {
-                name: "Tanger-Tétouan-Al Hoceïma",
+                country: "Tanger-Tétouan-Al Hoceïma",
                 shortCode: "MA-01",
             },
             {
-                name: "L'Oriental",
+                country: "L'Oriental",
                 shortCode: "MA-02",
             },
             {
-                name: "Fès-Meknès",
+                country: "Fès-Meknès",
                 shortCode: "MA-03",
             },
             {
-                name: "Rabat-Salé-Kénitra",
+                country: "Rabat-Salé-Kénitra",
                 shortCode: "MA-04",
             },
             {
-                name: "Béni Mellal-Khénifra",
+                country: "Béni Mellal-Khénifra",
                 shortCode: "MA-05",
             },
             {
-                name: "Casablanca-Settat",
+                country: "Casablanca-Settat",
                 shortCode: "MA-06",
             },
             {
-                name: "Marrakech-Safi",
+                country: "Marrakech-Safi",
                 shortCode: "MA-07",
             },
             {
-                name: "Drâa-Tafilalet",
+                country: "Drâa-Tafilalet",
                 shortCode: "MA-08",
             },
             {
-                name: "Souss-Massa",
+                country: "Souss-Massa",
                 shortCode: "MA-09",
             },
             {
-                name: "Guelmim-Oued Noun",
+                country: "Guelmim-Oued Noun",
                 shortCode: "MA-10",
             },
             {
-                name: "Laâyoune-Sakia El Hamra",
+                country: "Laâyoune-Sakia El Hamra",
                 shortCode: "MA-11",
             },
             {
-                name: "Dakhla-Oued Ed-Dahab",
+                country: "Dakhla-Oued Ed-Dahab",
                 shortCode: "MA-12",
             },
         ],
@@ -12098,47 +12098,47 @@ const countyRegion = [
         countryShortCode: "MZ",
         regions: [
             {
-                name: "Cabo Delgado",
+                country: "Cabo Delgado",
                 shortCode: "P",
             },
             {
-                name: "Gaza",
+                country: "Gaza",
                 shortCode: "G",
             },
             {
-                name: "Inhambane",
+                country: "Inhambane",
                 shortCode: "I",
             },
             {
-                name: "Manica",
+                country: "Manica",
                 shortCode: "B",
             },
             {
-                name: "Maputo",
+                country: "Maputo",
                 shortCode: "L",
             },
             {
-                name: "Maputo (City)",
+                country: "Maputo (City)",
                 shortCode: "MPM",
             },
             {
-                name: "Nampula",
+                country: "Nampula",
                 shortCode: "N",
             },
             {
-                name: "Niassa",
+                country: "Niassa",
                 shortCode: "A",
             },
             {
-                name: "Sofala",
+                country: "Sofala",
                 shortCode: "S",
             },
             {
-                name: "Tete",
+                country: "Tete",
                 shortCode: "T",
             },
             {
-                name: "Zambezia",
+                country: "Zambezia",
                 shortCode: "Q",
             },
         ],
@@ -12148,63 +12148,63 @@ const countyRegion = [
         countryShortCode: "MM",
         regions: [
             {
-                name: "Ayeyarwady",
+                country: "Ayeyarwady",
                 shortCode: "07",
             },
             {
-                name: "Bago",
+                country: "Bago",
                 shortCode: "02",
             },
             {
-                name: "Chin",
+                country: "Chin",
                 shortCode: "14",
             },
             {
-                name: "Kachin",
+                country: "Kachin",
                 shortCode: "11",
             },
             {
-                name: "Kayah",
+                country: "Kayah",
                 shortCode: "12",
             },
             {
-                name: "Kayin",
+                country: "Kayin",
                 shortCode: "13",
             },
             {
-                name: "Magway",
+                country: "Magway",
                 shortCode: "03",
             },
             {
-                name: "Mandalay",
+                country: "Mandalay",
                 shortCode: "04",
             },
             {
-                name: "Mon",
+                country: "Mon",
                 shortCode: "15",
             },
             {
-                name: "Nay Pyi Taw",
+                country: "Nay Pyi Taw",
                 shortCode: "18",
             },
             {
-                name: "Rakhine",
+                country: "Rakhine",
                 shortCode: "16",
             },
             {
-                name: "Sagaing",
+                country: "Sagaing",
                 shortCode: "01",
             },
             {
-                name: "Shan",
+                country: "Shan",
                 shortCode: "17",
             },
             {
-                name: "Tanintharyi",
+                country: "Tanintharyi",
                 shortCode: "05",
             },
             {
-                name: "Yangon",
+                country: "Yangon",
                 shortCode: "06",
             },
         ],
@@ -12214,59 +12214,59 @@ const countyRegion = [
         countryShortCode: "NA",
         regions: [
             {
-                name: "Erongo",
+                country: "Erongo",
                 shortCode: "ER",
             },
             {
-                name: "Hardap",
+                country: "Hardap",
                 shortCode: "HA",
             },
             {
-                name: "Kavango East",
+                country: "Kavango East",
                 shortCode: "KE",
             },
             {
-                name: "Kavango West",
+                country: "Kavango West",
                 shortCode: "KW",
             },
             {
-                name: "Karas",
+                country: "Karas",
                 shortCode: "KA",
             },
             {
-                name: "Khomas",
+                country: "Khomas",
                 shortCode: "KH",
             },
             {
-                name: "Kunene",
+                country: "Kunene",
                 shortCode: "KU",
             },
             {
-                name: "Ohangwena",
+                country: "Ohangwena",
                 shortCode: "OW",
             },
             {
-                name: "Omaheke",
+                country: "Omaheke",
                 shortCode: "OH",
             },
             {
-                name: "Omusati",
+                country: "Omusati",
                 shortCode: "OS",
             },
             {
-                name: "Oshana",
+                country: "Oshana",
                 shortCode: "ON",
             },
             {
-                name: "Oshikoto",
+                country: "Oshikoto",
                 shortCode: "OT",
             },
             {
-                name: "Otjozondjupa",
+                country: "Otjozondjupa",
                 shortCode: "OD",
             },
             {
-                name: "Zambezi",
+                country: "Zambezi",
                 shortCode: "CA",
             },
         ],
@@ -12276,59 +12276,59 @@ const countyRegion = [
         countryShortCode: "NR",
         regions: [
             {
-                name: "Aiwo",
+                country: "Aiwo",
                 shortCode: "01",
             },
             {
-                name: "Anabar",
+                country: "Anabar",
                 shortCode: "02",
             },
             {
-                name: "Anetan",
+                country: "Anetan",
                 shortCode: "03",
             },
             {
-                name: "Anibare",
+                country: "Anibare",
                 shortCode: "04",
             },
             {
-                name: "Baiti",
+                country: "Baiti",
                 shortCode: "05",
             },
             {
-                name: "Boe",
+                country: "Boe",
                 shortCode: "06",
             },
             {
-                name: "Buada",
+                country: "Buada",
                 shortCode: "07",
             },
             {
-                name: "Denigomodu",
+                country: "Denigomodu",
                 shortCode: "08",
             },
             {
-                name: "Ewa",
+                country: "Ewa",
                 shortCode: "09",
             },
             {
-                name: "Ijuw",
+                country: "Ijuw",
                 shortCode: "10",
             },
             {
-                name: "Meneng",
+                country: "Meneng",
                 shortCode: "11",
             },
             {
-                name: "Nibok",
+                country: "Nibok",
                 shortCode: "12",
             },
             {
-                name: "Uaboe",
+                country: "Uaboe",
                 shortCode: "13",
             },
             {
-                name: "Yaren",
+                country: "Yaren",
                 shortCode: "14",
             },
         ],
@@ -12338,31 +12338,31 @@ const countyRegion = [
         countryShortCode: "NP",
         regions: [
             {
-                name: "Province No. 1",
+                country: "Province No. 1",
                 shortCode: "1",
             },
             {
-                name: "Madhesh Province",
+                country: "Madhesh Province",
                 shortCode: "2",
             },
             {
-                name: "Bagmati Province",
+                country: "Bagmati Province",
                 shortCode: "3",
             },
             {
-                name: "Gandaki Province",
+                country: "Gandaki Province",
                 shortCode: "4",
             },
             {
-                name: "Lumbini Province",
+                country: "Lumbini Province",
                 shortCode: "5",
             },
             {
-                name: "Karnali Province",
+                country: "Karnali Province",
                 shortCode: "6",
             },
             {
-                name: "Sudurpashchim Province",
+                country: "Sudurpashchim Province",
                 shortCode: "7",
             },
         ],
@@ -12372,51 +12372,51 @@ const countyRegion = [
         countryShortCode: "NL",
         regions: [
             {
-                name: "Drenthe",
+                country: "Drenthe",
                 shortCode: "DR",
             },
             {
-                name: "Flevoland",
+                country: "Flevoland",
                 shortCode: "FL",
             },
             {
-                name: "Friesland",
+                country: "Friesland",
                 shortCode: "FR",
             },
             {
-                name: "Gelderland",
+                country: "Gelderland",
                 shortCode: "GE",
             },
             {
-                name: "Groningen",
+                country: "Groningen",
                 shortCode: "GR",
             },
             {
-                name: "Limburg",
+                country: "Limburg",
                 shortCode: "LI",
             },
             {
-                name: "Noord-Brabant",
+                country: "Noord-Brabant",
                 shortCode: "NB",
             },
             {
-                name: "Noord-Holland",
+                country: "Noord-Holland",
                 shortCode: "NH",
             },
             {
-                name: "Overijssel",
+                country: "Overijssel",
                 shortCode: "OV",
             },
             {
-                name: "Utrecht",
+                country: "Utrecht",
                 shortCode: "UT",
             },
             {
-                name: "Zeeland",
+                country: "Zeeland",
                 shortCode: "ZE",
             },
             {
-                name: "Zuid-Holland",
+                country: "Zuid-Holland",
                 shortCode: "ZH",
             },
         ],
@@ -12426,13 +12426,13 @@ const countyRegion = [
         countryShortCode: "NC",
         regions: [
             {
-                name: "Iles Loyaute",
+                country: "Iles Loyaute",
             },
             {
-                name: "Nord",
+                country: "Nord",
             },
             {
-                name: "Sud",
+                country: "Sud",
             },
         ],
     },
@@ -12441,71 +12441,71 @@ const countyRegion = [
         countryShortCode: "NZ",
         regions: [
             {
-                name: "Auckland",
+                country: "Auckland",
                 shortCode: "AUK",
             },
             {
-                name: "Bay of Plenty",
+                country: "Bay of Plenty",
                 shortCode: "BOP",
             },
             {
-                name: "Canterbury",
+                country: "Canterbury",
                 shortCode: "CAN",
             },
             {
-                name: "Gisborne",
+                country: "Gisborne",
                 shortCode: "GIS",
             },
             {
-                name: "Hawke's Bay",
+                country: "Hawke's Bay",
                 shortCode: "HKB",
             },
             {
-                name: "Marlborough",
+                country: "Marlborough",
                 shortCode: "MBH",
             },
             {
-                name: "Manawatu-Wanganui",
+                country: "Manawatu-Wanganui",
                 shortCode: "MWT",
             },
             {
-                name: "Northland",
+                country: "Northland",
                 shortCode: "NTL",
             },
             {
-                name: "Nelson",
+                country: "Nelson",
                 shortCode: "NSN",
             },
             {
-                name: "Otago",
+                country: "Otago",
                 shortCode: "OTA",
             },
             {
-                name: "Southland",
+                country: "Southland",
                 shortCode: "STL",
             },
             {
-                name: "Taranaki",
+                country: "Taranaki",
                 shortCode: "TKI",
             },
             {
-                name: "Tasman",
+                country: "Tasman",
                 shortCode: "TAS",
             },
             {
-                name: "Waikato",
+                country: "Waikato",
                 shortCode: "WKO",
             },
             {
-                name: "Wellington",
+                country: "Wellington",
                 shortCode: "WGN",
             },
             {
-                name: "West Coast",
+                country: "West Coast",
                 shortCode: "WTC",
             },
             {
-                name: "Chatham Islands Territory",
+                country: "Chatham Islands Territory",
                 shortCode: "CIT",
             },
         ],
@@ -12515,71 +12515,71 @@ const countyRegion = [
         countryShortCode: "NI",
         regions: [
             {
-                name: "Boaco",
+                country: "Boaco",
                 shortCode: "BO",
             },
             {
-                name: "Carazo",
+                country: "Carazo",
                 shortCode: "CA",
             },
             {
-                name: "Chinandega",
+                country: "Chinandega",
                 shortCode: "CI",
             },
             {
-                name: "Chontales",
+                country: "Chontales",
                 shortCode: "CO",
             },
             {
-                name: "Estelí",
+                country: "Estelí",
                 shortCode: "ES",
             },
             {
-                name: "Granada",
+                country: "Granada",
                 shortCode: "GR",
             },
             {
-                name: "Jinotega",
+                country: "Jinotega",
                 shortCode: "JI",
             },
             {
-                name: "León",
+                country: "León",
                 shortCode: "LE",
             },
             {
-                name: "Madriz",
+                country: "Madriz",
                 shortCode: "MD",
             },
             {
-                name: "Managua",
+                country: "Managua",
                 shortCode: "MN",
             },
             {
-                name: "Masaya",
+                country: "Masaya",
                 shortCode: "MS",
             },
             {
-                name: "Matagalpa",
+                country: "Matagalpa",
                 shortCode: "MT",
             },
             {
-                name: "Nueva Segovia",
+                country: "Nueva Segovia",
                 shortCode: "NS",
             },
             {
-                name: "Río San Juan",
+                country: "Río San Juan",
                 shortCode: "SJ",
             },
             {
-                name: "Rivas",
+                country: "Rivas",
                 shortCode: "RI",
             },
             {
-                name: "Atlántico Norte",
+                country: "Atlántico Norte",
                 shortCode: "AN",
             },
             {
-                name: "Atlántico Sur",
+                country: "Atlántico Sur",
                 shortCode: "AS",
             },
         ],
@@ -12589,35 +12589,35 @@ const countyRegion = [
         countryShortCode: "NE",
         regions: [
             {
-                name: "Agadez",
+                country: "Agadez",
                 shortCode: "1",
             },
             {
-                name: "Diffa",
+                country: "Diffa",
                 shortCode: "2",
             },
             {
-                name: "Dosso",
+                country: "Dosso",
                 shortCode: "3",
             },
             {
-                name: "Maradi",
+                country: "Maradi",
                 shortCode: "4",
             },
             {
-                name: "Niamey",
+                country: "Niamey",
                 shortCode: "8",
             },
             {
-                name: "Tahoua",
+                country: "Tahoua",
                 shortCode: "5",
             },
             {
-                name: "Tillabéri",
+                country: "Tillabéri",
                 shortCode: "6",
             },
             {
-                name: "Zinder",
+                country: "Zinder",
                 shortCode: "7",
             },
         ],
@@ -12627,151 +12627,151 @@ const countyRegion = [
         countryShortCode: "NG",
         regions: [
             {
-                name: "Abia",
+                country: "Abia",
                 shortCode: "AB",
             },
             {
-                name: "Abuja Federal Capital Territory",
+                country: "Abuja Federal Capital Territory",
                 shortCode: "FC",
             },
             {
-                name: "Adamawa",
+                country: "Adamawa",
                 shortCode: "AD",
             },
             {
-                name: "Akwa Ibom",
+                country: "Akwa Ibom",
                 shortCode: "AK",
             },
             {
-                name: "Anambra",
+                country: "Anambra",
                 shortCode: "AN",
             },
             {
-                name: "Bauchi",
+                country: "Bauchi",
                 shortCode: "BA",
             },
             {
-                name: "Bayelsa",
+                country: "Bayelsa",
                 shortCode: "BY",
             },
             {
-                name: "Benue",
+                country: "Benue",
                 shortCode: "BE",
             },
             {
-                name: "Borno",
+                country: "Borno",
                 shortCode: "BO",
             },
             {
-                name: "Cross River",
+                country: "Cross River",
                 shortCode: "CR",
             },
             {
-                name: "Delta",
+                country: "Delta",
                 shortCode: "DE",
             },
             {
-                name: "Ebonyi",
+                country: "Ebonyi",
                 shortCode: "EB",
             },
             {
-                name: "Edo",
+                country: "Edo",
                 shortCode: "ED",
             },
             {
-                name: "Ekiti",
+                country: "Ekiti",
                 shortCode: "EK",
             },
             {
-                name: "Enugu",
+                country: "Enugu",
                 shortCode: "EN",
             },
             {
-                name: "Gombe",
+                country: "Gombe",
                 shortCode: "GO",
             },
             {
-                name: "Imo",
+                country: "Imo",
                 shortCode: "IM",
             },
             {
-                name: "Jigawa",
+                country: "Jigawa",
                 shortCode: "JI",
             },
             {
-                name: "Kaduna",
+                country: "Kaduna",
                 shortCode: "KD",
             },
             {
-                name: "Kano",
+                country: "Kano",
                 shortCode: "KN",
             },
             {
-                name: "Katsina",
+                country: "Katsina",
                 shortCode: "KT",
             },
             {
-                name: "Kebbi",
+                country: "Kebbi",
                 shortCode: "KE",
             },
             {
-                name: "Kogi",
+                country: "Kogi",
                 shortCode: "KO",
             },
             {
-                name: "Kwara",
+                country: "Kwara",
                 shortCode: "KW",
             },
             {
-                name: "Lagos",
+                country: "Lagos",
                 shortCode: "LA",
             },
             {
-                name: "Nasarawa",
+                country: "Nasarawa",
                 shortCode: "NA",
             },
             {
-                name: "Niger",
+                country: "Niger",
                 shortCode: "NI",
             },
             {
-                name: "Ogun",
+                country: "Ogun",
                 shortCode: "OG",
             },
             {
-                name: "Ondo",
+                country: "Ondo",
                 shortCode: "ON",
             },
             {
-                name: "Osun",
+                country: "Osun",
                 shortCode: "OS",
             },
             {
-                name: "Oyo",
+                country: "Oyo",
                 shortCode: "OY",
             },
             {
-                name: "Plateau",
+                country: "Plateau",
                 shortCode: "PL",
             },
             {
-                name: "Rivers",
+                country: "Rivers",
                 shortCode: "RI",
             },
             {
-                name: "Sokoto",
+                country: "Sokoto",
                 shortCode: "SO",
             },
             {
-                name: "Taraba",
+                country: "Taraba",
                 shortCode: "TA",
             },
             {
-                name: "Yobe",
+                country: "Yobe",
                 shortCode: "YO",
             },
             {
-                name: "Zamfara",
+                country: "Zamfara",
                 shortCode: "ZA",
             },
         ],
@@ -12781,7 +12781,7 @@ const countyRegion = [
         countryShortCode: "NU",
         regions: [
             {
-                name: "Niue",
+                country: "Niue",
             },
         ],
     },
@@ -12790,7 +12790,7 @@ const countyRegion = [
         countryShortCode: "NF",
         regions: [
             {
-                name: "Norfolk Island",
+                country: "Norfolk Island",
             },
         ],
     },
@@ -12799,16 +12799,16 @@ const countyRegion = [
         countryShortCode: "MP",
         regions: [
             {
-                name: "Northern Islands",
+                country: "Northern Islands",
             },
             {
-                name: "Rota",
+                country: "Rota",
             },
             {
-                name: "Saipan",
+                country: "Saipan",
             },
             {
-                name: "Tinian",
+                country: "Tinian",
             },
         ],
     },
@@ -12817,87 +12817,87 @@ const countyRegion = [
         countryShortCode: "NO",
         regions: [
             {
-                name: "Akershus",
+                country: "Akershus",
                 shortCode: "02",
             },
             {
-                name: "Aust-Agder",
+                country: "Aust-Agder",
                 shortCode: "09",
             },
             {
-                name: "Buskerud",
+                country: "Buskerud",
                 shortCode: "06",
             },
             {
-                name: "Finnmark",
+                country: "Finnmark",
                 shortCode: "20",
             },
             {
-                name: "Hedmark",
+                country: "Hedmark",
                 shortCode: "04",
             },
             {
-                name: "Hordaland",
+                country: "Hordaland",
                 shortCode: "12",
             },
             {
-                name: "Møre og Romsdal",
+                country: "Møre og Romsdal",
                 shortCode: "15",
             },
             {
-                name: "Nordland",
+                country: "Nordland",
                 shortCode: "18",
             },
             {
-                name: "Nord-Trøndelag",
+                country: "Nord-Trøndelag",
                 shortCode: "17",
             },
             {
-                name: "Oppland",
+                country: "Oppland",
                 shortCode: "05",
             },
             {
-                name: "Oslo",
+                country: "Oslo",
                 shortCode: "03",
             },
             {
-                name: "Rogaland",
+                country: "Rogaland",
                 shortCode: "11",
             },
             {
-                name: "Sogn og Fjordane",
+                country: "Sogn og Fjordane",
                 shortCode: "14",
             },
             {
-                name: "Sør-Trøndelag",
+                country: "Sør-Trøndelag",
                 shortCode: "16",
             },
             {
-                name: "Telemark",
+                country: "Telemark",
                 shortCode: "08",
             },
             {
-                name: "Troms",
+                country: "Troms",
                 shortCode: "19",
             },
             {
-                name: "Vest-Agder",
+                country: "Vest-Agder",
                 shortCode: "10",
             },
             {
-                name: "Vestfold",
+                country: "Vestfold",
                 shortCode: "07",
             },
             {
-                name: "Østfold",
+                country: "Østfold",
                 shortCode: "01",
             },
             {
-                name: "Jan Mayen",
+                country: "Jan Mayen",
                 shortCode: "22",
             },
             {
-                name: "Svalbard",
+                country: "Svalbard",
                 shortCode: "21",
             },
         ],
@@ -12907,47 +12907,47 @@ const countyRegion = [
         countryShortCode: "OM",
         regions: [
             {
-                name: "Ad Dakhiliyah",
+                country: "Ad Dakhiliyah",
                 shortCode: "DA",
             },
             {
-                name: "Al Buraymi",
+                country: "Al Buraymi",
                 shortCode: "BU",
             },
             {
-                name: "Al Wusta",
+                country: "Al Wusta",
                 shortCode: "WU",
             },
             {
-                name: "Az Zahirah",
+                country: "Az Zahirah",
                 shortCode: "ZA",
             },
             {
-                name: "Janub al Batinah",
+                country: "Janub al Batinah",
                 shortCode: "BS",
             },
             {
-                name: "Janub ash Sharqiyah",
+                country: "Janub ash Sharqiyah",
                 shortCode: "SS",
             },
             {
-                name: "Masqat",
+                country: "Masqat",
                 shortCode: "MA",
             },
             {
-                name: "Musandam",
+                country: "Musandam",
                 shortCode: "MU",
             },
             {
-                name: "Shamal al Batinah",
+                country: "Shamal al Batinah",
                 shortCode: "BJ",
             },
             {
-                name: "Shamal ash Sharqiyah",
+                country: "Shamal ash Sharqiyah",
                 shortCode: "SJ",
             },
             {
-                name: "Zufar",
+                country: "Zufar",
                 shortCode: "ZU",
             },
         ],
@@ -12957,35 +12957,35 @@ const countyRegion = [
         countryShortCode: "PK",
         regions: [
             {
-                name: "Azad Kashmir",
+                country: "Azad Kashmir",
                 shortCode: "JK",
             },
             {
-                name: "Balochistan",
+                country: "Balochistan",
                 shortCode: "BA",
             },
             {
-                name: "Gilgit-Baltistan",
+                country: "Gilgit-Baltistan",
                 shortCode: "GB",
             },
             {
-                name: "Islamabad",
+                country: "Islamabad",
                 shortCode: "IS",
             },
             {
-                name: "Khaibar Pakhtunkhwa",
+                country: "Khaibar Pakhtunkhwa",
                 shortCode: "KP",
             },
             {
-                name: "Punjab",
+                country: "Punjab",
                 shortCode: "PB",
             },
             {
-                name: "Sindh",
+                country: "Sindh",
                 shortCode: "SD",
             },
             {
-                name: "Federally Administered Tribal Areas",
+                country: "Federally Administered Tribal Areas",
                 shortCode: "TA",
             },
         ],
@@ -12995,67 +12995,67 @@ const countyRegion = [
         countryShortCode: "PW",
         regions: [
             {
-                name: "Aimeliik",
+                country: "Aimeliik",
                 shortCode: "002",
             },
             {
-                name: "Airai",
+                country: "Airai",
                 shortCode: "004",
             },
             {
-                name: "Angaur",
+                country: "Angaur",
                 shortCode: "010",
             },
             {
-                name: "Hatobohei",
+                country: "Hatobohei",
                 shortCode: "050",
             },
             {
-                name: "Kayangel",
+                country: "Kayangel",
                 shortCode: "100",
             },
             {
-                name: "Koror",
+                country: "Koror",
                 shortCode: "150",
             },
             {
-                name: "Melekeok",
+                country: "Melekeok",
                 shortCode: "212",
             },
             {
-                name: "Ngaraard",
+                country: "Ngaraard",
                 shortCode: "214",
             },
             {
-                name: "Ngarchelong",
+                country: "Ngarchelong",
                 shortCode: "218",
             },
             {
-                name: "Ngardmau",
+                country: "Ngardmau",
                 shortCode: "222",
             },
             {
-                name: "Ngatpang",
+                country: "Ngatpang",
                 shortCode: "224",
             },
             {
-                name: "Ngchesar",
+                country: "Ngchesar",
                 shortCode: "226",
             },
             {
-                name: "Ngeremlengui",
+                country: "Ngeremlengui",
                 shortCode: "227",
             },
             {
-                name: "Ngiwal",
+                country: "Ngiwal",
                 shortCode: "228",
             },
             {
-                name: "Peleliu",
+                country: "Peleliu",
                 shortCode: "350",
             },
             {
-                name: "Sonsoral",
+                country: "Sonsoral",
                 shortCode: "370",
             },
         ],
@@ -13065,67 +13065,67 @@ const countyRegion = [
         countryShortCode: "PS",
         regions: [
             {
-                name: "Ak Khalīl",
+                country: "Ak Khalīl",
                 shortCode: "HBN",
             },
             {
-                name: "Al Quds",
+                country: "Al Quds",
                 shortCode: "JEM",
             },
             {
-                name: "Arīḩā wal Aghwār",
+                country: "Arīḩā wal Aghwār",
                 shortCode: "JRH",
             },
             {
-                name: "Bayt Laḩm",
+                country: "Bayt Laḩm",
                 shortCode: "BTH",
             },
             {
-                name: "Dayr al Balaḩ",
+                country: "Dayr al Balaḩ",
                 shortCode: "DEB",
             },
             {
-                name: "Ghazzah",
+                country: "Ghazzah",
                 shortCode: "GZA",
             },
             {
-                name: "Janīn",
+                country: "Janīn",
                 shortCode: "JEN",
             },
             {
-                name: "Khān Yūnis",
+                country: "Khān Yūnis",
                 shortCode: "KYS",
             },
             {
-                name: "Nāblus",
+                country: "Nāblus",
                 shortCode: "NBS",
             },
             {
-                name: "Qalqīyah",
+                country: "Qalqīyah",
                 shortCode: "QQA",
             },
             {
-                name: "Rafaḩ",
+                country: "Rafaḩ",
                 shortCode: "RFH",
             },
             {
-                name: "Rām Allāh wal Bīrah",
+                country: "Rām Allāh wal Bīrah",
                 shortCode: "RBH",
             },
             {
-                name: "Salfīt",
+                country: "Salfīt",
                 shortCode: "SLT",
             },
             {
-                name: "Shamāl Ghazzah",
+                country: "Shamāl Ghazzah",
                 shortCode: "NGZ",
             },
             {
-                name: "Ţūbās",
+                country: "Ţūbās",
                 shortCode: "TBS",
             },
             {
-                name: "Ţūlkarm",
+                country: "Ţūlkarm",
                 shortCode: "TKM",
             },
         ],
@@ -13135,55 +13135,55 @@ const countyRegion = [
         countryShortCode: "PA",
         regions: [
             {
-                name: "Bocas del Toro",
+                country: "Bocas del Toro",
                 shortCode: "1",
             },
             {
-                name: "Chiriquí",
+                country: "Chiriquí",
                 shortCode: "4",
             },
             {
-                name: "Coclé",
+                country: "Coclé",
                 shortCode: "2",
             },
             {
-                name: "Colón",
+                country: "Colón",
                 shortCode: "3",
             },
             {
-                name: "Darién",
+                country: "Darién",
                 shortCode: "5",
             },
             {
-                name: "Emberá",
+                country: "Emberá",
                 shortCode: "EM",
             },
             {
-                name: "Herrera",
+                country: "Herrera",
                 shortCode: "6",
             },
             {
-                name: "Kuna Yala",
+                country: "Kuna Yala",
                 shortCode: "KY",
             },
             {
-                name: "Los Santos",
+                country: "Los Santos",
                 shortCode: "7",
             },
             {
-                name: "Ngäbe-Buglé",
+                country: "Ngäbe-Buglé",
                 shortCode: "NB",
             },
             {
-                name: "Panamá",
+                country: "Panamá",
                 shortCode: "8",
             },
             {
-                name: "Panamá Oeste",
+                country: "Panamá Oeste",
                 shortCode: "10",
             },
             {
-                name: "Veraguas",
+                country: "Veraguas",
                 shortCode: "9",
             },
         ],
@@ -13193,91 +13193,91 @@ const countyRegion = [
         countryShortCode: "PG",
         regions: [
             {
-                name: "Bougainville",
+                country: "Bougainville",
                 shortCode: "NSB",
             },
             {
-                name: "Central",
+                country: "Central",
                 shortCode: "CPM",
             },
             {
-                name: "Chimbu",
+                country: "Chimbu",
                 shortCode: "CPK",
             },
             {
-                name: "East New Britain",
+                country: "East New Britain",
                 shortCode: "EBR",
             },
             {
-                name: "East Sepik",
+                country: "East Sepik",
                 shortCode: "ESW",
             },
             {
-                name: "Eastern Highlands",
+                country: "Eastern Highlands",
                 shortCode: "EHG",
             },
             {
-                name: "Enga",
+                country: "Enga",
                 shortCode: "EPW",
             },
             {
-                name: "Gulf",
+                country: "Gulf",
                 shortCode: "GPK",
             },
             {
-                name: "Hela",
+                country: "Hela",
                 shortCode: "HLA",
             },
             {
-                name: "Jiwaka",
+                country: "Jiwaka",
                 shortCode: "JWK",
             },
             {
-                name: "Madang",
+                country: "Madang",
                 shortCode: "MOM",
             },
             {
-                name: "Manus",
+                country: "Manus",
                 shortCode: "MRL",
             },
             {
-                name: "Milne Bay",
+                country: "Milne Bay",
                 shortCode: "MBA",
             },
             {
-                name: "Morobe",
+                country: "Morobe",
                 shortCode: "MPL",
             },
             {
-                name: "Port Moresby",
+                country: "Port Moresby",
                 shortCode: "NCD",
             },
             {
-                name: "New Ireland",
+                country: "New Ireland",
                 shortCode: "NIK",
             },
             {
-                name: "Northern",
+                country: "Northern",
                 shortCode: "NPP",
             },
             {
-                name: "Southern Highlands",
+                country: "Southern Highlands",
                 shortCode: "SHM",
             },
             {
-                name: "West New Britain",
+                country: "West New Britain",
                 shortCode: "WBK",
             },
             {
-                name: "West Sepik",
+                country: "West Sepik",
                 shortCode: "SAN",
             },
             {
-                name: "Western",
+                country: "Western",
                 shortCode: "WPD",
             },
             {
-                name: "Western Highlands",
+                country: "Western Highlands",
                 shortCode: "WHM",
             },
         ],
@@ -13287,75 +13287,75 @@ const countyRegion = [
         countryShortCode: "PY",
         regions: [
             {
-                name: "Alto Paraguay",
+                country: "Alto Paraguay",
                 shortCode: "16",
             },
             {
-                name: "Alto Parana",
+                country: "Alto Parana",
                 shortCode: "10",
             },
             {
-                name: "Amambay",
+                country: "Amambay",
                 shortCode: "13",
             },
             {
-                name: "Asuncion",
+                country: "Asuncion",
                 shortCode: "ASU",
             },
             {
-                name: "Caaguazu",
+                country: "Caaguazu",
                 shortCode: "5",
             },
             {
-                name: "Caazapa",
+                country: "Caazapa",
                 shortCode: "6",
             },
             {
-                name: "Canindeyu",
+                country: "Canindeyu",
                 shortCode: "14",
             },
             {
-                name: "Central",
+                country: "Central",
                 shortCode: "11",
             },
             {
-                name: "Concepcion",
+                country: "Concepcion",
                 shortCode: "1",
             },
             {
-                name: "Cordillera",
+                country: "Cordillera",
                 shortCode: "3",
             },
             {
-                name: "Boqueron",
+                country: "Boqueron",
                 shortCode: "17",
             },
             {
-                name: "Guaira",
+                country: "Guaira",
                 shortCode: "4",
             },
             {
-                name: "Itapua",
+                country: "Itapua",
                 shortCode: "7",
             },
             {
-                name: "Misiones",
+                country: "Misiones",
                 shortCode: "8",
             },
             {
-                name: "Neembucu",
+                country: "Neembucu",
                 shortCode: "12",
             },
             {
-                name: "Paraguari",
+                country: "Paraguari",
                 shortCode: "9",
             },
             {
-                name: "Presidente Hayes",
+                country: "Presidente Hayes",
                 shortCode: "15",
             },
             {
-                name: "San Pedro",
+                country: "San Pedro",
                 shortCode: "2",
             },
         ],
@@ -13365,107 +13365,107 @@ const countyRegion = [
         countryShortCode: "PE",
         regions: [
             {
-                name: "Amazonas",
+                country: "Amazonas",
                 shortCode: "AMA",
             },
             {
-                name: "Ancash",
+                country: "Ancash",
                 shortCode: "ANC",
             },
             {
-                name: "Apurimac",
+                country: "Apurimac",
                 shortCode: "APU",
             },
             {
-                name: "Arequipa",
+                country: "Arequipa",
                 shortCode: "ARE",
             },
             {
-                name: "Ayacucho",
+                country: "Ayacucho",
                 shortCode: "AYA",
             },
             {
-                name: "Cajamarca",
+                country: "Cajamarca",
                 shortCode: "CAJ",
             },
             {
-                name: "Callao",
+                country: "Callao",
                 shortCode: "CAL",
             },
             {
-                name: "Cusco",
+                country: "Cusco",
                 shortCode: "CUS",
             },
             {
-                name: "Huancavelica",
+                country: "Huancavelica",
                 shortCode: "HUV",
             },
             {
-                name: "Huanuco",
+                country: "Huanuco",
                 shortCode: "HUC",
             },
             {
-                name: "Ica",
+                country: "Ica",
                 shortCode: "ICA",
             },
             {
-                name: "Junin",
+                country: "Junin",
                 shortCode: "JUN",
             },
             {
-                name: "La Libertad",
+                country: "La Libertad",
                 shortCode: "LAL",
             },
             {
-                name: "Lambayeque",
+                country: "Lambayeque",
                 shortCode: "LAM",
             },
             {
-                name: "Lima",
+                country: "Lima",
                 shortCode: "LIM",
             },
             {
-                name: "Loreto",
+                country: "Loreto",
                 shortCode: "LOR",
             },
             {
-                name: "Madre de Dios",
+                country: "Madre de Dios",
                 shortCode: "MDD",
             },
             {
-                name: "Moquegua",
+                country: "Moquegua",
                 shortCode: "MOQ",
             },
             {
-                name: "Municipalidad Metropolitana de Lima",
+                country: "Municipalidad Metropolitana de Lima",
                 shortCode: "LMA",
             },
             {
-                name: "Pasco",
+                country: "Pasco",
                 shortCode: "PAS",
             },
             {
-                name: "Piura",
+                country: "Piura",
                 shortCode: "PIU",
             },
             {
-                name: "Puno",
+                country: "Puno",
                 shortCode: "PUN",
             },
             {
-                name: "San Martin",
+                country: "San Martin",
                 shortCode: "SAM",
             },
             {
-                name: "Tacna",
+                country: "Tacna",
                 shortCode: "TAC",
             },
             {
-                name: "Tumbes",
+                country: "Tumbes",
                 shortCode: "TUM",
             },
             {
-                name: "Ucayali",
+                country: "Ucayali",
                 shortCode: "UCA",
             },
         ],
@@ -13475,79 +13475,79 @@ const countyRegion = [
         countryShortCode: "PH",
         regions: [
             {
-                name: "Autonomous Region in Muslim Mindanao",
+                country: "Autonomous Region in Muslim Mindanao",
                 shortCode: "PH-14",
             },
             {
-                name: "Bicol",
+                country: "Bicol",
                 shortCode: "PH-05",
             },
             {
-                name: "Cagayan Valley",
+                country: "Cagayan Valley",
                 shortCode: "PH-02",
             },
             {
-                name: "Calabarzon",
+                country: "Calabarzon",
                 shortCode: "PH-40",
             },
             {
-                name: "Caraga",
+                country: "Caraga",
                 shortCode: "PH-13",
             },
             {
-                name: "Central Luzon",
+                country: "Central Luzon",
                 shortCode: "PH-03",
             },
             {
-                name: "Central Visayas",
+                country: "Central Visayas",
                 shortCode: "PH-07",
             },
             {
-                name: "Cordillera Administrative Region",
+                country: "Cordillera Administrative Region",
                 shortCode: "PH-15",
             },
             {
-                name: "Davao",
+                country: "Davao",
                 shortCode: "PH-11",
             },
             {
-                name: "Eastern Visayas",
+                country: "Eastern Visayas",
                 shortCode: "PH-08",
             },
             {
-                name: "Ilocos",
+                country: "Ilocos",
                 shortCode: "PH-01",
             },
             {
-                name: "Mimaropa",
+                country: "Mimaropa",
                 shortCode: "PH-41",
             },
             {
-                name: "National Capital Region",
+                country: "National Capital Region",
                 shortCode: "PH-00",
             },
             {
-                name: "National Capital Region",
+                country: "National Capital Region",
                 shortCode: "PH-00",
             },
             {
-                name: "Northern Mindanao",
+                country: "Northern Mindanao",
                 shortCode: "PH-10",
             },
             {
-                name: "Northern Mindanao",
+                country: "Northern Mindanao",
                 shortCode: "PH-10",
             },
             {
-                name: "Soccsksargen",
+                country: "Soccsksargen",
                 shortCode: "PH-12",
             },
             {
-                name: "Western Visayas",
+                country: "Western Visayas",
                 shortCode: "PH-06",
             },
             {
-                name: "Zamboanga Peninsula",
+                country: "Zamboanga Peninsula",
                 shortCode: "PH-09",
             },
         ],
@@ -13557,7 +13557,7 @@ const countyRegion = [
         countryShortCode: "PN",
         regions: [
             {
-                name: "Pitcairn Islands",
+                country: "Pitcairn Islands",
             },
         ],
     },
@@ -13566,67 +13566,67 @@ const countyRegion = [
         countryShortCode: "PL",
         regions: [
             {
-                name: "Dolnośląskie",
+                country: "Dolnośląskie",
                 shortCode: "02",
             },
             {
-                name: "Kujawsko-pomorskie",
+                country: "Kujawsko-pomorskie",
                 shortCode: "04",
             },
             {
-                name: "Łódzkie",
+                country: "Łódzkie",
                 shortCode: "10",
             },
             {
-                name: "Lubelskie",
+                country: "Lubelskie",
                 shortCode: "06",
             },
             {
-                name: "Lubuskie",
+                country: "Lubuskie",
                 shortCode: "08",
             },
             {
-                name: "Małopolskie",
+                country: "Małopolskie",
                 shortCode: "12",
             },
             {
-                name: "Mazowieckie",
+                country: "Mazowieckie",
                 shortCode: "14",
             },
             {
-                name: "Opolskie",
+                country: "Opolskie",
                 shortCode: "16",
             },
             {
-                name: "Podkarpackie",
+                country: "Podkarpackie",
                 shortCode: "18",
             },
             {
-                name: "Podlaskie",
+                country: "Podlaskie",
                 shortCode: "20",
             },
             {
-                name: "Pomorskie",
+                country: "Pomorskie",
                 shortCode: "22",
             },
             {
-                name: "Śląskie",
+                country: "Śląskie",
                 shortCode: "24",
             },
             {
-                name: "Świętokrzyskie",
+                country: "Świętokrzyskie",
                 shortCode: "26",
             },
             {
-                name: "Warmińsko-mazurskie",
+                country: "Warmińsko-mazurskie",
                 shortCode: "28",
             },
             {
-                name: "Wielkopolskie",
+                country: "Wielkopolskie",
                 shortCode: "30",
             },
             {
-                name: "Zachodniopomorskie",
+                country: "Zachodniopomorskie",
                 shortCode: "32",
             },
         ],
@@ -13636,83 +13636,83 @@ const countyRegion = [
         countryShortCode: "PT",
         regions: [
             {
-                name: "Açores",
+                country: "Açores",
                 shortCode: "20",
             },
             {
-                name: "Aveiro",
+                country: "Aveiro",
                 shortCode: "01",
             },
             {
-                name: "Beja",
+                country: "Beja",
                 shortCode: "02",
             },
             {
-                name: "Braga",
+                country: "Braga",
                 shortCode: "03",
             },
             {
-                name: "Bragança",
+                country: "Bragança",
                 shortCode: "04",
             },
             {
-                name: "Castelo Branco",
+                country: "Castelo Branco",
                 shortCode: "05",
             },
             {
-                name: "Coimbra",
+                country: "Coimbra",
                 shortCode: "06",
             },
             {
-                name: "Évora",
+                country: "Évora",
                 shortCode: "07",
             },
             {
-                name: "Faro",
+                country: "Faro",
                 shortCode: "08",
             },
             {
-                name: "Guarda",
+                country: "Guarda",
                 shortCode: "09",
             },
             {
-                name: "Leiria",
+                country: "Leiria",
                 shortCode: "10",
             },
             {
-                name: "Lisboa",
+                country: "Lisboa",
                 shortCode: "11",
             },
             {
-                name: "Madeira",
+                country: "Madeira",
                 shortCode: "30",
             },
             {
-                name: "Portalegre",
+                country: "Portalegre",
                 shortCode: "12",
             },
             {
-                name: "Porto",
+                country: "Porto",
                 shortCode: "13",
             },
             {
-                name: "Santarém",
+                country: "Santarém",
                 shortCode: "14",
             },
             {
-                name: "Setúbal",
+                country: "Setúbal",
                 shortCode: "15",
             },
             {
-                name: "Viana do Castelo",
+                country: "Viana do Castelo",
                 shortCode: "16",
             },
             {
-                name: "Vila Real",
+                country: "Vila Real",
                 shortCode: "17",
             },
             {
-                name: "Viseu",
+                country: "Viseu",
                 shortCode: "18",
             },
         ],
@@ -13722,223 +13722,223 @@ const countyRegion = [
         countryShortCode: "PR",
         regions: [
             {
-                name: "Adjuntas",
+                country: "Adjuntas",
             },
             {
-                name: "Aguada",
+                country: "Aguada",
             },
             {
-                name: "Aguadilla",
+                country: "Aguadilla",
             },
             {
-                name: "Aguas Buenas",
+                country: "Aguas Buenas",
             },
             {
-                name: "Aibonito",
+                country: "Aibonito",
             },
             {
-                name: "Anasco",
+                country: "Anasco",
             },
             {
-                name: "Arecibo",
+                country: "Arecibo",
             },
             {
-                name: "Arroyo",
+                country: "Arroyo",
             },
             {
-                name: "Barceloneta",
+                country: "Barceloneta",
             },
             {
-                name: "Barranquitas",
+                country: "Barranquitas",
             },
             {
-                name: "Bayamon",
+                country: "Bayamon",
             },
             {
-                name: "Cabo Rojo",
+                country: "Cabo Rojo",
             },
             {
-                name: "Caguas",
+                country: "Caguas",
             },
             {
-                name: "Camuy",
+                country: "Camuy",
             },
             {
-                name: "Canovanas",
+                country: "Canovanas",
             },
             {
-                name: "Carolina",
+                country: "Carolina",
             },
             {
-                name: "Cat",
+                country: "Cat",
             },
             {
-                name: "Ceiba",
+                country: "Ceiba",
             },
             {
-                name: "Ciales",
+                country: "Ciales",
             },
             {
-                name: "Cidra",
+                country: "Cidra",
             },
             {
-                name: "Coamo",
+                country: "Coamo",
             },
             {
-                name: "Comerio",
+                country: "Comerio",
             },
             {
-                name: "Corozal",
+                country: "Corozal",
             },
             {
-                name: "Culebra",
+                country: "Culebra",
             },
             {
-                name: "Dorado",
+                country: "Dorado",
             },
             {
-                name: "Fajardo",
+                country: "Fajardo",
             },
             {
-                name: "Florida",
+                country: "Florida",
             },
             {
-                name: "Guanica",
+                country: "Guanica",
             },
             {
-                name: "Guayama",
+                country: "Guayama",
             },
             {
-                name: "Guayanilla",
+                country: "Guayanilla",
             },
             {
-                name: "Guaynabo",
+                country: "Guaynabo",
             },
             {
-                name: "Gurabo",
+                country: "Gurabo",
             },
             {
-                name: "Hatillo",
+                country: "Hatillo",
             },
             {
-                name: "Hormigueros",
+                country: "Hormigueros",
             },
             {
-                name: "Humacao",
+                country: "Humacao",
             },
             {
-                name: "Isabe",
+                country: "Isabe",
             },
             {
-                name: "Juana Diaz",
+                country: "Juana Diaz",
             },
             {
-                name: "Juncos",
+                country: "Juncos",
             },
             {
-                name: "Lajas",
+                country: "Lajas",
             },
             {
-                name: "Lares",
+                country: "Lares",
             },
             {
-                name: "Las Marias",
+                country: "Las Marias",
             },
             {
-                name: "Las oiza",
+                country: "Las oiza",
             },
             {
-                name: "Luquillo",
+                country: "Luquillo",
             },
             {
-                name: "Manati",
+                country: "Manati",
             },
             {
-                name: "Maricao",
+                country: "Maricao",
             },
             {
-                name: "Maunabo",
+                country: "Maunabo",
             },
             {
-                name: "Mayaguez",
+                country: "Mayaguez",
             },
             {
-                name: "Moca",
+                country: "Moca",
             },
             {
-                name: "Morovis",
+                country: "Morovis",
             },
             {
-                name: "Naguabo",
+                country: "Naguabo",
             },
             {
-                name: "Naranjito",
+                country: "Naranjito",
             },
             {
-                name: "Orocovis",
+                country: "Orocovis",
             },
             {
-                name: "Patillas",
+                country: "Patillas",
             },
             {
-                name: "Penuelas",
+                country: "Penuelas",
             },
             {
-                name: "Ponce",
+                country: "Ponce",
             },
             {
-                name: "Quebradillas",
+                country: "Quebradillas",
             },
             {
-                name: "Rincon",
+                country: "Rincon",
             },
             {
-                name: "Rio Grande",
+                country: "Rio Grande",
             },
             {
-                name: "Sabana linas",
+                country: "Sabana linas",
             },
             {
-                name: "San German",
+                country: "San German",
             },
             {
-                name: "San Juan",
+                country: "San Juan",
             },
             {
-                name: "San Lorenzo",
+                country: "San Lorenzo",
             },
             {
-                name: "San Sebastian",
+                country: "San Sebastian",
             },
             {
-                name: "Santa Isabel",
+                country: "Santa Isabel",
             },
             {
-                name: "Toa Alta",
+                country: "Toa Alta",
             },
             {
-                name: "Toa Baja",
+                country: "Toa Baja",
             },
             {
-                name: "Trujillo Alto",
+                country: "Trujillo Alto",
             },
             {
-                name: "Utuado",
+                country: "Utuado",
             },
             {
-                name: "Vega Alta",
+                country: "Vega Alta",
             },
             {
-                name: "Vega ues",
+                country: "Vega ues",
             },
             {
-                name: "Villalba",
+                country: "Villalba",
             },
             {
-                name: "Yabucoa",
+                country: "Yabucoa",
             },
             {
-                name: "Yauco",
+                country: "Yauco",
             },
         ],
     },
@@ -13947,31 +13947,31 @@ const countyRegion = [
         countryShortCode: "QA",
         regions: [
             {
-                name: "Ad Dawḩah",
+                country: "Ad Dawḩah",
                 shortCode: "DA",
             },
             {
-                name: "Al Khawr wa adh Dhakhīrah",
+                country: "Al Khawr wa adh Dhakhīrah",
                 shortCode: "KH",
             },
             {
-                name: "Al Wakrah",
+                country: "Al Wakrah",
                 shortCode: "WA",
             },
             {
-                name: "Ar Rayyān",
+                country: "Ar Rayyān",
                 shortCode: "RA",
             },
             {
-                name: "Ash Shamāl",
+                country: "Ash Shamāl",
                 shortCode: "MS",
             },
             {
-                name: "Az̧ Za̧`āyin",
+                country: "Az̧ Za̧`āyin",
                 shortCode: "ZA",
             },
             {
-                name: "Umm Şalāl",
+                country: "Umm Şalāl",
                 shortCode: "US",
             },
         ],
@@ -13981,7 +13981,7 @@ const countyRegion = [
         countryShortCode: "RE",
         regions: [
             {
-                name: "Réunion",
+                country: "Réunion",
             },
         ],
     },
@@ -13990,171 +13990,171 @@ const countyRegion = [
         countryShortCode: "RO",
         regions: [
             {
-                name: "Alba",
+                country: "Alba",
                 shortCode: "RO-AB",
             },
             {
-                name: "Arad",
+                country: "Arad",
                 shortCode: "RO-AR",
             },
             {
-                name: "Arges",
+                country: "Arges",
                 shortCode: "RO-AG",
             },
             {
-                name: "Bacau",
+                country: "Bacau",
                 shortCode: "RO-BC",
             },
             {
-                name: "Bihor",
+                country: "Bihor",
                 shortCode: "RO-BH",
             },
             {
-                name: "Bistrita-Nasaud",
+                country: "Bistrita-Nasaud",
                 shortCode: "RO-BN",
             },
             {
-                name: "Botosani",
+                country: "Botosani",
                 shortCode: "RO-BT",
             },
             {
-                name: "Braila",
+                country: "Braila",
                 shortCode: "RO-BR",
             },
             {
-                name: "Brasov",
+                country: "Brasov",
                 shortCode: "RO-BV",
             },
             {
-                name: "Bucharest",
+                country: "Bucharest",
                 shortCode: "RO-B",
             },
             {
-                name: "Buzau",
+                country: "Buzau",
                 shortCode: "RO-BZ",
             },
             {
-                name: "Calarasi",
+                country: "Calarasi",
                 shortCode: "RO-CL",
             },
             {
-                name: "Caras-Severin",
+                country: "Caras-Severin",
                 shortCode: "RO-CS",
             },
             {
-                name: "Cluj",
+                country: "Cluj",
                 shortCode: "RO-CJ",
             },
             {
-                name: "Constanta",
+                country: "Constanta",
                 shortCode: "RO-CT",
             },
             {
-                name: "Covasna",
+                country: "Covasna",
                 shortCode: "RO-CV",
             },
             {
-                name: "Dambovita",
+                country: "Dambovita",
                 shortCode: "RO-DB",
             },
             {
-                name: "Dolj",
+                country: "Dolj",
                 shortCode: "RO-DJ",
             },
             {
-                name: "Galati",
+                country: "Galati",
                 shortCode: "RO-GL",
             },
             {
-                name: "Giurgiu",
+                country: "Giurgiu",
                 shortCode: "RO-GR",
             },
             {
-                name: "Gorj",
+                country: "Gorj",
                 shortCode: "RO-GJ",
             },
             {
-                name: "Harghita",
+                country: "Harghita",
                 shortCode: "RO-HR",
             },
             {
-                name: "Hunedoara",
+                country: "Hunedoara",
                 shortCode: "RO-HD",
             },
             {
-                name: "Ialomita",
+                country: "Ialomita",
                 shortCode: "RO-IL",
             },
             {
-                name: "Iasi",
+                country: "Iasi",
                 shortCode: "RO-IS",
             },
             {
-                name: "Ilfov",
+                country: "Ilfov",
                 shortCode: "RO-IF",
             },
             {
-                name: "Maramures",
+                country: "Maramures",
                 shortCode: "RO-MM",
             },
             {
-                name: "Mehedinti",
+                country: "Mehedinti",
                 shortCode: "RO-MH",
             },
             {
-                name: "Mures",
+                country: "Mures",
                 shortCode: "RO-MS",
             },
             {
-                name: "Neamt",
+                country: "Neamt",
                 shortCode: "RO-NT",
             },
             {
-                name: "Olt",
+                country: "Olt",
                 shortCode: "RO-OT",
             },
             {
-                name: "Prahova",
+                country: "Prahova",
                 shortCode: "RO-PH",
             },
             {
-                name: "Salaj",
+                country: "Salaj",
                 shortCode: "RO-SJ",
             },
             {
-                name: "Satu Mare",
+                country: "Satu Mare",
                 shortCode: "RO-SM",
             },
             {
-                name: "Sibiu",
+                country: "Sibiu",
                 shortCode: "RO-SB",
             },
             {
-                name: "Suceava",
+                country: "Suceava",
                 shortCode: "RO-SV",
             },
             {
-                name: "Teleorman",
+                country: "Teleorman",
                 shortCode: "RO-TR",
             },
             {
-                name: "Timis",
+                country: "Timis",
                 shortCode: "RO-TM",
             },
             {
-                name: "Tulcea",
+                country: "Tulcea",
                 shortCode: "RO-TL",
             },
             {
-                name: "Valcea",
+                country: "Valcea",
                 shortCode: "RO-VL",
             },
             {
-                name: "Vaslui",
+                country: "Vaslui",
                 shortCode: "RO-VS",
             },
             {
-                name: "Vrancea",
+                country: "Vrancea",
                 shortCode: "RO-VN",
             },
         ],
@@ -14164,335 +14164,335 @@ const countyRegion = [
         countryShortCode: "RU",
         regions: [
             {
-                name: "Republic of Adygea",
+                country: "Republic of Adygea",
                 shortCode: "AD",
             },
             {
-                name: "Republic of Altai (Gorno-Altaysk)",
+                country: "Republic of Altai (Gorno-Altaysk)",
                 shortCode: "AL",
             },
             {
-                name: "Altai Krai",
+                country: "Altai Krai",
                 shortCode: "ALT",
             },
             {
-                name: "Amur Oblast",
+                country: "Amur Oblast",
                 shortCode: "AMU",
             },
             {
-                name: "Arkhangelsk Oblast",
+                country: "Arkhangelsk Oblast",
                 shortCode: "ARK",
             },
             {
-                name: "Astrakhan Oblast",
+                country: "Astrakhan Oblast",
                 shortCode: "AST",
             },
             {
-                name: "Republic of Bashkortostan",
+                country: "Republic of Bashkortostan",
                 shortCode: "BA",
             },
             {
-                name: "Belgorod Oblast",
+                country: "Belgorod Oblast",
                 shortCode: "BEL",
             },
             {
-                name: "Bryansk Oblast",
+                country: "Bryansk Oblast",
                 shortCode: "BRY",
             },
             {
-                name: "Republic of Buryatia",
+                country: "Republic of Buryatia",
                 shortCode: "BU",
             },
             {
-                name: "Chechen Republic",
+                country: "Chechen Republic",
                 shortCode: "CE",
             },
             {
-                name: "Chelyabinsk Oblast",
+                country: "Chelyabinsk Oblast",
                 shortCode: "CHE",
             },
             {
-                name: "Chukotka Autonomous Okrug",
+                country: "Chukotka Autonomous Okrug",
                 shortCode: "CHU",
             },
             {
-                name: "Chuvash Republic",
+                country: "Chuvash Republic",
                 shortCode: "CU",
             },
             {
-                name: "Republic of Dagestan",
+                country: "Republic of Dagestan",
                 shortCode: "DA",
             },
             {
-                name: "Republic of Ingushetia",
+                country: "Republic of Ingushetia",
                 shortCode: "IN",
             },
             {
-                name: "Irkutsk Oblast",
+                country: "Irkutsk Oblast",
                 shortCode: "IRK",
             },
             {
-                name: "Ivanovo Oblast",
+                country: "Ivanovo Oblast",
                 shortCode: "IVA",
             },
             {
-                name: "Jewish Autonomous Oblast",
+                country: "Jewish Autonomous Oblast",
                 shortCode: "JEW",
             },
             {
-                name: "Kabardino-Balkar Republic",
+                country: "Kabardino-Balkar Republic",
                 shortCode: "KB",
             },
             {
-                name: "Kaliningrad Oblast",
+                country: "Kaliningrad Oblast",
                 shortCode: "KLN",
             },
             {
-                name: "Republic of Kalmykia",
+                country: "Republic of Kalmykia",
                 shortCode: "KL",
             },
             {
-                name: "Kaluga Oblast",
+                country: "Kaluga Oblast",
                 shortCode: "KLU",
             },
             {
-                name: "Kamchatka Krai",
+                country: "Kamchatka Krai",
                 shortCode: "KAM",
             },
             {
-                name: "Karachay-Cherkess Republic",
+                country: "Karachay-Cherkess Republic",
                 shortCode: "KC",
             },
             {
-                name: "Republic of Karelia",
+                country: "Republic of Karelia",
                 shortCode: "KR",
             },
             {
-                name: "Khabarovsk Krai",
+                country: "Khabarovsk Krai",
                 shortCode: "KHA",
             },
             {
-                name: "Republic of Khakassia",
+                country: "Republic of Khakassia",
                 shortCode: "KK",
             },
             {
-                name: "Khanty-Mansi Autonomous Okrug - Yugra",
+                country: "Khanty-Mansi Autonomous Okrug - Yugra",
                 shortCode: "KHM",
             },
             {
-                name: "Kemerovo Oblast",
+                country: "Kemerovo Oblast",
                 shortCode: "KEM",
             },
             {
-                name: "Kirov Oblast",
+                country: "Kirov Oblast",
                 shortCode: "KIR",
             },
             {
-                name: "Komi Republic",
+                country: "Komi Republic",
                 shortCode: "KO",
             },
             {
-                name: "Kostroma Oblast",
+                country: "Kostroma Oblast",
                 shortCode: "KOS",
             },
             {
-                name: "Krasnodar Krai",
+                country: "Krasnodar Krai",
                 shortCode: "KDA",
             },
             {
-                name: "Krasnoyarsk Krai",
+                country: "Krasnoyarsk Krai",
                 shortCode: "KYA",
             },
             {
-                name: "Kurgan Oblast",
+                country: "Kurgan Oblast",
                 shortCode: "KGN",
             },
             {
-                name: "Kursk Oblast",
+                country: "Kursk Oblast",
                 shortCode: "KRS",
             },
             {
-                name: "Leningrad Oblast",
+                country: "Leningrad Oblast",
                 shortCode: "LEN",
             },
             {
-                name: "Lipetsk Oblast",
+                country: "Lipetsk Oblast",
                 shortCode: "LIP",
             },
             {
-                name: "Magadan Oblast",
+                country: "Magadan Oblast",
                 shortCode: "MAG",
             },
             {
-                name: "Mari El Republic",
+                country: "Mari El Republic",
                 shortCode: "ME",
             },
             {
-                name: "Republic of Mordovia",
+                country: "Republic of Mordovia",
                 shortCode: "MO",
             },
             {
-                name: "Moscow Oblast",
+                country: "Moscow Oblast",
                 shortCode: "MOS",
             },
             {
-                name: "Moscow",
+                country: "Moscow",
                 shortCode: "MOW",
             },
             {
-                name: "Murmansk Oblast",
+                country: "Murmansk Oblast",
                 shortCode: "MU",
             },
             {
-                name: "Nenets Autonomous Okrug",
+                country: "Nenets Autonomous Okrug",
                 shortCode: "NEN",
             },
             {
-                name: "Nizhny Novgorod Oblast",
+                country: "Nizhny Novgorod Oblast",
                 shortCode: "NIZ",
             },
             {
-                name: "Novgorod Oblast",
+                country: "Novgorod Oblast",
                 shortCode: "NGR",
             },
             {
-                name: "Novosibirsk Oblast",
+                country: "Novosibirsk Oblast",
                 shortCode: "NVS",
             },
             {
-                name: "Omsk Oblast",
+                country: "Omsk Oblast",
                 shortCode: "OMS",
             },
             {
-                name: "Orenburg Oblast",
+                country: "Orenburg Oblast",
                 shortCode: "ORE",
             },
             {
-                name: "Oryol Oblast",
+                country: "Oryol Oblast",
                 shortCode: "ORL",
             },
             {
-                name: "Penza Oblast",
+                country: "Penza Oblast",
                 shortCode: "PNZ",
             },
             {
-                name: "Perm Krai",
+                country: "Perm Krai",
                 shortCode: "PER",
             },
             {
-                name: "Primorsky Krai",
+                country: "Primorsky Krai",
                 shortCode: "PRI",
             },
             {
-                name: "Pskov Oblast",
+                country: "Pskov Oblast",
                 shortCode: "PSK",
             },
             {
-                name: "Rostov Oblast",
+                country: "Rostov Oblast",
                 shortCode: "ROS",
             },
             {
-                name: "Ryazan Oblast",
+                country: "Ryazan Oblast",
                 shortCode: "RYA",
             },
             {
-                name: "Saint Petersburg",
+                country: "Saint Petersburg",
                 shortCode: "SPE",
             },
             {
-                name: "Sakha (Yakutia) Republic",
+                country: "Sakha (Yakutia) Republic",
                 shortCode: "SA",
             },
             {
-                name: "Sakhalin Oblast",
+                country: "Sakhalin Oblast",
                 shortCode: "SAK",
             },
             {
-                name: "Samara Oblast",
+                country: "Samara Oblast",
                 shortCode: "SAM",
             },
             {
-                name: "Saratov Oblast",
+                country: "Saratov Oblast",
                 shortCode: "SAR",
             },
             {
-                name: "Republic of North Ossetia-Alania",
+                country: "Republic of North Ossetia-Alania",
                 shortCode: "NOA",
             },
             {
-                name: "Smolensk Oblast",
+                country: "Smolensk Oblast",
                 shortCode: "SMO",
             },
             {
-                name: "Stavropol Krai",
+                country: "Stavropol Krai",
                 shortCode: "STA",
             },
             {
-                name: "Sverdlovsk Oblast",
+                country: "Sverdlovsk Oblast",
                 shortCode: "SVE",
             },
             {
-                name: "Tambov Oblast",
+                country: "Tambov Oblast",
                 shortCode: "TAM",
             },
             {
-                name: "Republic of Tatarstan",
+                country: "Republic of Tatarstan",
                 shortCode: "TA",
             },
             {
-                name: "Tomsk Oblast",
+                country: "Tomsk Oblast",
                 shortCode: "TOM",
             },
             {
-                name: "Tuva Republic",
+                country: "Tuva Republic",
                 shortCode: "TU",
             },
             {
-                name: "Tula Oblast",
+                country: "Tula Oblast",
                 shortCode: "TUL",
             },
             {
-                name: "Tver Oblast",
+                country: "Tver Oblast",
                 shortCode: "TVE",
             },
             {
-                name: "Tyumen Oblast",
+                country: "Tyumen Oblast",
                 shortCode: "TYU",
             },
             {
-                name: "Udmurt Republic",
+                country: "Udmurt Republic",
                 shortCode: "UD",
             },
             {
-                name: "Ulyanovsk Oblast",
+                country: "Ulyanovsk Oblast",
                 shortCode: "ULY",
             },
             {
-                name: "Vladimir Oblast",
+                country: "Vladimir Oblast",
                 shortCode: "VLA",
             },
             {
-                name: "Volgograd Oblast",
+                country: "Volgograd Oblast",
                 shortCode: "VGG",
             },
             {
-                name: "Vologda Oblast",
+                country: "Vologda Oblast",
                 shortCode: "VLG",
             },
             {
-                name: "Voronezh Oblast",
+                country: "Voronezh Oblast",
                 shortCode: "VOR",
             },
             {
-                name: "Yamalo-Nenets Autonomous Okrug",
+                country: "Yamalo-Nenets Autonomous Okrug",
                 shortCode: "YAN",
             },
             {
-                name: "Yaroslavl Oblast",
+                country: "Yaroslavl Oblast",
                 shortCode: "YAR",
             },
             {
-                name: "Zabaykalsky Krai",
+                country: "Zabaykalsky Krai",
                 shortCode: "ZAB",
             },
         ],
@@ -14502,23 +14502,23 @@ const countyRegion = [
         countryShortCode: "RW",
         regions: [
             {
-                name: "Kigali",
+                country: "Kigali",
                 shortCode: "01",
             },
             {
-                name: "Eastern",
+                country: "Eastern",
                 shortCode: "02",
             },
             {
-                name: "Northern",
+                country: "Northern",
                 shortCode: "03",
             },
             {
-                name: "Western",
+                country: "Western",
                 shortCode: "04",
             },
             {
-                name: "Southern",
+                country: "Southern",
                 shortCode: "05",
             },
         ],
@@ -14528,11 +14528,11 @@ const countyRegion = [
         countryShortCode: "BL",
         regions: [
             {
-                name: "Au Vent",
+                country: "Au Vent",
                 shortCode: "02",
             },
             {
-                name: "Sous le Vent",
+                country: "Sous le Vent",
                 shortCode: "01",
             },
         ],
@@ -14542,15 +14542,15 @@ const countyRegion = [
         countryShortCode: "SH",
         regions: [
             {
-                name: "Ascension",
+                country: "Ascension",
                 shortCode: "AC",
             },
             {
-                name: "Saint Helena",
+                country: "Saint Helena",
                 shortCode: "HL",
             },
             {
-                name: "Tristan da Cunha",
+                country: "Tristan da Cunha",
                 shortCode: "TA",
             },
         ],
@@ -14560,11 +14560,11 @@ const countyRegion = [
         countryShortCode: "KN",
         regions: [
             {
-                name: "Saint Kitts",
+                country: "Saint Kitts",
                 shortCode: "K",
             },
             {
-                name: "Nevis",
+                country: "Nevis",
                 shortCode: "N",
             },
         ],
@@ -14574,43 +14574,43 @@ const countyRegion = [
         countryShortCode: "LC",
         regions: [
             {
-                name: "Anse-la-Raye",
+                country: "Anse-la-Raye",
                 shortCode: "01",
             },
             {
-                name: "Canaries",
+                country: "Canaries",
                 shortCode: "12",
             },
             {
-                name: "Castries",
+                country: "Castries",
                 shortCode: "02",
             },
             {
-                name: "Choiseul",
+                country: "Choiseul",
                 shortCode: "03",
             },
             {
-                name: "Dennery",
+                country: "Dennery",
                 shortCode: "05",
             },
             {
-                name: "Gros Islet",
+                country: "Gros Islet",
                 shortCode: "06",
             },
             {
-                name: "Laborie",
+                country: "Laborie",
                 shortCode: "07",
             },
             {
-                name: "Micoud",
+                country: "Micoud",
                 shortCode: "08",
             },
             {
-                name: "Soufriere",
+                country: "Soufriere",
                 shortCode: "10",
             },
             {
-                name: "Vieux Fort",
+                country: "Vieux Fort",
                 shortCode: "11",
             },
         ],
@@ -14620,7 +14620,7 @@ const countyRegion = [
         countryShortCode: "MF",
         regions: [
             {
-                name: "Saint Martin",
+                country: "Saint Martin",
             },
         ],
     },
@@ -14629,10 +14629,10 @@ const countyRegion = [
         countryShortCode: "PM",
         regions: [
             {
-                name: "Miquelon",
+                country: "Miquelon",
             },
             {
-                name: "Saint Pierre",
+                country: "Saint Pierre",
             },
         ],
     },
@@ -14641,27 +14641,27 @@ const countyRegion = [
         countryShortCode: "VC",
         regions: [
             {
-                name: "Charlotte",
+                country: "Charlotte",
                 shortCode: "01",
             },
             {
-                name: "Grenadines",
+                country: "Grenadines",
                 shortCode: "06",
             },
             {
-                name: "Saint Andrew",
+                country: "Saint Andrew",
                 shortCode: "02",
             },
             {
-                name: "Saint David",
+                country: "Saint David",
                 shortCode: "03",
             },
             {
-                name: "Saint George",
+                country: "Saint George",
                 shortCode: "04",
             },
             {
-                name: "Saint Patrick",
+                country: "Saint Patrick",
                 shortCode: "05",
             },
         ],
@@ -14671,47 +14671,47 @@ const countyRegion = [
         countryShortCode: "WS",
         regions: [
             {
-                name: "A'ana",
+                country: "A'ana",
                 shortCode: "AA",
             },
             {
-                name: "Aiga-i-le-Tai",
+                country: "Aiga-i-le-Tai",
                 shortCode: "AL",
             },
             {
-                name: "Atua",
+                country: "Atua",
                 shortCode: "AT",
             },
             {
-                name: "Fa'asaleleaga",
+                country: "Fa'asaleleaga",
                 shortCode: "FA",
             },
             {
-                name: "Gaga'emauga",
+                country: "Gaga'emauga",
                 shortCode: "GE",
             },
             {
-                name: "Gagaifomauga",
+                country: "Gagaifomauga",
                 shortCode: "GI",
             },
             {
-                name: "Palauli",
+                country: "Palauli",
                 shortCode: "PA",
             },
             {
-                name: "Satupa'itea",
+                country: "Satupa'itea",
                 shortCode: "SA",
             },
             {
-                name: "Tuamasaga",
+                country: "Tuamasaga",
                 shortCode: "TU",
             },
             {
-                name: "Va'a-o-Fonoti",
+                country: "Va'a-o-Fonoti",
                 shortCode: "VF",
             },
             {
-                name: "Vaisigano",
+                country: "Vaisigano",
                 shortCode: "VS",
             },
         ],
@@ -14721,39 +14721,39 @@ const countyRegion = [
         countryShortCode: "SM",
         regions: [
             {
-                name: "Acquaviva",
+                country: "Acquaviva",
                 shortCode: "01",
             },
             {
-                name: "Borgo Maggiore",
+                country: "Borgo Maggiore",
                 shortCode: "06",
             },
             {
-                name: "Chiesanuova",
+                country: "Chiesanuova",
                 shortCode: "02",
             },
             {
-                name: "Domagnano",
+                country: "Domagnano",
                 shortCode: "03",
             },
             {
-                name: "Faetano",
+                country: "Faetano",
                 shortCode: "04",
             },
             {
-                name: "Fiorentino",
+                country: "Fiorentino",
                 shortCode: "05",
             },
             {
-                name: "Montegiardino",
+                country: "Montegiardino",
                 shortCode: "08",
             },
             {
-                name: "San Marino",
+                country: "San Marino",
                 shortCode: "07",
             },
             {
-                name: "Serravalle",
+                country: "Serravalle",
                 shortCode: "09",
             },
         ],
@@ -14763,11 +14763,11 @@ const countyRegion = [
         countryShortCode: "ST",
         regions: [
             {
-                name: "Principe",
+                country: "Principe",
                 shortCode: "P",
             },
             {
-                name: "Sao Tome",
+                country: "Sao Tome",
                 shortCode: "S",
             },
         ],
@@ -14777,55 +14777,55 @@ const countyRegion = [
         countryShortCode: "SA",
         regions: [
             {
-                name: "'Asir",
+                country: "'Asir",
                 shortCode: "14",
             },
             {
-                name: "Al Bahah",
+                country: "Al Bahah",
                 shortCode: "11",
             },
             {
-                name: "Al Hudud ash Shamaliyah",
+                country: "Al Hudud ash Shamaliyah",
                 shortCode: "08",
             },
             {
-                name: "Al Jawf",
+                country: "Al Jawf",
                 shortCode: "12",
             },
             {
-                name: "Al Madinah al Munawwarah",
+                country: "Al Madinah al Munawwarah",
                 shortCode: "03",
             },
             {
-                name: "Al Qasim",
+                country: "Al Qasim",
                 shortCode: "05",
             },
             {
-                name: "Ar Riyad",
+                country: "Ar Riyad",
                 shortCode: "01",
             },
             {
-                name: "Ash Sharqiyah",
+                country: "Ash Sharqiyah",
                 shortCode: "04",
             },
             {
-                name: "Ha'il",
+                country: "Ha'il",
                 shortCode: "06",
             },
             {
-                name: "Jazan",
+                country: "Jazan",
                 shortCode: "09",
             },
             {
-                name: "Makkah al Mukarramah",
+                country: "Makkah al Mukarramah",
                 shortCode: "02",
             },
             {
-                name: "Najran",
+                country: "Najran",
                 shortCode: "10",
             },
             {
-                name: "Tabuk",
+                country: "Tabuk",
                 shortCode: "07",
             },
         ],
@@ -14835,59 +14835,59 @@ const countyRegion = [
         countryShortCode: "SN",
         regions: [
             {
-                name: "Dakar",
+                country: "Dakar",
                 shortCode: "DK",
             },
             {
-                name: "Diourbel",
+                country: "Diourbel",
                 shortCode: "DB",
             },
             {
-                name: "Fatick",
+                country: "Fatick",
                 shortCode: "FK",
             },
             {
-                name: "Kaffrine",
+                country: "Kaffrine",
                 shortCode: "KA",
             },
             {
-                name: "Kaolack",
+                country: "Kaolack",
                 shortCode: "KL",
             },
             {
-                name: "Kedougou",
+                country: "Kedougou",
                 shortCode: "KE",
             },
             {
-                name: "Kolda",
+                country: "Kolda",
                 shortCode: "KD",
             },
             {
-                name: "Louga",
+                country: "Louga",
                 shortCode: "LG",
             },
             {
-                name: "Matam",
+                country: "Matam",
                 shortCode: "MT",
             },
             {
-                name: "Saint-Louis",
+                country: "Saint-Louis",
                 shortCode: "SL",
             },
             {
-                name: "Sedhiou",
+                country: "Sedhiou",
                 shortCode: "SE",
             },
             {
-                name: "Tambacounda",
+                country: "Tambacounda",
                 shortCode: "TC",
             },
             {
-                name: "Thies",
+                country: "Thies",
                 shortCode: "TH",
             },
             {
-                name: "Ziguinchor",
+                country: "Ziguinchor",
                 shortCode: "ZG",
             },
         ],
@@ -14897,123 +14897,123 @@ const countyRegion = [
         countryShortCode: "RS",
         regions: [
             {
-                name: "Beograd (Belgrade)",
+                country: "Beograd (Belgrade)",
                 shortCode: "00",
             },
             {
-                name: "Borski",
+                country: "Borski",
                 shortCode: "14",
             },
             {
-                name: "Braničevski",
+                country: "Braničevski",
                 shortCode: "11",
             },
             {
-                name: "Jablanički",
+                country: "Jablanički",
                 shortCode: "23",
             },
             {
-                name: "Južnobački",
+                country: "Južnobački",
                 shortCode: "06",
             },
             {
-                name: "Južnobanatski",
+                country: "Južnobanatski",
                 shortCode: "04",
             },
             {
-                name: "Kolubarski",
+                country: "Kolubarski",
                 shortCode: "09",
             },
             {
-                name: "Kosovski",
+                country: "Kosovski",
                 shortCode: "25",
             },
             {
-                name: "Kosovsko-Mitrovački",
+                country: "Kosovsko-Mitrovački",
                 shortCode: "28",
             },
             {
-                name: "Kosovsko-Pomoravski",
+                country: "Kosovsko-Pomoravski",
                 shortCode: "29",
             },
             {
-                name: "Mačvanski",
+                country: "Mačvanski",
                 shortCode: "08",
             },
             {
-                name: "Moravički",
+                country: "Moravički",
                 shortCode: "17",
             },
             {
-                name: "Nišavski",
+                country: "Nišavski",
                 shortCode: "20",
             },
             {
-                name: "Pčinjski",
+                country: "Pčinjski",
                 shortCode: "24",
             },
             {
-                name: "Pećki",
+                country: "Pećki",
                 shortCode: "26",
             },
             {
-                name: "Pirotski",
+                country: "Pirotski",
                 shortCode: "22",
             },
             {
-                name: "Podunavski",
+                country: "Podunavski",
                 shortCode: "10",
             },
             {
-                name: "Pomoravski",
+                country: "Pomoravski",
                 shortCode: "13",
             },
             {
-                name: "Prizrenski",
+                country: "Prizrenski",
                 shortCode: "27",
             },
             {
-                name: "Rasinski",
+                country: "Rasinski",
                 shortCode: "19",
             },
             {
-                name: "Raški",
+                country: "Raški",
                 shortCode: "18",
             },
             {
-                name: "Severnobački",
+                country: "Severnobački",
                 shortCode: "01",
             },
             {
-                name: "Severnobanatski",
+                country: "Severnobanatski",
                 shortCode: "03",
             },
             {
-                name: "Srednjebanatski",
+                country: "Srednjebanatski",
                 shortCode: "02",
             },
             {
-                name: "Sremski",
+                country: "Sremski",
                 shortCode: "07",
             },
             {
-                name: "Šumadijski",
+                country: "Šumadijski",
                 shortCode: "12",
             },
             {
-                name: "Toplički",
+                country: "Toplički",
                 shortCode: "21",
             },
             {
-                name: "Zaječarski",
+                country: "Zaječarski",
                 shortCode: "15",
             },
             {
-                name: "Zapadnobački",
+                country: "Zapadnobački",
                 shortCode: "05",
             },
             {
-                name: "Zlatiborski",
+                country: "Zlatiborski",
                 shortCode: "16",
             },
         ],
@@ -15023,103 +15023,103 @@ const countyRegion = [
         countryShortCode: "SC",
         regions: [
             {
-                name: "Anse aux Pins",
+                country: "Anse aux Pins",
                 shortCode: "01",
             },
             {
-                name: "Anse Boileau",
+                country: "Anse Boileau",
                 shortCode: "02",
             },
             {
-                name: "Anse Etoile",
+                country: "Anse Etoile",
                 shortCode: "03",
             },
             {
-                name: "Anse Royale",
+                country: "Anse Royale",
                 shortCode: "05",
             },
             {
-                name: "Anu Cap",
+                country: "Anu Cap",
                 shortCode: "04",
             },
             {
-                name: "Baie Lazare",
+                country: "Baie Lazare",
                 shortCode: "06",
             },
             {
-                name: "Baie Sainte Anne",
+                country: "Baie Sainte Anne",
                 shortCode: "07",
             },
             {
-                name: "Beau Vallon",
+                country: "Beau Vallon",
                 shortCode: "08",
             },
             {
-                name: "Bel Air",
+                country: "Bel Air",
                 shortCode: "09",
             },
             {
-                name: "Bel Ombre",
+                country: "Bel Ombre",
                 shortCode: "10",
             },
             {
-                name: "Cascade",
+                country: "Cascade",
                 shortCode: "11",
             },
             {
-                name: "Glacis",
+                country: "Glacis",
                 shortCode: "12",
             },
             {
-                name: "Grand'Anse Mahe",
+                country: "Grand'Anse Mahe",
                 shortCode: "13",
             },
             {
-                name: "Grand'Anse Praslin",
+                country: "Grand'Anse Praslin",
                 shortCode: "14",
             },
             {
-                name: "La Digue",
+                country: "La Digue",
                 shortCode: "15",
             },
             {
-                name: "La Riviere Anglaise",
+                country: "La Riviere Anglaise",
                 shortCode: "16",
             },
             {
-                name: "Les Mamelles",
+                country: "Les Mamelles",
                 shortCode: "24",
             },
             {
-                name: "Mont Buxton",
+                country: "Mont Buxton",
                 shortCode: "17",
             },
             {
-                name: "Mont Fleuri",
+                country: "Mont Fleuri",
                 shortCode: "18",
             },
             {
-                name: "Plaisance",
+                country: "Plaisance",
                 shortCode: "19",
             },
             {
-                name: "Pointe La Rue",
+                country: "Pointe La Rue",
                 shortCode: "20",
             },
             {
-                name: "Port Glaud",
+                country: "Port Glaud",
                 shortCode: "21",
             },
             {
-                name: "Roche Caiman",
+                country: "Roche Caiman",
                 shortCode: "25",
             },
             {
-                name: "Saint Louis",
+                country: "Saint Louis",
                 shortCode: "22",
             },
             {
-                name: "Takamaka",
+                country: "Takamaka",
                 shortCode: "23",
             },
         ],
@@ -15129,19 +15129,19 @@ const countyRegion = [
         countryShortCode: "SL",
         regions: [
             {
-                name: "Eastern",
+                country: "Eastern",
                 shortCode: "E",
             },
             {
-                name: "Northern",
+                country: "Northern",
                 shortCode: "N",
             },
             {
-                name: "Southern",
+                country: "Southern",
                 shortCode: "S",
             },
             {
-                name: "Western",
+                country: "Western",
                 shortCode: "W",
             },
         ],
@@ -15151,23 +15151,23 @@ const countyRegion = [
         countryShortCode: "SG",
         regions: [
             {
-                name: "Central Singapore",
+                country: "Central Singapore",
                 shortCode: "01",
             },
             {
-                name: "North East",
+                country: "North East",
                 shortCode: "02",
             },
             {
-                name: "North West",
+                country: "North West",
                 shortCode: "03",
             },
             {
-                name: "South East",
+                country: "South East",
                 shortCode: "04",
             },
             {
-                name: "South West",
+                country: "South West",
                 shortCode: "05",
             },
         ],
@@ -15177,7 +15177,7 @@ const countyRegion = [
         countryShortCode: "SX",
         regions: [
             {
-                name: "Sint Maarten",
+                country: "Sint Maarten",
             },
         ],
     },
@@ -15186,35 +15186,35 @@ const countyRegion = [
         countryShortCode: "SK",
         regions: [
             {
-                name: "Banskobystricky",
+                country: "Banskobystricky",
                 shortCode: "BC",
             },
             {
-                name: "Bratislavsky",
+                country: "Bratislavsky",
                 shortCode: "BL",
             },
             {
-                name: "Kosicky",
+                country: "Kosicky",
                 shortCode: "KI",
             },
             {
-                name: "Nitriansky",
+                country: "Nitriansky",
                 shortCode: "NI",
             },
             {
-                name: "Presovsky",
+                country: "Presovsky",
                 shortCode: "PV",
             },
             {
-                name: "Trenciansky",
+                country: "Trenciansky",
                 shortCode: "TC",
             },
             {
-                name: "Trnavsky",
+                country: "Trnavsky",
                 shortCode: "TA",
             },
             {
-                name: "Zilinsky",
+                country: "Zilinsky",
                 shortCode: "ZI",
             },
         ],
@@ -15224,827 +15224,827 @@ const countyRegion = [
         countryShortCode: "SI",
         regions: [
             {
-                name: "Ajdovscina",
+                country: "Ajdovscina",
                 shortCode: "001",
             },
             {
-                name: "Apace",
+                country: "Apace",
                 shortCode: "195",
             },
             {
-                name: "Beltinci",
+                country: "Beltinci",
                 shortCode: "002",
             },
             {
-                name: "Benedikt",
+                country: "Benedikt",
                 shortCode: "148",
             },
             {
-                name: "Bistrica ob Sotli",
+                country: "Bistrica ob Sotli",
                 shortCode: "149",
             },
             {
-                name: "Bled",
+                country: "Bled",
                 shortCode: "003",
             },
             {
-                name: "Bloke",
+                country: "Bloke",
                 shortCode: "150",
             },
             {
-                name: "Bohinj",
+                country: "Bohinj",
                 shortCode: "004",
             },
             {
-                name: "Borovnica",
+                country: "Borovnica",
                 shortCode: "005",
             },
             {
-                name: "Bovec",
+                country: "Bovec",
                 shortCode: "006",
             },
             {
-                name: "Braslovce",
+                country: "Braslovce",
                 shortCode: "151",
             },
             {
-                name: "Brda",
+                country: "Brda",
                 shortCode: "007",
             },
             {
-                name: "Brezice",
+                country: "Brezice",
                 shortCode: "009",
             },
             {
-                name: "Brezovica",
+                country: "Brezovica",
                 shortCode: "008",
             },
             {
-                name: "Cankova",
+                country: "Cankova",
                 shortCode: "152",
             },
             {
-                name: "Celje",
+                country: "Celje",
                 shortCode: "011",
             },
             {
-                name: "Cerklje na Gorenjskem",
+                country: "Cerklje na Gorenjskem",
                 shortCode: "012",
             },
             {
-                name: "Cerknica",
+                country: "Cerknica",
                 shortCode: "013",
             },
             {
-                name: "Cerkno",
+                country: "Cerkno",
                 shortCode: "014",
             },
             {
-                name: "Cerkvenjak",
+                country: "Cerkvenjak",
                 shortCode: "153",
             },
             {
-                name: "Cirkulane",
+                country: "Cirkulane",
                 shortCode: "196",
             },
             {
-                name: "Crensovci",
+                country: "Crensovci",
                 shortCode: "015",
             },
             {
-                name: "Crna na Koroskem",
+                country: "Crna na Koroskem",
                 shortCode: "016",
             },
             {
-                name: "Crnomelj",
+                country: "Crnomelj",
                 shortCode: "017",
             },
             {
-                name: "Destrnik",
+                country: "Destrnik",
                 shortCode: "018",
             },
             {
-                name: "Divaca",
+                country: "Divaca",
                 shortCode: "019",
             },
             {
-                name: "Dobje",
+                country: "Dobje",
                 shortCode: "154",
             },
             {
-                name: "Dobrepolje",
+                country: "Dobrepolje",
                 shortCode: "020",
             },
             {
-                name: "Dobrna",
+                country: "Dobrna",
                 shortCode: "155",
             },
             {
-                name: "Dobrova-Polhov Gradec",
+                country: "Dobrova-Polhov Gradec",
                 shortCode: "021",
             },
             {
-                name: "Dobrovnik",
+                country: "Dobrovnik",
                 shortCode: "156",
             },
             {
-                name: "Dol pri Ljubljani",
+                country: "Dol pri Ljubljani",
                 shortCode: "022",
             },
             {
-                name: "Dolenjske Toplice",
+                country: "Dolenjske Toplice",
                 shortCode: "157",
             },
             {
-                name: "Domzale",
+                country: "Domzale",
                 shortCode: "023",
             },
             {
-                name: "Dornava",
+                country: "Dornava",
                 shortCode: "024",
             },
             {
-                name: "Dravograd",
+                country: "Dravograd",
                 shortCode: "025",
             },
             {
-                name: "Duplek",
+                country: "Duplek",
                 shortCode: "026",
             },
             {
-                name: "Gorenja Vas-Poljane",
+                country: "Gorenja Vas-Poljane",
                 shortCode: "027",
             },
             {
-                name: "Gorisnica",
+                country: "Gorisnica",
                 shortCode: "028",
             },
             {
-                name: "Gorje",
+                country: "Gorje",
                 shortCode: "207",
             },
             {
-                name: "Gornja Radgona",
+                country: "Gornja Radgona",
                 shortCode: "029",
             },
             {
-                name: "Gornji Grad",
+                country: "Gornji Grad",
                 shortCode: "030",
             },
             {
-                name: "Gornji Petrovci",
+                country: "Gornji Petrovci",
                 shortCode: "031",
             },
             {
-                name: "Grad",
+                country: "Grad",
                 shortCode: "158",
             },
             {
-                name: "Grosuplje",
+                country: "Grosuplje",
                 shortCode: "032",
             },
             {
-                name: "Hajdina",
+                country: "Hajdina",
                 shortCode: "159",
             },
             {
-                name: "Hoce-Slivnica",
+                country: "Hoce-Slivnica",
                 shortCode: "160",
             },
             {
-                name: "Hodos",
+                country: "Hodos",
                 shortCode: "161",
             },
             {
-                name: "Horjul",
+                country: "Horjul",
                 shortCode: "162",
             },
             {
-                name: "Hrastnik",
+                country: "Hrastnik",
                 shortCode: "034",
             },
             {
-                name: "Hrpelje-Kozina",
+                country: "Hrpelje-Kozina",
                 shortCode: "035",
             },
             {
-                name: "Idrija",
+                country: "Idrija",
                 shortCode: "036",
             },
             {
-                name: "Ig",
+                country: "Ig",
                 shortCode: "037",
             },
             {
-                name: "Ilirska Bistrica",
+                country: "Ilirska Bistrica",
                 shortCode: "038",
             },
             {
-                name: "Ivancna Gorica",
+                country: "Ivancna Gorica",
                 shortCode: "039",
             },
             {
-                name: "Izola",
+                country: "Izola",
                 shortCode: "040",
             },
             {
-                name: "Jesenice",
+                country: "Jesenice",
                 shortCode: "041",
             },
             {
-                name: "Jursinci",
+                country: "Jursinci",
                 shortCode: "042",
             },
             {
-                name: "Kamnik",
+                country: "Kamnik",
                 shortCode: "043",
             },
             {
-                name: "Kanal",
+                country: "Kanal",
                 shortCode: "044",
             },
             {
-                name: "Kidricevo",
+                country: "Kidricevo",
                 shortCode: "045",
             },
             {
-                name: "Kobarid",
+                country: "Kobarid",
                 shortCode: "046",
             },
             {
-                name: "Kobilje",
+                country: "Kobilje",
                 shortCode: "047",
             },
             {
-                name: "Kocevje",
+                country: "Kocevje",
                 shortCode: "048",
             },
             {
-                name: "Komen",
+                country: "Komen",
                 shortCode: "049",
             },
             {
-                name: "Komenda",
+                country: "Komenda",
                 shortCode: "164",
             },
             {
-                name: "Koper",
+                country: "Koper",
                 shortCode: "050",
             },
             {
-                name: "Kodanjevica na Krki",
+                country: "Kodanjevica na Krki",
                 shortCode: "197",
             },
             {
-                name: "Kostel",
+                country: "Kostel",
                 shortCode: "165",
             },
             {
-                name: "Kozje",
+                country: "Kozje",
                 shortCode: "051",
             },
             {
-                name: "Kranj",
+                country: "Kranj",
                 shortCode: "052",
             },
             {
-                name: "Kranjska Gora",
+                country: "Kranjska Gora",
                 shortCode: "053",
             },
             {
-                name: "Krizevci",
+                country: "Krizevci",
                 shortCode: "166",
             },
             {
-                name: "Krsko",
+                country: "Krsko",
                 shortCode: "054",
             },
             {
-                name: "Kungota",
+                country: "Kungota",
                 shortCode: "055",
             },
             {
-                name: "Kuzma",
+                country: "Kuzma",
                 shortCode: "056",
             },
             {
-                name: "Lasko",
+                country: "Lasko",
                 shortCode: "057",
             },
             {
-                name: "Lenart",
+                country: "Lenart",
                 shortCode: "058",
             },
             {
-                name: "Lendava",
+                country: "Lendava",
                 shortCode: "059",
             },
             {
-                name: "Litija",
+                country: "Litija",
                 shortCode: "060",
             },
             {
-                name: "Ljubljana",
+                country: "Ljubljana",
                 shortCode: "061",
             },
             {
-                name: "Ljubno",
+                country: "Ljubno",
                 shortCode: "062",
             },
             {
-                name: "Ljutomer",
+                country: "Ljutomer",
                 shortCode: "063",
             },
             {
-                name: "Log-Dragomer",
+                country: "Log-Dragomer",
                 shortCode: "208",
             },
             {
-                name: "Logatec",
+                country: "Logatec",
                 shortCode: "064",
             },
             {
-                name: "Loska Dolina",
+                country: "Loska Dolina",
                 shortCode: "065",
             },
             {
-                name: "Loski Potok",
+                country: "Loski Potok",
                 shortCode: "066",
             },
             {
-                name: "Lovrenc na Pohorju",
+                country: "Lovrenc na Pohorju",
                 shortCode: "167",
             },
             {
-                name: "Lukovica",
+                country: "Lukovica",
                 shortCode: "068",
             },
             {
-                name: "Luce",
+                country: "Luce",
                 shortCode: "067",
             },
             {
-                name: "Majsperk",
+                country: "Majsperk",
                 shortCode: "069",
             },
             {
-                name: "Makole",
+                country: "Makole",
                 shortCode: "198",
             },
             {
-                name: "Maribor",
+                country: "Maribor",
                 shortCode: "070",
             },
             {
-                name: "Markovci",
+                country: "Markovci",
                 shortCode: "168",
             },
             {
-                name: "Medvode",
+                country: "Medvode",
                 shortCode: "071",
             },
             {
-                name: "Menges",
+                country: "Menges",
                 shortCode: "072",
             },
             {
-                name: "Metlika",
+                country: "Metlika",
                 shortCode: "073",
             },
             {
-                name: "Mezica",
+                country: "Mezica",
                 shortCode: "074",
             },
             {
-                name: "Miklavz na Dravskem Polju",
+                country: "Miklavz na Dravskem Polju",
                 shortCode: "169",
             },
             {
-                name: "Miren-Kostanjevica",
+                country: "Miren-Kostanjevica",
                 shortCode: "075",
             },
             {
-                name: "Mirna",
+                country: "Mirna",
                 shortCode: "212",
             },
             {
-                name: "Mirna Pec",
+                country: "Mirna Pec",
                 shortCode: "170",
             },
             {
-                name: "Mislinja",
+                country: "Mislinja",
                 shortCode: "076",
             },
             {
-                name: "Mokronog-Trebelno",
+                country: "Mokronog-Trebelno",
                 shortCode: "199",
             },
             {
-                name: "Moravce",
+                country: "Moravce",
                 shortCode: "077",
             },
             {
-                name: "Moravske Toplice",
+                country: "Moravske Toplice",
                 shortCode: "078",
             },
             {
-                name: "Mozirje",
+                country: "Mozirje",
                 shortCode: "079",
             },
             {
-                name: "Murska Sobota",
+                country: "Murska Sobota",
                 shortCode: "080",
             },
             {
-                name: "Naklo",
+                country: "Naklo",
                 shortCode: "082",
             },
             {
-                name: "Nazarje",
+                country: "Nazarje",
                 shortCode: "083",
             },
             {
-                name: "Nova Gorica",
+                country: "Nova Gorica",
                 shortCode: "084",
             },
             {
-                name: "Novo Mesto",
+                country: "Novo Mesto",
                 shortCode: "085",
             },
             {
-                name: "Odranci",
+                country: "Odranci",
                 shortCode: "086",
             },
             {
-                name: "Ormoz",
+                country: "Ormoz",
                 shortCode: "087",
             },
             {
-                name: "Osilnica",
+                country: "Osilnica",
                 shortCode: "088",
             },
             {
-                name: "Pesnica",
+                country: "Pesnica",
                 shortCode: "089",
             },
             {
-                name: "Piran",
+                country: "Piran",
                 shortCode: "090",
             },
             {
-                name: "Pivka",
+                country: "Pivka",
                 shortCode: "091",
             },
             {
-                name: "Podcetrtek",
+                country: "Podcetrtek",
                 shortCode: "092",
             },
             {
-                name: "Podlehnik",
+                country: "Podlehnik",
                 shortCode: "172",
             },
             {
-                name: "Podvelka",
+                country: "Podvelka",
                 shortCode: "093",
             },
             {
-                name: "Poljcane",
+                country: "Poljcane",
                 shortCode: "200",
             },
             {
-                name: "Postojna",
+                country: "Postojna",
                 shortCode: "094",
             },
             {
-                name: "Prebold",
+                country: "Prebold",
                 shortCode: "174",
             },
             {
-                name: "Preddvor",
+                country: "Preddvor",
                 shortCode: "095",
             },
             {
-                name: "Prevalje",
+                country: "Prevalje",
                 shortCode: "175",
             },
             {
-                name: "Ptuj",
+                country: "Ptuj",
                 shortCode: "096",
             },
             {
-                name: "Race-Fram",
+                country: "Race-Fram",
                 shortCode: "098",
             },
             {
-                name: "Radece",
+                country: "Radece",
                 shortCode: "099",
             },
             {
-                name: "Radenci",
+                country: "Radenci",
                 shortCode: "100",
             },
             {
-                name: "Radlje ob Dravi",
+                country: "Radlje ob Dravi",
                 shortCode: "101",
             },
             {
-                name: "Radovljica",
+                country: "Radovljica",
                 shortCode: "102",
             },
             {
-                name: "Ravne na Koroskem",
+                country: "Ravne na Koroskem",
                 shortCode: "103",
             },
             {
-                name: "Razkrizje",
+                country: "Razkrizje",
                 shortCode: "176",
             },
             {
-                name: "Recica ob Savinji",
+                country: "Recica ob Savinji",
                 shortCode: "209",
             },
             {
-                name: "Rence-Vogrsko",
+                country: "Rence-Vogrsko",
                 shortCode: "201",
             },
             {
-                name: "Ribnica",
+                country: "Ribnica",
                 shortCode: "104",
             },
             {
-                name: "Ribnica na Poboriu",
+                country: "Ribnica na Poboriu",
                 shortCode: "177",
             },
             {
-                name: "Rogaska Slatina",
+                country: "Rogaska Slatina",
                 shortCode: "106",
             },
             {
-                name: "Rogasovci",
+                country: "Rogasovci",
                 shortCode: "105",
             },
             {
-                name: "Rogatec",
+                country: "Rogatec",
                 shortCode: "107",
             },
             {
-                name: "Ruse",
+                country: "Ruse",
                 shortCode: "108",
             },
             {
-                name: "Salovci",
+                country: "Salovci",
                 shortCode: "033",
             },
             {
-                name: "Selnica ob Dravi",
+                country: "Selnica ob Dravi",
                 shortCode: "178",
             },
             {
-                name: "Semic",
+                country: "Semic",
                 shortCode: "109",
             },
             {
-                name: "Sempeter-Vrtojba",
+                country: "Sempeter-Vrtojba",
                 shortCode: "183",
             },
             {
-                name: "Sencur",
+                country: "Sencur",
                 shortCode: "117",
             },
             {
-                name: "Sentilj",
+                country: "Sentilj",
                 shortCode: "118",
             },
             {
-                name: "Sentjernej",
+                country: "Sentjernej",
                 shortCode: "119",
             },
             {
-                name: "Sentjur",
+                country: "Sentjur",
                 shortCode: "120",
             },
             {
-                name: "Sentrupert",
+                country: "Sentrupert",
                 shortCode: "211",
             },
             {
-                name: "Sevnica",
+                country: "Sevnica",
                 shortCode: "110",
             },
             {
-                name: "Sezana",
+                country: "Sezana",
                 shortCode: "111",
             },
             {
-                name: "Skocjan",
+                country: "Skocjan",
                 shortCode: "121",
             },
             {
-                name: "Skofja Loka",
+                country: "Skofja Loka",
                 shortCode: "122",
             },
             {
-                name: "Skofljica",
+                country: "Skofljica",
                 shortCode: "123",
             },
             {
-                name: "Slovenj Gradec",
+                country: "Slovenj Gradec",
                 shortCode: "112",
             },
             {
-                name: "Slovenska Bistrica",
+                country: "Slovenska Bistrica",
                 shortCode: "113",
             },
             {
-                name: "Slovenske Konjice",
+                country: "Slovenske Konjice",
                 shortCode: "114",
             },
             {
-                name: "Smarje pri elsah",
+                country: "Smarje pri elsah",
                 shortCode: "124",
             },
             {
-                name: "Smarjeske Toplice",
+                country: "Smarjeske Toplice",
                 shortCode: "206",
             },
             {
-                name: "Smartno ob Paki",
+                country: "Smartno ob Paki",
                 shortCode: "125",
             },
             {
-                name: "Smartno pri Litiji",
+                country: "Smartno pri Litiji",
                 shortCode: "194",
             },
             {
-                name: "Sodrazica",
+                country: "Sodrazica",
                 shortCode: "179",
             },
             {
-                name: "Solcava",
+                country: "Solcava",
                 shortCode: "180",
             },
             {
-                name: "Sostanj",
+                country: "Sostanj",
                 shortCode: "126",
             },
             {
-                name: "Sredisce ob Dravi",
+                country: "Sredisce ob Dravi",
                 shortCode: "202",
             },
             {
-                name: "Starse",
+                country: "Starse",
                 shortCode: "115",
             },
             {
-                name: "Store",
+                country: "Store",
                 shortCode: "127",
             },
             {
-                name: "Straza",
+                country: "Straza",
                 shortCode: "203",
             },
             {
-                name: "Sveta Ana",
+                country: "Sveta Ana",
                 shortCode: "181",
             },
             {
-                name: "Sveta Trojica v Slovenskih Goricah",
+                country: "Sveta Trojica v Slovenskih Goricah",
                 shortCode: "204",
             },
             {
-                name: "Sveta Andraz v Slovenskih Goricah",
+                country: "Sveta Andraz v Slovenskih Goricah",
                 shortCode: "182",
             },
             {
-                name: "Sveti Jurij",
+                country: "Sveti Jurij",
                 shortCode: "116",
             },
             {
-                name: "Sveti Jurij v Slovenskih Goricah",
+                country: "Sveti Jurij v Slovenskih Goricah",
                 shortCode: "210",
             },
             {
-                name: "Sveti Tomaz",
+                country: "Sveti Tomaz",
                 shortCode: "205",
             },
             {
-                name: "Tabor",
+                country: "Tabor",
                 shortCode: "184",
             },
             {
-                name: "Tisina",
+                country: "Tisina",
                 shortCode: "010",
             },
             {
-                name: "Tolmin",
+                country: "Tolmin",
                 shortCode: "128",
             },
             {
-                name: "Trbovlje",
+                country: "Trbovlje",
                 shortCode: "129",
             },
             {
-                name: "Trebnje",
+                country: "Trebnje",
                 shortCode: "130",
             },
             {
-                name: "Trnovska Vas",
+                country: "Trnovska Vas",
                 shortCode: "185",
             },
             {
-                name: "Trzin",
+                country: "Trzin",
                 shortCode: "186",
             },
             {
-                name: "Trzic",
+                country: "Trzic",
                 shortCode: "131",
             },
             {
-                name: "Turnisce",
+                country: "Turnisce",
                 shortCode: "132",
             },
             {
-                name: "Velenje",
+                country: "Velenje",
                 shortCode: "133",
             },
             {
-                name: "Velika Polana",
+                country: "Velika Polana",
                 shortCode: "187",
             },
             {
-                name: "Velike Lasce",
+                country: "Velike Lasce",
                 shortCode: "134",
             },
             {
-                name: "Verzej",
+                country: "Verzej",
                 shortCode: "188",
             },
             {
-                name: "Videm",
+                country: "Videm",
                 shortCode: "135",
             },
             {
-                name: "Vipava",
+                country: "Vipava",
                 shortCode: "136",
             },
             {
-                name: "Vitanje",
+                country: "Vitanje",
                 shortCode: "137",
             },
             {
-                name: "Vodice",
+                country: "Vodice",
                 shortCode: "138",
             },
             {
-                name: "Vojnik",
+                country: "Vojnik",
                 shortCode: "139",
             },
             {
-                name: "Vransko",
+                country: "Vransko",
                 shortCode: "189",
             },
             {
-                name: "Vrhnika",
+                country: "Vrhnika",
                 shortCode: "140",
             },
             {
-                name: "Vuzenica",
+                country: "Vuzenica",
                 shortCode: "141",
             },
             {
-                name: "Zagorje ob Savi",
+                country: "Zagorje ob Savi",
                 shortCode: "142",
             },
             {
-                name: "Zavrc",
+                country: "Zavrc",
                 shortCode: "143",
             },
             {
-                name: "Zrece",
+                country: "Zrece",
                 shortCode: "144",
             },
             {
-                name: "Zalec",
+                country: "Zalec",
                 shortCode: "190",
             },
             {
-                name: "Zelezniki",
+                country: "Zelezniki",
                 shortCode: "146",
             },
             {
-                name: "Zetale",
+                country: "Zetale",
                 shortCode: "191",
             },
             {
-                name: "Ziri",
+                country: "Ziri",
                 shortCode: "147",
             },
             {
-                name: "Zirovnica",
+                country: "Zirovnica",
                 shortCode: "192",
             },
             {
-                name: "Zuzemberk",
+                country: "Zuzemberk",
                 shortCode: "193",
             },
         ],
@@ -16054,43 +16054,43 @@ const countyRegion = [
         countryShortCode: "SB",
         regions: [
             {
-                name: "Central",
+                country: "Central",
                 shortCode: "CE",
             },
             {
-                name: "Choiseul",
+                country: "Choiseul",
                 shortCode: "CH",
             },
             {
-                name: "Guadalcanal",
+                country: "Guadalcanal",
                 shortCode: "GU",
             },
             {
-                name: "Honiara",
+                country: "Honiara",
                 shortCode: "CT",
             },
             {
-                name: "Isabel",
+                country: "Isabel",
                 shortCode: "IS",
             },
             {
-                name: "Makira-Ulawa",
+                country: "Makira-Ulawa",
                 shortCode: "MK",
             },
             {
-                name: "Malaita",
+                country: "Malaita",
                 shortCode: "ML",
             },
             {
-                name: "Rennell and Bellona",
+                country: "Rennell and Bellona",
                 shortCode: "RB",
             },
             {
-                name: "Temotu",
+                country: "Temotu",
                 shortCode: "TE",
             },
             {
-                name: "Western",
+                country: "Western",
                 shortCode: "WE",
             },
         ],
@@ -16100,75 +16100,75 @@ const countyRegion = [
         countryShortCode: "SO",
         regions: [
             {
-                name: "Awdal",
+                country: "Awdal",
                 shortCode: "AW",
             },
             {
-                name: "Bakool",
+                country: "Bakool",
                 shortCode: "BK",
             },
             {
-                name: "Banaadir",
+                country: "Banaadir",
                 shortCode: "BN",
             },
             {
-                name: "Bari",
+                country: "Bari",
                 shortCode: "BR",
             },
             {
-                name: "Bay",
+                country: "Bay",
                 shortCode: "BY",
             },
             {
-                name: "Galguduud",
+                country: "Galguduud",
                 shortCode: "GA",
             },
             {
-                name: "Gedo",
+                country: "Gedo",
                 shortCode: "GE",
             },
             {
-                name: "Hiiraan",
+                country: "Hiiraan",
                 shortCode: "HI",
             },
             {
-                name: "Jubbada Dhexe",
+                country: "Jubbada Dhexe",
                 shortCode: "JD",
             },
             {
-                name: "Jubbada Hoose",
+                country: "Jubbada Hoose",
                 shortCode: "JH",
             },
             {
-                name: "Mudug",
+                country: "Mudug",
                 shortCode: "MU",
             },
             {
-                name: "Nugaal",
+                country: "Nugaal",
                 shortCode: "NU",
             },
             {
-                name: "Sanaag",
+                country: "Sanaag",
                 shortCode: "SA",
             },
             {
-                name: "Shabeellaha Dhexe",
+                country: "Shabeellaha Dhexe",
                 shortCode: "SD",
             },
             {
-                name: "Shabeellaha Hoose",
+                country: "Shabeellaha Hoose",
                 shortCode: "SH",
             },
             {
-                name: "Sool",
+                country: "Sool",
                 shortCode: "SO",
             },
             {
-                name: "Togdheer",
+                country: "Togdheer",
                 shortCode: "TO",
             },
             {
-                name: "Woqooyi Galbeed",
+                country: "Woqooyi Galbeed",
                 shortCode: "WO",
             },
         ],
@@ -16178,39 +16178,39 @@ const countyRegion = [
         countryShortCode: "ZA",
         regions: [
             {
-                name: "Eastern Cape",
+                country: "Eastern Cape",
                 shortCode: "EC",
             },
             {
-                name: "Free State",
+                country: "Free State",
                 shortCode: "FS",
             },
             {
-                name: "Gauteng",
+                country: "Gauteng",
                 shortCode: "GT",
             },
             {
-                name: "KwaZulu-Natal",
+                country: "KwaZulu-Natal",
                 shortCode: "NL",
             },
             {
-                name: "Limpopo",
+                country: "Limpopo",
                 shortCode: "LP",
             },
             {
-                name: "Mpumalanga",
+                country: "Mpumalanga",
                 shortCode: "MP",
             },
             {
-                name: "Northern Cape",
+                country: "Northern Cape",
                 shortCode: "NC",
             },
             {
-                name: "North West",
+                country: "North West",
                 shortCode: "NW",
             },
             {
-                name: "Western Cape",
+                country: "Western Cape",
                 shortCode: "WC",
             },
         ],
@@ -16220,28 +16220,28 @@ const countyRegion = [
         countryShortCode: "GS",
         regions: [
             {
-                name: "Bird Island",
+                country: "Bird Island",
             },
             {
-                name: "Bristol Island",
+                country: "Bristol Island",
             },
             {
-                name: "Clerke Rocks",
+                country: "Clerke Rocks",
             },
             {
-                name: "Montagu Island",
+                country: "Montagu Island",
             },
             {
-                name: "Saunders Island",
+                country: "Saunders Island",
             },
             {
-                name: "South Georgia",
+                country: "South Georgia",
             },
             {
-                name: "Southern Thule",
+                country: "Southern Thule",
             },
             {
-                name: "Traversay Islands",
+                country: "Traversay Islands",
             },
         ],
     },
@@ -16250,43 +16250,43 @@ const countyRegion = [
         countryShortCode: "SS",
         regions: [
             {
-                name: "Central Equatoria",
+                country: "Central Equatoria",
                 shortCode: "CE",
             },
             {
-                name: "Eastern Equatoria",
+                country: "Eastern Equatoria",
                 shortCode: "EE",
             },
             {
-                name: "Jonglei",
+                country: "Jonglei",
                 shortCode: "JG",
             },
             {
-                name: "Lakes",
+                country: "Lakes",
                 shortCode: "LK",
             },
             {
-                name: "Northern Bahr el Ghazal",
+                country: "Northern Bahr el Ghazal",
                 shortCode: "BN",
             },
             {
-                name: "Unity",
+                country: "Unity",
                 shortCode: "UY",
             },
             {
-                name: "Upper Nile",
+                country: "Upper Nile",
                 shortCode: "NU",
             },
             {
-                name: "Warrap",
+                country: "Warrap",
                 shortCode: "WR",
             },
             {
-                name: "Western Bahr el Ghazal",
+                country: "Western Bahr el Ghazal",
                 shortCode: "BW",
             },
             {
-                name: "Western Equatoria",
+                country: "Western Equatoria",
                 shortCode: "EW",
             },
         ],
@@ -16296,211 +16296,211 @@ const countyRegion = [
         countryShortCode: "ES",
         regions: [
             {
-                name: "Albacete",
+                country: "Albacete",
                 shortCode: "AB",
             },
             {
-                name: "Alicante",
+                country: "Alicante",
                 shortCode: "A",
             },
             {
-                name: "Almería",
+                country: "Almería",
                 shortCode: "AL",
             },
             {
-                name: "Araba/Álava",
+                country: "Araba/Álava",
                 shortCode: "VI",
             },
             {
-                name: "Asturias",
+                country: "Asturias",
                 shortCode: "O",
             },
             {
-                name: "Ávila",
+                country: "Ávila",
                 shortCode: "AV",
             },
             {
-                name: "Badajoz",
+                country: "Badajoz",
                 shortCode: "BA",
             },
             {
-                name: "Barcelona",
+                country: "Barcelona",
                 shortCode: "B",
             },
             {
-                name: "Bizkaia",
+                country: "Bizkaia",
                 shortCode: "BI",
             },
             {
-                name: "Burgos",
+                country: "Burgos",
                 shortCode: "BU",
             },
             {
-                name: "Cáceres",
+                country: "Cáceres",
                 shortCode: "CC",
             },
             {
-                name: "Cádiz",
+                country: "Cádiz",
                 shortCode: "CA",
             },
             {
-                name: "Cantabria",
+                country: "Cantabria",
                 shortCode: "S",
             },
             {
-                name: "Castellón/Castelló",
+                country: "Castellón/Castelló",
                 shortCode: "CS",
             },
             {
-                name: "Ceuta",
+                country: "Ceuta",
                 shortCode: "CE",
             },
             {
-                name: "Ciudad Real",
+                country: "Ciudad Real",
                 shortCode: "CR",
             },
             {
-                name: "Córdoba",
+                country: "Córdoba",
                 shortCode: "CO",
             },
             {
-                name: "A Coruña",
+                country: "A Coruña",
                 shortCode: "C",
             },
             {
-                name: "Cuenca",
+                country: "Cuenca",
                 shortCode: "CU",
             },
             {
-                name: "Gipuzkoa",
+                country: "Gipuzkoa",
                 shortCode: "SS",
             },
             {
-                name: "Girona",
+                country: "Girona",
                 shortCode: "GI",
             },
             {
-                name: "Granada",
+                country: "Granada",
                 shortCode: "GR",
             },
             {
-                name: "Guadalajara",
+                country: "Guadalajara",
                 shortCode: "GU",
             },
             {
-                name: "Huelva",
+                country: "Huelva",
                 shortCode: "H",
             },
             {
-                name: "Huesca",
+                country: "Huesca",
                 shortCode: "HU",
             },
             {
-                name: "Illes Balears",
+                country: "Illes Balears",
                 shortCode: "PM",
             },
             {
-                name: "Jaén",
+                country: "Jaén",
                 shortCode: "J",
             },
             {
-                name: "León",
+                country: "León",
                 shortCode: "LE",
             },
             {
-                name: "Lleida",
+                country: "Lleida",
                 shortCode: "L",
             },
             {
-                name: "Lugo",
+                country: "Lugo",
                 shortCode: "LU",
             },
             {
-                name: "Madrid",
+                country: "Madrid",
                 shortCode: "M",
             },
             {
-                name: "Málaga",
+                country: "Málaga",
                 shortCode: "MA",
             },
             {
-                name: "Melilla",
+                country: "Melilla",
                 shortCode: "ML",
             },
             {
-                name: "Murcia",
+                country: "Murcia",
                 shortCode: "MU",
             },
             {
-                name: "Navarra/Nafarroa",
+                country: "Navarra/Nafarroa",
                 shortCode: "NA",
             },
             {
-                name: "Ourense",
+                country: "Ourense",
                 shortCode: "OR",
             },
             {
-                name: "Palencia",
+                country: "Palencia",
                 shortCode: "P",
             },
             {
-                name: "Las Palmas",
+                country: "Las Palmas",
                 shortCode: "GC",
             },
             {
-                name: "Pontevedra",
+                country: "Pontevedra",
                 shortCode: "PO",
             },
             {
-                name: "La Rioja",
+                country: "La Rioja",
                 shortCode: "LO",
             },
             {
-                name: "Salamanca",
+                country: "Salamanca",
                 shortCode: "SA",
             },
             {
-                name: "Santa Cruz de Tenerife",
+                country: "Santa Cruz de Tenerife",
                 shortCode: "TF",
             },
             {
-                name: "Segovia",
+                country: "Segovia",
                 shortCode: "SG",
             },
             {
-                name: "Sevilla",
+                country: "Sevilla",
                 shortCode: "SE",
             },
             {
-                name: "Soria",
+                country: "Soria",
                 shortCode: "SO",
             },
             {
-                name: "Tarragona",
+                country: "Tarragona",
                 shortCode: "T",
             },
             {
-                name: "Teruel",
+                country: "Teruel",
                 shortCode: "TE",
             },
             {
-                name: "Toledo",
+                country: "Toledo",
                 shortCode: "TO",
             },
             {
-                name: "Valencia/València",
+                country: "Valencia/València",
                 shortCode: "V",
             },
             {
-                name: "Valladolid",
+                country: "Valladolid",
                 shortCode: "VA",
             },
             {
-                name: "Zamora",
+                country: "Zamora",
                 shortCode: "ZA",
             },
             {
-                name: "Zaragoza",
+                country: "Zaragoza",
                 shortCode: "Z",
             },
         ],
@@ -16510,39 +16510,39 @@ const countyRegion = [
         countryShortCode: "LK",
         regions: [
             {
-                name: "Basnahira",
+                country: "Basnahira",
                 shortCode: "1",
             },
             {
-                name: "Dakunu",
+                country: "Dakunu",
                 shortCode: "3",
             },
             {
-                name: "Madhyama",
+                country: "Madhyama",
                 shortCode: "2",
             },
             {
-                name: "Naegenahira",
+                country: "Naegenahira",
                 shortCode: "5",
             },
             {
-                name: "Sabaragamuwa",
+                country: "Sabaragamuwa",
                 shortCode: "9",
             },
             {
-                name: "Uturu",
+                country: "Uturu",
                 shortCode: "4",
             },
             {
-                name: "Uturumaeda",
+                country: "Uturumaeda",
                 shortCode: "7",
             },
             {
-                name: "Vayamba",
+                country: "Vayamba",
                 shortCode: "6",
             },
             {
-                name: "Uva",
+                country: "Uva",
                 shortCode: "8",
             },
         ],
@@ -16552,75 +16552,75 @@ const countyRegion = [
         countryShortCode: "SD",
         regions: [
             {
-                name: "Al Bahr al Ahmar",
+                country: "Al Bahr al Ahmar",
                 shortCode: "RS",
             },
             {
-                name: "Al Jazirah",
+                country: "Al Jazirah",
                 shortCode: "GZ",
             },
             {
-                name: "Al Khartum",
+                country: "Al Khartum",
                 shortCode: "KH",
             },
             {
-                name: "Al Qadarif",
+                country: "Al Qadarif",
                 shortCode: "GD",
             },
             {
-                name: "An Nil al Abyad",
+                country: "An Nil al Abyad",
                 shortCode: "NW",
             },
             {
-                name: "An Nil al Azraq",
+                country: "An Nil al Azraq",
                 shortCode: "NB",
             },
             {
-                name: "Ash Shamaliyah",
+                country: "Ash Shamaliyah",
                 shortCode: "NO",
             },
             {
-                name: "Gharb Darfur",
+                country: "Gharb Darfur",
                 shortCode: "DW",
             },
             {
-                name: "Gharb Kurdufan",
+                country: "Gharb Kurdufan",
                 shortCode: "GK",
             },
             {
-                name: "Janub Darfur",
+                country: "Janub Darfur",
                 shortCode: "DS",
             },
             {
-                name: "Janub Kurdufan",
+                country: "Janub Kurdufan",
                 shortCode: "KS",
             },
             {
-                name: "Kassala",
+                country: "Kassala",
                 shortCode: "KA",
             },
             {
-                name: "Nahr an Nil",
+                country: "Nahr an Nil",
                 shortCode: "NR",
             },
             {
-                name: "Shamal Darfur",
+                country: "Shamal Darfur",
                 shortCode: "DN",
             },
             {
-                name: "Sharq Darfur",
+                country: "Sharq Darfur",
                 shortCode: "DE",
             },
             {
-                name: "Shiamal Kurdufan",
+                country: "Shiamal Kurdufan",
                 shortCode: "KN",
             },
             {
-                name: "Sinnar",
+                country: "Sinnar",
                 shortCode: "SI",
             },
             {
-                name: "Wasat Darfur Zalinjay",
+                country: "Wasat Darfur Zalinjay",
                 shortCode: "DC",
             },
         ],
@@ -16630,43 +16630,43 @@ const countyRegion = [
         countryShortCode: "SR",
         regions: [
             {
-                name: "Brokopondo",
+                country: "Brokopondo",
                 shortCode: "BR",
             },
             {
-                name: "Commewijne",
+                country: "Commewijne",
                 shortCode: "CM",
             },
             {
-                name: "Coronie",
+                country: "Coronie",
                 shortCode: "CR",
             },
             {
-                name: "Marowijne",
+                country: "Marowijne",
                 shortCode: "MA",
             },
             {
-                name: "Nickerie",
+                country: "Nickerie",
                 shortCode: "NI",
             },
             {
-                name: "Para",
+                country: "Para",
                 shortCode: "PR",
             },
             {
-                name: "Paramaribo",
+                country: "Paramaribo",
                 shortCode: "PM",
             },
             {
-                name: "Saramacca",
+                country: "Saramacca",
                 shortCode: "SA",
             },
             {
-                name: "Sipaliwini",
+                country: "Sipaliwini",
                 shortCode: "SI",
             },
             {
-                name: "Wanica",
+                country: "Wanica",
                 shortCode: "WA",
             },
         ],
@@ -16676,19 +16676,19 @@ const countyRegion = [
         countryShortCode: "SZ",
         regions: [
             {
-                name: "Hhohho",
+                country: "Hhohho",
                 shortCode: "HH",
             },
             {
-                name: "Lubombo",
+                country: "Lubombo",
                 shortCode: "LU",
             },
             {
-                name: "Manzini",
+                country: "Manzini",
                 shortCode: "MA",
             },
             {
-                name: "Shiselweni",
+                country: "Shiselweni",
                 shortCode: "SH",
             },
         ],
@@ -16698,87 +16698,87 @@ const countyRegion = [
         countryShortCode: "SE",
         regions: [
             {
-                name: "Blekinge",
+                country: "Blekinge",
                 shortCode: "K",
             },
             {
-                name: "Dalarna",
+                country: "Dalarna",
                 shortCode: "W",
             },
             {
-                name: "Gävleborg",
+                country: "Gävleborg",
                 shortCode: "X",
             },
             {
-                name: "Gotland",
+                country: "Gotland",
                 shortCode: "I",
             },
             {
-                name: "Halland",
+                country: "Halland",
                 shortCode: "N",
             },
             {
-                name: "Jämtland",
+                country: "Jämtland",
                 shortCode: "Z",
             },
             {
-                name: "Jönköping",
+                country: "Jönköping",
                 shortCode: "F",
             },
             {
-                name: "Kalmar",
+                country: "Kalmar",
                 shortCode: "H",
             },
             {
-                name: "Kronoberg",
+                country: "Kronoberg",
                 shortCode: "G",
             },
             {
-                name: "Norrbotten",
+                country: "Norrbotten",
                 shortCode: "BD",
             },
             {
-                name: "Örebro",
+                country: "Örebro",
                 shortCode: "T",
             },
             {
-                name: "Östergötland",
+                country: "Östergötland",
                 shortCode: "E",
             },
             {
-                name: "Skåne",
+                country: "Skåne",
                 shortCode: "M",
             },
             {
-                name: "Södermanland",
+                country: "Södermanland",
                 shortCode: "D",
             },
             {
-                name: "Stockholm",
+                country: "Stockholm",
                 shortCode: "AB",
             },
             {
-                name: "Uppsala",
+                country: "Uppsala",
                 shortCode: "C",
             },
             {
-                name: "Värmland",
+                country: "Värmland",
                 shortCode: "S",
             },
             {
-                name: "Västerbotten",
+                country: "Västerbotten",
                 shortCode: "AC",
             },
             {
-                name: "Västernorrland",
+                country: "Västernorrland",
                 shortCode: "Y",
             },
             {
-                name: "Västmanland",
+                country: "Västmanland",
                 shortCode: "U",
             },
             {
-                name: "Västra Götaland",
+                country: "Västra Götaland",
                 shortCode: "O",
             },
         ],
@@ -16788,107 +16788,107 @@ const countyRegion = [
         countryShortCode: "CH",
         regions: [
             {
-                name: "Aargau",
+                country: "Aargau",
                 shortCode: "AG",
             },
             {
-                name: "Appenzell Ausserrhoden",
+                country: "Appenzell Ausserrhoden",
                 shortCode: "AR",
             },
             {
-                name: "Appenzell Innerhoden",
+                country: "Appenzell Innerhoden",
                 shortCode: "AI",
             },
             {
-                name: "Basel-Landschaft",
+                country: "Basel-Landschaft",
                 shortCode: "BL",
             },
             {
-                name: "Basel-Stadt",
+                country: "Basel-Stadt",
                 shortCode: "BS",
             },
             {
-                name: "Bern",
+                country: "Bern",
                 shortCode: "BE",
             },
             {
-                name: "Fribourg",
+                country: "Fribourg",
                 shortCode: "FR",
             },
             {
-                name: "Genève",
+                country: "Genève",
                 shortCode: "GE",
             },
             {
-                name: "Glarus",
+                country: "Glarus",
                 shortCode: "GL",
             },
             {
-                name: "Graubünden",
+                country: "Graubünden",
                 shortCode: "GR",
             },
             {
-                name: "Jura",
+                country: "Jura",
                 shortCode: "JU",
             },
             {
-                name: "Luzern",
+                country: "Luzern",
                 shortCode: "LU",
             },
             {
-                name: "Neuchâtel",
+                country: "Neuchâtel",
                 shortCode: "NE",
             },
             {
-                name: "Nidwalden",
+                country: "Nidwalden",
                 shortCode: "NW",
             },
             {
-                name: "Obwalden",
+                country: "Obwalden",
                 shortCode: "OW",
             },
             {
-                name: "Sankt Gallen",
+                country: "Sankt Gallen",
                 shortCode: "SG",
             },
             {
-                name: "Schaffhausen",
+                country: "Schaffhausen",
                 shortCode: "SH",
             },
             {
-                name: "Schwyz",
+                country: "Schwyz",
                 shortCode: "SZ",
             },
             {
-                name: "Solothurn",
+                country: "Solothurn",
                 shortCode: "SO",
             },
             {
-                name: "Thurgau",
+                country: "Thurgau",
                 shortCode: "TG",
             },
             {
-                name: "Ticino",
+                country: "Ticino",
                 shortCode: "TI",
             },
             {
-                name: "Uri",
+                country: "Uri",
                 shortCode: "UR",
             },
             {
-                name: "Valais",
+                country: "Valais",
                 shortCode: "VS",
             },
             {
-                name: "Vaud",
+                country: "Vaud",
                 shortCode: "VD",
             },
             {
-                name: "Zug",
+                country: "Zug",
                 shortCode: "ZG",
             },
             {
-                name: "Zürich",
+                country: "Zürich",
                 shortCode: "ZH",
             },
         ],
@@ -16898,59 +16898,59 @@ const countyRegion = [
         countryShortCode: "SY",
         regions: [
             {
-                name: "Al Hasakah",
+                country: "Al Hasakah",
                 shortCode: "HA",
             },
             {
-                name: "Al Ladhiqiyah",
+                country: "Al Ladhiqiyah",
                 shortCode: "LA",
             },
             {
-                name: "Al Qunaytirah",
+                country: "Al Qunaytirah",
                 shortCode: "QU",
             },
             {
-                name: "Ar Raqqah",
+                country: "Ar Raqqah",
                 shortCode: "RA",
             },
             {
-                name: "As Suwayda'",
+                country: "As Suwayda'",
                 shortCode: "SU",
             },
             {
-                name: "Dar'a",
+                country: "Dar'a",
                 shortCode: "DR",
             },
             {
-                name: "Dayr az Zawr",
+                country: "Dayr az Zawr",
                 shortCode: "DY",
             },
             {
-                name: "Dimashq",
+                country: "Dimashq",
                 shortCode: "DI",
             },
             {
-                name: "Halab",
+                country: "Halab",
                 shortCode: "HL",
             },
             {
-                name: "Hamah",
+                country: "Hamah",
                 shortCode: "HM",
             },
             {
-                name: "Hims",
+                country: "Hims",
                 shortCode: "HI",
             },
             {
-                name: "Idlib",
+                country: "Idlib",
                 shortCode: "ID",
             },
             {
-                name: "Rif Dimashq",
+                country: "Rif Dimashq",
                 shortCode: "RD",
             },
             {
-                name: "Tartus",
+                country: "Tartus",
                 shortCode: "TA",
             },
         ],
@@ -16960,83 +16960,83 @@ const countyRegion = [
         countryShortCode: "TW",
         regions: [
             {
-                name: "Changhua",
+                country: "Changhua",
                 shortCode: "CHA",
             },
             {
-                name: "Chiayi",
+                country: "Chiayi",
                 shortCode: "CYQ",
             },
             {
-                name: "Hsinchu",
+                country: "Hsinchu",
                 shortCode: "HSQ",
             },
             {
-                name: "Hualien",
+                country: "Hualien",
                 shortCode: "HUA",
             },
             {
-                name: "Kaohsiung",
+                country: "Kaohsiung",
                 shortCode: "KHH",
             },
             {
-                name: "Keelung",
+                country: "Keelung",
                 shortCode: "KEE",
             },
             {
-                name: "Kinmen",
+                country: "Kinmen",
                 shortCode: "KIN",
             },
             {
-                name: "Lienchiang",
+                country: "Lienchiang",
                 shortCode: "LIE",
             },
             {
-                name: "Miaoli",
+                country: "Miaoli",
                 shortCode: "MIA",
             },
             {
-                name: "Nantou",
+                country: "Nantou",
                 shortCode: "NAN",
             },
             {
-                name: "Penghu",
+                country: "Penghu",
                 shortCode: "PEN",
             },
             {
-                name: "New Taipei",
+                country: "New Taipei",
                 shortCode: "NWT",
             },
             {
-                name: "Pingtung",
+                country: "Pingtung",
                 shortCode: "PIF",
             },
             {
-                name: "Taichung",
+                country: "Taichung",
                 shortCode: "TXG",
             },
             {
-                name: "Tainan",
+                country: "Tainan",
                 shortCode: "TNN",
             },
             {
-                name: "Taipei",
+                country: "Taipei",
                 shortCode: "TPE",
             },
             {
-                name: "Taitung",
+                country: "Taitung",
                 shortCode: "TTT",
             },
             {
-                name: "Taoyuan",
+                country: "Taoyuan",
                 shortCode: "TAO",
             },
             {
-                name: "Yilan",
+                country: "Yilan",
                 shortCode: "ILA",
             },
             {
-                name: "Yunlin",
+                country: "Yunlin",
                 shortCode: "YUN",
             },
         ],
@@ -17046,19 +17046,19 @@ const countyRegion = [
         countryShortCode: "TJ",
         regions: [
             {
-                name: "Dushanbe",
+                country: "Dushanbe",
                 shortCode: "DU",
             },
             {
-                name: "Kŭhistoni Badakhshon",
+                country: "Kŭhistoni Badakhshon",
                 shortCode: "GB",
             },
             {
-                name: "Khatlon",
+                country: "Khatlon",
                 shortCode: "KT",
             },
             {
-                name: "Sughd",
+                country: "Sughd",
                 shortCode: "SU",
             },
         ],
@@ -17068,107 +17068,107 @@ const countyRegion = [
         countryShortCode: "TZ",
         regions: [
             {
-                name: "Arusha",
+                country: "Arusha",
                 shortCode: "01",
             },
             {
-                name: "Coast",
+                country: "Coast",
                 shortCode: "19",
             },
             {
-                name: "Dar es Salaam",
+                country: "Dar es Salaam",
                 shortCode: "02",
             },
             {
-                name: "Dodoma",
+                country: "Dodoma",
                 shortCode: "03",
             },
             {
-                name: "Iringa",
+                country: "Iringa",
                 shortCode: "04",
             },
             {
-                name: "Kagera",
+                country: "Kagera",
                 shortCode: "05",
             },
             {
-                name: "Kigoma",
+                country: "Kigoma",
                 shortCode: "08",
             },
             {
-                name: "Kilimanjaro",
+                country: "Kilimanjaro",
                 shortCode: "09",
             },
             {
-                name: "Lindi",
+                country: "Lindi",
                 shortCode: "12",
             },
             {
-                name: "Manyara",
+                country: "Manyara",
                 shortCode: "26",
             },
             {
-                name: "Mara",
+                country: "Mara",
                 shortCode: "13",
             },
             {
-                name: "Mbeya",
+                country: "Mbeya",
                 shortCode: "14",
             },
             {
-                name: "Morogoro",
+                country: "Morogoro",
                 shortCode: "16",
             },
             {
-                name: "Mtwara",
+                country: "Mtwara",
                 shortCode: "17",
             },
             {
-                name: "Mwanza",
+                country: "Mwanza",
                 shortCode: "18",
             },
             {
-                name: "Pemba North",
+                country: "Pemba North",
                 shortCode: "06",
             },
             {
-                name: "Pemba South",
+                country: "Pemba South",
                 shortCode: "10",
             },
             {
-                name: "Rukwa",
+                country: "Rukwa",
                 shortCode: "20",
             },
             {
-                name: "Ruvuma",
+                country: "Ruvuma",
                 shortCode: "21",
             },
             {
-                name: "Shinyanga",
+                country: "Shinyanga",
                 shortCode: "22",
             },
             {
-                name: "Singida",
+                country: "Singida",
                 shortCode: "23",
             },
             {
-                name: "Tabora",
+                country: "Tabora",
                 shortCode: "24",
             },
             {
-                name: "Tanga",
+                country: "Tanga",
                 shortCode: "25",
             },
             {
-                name: "Zanzibar North",
+                country: "Zanzibar North",
                 shortCode: "07",
             },
             {
-                name: "Zanzibar Central/South",
+                country: "Zanzibar Central/South",
                 shortCode: "11",
             },
             {
-                name: "Zanzibar Urban/West",
+                country: "Zanzibar Urban/West",
                 shortCode: "15",
             },
         ],
@@ -17178,311 +17178,311 @@ const countyRegion = [
         countryShortCode: "TH",
         regions: [
             {
-                name: "Amnat Charoen",
+                country: "Amnat Charoen",
                 shortCode: "37",
             },
             {
-                name: "Ang Thong",
+                country: "Ang Thong",
                 shortCode: "15",
             },
             {
-                name: "Bueng Kan",
+                country: "Bueng Kan",
                 shortCode: "38",
             },
             {
-                name: "Buri Ram",
+                country: "Buri Ram",
                 shortCode: "31",
             },
             {
-                name: "Chachoengsao",
+                country: "Chachoengsao",
                 shortCode: "24",
             },
             {
-                name: "Chai Nat",
+                country: "Chai Nat",
                 shortCode: "18",
             },
             {
-                name: "Chaiyaphum",
+                country: "Chaiyaphum",
                 shortCode: "36",
             },
             {
-                name: "Chanthaburi",
+                country: "Chanthaburi",
                 shortCode: "22",
             },
             {
-                name: "Chiang Mai",
+                country: "Chiang Mai",
                 shortCode: "50",
             },
             {
-                name: "Chiang Rai",
+                country: "Chiang Rai",
                 shortCode: "57",
             },
             {
-                name: "Chon Buri",
+                country: "Chon Buri",
                 shortCode: "20",
             },
             {
-                name: "Chumphon",
+                country: "Chumphon",
                 shortCode: "86",
             },
             {
-                name: "Kalasin",
+                country: "Kalasin",
                 shortCode: "46",
             },
             {
-                name: "Kamphaeng Phet",
+                country: "Kamphaeng Phet",
                 shortCode: "62",
             },
             {
-                name: "Kanchanaburi",
+                country: "Kanchanaburi",
                 shortCode: "71",
             },
             {
-                name: "Khon Kaen",
+                country: "Khon Kaen",
                 shortCode: "40",
             },
             {
-                name: "Krabi",
+                country: "Krabi",
                 shortCode: "81",
             },
             {
-                name: "Krung Thep Mahanakhon (Bangkok)",
+                country: "Krung Thep Mahanakhon (Bangkok)",
                 shortCode: "10",
             },
             {
-                name: "Lampang",
+                country: "Lampang",
                 shortCode: "52",
             },
             {
-                name: "Lamphun",
+                country: "Lamphun",
                 shortCode: "51",
             },
             {
-                name: "Loei",
+                country: "Loei",
                 shortCode: "42",
             },
             {
-                name: "Lop Buri",
+                country: "Lop Buri",
                 shortCode: "16",
             },
             {
-                name: "Mae Hong Son",
+                country: "Mae Hong Son",
                 shortCode: "58",
             },
             {
-                name: "Maha Sarakham",
+                country: "Maha Sarakham",
                 shortCode: "44",
             },
             {
-                name: "Mukdahan",
+                country: "Mukdahan",
                 shortCode: "49",
             },
             {
-                name: "Nakhon Nayok",
+                country: "Nakhon Nayok",
                 shortCode: "26",
             },
             {
-                name: "Nakhon Phathom",
+                country: "Nakhon Phathom",
                 shortCode: "73",
             },
             {
-                name: "Nakhon Phanom",
+                country: "Nakhon Phanom",
                 shortCode: "48",
             },
             {
-                name: "Nakhon Ratchasima",
+                country: "Nakhon Ratchasima",
                 shortCode: "30",
             },
             {
-                name: "Nakhon Sawan",
+                country: "Nakhon Sawan",
                 shortCode: "60",
             },
             {
-                name: "Nakhon Si Thammarat",
+                country: "Nakhon Si Thammarat",
                 shortCode: "80",
             },
             {
-                name: "Nan",
+                country: "Nan",
                 shortCode: "55",
             },
             {
-                name: "Narathiwat",
+                country: "Narathiwat",
                 shortCode: "96",
             },
             {
-                name: "Nong Bua Lam Phu",
+                country: "Nong Bua Lam Phu",
                 shortCode: "39",
             },
             {
-                name: "Nong Khai",
+                country: "Nong Khai",
                 shortCode: "43",
             },
             {
-                name: "Nonthaburi",
+                country: "Nonthaburi",
                 shortCode: "12",
             },
             {
-                name: "Pathum Thani",
+                country: "Pathum Thani",
                 shortCode: "13",
             },
             {
-                name: "Pattani",
+                country: "Pattani",
                 shortCode: "94",
             },
             {
-                name: "Phangnga",
+                country: "Phangnga",
                 shortCode: "82",
             },
             {
-                name: "Phatthalung",
+                country: "Phatthalung",
                 shortCode: "93",
             },
             {
-                name: "Phayao",
+                country: "Phayao",
                 shortCode: "56",
             },
             {
-                name: "Phetchabun",
+                country: "Phetchabun",
                 shortCode: "67",
             },
             {
-                name: "Phetchaburi",
+                country: "Phetchaburi",
                 shortCode: "76",
             },
             {
-                name: "Phichit",
+                country: "Phichit",
                 shortCode: "66",
             },
             {
-                name: "Phitsanulok",
+                country: "Phitsanulok",
                 shortCode: "65",
             },
             {
-                name: "Phra Nakhon Si Ayutthaya",
+                country: "Phra Nakhon Si Ayutthaya",
                 shortCode: "14",
             },
             {
-                name: "Phrae",
+                country: "Phrae",
                 shortCode: "54",
             },
             {
-                name: "Phuket",
+                country: "Phuket",
                 shortCode: "83",
             },
             {
-                name: "Prachin Buri",
+                country: "Prachin Buri",
                 shortCode: "25",
             },
             {
-                name: "Prachuap Khiri Khan",
+                country: "Prachuap Khiri Khan",
                 shortCode: "77",
             },
             {
-                name: "Ranong",
+                country: "Ranong",
                 shortCode: "85",
             },
             {
-                name: "Ratchaburi",
+                country: "Ratchaburi",
                 shortCode: "70",
             },
             {
-                name: "Rayong",
+                country: "Rayong",
                 shortCode: "21",
             },
             {
-                name: "Roi Et",
+                country: "Roi Et",
                 shortCode: "45",
             },
             {
-                name: "Sa Kaeo",
+                country: "Sa Kaeo",
                 shortCode: "27",
             },
             {
-                name: "Sakon Nakhon",
+                country: "Sakon Nakhon",
                 shortCode: "47",
             },
             {
-                name: "Samut Prakan",
+                country: "Samut Prakan",
                 shortCode: "11",
             },
             {
-                name: "Samut Sakhon",
+                country: "Samut Sakhon",
                 shortCode: "74",
             },
             {
-                name: "Samut Songkhram",
+                country: "Samut Songkhram",
                 shortCode: "75",
             },
             {
-                name: "Saraburi",
+                country: "Saraburi",
                 shortCode: "19",
             },
             {
-                name: "Satun",
+                country: "Satun",
                 shortCode: "91",
             },
             {
-                name: "Sing Buri",
+                country: "Sing Buri",
                 shortCode: "17",
             },
             {
-                name: "Si Sa ket",
+                country: "Si Sa ket",
                 shortCode: "33",
             },
             {
-                name: "Songkhla",
+                country: "Songkhla",
                 shortCode: "90",
             },
             {
-                name: "Sukhothai",
+                country: "Sukhothai",
                 shortCode: "64",
             },
             {
-                name: "Suphan Buri",
+                country: "Suphan Buri",
                 shortCode: "72",
             },
             {
-                name: "Surat Thani",
+                country: "Surat Thani",
                 shortCode: "84",
             },
             {
-                name: "Surin",
+                country: "Surin",
                 shortCode: "32",
             },
             {
-                name: "Tak",
+                country: "Tak",
                 shortCode: "63",
             },
             {
-                name: "Trang",
+                country: "Trang",
                 shortCode: "92",
             },
             {
-                name: "Trat",
+                country: "Trat",
                 shortCode: "23",
             },
             {
-                name: "Ubon Ratchathani",
+                country: "Ubon Ratchathani",
                 shortCode: "34",
             },
             {
-                name: "Udon Thani",
+                country: "Udon Thani",
                 shortCode: "41",
             },
             {
-                name: "Uthai Thani",
+                country: "Uthai Thani",
                 shortCode: "61",
             },
             {
-                name: "Uttaradit",
+                country: "Uttaradit",
                 shortCode: "53",
             },
             {
-                name: "Yala",
+                country: "Yala",
                 shortCode: "95",
             },
             {
-                name: "Yasothon",
+                country: "Yasothon",
                 shortCode: "35",
             },
         ],
@@ -17492,55 +17492,55 @@ const countyRegion = [
         countryShortCode: "TL",
         regions: [
             {
-                name: "Aileu",
+                country: "Aileu",
                 shortCode: "AL",
             },
             {
-                name: "Ainaro",
+                country: "Ainaro",
                 shortCode: "AN",
             },
             {
-                name: "Baucau",
+                country: "Baucau",
                 shortCode: "BA",
             },
             {
-                name: "Bobonaro",
+                country: "Bobonaro",
                 shortCode: "BO",
             },
             {
-                name: "Cova Lima",
+                country: "Cova Lima",
                 shortCode: "CO",
             },
             {
-                name: "Dili",
+                country: "Dili",
                 shortCode: "DI",
             },
             {
-                name: "Ermera",
+                country: "Ermera",
                 shortCode: "ER",
             },
             {
-                name: "Lautem",
+                country: "Lautem",
                 shortCode: "LA",
             },
             {
-                name: "Liquica",
+                country: "Liquica",
                 shortCode: "LI",
             },
             {
-                name: "Manatuto",
+                country: "Manatuto",
                 shortCode: "MT",
             },
             {
-                name: "Manufahi",
+                country: "Manufahi",
                 shortCode: "MF",
             },
             {
-                name: "Oecussi",
+                country: "Oecussi",
                 shortCode: "OE",
             },
             {
-                name: "Viqueque",
+                country: "Viqueque",
                 shortCode: "VI",
             },
         ],
@@ -17550,23 +17550,23 @@ const countyRegion = [
         countryShortCode: "TG",
         regions: [
             {
-                name: "Centre",
+                country: "Centre",
                 shortCode: "C",
             },
             {
-                name: "Kara",
+                country: "Kara",
                 shortCode: "K",
             },
             {
-                name: "Maritime",
+                country: "Maritime",
                 shortCode: "M",
             },
             {
-                name: "Plateaux",
+                country: "Plateaux",
                 shortCode: "P",
             },
             {
-                name: "Savannes",
+                country: "Savannes",
                 shortCode: "S",
             },
         ],
@@ -17576,13 +17576,13 @@ const countyRegion = [
         countryShortCode: "TK",
         regions: [
             {
-                name: "Atafu",
+                country: "Atafu",
             },
             {
-                name: "Fakaofo",
+                country: "Fakaofo",
             },
             {
-                name: "Nukunonu",
+                country: "Nukunonu",
             },
         ],
     },
@@ -17591,23 +17591,23 @@ const countyRegion = [
         countryShortCode: "TO",
         regions: [
             {
-                name: "'Eua",
+                country: "'Eua",
                 shortCode: "01",
             },
             {
-                name: "Ha'apai",
+                country: "Ha'apai",
                 shortCode: "02",
             },
             {
-                name: "Niuas",
+                country: "Niuas",
                 shortCode: "03",
             },
             {
-                name: "Tongatapu",
+                country: "Tongatapu",
                 shortCode: "04",
             },
             {
-                name: "Vava'u",
+                country: "Vava'u",
                 shortCode: "05",
             },
         ],
@@ -17617,63 +17617,63 @@ const countyRegion = [
         countryShortCode: "TT",
         regions: [
             {
-                name: "Arima",
+                country: "Arima",
                 shortCode: "ARI",
             },
             {
-                name: "Chaguanas",
+                country: "Chaguanas",
                 shortCode: "CHA",
             },
             {
-                name: "Couva-Tabaquite-Talparo",
+                country: "Couva-Tabaquite-Talparo",
                 shortCode: "CTT",
             },
             {
-                name: "Diefo Martin",
+                country: "Diefo Martin",
                 shortCode: "DMN",
             },
             {
-                name: "Mayaro-Rio Claro",
+                country: "Mayaro-Rio Claro",
                 shortCode: "MRC",
             },
             {
-                name: "Penal-Debe",
+                country: "Penal-Debe",
                 shortCode: "PED",
             },
             {
-                name: "Point Fortin",
+                country: "Point Fortin",
                 shortCode: "PTF",
             },
             {
-                name: "Port-of-Spain",
+                country: "Port-of-Spain",
                 shortCode: "POS",
             },
             {
-                name: "Princes Town",
+                country: "Princes Town",
                 shortCode: "PRT",
             },
             {
-                name: "San Fernando",
+                country: "San Fernando",
                 shortCode: "SFO",
             },
             {
-                name: "San Juan-Laventille",
+                country: "San Juan-Laventille",
                 shortCode: "SJL",
             },
             {
-                name: "Sangre Grande",
+                country: "Sangre Grande",
                 shortCode: "SGE",
             },
             {
-                name: "Siparia",
+                country: "Siparia",
                 shortCode: "SIP",
             },
             {
-                name: "Tobago",
+                country: "Tobago",
                 shortCode: "TOB",
             },
             {
-                name: "Tunapuna-Piarco",
+                country: "Tunapuna-Piarco",
                 shortCode: "TUP",
             },
         ],
@@ -17683,95 +17683,95 @@ const countyRegion = [
         countryShortCode: "TN",
         regions: [
             {
-                name: "Ariana",
+                country: "Ariana",
                 shortCode: "12",
             },
             {
-                name: "Beja",
+                country: "Beja",
                 shortCode: "31",
             },
             {
-                name: "Ben Arous",
+                country: "Ben Arous",
                 shortCode: "13",
             },
             {
-                name: "Bizerte",
+                country: "Bizerte",
                 shortCode: "23",
             },
             {
-                name: "Gabes",
+                country: "Gabes",
                 shortCode: "81",
             },
             {
-                name: "Gafsa",
+                country: "Gafsa",
                 shortCode: "71",
             },
             {
-                name: "Jendouba",
+                country: "Jendouba",
                 shortCode: "32",
             },
             {
-                name: "Kairouan",
+                country: "Kairouan",
                 shortCode: "41",
             },
             {
-                name: "Kasserine",
+                country: "Kasserine",
                 shortCode: "42",
             },
             {
-                name: "Kebili",
+                country: "Kebili",
                 shortCode: "73",
             },
             {
-                name: "Kef",
+                country: "Kef",
                 shortCode: "33",
             },
             {
-                name: "Mahdia",
+                country: "Mahdia",
                 shortCode: "53",
             },
             {
-                name: "Medenine",
+                country: "Medenine",
                 shortCode: "82",
             },
             {
-                name: "Monastir",
+                country: "Monastir",
                 shortCode: "52",
             },
             {
-                name: "Nabeul",
+                country: "Nabeul",
                 shortCode: "21",
             },
             {
-                name: "Sfax",
+                country: "Sfax",
                 shortCode: "61",
             },
             {
-                name: "Sidi Bouzid",
+                country: "Sidi Bouzid",
                 shortCode: "43",
             },
             {
-                name: "Siliana",
+                country: "Siliana",
                 shortCode: "34",
             },
             {
-                name: "Sousse",
+                country: "Sousse",
                 shortCode: "51",
             },
             {
-                name: "Tataouine",
+                country: "Tataouine",
                 shortCode: "83",
             },
             {
-                name: "Tozeur",
+                country: "Tozeur",
                 shortCode: "72",
             },
             {
-                name: "Tunis",
+                country: "Tunis",
                 shortCode: "11",
             },
             {
-                name: "Zaghouan",
+                country: "Zaghouan",
                 shortCode: "22",
             },
         ],
@@ -17781,327 +17781,327 @@ const countyRegion = [
         countryShortCode: "TR",
         regions: [
             {
-                name: "Adana",
+                country: "Adana",
                 shortCode: "01",
             },
             {
-                name: "Adiyaman",
+                country: "Adiyaman",
                 shortCode: "02",
             },
             {
-                name: "Afyonkarahisar",
+                country: "Afyonkarahisar",
                 shortCode: "03",
             },
             {
-                name: "Agri",
+                country: "Agri",
                 shortCode: "04",
             },
             {
-                name: "Aksaray",
+                country: "Aksaray",
                 shortCode: "68",
             },
             {
-                name: "Amasya",
+                country: "Amasya",
                 shortCode: "05",
             },
             {
-                name: "Ankara",
+                country: "Ankara",
                 shortCode: "06",
             },
             {
-                name: "Antalya",
+                country: "Antalya",
                 shortCode: "07",
             },
             {
-                name: "Ardahan",
+                country: "Ardahan",
                 shortCode: "75",
             },
             {
-                name: "Artvin",
+                country: "Artvin",
                 shortCode: "08",
             },
             {
-                name: "Aydin",
+                country: "Aydin",
                 shortCode: "09",
             },
             {
-                name: "Balikesir",
+                country: "Balikesir",
                 shortCode: "10",
             },
             {
-                name: "Bartin",
+                country: "Bartin",
                 shortCode: "74",
             },
             {
-                name: "Batman",
+                country: "Batman",
                 shortCode: "72",
             },
             {
-                name: "Bayburt",
+                country: "Bayburt",
                 shortCode: "69",
             },
             {
-                name: "Bilecik",
+                country: "Bilecik",
                 shortCode: "11",
             },
             {
-                name: "Bingol",
+                country: "Bingol",
                 shortCode: "12",
             },
             {
-                name: "Bitlis",
+                country: "Bitlis",
                 shortCode: "13",
             },
             {
-                name: "Bolu",
+                country: "Bolu",
                 shortCode: "14",
             },
             {
-                name: "Burdur",
+                country: "Burdur",
                 shortCode: "15",
             },
             {
-                name: "Bursa",
+                country: "Bursa",
                 shortCode: "16",
             },
             {
-                name: "Canakkale",
+                country: "Canakkale",
                 shortCode: "17",
             },
             {
-                name: "Cankiri",
+                country: "Cankiri",
                 shortCode: "18",
             },
             {
-                name: "Corum",
+                country: "Corum",
                 shortCode: "19",
             },
             {
-                name: "Denizli",
+                country: "Denizli",
                 shortCode: "20",
             },
             {
-                name: "Diyarbakir",
+                country: "Diyarbakir",
                 shortCode: "21",
             },
             {
-                name: "Duzce",
+                country: "Duzce",
                 shortCode: "81",
             },
             {
-                name: "Edirne",
+                country: "Edirne",
                 shortCode: "22",
             },
             {
-                name: "Elazig",
+                country: "Elazig",
                 shortCode: "23",
             },
             {
-                name: "Erzincan",
+                country: "Erzincan",
                 shortCode: "24",
             },
             {
-                name: "Erzurum",
+                country: "Erzurum",
                 shortCode: "25",
             },
             {
-                name: "Eskisehir",
+                country: "Eskisehir",
                 shortCode: "26",
             },
             {
-                name: "Gaziantep",
+                country: "Gaziantep",
                 shortCode: "27",
             },
             {
-                name: "Giresun",
+                country: "Giresun",
                 shortCode: "28",
             },
             {
-                name: "Gumushane",
+                country: "Gumushane",
                 shortCode: "29",
             },
             {
-                name: "Hakkari",
+                country: "Hakkari",
                 shortCode: "30",
             },
             {
-                name: "Hatay",
+                country: "Hatay",
                 shortCode: "31",
             },
             {
-                name: "Igdir",
+                country: "Igdir",
                 shortCode: "76",
             },
             {
-                name: "Isparta",
+                country: "Isparta",
                 shortCode: "32",
             },
             {
-                name: "Istanbul",
+                country: "Istanbul",
                 shortCode: "34",
             },
             {
-                name: "Izmir",
+                country: "Izmir",
                 shortCode: "35",
             },
             {
-                name: "Kahramanmaras",
+                country: "Kahramanmaras",
                 shortCode: "46",
             },
             {
-                name: "Karabuk",
+                country: "Karabuk",
                 shortCode: "78",
             },
             {
-                name: "Karaman",
+                country: "Karaman",
                 shortCode: "70",
             },
             {
-                name: "Kars",
+                country: "Kars",
                 shortCode: "36",
             },
             {
-                name: "Kastamonu",
+                country: "Kastamonu",
                 shortCode: "37",
             },
             {
-                name: "Kayseri",
+                country: "Kayseri",
                 shortCode: "38",
             },
             {
-                name: "Kilis",
+                country: "Kilis",
                 shortCode: "79",
             },
             {
-                name: "Kirikkale",
+                country: "Kirikkale",
                 shortCode: "71",
             },
             {
-                name: "Kirklareli",
+                country: "Kirklareli",
                 shortCode: "39",
             },
             {
-                name: "Kirsehir",
+                country: "Kirsehir",
                 shortCode: "40",
             },
             {
-                name: "Kocaeli",
+                country: "Kocaeli",
                 shortCode: "41",
             },
             {
-                name: "Konya",
+                country: "Konya",
                 shortCode: "42",
             },
             {
-                name: "Kutahya",
+                country: "Kutahya",
                 shortCode: "43",
             },
             {
-                name: "Malatya",
+                country: "Malatya",
                 shortCode: "44",
             },
             {
-                name: "Manisa",
+                country: "Manisa",
                 shortCode: "45",
             },
             {
-                name: "Mardin",
+                country: "Mardin",
                 shortCode: "47",
             },
             {
-                name: "Mersin",
+                country: "Mersin",
                 shortCode: "33",
             },
             {
-                name: "Mugla",
+                country: "Mugla",
                 shortCode: "48",
             },
             {
-                name: "Mus",
+                country: "Mus",
                 shortCode: "49",
             },
             {
-                name: "Nevsehir",
+                country: "Nevsehir",
                 shortCode: "50",
             },
             {
-                name: "Nigde",
+                country: "Nigde",
                 shortCode: "51",
             },
             {
-                name: "Ordu",
+                country: "Ordu",
                 shortCode: "52",
             },
             {
-                name: "Osmaniye",
+                country: "Osmaniye",
                 shortCode: "80",
             },
             {
-                name: "Rize",
+                country: "Rize",
                 shortCode: "53",
             },
             {
-                name: "Sakarya",
+                country: "Sakarya",
                 shortCode: "54",
             },
             {
-                name: "Samsun",
+                country: "Samsun",
                 shortCode: "55",
             },
             {
-                name: "Sanliurfa",
+                country: "Sanliurfa",
                 shortCode: "63",
             },
             {
-                name: "Siirt",
+                country: "Siirt",
                 shortCode: "56",
             },
             {
-                name: "Sinop",
+                country: "Sinop",
                 shortCode: "57",
             },
             {
-                name: "Sirnak",
+                country: "Sirnak",
                 shortCode: "73",
             },
             {
-                name: "Sivas",
+                country: "Sivas",
                 shortCode: "58",
             },
             {
-                name: "Tekirdag",
+                country: "Tekirdag",
                 shortCode: "59",
             },
             {
-                name: "Tokat",
+                country: "Tokat",
                 shortCode: "60",
             },
             {
-                name: "Trabzon",
+                country: "Trabzon",
                 shortCode: "61",
             },
             {
-                name: "Tunceli",
+                country: "Tunceli",
                 shortCode: "62",
             },
             {
-                name: "Usak",
+                country: "Usak",
                 shortCode: "64",
             },
             {
-                name: "Van",
+                country: "Van",
                 shortCode: "65",
             },
             {
-                name: "Yalova",
+                country: "Yalova",
                 shortCode: "77",
             },
             {
-                name: "Yozgat",
+                country: "Yozgat",
                 shortCode: "66",
             },
             {
-                name: "Zonguldak",
+                country: "Zonguldak",
                 shortCode: "67",
             },
         ],
@@ -18111,27 +18111,27 @@ const countyRegion = [
         countryShortCode: "TM",
         regions: [
             {
-                name: "Ahal",
+                country: "Ahal",
                 shortCode: "A",
             },
             {
-                name: "Asgabat",
+                country: "Asgabat",
                 shortCode: "S",
             },
             {
-                name: "Balkan",
+                country: "Balkan",
                 shortCode: "B",
             },
             {
-                name: "Dashoguz",
+                country: "Dashoguz",
                 shortCode: "D",
             },
             {
-                name: "Lebap",
+                country: "Lebap",
                 shortCode: "L",
             },
             {
-                name: "Mary",
+                country: "Mary",
                 shortCode: "M",
             },
         ],
@@ -18141,7 +18141,7 @@ const countyRegion = [
         countryShortCode: "TC",
         regions: [
             {
-                name: "Turks and Caicos Islands",
+                country: "Turks and Caicos Islands",
             },
         ],
     },
@@ -18150,35 +18150,35 @@ const countyRegion = [
         countryShortCode: "TV",
         regions: [
             {
-                name: "Funafuti",
+                country: "Funafuti",
                 shortCode: "FUN",
             },
             {
-                name: "Nanumanga",
+                country: "Nanumanga",
                 shortCode: "NMG",
             },
             {
-                name: "Nanumea",
+                country: "Nanumea",
                 shortCode: "NMA",
             },
             {
-                name: "Niutao",
+                country: "Niutao",
                 shortCode: "NIT",
             },
             {
-                name: "Nui",
+                country: "Nui",
                 shortCode: "NUI",
             },
             {
-                name: "Nukufetau",
+                country: "Nukufetau",
                 shortCode: "NKF",
             },
             {
-                name: "Nukulaelae",
+                country: "Nukulaelae",
                 shortCode: "NKL",
             },
             {
-                name: "Vaitupu",
+                country: "Vaitupu",
                 shortCode: "VAU",
             },
         ],
@@ -18188,323 +18188,323 @@ const countyRegion = [
         countryShortCode: "UG",
         regions: [
             {
-                name: "Abim",
+                country: "Abim",
                 shortCode: "317",
             },
             {
-                name: "Adjumani",
+                country: "Adjumani",
                 shortCode: "301",
             },
             {
-                name: "Amolatar",
+                country: "Amolatar",
                 shortCode: "314",
             },
             {
-                name: "Amuria",
+                country: "Amuria",
                 shortCode: "216",
             },
             {
-                name: "Amuru",
+                country: "Amuru",
                 shortCode: "319",
             },
             {
-                name: "Apac",
+                country: "Apac",
                 shortCode: "302",
             },
             {
-                name: "Arua",
+                country: "Arua",
                 shortCode: "303",
             },
             {
-                name: "Budaka",
+                country: "Budaka",
                 shortCode: "217",
             },
             {
-                name: "Bududa",
+                country: "Bududa",
                 shortCode: "223",
             },
             {
-                name: "Bugiri",
+                country: "Bugiri",
                 shortCode: "201",
             },
             {
-                name: "Bukedea",
+                country: "Bukedea",
                 shortCode: "224",
             },
             {
-                name: "Bukwa",
+                country: "Bukwa",
                 shortCode: "218",
             },
             {
-                name: "Buliisa",
+                country: "Buliisa",
                 shortCode: "419",
             },
             {
-                name: "Bundibugyo",
+                country: "Bundibugyo",
                 shortCode: "401",
             },
             {
-                name: "Bushenyi",
+                country: "Bushenyi",
                 shortCode: "402",
             },
             {
-                name: "Busia",
+                country: "Busia",
                 shortCode: "202",
             },
             {
-                name: "Butaleja",
+                country: "Butaleja",
                 shortCode: "219",
             },
             {
-                name: "Dokolo",
+                country: "Dokolo",
                 shortCode: "318",
             },
             {
-                name: "Gulu",
+                country: "Gulu",
                 shortCode: "304",
             },
             {
-                name: "Hoima",
+                country: "Hoima",
                 shortCode: "403",
             },
             {
-                name: "Ibanda",
+                country: "Ibanda",
                 shortCode: "416",
             },
             {
-                name: "Iganga",
+                country: "Iganga",
                 shortCode: "203",
             },
             {
-                name: "Isingiro",
+                country: "Isingiro",
                 shortCode: "417",
             },
             {
-                name: "Jinja",
+                country: "Jinja",
                 shortCode: "204",
             },
             {
-                name: "Kaabong",
+                country: "Kaabong",
                 shortCode: "315",
             },
             {
-                name: "Kabale",
+                country: "Kabale",
                 shortCode: "404",
             },
             {
-                name: "Kabarole",
+                country: "Kabarole",
                 shortCode: "405",
             },
             {
-                name: "Kaberamaido",
+                country: "Kaberamaido",
                 shortCode: "213",
             },
             {
-                name: "Kalangala",
+                country: "Kalangala",
                 shortCode: "101",
             },
             {
-                name: "Kaliro",
+                country: "Kaliro",
                 shortCode: "220",
             },
             {
-                name: "Kampala",
+                country: "Kampala",
                 shortCode: "102",
             },
             {
-                name: "Kamuli",
+                country: "Kamuli",
                 shortCode: "205",
             },
             {
-                name: "Kamwenge",
+                country: "Kamwenge",
                 shortCode: "413",
             },
             {
-                name: "Kanungu",
+                country: "Kanungu",
                 shortCode: "414",
             },
             {
-                name: "Kapchorwa",
+                country: "Kapchorwa",
                 shortCode: "206",
             },
             {
-                name: "Kasese",
+                country: "Kasese",
                 shortCode: "406",
             },
             {
-                name: "Katakwi",
+                country: "Katakwi",
                 shortCode: "207",
             },
             {
-                name: "Kayunga",
+                country: "Kayunga",
                 shortCode: "112",
             },
             {
-                name: "Kibaale",
+                country: "Kibaale",
                 shortCode: "407",
             },
             {
-                name: "Kiboga",
+                country: "Kiboga",
                 shortCode: "103",
             },
             {
-                name: "Kiruhura",
+                country: "Kiruhura",
                 shortCode: "418",
             },
             {
-                name: "Kisoro",
+                country: "Kisoro",
                 shortCode: "408",
             },
             {
-                name: "Kitgum",
+                country: "Kitgum",
                 shortCode: "305",
             },
             {
-                name: "Koboko",
+                country: "Koboko",
                 shortCode: "316",
             },
             {
-                name: "Kotido",
+                country: "Kotido",
                 shortCode: "306",
             },
             {
-                name: "Kumi",
+                country: "Kumi",
                 shortCode: "208",
             },
             {
-                name: "Kyenjojo",
+                country: "Kyenjojo",
                 shortCode: "415",
             },
             {
-                name: "Lira",
+                country: "Lira",
                 shortCode: "307",
             },
             {
-                name: "Luwero",
+                country: "Luwero",
                 shortCode: "104",
             },
             {
-                name: "Lyantonde",
+                country: "Lyantonde",
                 shortCode: "116",
             },
             {
-                name: "Manafwa",
+                country: "Manafwa",
                 shortCode: "221",
             },
             {
-                name: "Maracha",
+                country: "Maracha",
                 shortCode: "320",
             },
             {
-                name: "Masaka",
+                country: "Masaka",
                 shortCode: "105",
             },
             {
-                name: "Masindi",
+                country: "Masindi",
                 shortCode: "409",
             },
             {
-                name: "Mayuge",
+                country: "Mayuge",
                 shortCode: "214",
             },
             {
-                name: "Mbale",
+                country: "Mbale",
                 shortCode: "209",
             },
             {
-                name: "Mbarara",
+                country: "Mbarara",
                 shortCode: "410",
             },
             {
-                name: "Mityana",
+                country: "Mityana",
                 shortCode: "114",
             },
             {
-                name: "Moroto",
+                country: "Moroto",
                 shortCode: "308",
             },
             {
-                name: "Moyo",
+                country: "Moyo",
                 shortCode: "309",
             },
             {
-                name: "Mpigi",
+                country: "Mpigi",
                 shortCode: "106",
             },
             {
-                name: "Mubende",
+                country: "Mubende",
                 shortCode: "107",
             },
             {
-                name: "Mukono",
+                country: "Mukono",
                 shortCode: "108",
             },
             {
-                name: "Nakapiripirit",
+                country: "Nakapiripirit",
                 shortCode: "311",
             },
             {
-                name: "Nakaseke",
+                country: "Nakaseke",
                 shortCode: "115",
             },
             {
-                name: "Nakasongola",
+                country: "Nakasongola",
                 shortCode: "109",
             },
             {
-                name: "Namutumba",
+                country: "Namutumba",
                 shortCode: "222",
             },
             {
-                name: "Nebbi",
+                country: "Nebbi",
                 shortCode: "310",
             },
             {
-                name: "Ntungamo",
+                country: "Ntungamo",
                 shortCode: "411",
             },
             {
-                name: "Oyam",
+                country: "Oyam",
                 shortCode: "321",
             },
             {
-                name: "Pader",
+                country: "Pader",
                 shortCode: "312",
             },
             {
-                name: "Pallisa",
+                country: "Pallisa",
                 shortCode: "210",
             },
             {
-                name: "Rakai",
+                country: "Rakai",
                 shortCode: "110",
             },
             {
-                name: "Rukungiri",
+                country: "Rukungiri",
                 shortCode: "412",
             },
             {
-                name: "Sembabule",
+                country: "Sembabule",
                 shortCode: "111",
             },
             {
-                name: "Sironko",
+                country: "Sironko",
                 shortCode: "215",
             },
             {
-                name: "Soroti",
+                country: "Soroti",
                 shortCode: "211",
             },
             {
-                name: "Tororo",
+                country: "Tororo",
                 shortCode: "212",
             },
             {
-                name: "Wakiso",
+                country: "Wakiso",
                 shortCode: "113",
             },
             {
-                name: "Yumbe",
+                country: "Yumbe",
                 shortCode: "313",
             },
         ],
@@ -18514,111 +18514,111 @@ const countyRegion = [
         countryShortCode: "UA",
         regions: [
             {
-                name: "Cherkaska oblast",
+                country: "Cherkaska oblast",
                 shortCode: "71",
             },
             {
-                name: "Chernihivska oblast",
+                country: "Chernihivska oblast",
                 shortCode: "74",
             },
             {
-                name: "Chernivetska oblast",
+                country: "Chernivetska oblast",
                 shortCode: "77",
             },
             {
-                name: "Dnipropetrovska oblast",
+                country: "Dnipropetrovska oblast",
                 shortCode: "12",
             },
             {
-                name: "Donetska oblast",
+                country: "Donetska oblast",
                 shortCode: "14",
             },
             {
-                name: "Ivano-Frankivska oblast",
+                country: "Ivano-Frankivska oblast",
                 shortCode: "26",
             },
             {
-                name: "Kharkivska oblast",
+                country: "Kharkivska oblast",
                 shortCode: "63",
             },
             {
-                name: "Khersonska oblast",
+                country: "Khersonska oblast",
                 shortCode: "65",
             },
             {
-                name: "Khmelnytska oblast",
+                country: "Khmelnytska oblast",
                 shortCode: "68",
             },
             {
-                name: "Kyivska oblast",
+                country: "Kyivska oblast",
                 shortCode: "32",
             },
             {
-                name: "Kirovohradska oblast",
+                country: "Kirovohradska oblast",
                 shortCode: "35",
             },
             {
-                name: "Luhanska oblast",
+                country: "Luhanska oblast",
                 shortCode: "09",
             },
             {
-                name: "Lvivska oblast",
+                country: "Lvivska oblast",
                 shortCode: "46",
             },
             {
-                name: "Mykolaivska oblast",
+                country: "Mykolaivska oblast",
                 shortCode: "48",
             },
             {
-                name: "Odeska oblast",
+                country: "Odeska oblast",
                 shortCode: "51",
             },
             {
-                name: "Poltavska oblast",
+                country: "Poltavska oblast",
                 shortCode: "53",
             },
             {
-                name: "Rivnenska oblast",
+                country: "Rivnenska oblast",
                 shortCode: "56",
             },
             {
-                name: "Sumska oblast",
+                country: "Sumska oblast",
                 shortCode: "59",
             },
             {
-                name: "Ternopilska oblast",
+                country: "Ternopilska oblast",
                 shortCode: "61",
             },
             {
-                name: "Vinnytska oblast",
+                country: "Vinnytska oblast",
                 shortCode: "05",
             },
             {
-                name: "Volynska oblast",
+                country: "Volynska oblast",
                 shortCode: "07",
             },
             {
-                name: "Zakarpatska oblast",
+                country: "Zakarpatska oblast",
                 shortCode: "21",
             },
             {
-                name: "Zaporizka oblast",
+                country: "Zaporizka oblast",
                 shortCode: "23",
             },
             {
-                name: "Zhytomyrska oblast",
+                country: "Zhytomyrska oblast",
                 shortCode: "18",
             },
             {
-                name: "Avtonomna Respublika Krym",
+                country: "Avtonomna Respublika Krym",
                 shortCode: "43",
             },
             {
-                name: "Kyiv",
+                country: "Kyiv",
                 shortCode: "30",
             },
             {
-                name: "Sevastopol",
+                country: "Sevastopol",
                 shortCode: "40",
             },
         ],
@@ -18628,31 +18628,31 @@ const countyRegion = [
         countryShortCode: "AE",
         regions: [
             {
-                name: "Abu Dhabi",
+                country: "Abu Dhabi",
                 shortCode: "AZ",
             },
             {
-                name: "Ajman",
+                country: "Ajman",
                 shortCode: "AJ",
             },
             {
-                name: "Dubai",
+                country: "Dubai",
                 shortCode: "DU",
             },
             {
-                name: "Fujairah",
+                country: "Fujairah",
                 shortCode: "FU",
             },
             {
-                name: "Ras al Khaimah",
+                country: "Ras al Khaimah",
                 shortCode: "RK",
             },
             {
-                name: "Sharjah",
+                country: "Sharjah",
                 shortCode: "SH",
             },
             {
-                name: "Umm Al Quwain",
+                country: "Umm Al Quwain",
                 shortCode: "UQ",
             },
         ],
@@ -18662,871 +18662,871 @@ const countyRegion = [
         countryShortCode: "GB",
         regions: [
             {
-                name: "Aberdeen City",
+                country: "Aberdeen City",
                 shortCode: "ABE",
             },
             {
-                name: "Aberdeenshire",
+                country: "Aberdeenshire",
                 shortCode: "ABD",
             },
             {
-                name: "Angus",
+                country: "Angus",
                 shortCode: "ANS",
             },
             {
-                name: "Antrim and Newtownabbey",
+                country: "Antrim and Newtownabbey",
                 shortCode: "ANN",
             },
             {
-                name: "Ards and North Down",
+                country: "Ards and North Down",
                 shortCode: "AND",
             },
             {
-                name: "Argyll and Bute",
+                country: "Argyll and Bute",
                 shortCode: "AGB",
             },
             {
-                name: "Armagh City, Banbridge and Craigavon",
+                country: "Armagh City, Banbridge and Craigavon",
                 shortCode: "ABC",
             },
             {
-                name: "Barking and Dagenham",
+                country: "Barking and Dagenham",
                 shortCode: "BDG",
             },
             {
-                name: "Barnet",
+                country: "Barnet",
                 shortCode: "BNE",
             },
             {
-                name: "Barnsley",
+                country: "Barnsley",
                 shortCode: "BNS",
             },
             {
-                name: "Bath and North East Somerset",
+                country: "Bath and North East Somerset",
                 shortCode: "BAS",
             },
             {
-                name: "Bedford",
+                country: "Bedford",
                 shortCode: "BDF",
             },
             {
-                name: "Belfast City",
+                country: "Belfast City",
                 shortCode: "BFS",
             },
             {
-                name: "Berkshire",
+                country: "Berkshire",
                 shortCode: "BRK",
             },
             {
-                name: "Bexley",
+                country: "Bexley",
                 shortCode: "BEX",
             },
             {
-                name: "Birmingham",
+                country: "Birmingham",
                 shortCode: "BIR",
             },
             {
-                name: "Blackburn with Darwen",
+                country: "Blackburn with Darwen",
                 shortCode: "BBD",
             },
             {
-                name: "Blackpool",
+                country: "Blackpool",
                 shortCode: "BPL",
             },
             {
-                name: "Blaenau Gwent",
+                country: "Blaenau Gwent",
                 shortCode: "BGW",
             },
             {
-                name: "Bolton",
+                country: "Bolton",
                 shortCode: "BOL",
             },
             {
-                name: "Bournemouth, Christchurch and Poole",
+                country: "Bournemouth, Christchurch and Poole",
                 shortCode: "BCP",
             },
             {
-                name: "Bracknell Forest",
+                country: "Bracknell Forest",
                 shortCode: "BRC",
             },
             {
-                name: "Bradford",
+                country: "Bradford",
                 shortCode: "BRD",
             },
             {
-                name: "Brent",
+                country: "Brent",
                 shortCode: "BEN",
             },
             {
-                name: "Bridgend",
+                country: "Bridgend",
                 shortCode: "BGE",
             },
             {
-                name: "Brighton and Hove",
+                country: "Brighton and Hove",
                 shortCode: "BNH",
             },
             {
-                name: "Bristol, City of",
+                country: "Bristol, City of",
                 shortCode: "BST",
             },
             {
-                name: "Bromley",
+                country: "Bromley",
                 shortCode: "BRY",
             },
             {
-                name: "Buckinghamshire",
+                country: "Buckinghamshire",
                 shortCode: "BKM",
             },
             {
-                name: "Bury",
+                country: "Bury",
                 shortCode: "BUR",
             },
             {
-                name: "Caerphilly",
+                country: "Caerphilly",
                 shortCode: "CAY",
             },
             {
-                name: "Calderdale",
+                country: "Calderdale",
                 shortCode: "CLD",
             },
             {
-                name: "Cambridgeshire",
+                country: "Cambridgeshire",
                 shortCode: "CAM",
             },
             {
-                name: "Camden",
+                country: "Camden",
                 shortCode: "CMD",
             },
             {
-                name: "Cardiff",
+                country: "Cardiff",
                 shortCode: "CRF",
             },
             {
-                name: "Carmarthenshire",
+                country: "Carmarthenshire",
                 shortCode: "CMN",
             },
             {
-                name: "Causeway Coast and Glens",
+                country: "Causeway Coast and Glens",
                 shortCode: "CCG",
             },
             {
-                name: "Central Bedfordshire",
+                country: "Central Bedfordshire",
                 shortCode: "CBF",
             },
             {
-                name: "Ceredigion",
+                country: "Ceredigion",
                 shortCode: "CGN",
             },
             {
-                name: "Cheshire East",
+                country: "Cheshire East",
                 shortCode: "CHE",
             },
             {
-                name: "Cheshire West and Chester",
+                country: "Cheshire West and Chester",
                 shortCode: "CHW",
             },
             {
-                name: "Clackmannanshire",
+                country: "Clackmannanshire",
                 shortCode: "CLK",
             },
             {
-                name: "Conwy",
+                country: "Conwy",
                 shortCode: "CWY",
             },
             {
-                name: "Cornwall",
+                country: "Cornwall",
                 shortCode: "CON",
             },
             {
-                name: "Coventry",
+                country: "Coventry",
                 shortCode: "COV",
             },
             {
-                name: "Croydon",
+                country: "Croydon",
                 shortCode: "CRY",
             },
             {
-                name: "Cumbria",
+                country: "Cumbria",
                 shortCode: "CMA",
             },
             {
-                name: "Darlington",
+                country: "Darlington",
                 shortCode: "DAL",
             },
             {
-                name: "Denbighshire",
+                country: "Denbighshire",
                 shortCode: "DEN",
             },
             {
-                name: "Derby",
+                country: "Derby",
                 shortCode: "DER",
             },
             {
-                name: "Derbyshire",
+                country: "Derbyshire",
                 shortCode: "DBY",
             },
             {
-                name: "Derry and Strabane",
+                country: "Derry and Strabane",
                 shortCode: "DRS",
             },
             {
-                name: "Devon",
+                country: "Devon",
                 shortCode: "DEV",
             },
             {
-                name: "Doncaster",
+                country: "Doncaster",
                 shortCode: "DNC",
             },
             {
-                name: "Dorset",
+                country: "Dorset",
                 shortCode: "DOR",
             },
             {
-                name: "Dudley",
+                country: "Dudley",
                 shortCode: "DUD",
             },
             {
-                name: "Dumfries and Galloway",
+                country: "Dumfries and Galloway",
                 shortCode: "DGY",
             },
             {
-                name: "Dundee City",
+                country: "Dundee City",
                 shortCode: "DND",
             },
             {
-                name: "Durham, County",
+                country: "Durham, County",
                 shortCode: "DUR",
             },
             {
-                name: "Ealing",
+                country: "Ealing",
                 shortCode: "EAL",
             },
             {
-                name: "East Ayrshire",
+                country: "East Ayrshire",
                 shortCode: "EAY",
             },
             {
-                name: "East Dunbartonshire",
+                country: "East Dunbartonshire",
                 shortCode: "EDU",
             },
             {
-                name: "East Lothian",
+                country: "East Lothian",
                 shortCode: "ELN",
             },
             {
-                name: "East Renfrewshire",
+                country: "East Renfrewshire",
                 shortCode: "ERW",
             },
             {
-                name: "East Riding of Yorkshire",
+                country: "East Riding of Yorkshire",
                 shortCode: "ERY",
             },
             {
-                name: "East Sussex",
+                country: "East Sussex",
                 shortCode: "ESX",
             },
             {
-                name: "Edinburgh, City of",
+                country: "Edinburgh, City of",
                 shortCode: "EDH",
             },
             {
-                name: "Eilean Siar",
+                country: "Eilean Siar",
                 shortCode: "ELS",
             },
             {
-                name: "Enfield",
+                country: "Enfield",
                 shortCode: "ENF",
             },
             {
-                name: "Essex",
+                country: "Essex",
                 shortCode: "ESS",
             },
             {
-                name: "Falkirk",
+                country: "Falkirk",
                 shortCode: "FAL",
             },
             {
-                name: "Fermanagh and Omagh",
+                country: "Fermanagh and Omagh",
                 shortCode: "FMO",
             },
             {
-                name: "Fife",
+                country: "Fife",
                 shortCode: "FIF",
             },
             {
-                name: "Flintshire",
+                country: "Flintshire",
                 shortCode: "FLN",
             },
             {
-                name: "Gateshead",
+                country: "Gateshead",
                 shortCode: "GAT",
             },
             {
-                name: "Glasgow City",
+                country: "Glasgow City",
                 shortCode: "GLG",
             },
             {
-                name: "Gloucestershire",
+                country: "Gloucestershire",
                 shortCode: "GLS",
             },
             {
-                name: "Greenwich",
+                country: "Greenwich",
                 shortCode: "GRE",
             },
             {
-                name: "Gwynedd",
+                country: "Gwynedd",
                 shortCode: "GWN",
             },
             {
-                name: "Hackney",
+                country: "Hackney",
                 shortCode: "HCK",
             },
             {
-                name: "Halton",
+                country: "Halton",
                 shortCode: "HAL",
             },
             {
-                name: "Hammersmith and Fulham",
+                country: "Hammersmith and Fulham",
                 shortCode: "HMF",
             },
             {
-                name: "Hampshire",
+                country: "Hampshire",
                 shortCode: "HAM",
             },
             {
-                name: "Haringey",
+                country: "Haringey",
                 shortCode: "HRY",
             },
             {
-                name: "Harrow",
+                country: "Harrow",
                 shortCode: "HRW",
             },
             {
-                name: "Hartlepool",
+                country: "Hartlepool",
                 shortCode: "HPL",
             },
             {
-                name: "Havering",
+                country: "Havering",
                 shortCode: "HAV",
             },
             {
-                name: "Herefordshire",
+                country: "Herefordshire",
                 shortCode: "HEF",
             },
             {
-                name: "Hertfordshire",
+                country: "Hertfordshire",
                 shortCode: "HRT",
             },
             {
-                name: "Highland",
+                country: "Highland",
                 shortCode: "HLD",
             },
             {
-                name: "Hillingdon",
+                country: "Hillingdon",
                 shortCode: "HIL",
             },
             {
-                name: "Hounslow",
+                country: "Hounslow",
                 shortCode: "HNS",
             },
             {
-                name: "Inverclyde",
+                country: "Inverclyde",
                 shortCode: "IVC",
             },
             {
-                name: "Isle of Anglesey",
+                country: "Isle of Anglesey",
                 shortCode: "AGY",
             },
             {
-                name: "Isle of Wight",
+                country: "Isle of Wight",
                 shortCode: "IOW",
             },
             {
-                name: "Isles of Scilly",
+                country: "Isles of Scilly",
                 shortCode: "IOS",
             },
             {
-                name: "Islington",
+                country: "Islington",
                 shortCode: "ISL",
             },
             {
-                name: "Kensington and Chelsea",
+                country: "Kensington and Chelsea",
                 shortCode: "KEC",
             },
             {
-                name: "Kent",
+                country: "Kent",
                 shortCode: "KEN",
             },
             {
-                name: "Kingston upon Hull",
+                country: "Kingston upon Hull",
                 shortCode: "KHL",
             },
             {
-                name: "Kingston upon Thames",
+                country: "Kingston upon Thames",
                 shortCode: "KTT",
             },
             {
-                name: "Kirklees",
+                country: "Kirklees",
                 shortCode: "KIR",
             },
             {
-                name: "Knowsley",
+                country: "Knowsley",
                 shortCode: "KWL",
             },
             {
-                name: "Lambeth",
+                country: "Lambeth",
                 shortCode: "LBH",
             },
             {
-                name: "Lancashire",
+                country: "Lancashire",
                 shortCode: "LAN",
             },
             {
-                name: "Leeds",
+                country: "Leeds",
                 shortCode: "LDS",
             },
             {
-                name: "Leicester",
+                country: "Leicester",
                 shortCode: "LCE",
             },
             {
-                name: "Leicestershire",
+                country: "Leicestershire",
                 shortCode: "LEC",
             },
             {
-                name: "Lewisham",
+                country: "Lewisham",
                 shortCode: "LEW",
             },
             {
-                name: "Lincolnshire",
+                country: "Lincolnshire",
                 shortCode: "LIN",
             },
             {
-                name: "Lisburn and Castlereagh",
+                country: "Lisburn and Castlereagh",
                 shortCode: "LBC",
             },
             {
-                name: "Liverpool",
+                country: "Liverpool",
                 shortCode: "LIV",
             },
             {
-                name: "London, City of",
+                country: "London, City of",
                 shortCode: "LND",
             },
             {
-                name: "Luton",
+                country: "Luton",
                 shortCode: "LUT",
             },
             {
-                name: "Manchester",
+                country: "Manchester",
                 shortCode: "MAN",
             },
             {
-                name: "Medway",
+                country: "Medway",
                 shortCode: "MDW",
             },
             {
-                name: "Merthyr Tydfil",
+                country: "Merthyr Tydfil",
                 shortCode: "MTY",
             },
             {
-                name: "Merton",
+                country: "Merton",
                 shortCode: "MRT",
             },
             {
-                name: "Mid and East Antrim",
+                country: "Mid and East Antrim",
                 shortCode: "MEA",
             },
             {
-                name: "Mid-Ulster",
+                country: "Mid-Ulster",
                 shortCode: "MUL",
             },
             {
-                name: "Middlesbrough",
+                country: "Middlesbrough",
                 shortCode: "MDB",
             },
             {
-                name: "Midlothian",
+                country: "Midlothian",
                 shortCode: "MLN",
             },
             {
-                name: "Milton Keynes",
+                country: "Milton Keynes",
                 shortCode: "MIK",
             },
             {
-                name: "Monmouthshire",
+                country: "Monmouthshire",
                 shortCode: "MON",
             },
             {
-                name: "Moray",
+                country: "Moray",
                 shortCode: "MRY",
             },
             {
-                name: "Neath Port Talbot",
+                country: "Neath Port Talbot",
                 shortCode: "NTL",
             },
             {
-                name: "Newcastle upon Tyne",
+                country: "Newcastle upon Tyne",
                 shortCode: "NET",
             },
             {
-                name: "Newham",
+                country: "Newham",
                 shortCode: "NWM",
             },
             {
-                name: "Newport",
+                country: "Newport",
                 shortCode: "NWP",
             },
             {
-                name: "Newry, Mourne and Down",
+                country: "Newry, Mourne and Down",
                 shortCode: "NMD",
             },
             {
-                name: "Norfolk",
+                country: "Norfolk",
                 shortCode: "NFK",
             },
             {
-                name: "North Ayrshire",
+                country: "North Ayrshire",
                 shortCode: "NAY",
             },
             {
-                name: "North East Lincolnshire",
+                country: "North East Lincolnshire",
                 shortCode: "NEL",
             },
             {
-                name: "North Lanarkshire",
+                country: "North Lanarkshire",
                 shortCode: "NLK",
             },
             {
-                name: "North Lincolnshire",
+                country: "North Lincolnshire",
                 shortCode: "NLN",
             },
             {
-                name: "North Somerset",
+                country: "North Somerset",
                 shortCode: "NSM",
             },
             {
-                name: "North Tyneside",
+                country: "North Tyneside",
                 shortCode: "NTY",
             },
             {
-                name: "North Yorkshire",
+                country: "North Yorkshire",
                 shortCode: "NYK",
             },
             {
-                name: "Northamptonshire",
+                country: "Northamptonshire",
                 shortCode: "NTH",
             },
             {
-                name: "Northumberland",
+                country: "Northumberland",
                 shortCode: "NBL",
             },
             {
-                name: "Nottingham",
+                country: "Nottingham",
                 shortCode: "NGM",
             },
             {
-                name: "Nottinghamshire",
+                country: "Nottinghamshire",
                 shortCode: "NTT",
             },
             {
-                name: "Oldham",
+                country: "Oldham",
                 shortCode: "OLD",
             },
             {
-                name: "Orkney Islands",
+                country: "Orkney Islands",
                 shortCode: "ORK",
             },
             {
-                name: "Oxfordshire",
+                country: "Oxfordshire",
                 shortCode: "OXF",
             },
             {
-                name: "Pembrokeshire",
+                country: "Pembrokeshire",
                 shortCode: "PEM",
             },
             {
-                name: "Perth and Kinross",
+                country: "Perth and Kinross",
                 shortCode: "PKN",
             },
             {
-                name: "Peterborough",
+                country: "Peterborough",
                 shortCode: "PTE",
             },
             {
-                name: "Plymouth",
+                country: "Plymouth",
                 shortCode: "PLY",
             },
             {
-                name: "Portsmouth",
+                country: "Portsmouth",
                 shortCode: "POR",
             },
             {
-                name: "Powys",
+                country: "Powys",
                 shortCode: "POW",
             },
             {
-                name: "Reading",
+                country: "Reading",
                 shortCode: "RDG",
             },
             {
-                name: "Redbridge",
+                country: "Redbridge",
                 shortCode: "RDB",
             },
             {
-                name: "Redcar and Cleveland",
+                country: "Redcar and Cleveland",
                 shortCode: "RCC",
             },
             {
-                name: "Renfrewshire",
+                country: "Renfrewshire",
                 shortCode: "RFW",
             },
             {
-                name: "Rhondda Cynon Taff",
+                country: "Rhondda Cynon Taff",
                 shortCode: "RCT",
             },
             {
-                name: "Richmond upon Thames",
+                country: "Richmond upon Thames",
                 shortCode: "RIC",
             },
             {
-                name: "Rochdale",
+                country: "Rochdale",
                 shortCode: "RCH",
             },
             {
-                name: "Rotherham",
+                country: "Rotherham",
                 shortCode: "ROT",
             },
             {
-                name: "Rutland",
+                country: "Rutland",
                 shortCode: "RUT",
             },
             {
-                name: "Salford",
+                country: "Salford",
                 shortCode: "SLF",
             },
             {
-                name: "Sandwell",
+                country: "Sandwell",
                 shortCode: "SAW",
             },
             {
-                name: "Scottish Borders",
+                country: "Scottish Borders",
                 shortCode: "SCB",
             },
             {
-                name: "Sefton",
+                country: "Sefton",
                 shortCode: "SFT",
             },
             {
-                name: "Sheffield",
+                country: "Sheffield",
                 shortCode: "SHF",
             },
             {
-                name: "Shetland Islands",
+                country: "Shetland Islands",
                 shortCode: "ZET",
             },
             {
-                name: "Shropshire",
+                country: "Shropshire",
                 shortCode: "SHR",
             },
             {
-                name: "Slough",
+                country: "Slough",
                 shortCode: "SLG",
             },
             {
-                name: "Solihull",
+                country: "Solihull",
                 shortCode: "SOL",
             },
             {
-                name: "Somerset",
+                country: "Somerset",
                 shortCode: "SOM",
             },
             {
-                name: "South Ayrshire",
+                country: "South Ayrshire",
                 shortCode: "SAY",
             },
             {
-                name: "South Gloucestershire",
+                country: "South Gloucestershire",
                 shortCode: "SGC",
             },
             {
-                name: "South Lanarkshire",
+                country: "South Lanarkshire",
                 shortCode: "SLK",
             },
             {
-                name: "South Tyneside",
+                country: "South Tyneside",
                 shortCode: "STY",
             },
             {
-                name: "Southampton",
+                country: "Southampton",
                 shortCode: "STH",
             },
             {
-                name: "Southend-on-Sea",
+                country: "Southend-on-Sea",
                 shortCode: "SOS",
             },
             {
-                name: "Southwark",
+                country: "Southwark",
                 shortCode: "SWK",
             },
             {
-                name: "St. Helens",
+                country: "St. Helens",
                 shortCode: "SHN",
             },
             {
-                name: "Staffordshire",
+                country: "Staffordshire",
                 shortCode: "STS",
             },
             {
-                name: "Stirling",
+                country: "Stirling",
                 shortCode: "STG",
             },
             {
-                name: "Stockport",
+                country: "Stockport",
                 shortCode: "SKP",
             },
             {
-                name: "Stockton-on-Tees",
+                country: "Stockton-on-Tees",
                 shortCode: "STT",
             },
             {
-                name: "Stoke-on-Trent",
+                country: "Stoke-on-Trent",
                 shortCode: "STE",
             },
             {
-                name: "Suffolk",
+                country: "Suffolk",
                 shortCode: "SFK",
             },
             {
-                name: "Sunderland",
+                country: "Sunderland",
                 shortCode: "SND",
             },
             {
-                name: "Surrey",
+                country: "Surrey",
                 shortCode: "SRY",
             },
             {
-                name: "Sutton",
+                country: "Sutton",
                 shortCode: "STN",
             },
             {
-                name: "Swansea",
+                country: "Swansea",
                 shortCode: "SWA",
             },
             {
-                name: "Swindon",
+                country: "Swindon",
                 shortCode: "SWD",
             },
             {
-                name: "Tameside",
+                country: "Tameside",
                 shortCode: "TAM",
             },
             {
-                name: "Telford and Wrekin",
+                country: "Telford and Wrekin",
                 shortCode: "TFW",
             },
             {
-                name: "Thurrock",
+                country: "Thurrock",
                 shortCode: "THR",
             },
             {
-                name: "Torbay",
+                country: "Torbay",
                 shortCode: "TOB",
             },
             {
-                name: "Torfaen",
+                country: "Torfaen",
                 shortCode: "TOF",
             },
             {
-                name: "Tower Hamlets",
+                country: "Tower Hamlets",
                 shortCode: "TWH",
             },
             {
-                name: "Trafford",
+                country: "Trafford",
                 shortCode: "TRF",
             },
             {
-                name: "Vale of Glamorgan, The",
+                country: "Vale of Glamorgan, The",
                 shortCode: "VGL",
             },
             {
-                name: "Wakefield",
+                country: "Wakefield",
                 shortCode: "WKF",
             },
             {
-                name: "Walsall",
+                country: "Walsall",
                 shortCode: "WLL",
             },
             {
-                name: "Waltham Forest",
+                country: "Waltham Forest",
                 shortCode: "WFT",
             },
             {
-                name: "Wandsworth",
+                country: "Wandsworth",
                 shortCode: "WND",
             },
             {
-                name: "Warrington",
+                country: "Warrington",
                 shortCode: "WRT",
             },
             {
-                name: "Warwickshire",
+                country: "Warwickshire",
                 shortCode: "WAR",
             },
             {
-                name: "West Berkshire",
+                country: "West Berkshire",
                 shortCode: "WBK",
             },
             {
-                name: "West Dunbartonshire",
+                country: "West Dunbartonshire",
                 shortCode: "WDU",
             },
             {
-                name: "West Lothian",
+                country: "West Lothian",
                 shortCode: "WLN",
             },
             {
-                name: "West Sussex",
+                country: "West Sussex",
                 shortCode: "WSX",
             },
             {
-                name: "Westminster",
+                country: "Westminster",
                 shortCode: "WSM",
             },
             {
-                name: "Wigan",
+                country: "Wigan",
                 shortCode: "WGN",
             },
             {
-                name: "Wiltshire",
+                country: "Wiltshire",
                 shortCode: "WIL",
             },
             {
-                name: "Windsor and Maidenhead",
+                country: "Windsor and Maidenhead",
                 shortCode: "WNM",
             },
             {
-                name: "Wirral",
+                country: "Wirral",
                 shortCode: "WRL",
             },
             {
-                name: "Wokingham",
+                country: "Wokingham",
                 shortCode: "WOK",
             },
             {
-                name: "Wolverhampton",
+                country: "Wolverhampton",
                 shortCode: "WLV",
             },
             {
-                name: "Worcestershire",
+                country: "Worcestershire",
                 shortCode: "WOR",
             },
             {
-                name: "Wrexham",
+                country: "Wrexham",
                 shortCode: "WRX",
             },
             {
-                name: "York",
+                country: "York",
                 shortCode: "YOR",
             },
         ],
@@ -19536,251 +19536,251 @@ const countyRegion = [
         countryShortCode: "US",
         regions: [
             {
-                name: "Alabama",
+                country: "Alabama",
                 shortCode: "AL",
             },
             {
-                name: "Alaska",
+                country: "Alaska",
                 shortCode: "AK",
             },
             {
-                name: "American Samoa",
+                country: "American Samoa",
                 shortCode: "AS",
             },
             {
-                name: "Arizona",
+                country: "Arizona",
                 shortCode: "AZ",
             },
             {
-                name: "Arkansas",
+                country: "Arkansas",
                 shortCode: "AR",
             },
             {
-                name: "California",
+                country: "California",
                 shortCode: "CA",
             },
             {
-                name: "Colorado",
+                country: "Colorado",
                 shortCode: "CO",
             },
             {
-                name: "Connecticut",
+                country: "Connecticut",
                 shortCode: "CT",
             },
             {
-                name: "Delaware",
+                country: "Delaware",
                 shortCode: "DE",
             },
             {
-                name: "District of Columbia",
+                country: "District of Columbia",
                 shortCode: "DC",
             },
             {
-                name: "Micronesia",
+                country: "Micronesia",
                 shortCode: "FM",
             },
             {
-                name: "Florida",
+                country: "Florida",
                 shortCode: "FL",
             },
             {
-                name: "Georgia",
+                country: "Georgia",
                 shortCode: "GA",
             },
             {
-                name: "Guam",
+                country: "Guam",
                 shortCode: "GU",
             },
             {
-                name: "Hawaii",
+                country: "Hawaii",
                 shortCode: "HI",
             },
             {
-                name: "Idaho",
+                country: "Idaho",
                 shortCode: "ID",
             },
             {
-                name: "Illinois",
+                country: "Illinois",
                 shortCode: "IL",
             },
             {
-                name: "Indiana",
+                country: "Indiana",
                 shortCode: "IN",
             },
             {
-                name: "Iowa",
+                country: "Iowa",
                 shortCode: "IA",
             },
             {
-                name: "Kansas",
+                country: "Kansas",
                 shortCode: "KS",
             },
             {
-                name: "Kentucky",
+                country: "Kentucky",
                 shortCode: "KY",
             },
             {
-                name: "Louisiana",
+                country: "Louisiana",
                 shortCode: "LA",
             },
             {
-                name: "Maine",
+                country: "Maine",
                 shortCode: "ME",
             },
             {
-                name: "Marshall Islands",
+                country: "Marshall Islands",
                 shortCode: "MH",
             },
             {
-                name: "Maryland",
+                country: "Maryland",
                 shortCode: "MD",
             },
             {
-                name: "Massachusetts",
+                country: "Massachusetts",
                 shortCode: "MA",
             },
             {
-                name: "Michigan",
+                country: "Michigan",
                 shortCode: "MI",
             },
             {
-                name: "Minnesota",
+                country: "Minnesota",
                 shortCode: "MN",
             },
             {
-                name: "Mississippi",
+                country: "Mississippi",
                 shortCode: "MS",
             },
             {
-                name: "Missouri",
+                country: "Missouri",
                 shortCode: "MO",
             },
             {
-                name: "Montana",
+                country: "Montana",
                 shortCode: "MT",
             },
             {
-                name: "Nebraska",
+                country: "Nebraska",
                 shortCode: "NE",
             },
             {
-                name: "Nevada",
+                country: "Nevada",
                 shortCode: "NV",
             },
             {
-                name: "New Hampshire",
+                country: "New Hampshire",
                 shortCode: "NH",
             },
             {
-                name: "New Jersey",
+                country: "New Jersey",
                 shortCode: "NJ",
             },
             {
-                name: "New Mexico",
+                country: "New Mexico",
                 shortCode: "NM",
             },
             {
-                name: "New York",
+                country: "New York",
                 shortCode: "NY",
             },
             {
-                name: "North Carolina",
+                country: "North Carolina",
                 shortCode: "NC",
             },
             {
-                name: "North Dakota",
+                country: "North Dakota",
                 shortCode: "ND",
             },
             {
-                name: "Northern Mariana Islands",
+                country: "Northern Mariana Islands",
                 shortCode: "MP",
             },
             {
-                name: "Ohio",
+                country: "Ohio",
                 shortCode: "OH",
             },
             {
-                name: "Oklahoma",
+                country: "Oklahoma",
                 shortCode: "OK",
             },
             {
-                name: "Oregon",
+                country: "Oregon",
                 shortCode: "OR",
             },
             {
-                name: "Palau",
+                country: "Palau",
                 shortCode: "PW",
             },
             {
-                name: "Pennsylvania",
+                country: "Pennsylvania",
                 shortCode: "PA",
             },
             {
-                name: "Puerto Rico",
+                country: "Puerto Rico",
                 shortCode: "PR",
             },
             {
-                name: "Rhode Island",
+                country: "Rhode Island",
                 shortCode: "RI",
             },
             {
-                name: "South Carolina",
+                country: "South Carolina",
                 shortCode: "SC",
             },
             {
-                name: "South Dakota",
+                country: "South Dakota",
                 shortCode: "SD",
             },
             {
-                name: "Tennessee",
+                country: "Tennessee",
                 shortCode: "TN",
             },
             {
-                name: "Texas",
+                country: "Texas",
                 shortCode: "TX",
             },
             {
-                name: "Utah",
+                country: "Utah",
                 shortCode: "UT",
             },
             {
-                name: "Vermont",
+                country: "Vermont",
                 shortCode: "VT",
             },
             {
-                name: "Virgin Islands",
+                country: "Virgin Islands",
                 shortCode: "VI",
             },
             {
-                name: "Virginia",
+                country: "Virginia",
                 shortCode: "VA",
             },
             {
-                name: "Washington",
+                country: "Washington",
                 shortCode: "WA",
             },
             {
-                name: "West Virginia",
+                country: "West Virginia",
                 shortCode: "WV",
             },
             {
-                name: "Wisconsin",
+                country: "Wisconsin",
                 shortCode: "WI",
             },
             {
-                name: "Wyoming",
+                country: "Wyoming",
                 shortCode: "WY",
             },
             {
-                name: "Armed Forces Americas",
+                country: "Armed Forces Americas",
                 shortCode: "AA",
             },
             {
-                name: "Armed Forces Europe, Canada, Africa and Middle East",
+                country: "Armed Forces Europe, Canada, Africa and Middle East",
                 shortCode: "AE",
             },
             {
-                name: "Armed Forces Pacific",
+                country: "Armed Forces Pacific",
                 shortCode: "AP",
             },
         ],
@@ -19790,47 +19790,47 @@ const countyRegion = [
         countryShortCode: "UM",
         regions: [
             {
-                name: "Baker Island",
+                country: "Baker Island",
                 shortCode: "81",
             },
             {
-                name: "Howland Island",
+                country: "Howland Island",
                 shortCode: "84",
             },
             {
-                name: "Jarvis Island",
+                country: "Jarvis Island",
                 shortCode: "86",
             },
             {
-                name: "Johnston Atoll",
+                country: "Johnston Atoll",
                 shortCode: "67",
             },
             {
-                name: "Kingman Reef",
+                country: "Kingman Reef",
                 shortCode: "89",
             },
             {
-                name: "Midway Islands",
+                country: "Midway Islands",
                 shortCode: "71",
             },
             {
-                name: "Navassa Island",
+                country: "Navassa Island",
                 shortCode: "76",
             },
             {
-                name: "Palmyra Atoll",
+                country: "Palmyra Atoll",
                 shortCode: "95",
             },
             {
-                name: "Wake Island",
+                country: "Wake Island",
                 shortCode: "79",
             },
             {
-                name: "Bajo Nuevo Bank",
+                country: "Bajo Nuevo Bank",
                 shortCode: "BN",
             },
             {
-                name: "Serranilla Bank",
+                country: "Serranilla Bank",
                 shortCode: "SB",
             },
         ],
@@ -19840,79 +19840,79 @@ const countyRegion = [
         countryShortCode: "UY",
         regions: [
             {
-                name: "Artigas",
+                country: "Artigas",
                 shortCode: "AR",
             },
             {
-                name: "Canelones",
+                country: "Canelones",
                 shortCode: "CA",
             },
             {
-                name: "Cerro Largo",
+                country: "Cerro Largo",
                 shortCode: "CL",
             },
             {
-                name: "Colonia",
+                country: "Colonia",
                 shortCode: "CO",
             },
             {
-                name: "Durazno",
+                country: "Durazno",
                 shortCode: "DU",
             },
             {
-                name: "Flores",
+                country: "Flores",
                 shortCode: "FS",
             },
             {
-                name: "Florida",
+                country: "Florida",
                 shortCode: "FD",
             },
             {
-                name: "Lavalleja",
+                country: "Lavalleja",
                 shortCode: "LA",
             },
             {
-                name: "Maldonado",
+                country: "Maldonado",
                 shortCode: "MA",
             },
             {
-                name: "Montevideo",
+                country: "Montevideo",
                 shortCode: "MO",
             },
             {
-                name: "Paysandú",
+                country: "Paysandú",
                 shortCode: "PA",
             },
             {
-                name: "Río Negro",
+                country: "Río Negro",
                 shortCode: "RN",
             },
             {
-                name: "Rivera",
+                country: "Rivera",
                 shortCode: "RV",
             },
             {
-                name: "Rocha",
+                country: "Rocha",
                 shortCode: "RO",
             },
             {
-                name: "Salto",
+                country: "Salto",
                 shortCode: "SA",
             },
             {
-                name: "San José",
+                country: "San José",
                 shortCode: "SJ",
             },
             {
-                name: "Soriano",
+                country: "Soriano",
                 shortCode: "SO",
             },
             {
-                name: "Tacuarembó",
+                country: "Tacuarembó",
                 shortCode: "TA",
             },
             {
-                name: "Treinta y Tres",
+                country: "Treinta y Tres",
                 shortCode: "TT",
             },
         ],
@@ -19922,59 +19922,59 @@ const countyRegion = [
         countryShortCode: "UZ",
         regions: [
             {
-                name: "Toshkent shahri",
+                country: "Toshkent shahri",
                 shortCode: "TK",
             },
             {
-                name: "Andijon",
+                country: "Andijon",
                 shortCode: "AN",
             },
             {
-                name: "Buxoro",
+                country: "Buxoro",
                 shortCode: "BU",
             },
             {
-                name: "Farg‘ona",
+                country: "Farg‘ona",
                 shortCode: "FA",
             },
             {
-                name: "Jizzax",
+                country: "Jizzax",
                 shortCode: "JI",
             },
             {
-                name: "Namangan",
+                country: "Namangan",
                 shortCode: "NG",
             },
             {
-                name: "Navoiy",
+                country: "Navoiy",
                 shortCode: "NW",
             },
             {
-                name: "Qashqadaryo (Qarshi)",
+                country: "Qashqadaryo (Qarshi)",
                 shortCode: "QA",
             },
             {
-                name: "Samarqand",
+                country: "Samarqand",
                 shortCode: "SA",
             },
             {
-                name: "Sirdaryo (Guliston)",
+                country: "Sirdaryo (Guliston)",
                 shortCode: "SI",
             },
             {
-                name: "Surxondaryo (Termiz)",
+                country: "Surxondaryo (Termiz)",
                 shortCode: "SU",
             },
             {
-                name: "Toshkent wiloyati",
+                country: "Toshkent wiloyati",
                 shortCode: "TO",
             },
             {
-                name: "Xorazm (Urganch)",
+                country: "Xorazm (Urganch)",
                 shortCode: "XO",
             },
             {
-                name: "Qoraqalpog‘iston Respublikasi (Nukus)",
+                country: "Qoraqalpog‘iston Respublikasi (Nukus)",
                 shortCode: "QR",
             },
         ],
@@ -19984,27 +19984,27 @@ const countyRegion = [
         countryShortCode: "VU",
         regions: [
             {
-                name: "Malampa",
+                country: "Malampa",
                 shortCode: "MAP",
             },
             {
-                name: "Pénama",
+                country: "Pénama",
                 shortCode: "PAM",
             },
             {
-                name: "Sanma",
+                country: "Sanma",
                 shortCode: "SAM",
             },
             {
-                name: "Shéfa",
+                country: "Shéfa",
                 shortCode: "SEE",
             },
             {
-                name: "Taféa",
+                country: "Taféa",
                 shortCode: "TAE",
             },
             {
-                name: "Torba",
+                country: "Torba",
                 shortCode: "TOB",
             },
         ],
@@ -20014,103 +20014,103 @@ const countyRegion = [
         countryShortCode: "VE",
         regions: [
             {
-                name: "Dependencias Federales",
+                country: "Dependencias Federales",
                 shortCode: "W",
             },
             {
-                name: "Distrito Federal",
+                country: "Distrito Federal",
                 shortCode: "A",
             },
             {
-                name: "Amazonas",
+                country: "Amazonas",
                 shortCode: "Z",
             },
             {
-                name: "Anzoátegui",
+                country: "Anzoátegui",
                 shortCode: "B",
             },
             {
-                name: "Apure",
+                country: "Apure",
                 shortCode: "C",
             },
             {
-                name: "Aragua",
+                country: "Aragua",
                 shortCode: "D",
             },
             {
-                name: "Barinas",
+                country: "Barinas",
                 shortCode: "E",
             },
             {
-                name: "Bolívar",
+                country: "Bolívar",
                 shortCode: "F",
             },
             {
-                name: "Carabobo",
+                country: "Carabobo",
                 shortCode: "G",
             },
             {
-                name: "Cojedes",
+                country: "Cojedes",
                 shortCode: "H",
             },
             {
-                name: "Delta Amacuro",
+                country: "Delta Amacuro",
                 shortCode: "Y",
             },
             {
-                name: "Falcón",
+                country: "Falcón",
                 shortCode: "I",
             },
             {
-                name: "Guárico",
+                country: "Guárico",
                 shortCode: "J",
             },
             {
-                name: "Lara",
+                country: "Lara",
                 shortCode: "K",
             },
             {
-                name: "Mérida",
+                country: "Mérida",
                 shortCode: "L",
             },
             {
-                name: "Miranda",
+                country: "Miranda",
                 shortCode: "M",
             },
             {
-                name: "Monagas",
+                country: "Monagas",
                 shortCode: "N",
             },
             {
-                name: "Nueva Esparta",
+                country: "Nueva Esparta",
                 shortCode: "O",
             },
             {
-                name: "Portuguesa",
+                country: "Portuguesa",
                 shortCode: "P",
             },
             {
-                name: "Sucre",
+                country: "Sucre",
                 shortCode: "R",
             },
             {
-                name: "Táchira",
+                country: "Táchira",
                 shortCode: "S",
             },
             {
-                name: "Trujillo",
+                country: "Trujillo",
                 shortCode: "T",
             },
             {
-                name: "Vargas",
+                country: "Vargas",
                 shortCode: "X",
             },
             {
-                name: "Yaracuy",
+                country: "Yaracuy",
                 shortCode: "U",
             },
             {
-                name: "Zulia",
+                country: "Zulia",
                 shortCode: "V",
             },
         ],
@@ -20120,259 +20120,259 @@ const countyRegion = [
         countryShortCode: "VN",
         regions: [
             {
-                name: "An Giang",
+                country: "An Giang",
                 shortCode: "44",
             },
             {
-                name: "Bà Rịa - Vũng Tàu",
+                country: "Bà Rịa - Vũng Tàu",
                 shortCode: "43",
             },
             {
-                name: "Bình Dương",
+                country: "Bình Dương",
                 shortCode: "57",
             },
             {
-                name: "Bình Phước",
+                country: "Bình Phước",
                 shortCode: "58",
             },
             {
-                name: "Bình Định",
+                country: "Bình Định",
                 shortCode: "31",
             },
             {
-                name: "Bình Thuận",
+                country: "Bình Thuận",
                 shortCode: "40",
             },
             {
-                name: "Bạc Liêu",
+                country: "Bạc Liêu",
                 shortCode: "55",
             },
             {
-                name: "Bắc Giang",
+                country: "Bắc Giang",
                 shortCode: "54",
             },
             {
-                name: "Bắc Kạn",
+                country: "Bắc Kạn",
                 shortCode: "53",
             },
             {
-                name: "Bắc Ninh",
+                country: "Bắc Ninh",
                 shortCode: "56",
             },
             {
-                name: "Bến Tre",
+                country: "Bến Tre",
                 shortCode: "50",
             },
             {
-                name: "Cao Bằng",
+                country: "Cao Bằng",
                 shortCode: "04",
             },
             {
-                name: "Cà Mau",
+                country: "Cà Mau",
                 shortCode: "59",
             },
             {
-                name: "Đắk Lắk",
+                country: "Đắk Lắk",
                 shortCode: "33",
             },
             {
-                name: "Đắk Nông",
+                country: "Đắk Nông",
                 shortCode: "72",
             },
             {
-                name: "Điện Biên",
+                country: "Điện Biên",
                 shortCode: "71",
             },
             {
-                name: "Đồng Nai",
+                country: "Đồng Nai",
                 shortCode: "39",
             },
             {
-                name: "Đồng Tháp",
+                country: "Đồng Tháp",
                 shortCode: "45",
             },
             {
-                name: "Gia Lai",
+                country: "Gia Lai",
                 shortCode: "30",
             },
             {
-                name: "Hà Giang",
+                country: "Hà Giang",
                 shortCode: "03",
             },
             {
-                name: "Hà Nam",
+                country: "Hà Nam",
                 shortCode: "63",
             },
             {
-                name: "Hà Tây",
+                country: "Hà Tây",
                 shortCode: "15",
             },
             {
-                name: "Hà Tĩnh",
+                country: "Hà Tĩnh",
                 shortCode: "23",
             },
             {
-                name: "Hải Dương",
+                country: "Hải Dương",
                 shortCode: "61",
             },
             {
-                name: "Hậu Giang",
+                country: "Hậu Giang",
                 shortCode: "73",
             },
             {
-                name: "Hòa Bình",
+                country: "Hòa Bình",
                 shortCode: "14",
             },
             {
-                name: "Hưng Yên",
+                country: "Hưng Yên",
                 shortCode: "66",
             },
             {
-                name: "Khánh Hòa",
+                country: "Khánh Hòa",
                 shortCode: "34",
             },
             {
-                name: "Kiên Giang",
+                country: "Kiên Giang",
                 shortCode: "47",
             },
             {
-                name: "Kon Tum",
+                country: "Kon Tum",
                 shortCode: "28",
             },
             {
-                name: "Lai Châu",
+                country: "Lai Châu",
                 shortCode: "01",
             },
             {
-                name: "Lâm Đồng",
+                country: "Lâm Đồng",
                 shortCode: "35",
             },
             {
-                name: "Lạng Sơn",
+                country: "Lạng Sơn",
                 shortCode: "09",
             },
             {
-                name: "Lào Cai",
+                country: "Lào Cai",
                 shortCode: "02",
             },
             {
-                name: "Long An",
+                country: "Long An",
                 shortCode: "41",
             },
             {
-                name: "Nam Định",
+                country: "Nam Định",
                 shortCode: "67",
             },
             {
-                name: "Nghệ An",
+                country: "Nghệ An",
                 shortCode: "22",
             },
             {
-                name: "Ninh Bình",
+                country: "Ninh Bình",
                 shortCode: "18",
             },
             {
-                name: "Ninh Thuận",
+                country: "Ninh Thuận",
                 shortCode: "36",
             },
             {
-                name: "Phú Thọ",
+                country: "Phú Thọ",
                 shortCode: "68",
             },
             {
-                name: "Phú Yên",
+                country: "Phú Yên",
                 shortCode: "32",
             },
             {
-                name: "Quảng Bình",
+                country: "Quảng Bình",
                 shortCode: "24",
             },
             {
-                name: "Quảng Nam",
+                country: "Quảng Nam",
                 shortCode: "27",
             },
             {
-                name: "Quảng Ngãi",
+                country: "Quảng Ngãi",
                 shortCode: "29",
             },
             {
-                name: "Quảng Ninh",
+                country: "Quảng Ninh",
                 shortCode: "13",
             },
             {
-                name: "Quảng Trị",
+                country: "Quảng Trị",
                 shortCode: "25",
             },
             {
-                name: "Sóc Trăng",
+                country: "Sóc Trăng",
                 shortCode: "52",
             },
             {
-                name: "Sơn La",
+                country: "Sơn La",
                 shortCode: "05",
             },
             {
-                name: "Tây Ninh",
+                country: "Tây Ninh",
                 shortCode: "37",
             },
             {
-                name: "Thái Bình",
+                country: "Thái Bình",
                 shortCode: "20",
             },
             {
-                name: "Thái Nguyên",
+                country: "Thái Nguyên",
                 shortCode: "69",
             },
             {
-                name: "Thanh Hóa",
+                country: "Thanh Hóa",
                 shortCode: "21",
             },
             {
-                name: "Thừa Thiên–Huế",
+                country: "Thừa Thiên–Huế",
                 shortCode: "26",
             },
             {
-                name: "Tiền Giang",
+                country: "Tiền Giang",
                 shortCode: "46",
             },
             {
-                name: "Trà Vinh",
+                country: "Trà Vinh",
                 shortCode: "51",
             },
             {
-                name: "Tuyên Quang",
+                country: "Tuyên Quang",
                 shortCode: "07",
             },
             {
-                name: "Vĩnh Long",
+                country: "Vĩnh Long",
                 shortCode: "49",
             },
             {
-                name: "Vĩnh Phúc",
+                country: "Vĩnh Phúc",
                 shortCode: "70",
             },
             {
-                name: "Yên Bái",
+                country: "Yên Bái",
                 shortCode: "06",
             },
             {
-                name: "Cần Thơ",
+                country: "Cần Thơ",
                 shortCode: "CT",
             },
             {
-                name: "Đà Nẵng",
+                country: "Đà Nẵng",
                 shortCode: "DN",
             },
             {
-                name: "Hà Nội",
+                country: "Hà Nội",
                 shortCode: "HN",
             },
             {
-                name: "Hải Phòng",
+                country: "Hải Phòng",
                 shortCode: "HP",
             },
             {
-                name: "Hồ Chí Minh (Sài Gòn)",
+                country: "Hồ Chí Minh (Sài Gòn)",
                 shortCode: "SG",
             },
         ],
@@ -20382,19 +20382,19 @@ const countyRegion = [
         countryShortCode: "VG",
         regions: [
             {
-                name: "Anegada",
+                country: "Anegada",
                 shortCode: "ANG",
             },
             {
-                name: "Jost Van Dyke",
+                country: "Jost Van Dyke",
                 shortCode: "JVD",
             },
             {
-                name: "Tortola",
+                country: "Tortola",
                 shortCode: "TTA",
             },
             {
-                name: "Virgin Gorda",
+                country: "Virgin Gorda",
                 shortCode: "VGD",
             },
         ],
@@ -20404,15 +20404,15 @@ const countyRegion = [
         countryShortCode: "VI",
         regions: [
             {
-                name: "St. Thomas",
+                country: "St. Thomas",
                 shortCode: "STH",
             },
             {
-                name: "St. John",
+                country: "St. John",
                 shortCode: "SJO",
             },
             {
-                name: "St. Croix",
+                country: "St. Croix",
                 shortCode: "SCR",
             },
         ],
@@ -20422,15 +20422,15 @@ const countyRegion = [
         countryShortCode: "WF",
         regions: [
             {
-                name: "Alo",
+                country: "Alo",
                 shortCode: "ALO",
             },
             {
-                name: "Sigave",
+                country: "Sigave",
                 shortCode: "SIG",
             },
             {
-                name: "Wallis",
+                country: "Wallis",
                 shortCode: "WAL",
             },
         ],
@@ -20440,23 +20440,23 @@ const countyRegion = [
         countryShortCode: "EH",
         regions: [
             {
-                name: "Es Smara",
+                country: "Es Smara",
                 shortCode: "ESM",
             },
             {
-                name: "Boujdour",
+                country: "Boujdour",
                 shortCode: "BOD",
             },
             {
-                name: "Laâyoune",
+                country: "Laâyoune",
                 shortCode: "LAA",
             },
             {
-                name: "Aousserd",
+                country: "Aousserd",
                 shortCode: "AOU",
             },
             {
-                name: "Oued ed Dahab",
+                country: "Oued ed Dahab",
                 shortCode: "OUD",
             },
         ],
@@ -20466,83 +20466,83 @@ const countyRegion = [
         countryShortCode: "YE",
         regions: [
             {
-                name: "Abyān",
+                country: "Abyān",
                 shortCode: "AB",
             },
             {
-                name: "'Adan",
+                country: "'Adan",
                 shortCode: "AD",
             },
             {
-                name: "Aḑ Ḑāli'",
+                country: "Aḑ Ḑāli'",
                 shortCode: "DA",
             },
             {
-                name: "Al Bayḑā'",
+                country: "Al Bayḑā'",
                 shortCode: "BA",
             },
             {
-                name: "Al Ḩudaydah",
+                country: "Al Ḩudaydah",
                 shortCode: "HU",
             },
             {
-                name: "Al Jawf",
+                country: "Al Jawf",
                 shortCode: "JA",
             },
             {
-                name: "Al Mahrah",
+                country: "Al Mahrah",
                 shortCode: "MR",
             },
             {
-                name: "Al Maḩwīt",
+                country: "Al Maḩwīt",
                 shortCode: "MW",
             },
             {
-                name: "'Amrān",
+                country: "'Amrān",
                 shortCode: "AM",
             },
             {
-                name: "Dhamār",
+                country: "Dhamār",
                 shortCode: "DH",
             },
             {
-                name: "Ḩaḑramawt",
+                country: "Ḩaḑramawt",
                 shortCode: "HD",
             },
             {
-                name: "Ḩajjah",
+                country: "Ḩajjah",
                 shortCode: "HJ",
             },
             {
-                name: "Ibb",
+                country: "Ibb",
                 shortCode: "IB",
             },
             {
-                name: "Laḩij",
+                country: "Laḩij",
                 shortCode: "LA",
             },
             {
-                name: "Ma'rib",
+                country: "Ma'rib",
                 shortCode: "MA",
             },
             {
-                name: "Raymah",
+                country: "Raymah",
                 shortCode: "RA",
             },
             {
-                name: "Şā‘dah",
+                country: "Şā‘dah",
                 shortCode: "SD",
             },
             {
-                name: "Şan‘ā'",
+                country: "Şan‘ā'",
                 shortCode: "SN",
             },
             {
-                name: "Shabwah",
+                country: "Shabwah",
                 shortCode: "SH",
             },
             {
-                name: "Tā‘izz",
+                country: "Tā‘izz",
                 shortCode: "TA",
             },
         ],
@@ -20552,43 +20552,43 @@ const countyRegion = [
         countryShortCode: "ZM",
         regions: [
             {
-                name: "Central",
+                country: "Central",
                 shortCode: "02",
             },
             {
-                name: "Copperbelt",
+                country: "Copperbelt",
                 shortCode: "08",
             },
             {
-                name: "Eastern",
+                country: "Eastern",
                 shortCode: "03",
             },
             {
-                name: "Luapula",
+                country: "Luapula",
                 shortCode: "04",
             },
             {
-                name: "Lusaka",
+                country: "Lusaka",
                 shortCode: "09",
             },
             {
-                name: "Muchinga",
+                country: "Muchinga",
                 shortCode: "10",
             },
             {
-                name: "Northern",
+                country: "Northern",
                 shortCode: "05",
             },
             {
-                name: "North-Western",
+                country: "North-Western",
                 shortCode: "06",
             },
             {
-                name: "Southern",
+                country: "Southern",
                 shortCode: "07",
             },
             {
-                name: "Western",
+                country: "Western",
                 shortCode: "01",
             },
         ],
@@ -20598,43 +20598,43 @@ const countyRegion = [
         countryShortCode: "ZW",
         regions: [
             {
-                name: "Bulawayo",
+                country: "Bulawayo",
                 shortCode: "BU",
             },
             {
-                name: "Harare",
+                country: "Harare",
                 shortCode: "HA",
             },
             {
-                name: "Manicaland",
+                country: "Manicaland",
                 shortCode: "MA",
             },
             {
-                name: "Mashonaland Central",
+                country: "Mashonaland Central",
                 shortCode: "MC",
             },
             {
-                name: "Mashonaland East",
+                country: "Mashonaland East",
                 shortCode: "ME",
             },
             {
-                name: "Mashonaland West",
+                country: "Mashonaland West",
                 shortCode: "MW",
             },
             {
-                name: "Masvingo",
+                country: "Masvingo",
                 shortCode: "MV",
             },
             {
-                name: "Matabeleland North",
+                country: "Matabeleland North",
                 shortCode: "MN",
             },
             {
-                name: "Matabeleland South",
+                country: "Matabeleland South",
                 shortCode: "MS",
             },
             {
-                name: "Midlands",
+                country: "Midlands",
                 shortCode: "MI",
             },
         ],

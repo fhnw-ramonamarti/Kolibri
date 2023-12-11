@@ -110,12 +110,11 @@ const ChoiceAttributeInputController = (attribute) => {
                 attribute
                     .getObs(FOCUS_ELEMENT)
                     .setValue({ ...attribute.getObs(FOCUS_ELEMENT).getValue(), value: firstFittingCountry });
-                if (!document.querySelector(".lists.open")) {
+                if (!attribute.getObs(CHOICEBOX_OPEN).getValue()) {
                     attribute.getObs(SELECTION_ELEMENTS).setValue({
                         ...attribute.getObs(SELECTION_ELEMENTS).getValue(),
                         [COUMN_NAMES[1]]: firstFittingCountry,
                     });
-                    attribute.getObs(VALUE).setValue(firstFittingCountry);
                 }
             }
         }

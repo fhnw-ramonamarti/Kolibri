@@ -493,6 +493,7 @@ const projectChoiceInput = (timeout) => (inputController, formCssClassName) => {
                 if (e.key.length === 1) {
                     inputController.setFocusedObject({ ...inputController.getFocusedObject(), column: 1 });
                     inputController.triggerDebounceInput(e.key);
+                    inputController.setValue(inputController.getSelectedObject()[COUMN_NAMES[1]]);
                     updateFieldValue();
                     scrollCountry();
                 }
