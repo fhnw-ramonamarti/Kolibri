@@ -20,7 +20,7 @@ let counter = 0;
  * @param { ChoiceDetailAttributeController<_E_> } detailController
  * @param { ChoiceMasterAttributeController<_C_> } masterController
  * @param { !String } formCssClassName
- * @return List<HTMLElement> | null
+ * @return Array<HTMLElement> | null
  * @example
  * const [labelElement, selectionElement] = projectChoiceInput(detailController, masterController, "countrySelection");
  */
@@ -67,7 +67,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     /** @type {HTMLSpanElement}  */ const dropdownLine = dom(`
         <div class="selected${elementClassName}Line selectionDetailView"></div>
     `)[0];
-    /** @type {List<HTMLSpanElement>}  */ const [svgClear, svgClose, svgOpen] = dom(`
+    /** @type {Array<HTMLSpanElement>}  */ const [svgClear, svgClose, svgOpen] = dom(`
         <span class="icon clear" id="clear">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
                 <path d="M 5 5  L 15 15  M 5 15  L 15 5" stroke="black" stroke-width="2" stroke-linecap="round" />
@@ -270,6 +270,14 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         }
     };
 
+    const updateClearIcon = () => {
+        if (detailController.getValue() === "") {
+            svgClear.classList.remove("show");
+        } else {
+            svgClear.classList.add("show");
+        }
+    };
+
     // ------------ UPDATE MASTER VIEW END -------------------------------
 
     // ------------ UPDATE FIELDS START ----------------------------------
@@ -294,21 +302,13 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     const changeElement = (newVal) => {
         masterController.setFocusObject({column: 1});
         changeSelection(newVal);
-        updateFieldValue();
-    };
-
-    const updateFieldValue = () => {
-        if (detailController.getValue() === "") {
-            svgClear.classList.remove("show");
-        } else {
-            svgClear.classList.add("show");
-        }
+        updateClearIcon();
     };
 
     const resetValue = () => {
         const colName = masterController.getColNames()[1];
         masterController.setValue({[colName]: ""});
-        updateFieldValue();
+        updateClearIcon();
     };
 
     // ------------ UPDATE FIELDS END ------------------------------------
@@ -479,7 +479,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                     if (masterController.getChoiceBoxOpen()) {
                         scrollColumn();
                     } else {
-                        updateFieldValue();
+                        updateClearIcon();
                     }
                 }
                 break;

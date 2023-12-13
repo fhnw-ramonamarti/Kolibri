@@ -115,13 +115,13 @@ const ChoiceDetailAttributeController = (attribute) => {
  * @template _C_ - type of the category property
  * @template _E_ - type of the element property
  * @property { ()  => Array<String> }              getColNames
- * @property { ()  => List<_C_> }                  getCategories
- * @property { ()  => List<_E_>}                   getElements
- * @property { ()  => List<_E_> }                  getFilteredElements
+ * @property { ()  => Array<_C_> }                  getCategories
+ * @property { ()  => Array<_E_>}                   getElements
+ * @property { ()  => Array<_E_> }                  getFilteredElements
  * @property { ()  => _T_ }                        getValue
  * @property { (val: _T_) => void }                setValue
- * @property { ()  => List<_T_> }                  getElementList
- * @property { (val: List<_T_>) => void }          setElementList
+ * @property { ()  => Array<_T_> }                  getElementList
+ * @property { (val: Array<_T_>) => void }          setElementList
  * @property { ()  => FocusObject }                getFocusObject
  * @property { (val: FocusObject | {}) => void }   setFocusObject
  * @property { ()  => void }                       setFocusToPrev
@@ -132,7 +132,7 @@ const ChoiceDetailAttributeController = (attribute) => {
  * @property { (val: Boolean) => void }            setChoiceBoxOpen
  * @property { (key: String) => void }             triggerDebounceInput
  * @property { (cb: ValueChangeCallback<_T_>)         => void } onValueChanged
- * @property { (cb: ValueChangeCallback<List<_T_>>)   => void } onElementListChanged
+ * @property { (cb: ValueChangeCallback<Array<_T_>>)   => void } onElementListChanged
  * @property { (cb: ValueChangeCallback<FocusObject>) => void } onFocusObjectChanged
  * @property { (cb: ValueChangeCallback<String>)      => void } onDebounceTextChanged
  * @property { (cb: ValueChangeCallback<Boolean>)     => void } onChoiceBoxOpenChanged
@@ -180,15 +180,21 @@ const ChoiceMasterAttributeController = (categoryColumn, elementColumn, timeout)
 
     debounceController.onValueChanged((text) => {
         if (text !== "") {
-            // ?? todo over filtered / all elems
-            let firstFittingElement = attribute
+            const filter =  (e) => {
+                if(attribute.getObs(CHOICEBOX_OPEN).getValue()){
+                    return [e[categoryColumn], ALL].includes(attribute.getObs(VALUE).getValue()[categoryColumn]);
+                } else {
+                    return true;
+                }
+            }
+            const firstFittingElement = attribute
                 .getObs(LIST_ELEMENTS)
                 .getValue()
-                .filter((e) => [e[categoryColumn], ALL].includes(attribute.getObs(VALUE).getValue()[categoryColumn]))
+                .filter((e) => filter(e))
                 .map((e) => e[elementColumn])
                 .find((e) => e.toLowerCase().startsWith(attribute.getObs(DEBOUNCE_TEXT).getValue().toLowerCase()));
             console.debug("Debounce: " + text + " - " + firstFittingElement); // todo DEBUG
-            if (firstFittingElement) {
+            if (firstFittingElement != null) {
                 attribute
                     .getObs(FOCUS_ELEMENT)
                     .setValue({...attribute.getObs(FOCUS_ELEMENT).getValue(), value: firstFittingElement});
@@ -248,15 +254,12 @@ const ChoiceMasterAttributeController = (categoryColumn, elementColumn, timeout)
                 val.column = colNames.length - 1;
             }
             if (val.value == null && attribute.getObs(FOCUS_ELEMENT).getValue().value == null) {
-                if (attribute.getObs(FOCUS_ELEMENT).getValue().column === 0) {
+                if (val.column === 0) {
                     val.value = attribute.getObs(VALUE).getValue()[categoryColumn];
                 }
-                if (attribute.getObs(FOCUS_ELEMENT).getValue().column === 1) {
+                if (val.column === 1) {
                     val.value = filteredElements()[0];
                 }
-            }
-            if (!filteredElements().includes(val.value) && !categories().includes(val.value)) {
-                val.value = filteredElements()[0];
             }
             attribute.getObs(FOCUS_ELEMENT).setValue({...attribute.getObs(FOCUS_ELEMENT).getValue(), ...val});
         },
@@ -300,7 +303,7 @@ const ChoiceMasterAttributeController = (categoryColumn, elementColumn, timeout)
  * Get the previous element in a list starting at the current element
  * @private
  * @template _T_
- * @type { (currentElem:_T_, list:List<_T_>) => _T_ }
+ * @type { (currentElem:_T_, list:Array<_T_>) => _T_ }
  */
 const getNeighborPrev = (currentElem, list) => {
     return getNeighbor(currentElem, list, (x) => x - 1);
@@ -310,7 +313,7 @@ const getNeighborPrev = (currentElem, list) => {
  * Get the next element in a list starting at the current element
  * @private
  * @template _T_
- * @type { (currentElem:_T_, list:List<_T_>) => _T_ }
+ * @type { (currentElem:_T_, list:Array<_T_>) => _T_ }
  */
 const getNeighborNext = (currentElem, list) => {
     return getNeighbor(currentElem, list, (x) => x + 1);

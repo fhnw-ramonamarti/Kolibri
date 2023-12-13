@@ -40,7 +40,7 @@ export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
 /**
  * @typedef { object } ChoiceMasterAttributes
  * @template { object } _T_ - object with category and element entry
- * @property { !List<_T_> }     elementList    - mandatory list of elements, will become all possible input value, to be chosen from
+ * @property { !Array<_T_> }     elementList    - mandatory list of elements, will become all possible input value, to be chosen from
  * @property { ?_T_ }           sectionElement - optional selected elements, will become the selected category & element
  * @property { ?FocusObject }   focusObject  - optional focus object, will become the focused category or element, used in navigation
  */
@@ -104,7 +104,7 @@ const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
 /** todo qualifier not tested an integrated jet
  * Constructor that creates a new choice attribute with a element list, focus object, value object and an optional qualifier.
  * @template { object } _T_ - object with category and element entry
- * @param  { List<_T_> }       elementList       - the initial list of element objects
+ * @param  { Array<_T_> }       elementList       - the initial list of element objects
  * @param  { FocusObject }     focusObject     - the initial focus object with current column and current element
  * @param  { _T_ }             value           - the initial selection object
  * @param  { String? }         qualifier       - the optional qualifier. If provided and non-nullish it will put the attribute
