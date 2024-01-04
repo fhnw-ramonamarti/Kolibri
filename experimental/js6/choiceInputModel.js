@@ -40,9 +40,9 @@ export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
 /**
  * @typedef { object } ChoiceMasterAttributes
  * @template { object } _T_ - object with category and element entry
- * @property { !Array<_T_> }     elementList    - mandatory list of elements, will become all possible input value, to be chosen from
+ * @property { !Array<_T_> }    elementList    - mandatory list of elements, will become all possible input value, to be chosen from
  * @property { ?_T_ }           sectionElement - optional selected elements, will become the selected category & element
- * @property { ?FocusObject }   focusObject  - optional focus object, will become the focused category or element, used in navigation
+ * @property { ?FocusObject }   focusObject    - optional focus object, will become the focused category or element, used in navigation
  */
 
 /**
@@ -94,7 +94,7 @@ const ChoiceDetailModel = ({value, placeholder, label, name}) => {
  */
 const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
     const multiAttr = ChoiceAttribute(elementList, focusObject, sectionElement);
-    multiAttr.getObs(EDITABLE).setValue(false);
+    multiAttr.getObs(EDITABLE, false);
     multiAttr.getObs(DEBOUNCE_TEXT, "");
     multiAttr.getObs(CHOICEBOX_OPEN, false);
 
@@ -123,6 +123,8 @@ const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
 const ChoiceAttribute = (elementList, focusObject, value, qualifier) => {
     const attr = Attribute(value, qualifier);
     attr.getObs(LIST_ELEMENTS, elementList);
-    attr.getObs(FOCUS_ELEMENT, focusObject);
+
+    if (null != focusObject) attr.getObs(FOCUS_ELEMENT, focusObject);
+
     return {...attr};
 };

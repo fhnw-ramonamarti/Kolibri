@@ -7,7 +7,7 @@ import { countryList } from "../countries.js";
 import { ChoiceDetailController, ChoiceMasterController } from "../js6/choiceInputController.js";
 import { projectChoiceInput } from "../js6/choiceInputProjector.js";
 
-export { createDetailController, createMasterController };
+export { start };
 
 const createFormController = () => {
     const formStructure = [
@@ -41,9 +41,13 @@ const createController = () => {
     return [createDetailController(), createMasterController()];
 };
 
+const start = (classname) => {
+    return projectChoiceInput(...createController(), classname)
+};
+
 const formHolder = document.querySelector("#form-holder");
 if (null != formHolder) {
     // there is no such element when called via test case
     formHolder.append(...createFormController());
-    formHolder.querySelector("fieldset").append(...projectChoiceInput(...createController(), "selectedCountry"));
+    formHolder.querySelector("fieldset").append(...start("selectedCountry"));
 }

@@ -115,13 +115,13 @@ const ChoiceDetailAttributeController = (attribute) => {
  * @template _C_ - type of the category property
  * @template _E_ - type of the element property
  * @property { ()  => Array<String> }              getColNames
- * @property { ()  => Array<_C_> }                  getCategories
- * @property { ()  => Array<_E_>}                   getElements
- * @property { ()  => Array<_E_> }                  getFilteredElements
+ * @property { ()  => Array<_C_> }                 getCategories
+ * @property { ()  => Array<_E_>}                  getElements
+ * @property { ()  => Array<_E_> }                 getFilteredElements
  * @property { ()  => _T_ }                        getValue
  * @property { (val: _T_) => void }                setValue
- * @property { ()  => Array<_T_> }                  getElementList
- * @property { (val: Array<_T_>) => void }          setElementList
+ * @property { ()  => Array<_T_> }                 getElementList
+ * @property { (val: Array<_T_>) => void }         setElementList
  * @property { ()  => FocusObject }                getFocusObject
  * @property { (val: FocusObject | {}) => void }   setFocusObject
  * @property { ()  => void }                       setFocusToPrev
@@ -132,7 +132,7 @@ const ChoiceDetailAttributeController = (attribute) => {
  * @property { (val: Boolean) => void }            setChoiceBoxOpen
  * @property { (key: String) => void }             triggerDebounceInput
  * @property { (cb: ValueChangeCallback<_T_>)         => void } onValueChanged
- * @property { (cb: ValueChangeCallback<Array<_T_>>)   => void } onElementListChanged
+ * @property { (cb: ValueChangeCallback<Array<_T_>>)  => void } onElementListChanged
  * @property { (cb: ValueChangeCallback<FocusObject>) => void } onFocusObjectChanged
  * @property { (cb: ValueChangeCallback<String>)      => void } onDebounceTextChanged
  * @property { (cb: ValueChangeCallback<Boolean>)     => void } onChoiceBoxOpenChanged
@@ -193,7 +193,6 @@ const ChoiceMasterAttributeController = (categoryColumn, elementColumn, timeout)
                 .filter((e) => filter(e))
                 .map((e) => e[elementColumn])
                 .find((e) => e.toLowerCase().startsWith(attribute.getObs(DEBOUNCE_TEXT).getValue().toLowerCase()));
-            console.debug("Debounce: " + text + " - " + firstFittingElement); // todo DEBUG
             if (firstFittingElement != null) {
                 attribute
                     .getObs(FOCUS_ELEMENT)
