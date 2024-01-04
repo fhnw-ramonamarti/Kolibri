@@ -234,7 +234,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
             dropdownElement.querySelector(`.${masterController.getColNames()[column]}`);
         if (currentElementElement) {
             const elementListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[column]}List`);
-            const height = elementListContainer.offsetHeight / 2 - currentElementElement.offsetHeight / 2;
+            const height = elementListContainer.offsetTop + elementListContainer.offsetHeight / 2 - currentElementElement.offsetHeight / 2;
             elementListContainer.scrollTo({top: currentElementElement.offsetTop - height});
         }
     };
