@@ -97,13 +97,18 @@ input:focus:has(+.open) {
 
 .icon {
     display: none;
-    /* position: absolute;
-    right: 0;
-    top: 0; */
-    height: 100%;
-    padding: 0 10px;
-
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 10px;
 }
+
+.icon svg {
+    width: 1rem;
+    aspect-ratio: 1/1;
+}
+
 
 .icon.show {
     display: flex;
@@ -111,6 +116,8 @@ input:focus:has(+.open) {
     align-items: center;
     background: transparent;
 }
+
+
 
 .clear.show {
     display: flex;
