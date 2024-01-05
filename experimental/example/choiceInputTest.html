@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choice Input</title>
-    <link rel="shortcut icon" type="image/png" href="../../docs/img/logo/logo-60x54.png"/>
+    <link rel="shortcut icon" type="image/png" href="../../docs/img/logo/logo-60x54.png" />
     <style>
         @import url("../../docs/css/kolibri-base.css");
         @import url("../../docs/css/kolibri-light-colors.css");
@@ -13,9 +14,18 @@
         @import url("../css/kolibri-input-elements-colours.css");
         @import url("../css/kolibri-input-elements-dd.css");
 
-        
+
+        fieldset {
+            border: none;
+        }
+
+        input:not(:read-only) {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
     </style>
 </head>
+
 <body>
 
     <div id="form-holder">
@@ -23,4 +33,5 @@
     </div>
     <script type="module" src="starter.js"></script>
 </body>
+
 </html>

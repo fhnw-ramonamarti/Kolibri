@@ -257,7 +257,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
             // todo in style
             const categoryListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[0]}List`);
             dropdownBody.style.height =
-                categoryListContainer.childElementCount * categoryListContainer.firstChild.offsetHeight + 1 + "px";
+                categoryListContainer.childElementCount * (categoryListContainer.firstChild.offsetHeight + 1) + 8 + "px";
 
             displayCurrentPosition();
             scrollColumn();

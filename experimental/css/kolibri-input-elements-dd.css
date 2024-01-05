@@ -26,7 +26,6 @@
 
 html,
 body {
-    background-color: #cccccc;
     width: auto;
     display: flex;
     justify-content: center;
@@ -38,7 +37,7 @@ body {
 
 /* icons inside - start */
 .selectionElement {
-    width: 30em;
+    min-width: 30em;
     position: relative;
     border: var(--border-dark);
     background: white;

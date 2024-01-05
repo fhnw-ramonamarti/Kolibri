@@ -11,8 +11,8 @@ export { start };
 
 const createFormController = () => {
     const formStructure = [
-        { value: "Max", label: "Prename", name: "text", type: TEXT },
-        { value: "Müller", label: "Name", name: "text", type: TEXT },
+        { value: "", label: "Prename", name: "text", type: TEXT },
+        { value: "", label: "Name", name: "text", type: TEXT },
     ];
     const controller = SimpleFormController(formStructure);
     return projectForm(controller);
