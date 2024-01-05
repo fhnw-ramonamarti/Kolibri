@@ -21,9 +21,9 @@ import "./projector/simpleForm/simpleInputProjectorTest.js"
 import "./projector/simpleForm/simpleFormProjectorTest.js"
 import "./sequence/sequenceTestSuite.js"
 
-import "../../../experimental/js6/choiceInputModelTest.js"
-import "../../../experimental/js6/choiceInputControllerTest.js"
-import "../../../experimental/js6/choiceInputProjectorTest.js"
+import "../../../experimental/js/choiceInputModelTest.js"
+import "../../../experimental/js/choiceInputControllerTest.js"
+import "../../../experimental/js/choiceInputProjectorTest.js"
 
 
 // note: logger tests that need to write to the console are moved to the manual test suite.

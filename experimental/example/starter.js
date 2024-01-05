@@ -4,8 +4,8 @@ import { TEXT } from "../../docs/src/kolibri/util/dom.js";
 
 import { countryList } from "../countries.js";
 
-import { ChoiceDetailController, ChoiceMasterController } from "../js6/choiceInputController.js";
-import { projectChoiceInput } from "../js6/choiceInputProjector.js";
+import { ChoiceDetailController, ChoiceMasterController } from "../js/choiceInputController.js";
+import { projectChoiceInput } from "../js/choiceInputProjector.js";
 
 export { start };
 
