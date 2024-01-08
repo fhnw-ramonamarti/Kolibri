@@ -9,4 +9,4 @@ import "./sequence/generators/generatorTest.js"
 import "./sequence/tictactoe/tictactoeTest.js"
 import "./sequence/focusring/focusRingTest.js"
 
-import "../../../experimental/example/choiceInputTest.js"
+import "../../../experimental/example/choiceInputViewTest.js"
