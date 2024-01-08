@@ -56,7 +56,7 @@ const ChoiceDetailController = (args) => ChoiceDetailAttributeController(ChoiceD
  * @template _T_
  * @param  { !String } categoryColumn           - name of the object property of the category value
  * @param  { !String } elementColumn            - name of the object property of the element value
- * @param  { ?Number } timeout                  - timeout for the debounce of the search function
+ * @param  { ?Number } timeout                  - timeout for the debounce input of the search function
  * @return { (args: ChoiceMasterAttributes<_T_>) => ChoiceMasterAttributeController<_T_> }
  * @example
  *     const controller = ChoiceMasterController({
@@ -140,7 +140,7 @@ const ChoiceMasterAttributeController = (categoryColumn, elementColumn, timeout)
     // prepare for ip6 to generalize from country example
     const colNames = [categoryColumn, elementColumn];
 
-    // prepare lists of categires and elements
+    // prepare lists of categories and elements
     const categories = () => [
         // all at the beginning
         ALL,

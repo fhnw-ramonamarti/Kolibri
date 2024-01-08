@@ -20,7 +20,7 @@ let counter = 0;
  * @param { ChoiceDetailAttributeController<_E_> } detailController
  * @param { ChoiceMasterAttributeController<_T_> } masterController
  * @param { !String } formCssClassName
- * @return { Array<HTMLElement> | null }
+ * @return { Array<HTMLElement> | void }
  * @example
  *      const [labelElement, selectionElement] = projectChoiceInput(detailController, masterController, "countrySelection");
  */
@@ -108,7 +108,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         const columnContainer = dropdownElement.querySelector("#" + containerId);
         columnContainer.innerHTML = "";
 
-        // create list elemenets with id, class and events
+        // create list elements with id, class and events
         for (let i = 0; i < list.length; i++) {
             let element = document.createElement("LI");
             element.setAttribute("ID", name + "-" + i);
@@ -254,7 +254,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
 
         const elementListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[column]}List`);
 
-        // calculate middle of the visible cointainer part
+        // calculate middle of the visible container part
         const height =
             elementListContainer.offsetTop +
             elementListContainer.offsetHeight / 2 -
@@ -367,7 +367,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     });
 
     masterController.onValueChanged((val) => {
-        // bind with detail controller if element colmun changed
+        // bind with detail controller if element column changed
         if (val[masterController.getColNames()[1]] != null) {
             detailController.setValue(val[masterController.getColNames()[1]]);
         }
@@ -418,7 +418,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     };
 
     // handle focus on field
-    // no speacial action
+    // no special action
 
     // handle exit field
     inputElement.onblur = (e) => {
@@ -426,7 +426,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         // timeout < 200 ms not 100% reliable
         setTimeout(() => {
             if (e.target !== document.querySelector(":focus")) {
-                // close selecet if focus changed
+                // close select if focus changed
                 masterController.setChoiceBoxOpen(false);
             }
         }, 200);

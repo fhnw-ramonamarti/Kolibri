@@ -97,7 +97,7 @@ const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
 
 // prepare for ip6 to implement the qualifier attribute
 /** 
- * Constructor that creates a new choice attribute with a element list, focus object, value object and an optional qualifier.
+ * Constructor that creates a new choice attribute with an element list, focus object, value object and an optional qualifier.
  * @template { object } _T_ - object with category and element entry
  * @param  { Array<_T_> }       elementList    - the initial list of element objects
  * @param  { FocusObject }     focusObject     - the initial focus object with current column and current element

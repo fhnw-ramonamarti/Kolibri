@@ -12,7 +12,7 @@ export { start }; // exported for testing purposes
 // prepare form controller with model for example view page
 const createFormController = () => {
     const formStructure = [
-        { value: "", label: "Prename", name: "text", type: TEXT },
+        { value: "", label: "First name", name: "text", type: TEXT },
         { value: "", label: "Name", name: "text", type: TEXT },
     ];
     const controller = SimpleFormController(formStructure);

@@ -41,7 +41,7 @@ choiceInputProjectorSuite.add("binding", (assert) => {
     // test the binding
 
     // test hover on other element
-    var event = new MouseEvent("mouseover", {
+    const event = new MouseEvent("mouseover", {
         view: window,
         bubbles: true,
         cancelable: true,
