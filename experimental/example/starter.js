@@ -7,8 +7,9 @@ import { countryList } from "../countries.js";
 import { ChoiceDetailController, ChoiceMasterController } from "../js/choiceInputController.js";
 import { projectChoiceInput } from "../js/choiceInputProjector.js";
 
-export { start };
+export { start }; // exported for testing purposes
 
+// prepare form controller with model for example view page
 const createFormController = () => {
     const formStructure = [
         { value: "", label: "Prename", name: "text", type: TEXT },
@@ -18,6 +19,7 @@ const createFormController = () => {
     return projectForm(controller);
 };
 
+// prepare detail controller with model for select header
 const createDetailController = () => {
     const formStructureDetail = {
         value: "",
@@ -28,6 +30,7 @@ const createDetailController = () => {
     return ChoiceDetailController(formStructureDetail);
 };
 
+// prepare master controller with model for select body
 const createMasterController = () => {
     const formStructureMaster = {
         elementList: countryList,
@@ -37,17 +40,21 @@ const createMasterController = () => {
     return ChoiceMasterController("continent", "country")(formStructureMaster);
 };
 
-const createController = () => {
+// collect detail and master controller
+const createControllers = () => {
     return [createDetailController(), createMasterController()];
 };
 
+// create view using both controller
 const start = (classname) => {
-    return projectChoiceInput(...createController(), classname)
+    return projectChoiceInput(...createControllers(), classname)
 };
 
+// keep document-specific info out of the start function such that it is easier to test without
+// side-effecting the execution environment
 const formHolder = document.querySelector("#form-holder");
+// there is no such element when called via test case
 if (null != formHolder) {
-    // there is no such element when called via test case
     formHolder.append(...createFormController());
     formHolder.querySelector("fieldset").append(...start("selectedCountry"));
 }

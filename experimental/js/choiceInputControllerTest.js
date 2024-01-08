@@ -2,6 +2,7 @@ import { TestSuite } from "../../docs/src/kolibri/util/test.js";
 import { ChoiceDetailController, ChoiceMasterController } from "./choiceInputController.js";
 
 const choiceInputControllerSuite = TestSuite("experimental/js6/choiceInputController");
+// prepare for ip6 inclusion in docs folder
 // const choiceInputControllerSuite = TestSuite("projector/choiceInput/choiceInputController");
 
 choiceInputControllerSuite.add("full-detail", (assert) => {
