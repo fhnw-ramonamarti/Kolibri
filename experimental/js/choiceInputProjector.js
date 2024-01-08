@@ -1,13 +1,13 @@
 // noinspection JSValidateJSDoc
 
-import {SimpleInputController} from "../../docs/src/kolibri/projector/simpleForm/simpleInputController.js";
-import {InputProjector} from "../../docs/src/kolibri/projector/simpleForm/simpleInputProjector.js";
-import {TEXT, dom} from "../../docs/src/kolibri/util/dom.js";
+import { SimpleInputController } from "../../docs/src/kolibri/projector/simpleForm/simpleInputController.js";
+import { InputProjector } from "../../docs/src/kolibri/projector/simpleForm/simpleInputProjector.js";
+import { TEXT, dom } from "../../docs/src/kolibri/util/dom.js";
 
-export {projectChoiceInput};
+export { projectChoiceInput };
 
+// prepare for ip6 with multiple choice inputs on one page
 /**
- // todo future usage
  * @private
  * Internal mutable singleton state to produce unique id values for the label-input pairs.
  * @type { Number }
@@ -15,14 +15,14 @@ export {projectChoiceInput};
 let counter = 0;
 
 /**
- * @template _C_ - type of the category property
- * @template _E_ - type of the element property
+ * @template _E_          - type of the element property
+ * @template {object} _T_ - type of the list object
  * @param { ChoiceDetailAttributeController<_E_> } detailController
- * @param { ChoiceMasterAttributeController<_C_> } masterController
+ * @param { ChoiceMasterAttributeController<_T_> } masterController
  * @param { !String } formCssClassName
- * @return Array<HTMLElement> | null
+ * @return { Array<HTMLElement> | null }
  * @example
- * const [labelElement, selectionElement] = projectChoiceInput(detailController, masterController, "countrySelection");
+ *      const [labelElement, selectionElement] = projectChoiceInput(detailController, masterController, "countrySelection");
  */
 const projectChoiceInput = (detailController, masterController, formCssClassName) => {
     if (!detailController) {
@@ -48,7 +48,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     /** @type {HTMLSpanElement}  */ const spanElement = /** @type {HTMLSpanElement}  */ elements[1];
     /** @type {HTMLInputElement} */ const inputElement = spanElement.firstElementChild;
 
-    // todo naming
+    // prepare for ip6 with multiple choice inputs on one page
     inputElement.classList.add("input-" + formCssClassName);
     inputElement.classList.add(formCssClassName);
     inputElement.setAttribute("id", "input-" + id);
@@ -64,9 +64,11 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     const elementClassName =
         masterController.getColNames()[1].slice(0, 1).toUpperCase() +
         masterController.getColNames()[1].slice(1).toLowerCase();
+
     /** @type {HTMLSpanElement}  */ const dropdownLine = dom(`
         <div class="selected${elementClassName}Line selectionDetailView"></div>
     `)[0];
+
     /** @type {Array<HTMLSpanElement>}  */ const [svgClear, svgClose, svgOpen] = dom(`
         <span class="icon clear" id="clear">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
@@ -84,6 +86,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
             </svg>
         </span>
     `);
+
     /** @type {HTMLSpanElement}  */ const dropdownBody = dom(`
         <div class="lists selectionMasterView" id="master-${id}">
             <ul class="${masterController.getColNames()[0]}List categoryList list" 
@@ -93,6 +96,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                 id="${masterController.getColNames()[1]}List"></ul>
         </div>
     `)[0];
+
     dropdownLine.append(spanElement, svgClear, svgClose, svgOpen);
     dropdownElement.append(dropdownLine, dropdownBody);
 
@@ -103,6 +107,8 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     const buildColumn = (containerId, list, name, onClick, onHover) => {
         const columnContainer = dropdownElement.querySelector("#" + containerId);
         columnContainer.innerHTML = "";
+
+        // create list elemenets with id, class and events
         for (let i = 0; i < list.length; i++) {
             let element = document.createElement("LI");
             element.setAttribute("ID", name + "-" + i);
@@ -151,6 +157,8 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
             }
         );
     };
+
+    // execute creating columns with elements
     buildCategories();
     buildElements();
 
@@ -158,16 +166,19 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
 
     // ------------ UPDATE MASTER VIEW START -----------------------------
 
+    // extend classes for special elements
     const displayConcreteField = (list, name, currentValue, className) => {
         const currentIndex = list.findIndex((e) => e === currentValue);
-        if (currentIndex >= 0) {
-            const currentColValue = dropdownElement.querySelector("#" + name + "-" + currentIndex);
-            currentColValue.classList.add(className);
+        if (currentIndex < 0) {
+            // no index found
+            return;
         }
+        const currentColValue = dropdownElement.querySelector("#" + name + "-" + currentIndex);
+        currentColValue.classList.add(className);
     };
 
-    const displayColumn = (list, name, currentValue, exec = () => {
-    }) => {
+    // update class names for element
+    const displayColumn = (list, name, currentValue, exec = () => {}) => {
         for (let i = 0; i < list.length; i++) {
             let element = dropdownElement.querySelector("#" + name + "-" + i);
             element.setAttribute("CLASS", "entry " + name);
@@ -196,12 +207,14 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                         .getFilteredElements()
                         .includes(masterController.getElementList()[i][masterController.getColNames()[1]])
                 ) {
+                    // hide elements not in filtered list
                     element.classList.add("hidden");
                 }
             }
         );
     };
 
+    // update focused element
     const displayCurrentPosition = () => {
         if (masterController.getFocusObject().column === 0) {
             displayConcreteField(
@@ -228,53 +241,74 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     };
 
     const scrollColumn = (column = 1) => {
+        // get focus -> selection -> first element of the list
         const currentElementElement =
             dropdownElement.querySelector(`.${masterController.getColNames()[column]}.focused`) ??
             dropdownElement.querySelector(`.${masterController.getColNames()[column]}.selected`) ??
             dropdownElement.querySelector(`.${masterController.getColNames()[column]}`);
-        if (currentElementElement) {
-            const elementListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[column]}List`);
-            const height = elementListContainer.offsetTop + elementListContainer.offsetHeight / 2 - currentElementElement.offsetHeight / 2;
-            elementListContainer.scrollTo({top: currentElementElement.offsetTop - height});
+
+        if (currentElementElement == null) {
+            // do nothing
+            return;
         }
+
+        const elementListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[column]}List`);
+
+        // calculate middle of the visible cointainer part
+        const height =
+            elementListContainer.offsetTop +
+            elementListContainer.offsetHeight / 2 -
+            currentElementElement.offsetHeight / 2;
+
+        // scroll elements list
+        elementListContainer.scrollTo({ top: currentElementElement.offsetTop - height });
     };
 
     const toggleSelect = () => {
         const className = "open";
         const classNameIcon = "show";
 
+        // get lists to be updated
         const elementField = inputElement.classList;
         const iconOpen = svgOpen.classList;
         const iconClose = svgClose.classList;
 
         if (masterController.getChoiceBoxOpen()) {
+            // to update view
             elementField.add(className);
             dropdownBody.classList.add(className);
 
+            // change icon
             iconOpen.add(classNameIcon);
             iconClose.remove(classNameIcon);
 
-            // todo in style
-            const categoryListContainer = dropdownElement.querySelector(`#${masterController.getColNames()[0]}List`);
-            dropdownBody.style.height =
-                categoryListContainer.childElementCount * (categoryListContainer.firstChild.offsetHeight + 1) + 8 + "px";
+            const categoriesContainer = dropdownElement.querySelector(`#${masterController.getColNames()[0]}List`);
 
+            // set height of container so all categories are visible
+            // + 8 to handle corner radius
+            dropdownBody.style.height =
+                categoriesContainer.childElementCount * (categoriesContainer.firstChild.offsetHeight + 1) + 8 + "px";
+
+            // update view
             displayCurrentPosition();
             scrollColumn();
         } else {
+            // to update view
             elementField.remove(className);
             dropdownBody.classList.remove(className);
 
+            // change icon
             iconOpen.remove(classNameIcon);
             iconClose.add(classNameIcon);
         }
     };
 
     const updateClearIcon = () => {
+        const classNameIcon = "show";
         if (detailController.getValue() === "") {
-            svgClear.classList.remove("show");
+            svgClear.classList.remove(classNameIcon);
         } else {
-            svgClear.classList.add("show");
+            svgClear.classList.add(classNameIcon);
         }
     };
 
@@ -294,20 +328,20 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     };
 
     const changeCategory = (newVal) => {
-        masterController.setFocusObject({column: 0});
+        masterController.setFocusObject({ column: 0 });
         changeSelection(newVal);
         scrollColumn();
     };
 
     const changeElement = (newVal) => {
-        masterController.setFocusObject({column: 1});
+        masterController.setFocusObject({ column: 1 });
         changeSelection(newVal);
         updateClearIcon();
     };
 
     const resetValue = () => {
         const colName = masterController.getColNames()[1];
-        masterController.setValue({[colName]: ""});
+        masterController.setValue({ [colName]: "" });
         updateClearIcon();
     };
 
@@ -316,11 +350,12 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     // ------------ BIND DETAIL CONTROLLER ACTIONS START -----------------
 
     detailController.onValueChanged((val) => {
-        inputElement.value = /** @type String */ val;
+        inputElement.value = /** @type { String } */ val;
     });
+
     detailController.onPlaceholderChanged((val) => inputElement.setAttribute("placeholder", val ? val : ""));
 
-    // todo future change if editable select
+    // prepare for ip6 so choice input can be edited with own values
     detailController.onEditableChanged((_) => inputElement.setAttribute("readonly", "on"));
 
     // ------------ BIND DETAIL CONTROLLER  ACTIONS END ------------------
@@ -330,19 +365,25 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     masterController.onElementListChanged((_) => {
         display();
     });
+
     masterController.onValueChanged((val) => {
+        // bind with detail controller if element colmun changed
         if (val[masterController.getColNames()[1]] != null) {
             detailController.setValue(val[masterController.getColNames()[1]]);
         }
         display();
     });
+
     masterController.onFocusObjectChanged((_) => {
         display();
     });
+
     masterController.onDebounceTextChanged((_) => {
-        masterController.setFocusObject({column: masterController.getColNames().length - 1});
+        // jump to element column for debouncing search
+        masterController.setFocusObject({ column: masterController.getColNames().length - 1 });
         display();
     });
+
     masterController.onChoiceBoxOpenChanged((val) => {
         masterController.setChoiceBoxOpen(val);
         toggleSelect();
@@ -352,14 +393,20 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
 
     // ------------ BIND HTML ELEMENT ACTIONS START ----------------------
 
+    // handle click on element
+    // always set focus back to input element
     dropdownBody.onclick = () => {
         inputElement.focus();
         masterController.setChoiceBoxOpen(true);
     };
-
     dropdownLine.onclick = () => {
         inputElement.focus();
     };
+    inputElement.onclick = () => {
+        masterController.setChoiceBoxOpen(!masterController.getChoiceBoxOpen());
+    };
+
+    // handle icon clicks
     svgClear.onclick = () => {
         resetValue();
     };
@@ -369,13 +416,23 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
     svgClose.onclick = () => {
         masterController.setChoiceBoxOpen(true);
     };
-    inputElement.onblur = () => {
-        // masterController.setChoiceBoxOpen(false); // todo DEBUG
+
+    // handle focus on field
+    // no speacial action
+
+    // handle exit field
+    inputElement.onblur = (e) => {
+        // wait until possible handle click on element reactivated focus on element
+        // timeout < 200 ms not 100% reliable
+        setTimeout(() => {
+            if (e.target !== document.querySelector(":focus")) {
+                // close selecet if focus changed
+                masterController.setChoiceBoxOpen(false);
+            }
+        }, 200);
     };
-    inputElement.onclick = () => {
-        masterController.setChoiceBoxOpen(!masterController.getChoiceBoxOpen());
-    };
-    // todo key board bugs long press
+
+    // handle keyboard action in field
     inputElement.onkeydown = (e) => {
         switch (e.code ?? e.key ?? e.keyCode) {
             case "ArrowLeft":
@@ -383,6 +440,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                 if (!dropdownBody.classList.contains("open")) {
                     break;
                 }
+
                 masterController.setFocusObject({
                     column: masterController.getFocusObject().column - 1,
                     value: masterController.getValue()[masterController.getColNames()[0]],
@@ -393,10 +451,14 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                 if (!dropdownBody.classList.contains("open")) {
                     break;
                 }
+
                 masterController.setFocusToPrev();
+
                 if (masterController.getFocusObject().column === 0) {
+                    // update selection
                     changeCategory(masterController.getFocusObject().value);
                 }
+
                 scrollColumn();
                 break;
             case "ArrowRight":
@@ -404,20 +466,22 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                 if (!dropdownBody.classList.contains("open")) {
                     break;
                 }
-                let defaultValue = null;
+
+                // prepare element to focus
+                let defaultValue = masterController.getFilteredElements()[0];
                 if (
                     masterController
                         .getFilteredElements()
                         .includes(masterController.getValue()[masterController.getColNames()[1]])
                 ) {
                     defaultValue = masterController.getValue()[masterController.getColNames()[1]];
-                } else {
-                    defaultValue = masterController.getFilteredElements()[0];
                 }
+
                 masterController.setFocusObject({
                     column: masterController.getFocusObject().column + 1,
                     value: defaultValue,
                 });
+
                 scrollColumn();
                 break;
             case "ArrowDown":
@@ -426,10 +490,14 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                     masterController.setChoiceBoxOpen(true);
                     break;
                 }
+
                 masterController.setFocusToNext();
+
                 if (masterController.getFocusObject().column === 0) {
+                    // update selection
                     changeCategory(masterController.getFocusObject().value);
                 }
+
                 scrollColumn();
                 break;
             case "Enter":
@@ -440,47 +508,56 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
                     masterController.setChoiceBoxOpen(true);
                     break;
                 }
+
                 if (masterController.getFocusObject().column === 0) {
-                    let defaultValue = null;
+                    // prepare focus element
+                    let defaultValue = masterController.getFilteredElements()[0];
                     if (
                         masterController
                             .getFilteredElements()
                             .includes(masterController.getValue()[masterController.getColNames()[1]])
                     ) {
                         defaultValue = masterController.getValue()[masterController.getColNames()[1]];
-                    } else {
-                        defaultValue = masterController.getFilteredElements()[0];
                     }
+
                     masterController.setFocusObject({
                         column: masterController.getFocusObject().column + 1,
                         value: defaultValue,
                     });
                 }
+
                 if (masterController.getFocusObject().column === 1) {
+                    // update selection
                     changeElement(masterController.getFocusObject().value);
                 }
                 break;
             case "Escape":
             case 27:
+                // close master view without change
                 masterController.setChoiceBoxOpen(false);
                 break;
             case "Backspace":
             case 8:
+            case "Delete":
+            case 46:
                 resetValue();
                 break;
             case "Tab":
             case 9:
+                // close master view without change
                 masterController.setChoiceBoxOpen(false);
                 break;
             default:
-                // e.preventDefault();
-                if (e.key.length === 1) {
-                    masterController.triggerDebounceInput(e.key);
-                    if (masterController.getChoiceBoxOpen()) {
-                        scrollColumn();
-                    } else {
-                        updateClearIcon();
-                    }
+                if (e.key.length !== 1) {
+                    break;
+                }
+                // send keys to debounce search
+                masterController.triggerDebounceInput(e.key);
+
+                if (masterController.getChoiceBoxOpen()) {
+                    scrollColumn();
+                } else {
+                    updateClearIcon();
                 }
                 break;
         }

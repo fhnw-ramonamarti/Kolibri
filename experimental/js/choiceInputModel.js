@@ -15,12 +15,6 @@ import {
 
 export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
 
-/** todo remove later
- * @typedef { object } Country
- * @property { !String } country
- * @property { !String } continent
- * @property { ?String } shortcut
- */
 
 /**
  * @typedef { object } FocusObject
@@ -31,10 +25,10 @@ export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
 /**
  * @typedef { object } ChoiceDetailAttributes
  * @template _T_
- * @property { ?_T_ }     value           - optional value, will become the value sent in the form
- * @property { ?String }  placeholder     - optional placeholder that reflects the placeholder attribute of an input
- * @property { ?String }  label           - optional label, defaults to undefined
- * @property { ?String }  name            - optional name that reflects the name attribute of an input element, used in forms
+ * @property { ?_T_ }     value        - optional value, will become the value sent in the form
+ * @property { ?String }  placeholder  - optional placeholder that reflects the placeholder attribute of an input
+ * @property { ?String }  label        - optional label, defaults to undefined
+ * @property { ?String }  name         - optional name that reflects the name attribute of an input element, used in forms
  */
 
 /**
@@ -42,12 +36,12 @@ export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
  * @template { object } _T_ - object with category and element entry
  * @property { !Array<_T_> }    elementList    - mandatory list of elements, will become all possible input value, to be chosen from
  * @property { ?_T_ }           sectionElement - optional selected elements, will become the selected category & element
- * @property { ?FocusObject }   focusObject    - optional focus object, will become the focused category or element, used in navigation
+ * @property { ?FocusObject }   focusObject    - optional focus object, will become the active column and focused category or element, used in navigation
  */
 
 /**
- * Create a presentation model for the purpose of being used to bind against the detail view of selection Input element.
- * It provides a single readonly HTML text Input in combinations with its pairing Label element and
+ * Create a presentation model for the purpose of being used to bind against the detail view of selection input element.
+ * It provides a single readonly HTML text Input in combination with its pairing label element and
  * buttons to toggle and clear the selection component.
  * For a selection detail element, it only needs one attribute.
  * @constructor
@@ -58,7 +52,7 @@ export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
  *     const model = ChoiceDetailModel({
  *         value: "",
  *         placeholder: "Choose a country",
- *         label: "",
+ *         label: "Country",
  *         name: "country"
  *     });
  */
@@ -75,7 +69,7 @@ const ChoiceDetailModel = ({value, placeholder, label, name}) => {
 };
 
 /**
- * Create a presentation model for the purpose of being used to bind against the master view of selection Input element.
+ * Create a presentation model for the purpose of being used to bind against the master view of selection input element.
  * It provides a container with the given categories and elements in combination with the current
  * selection and position in focus to use for the navigation in the list.
  * For a selection master element, it only needs one attribute.
@@ -89,7 +83,7 @@ const ChoiceDetailModel = ({value, placeholder, label, name}) => {
  *                      {country: "United States", continent:"North America"}, 
  *                      {country: "Germany", continent: "Europe"}],
  *         sectionElement: { continent: "All" },
- *         focusObject: {}
+ *         focusObject: {column: 1, value: "Germany"}
  *     });
  */
 const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
@@ -101,10 +95,11 @@ const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
     return {...multiAttr};
 };
 
-/** todo qualifier not tested an integrated jet
+// prepare for ip6 to implement the qualifier attribute
+/** 
  * Constructor that creates a new choice attribute with a element list, focus object, value object and an optional qualifier.
  * @template { object } _T_ - object with category and element entry
- * @param  { Array<_T_> }       elementList       - the initial list of element objects
+ * @param  { Array<_T_> }       elementList    - the initial list of element objects
  * @param  { FocusObject }     focusObject     - the initial focus object with current column and current element
  * @param  { _T_ }             value           - the initial selection object
  * @param  { String? }         qualifier       - the optional qualifier. If provided and non-nullish it will put the attribute
@@ -114,7 +109,7 @@ const ChoiceMasterModel = ({elementList, sectionElement, focusObject}) => {
  * @constructor
  * @impure since it changes the ModelWorld in case of a given non-nullish qualifier.
  * @example
- * const firstNameAttr = ChoiceAttribute([
+ *      const firstNameAttr = ChoiceAttribute([
  *                                 {continent: "North America", country: "United States"},
  *                                 {continent: "Europe", country: "Switzerland"},
  *                                 {continent: "Europe", country: "Germany"},
