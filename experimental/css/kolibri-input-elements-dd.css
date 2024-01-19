@@ -15,6 +15,7 @@
     --font-bold-shadow:         -0.6px 0 0 var(--color-font-black);
 }
 
+/* Styling for elements within .dropdown */
 .dropdown * {
     color:                      var(--color-font-body);
     font-family:                var(--font-family);
@@ -22,7 +23,7 @@
     line-height:                18px;
     letter-spacing:             0.25px;
 }
-
+/* Basic styling for the HTML and body elements*/
 html,
 body {
     width:                     auto;
@@ -52,6 +53,7 @@ body {
     border:                    var(--border-dark);
 }
 
+/* country entered in form */
 .selectedCountry {
     width:                     100%;
     border:                    none;
@@ -78,16 +80,18 @@ body {
 */
 /* icons outside - end */
 
+/* Styling for .selectionDetailView within the dropdown */
 .selectionDetailView {
     width:                  100%;
     display:                flex;
     align-items:            center;
 }
-
+/* span elements with data-id attribute inside .selectionDetailView */
 .selectionDetailView span[data-id] {
     width:                  100%;
 }
 
+/* Styling for all input elements */
 input {
     outline:                none;
     border-radius:          var(--border-radius-big);
@@ -95,6 +99,7 @@ input {
     width:                  100%;
 }
 
+/* Styling adjustments for input elements when 'open' class */
 .selectionElement:has(input.open),
 input.open {
     border-bottom-left-radius:  0;
@@ -113,6 +118,7 @@ input:focus:has(+.open) {
 */
 /* icons outside - end */
 
+/* icons */
 .icon {
     display:                none;
     justify-content:        center;
@@ -134,6 +140,7 @@ input:focus:has(+.open) {
     background:             transparent;
 }
 
+
 .clear.show {
     padding:                var(--padding-icon);
 }
@@ -142,6 +149,7 @@ input:focus:has(+.open) {
     display:                none;
 }
 
+/* for .lists when it has the 'open' class */
 .lists.open {
     display:                grid;
     grid-template-columns:  1fr min-content 2fr;
@@ -163,16 +171,19 @@ input:focus:has(+.open) {
     /* icons inside - end */
 }
 
+/* default for .list */
 .lists {
     display:                none;
 }
 
+/* styling for .line of drafts */
 .line {
     height:                 100%;
     width:                  0;
     border-left:            var(--border-dark);
 }
 
+/* for unordered list elements, countries in dropdown */
 ul {
     list-style:             none;
     overflow:               scroll;
@@ -181,10 +192,9 @@ ul {
     height:                 100%;
     border:                 none;
 }
-
+/* within dropdown when open */
 li {
     background: var(--color-background);
-
     display:                flex;
     justify-content:        space-between;
     align-items:            center;
@@ -219,7 +229,7 @@ ul:first-child li.selected {
     background:             var(--color-dezent-selected);
     font-family:            var(--font-family-dezent);
 }
-
+/* selected country*/
 .selected {
     background:             var(--color-selected);
     color:                  var(--kb-color-hsl-black);
@@ -233,6 +243,7 @@ ul:first-child li.selected {
     margin-right:           -6px;
 }
 
+/* country that is focused through hover*/
 .focused {
     color:                  var(--color-focused);
 }
