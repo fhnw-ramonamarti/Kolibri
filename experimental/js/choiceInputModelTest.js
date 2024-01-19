@@ -14,9 +14,11 @@ import {
 } from "../../docs/src/kolibri/presentationModel.js";
 
 const choiceInputModelSuite = TestSuite("experimental/js6/choiceInputModel");
+// prepare for ip6 inclusion in docs folder
 // const choiceInputModelSuite = TestSuite("projector/choiceInput/choiceInputModel");
 
-// detail model tests
+// ----- detail model tests - start -----
+
 choiceInputModelSuite.add("full-detail", (assert) => {
     const model = ChoiceDetailModel({
         value: "Switzerland",
@@ -29,19 +31,23 @@ choiceInputModelSuite.add("full-detail", (assert) => {
     assert.is(model.hasObs(LABEL), true);
     assert.is(model.hasObs(VALID), true);
     assert.is(model.hasObs(PLACEHOLDER), true);
-    assert.is(model.hasObs(EDITABLE), true);
+    assert.is(model.hasObs(EDITABLE), true); // constructed with default value for later implementation
 });
 
 choiceInputModelSuite.add("slim-detail", (assert) => {
     const model = ChoiceDetailModel({});
     assert.is(model.hasObs(VALUE), true);
-    assert.is(model.hasObs(EDITABLE), true);
+    assert.is(model.hasObs(EDITABLE), true); // constructed with default value for later implementation
     assert.is(model.hasObs(NAME), false); // when name  is not given, no observable is created at construction time
     assert.is(model.hasObs(LABEL), false); // when label is not given, no observable is created at construction time
     assert.is(model.hasObs(PLACEHOLDER), false); // when placeholder is not given, no observable is created at construction time
 });
 
-// master model tests
+// ----- detail model tests - end -----
+
+
+// ----- master model tests - start -----
+
 choiceInputModelSuite.add("full-master", (assert) => {
     const model = ChoiceMasterModel({
         elementList: [
@@ -55,7 +61,7 @@ choiceInputModelSuite.add("full-master", (assert) => {
     assert.is(model.hasObs(VALUE), true);
     assert.is(model.hasObs(LIST_ELEMENTS), true);
     assert.is(model.hasObs(FOCUS_ELEMENT), true);
-    assert.is(model.hasObs(EDITABLE), true); // constructed with default value
+    assert.is(model.hasObs(EDITABLE), true); // constructed with default value for later implementation
     assert.is(model.hasObs(CHOICEBOX_OPEN), true); // constructed with default value
     assert.is(model.hasObs(DEBOUNCE_TEXT), true); // constructed with default value
 });
@@ -72,5 +78,7 @@ choiceInputModelSuite.add("slim-master", (assert) => {
     assert.is(model.hasObs(LIST_ELEMENTS), true);
     assert.is(model.hasObs(FOCUS_ELEMENT), false); // when focus object is not given, no observable is created at construction time
 });
+
+// ----- master model tests - end -----
 
 choiceInputModelSuite.run();

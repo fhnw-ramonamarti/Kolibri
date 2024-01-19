@@ -3,6 +3,7 @@ import { start } from "./starter.js";
 import { countryList } from "../countries.js";
 
 const choiceInputViewSuite = TestSuite("experimental/choiceInputView");
+// prepare for ip6 inclusion in docs folder
 // const choiceInputViewSuite = TestSuite("examples/choiceInput/choiceInputView");
 
 /**

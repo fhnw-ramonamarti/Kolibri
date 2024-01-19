@@ -4,6 +4,7 @@ import { projectChoiceInput } from "./choiceInputProjector.js";
 import { ChoiceDetailController, ChoiceMasterController } from "./choiceInputController.js";
 
 const choiceInputProjectorSuite = TestSuite("experimental/js6/choiceInputProjector");
+// prepare for ip6 inclusion in docs folder
 // const choiceInputProjectorSuite = TestSuite("projector/choiceInput/choiceInputProjector");
 
 /**
@@ -12,6 +13,7 @@ const choiceInputProjectorSuite = TestSuite("experimental/js6/choiceInputProject
  * Complex logic is to be tested against the controller (incl. model).
  */
 choiceInputProjectorSuite.add("binding", (assert) => {
+    // prepare controller for ui call
     const detailController = ChoiceDetailController({
         value: "Switzerland",
         placeholder: "Choose a country",
@@ -31,12 +33,15 @@ choiceInputProjectorSuite.add("binding", (assert) => {
         focusObject: { column: 1, value: "Switzerland" },
     });
 
+    // prepare used dom elements
     const [_, choiceElement] = projectChoiceInput(detailController, masterController, "TEST");
     const someEntry = choiceElement.querySelector("ul .entry.country:first-child");
     const someEntry2 = choiceElement.querySelector("ul .entry.continent:first-child");
 
     // test the binding
-    var event = new MouseEvent("mouseover", {
+
+    // test hover on other element
+    const event = new MouseEvent("mouseover", {
         view: window,
         bubbles: true,
         cancelable: true,
@@ -47,6 +52,7 @@ choiceInputProjectorSuite.add("binding", (assert) => {
     assert.is(masterController.getValue().continent, "Europe");
     assert.is(masterController.getFocusObject().value, "All");
 
+    // test click on other element
     someEntry.click();
     fireChangeEvent(someEntry);
     assert.is(detailController.getValue(), "Germany");

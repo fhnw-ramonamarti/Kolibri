@@ -1679,7 +1679,7 @@ export const countryList = [
         domain: "zw",
         continent: "Africa",
     },
-];
+].sort((a,b)=> a.country.localeCompare(b.country));
 
 const countyRegion = [
     {
