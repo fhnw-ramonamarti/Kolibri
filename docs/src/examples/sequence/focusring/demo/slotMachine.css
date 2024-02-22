@@ -18,7 +18,7 @@ body {
     row-gap: 20px;
 }
 
-.selectedCountry {
+.title {
     display: flex;
     justify-content: center;
     margin: 10px;
