@@ -2,16 +2,32 @@
  * @module presentationModel
  * Implementation of the Presentation Model Pattern with Attributes that can be managed in a ModelWorld.
  */
-import { Observable } from "./observable.js";
-import { id }         from "./stdlib.js";
+import { Observable } from "https://webengineering-fhnw.github.io/Kolibri/src/kolibri/observable.js";
+import { id }         from "https://webengineering-fhnw.github.io/Kolibri/src/kolibri/stdlib.js";
 
 export { Attribute, QualifiedAttribute,
          presentationModelFromAttributeNames,
          valueOf, readQualifierValue,
-         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE }
+         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE, PLACEHOLDER,
+         LIST_ELEMENTS,
+         SELECTION_ELEMENTS,
+         FOCUS_ELEMENT,
+         DEBOUNCE_TEXT,
+         CHOICEBOX_OPEN,
+     };
 
 /**
- * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'} ObservableTypeString
+ * @typedef { 'listElements'|'selectionElements'|'focusElement'|'debounceText'|'choiceboxOpen'} ObservableListTypeString
+ */
+
+/** @type ObservableListTypeString */ const LIST_ELEMENTS      = "listElements";
+/** @type ObservableListTypeString */ const SELECTION_ELEMENTS = "selectionElements";
+/** @type ObservableListTypeString */ const FOCUS_ELEMENT      = "focusElement";
+/** @type ObservableListTypeString */ const DEBOUNCE_TEXT      = "debounceText";
+/** @type ObservableListTypeString */ const CHOICEBOX_OPEN     = "choiceboxOpen";
+
+/**
+ * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'|'placeholder'| ObservableListTypeString} ObservableTypeString
  * Feel free to extend this type with new unique type strings as needed for your application.
  */
 
@@ -20,7 +36,9 @@ export { Attribute, QualifiedAttribute,
 /** @type ObservableTypeString */ const EDITABLE = "editable";
 /** @type ObservableTypeString */ const LABEL    = "label";
 /** @type ObservableTypeString */ const NAME     = "name";
-/** @type ObservableTypeString */ const TYPE     = "type"; // HTML input types: text, number, checkbox, etc.
+/** @type ObservableTypeString */ const TYPE     = "type";      // HTML input types: text, number, checkbox, etc.
+
+/** @type ObservableTypeString */ const PLACEHOLDER        = "placeholder";
 
 /**
  * Convenience function to read the current state of the attribute's VALUE observable for the given attribute.
