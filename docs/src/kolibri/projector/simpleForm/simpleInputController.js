@@ -1,5 +1,5 @@
 import {SimpleInputModel}                          from "./simpleInputModel.js";
-import {EDITABLE, LABEL, NAME, TYPE, VALID, VALUE} from "../../presentationModel.js";
+import {EDITABLE, LABEL, NAME, TYPE, VALID, VALUE, OPTIONS} from "../../presentationModel.js";
 
 export { SimpleInputController, SimpleAttributeInputController }
 
@@ -48,4 +48,6 @@ const SimpleAttributeInputController = attribute => ( {
     onNameChanged:     attribute.getObs(NAME).onChange,
     onEditableChanged: attribute.getObs(EDITABLE).onChange,
     setConverter:      attribute.setConverter,
+    getOptions:        attribute.getObs(OPTIONS).getValue,
+    setOptions:        attribute.getObs(OPTIONS).setValue,
 } );

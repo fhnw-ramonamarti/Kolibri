@@ -12,7 +12,9 @@ const start = () => {
         {value: "1968-04-19", label: "Date",   name: "date",   type: DATE     },
         {value: 12 * 60 + 15, label: "Time",   name: "time",   type: TIME     },
         {value: false,        label: "Check",  name: "check",  type: CHECKBOX },
-        // {value: "first",      label: "Choice", name: "choice", type: CHOICE   },
+        //{value: "first",      label: "Choice", name: "choice", type: CHOICE   },
+        {value: "a", options: [{value: "a", label: "Option 1"}, {value: "b", label: "Option 2"}, {value: "c", label: "Option 3"}],
+            label: "Choice",  name: "choice", type: CHOICE   },
         {value: "",           label: "Color",  name: "color",  type: COLOR    }
     ];
     const controller = SimpleFormController(formStructure);

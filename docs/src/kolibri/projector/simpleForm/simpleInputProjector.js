@@ -13,7 +13,7 @@
  * to the application while all business logic and their test cases remain untouched.
  */
 
-import {CHANGE, dom, INPUT, TIME, CHECKBOX}               from "../../util/dom.js";
+import {CHANGE, dom, INPUT, TIME, CHECKBOX, CHOICE}               from "../../util/dom.js";
 import { timeStringToMinutes, totalMinutesToTimeString}   from "../projectorUtils.js";
 
 export { InputProjector }
@@ -39,6 +39,29 @@ const createInputView = (id, inputController) => {
     /** @type {HTMLSpanElement}  */ const spanElement  = elements[1]; // only for the sake of type casting, otherwise...
     /** @type {HTMLInputElement} */ const inputElement = spanElement.firstElementChild; // ... we would use array deconstruction
     return [elements, labelElement, inputElement];
+};
+const createChoiceView = (id, inputController, options) => {
+    const elements = dom(`
+        <label for="${id}"></label>
+        <span data-id="${id}">
+            <select id="${id}" required></select>
+            <span aria-hidden="true"></span>
+        </span>
+    `);
+    const labelElement = elements[0];
+    const spanElement = elements[1];
+    const selectElement = spanElement.firstElementChild;
+
+    console.log(options)
+
+    options.forEach(option => {
+        const optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.textContent = option.label;
+        selectElement.appendChild(optionElement);
+    });
+
+    return [elements, labelElement, selectElement];
 };
 
 /**
@@ -112,6 +135,11 @@ const projectInput = (timeout) => (eventType) =>
         case CHECKBOX:
             [elements, labelElement, inputElement] = createInputView(id, inputController);
             bindCheckboxValue(inputElement, eventType, inputController);
+            break;
+        case CHOICE:
+            const options = inputController.getOptions();
+            [elements, labelElement, inputElement] = createChoiceView(id, inputController, options);
+            bindDataValue(inputController, inputElement);
             break;
         default:
             [elements, labelElement, inputElement] = createInputView(id, inputController);

@@ -2,8 +2,8 @@
  * @module presentationModel
  * Implementation of the Presentation Model Pattern with Attributes that can be managed in a ModelWorld.
  */
-import { Observable } from "https://webengineering-fhnw.github.io/Kolibri/src/kolibri/observable.js";
-import { id }         from "https://webengineering-fhnw.github.io/Kolibri/src/kolibri/stdlib.js";
+import { Observable } from "./observable.js";
+import { id }         from "./stdlib.js";
 
 export { Attribute, QualifiedAttribute,
          presentationModelFromAttributeNames,
@@ -14,10 +14,11 @@ export { Attribute, QualifiedAttribute,
          FOCUS_ELEMENT,
          DEBOUNCE_TEXT,
          CHOICEBOX_OPEN,
+         OPTIONS
      };
 
 /**
- * @typedef { 'listElements'|'selectionElements'|'focusElement'|'debounceText'|'choiceboxOpen'} ObservableListTypeString
+ * @typedef { 'listElements'|'selectionElements'|'focusElement'|'debounceText'|'choiceboxOpen'|'options' } ObservableListTypeString
  */
 
 /** @type ObservableListTypeString */ const LIST_ELEMENTS      = "listElements";
@@ -25,6 +26,8 @@ export { Attribute, QualifiedAttribute,
 /** @type ObservableListTypeString */ const FOCUS_ELEMENT      = "focusElement";
 /** @type ObservableListTypeString */ const DEBOUNCE_TEXT      = "debounceText";
 /** @type ObservableListTypeString */ const CHOICEBOX_OPEN     = "choiceboxOpen";
+/** @type ObservableListTypeString */ const OPTIONS = "options";
+
 
 /**
  * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'|'placeholder'| ObservableListTypeString} ObservableTypeString
