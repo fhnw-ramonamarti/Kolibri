@@ -13,8 +13,8 @@
  * to the application while all business logic and their test cases remain untouched.
  */
 
-import {CHANGE, dom, INPUT, TIME, CHECKBOX, CHOICE}               from "../../util/dom.js";
-import { timeStringToMinutes, totalMinutesToTimeString}   from "../projectorUtils.js";
+import {CHANGE, dom, INPUT, TIME, CHECKBOX, CHOICE}           from "../../util/dom.js";
+import { timeStringToMinutes, totalMinutesToTimeString}       from "../projectorUtils.js";
 
 export { InputProjector }
 
@@ -48,8 +48,8 @@ const createChoiceView = (id, inputController, options) => {
             <span aria-hidden="true"></span>
         </span>
     `);
-    const labelElement = elements[0];
-    const spanElement = elements[1];
+    const labelElement  = elements[0];
+    const spanElement   = elements[1];
     const selectElement = spanElement.firstElementChild;
 
     console.log(options)

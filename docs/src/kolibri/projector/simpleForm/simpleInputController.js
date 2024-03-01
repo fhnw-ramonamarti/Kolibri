@@ -1,4 +1,4 @@
-import {SimpleInputModel}                          from "./simpleInputModel.js";
+import {SimpleInputModel}                                   from "./simpleInputModel.js";
 import {EDITABLE, LABEL, NAME, TYPE, VALID, VALUE, OPTIONS} from "../../presentationModel.js";
 
 export { SimpleInputController, SimpleAttributeInputController }
