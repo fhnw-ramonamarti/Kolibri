@@ -1,5 +1,5 @@
 import {Attribute, EDITABLE, LABEL, NAME, TYPE, VALID, OPTIONS } from "../../presentationModel.js";
-import {TEXT, CHOICE}                                           from "../../util/dom.js";
+import {TEXT, CHOICE, COMBOBOX}                                           from "../../util/dom.js";
 
 export { SimpleInputModel }
 
@@ -7,7 +7,7 @@ export { SimpleInputModel }
 /**
  * @typedef { object } InputAttributes
  * @template _T_
- * @property { !_T_ } value      - mandatory value, will become the input value, defaults to undefined
+ * @property { !_T_ } value    - mandatory value, will become the input value, defaults to undefined
  * @property { ?String } label - optional label, defaults to undefined
  * @property { ?String } name  - optional name that reflects the name attribute of an input element, used in forms
  * @property { ?InputTypeString } type - optional type, allowed values are
@@ -30,7 +30,7 @@ export { SimpleInputModel }
          type:   "text",
      });
  */
-const SimpleInputModel = ({value, label, name, type= TEXT, options= []}) => {
+const SimpleInputModel = ({value, label, name, type = TEXT, options = []}) => {
     const singleAttr = Attribute(value);
     singleAttr.getObs(TYPE)    .setValue(type);
     if ( type !== CHOICE){
@@ -39,7 +39,8 @@ const SimpleInputModel = ({value, label, name, type= TEXT, options= []}) => {
     singleAttr.getObs(VALID)   .setValue(true);
     if (null != label) singleAttr.getObs(LABEL).setValue(label);
     if (null != name ) singleAttr.getObs(NAME) .setValue(name);
-    if (type === CHOICE) singleAttr.getObs(OPTIONS).setValue(options);
+    if (type === CHOICE || type === COMBOBOX) 
+        singleAttr.getObs(OPTIONS).setValue(options);
 
     return /** AttributeType<_T_> */ singleAttr;
 };

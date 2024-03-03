@@ -26,7 +26,7 @@ export { Attribute, QualifiedAttribute,
 /** @type ObservableListTypeString */ const FOCUS_ELEMENT      = "focusElement";
 /** @type ObservableListTypeString */ const DEBOUNCE_TEXT      = "debounceText";
 /** @type ObservableListTypeString */ const CHOICEBOX_OPEN     = "choiceboxOpen";
-/** @type ObservableListTypeString */ const OPTIONS = "options";
+/** @type ObservableListTypeString */ const OPTIONS            = "options";
 
 
 /**
@@ -40,8 +40,7 @@ export { Attribute, QualifiedAttribute,
 /** @type ObservableTypeString */ const LABEL    = "label";
 /** @type ObservableTypeString */ const NAME     = "name";
 /** @type ObservableTypeString */ const TYPE     = "type";      // HTML input types: text, number, checkbox, etc.
-
-/** @type ObservableTypeString */ const PLACEHOLDER        = "placeholder";
+/** @type ObservableTypeString */ const PLACEHOLDER  = "placeholder";
 
 /**
  * Convenience function to read the current state of the attribute's VALUE observable for the given attribute.

@@ -1,21 +1,26 @@
 import { projectForm, FORM_CSS }  from "../../kolibri/projector/simpleForm/simpleFormProjector.js"
 import { SimpleFormController }   from "../../kolibri/projector/simpleForm/simpleFormController.js"
 import { CHECKBOX, NUMBER, TEXT,
-    COLOR, DATE, TIME, CHOICE }   from "../../kolibri/util/dom.js";
+    COLOR, DATE, TIME, CHOICE, COMBOBOX }   from "../../kolibri/util/dom.js";
 
 export { start } // exported for testing purposes
 
 const start = () => {
     const formStructure = [
-        {value: "Text",       label: "Text",   name: "text",   type: TEXT     },
-        {value: 0,            label: "Number", name: "number", type: NUMBER   },
-        {value: "1968-04-19", label: "Date",   name: "date",   type: DATE     },
-        {value: 12 * 60 + 15, label: "Time",   name: "time",   type: TIME     },
-        {value: false,        label: "Check",  name: "check",  type: CHECKBOX },
-        //{value: "first",      label: "Choice", name: "choice", type: CHOICE   },
-        {value: "a", options: [{value: "a", label: "Option 1"}, {value: "b", label: "Option 2"}, {value: "c", label: "Option 3"}],
-            label: "Choice",  name: "choice", type: CHOICE   },
-        {value: "",           label: "Color",  name: "color",  type: COLOR    }
+        {value: "Text",       label: "Text",      name: "text",     type: TEXT     },
+        {value: 0,            label: "Number",    name: "number",   type: NUMBER   },
+        {value: "1968-04-19", label: "Date",      name: "date",     type: DATE     },
+        {value: 12 * 60 + 15, label: "Time",      name: "time",     type: TIME     },
+        {value: false,        label: "Check",     name: "check",    type: CHECKBOX },
+        {value: "a",          label: "Choice",    name: "choice",   type: CHOICE,   
+            options: [  {value: "a", label: "Option 1"}, 
+                        {value: "b", label: "Option 2"}, 
+                        {value: "c", label: "Option 3"}]},
+        {value: "",           label: "Combobox",  name: "combobox", type: COMBOBOX,   
+            options: [  {value: "a"}, 
+                        {value: "b"}, 
+                        {value: "c"}]},
+        {value: "",           label: "Color",     name: "color",    type: COLOR    }
     ];
     const controller = SimpleFormController(formStructure);
     return projectForm(controller);

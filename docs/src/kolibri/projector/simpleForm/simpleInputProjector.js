@@ -13,8 +13,8 @@
  * to the application while all business logic and their test cases remain untouched.
  */
 
-import {CHANGE, dom, INPUT, TIME, CHECKBOX, CHOICE}               from "../../util/dom.js";
-import { timeStringToMinutes, totalMinutesToTimeString}   from "../projectorUtils.js";
+import {CHANGE, dom, INPUT, TIME, CHECKBOX, CHOICE, COMBOBOX}   from "../../util/dom.js";
+import { timeStringToMinutes, totalMinutesToTimeString}         from "../projectorUtils.js";
 
 export { InputProjector }
 
@@ -40,28 +40,41 @@ const createInputView = (id, inputController) => {
     /** @type {HTMLInputElement} */ const inputElement = spanElement.firstElementChild; // ... we would use array deconstruction
     return [elements, labelElement, inputElement];
 };
+
+/** @private */
 const createChoiceView = (id, inputController, options) => {
+    let element;
+    switch(inputController.getType()) {
+        case CHOICE:
+            element = `<select id="${id}"></select>`;
+            break;
+        case COMBOBOX:
+            element = `
+                <input type="text" id="${id}" list="${id}-list" />
+                <datalist id="${id}-list"></datalist>
+            `;
+            break;
+    } 
     const elements = dom(`
         <label for="${id}"></label>
         <span data-id="${id}">
-            <select id="${id}" required></select>
+            ${element}
             <span aria-hidden="true"></span>
         </span>
     `);
-    const labelElement = elements[0];
-    const spanElement = elements[1];
-    const selectElement = spanElement.firstElementChild;
-
-    console.log(options)
+    const labelElement  = elements[0];
+    const spanElement   = elements[1];
+    const selectElement = spanElement.querySelector('select, datalist');
+    const inputElement  = spanElement.querySelector('select, input');
 
     options.forEach(option => {
-        const optionElement = document.createElement("option");
-        optionElement.value = option.value;
-        optionElement.textContent = option.label;
+        const optionElement             = document.createElement("option");
+              optionElement.value       = option.value;
+              optionElement.textContent = option.label ?? option.value;
         selectElement.appendChild(optionElement);
     });
 
-    return [elements, labelElement, selectElement];
+    return [elements, labelElement, inputElement];
 };
 
 /**
@@ -74,6 +87,7 @@ const bindTimeValue = (inputElement, eventType, inputController) => {
     );
     inputController.onValueChanged(val => inputElement.value = totalMinutesToTimeString(/** @type { * } */ val));
 };
+
 /**
  * @private
  * "checked" attribute vs boolean in model
@@ -82,6 +96,7 @@ const bindCheckboxValue = (inputElement, eventType, inputController) => {
     inputElement.addEventListener(eventType, _ => inputController.setValue(/** @type { * } */ inputElement.checked));
     inputController.onValueChanged(val => inputElement.checked = /** @type { * } */ val);
 };
+
 /**
  * @private
  */
@@ -136,6 +151,7 @@ const projectInput = (timeout) => (eventType) =>
             [elements, labelElement, inputElement] = createInputView(id, inputController);
             bindCheckboxValue(inputElement, eventType, inputController);
             break;
+        case COMBOBOX:
         case CHOICE:
             const options = inputController.getOptions();
             [elements, labelElement, inputElement] = createChoiceView(id, inputController, options);

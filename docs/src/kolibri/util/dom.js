@@ -7,7 +7,7 @@
 export {
     dom, fireEvent, fireChangeEvent,
     CLICK, INPUT, CHANGE,
-    TEXT, TIME, DATE, CHECKBOX, NUMBER, COLOR, CHOICE
+    TEXT, TIME, DATE, CHECKBOX, NUMBER, COLOR, CHOICE, COMBOBOX
 }
 
 /**
@@ -61,7 +61,7 @@ const fireEvent = (element, eventTypeString) => {
 const fireChangeEvent = element => fireEvent(element, CHANGE);
 
 
-/** @typedef { "text"|"number"|"checkbox"|"time"|"date"|"color"|"choice" } InputTypeString */
+/** @typedef { "text"|"number"|"checkbox"|"time"|"date"|"color"|"choice"|"combobox" } InputTypeString */
 
 /** @type InputTypeString */ const TEXT     = "text";
 /** @type InputTypeString */ const NUMBER   = "number";
@@ -70,3 +70,4 @@ const fireChangeEvent = element => fireEvent(element, CHANGE);
 /** @type InputTypeString */ const DATE     = "date";
 /** @type InputTypeString */ const COLOR    = "color";
 /** @type InputTypeString */ const CHOICE   = "choice"; // special name for input type that chooses from values
+/** @type InputTypeString */ const COMBOBOX = "combobox"; // special name for input type that chooses or create values
