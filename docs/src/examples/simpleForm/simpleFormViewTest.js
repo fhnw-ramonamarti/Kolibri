@@ -14,11 +14,11 @@ simpleFormViewSuite.add("spike", assert => {
     root.append(...start(root));
 
     // assert properties of the generated DOM elements
-    assert.is(root.querySelectorAll("label").length, 6);
-    // assert.is(root.querySelectorAll("label").length, 6 + 1);
-    assert.is(root.querySelectorAll("input").length, 6);
-    // assert.is(root.querySelectorAll("select").length, 1);
-    // assert.is(root.querySelectorAll("option").length, 3);
+    assert.is(root.querySelectorAll("label").length, 8);
+    assert.is(root.querySelectorAll("input").length, 7);
+    assert.is(root.querySelectorAll("select").length, 1);
+    assert.is(root.querySelectorAll("select option").length, 3);
+    assert.is(root.querySelectorAll("datalist option").length, 3);
 
     // work with DOM elements just like user would do in the browser
     const checkbox = root.querySelector("input[type=checkbox]");
