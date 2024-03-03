@@ -32,13 +32,15 @@ export { SimpleInputModel }
  */
 const SimpleInputModel = ({value, label, name, type = TEXT, options = []}) => {
     const singleAttr = Attribute(value);
-    singleAttr.getObs(TYPE)    .setValue(type);
+    singleAttr.getObs(TYPE)        .setValue(type);
+
     if ( type !== CHOICE){
         singleAttr.getObs(EDITABLE).setValue(true); // todo: maybe not if choice
     }
-    singleAttr.getObs(VALID)   .setValue(true);
-    if (null != label) singleAttr.getObs(LABEL).setValue(label);
-    if (null != name ) singleAttr.getObs(NAME) .setValue(name);
+    singleAttr.getObs(VALID)       .setValue(true);
+
+    if (null != label) singleAttr  .getObs(LABEL).setValue(label);
+    if (null != name ) singleAttr  .getObs(NAME) .setValue(name);
     if (type === CHOICE || type === COMBOBOX) 
         singleAttr.getObs(OPTIONS).setValue(options);
 
