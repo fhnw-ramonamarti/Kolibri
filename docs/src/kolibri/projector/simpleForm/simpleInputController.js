@@ -1,5 +1,6 @@
 import {SimpleInputModel}                                   from "./simpleInputModel.js";
 import {EDITABLE, LABEL, NAME, TYPE, VALID, VALUE, OPTIONS} from "../../presentationModel.js";
+import { ObservableList } from "../../observable.js";
 
 export { SimpleInputController, SimpleAttributeInputController }
 
@@ -49,5 +50,6 @@ const SimpleAttributeInputController = attribute => ( {
     onEditableChanged: attribute.getObs(EDITABLE).onChange,
     setConverter:      attribute.setConverter,
     getOptions:        attribute.getObs(OPTIONS).getValue,
-    setOptions:        (v) => attribute.getObs(OPTIONS).setValue(v),
+    setOptions:        (v) => attribute.getObs(OPTIONS).setValue(ObservableList(v)),
+    onOptionsChanged:  attribute.getObs(OPTIONS).onChange,
 } );

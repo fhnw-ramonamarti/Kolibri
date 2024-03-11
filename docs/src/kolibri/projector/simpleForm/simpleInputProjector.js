@@ -107,6 +107,17 @@ const bindOptionValue = (inputElement, eventType, inputController, optionContain
     inputController.onValueChanged((val) => {
         inputElement.value = /** @type { * } */ val;
     });
+    inputController.onOptionsChanged((val) => {
+        if (document.getElementById(inputElement.id)) {
+            optionContainer.innerHTML = "";
+            val.getList().forEach((option) => {
+                const optionElement = document.createElement("option");
+                optionElement.value = option.value;
+                optionElement.textContent = option.label ?? option.value;
+                optionContainer.appendChild(optionElement);
+            });
+        }
+    });
 };
 
 /**
