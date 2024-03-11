@@ -64,17 +64,17 @@ const createChoiceView = (id, inputController, options) => {
     `);
     const labelElement  = elements[0];
     const spanElement   = elements[1];
-    const selectElement = spanElement.querySelector('select, datalist');
     const inputElement  = spanElement.querySelector('select, input');
+    const optionContainer = spanElement.querySelector('select, datalist');
 
     options.forEach(option => {
         const optionElement             = document.createElement("option");
               optionElement.value       = option.value;
               optionElement.textContent = option.label ?? option.value;
-        selectElement.appendChild(optionElement);
+        optionContainer.appendChild(optionElement);
     });
 
-    return [elements, labelElement, inputElement];
+    return [elements, labelElement, inputElement, optionContainer];
 };
 
 /**
@@ -95,6 +95,18 @@ const bindTimeValue = (inputElement, eventType, inputController) => {
 const bindCheckboxValue = (inputElement, eventType, inputController) => {
     inputElement.addEventListener(eventType, _ => inputController.setValue(/** @type { * } */ inputElement.checked));
     inputController.onValueChanged(val => inputElement.checked = /** @type { * } */ val);
+};
+
+/**
+ * @private
+ */
+const bindOptionValue = (inputElement, eventType, inputController, optionContainer) => {
+    inputElement.addEventListener(eventType, (_) => {
+        inputController.setValue(/** @type { * } */ inputElement.value);
+    });
+    inputController.onValueChanged((val) => {
+        inputElement.value = /** @type { * } */ val;
+    });
 };
 
 /**
@@ -154,8 +166,12 @@ const projectInput = (timeout) => (eventType) =>
         case COMBOBOX:
         case CHOICE:
             const options = inputController.getOptions();
-            [elements, labelElement, inputElement] = createChoiceView(id, inputController, options);
-            bindDataValue(inputController, inputElement);
+            let optionContainer;
+            if (inputController.getType() === CHOICE) {
+                eventType = CHANGE;
+            }
+            [elements, labelElement, inputElement, optionContainer] = createChoiceView(id, inputController, options);
+            bindOptionValue(inputElement, eventType, inputController, optionContainer);
             break;
         default:
             [elements, labelElement, inputElement] = createInputView(id, inputController);
