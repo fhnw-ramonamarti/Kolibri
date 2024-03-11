@@ -107,6 +107,7 @@ const ObservableList = list => {
         },
         removeAddListener,
         removeDeleteListener,
+        getList: () => list,
         count:   ()   => list.length,
         countIf: pred => list.reduce( (sum, item) => pred(item) ? sum + 1 : sum, 0)
     }

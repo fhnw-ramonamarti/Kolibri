@@ -67,7 +67,7 @@ const createChoiceView = (id, inputController, options) => {
     const inputElement  = spanElement.querySelector('select, input');
     const optionContainer = spanElement.querySelector('select, datalist');
 
-    options.forEach(option => {
+    options.getList().forEach(option => {
         const optionElement             = document.createElement("option");
               optionElement.value       = option.value;
               optionElement.textContent = option.label ?? option.value;

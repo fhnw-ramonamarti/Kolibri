@@ -1,3 +1,4 @@
+import { ObservableList } from "../../observable.js";
 import {Attribute, EDITABLE, LABEL, NAME, TYPE, VALID, OPTIONS } from "../../presentationModel.js";
 import {TEXT, CHOICE, COMBOBOX}                                           from "../../util/dom.js";
 
@@ -42,7 +43,7 @@ const SimpleInputModel = ({value, label, name, type = TEXT, options = []}) => {
     if (null != label) singleAttr  .getObs(LABEL).setValue(label);
     if (null != name ) singleAttr  .getObs(NAME) .setValue(name);
     if (type === CHOICE || type === COMBOBOX) 
-        singleAttr.getObs(OPTIONS).setValue(options);
+        singleAttr.getObs(OPTIONS).setValue(ObservableList(options));
 
     return /** AttributeType<_T_> */ singleAttr;
 };

@@ -49,5 +49,5 @@ const SimpleAttributeInputController = attribute => ( {
     onEditableChanged: attribute.getObs(EDITABLE).onChange,
     setConverter:      attribute.setConverter,
     getOptions:        attribute.getObs(OPTIONS).getValue,
-    setOptions:        attribute.getObs(OPTIONS).setValue,
+    setOptions:        (v) => attribute.getObs(OPTIONS).setValue(v),
 } );
