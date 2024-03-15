@@ -8,7 +8,7 @@ import { id }         from "./stdlib.js";
 export { Attribute, QualifiedAttribute,
          presentationModelFromAttributeNames,
          valueOf, readQualifierValue,
-         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE, PLACEHOLDER,
+         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE, EXAMPLE_INPUT as PLACEHOLDER,
          LIST_ELEMENTS,
          SELECTION_ELEMENTS,
          FOCUS_ELEMENT,
@@ -30,17 +30,17 @@ export { Attribute, QualifiedAttribute,
 
 
 /**
- * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'|'placeholder'| ObservableListTypeString} ObservableTypeString
+ * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'|'exampleInput'| ObservableListTypeString} ObservableTypeString
  * Feel free to extend this type with new unique type strings as needed for your application.
  */
 
-/** @type ObservableTypeString */ const VALUE    = "value";
-/** @type ObservableTypeString */ const VALID    = "valid";
-/** @type ObservableTypeString */ const EDITABLE = "editable";
-/** @type ObservableTypeString */ const LABEL    = "label";
-/** @type ObservableTypeString */ const NAME     = "name";
-/** @type ObservableTypeString */ const TYPE     = "type";      // HTML input types: text, number, checkbox, etc.
-/** @type ObservableTypeString */ const PLACEHOLDER  = "placeholder";
+/** @type ObservableTypeString */ const VALUE          = "value";
+/** @type ObservableTypeString */ const VALID          = "valid";
+/** @type ObservableTypeString */ const EDITABLE       = "editable";
+/** @type ObservableTypeString */ const LABEL          = "label";
+/** @type ObservableTypeString */ const NAME           = "name";
+/** @type ObservableTypeString */ const TYPE           = "type";      // HTML input types: text, number, checkbox, etc.
+/** @type ObservableTypeString */ const EXAMPLE_INPUT  = "exampleInput";
 
 /**
  * Convenience function to read the current state of the attribute's VALUE observable for the given attribute.

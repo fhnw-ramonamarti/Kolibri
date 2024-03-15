@@ -61,7 +61,11 @@ const fireEvent = (element, eventTypeString) => {
 const fireChangeEvent = element => fireEvent(element, CHANGE);
 
 
-/** @typedef { "text"|"number"|"checkbox"|"time"|"date"|"color"|"choice"|"combobox" } InputTypeString */
+/** 
+ * @typedef { "text"|"number"|"checkbox"|"time"|"date"|"color"|"choice"|"combobox" } InputTypeString 
+ * choice is used for an fixed amount of values
+ * combobox is used for an amount of possible values, but other values be created as well
+ */
 
 /** @type InputTypeString */ const TEXT     = "text";
 /** @type InputTypeString */ const NUMBER   = "number";
@@ -69,5 +73,5 @@ const fireChangeEvent = element => fireEvent(element, CHANGE);
 /** @type InputTypeString */ const TIME     = "time";
 /** @type InputTypeString */ const DATE     = "date";
 /** @type InputTypeString */ const COLOR    = "color";
-/** @type InputTypeString */ const CHOICE   = "choice"; // special name for input type that chooses from values
-/** @type InputTypeString */ const COMBOBOX = "combobox"; // special name for input type that chooses or create values
+/** @type InputTypeString */ const CHOICE   = "choice";
+/** @type InputTypeString */ const COMBOBOX = "combobox";

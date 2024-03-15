@@ -25,56 +25,76 @@ export { InputProjector }
  */
 let counter = 0;
 
-/** @private */
-const createInputView = (id, inputController) => {
-    // create view
-    const elements = dom(`
+/** 
+ * @private
+ */
+const createInputElement = (id, elementAsString) => {
+    return dom(`
         <label for="${id}"></label>
         <span  data-id="${id}">
-            <input type="${inputController.getType()}" id="${id}">
+            ${elementAsString}
             <span aria-hidden="true"></span>
         </span>
+    `);
+};
+
+/**
+ * @private
+ */
+const createInputView = (id, inputController) => {
+    // create view
+    const elements = createInputElement(id, `
+        <input type="${inputController.getType()}" id="${id}">
     `);
     /** @type {HTMLLabelElement} */ const labelElement = elements[0]; // only for the sake of type casting, otherwise...
     /** @type {HTMLSpanElement}  */ const spanElement  = elements[1]; // only for the sake of type casting, otherwise...
     /** @type {HTMLInputElement} */ const inputElement = spanElement.firstElementChild; // ... we would use array deconstruction
+    
     return [elements, labelElement, inputElement];
 };
 
-/** @private */
-const createChoiceView = (id, inputController, options) => {
-    let element;
-    switch(inputController.getType()) {
-        case CHOICE:
-            element = `<select id="${id}"></select>`;
-            break;
-        case COMBOBOX:
-            element = `
-                <input type="text" id="${id}" list="${id}-list" />
-                <datalist id="${id}-list"></datalist>
-            `;
-            break;
-    } 
-    const elements = dom(`
-        <label for="${id}"></label>
-        <span data-id="${id}">
-            ${element}
-            <span aria-hidden="true"></span>
-        </span>
-    `);
-    const labelElement  = elements[0];
-    const spanElement   = elements[1];
-    const inputElement  = spanElement.querySelector('select, input');
-    const optionContainer = spanElement.querySelector('select, datalist');
-
+/**
+ * @private
+ */
+const createOptionElements = (options, optionContainer) => {
     options.getList().forEach(option => {
         const optionElement             = document.createElement("option");
               optionElement.value       = option.value;
               optionElement.textContent = option.label ?? option.value;
         optionContainer.appendChild(optionElement);
     });
+};
 
-    return [elements, labelElement, inputElement, optionContainer];
+/** 
+ * @private 
+ */
+const createChoiceView = (id, options) => {
+    const elements = createInputElement(id, `
+        <select id="${id}"></select>
+    `);
+    /** @type {HTMLLabelElement}  */ const labelElement  = elements[0];
+    /** @type {HTMLSpanElement}   */ const spanElement   = elements[1];
+    /** @type {HTMLSelectElement} */ const selectElement  = spanElement.firstElementChild;
+
+    createOptionElements(options, selectElement);
+    return [elements, labelElement, selectElement];
+};
+
+/**
+ * @private 
+ */
+const createComboboxView = (id, options) => {
+    const elements = createInputElement(id, `
+        <input type="text" id="${id}" list="${id}-list" />
+        <datalist id="${id}-list"></datalist>
+    `);
+    /** @type {HTMLLabelElement}    */ const labelElement  = elements[0];
+    /** @type {HTMLSpanElement}     */ const spanElement   = elements[1];
+    /** @type {HTMLInputElement}    */ const inputElement  = spanElement.firstElementChild;
+    /** @type {HTMLDataListElement} */ const datalistElement = spanElement.children[1];;
+
+    createOptionElements(options, datalistElement);
+    return [elements, labelElement, inputElement, datalistElement];
 };
 
 /**
@@ -100,15 +120,13 @@ const bindCheckboxValue = (inputElement, eventType, inputController) => {
 /**
  * @private
  */
-const bindOptionValue = (inputElement, eventType, inputController, optionContainer) => {
-    inputElement.addEventListener(eventType, (_) => {
-        inputController.setValue(/** @type { * } */ inputElement.value);
-    });
-    inputController.onValueChanged((val) => {
-        inputElement.value = /** @type { * } */ val;
-    });
+const bindOptionValue = (viewElement, optionContainer, eventType, inputController) => {
+    viewElement.addEventListener(eventType, (_) => inputController.setValue(/** @type { * } */ viewElement.value));
+    inputController.onValueChanged((val) => (viewElement.value = /** @type { * } */ val));
+    
+    // redraw all options
     inputController.onOptionsChanged((val) => {
-        if (document.getElementById(inputElement.id)) {
+        if (document.getElementById(viewElement.id)) {
             optionContainer.innerHTML = "";
             val.getList().forEach((option) => {
                 const optionElement = document.createElement("option");
@@ -118,6 +136,20 @@ const bindOptionValue = (inputElement, eventType, inputController, optionContain
             });
         }
     });
+};
+
+/**
+ * @private
+ */
+const bindChoiceValue = (selectElement, inputController) => {
+    bindOptionValue(selectElement, selectElement, CHANGE, inputController);
+};
+
+/**
+ * @private
+ */
+const bindComboboxValue = (inputElement, datalistElement, eventType, inputController) => {
+    bindOptionValue(inputElement, datalistElement, eventType, inputController);
 };
 
 /**
@@ -174,15 +206,14 @@ const projectInput = (timeout) => (eventType) =>
             [elements, labelElement, inputElement] = createInputView(id, inputController);
             bindCheckboxValue(inputElement, eventType, inputController);
             break;
-        case COMBOBOX:
         case CHOICE:
-            const options = inputController.getOptions();
-            let optionContainer;
-            if (inputController.getType() === CHOICE) {
-                eventType = CHANGE;
-            }
-            [elements, labelElement, inputElement, optionContainer] = createChoiceView(id, inputController, options);
-            bindOptionValue(inputElement, eventType, inputController, optionContainer);
+            [elements, labelElement, inputElement] = createChoiceView(id, inputController.getOptions());
+            bindChoiceValue(inputElement, inputController);
+            break;
+        case COMBOBOX:
+            let datalistElement;
+            [elements, labelElement, inputElement, datalistElement] = createComboboxView(id, inputController.getOptions());
+            bindComboboxValue(inputElement, datalistElement, eventType, inputController);
             break;
         default:
             [elements, labelElement, inputElement] = createInputView(id, inputController);
@@ -199,13 +230,13 @@ const projectInput = (timeout) => (eventType) =>
         inputElement.setAttribute("title", label);
     });
     inputController.onNameChanged  (name  => inputElement.setAttribute("name", name || id));
-    inputController.onValidChanged (valid => inputElement.setCustomValidity(valid ? "" : "invalid"));
+    // inputController.onValidChanged (valid => inputElement.setCustomValidity(valid ? "" : "invalid"));
 
     inputController.onEditableChanged(isEditable => isEditable
         ? inputElement.removeAttribute("readonly")
         : inputElement.setAttribute("readonly", "on"));
 
-    return /** @type { [HTMLLabelElement, HTMLInputElement] } */ elements; // todo: fix second element type
+    return /** @type { [HTMLLabelElement, HTMLSpanElement] } */ elements; // todo: fix second element type
 };
 
 /**
