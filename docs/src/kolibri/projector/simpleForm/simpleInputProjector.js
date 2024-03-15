@@ -230,7 +230,7 @@ const projectInput = (timeout) => (eventType) =>
         inputElement.setAttribute("title", label);
     });
     inputController.onNameChanged  (name  => inputElement.setAttribute("name", name || id));
-    // inputController.onValidChanged (valid => inputElement.setCustomValidity(valid ? "" : "invalid"));
+    inputController.onValidChanged (valid => inputElement.setCustomValidity(valid ? "" : "invalid"));
 
     inputController.onEditableChanged(isEditable => isEditable
         ? inputElement.removeAttribute("readonly")
