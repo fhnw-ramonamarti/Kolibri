@@ -1,6 +1,6 @@
 import {SimpleInputModel}                                   from "./simpleInputModel.js";
-import {EDITABLE, LABEL, NAME, TYPE, VALID, VALUE, OPTIONS} from "../../presentationModel.js";
-import { ObservableList } from "../../observable.js";
+import {EDITABLE, LABEL, NAME, TYPE, VALID, VALUE} from "../../presentationModel.js";
+import {InputOptionsModel} from "./InputOptionsModel";
 
 export { SimpleInputController, SimpleAttributeInputController }
 
@@ -26,7 +26,7 @@ export { SimpleInputController, SimpleAttributeInputController }
  * While controllers might contain business logic, this basic controller does not contain any.
  * @constructor
  * @template _T_
- * @param  { InputAttributes } args
+ * @param  { OptionAttributes } args
  * @return { SimpleInputControllerType<_T_> }
  * @example
  *     const controller = SimpleInputController({
@@ -36,20 +36,24 @@ export { SimpleInputController, SimpleAttributeInputController }
          type:   "text",
      });
  */
-const SimpleInputController = args => SimpleAttributeInputController(SimpleInputModel(args));
+const SimpleInputController = args => SimpleAttributeInputController(SimpleInputModel(args), InputOptionsModel(args));
 
-const SimpleAttributeInputController = attribute => ( {
-    setValue:          attribute.setConvertedValue,
-    getValue:          attribute.getObs(VALUE).getValue,
-    setValid:          attribute.getObs(VALID).setValue,
-    getType:           attribute.getObs(TYPE).getValue,
-    onValueChanged:    attribute.getObs(VALUE).onChange,
-    onValidChanged:    attribute.getObs(VALID).onChange,
-    onLabelChanged:    attribute.getObs(LABEL).onChange,
-    onNameChanged:     attribute.getObs(NAME).onChange,
-    onEditableChanged: attribute.getObs(EDITABLE).onChange,
-    setConverter:      attribute.setConverter,
-    getOptions:        attribute.getObs(OPTIONS).getValue,
-    setOptions:        (v) => attribute.getObs(OPTIONS).setValue(ObservableList(v)),
-    onOptionsChanged:  attribute.getObs(OPTIONS).onChange,
+// todo case unterscheidung options notwendig od nicht?
+const SimpleAttributeInputController = (inputAttribute, optionAttribute) => ( {
+    setValue:          inputAttribute.setConvertedValue,
+    getValue:          inputAttribute.getObs(VALUE).getValue,
+    setValid:          inputAttribute.getObs(VALID).setValue,
+    getType:           inputAttribute.getObs(TYPE).getValue,
+    onValueChanged:    inputAttribute.getObs(VALUE).onChange,
+    onValidChanged:    inputAttribute.getObs(VALID).onChange,
+    onLabelChanged:    inputAttribute.getObs(LABEL).onChange,
+    onNameChanged:     inputAttribute.getObs(NAME).onChange,
+    onEditableChanged: inputAttribute.getObs(EDITABLE).onChange,
+    setConverter:      inputAttribute.setConverter,
+    getOptions:        () => [...optionAttribute.list],
+    addOption:         optionAttribute.obsList.add,
+    delOption:         optionAttribute.obsList.del,
+    onAddOption:       optionAttribute.obsList.onAdd,
+    onDelOption:       optionAttribute.obsList.onDel,
+    //setOptions:        (v) => optionAttribute.obsList, //todo
 } );

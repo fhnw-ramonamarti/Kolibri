@@ -14,7 +14,7 @@ export { Attribute, QualifiedAttribute,
          FOCUS_ELEMENT,
          DEBOUNCE_TEXT,
          CHOICEBOX_OPEN,
-         OPTIONS
+         OPTIONS //todo do we still need this or is there a better sol?
      };
 
 /**

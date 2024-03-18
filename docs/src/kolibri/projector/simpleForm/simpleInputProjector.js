@@ -91,7 +91,7 @@ const createComboboxView = (id, options) => {
     /** @type {HTMLLabelElement}    */ const labelElement  = elements[0];
     /** @type {HTMLSpanElement}     */ const spanElement   = elements[1];
     /** @type {HTMLInputElement}    */ const inputElement  = spanElement.firstElementChild;
-    /** @type {HTMLDataListElement} */ const datalistElement = spanElement.children[1];;
+    /** @type {HTMLDataListElement} */ const datalistElement = spanElement.children[1];
 
     createOptionElements(options, datalistElement);
     return [elements, labelElement, inputElement, datalistElement];
@@ -124,8 +124,8 @@ const bindOptionValue = (viewElement, optionContainer, eventType, inputControlle
     viewElement.addEventListener(eventType, (_) => inputController.setValue(/** @type { * } */ viewElement.value));
     inputController.onValueChanged((val) => (viewElement.value = /** @type { * } */ val));
     
-    // redraw all options
-    inputController.onOptionsChanged((val) => {
+    // redraw all options //todo check if one or split up
+   /* inputController.onOptionsChanged((val) => {
         if (document.getElementById(viewElement.id)) {
             optionContainer.innerHTML = "";
             val.getList().forEach((option) => {
@@ -135,7 +135,7 @@ const bindOptionValue = (viewElement, optionContainer, eventType, inputControlle
                 optionContainer.appendChild(optionElement);
             });
         }
-    });
+    });*/
 };
 
 /**
