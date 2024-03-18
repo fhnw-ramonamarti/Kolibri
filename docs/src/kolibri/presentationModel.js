@@ -8,7 +8,7 @@ import { id }         from "./stdlib.js";
 export { Attribute, QualifiedAttribute,
          presentationModelFromAttributeNames,
          valueOf, readQualifierValue,
-         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE, EXAMPLE_INPUT as PLACEHOLDER,
+         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE, EXAMPLE_INPUT,
          LIST_ELEMENTS,
          SELECTION_ELEMENTS,
          FOCUS_ELEMENT,
