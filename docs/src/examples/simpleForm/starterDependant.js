@@ -1,6 +1,6 @@
 import { projectForm, FORM_CSS } from "../../kolibri/projector/simpleForm/simpleFormProjector.js";
-import { SimpleFormController } from "../../kolibri/projector/simpleForm/simpleFormController.js";
-import { CHOICE, COMBOBOX } from "../../kolibri/util/dom.js";
+import { SimpleFormController }  from "../../kolibri/projector/simpleForm/simpleFormController.js";
+import { CHOICE, COMBOBOX }      from "../../kolibri/util/dom.js";
 
 /**
  * @private
@@ -20,14 +20,19 @@ const createData = () => {
 const start = () => {
     const [decades, years] = createData();
     const formStructure = [
-        { value: "", label: "Decade",        name: "decade", type: CHOICE,   options: decades },
-        { value: "", label: "Year of Birth", name: "year",   type: COMBOBOX, options: years   },
+        { value: "", label: "Decade",        name: "decade", type: CHOICE,   list: decades },
+        { value: "", label: "Year of Birth", name: "year",   type: COMBOBOX, list: years   },
     ];
     const controller = SimpleFormController(formStructure);
     const [decadeController, yearController] = controller;
     decadeController.onValueChanged((val) => {
-        const options = years.filter(y =>  val == Math.floor(y.value/10) || val === "");
-        yearController.setOptions(options);
+        const options = years.filter((y) => val == Math.floor(y.value / 10) || val === "");
+        yearController.getOptions().forEach((option) => {
+            yearController.delOption(option);
+        });
+        options.forEach((option) => {
+            yearController.addOption(option);
+        });
     });
     return projectForm(controller);
 };

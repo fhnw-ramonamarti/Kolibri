@@ -19,8 +19,8 @@ const start = () => {
         {value: "1968-04-19", label: "Date",      name: "date",     type: DATE      },
         {value: 12 * 60 + 15, label: "Time",      name: "time",     type: TIME      },
         {value: false,        label: "Check",     name: "check",    type: CHECKBOX  },
-        {value: "a",          label: "Choice",    name: "choice",   type: CHOICE,   options: valueLabelOptions},
-        {value: "",           label: "Combobox",  name: "combobox", type: COMBOBOX, options: valueOptions     },
+        {value: "a",          label: "Choice",    name: "choice",   type: CHOICE,   list: valueLabelOptions},
+        {value: "",           label: "Combobox",  name: "combobox", type: COMBOBOX, list: valueOptions     },
         {value: "",           label: "Color",     name: "color",    type: COLOR     }
     ];
     const controller = SimpleFormController(formStructure);

@@ -1,4 +1,4 @@
-import {ObservableList} from "../../observable";
+import { ObservableList } from "../../observable.js";
 
 export { InputOptionsModel }
 
@@ -10,33 +10,33 @@ export { InputOptionsModel }
 
 /**
  * @typedef { object } OptionAttributes
- * @property { Array<OptionType> } list - object list, can be []
+ * @property { Array<OptionType> } list - list of all possible options
  */
 
 /**
  * @typedef { object } OptionAttributeType
- * @property { Array<OptionType>  } list - //todo add comment
- * @property { ObservableList<String> } obsList -
+ * @property { Array<OptionType>      } list    - static list with all the option type values
+ * @property { ObservableList<String> } obsList - observable list with all the values
  */
 
 /**
- * Create a presentation model for the purpose of being used to bind against a single HTML Input in
- * combinations with its pairing Label element.
- * For a single input, it only needs one attribute.
+ * Create a presentation model for the purpose of being used to bind against 
+ * a single HTML Selection or Datalist Input.
+ * For a single input, it only needs one option attribute type.
  * @constructor
  * @param  { OptionAttributes }
  * @return { OptionAttributeType }
  * @example
- *     const model = InputOptionsModel({
-         list:  [],
-     });
+ *      const model = InputOptionsModel({
+            list: [],
+        });
  */
-const InputOptionsModel = ({list = []}) => {
-   const listObs = ObservableList(list)
-    const listObject = list
+const InputOptionsModel = ({ list = [] }) => {
+    const listObs = ObservableList(list);
+    const listObject = list;
 
     return {
-       list: listObject,
-        obsList: listObs
+        list: listObject,
+        obsList: listObs,
     };
 };

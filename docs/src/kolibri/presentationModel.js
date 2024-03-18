@@ -13,8 +13,7 @@ export { Attribute, QualifiedAttribute,
          SELECTION_ELEMENTS,
          FOCUS_ELEMENT,
          DEBOUNCE_TEXT,
-         CHOICEBOX_OPEN,
-         OPTIONS //todo do we still need this or is there a better sol?
+         CHOICEBOX_OPEN
      };
 
 /**
@@ -26,7 +25,6 @@ export { Attribute, QualifiedAttribute,
 /** @type ObservableListTypeString */ const FOCUS_ELEMENT      = "focusElement";
 /** @type ObservableListTypeString */ const DEBOUNCE_TEXT      = "debounceText";
 /** @type ObservableListTypeString */ const CHOICEBOX_OPEN     = "choiceboxOpen";
-/** @type ObservableListTypeString */ const OPTIONS            = "options";
 
 
 /**

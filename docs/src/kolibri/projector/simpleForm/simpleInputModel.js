@@ -1,6 +1,5 @@
-import { ObservableList } from "../../observable.js";
-import {Attribute, EDITABLE, LABEL, NAME, TYPE, VALID, OPTIONS } from "../../presentationModel.js";
-import {TEXT, CHOICE, COMBOBOX}                                           from "../../util/dom.js";
+import { Attribute, EDITABLE, LABEL, NAME, TYPE, VALID } from "../../presentationModel.js";
+import { TEXT, CHOICE }                                  from "../../util/dom.js";
 
 export { SimpleInputModel }
 
@@ -31,19 +30,15 @@ export { SimpleInputModel }
          type:   "text",
      });
  */
-const SimpleInputModel = ({value, label, name, type = TEXT, options = []}) => {
+const SimpleInputModel = ({value, label, name, type = TEXT}) => {
     const singleAttr = Attribute(value);
     singleAttr.getObs(TYPE)        .setValue(type);
-
-    if (CHOICE !== type) {
-        singleAttr.getObs(EDITABLE).setValue(true); // todo: maybe not if choice
-    }
     singleAttr.getObs(VALID)       .setValue(true);
 
+    if (CHOICE !== type) singleAttr.getObs(EDITABLE).setValue(true);
+    
     if (null != label) singleAttr  .getObs(LABEL).setValue(label);
     if (null != name ) singleAttr  .getObs(NAME) .setValue(name);
-    if (CHOICE === type || COMBOBOX === type) 
-        singleAttr.getObs(OPTIONS).setValue(ObservableList(options));
 
     return /** AttributeType<_T_> */ singleAttr;
 };

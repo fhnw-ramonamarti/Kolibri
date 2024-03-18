@@ -13,8 +13,8 @@
  * to the application while all business logic and their test cases remain untouched.
  */
 
-import {CHANGE, dom, INPUT, TIME, CHECKBOX, CHOICE, COMBOBOX}   from "../../util/dom.js";
-import { timeStringToMinutes, totalMinutesToTimeString}         from "../projectorUtils.js";
+import { CHANGE, dom, INPUT, TIME, CHECKBOX, CHOICE, COMBOBOX } from "../../util/dom.js";
+import { timeStringToMinutes, totalMinutesToTimeString }        from "../projectorUtils.js";
 
 export { InputProjector }
 
@@ -28,7 +28,7 @@ let counter = 0;
 /** 
  * @private
  */
-const createInputElement = (id, elementAsString) => {
+const createInputElements = (id, elementAsString) => {
     return dom(`
         <label for="${id}"></label>
         <span  data-id="${id}">
@@ -43,7 +43,7 @@ const createInputElement = (id, elementAsString) => {
  */
 const createInputView = (id, inputController) => {
     // create view
-    const elements = createInputElement(id, `
+    const elements = createInputElements(id, `
         <input type="${inputController.getType()}" id="${id}">
     `);
     /** @type {HTMLLabelElement} */ const labelElement = elements[0]; // only for the sake of type casting, otherwise...
@@ -57,7 +57,7 @@ const createInputView = (id, inputController) => {
  * @private
  */
 const createOptionElements = (options, optionContainer) => {
-    options.getList().forEach(option => {
+    options.forEach(option => {
         const optionElement             = document.createElement("option");
               optionElement.value       = option.value;
               optionElement.textContent = option.label ?? option.value;
@@ -69,12 +69,12 @@ const createOptionElements = (options, optionContainer) => {
  * @private 
  */
 const createChoiceView = (id, options) => {
-    const elements = createInputElement(id, `
+    const elements = createInputElements(id, `
         <select id="${id}"></select>
     `);
-    /** @type {HTMLLabelElement}  */ const labelElement  = elements[0];
-    /** @type {HTMLSpanElement}   */ const spanElement   = elements[1];
-    /** @type {HTMLSelectElement} */ const selectElement  = spanElement.firstElementChild;
+    /** @type {HTMLLabelElement}  */ const labelElement  = elements[0]; // only for the sake of type casting, otherwise...
+    /** @type {HTMLSpanElement}   */ const spanElement   = elements[1]; // only for the sake of type casting, otherwise...
+    /** @type {HTMLSelectElement} */ const selectElement  = spanElement.firstElementChild; // ... we would use array deconstruction
 
     createOptionElements(options, selectElement);
     return [elements, labelElement, selectElement];
@@ -84,14 +84,14 @@ const createChoiceView = (id, options) => {
  * @private 
  */
 const createComboboxView = (id, options) => {
-    const elements = createInputElement(id, `
+    const elements = createInputElements(id, `
         <input type="text" id="${id}" list="${id}-list" />
         <datalist id="${id}-list"></datalist>
     `);
-    /** @type {HTMLLabelElement}    */ const labelElement  = elements[0];
-    /** @type {HTMLSpanElement}     */ const spanElement   = elements[1];
-    /** @type {HTMLInputElement}    */ const inputElement  = spanElement.firstElementChild;
-    /** @type {HTMLDataListElement} */ const datalistElement = spanElement.children[1];
+    /** @type {HTMLLabelElement}    */ const labelElement  = elements[0]; // only for the sake of type casting, otherwise...
+    /** @type {HTMLSpanElement}     */ const spanElement   = elements[1]; // only for the sake of type casting, otherwise...
+    /** @type {HTMLInputElement}    */ const inputElement  = spanElement.firstElementChild; // ... we would use array deconstruction
+    /** @type {HTMLDataListElement} */ const datalistElement = spanElement.children[1]; // ... we would use array deconstruction
 
     createOptionElements(options, datalistElement);
     return [elements, labelElement, inputElement, datalistElement];
@@ -123,19 +123,25 @@ const bindCheckboxValue = (inputElement, eventType, inputController) => {
 const bindOptionValue = (viewElement, optionContainer, eventType, inputController) => {
     viewElement.addEventListener(eventType, (_) => inputController.setValue(/** @type { * } */ viewElement.value));
     inputController.onValueChanged((val) => (viewElement.value = /** @type { * } */ val));
-    
-    // redraw all options //todo check if one or split up
-   /* inputController.onOptionsChanged((val) => {
+
+    // redraw all options 
+    // todo optimize not delering all before adding
+    inputController.onAddOption((option) => {
         if (document.getElementById(viewElement.id)) {
-            optionContainer.innerHTML = "";
-            val.getList().forEach((option) => {
-                const optionElement = document.createElement("option");
-                optionElement.value = option.value;
-                optionElement.textContent = option.label ?? option.value;
-                optionContainer.appendChild(optionElement);
-            });
+            const optionElement = document.createElement("option");
+            optionElement.value = option.value;
+            optionElement.textContent = option.label ?? option.value;
+            optionContainer.appendChild(optionElement);
         }
-    });*/
+    });
+    inputController.onDelOption((option) => {
+        if (document.getElementById(viewElement.id)) {
+            const optionElement = optionContainer.querySelector(`[value="${option.value}"]`);
+            if (optionElement) {
+                optionContainer.removeChild(optionElement);
+            }
+        }
+    });
 };
 
 /**
