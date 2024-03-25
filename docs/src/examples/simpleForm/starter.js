@@ -2,15 +2,18 @@ import { projectForm, FORM_CSS }  from "../../kolibri/projector/simpleForm/simpl
 import { SimpleFormController }   from "../../kolibri/projector/simpleForm/simpleFormController.js"
 import { CHECKBOX, NUMBER, TEXT,
     COLOR, DATE, TIME, CHOICE, COMBOBOX }   from "../../kolibri/util/dom.js";
+// import"../../kolibri/projector/simpleForm/optionsModel.js";
 
 export { start } // exported for testing purposes
 
 const start = () => {
+    /** @type { Array<OptionType> } */
     const valueLabelOptions = [
         { value: "a", label: "Option 1" },
         { value: "b", label: "Option 2" },
         { value: "c", label: "Option 3" },
     ];
+    /** @type { Array<OptionType> } */
     const valueOptions = [{ value: "a" }, { value: "b" }, { value: "c" }];
 
     const formStructure = [

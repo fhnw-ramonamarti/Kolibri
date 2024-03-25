@@ -22,7 +22,12 @@ export { SimpleFormController }
  */
 const SimpleFormController = inputAttributesArray => {
     // noinspection UnnecessaryLocalVariableJS
-    const inputControllers = inputAttributesArray.map(SimpleInputController);
+    const inputControllers = inputAttributesArray.map(inputAttr => {
+        const ctrl = SimpleInputController(inputAttr);
+        inputAttr.list?.forEach(ctrl.addOption);
+        return ctrl;
+    });
+    
     // set up any business rules (we do not have any, yet)
     return inputControllers ;
 };

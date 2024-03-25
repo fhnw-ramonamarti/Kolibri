@@ -18,6 +18,7 @@ const createData = () => {
 };
 
 const start = () => {
+    /** @type { [Array<OptionType>, Array<OptionType>] } */
     const [decades, years] = createData();
     const formStructure = [
         { value: "", label: "Decade",        name: "decade", type: CHOICE,   list: decades },
