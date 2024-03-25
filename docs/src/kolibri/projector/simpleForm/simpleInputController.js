@@ -25,8 +25,8 @@ export { SimpleInputController, SimpleAttributeInputController };
 * @property { () => Array<OptionType> }      getOptions
 * @property { (option: OptionType) => void } addOption
 * @property { (option: OptionType) => void } delOption
-* @property { (cb: OptionAddCallback<OptionType>) => void } onAddOption
-* @property { (cb: OptionAddCallback<OptionType>) => void } onDelOption
+* @property { (cb: ConsumerType<OptionType>) => void } onAddOption
+* @property { (cb: ConsumerType<OptionType>) => void } onDelOption
 */
 
 /**
