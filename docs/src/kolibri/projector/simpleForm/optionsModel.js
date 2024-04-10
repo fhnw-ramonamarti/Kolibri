@@ -21,7 +21,7 @@ export { OptionsModel }
  * @constructor
  * @return { OptionsModelType }
  * @example
- *      const model = InputOptionsModel();
+ *      const model = OptionsModel();
  */
 const OptionsModel = () => {
     const list = [];
