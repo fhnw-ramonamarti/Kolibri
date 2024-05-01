@@ -1,7 +1,8 @@
 import { Attribute, EDITABLE, LABEL, NAME, TYPE, VALID } from "../../presentationModel.js";
 import { TEXT, CHOICE }                                  from "../../util/dom.js";
+import { Option }                                        from "./optionsModel.js";
 
-export { SimpleInputModel }
+export { SimpleInputModel, reset }
 
 
 /**
@@ -41,4 +42,12 @@ const SimpleInputModel = ({value, label, name, type = TEXT}) => {
     if (null != name ) singleAttr  .getObs(NAME) .setValue(name);
 
     return /** AttributeType<_T_> */ singleAttr;
+};
+
+
+/**
+ * Remove the default values of a input model
+ */
+const reset = () => {
+    return Option("", "", true);
 };

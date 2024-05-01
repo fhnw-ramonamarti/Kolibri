@@ -1,12 +1,37 @@
 import { ObservableList } from "../../observable.js";
 
-export { OptionsModel }
+export { OptionsModel, Option }
 
 /**
  * @typedef OptionType
- * @property { !String } value - selectable value of the input
- * @property { ?String } label - visible label of the input
+ * @property { () => !String } getValue - selectable value of the input
+ * @property { () => ?String } getLabel - visible label of the input
+ * @property { () => !String } getId - unique identifier of the option
  */
+
+/**
+ * Internal, mutable, singleton state to make Person qualifiers unique.
+ * @private
+ */
+let idCounter = 0;
+
+
+/**
+ * 
+ * @param { String } value 
+ * @param { ?String } label 
+ * @param { Boolean } isEmpty 
+ * @constructor
+ * @returns { OptionType }
+ */
+const Option = (value, label, isEmpty = false) => {
+    const id = "Option." + (isEmpty ? "none" : idCounter++);
+    return {
+        getValue: () => value,
+        getLabel: () => (!label || label === "" ? value : label),
+        getId: () => id,
+    }
+}
 
 /**
  * @typedef OptionsModelType
