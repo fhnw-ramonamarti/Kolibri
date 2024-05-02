@@ -3,7 +3,7 @@ import { InputProjector }                   from "../../kolibri/projector/simple
 import { SimpleAttributeInputController }   from "../../kolibri/projector/simpleForm/simpleInputController.js";
 import { SimpleInputModel }                 from "../../kolibri/projector/simpleForm/simpleInputModel.js";
 
-export { projectListItem, selectListItemForModel, removeListItemForModel, projectForm,  masterClassName, pageCss }
+export { projectListItem, selectListItemForModel, removeListItemForModel, projectDetail,  masterClassName, pageCss }
 
 /**
  * A name that serves multiple purposes as it allows setting up specific css styling by using a consistent
@@ -87,41 +87,34 @@ const removeListItemForModel = (root) => model => {
 /**
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
  * @template _T_
- * @param { ListControllerType<_T_> }         listController
- * @param { SelectionControllerType<_T_> }    selectionController
+ * @param { MasterDetailSelectionControllerType<_T_> }    componentController
  * @param { _T_ }                             model
  * @return { HTMLElement[] }
  */
-const projectListItem = (listController, selectionController, model) => {
+const projectListItem = (componentController, model) => {
 
     const deleteButton      = document.createElement("Button");
     deleteButton.setAttribute("class","delete");
     deleteButton.innerHTML  = "&times;";
-    deleteButton.onclick    = _ => listController.removeModel(model);
+    deleteButton.onclick    = _ => componentController.removeMasterModel(model);
     deleteButton.id         = deleteButtonId(model);
 
     const elements          = [];
 
     const item = document.createElement("div");
     item.setAttribute("data-value",model.getValue());
+    item.setAttribute("data-column",model.getColumn());
     item.innerHTML = model.getLabel();
     item.id = model.getId();
     item.onclick = e => {
-        const option = listController.getElements().filter(i => i.getId() === e.target.id)[0];
-        selectionController.setSelectedModel(option);
+        const option = componentController.getMasterList().filter(i => i.getId() === e.target.id)[0];
+        if(model.getColumn() == 0){
+            componentController.setSelectedDetailModel(option);
+        } else {
+            // todo change filter / do jump
+        }
     };
     elements.push(item);
-    // const inputController = SimpleAttributeInputController(model);
-    // const [labelElement, spanElement] = InputProjector.projectInstantInput(inputController, "ListItem");
-    // const inputElement   = spanElement.querySelector("input");
-    // inputElement.onfocus = _ => selectionController.setSelectedModel(model);
-    // // id's have been dynamically generated, but we have to change that
-    // // (and keep the input.id and label.for consistency intact)
-    // const id = elementId(model);
-    // spanElement .setAttribute("data-id",    id); // we will need that later when removing
-    // inputElement.setAttribute("id",         id);
-    // labelElement.setAttribute("for",        id);
-    // elements.push(labelElement, spanElement);
     
     return [ deleteButton, ...elements];
 };
@@ -134,16 +127,15 @@ const projectListItem = (listController, selectionController, model) => {
  * @param {SelectionControllerType<_T_>}    detailController
  * @param { HTMLElement }                   detailCard
  * @param { _T_ }                           model
- * @return { HTMLFormElement[] }
+ * @return { HTMLDivElement[] }
  */
-const projectForm = (detailController, detailCard, model) => {
+const projectDetail = (componentController, detailCard, model) => {
 
     // create view
     const elements = dom(`
         <div class="${detailClassName}"> </div>
     `);
-    /** @type { HTMLFormElement } */ const form = elements[0];
-    const div = form;
+    /** @type { HTMLDivElement } */ const div = elements[0];
 
     const simpleInputModel = SimpleInputModel({
         label: model.getLabel(),
@@ -153,15 +145,7 @@ const projectForm = (detailController, detailCard, model) => {
     const inputController = SimpleAttributeInputController(simpleInputModel);
     div.append(...InputProjector.projectInstantInput(inputController, detailClassName));
 
-    // model.detailed.getObs(VALUE).onChange( newValue => {
-    //     if (newValue) {
-    //         detailCard.classList.remove("no-detail");
-    //     } else {
-    //         detailCard.classList.add("no-detail");
-    //     }
-    // });
-
-    return [ form ];
+    return [ div ];
 };
 
 /**
@@ -172,7 +156,8 @@ const projectForm = (detailController, detailCard, model) => {
  */
 const pageCss = `
     .${masterClassName} {
-        display:        block;
+        display:        flex;
+        gap:            1rem;
         align-items:    baseline;
         margin-bottom:  0.5em ;
     }
@@ -200,5 +185,8 @@ const pageCss = `
         background:         var(--kolibri-color-select);
         transform:          translateX(-100%);
         clip-path:          polygon(0 0, 100% 50%, 0 100%);
+    }
+    .hidden {
+        display: none;
     }
 `;

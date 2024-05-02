@@ -5,11 +5,10 @@
  * views only ever know the controller API, not the model directly.
  */
 
-import { Observable }   from "../../kolibri/observable.js";
-import { OptionsModel } from "../../kolibri/projector/simpleForm/optionsModel.js";
-import { reset }        from "../../kolibri/projector/simpleForm/simpleInputModel.js";
+import { Observable }                from "../../kolibri/observable.js";
+import { OptionsModel, noSelection } from "../../kolibri/projector/simpleForm/optionsModel.js";
 
-export { ListController, SelectionController }
+export { ListController, SelectionController, ListAndSelectionController }
 
 /**
  * @typedef ListControllerType<Option>
@@ -32,26 +31,13 @@ const ListController = () => {
     const listModel = OptionsModel(); // observable array of models, this state is private
 
     return {
-        getElements     : listModel.getList,
-        addModel        : listModel.getObsList().add,
-        removeModel     : listModel.getObsList().del,
-        onModelAdd      : listModel.getObsList().onAdd,
-        onModelRemove   : listModel.getObsList().onDel,
+        getList       : listModel.getList,
+        addModel      : listModel.getObsList().add,
+        removeModel   : listModel.getObsList().del,
+        onModelAdd    : listModel.getObsList().onAdd,
+        onModelRemove : listModel.getObsList().onDel,
     }
 };
-
-
-/**
- * Representing a selection when no person is selected.
- * Null-Object Pattern.
- * @private
- */
-const createNoSelection = () => {
-    const result = reset();
-    return result
-};
-const noSelection = createNoSelection(); // the value to pass around, it's qualifiers might get changed
-createNoSelection(); // create a second noSelection that can never be passed around and keeps the attributes in the ModelWorld
 
 
 /**
@@ -82,4 +68,47 @@ const SelectionController = model => {
         onModelSelected  : selectedModelObs.onChange,
         clearSelection   : () => selectedModelObs.setValue(noSelection),
     }
+};
+
+
+/**
+ * @typedef MasterDetailSelectionControllerType<_T_>
+ * @template _T_
+ * @property { () => Boolean  } isVisible
+ * @property { () => void  }    setVisible
+ * @property { (_T_) => void }  setSelectedDetailModel
+ * @property { ()  => _T_    }  getSelectedDetailModel
+ * @property { () => void  }    clearDetailSelection
+ * @property { (cb: ValueChangeCallback<Option>) => void } onDetailModelSelected
+ * @property { () => void  }    getMasterList
+ * @property { () => void  }    addMasterModel
+ * @property { () => void  }    removeMasterModel
+ * @property { (cb: ConsumerType<Option>) => void }        onMasterModelAdd
+ * @property { (cb: ConsumerType<Option>) => void }        onMasterModelRemove
+ */
+
+/**
+ * 
+ * @param { ListControllerType }      masterConteroller 
+ * @param { SelectionControllerType } detailController 
+ * @returns { MasterDetailSelectionControllerType }
+ */
+const ListAndSelectionController = (masterConteroller, detailController) => {
+    const visibleObs = Observable(true); // todo change after development to false
+    // todo add parameter to choose between jump/ search and filter with categories
+
+    return {
+        isVisible               : visibleObs.getValue,
+        setVisible              : visibleObs.setValue,
+        onVisibleChange         : visibleObs.onChange,
+        setSelectedDetailModel  : detailController.setSelectedModel,
+        getSelectedDetailModel  : detailController.getSelectedModel,
+        onDetailModelSelected   : detailController.onModelSelected,
+        clearDetailSelection    : detailController.clearSelection,
+        getMasterList           : masterConteroller.getList,
+        addMasterModel          : masterConteroller.addModel,
+        removeMasterModel       : masterConteroller.removeModel,
+        onMasterModelAdd        : masterConteroller.onModelAdd,
+        onMasterModelRemove     : masterConteroller.onModelRemove,
+    };
 };

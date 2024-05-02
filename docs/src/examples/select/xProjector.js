@@ -1,43 +1,55 @@
-import { reset }                from "../../kolibri/projector/simpleForm/simpleInputModel.js";
+import { selectionMold }       from "../../kolibri/projector/simpleForm/optionsModel.js";
 import {
-    projectForm,
+    projectDetail,
     projectListItem,
     masterClassName,
     removeListItemForModel,
     selectListItemForModel
 }                              from "./instantUpdateProjector.js";
 
-export { projectMasterView, projectDetailView, selectionMold }
+export { projectMasterView, projectDetailView }
 
 /**
  * Create the master view, bind against the controllers, and return the view.
  * @impure - since we change the state of the controller. The DOM remains unchanged.
  * @template _T_
- * @param { ListControllerType<_T_> }      listController
- * @param { SelectionControllerType<_T_> } selectionController
+ * @param { MasterDetailSelectionControllerType<_T_> }      listController
  * @return { [HTMLDivElement] }          - master view
  */
-const projectMasterView = (listController, selectionController) => {
+const projectMasterView = (componentController) => {
 
     /** @type HTMLDivElement */ const rootElement = document.createElement("div");
+    
+    const renderRow = (option) => {
+        const column = option.getColumn();
+        if (null == rootElement.querySelector(`[data-column="${option.getColumn()}"]`)) {
+            const columnContainer = document.createElement("div");
+            columnContainer.classList.add("master-column");
+            columnContainer.classList.add("master-column-" + column);
+            columnContainer.setAttribute("data-column", column);
+            rootElement.append(columnContainer);
 
-    const renderRow = option => {
-        const rowElements = projectListItem(listController, selectionController, option);
-        rootElement.append(rowElements[1]);
-        // selectionController.setSelectedModel(option);
+            const sortedChildren = [...rootElement.children].sort(
+                (a, b) => b.getAttribute("data-column") - a.getAttribute("data-column")
+            )
+            rootElement.replaceChildren(...sortedChildren);
+        }
+        const rowElements = projectListItem(componentController, option);
+        rootElement.querySelector(`[data-column="${option.getColumn()}"]`).append(rowElements[1]);
+        // componentController.setSelectedDetailModel(option);
     };
 
     rootElement.classList.add(masterClassName);
     // rootElement.style['grid-template-columns'] = '2em repeat(' + 1 + ', auto);';
 
     // binding
-    listController.onModelAdd(renderRow);
-    listController.onModelRemove( removedModel => {
+    componentController.onMasterModelAdd(renderRow);
+    componentController.onMasterModelRemove( removedModel => {
         removeListItemForModel(rootElement)(removedModel);
         removedModel.setQualifier(undefined); // remove model attributes from model world
-        selectionController.clearSelection();
+        componentController.clearDetailSelection();
     });
-    selectionController.onModelSelected(selectListItemForModel(rootElement));
+    componentController.onDetailModelSelected(selectListItemForModel(rootElement));
 
     return [rootElement];
 };
@@ -47,26 +59,29 @@ const projectMasterView = (listController, selectionController) => {
  * Create the detail view, bind against the detail controller, and return the view.
  * @template _T_
  * @impure - since we change the state of the controller. The DOM remains unchanged.
- * @param  { SelectionControllerType<_T_> } selectionController
+ * @param  { MasterDetailSelectionControllerType<_T_> } selectionController
  * @param  { HTMLElement }                detailCard - element that holds the detail view and can be folded away
- * @return { [HTMLFormElement] }          - master view
+ * @param  { HTMLElement }                masterListElement - element that holds the detail view and can be folded away
+ * @return { [HTMLDivElement] }          - master view
  */
-const projectDetailView = (selectionController, detailCard) => {
+const projectDetailView = (componentController, detailCard, masterListElement) => {
+    
+    const detailElement = projectDetail(componentController, detailCard, selectionMold); // only once, view is stable, binding is stable
 
-    const form = projectForm(selectionController, detailCard, selectionMold); // only once, view is stable, binding is stable
-
-    selectionController.onModelSelected((selectedPersonModel) => {
-        console.log(selectedPersonModel.getValue());
-        form[0].querySelector("input").value = selectedPersonModel.getValue();
+    componentController.onDetailModelSelected((selectedOptionModel) => {
+        detailElement[0].querySelector("input").value = selectedOptionModel.getValue();
+        // todo find better way
     });
 
-    selectionController.clearSelection();
+    componentController.onVisibleChange(value => {
+        masterListElement.classList.toggle("hidden", !value);
+    });
 
-    return form;
+    componentController.clearDetailSelection();
+
+    detailElement[0].onclick = e => {
+        componentController.setVisible(!componentController.isVisible());
+    };
+
+    return detailElement;
 };
-
-
-/**
- * Used for selection input
- */
-const selectionMold = reset();
