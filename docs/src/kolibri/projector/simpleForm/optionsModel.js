@@ -21,10 +21,9 @@ let idCounter = 0;
  * todo think about rename id to qualifier ??
  * @param { String } value 
  * @param { ?String } label 
- * @param { Boolean } column - 0 contains values to send in forms, other columns are filters 
- * @param { Boolean } isEmpty 
  * @constructor
- * @returns { OptionType }
+ * column - 0 contains values to send in forms, other columns are filters or categories
+ * @returns { (column: Number, isEmpty: Boolean) => OptionType }
  */
 const Option = (value, label) => (column = 0, isEmpty = false) => {
     const id = "Option." + (isEmpty ? "none" : idCounter++); // todo optimize idenitier 
@@ -63,7 +62,7 @@ const OptionsModel = () => {
 
 
 /**
- * Remove the default values of a input model
+ * Creates a signle empty option
  */
 const reset = () => {
     return Option("")(0,true);
@@ -71,19 +70,17 @@ const reset = () => {
 
 
 /**
- * Representing a selection when no option is selected.
- * Null-Object Pattern.
+ * Representing a selection when no option selected.
  * @private
  */
 const createNoSelection = () => {
     const result = reset();
     return result
 };
-const noSelection = createNoSelection(); // the value to pass around, it's qualifiers might get changed
-createNoSelection(); // create a second noSelection that can never be passed around and keeps the attributes in the ModelWorld
+const noSelection = createNoSelection(); // the value to pass around, its id might get changed
 
 
 /**
- * Used for selection input
+ * Used for selection of a signle option
  */
 const selectionMold = reset();

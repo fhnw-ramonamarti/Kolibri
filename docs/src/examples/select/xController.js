@@ -21,14 +21,13 @@ export { ListController, SelectionController, ListAndSelectionController }
  */
 
 /**
- * ListController maintains an observable list of arbitrary models.
- * In order to construct models, it takes a modelConstructor as parameter.
+ * ListController maintains an option model.
  * @return { ListControllerType<Option> }
  * @constructor
  */
 const ListController = () => {
 
-    const listModel = OptionsModel(); // observable array of models, this state is private
+    const listModel = OptionsModel(); 
 
     return {
         getList       : listModel.getList,
@@ -51,8 +50,7 @@ const ListController = () => {
 
 /**
  * SelectionController takes a model that will serve as a representative of a selection.
- * Listeners to selection changes will react by synchronizing with the selection -
- * of by means of copying the qualifiers and thus allowing multi-way updates without unbind/rebind.
+ * Listeners to selection changes will react by synchronizing with the selection.
  * @template _T_
  * @param  { _T_ } model - the model that is to represent the selection
  * @return { SelectionControllerType<_T_>}
@@ -88,14 +86,22 @@ const SelectionController = model => {
  */
 
 /**
- * 
+ * ListAndSelectionController maintains a list and a selection controller.
+ * It also mantains observable states like the visibility.
  * @param { ListControllerType }      masterConteroller 
  * @param { SelectionControllerType } detailController 
  * @returns { MasterDetailSelectionControllerType }
+ * @constructor
  */
 const ListAndSelectionController = (masterConteroller, detailController) => {
     const visibleObs = Observable(true); // todo change after development to false
     // todo add parameter to choose between jump/ search and filter with categories
+    // todo maybe with observable of highlighted option
+    // todo maybe add navigation controller 
+    // todo add observable for label
+    // todo maybe add observable for placeholder
+    // todo add observable for valitiy
+    // todo add observable for name of input in detail 
 
     return {
         isVisible               : visibleObs.getValue,

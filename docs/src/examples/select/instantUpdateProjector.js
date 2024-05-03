@@ -12,10 +12,10 @@ export { projectListItem, selectListItemForModel, removeListItemForModel, projec
  * Future developers might want this information to be passed in from the outside to allow more flexibility.
  * @type { String }
  */
-const masterClassName = 'instant-update-master';
+const masterClassName = 'selection-instant-update-master';
 
 /** @private */
-const detailClassName = 'instant-update-detail';
+const detailClassName = 'selection-instant-update-detail';
 
 /**
  * Returns a unique id for the html element that is to represent the attribute such that we can create the
@@ -24,7 +24,7 @@ const detailClassName = 'instant-update-detail';
  * @template _T_
  * @private
  * @pure
- * @param  { _T_ }      model
+ * @param  { _T_ }     model
  * @return { String }
  */
 const elementId = (model) =>
@@ -37,7 +37,7 @@ const elementId = (model) =>
  * @template _T_
  * @private
  * @pure
- * @param  { _T_ }        model
+ * @param  { _T_ }    model
  * @return { String }
  */
 const deleteButtonId = (model) => {
@@ -52,13 +52,13 @@ const deleteButtonId = (model) => {
  * @return { (newModel:_T_, oldModel:_T_) => void}
  */
 const selectListItemForModel = (root) => (newModel, oldModel) => {
-    const oldDeleteButton = root.querySelector("#" + deleteButtonId(oldModel));
-    if (oldDeleteButton) {
-        oldDeleteButton.classList.remove("selected");
+    const oldItem = root.querySelector("#" + elementId(oldModel));
+    if (oldItem) {
+        oldItem.classList.remove("selected");
     }
-    const newDeleteButton = root.querySelector("#" + deleteButtonId(newModel));
-    if (newDeleteButton) {
-        newDeleteButton.classList.add("selected");
+    const newItem = root.querySelector("#" + elementId(newModel));
+    if (newItem) {
+        newItem.classList.add("selected");
     }
 };
 
@@ -71,24 +71,20 @@ const selectListItemForModel = (root) => (newModel, oldModel) => {
 const removeListItemForModel = (root) => model => {
     const deleteButton = root.querySelector("#" + deleteButtonId(model));
     if (deleteButton) {
-        deleteButton.parentElement.removeChild(deleteButton);               // remove delete button
+        deleteButton.parentElement.removeChild(deleteButton);          // remove delete button
     }
     const id = elementId(model);
-    const spanElement = root.querySelector(`span[data-id=${id}]`);
-    if ( spanElement) {                                                // remove all input elements of this row
-        spanElement.parentElement.removeChild(spanElement);
-    }
-    const labelElement = root.querySelector(`label[for="${id}"]`);
-    if (labelElement ){
-        labelElement.parentElement.removeChild(labelElement);           // remove all label elements of this row
+    const optionElement = root.querySelector(`[data-id=${id}]`);
+    if (optionElement) {                                                // remove all input elements of this row
+        optionElement.parentElement.removeChild(optionElement);
     }
 };
 
 /**
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
  * @template _T_
- * @param { MasterDetailSelectionControllerType<_T_> }    componentController
- * @param { _T_ }                             model
+ * @param { MasterDetailSelectionControllerType<_T_> }  componentController
+ * @param { _T_ }                                       model
  * @return { HTMLElement[] }
  */
 const projectListItem = (componentController, model) => {
@@ -102,12 +98,14 @@ const projectListItem = (componentController, model) => {
     const elements          = [];
 
     const item = document.createElement("div");
+    item.setAttribute("data-id",elementId(model));
     item.setAttribute("data-value",model.getValue());
     item.setAttribute("data-column",model.getColumn());
+    item.classList.add("select-item"); // todo better name
     item.innerHTML = model.getLabel();
-    item.id = model.getId();
+    item.id = elementId(model);
     item.onclick = e => {
-        const option = componentController.getMasterList().filter(i => i.getId() === e.target.id)[0];
+        const option = componentController.getMasterList().filter(i => elementId(i) === e.target.id)[0];
         if(model.getColumn() == 0){
             componentController.setSelectedDetailModel(option);
         } else {
@@ -122,14 +120,13 @@ const projectListItem = (componentController, model) => {
 
 
 /**
- * Creating the views and bindings for an item in the list view, binding for instant value updates.
+ * Creating the views and bindings for an item in the detail view, binding for instant value updates.
  * @template _T_
- * @param {SelectionControllerType<_T_>}    detailController
- * @param { HTMLElement }                   detailCard
+ * @param {SelectionControllerType<_T_>}    componentController
  * @param { _T_ }                           model
  * @return { HTMLDivElement[] }
  */
-const projectDetail = (componentController, detailCard, model) => {
+const projectDetail = (componentController, model) => {
 
     // create view
     const elements = dom(`
@@ -148,6 +145,12 @@ const projectDetail = (componentController, detailCard, model) => {
     return [ div ];
 };
 
+/** 
+ * Height of the master list box
+ * @private
+ */
+const boxHeight = 240;
+
 /**
  * CSS snippet to append to the head style when using the instant update projector.
  * @type { String }
@@ -159,12 +162,32 @@ const pageCss = `
         display:        flex;
         gap:            1rem;
         align-items:    baseline;
-        margin-bottom:  0.5em ;
+        margin-bottom:  0.5em;
+        width:          100%;
+        max-height:     ${boxHeight}px;
+        overflow:       scroll;
     }
     .${detailClassName} {
-        display:            block;
-        margin-bottom:      0.5em ;
-    }  
+        display:        block;
+        margin-bottom:  0.5em;
+        width:          100%;
+
+        input,
+        > span {
+            width:      100%;
+            display:    block;
+        }
+    }
+    .select-column {
+        width:          100%;
+    }
+    .select-item {
+        width:          100%;
+        padding:        0.2em 0.5em;
+    }
+    .selected {
+        background-color:   var(--kolibri-color-select);
+    }
     .delete {
         background-color:   transparent;
         border:             none;
