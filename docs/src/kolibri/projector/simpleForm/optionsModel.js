@@ -26,12 +26,22 @@ let idCounter = 0;
  * @returns { (column: Number, isEmpty: Boolean) => OptionType }
  */
 const Option = (value, label) => (column = 0, isEmpty = false) => {
-    const id = "Option." + (isEmpty ? "none" : idCounter++); // todo optimize idenitier 
-    return {
-        getValue: () => value,
-        getLabel: () => (!label || label === "" ? value : label),
-        getId: () => id,
-        getColumn: () => column,
+    if(isEmpty){ // todo change id when adding name to component
+        const id = "Option.none" + idCounter++;
+        return {
+            getValue: () => "",
+            getLabel: () => "",
+            getId: () => id,
+            getColumn: () => 0,
+        }
+    } else {
+        const id = "Option.value" + idCounter++; // todo optimize idenitier 
+        return {
+            getValue: () => value,
+            getLabel: () => (!label || label === "" ? value : label),
+            getId: () => id,
+            getColumn: () => column,
+        }
     }
 }
 
@@ -63,6 +73,7 @@ const OptionsModel = () => {
 
 /**
  * Creates a signle empty option
+ * @returns { OptionType }
  */
 const reset = () => {
     return Option("")(0,true);
