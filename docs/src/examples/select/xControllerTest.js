@@ -19,7 +19,7 @@ xControllerSuite.add("full", assert => {
     
     // example bindings to check if activated
     let clicked = false;
-    controller.onVisibleChange       ((val) => {clicked = true;console.log("test");});
+    controller.onVisibleChange       ((val) => {clicked = true;});
     controller.onDetailModelSelected ((val) => {clicked = true;});
     controller.onMasterModelAdd      ((val) => {clicked = true;});
     controller.onMasterModelRemove   ((val) => {clicked = true;});
