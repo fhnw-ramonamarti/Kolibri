@@ -18,21 +18,21 @@ document.querySelector("head style").textContent += pageCss;
 
 // add selection data // todo move to projector / conteroller
 [
-    Option("Option 1")(),
-    Option("Option 2")(),
-    Option("Option 3")(),
-    Option("Option 4")(),
-    Option("Option 5")(),
-    Option("Option 6")(),
-    Option("Option 7")(),
-    Option("Option 8")(),
-    Option("Option 9")(),
-    Option("Option 10")(),
-    Option("Option 11")(),
-    Option("Option 12")(),
-    Option("Option 13")(),
-    Option("Option 14")(),
-    Option("Option 15")(),
+    {value: "Option 1"},
+    {value: "Option 2"},
+    {value: "Option 3"},
+    {value: "Option 4"},
+    {value: "Option 5"},
+    {value: "Option 6"},
+    {value: "Option 7"},
+    {value: "Option 8"},
+    {value: "Option 9"},
+    {value: "Option 10"},
+    {value: "Option 11"},
+    {value: "Option 12"},
+    {value: "Option 13"},
+    {value: "Option 14"},
+    {value: "Option 15"},
 ].forEach((e) => {
-    componentController.addMasterModel(e);
+    componentController.addMasterValueModel(e);
 });

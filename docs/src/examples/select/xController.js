@@ -6,7 +6,7 @@
  */
 
 import { Observable }                from "../../kolibri/observable.js";
-import { OptionsModel, noSelection } from "../../kolibri/projector/simpleForm/optionsModel.js";
+import { Option, OptionsModel, noSelection } from "../../kolibri/projector/simpleForm/optionsModel.js";
 
 export { ListController, SelectionController, ListAndSelectionController }
 
@@ -72,17 +72,19 @@ const SelectionController = model => {
 /**
  * @typedef MasterDetailSelectionControllerType<_T_>
  * @template _T_
- * @property { () => Boolean  } isVisible
- * @property { () => void  }    setVisible
- * @property { (_T_) => void }  setSelectedDetailModel
- * @property { ()  => _T_    }  getSelectedDetailModel
- * @property { () => void  }    clearDetailSelection
+ * @property { () => Boolean  }    isVisible
+ * @property { () => void  }       setVisible
+ * @property { (cb: ConsumerType<Boolean>) => void  }       onVisibleChange
+ * @property { (Option) => void }  setSelectedDetailModel
+ * @property { ()  => Option    }  getSelectedDetailModel
+ * @property { () => void  }       clearDetailSelection
  * @property { (cb: ValueChangeCallback<Option>) => void } onDetailModelSelected
- * @property { () => void  }    getMasterList
- * @property { () => void  }    addMasterModel
- * @property { () => void  }    removeMasterModel
- * @property { (cb: ConsumerType<Option>) => void }        onMasterModelAdd
- * @property { (cb: ConsumerType<Option>) => void }        onMasterModelRemove
+ * @property { () => void  }       getMasterList
+ * @property { ({value: String, label: ?String}) => void  } addMasterValueModel
+ * @property { ({label: String, column: Number}) => void  } addMasterCategoryModel
+ * @property { (model: Option) => void  }                   removeMasterModel
+ * @property { (cb: ConsumerType<Option>) => void }         onMasterModelAdd
+ * @property { (cb: ConsumerType<Option>) => void }         onMasterModelRemove
  */
 
 /**
@@ -103,6 +105,28 @@ const ListAndSelectionController = (masterConteroller, detailController) => {
     // todo add observable for valitiy
     // todo add observable for name of input in detail 
 
+    /**
+     * 
+     * @param { {value: String, label: ?String} } option 
+     */
+    const addValueModel = (option) => {
+        masterConteroller.addModel(Option(option.value, option.label)())
+    }
+    /**
+     * 
+     * @param { {label: String, column: Number} } category 
+     */
+    const addCategoryModel = (category) => {
+        masterConteroller.addModel(Option(category.label)(category.column))
+    }
+
+    // reset selection on remove selected option
+    masterConteroller.onModelRemove((model) => {
+        if(model === detailController.getSelectedModel()){
+            detailController.clearSelection();
+        }
+    });
+
     return {
         isVisible               : visibleObs.getValue,
         setVisible              : visibleObs.setValue,
@@ -111,8 +135,10 @@ const ListAndSelectionController = (masterConteroller, detailController) => {
         getSelectedDetailModel  : detailController.getSelectedModel,
         onDetailModelSelected   : detailController.onModelSelected,
         clearDetailSelection    : detailController.clearSelection,
+        // maybe split to value and category list
         getMasterList           : masterConteroller.getList,
-        addMasterModel          : masterConteroller.addModel,
+        addMasterValueModel     : addValueModel,
+        addMasterCategoryModel  : addCategoryModel,
         removeMasterModel       : masterConteroller.removeModel,
         onMasterModelAdd        : masterConteroller.onModelAdd,
         onMasterModelRemove     : masterConteroller.onModelRemove,

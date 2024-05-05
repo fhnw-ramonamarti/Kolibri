@@ -13,17 +13,22 @@ const xProjectorSuite = TestSuite("examples/select/xProjector");
  */
 xProjectorSuite.add("binding-master", (assert) => {
     // prepare
-    const option = Option("value", "label")(1);
-    const selectedOption = Option("selecte value", "selected label")();
+    const option = {
+        label: "label",
+        column: 1
+    };
+    const selectedOption = {
+        value: "selected value",
+        label: "selected label"
+    };
     const masterController = ListController();
     const detailController = SelectionController(noSelection);
     const controller = ListAndSelectionController(masterController, detailController);
-
+    
     const [masterContainer] = projectMasterView(controller);
-    controller.addMasterModel(selectedOption);
-    controller.addMasterModel(option);
-    const elementId =     (masterClassName + "-" + selectedOption.getId()).replaceAll("\.","-");
-    const optionElement = masterContainer.querySelector("#" + elementId);
+    controller.addMasterValueModel(selectedOption);
+    controller.addMasterCategoryModel(option);
+    const optionElement = masterContainer.querySelector(`[data-value="${selectedOption.value}"]`);
 
     const [viewContainer] = projectDetailView(controller, masterContainer);
     const labelElement = viewContainer.querySelector("label");
@@ -35,10 +40,10 @@ xProjectorSuite.add("binding-master", (assert) => {
 
     // test the binding
     assert.is(controller.getSelectedDetailModel(), noSelection);
-    assert.is(inputElement.value, noSelection.getValue());
+    assert.is(inputElement.value                 , noSelection.getValue());
     optionElement.click();
-    assert.is(controller.getSelectedDetailModel(), selectedOption);
-    assert.is(inputElement.value, selectedOption.getValue());
+    assert.is(controller.getSelectedDetailModel().getValue(), selectedOption.value);
+    assert.is(inputElement.value                            , selectedOption.value);
 });
 
 xProjectorSuite.run();

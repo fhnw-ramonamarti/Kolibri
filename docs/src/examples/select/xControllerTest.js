@@ -6,8 +6,14 @@ const xControllerSuite = TestSuite("examples/select/xController");
 
 xControllerSuite.add("full", assert => {
     // prepare
-    const option = Option("value", "label")();
-    const selectedOption = Option("selecte value", "selected label")();
+    const option = { 
+        label: "label", 
+        column: 1 
+    };
+    const selectedOption = {
+        value: "selected value", 
+        label: "selected label",
+    };
     const masterController = ListController();
     const detailController = SelectionController(noSelection);
     const controller = ListAndSelectionController(masterController, detailController);
@@ -19,46 +25,67 @@ xControllerSuite.add("full", assert => {
     
     // example bindings to check if activated
     let clicked = false;
-    controller.onVisibleChange       ((val) => {clicked = true;});
-    controller.onDetailModelSelected ((val) => {clicked = true;});
-    controller.onMasterModelAdd      ((val) => {clicked = true;});
-    controller.onMasterModelRemove   ((val) => {clicked = true;});
+    controller.onVisibleChange       ((_) => { clicked = true; });
+    controller.onDetailModelSelected ((_) => { clicked = true; });
+    controller.onMasterModelAdd      ((_) => { clicked = true; });
+    controller.onMasterModelRemove   ((_) => { clicked = true; });
     
     // assert the effect of the binding
     clicked = false;
     controller.setVisible(true);
     assert.is(controller.isVisible(), true);
-    // assert.is(clicked               , true); // todo not wotking why ??
+    // assert.is(clicked               , true); // todo commented due to development already sets true
+    
+    // assert the effect of the binding for master part
+    clicked = false;
+    controller.addMasterValueModel(selectedOption);
+    let mappedOptions = controller.getMasterList()
+        .map(e => ({ value: e.getValue(), label: e.getLabel() }));
+    assert.is(controller.getMasterList().length                             , 1);
+    assert.is(mappedOptions.map(e => e.value).includes(selectedOption.value), true);
+    assert.is(mappedOptions.map(e => e.label).includes(selectedOption.label), true);
+    assert.is(clicked                                                       , true);
+    
+    clicked = false;
+    controller.addMasterCategoryModel(option);
+    mappedOptions = controller.getMasterList()
+        .map(e => ({ value: e.getValue(), label: e.getLabel() }));
+    let mappedCategories = controller.getMasterList()
+        .map(e => ({ label: e.getLabel(), column: e.getColumn() }));
+    assert.is(controller.getMasterList().length                             , 2);
+    assert.is(mappedOptions.map(e => e.value).includes(selectedOption.value), true);
+    assert.is(mappedCategories.map(e => e.label).includes(option.label)     , true);
+    assert.is(mappedCategories.map(e => e.column).includes(option.column)   , true);
+    assert.is(clicked                                                       , true);
 
     // assert the effect of the binding for detail part
     clicked = false;
-    controller.setSelectedDetailModel(selectedOption);
-    assert.is(controller.getSelectedDetailModel(), selectedOption);
-    assert.is(clicked                            , true);
+    const optionToSelect =
+        controller.getMasterList().filter((e) => e.getValue() === selectedOption.value)[0];
+    controller.setSelectedDetailModel(optionToSelect);
+    assert.is(controller.getSelectedDetailModel().getValue(), selectedOption.value);
+    assert.is(controller.getSelectedDetailModel().getLabel(), selectedOption.label);
+    assert.is(clicked                                       , true);
 
     clicked = false;
     controller.clearDetailSelection();
     assert.is(controller.getSelectedDetailModel(), noSelection);
     assert.is(clicked                            , true);
 
-    // assert the effect of the binding for master part
+    // assert the effect of the binding for master part remove
     clicked = false;
-    controller.addMasterModel(option);
-    assert.is(controller.getMasterList().length          , 1);
-    assert.is(controller.getMasterList().includes(option), true);
-    assert.is(clicked                                    , true);
+    controller.setSelectedDetailModel(optionToSelect);
+    controller.removeMasterModel(optionToSelect);
+    mappedOptions = controller.getMasterList()
+        .map(e => ({ value: e.getValue(), label: e.getLabel() }));
+    mappedCategories = controller.getMasterList()
+        .map(e => ({ label: e.getLabel(), column: e.getColumn() }));
+    assert.is(controller.getMasterList().length                             , 1);
+    assert.is(mappedOptions.map(e => e.value).includes(selectedOption.value), false);
+    assert.is(mappedCategories.map(e => e.label).includes(option.label)     , true);
+    assert.is(clicked                                                       , true);
     
-    controller.addMasterModel(selectedOption);
-    assert.is(controller.getMasterList().length                  , 2);
-    assert.is(controller.getMasterList().includes(option)        , true);
-    assert.is(controller.getMasterList().includes(selectedOption), true);
-
-    clicked = false;
-    controller.removeMasterModel(option);
-    assert.is(controller.getMasterList().length                  , 1);
-    assert.is(controller.getMasterList().includes(option)        , false);
-    assert.is(controller.getMasterList().includes(selectedOption), true);
-    assert.is(clicked                                            , true);
+    assert.is(controller.getSelectedDetailModel()                           , noSelection);
 });
 
 xControllerSuite.run();
