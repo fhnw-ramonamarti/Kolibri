@@ -1,13 +1,10 @@
 
-import { ListAndSelectionController, ListController, SelectionController } from "./xController.js";
+import { ListAndSelectionController } from "./xController.js";
 
 import { pageCss }                              from "./instantUpdateProjector.js";
 import { projectDetailView, projectMasterView } from "./xProjector.js";
-import { Option, selectionMold }                from "../../kolibri/projector/simpleForm/optionsModel.js";
 
-const listController      = ListController();
-const selectionController = SelectionController(selectionMold);
-const componentController = ListAndSelectionController(listController, selectionController);
+const componentController = ListAndSelectionController();
 
 // create the sub-views, incl. binding
 const master = projectMasterView(componentController);
@@ -34,5 +31,5 @@ document.querySelector("head style").textContent += pageCss;
     {value: "Option 14"},
     {value: "Option 15"},
 ].forEach((e) => {
-    componentController.addMasterValueModel(e);
+    componentController.addMasterOptionModel(e);
 });

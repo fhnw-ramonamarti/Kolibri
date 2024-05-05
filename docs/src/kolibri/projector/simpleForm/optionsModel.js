@@ -27,7 +27,7 @@ let idCounter = 0;
  */
 const Option = (value, label) => (column = 0, isEmpty = false) => {
     if(isEmpty){ // todo change id when adding name to component
-        const id = "Option.none" + idCounter++;
+        const id = "Option.none" ;
         return {
             getValue: () => "",
             getLabel: () => "",

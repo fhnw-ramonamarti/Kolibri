@@ -1,8 +1,7 @@
 import { TestSuite }                            from "../../kolibri/util/test.js";
 import { projectDetailView, projectMasterView } from "./xProjector.js";
-import { ListAndSelectionController, ListController, SelectionController } from "./xController.js";
-import { Option, noSelection } from "../../kolibri/projector/simpleForm/optionsModel.js";
-import { masterClassName }     from "./instantUpdateProjector.js";
+import { ListAndSelectionController }           from "./xController.js";
+import { noSelection }                          from "../../kolibri/projector/simpleForm/optionsModel.js";
 
 const xProjectorSuite = TestSuite("examples/select/xProjector");
 
@@ -21,12 +20,10 @@ xProjectorSuite.add("binding-master", (assert) => {
         value: "selected value",
         label: "selected label"
     };
-    const masterController = ListController();
-    const detailController = SelectionController(noSelection);
-    const controller = ListAndSelectionController(masterController, detailController);
+    const controller = ListAndSelectionController();
     
     const [masterContainer] = projectMasterView(controller);
-    controller.addMasterValueModel(selectedOption);
+    controller.addMasterOptionModel(selectedOption);
     controller.addMasterCategoryModel(option);
     const optionElement = masterContainer.querySelector(`[data-value="${selectedOption.value}"]`);
 
@@ -39,10 +36,10 @@ xProjectorSuite.add("binding-master", (assert) => {
     // assert.is(spanElement .getAttribute("data-id"), inputElement.getAttribute("id"));
 
     // test the binding
-    assert.is(controller.getSelectedDetailModel(), noSelection);
+    assert.is(controller.getSelectedOptionModel(), noSelection);
     assert.is(inputElement.value                 , noSelection.getValue());
     optionElement.click();
-    assert.is(controller.getSelectedDetailModel().getValue(), selectedOption.value);
+    assert.is(controller.getSelectedOptionModel().getValue(), selectedOption.value);
     assert.is(inputElement.value                            , selectedOption.value);
 });
 

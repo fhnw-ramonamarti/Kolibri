@@ -89,10 +89,18 @@ const removeListItemForModel = (root) => model => {
  */
 const projectListItem = (componentController, model) => {
 
+    const deleteAction = (_) => {
+        if(model.getColumn() === 0){
+            componentController.removeMasterOptionModel(model);
+        } else {
+            componentController.removeMasterCategoryModel(model);
+        }
+    };
+
     const deleteButton      = document.createElement("Button");
     deleteButton.setAttribute("class","delete");
     deleteButton.innerHTML  = "&times;";
-    deleteButton.onclick    = _ => componentController.removeMasterModel(model);
+    deleteButton.onclick    = deleteAction
     deleteButton.id         = deleteButtonId(model);
 
     const elements          = [];
@@ -105,9 +113,9 @@ const projectListItem = (componentController, model) => {
     item.innerHTML = model.getLabel();
     item.id = elementId(model);
     item.onclick = e => {
-        const option = componentController.getMasterList().filter(i => elementId(i) === e.target.id)[0];
+        const option = componentController.getMasterOptionsList().filter(i => elementId(i) === e.target.id)[0];
         if(model.getColumn() == 0){
-            componentController.setSelectedDetailModel(option);
+            componentController.setSelectedOptionModel(option);
         } else {
             // todo change filter / do jump
         }

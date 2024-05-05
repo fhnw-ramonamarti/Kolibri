@@ -46,12 +46,17 @@ const projectMasterView = (componentController) => {
     rootElement.classList.add(masterClassName);
 
     // binding
-    componentController.onMasterModelAdd(renderRow);
-    componentController.onMasterModelRemove( removedModel => {
+    componentController.onMasterCategoryModelAdd(renderRow);
+    componentController.onMasterCategoryModelRemove( removedModel => {
         removeListItemForModel(rootElement)(removedModel);
-        componentController.clearDetailSelection();
+        componentController.clearOptionSelection();
     });
-    componentController.onDetailModelSelected(selectListItemForModel(rootElement));
+    componentController.onMasterOptionModelAdd(renderRow);
+    componentController.onMasterOptionModelRemove( removedModel => {
+        removeListItemForModel(rootElement)(removedModel);
+        componentController.clearOptionSelection();
+    });
+    componentController.onOptionModelSelected(selectListItemForModel(rootElement));
 
     return [rootElement];
 };
@@ -70,18 +75,18 @@ const projectDetailView = (componentController, masterListElement) => {
     const detailElement = projectDetail(componentController, selectionMold); // only once, view is stable, binding is stable
     detailElement.id = "detailContainer";
 
-    componentController.clearDetailSelection();
+    componentController.clearOptionSelection();
 
     // bindings
-    componentController.onDetailModelSelected((selectedOptionModel) => {
+    componentController.onOptionModelSelected((selectedOptionModel) => {
         detailElement[0].querySelector("input").value = selectedOptionModel.getValue();
         // todo find better way
     });
-    componentController.onVisibleChange(value => {
+    componentController.onMasterVisibilityChange(value => {
         masterListElement.classList.toggle("hidden", !value);
     });
     detailElement[0].onclick = e => {
-        componentController.setVisible(!componentController.isVisible());
+        componentController.setMasterVisibility(!componentController.isVisible());
     };
 
     return detailElement;
