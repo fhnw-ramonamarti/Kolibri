@@ -85,8 +85,8 @@ const projectDetailView = (componentController, masterListElement) => {
     componentController.onMasterVisibilityChange(value => {
         masterListElement.classList.toggle("hidden", !value);
     });
-    detailElement[0].onclick = e => {
-        componentController.setMasterVisibility(!componentController.isVisible());
+    detailElement[0].querySelector("span[data-id]").onclick = _ => {
+        componentController.setMasterVisibility(!componentController.isMasterVisible());
     };
 
     return detailElement;

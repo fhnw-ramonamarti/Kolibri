@@ -149,6 +149,12 @@ const projectDetail = (componentController, model) => {
     });
     const inputController = SimpleAttributeInputController(simpleInputModel);
     div.append(...InputProjector.projectInstantInput(inputController, detailClassName));
+    
+    const clearButton = document.createElement("button");
+    clearButton.setAttribute("class","clear");
+    clearButton.innerHTML  = "&times;";
+    clearButton.onclick    = componentController.clearOptionSelection;
+    div.append(clearButton);
 
     return [ div ];
 };
@@ -176,14 +182,17 @@ const pageCss = `
         overflow:       scroll;
     }
     .${detailClassName} {
+        position:       relative;
         display:        block;
         margin-bottom:  0.5em;
         width:          100%;
 
         input,
         > span {
+            height:     2rem;
             width:      100%;
             display:    block;
+            font-size:  1em;
         }
     }
     .select-column {
@@ -196,8 +205,11 @@ const pageCss = `
     .selected {
         background-color:   var(--kolibri-color-select);
     }
-    .delete {
+    .clear {
         background-color:   transparent;
+        position:           absolute;
+        top:                0;
+        right:              0;
         border:             none;
         color:              var(--kolibri-color-accent);
         font-size:          1.3em;
