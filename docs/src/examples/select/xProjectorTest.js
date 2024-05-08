@@ -28,8 +28,8 @@ xProjectorSuite.add("binding-master", (assert) => {
     const optionElement = masterContainer.querySelector(`[data-value="${selectedOption.value}"]`);
 
     const [viewContainer] = projectDetailView(controller, masterContainer);
-    const labelElement = viewContainer.querySelector("label");
-    const inputElement = viewContainer.querySelector("input");
+    const labelElement    = viewContainer.querySelector("label");
+    const inputElement    = viewContainer.querySelector("input");
 
     // for later when label comes
     // assert.is(labelElement.getAttribute("for"),     inputElement.getAttribute("id"));
