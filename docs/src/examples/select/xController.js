@@ -93,10 +93,15 @@ const SelectionController = model => {
  * @property { () => void           }       setSelectedOptionVisibility
  * @property { (cb: ConsumerType<Boolean>) => void       }       onSelectedOptionVisibilityChange
 
- * @property { (Option) => void     }       setSelectedOptionModel
  * @property { ()  => Option        }       getSelectedOptionModel
+ * @property { (Option) => void     }       setSelectedOptionModel
  * @property { ()  => void          }       clearOptionSelection
  * @property { (cb: ValueChangeCallback<Option>) => void }       onOptionModelSelected
+
+ * @property { ()  => Array<Option> }       getSelectedCategoryOptions
+ * @property { (Option) => void     }       toggleSelectedCategoryOptionsModel
+ * @property { ()  => void          }       clearSelectedCategoryOptions
+ * @property { (cb: ValueChangeCallback<Option>) => void }       onSelectedCategoryOptionsModelToggle
  */
 
 /**
@@ -110,18 +115,23 @@ const MasterSelectionController = () => {
         add: [],
         remove: [],
     };
-    const optionControllerList = [ListController()];
-    const selectedOptionController  = SelectionController(selectionMold);
+    const optionControllerList     = [ListController()];
+    const selectedOptionController = SelectionController(selectionMold);
+    const selectedCategoryOptions  = ListController(); // todo add sel cat tests also for model
 
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(true); // todo change after development to false
 
-    // todo add parameter to choose between jump/ search and filter with categories
+    // at the moment fixed to these values
+    const supportTypeOfCategroyOptions = Observable(FILTER); // todo add funtionality
+    const valueOptionsSorted = Observable(true);
+    const categoryOptionsSorted = Observable(true);
+
     // todo maybe with observable of highlighted option
     // todo maybe add navigation controller 
     // todo add observable for label
     // todo maybe add observable for placeholder
-    // todo add observable for valitiy
+    // todo add observable for vadilitiy
     // todo add observable for name of input in detail 
 
     /**
@@ -133,7 +143,9 @@ const MasterSelectionController = () => {
         const listOfValues = valueOptionsController.getList().map(o => o.getValue());
         // values should be unique in the options
         if (!listOfValues.includes(option.value)) {
-            valueOptionsController.addModel(ValueOption(option.value, option.label));
+            valueOptionsController.addModel(
+                ValueOption(option.value, option.label, option.categoryLabels)
+            );
         }
     }
 
@@ -158,7 +170,9 @@ const MasterSelectionController = () => {
         const listOfLabels = categoryOptionsController.getList().map((c) => c.getLabel());
         // labels should be unique in the column category
         if (!listOfLabels.includes(category.label)) {
-            categoryOptionsController.addModel(CategoryOption(category.label, category.column))
+            categoryOptionsController.addModel(
+                CategoryOption(category.label, category.column, category.categoryLabels)
+            );
         }
     }
 
@@ -192,6 +206,34 @@ const MasterSelectionController = () => {
         }
     });
 
+    /**
+     * 
+     * @param { Option } toggleModel 
+     */
+    const toggleSelectedCategoryOptionsModel = (toggleModel) => {
+        selectedCategoryOptions.getList().forEach((option) => {
+            if (option.getColumn() < toggleModel.getColumn()) {
+                selectedCategoryOptions.removeModel(option);
+            }
+        });
+        if(selectedCategoryOptions.getList().includes(toggleModel)){
+            selectedCategoryOptions.removeModel(toggleModel);
+        } else {
+            const otherCategory = selectedCategoryOptions.getList().filter(o => o.getColumn() === toggleModel.getColumn());
+            if(otherCategory.length > 0){
+                // only one category is selected per column
+                selectedCategoryOptions.removeModel(otherCategory[0]);
+            }
+            selectedCategoryOptions.addModel(toggleModel);
+        }
+    };
+
+    const clearSelectedCategoryOptions = () => {
+        selectedCategoryOptions.getList().forEach(option => {
+            selectedCategoryOptions.removeModel(option);
+        });
+    };
+
     return {
         // master funtionality
         isOptionsVisible             : optionsVisibility.getValue,
@@ -222,6 +264,12 @@ const MasterSelectionController = () => {
         getSelectedOptionModel   : selectedOptionController.getSelectedModel,
         onOptionModelSelected    : selectedOptionController.onModelSelected,
         clearOptionSelection     : selectedOptionController.clearSelection,
+        
+        getSelectedCategoryOptions            : selectedCategoryOptions.getList,        
+        toggleSelectedCategoryOptionsModel    : toggleSelectedCategoryOptionsModel,
+        clearSelectedCategoryOptionsSelection : clearSelectedCategoryOptions,
+        onSelectedCategoryOptionsModelAdd     : selectedCategoryOptions.onModelAdd,
+        onSelectedCategoryOptionsModelRemove  : selectedCategoryOptions.onModelRemove,
     };
 };
 
@@ -229,10 +277,19 @@ const MasterSelectionController = () => {
  * @typedef CategoryOptionDataType
  * @property { String } label
  * @property { ?Number } column
+ * @property { Array<String> } categoryLabels
  */
 
 /**
  * @typedef ValueOptionDataType
  * @property { String } value
  * @property { ?String } label
+ * @property { Array<String> } categoryLabels
  */
+
+/**
+ * @typedef { 'filter' | 'jump' } SupportType
+ */
+
+/** @type { SupportType } */ const FILTER = 'filter';
+/** @type { SupportType } */ const JUMP = 'jump';

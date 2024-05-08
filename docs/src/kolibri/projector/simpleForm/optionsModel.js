@@ -1,6 +1,6 @@
 import { ObservableList } from "../../observable.js";
 
-export { OptionsModel, CategoryOption, ValueOption, reset, noSelection, selectionMold }
+export { OptionsModel, CategoryOption, ValueOption, reset, noSelection, selectionMold, highlightMold }
 // todo new type category
 /**
  * @typedef OptionType
@@ -8,6 +8,7 @@ export { OptionsModel, CategoryOption, ValueOption, reset, noSelection, selectio
  * @property { () => ?String } getLabel  - visible label of the input
  * @property { () => !String } getId     - unique identifier of the option 
  * @property { () => !Number } getColumn - column of the option in the input
+ * @property { () => Array<CategoryOption> } getCategories - categories the option belongs to
  */
 
 /**
@@ -21,11 +22,12 @@ let idCounter = 0;
  * todo think about rename id to qualifier ??
  * @param { String } value 
  * @param { ?String } label - same as value if not defined
+ * @param { Array<CategoryOption> } categories 
  * @constructor
  * column - 0 contains values to send in forms, other columns are filters or categories
  * @returns { (column: Number, isEmpty: Boolean) => OptionType }
  */
-const Option = (value, label) => (column = 0, isEmpty = false) => {
+const Option = (value, label, categories = []) => (column = 0, isEmpty = false) => {
     if(isEmpty){ // todo change id when adding name to component
         const id = "Option.none" ;
         return {
@@ -33,6 +35,7 @@ const Option = (value, label) => (column = 0, isEmpty = false) => {
             getLabel: () => "",
             getId: () => id,
             getColumn: () => 0,
+            getCategories: () => [],
         }
     } else {
         const id = "Option.value" + idCounter++; // todo optimize idenitier 
@@ -41,6 +44,7 @@ const Option = (value, label) => (column = 0, isEmpty = false) => {
             getLabel: () => (!label || label === "" ? value : label),
             getId: () => id,
             getColumn: () => column,
+            getCategories: () => categories,
         }
     }
 }
@@ -49,20 +53,22 @@ const Option = (value, label) => (column = 0, isEmpty = false) => {
  * for the moment value options are only in the column 0
  * @param { String } value 
  * @param { ?String } label
+ * @param { Array<CategoryOption> } categories 
  * @returns { OptionType }
  */
-const ValueOption = (value, label) => {
-    return Option(value, label)(0);
+const ValueOption = (value, label, categories) => {
+    return Option(value, label, categories)(0);
 };
 
 /**
  * 
  * @param { String } label 
  * @param { ?Number } column - default 1
+ * @param { Array<CategoryOption> } categories 
  * @returns { OptionType }
  */
-const CategoryOption = (label, column = 1) => {
-    return Option("", label)(column);
+const CategoryOption = (label, column = 1, categories = []) => {
+    return Option("", label, categories)(column);
 };
 
 /**
@@ -115,3 +121,8 @@ const noSelection = createNoSelection(); // the value to pass around, its id mig
  * Used for selection of a signle option
  */
 const selectionMold = reset();
+
+/**
+ * Used for highlight of a signle option
+ */
+const highlightMold = reset();

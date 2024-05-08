@@ -110,14 +110,19 @@ const projectListItem = (componentController, model) => {
     item.setAttribute("data-value",model.getValue());
     item.setAttribute("data-column",model.getColumn());
     item.classList.add("select-item"); // todo better name
+    if (model.getColumn() > 0) {
+        item.classList.add("category-option-item"); // todo better name
+    } else {
+        item.classList.add("value-option-item"); // todo better name
+    }
     item.innerHTML = model.getLabel();
     item.id = elementId(model);
     item.onclick = e => {
-        const option = componentController.getValueOptions().filter(i => elementId(i) === e.target.id)[0];
+        const option = componentController.getAllOptions().filter(i => elementId(i) === e.target.id)[0];
         if(model.getColumn() == 0){
             componentController.setSelectedOptionModel(option);
         } else {
-            // todo change filter / do jump
+            componentController.toggleSelectedCategoryOptionsModel(option);
         }
     };
     elements.push(item);
@@ -153,7 +158,10 @@ const projectDetail = (componentController, model) => {
     const clearButton = document.createElement("button");
     clearButton.setAttribute("class","clear");
     clearButton.innerHTML  = "&times;";
-    clearButton.onclick    = componentController.clearOptionSelection;
+    clearButton.onclick = () => {
+        componentController.clearOptionSelection();
+        componentController.clearSelectedCategoryOptionsSelection();
+    };
     div.append(clearButton);
 
     return [ div ];

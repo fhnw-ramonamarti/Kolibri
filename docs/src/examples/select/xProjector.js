@@ -57,6 +57,51 @@ const projectMasterView = (componentController) => {
         componentController.clearOptionSelection();
     });
     componentController.onOptionModelSelected(selectListItemForModel(rootElement));
+    componentController.onSelectedCategoryOptionsModelAdd(addModel => {
+        rootElement.querySelectorAll(`[data-column="${addModel.getColumn()}"].category-option-item`).forEach(element => {
+            if(element.innerHTML.includes(addModel.getLabel())){
+                element.classList.add('selected');
+            }
+        });
+        componentController
+            .getAllOptions()
+            .filter((o) => o.getColumn() < addModel.getColumn())
+            .forEach((option) => {
+                if (!option.getCategories().includes(addModel.getLabel())) {
+                    removeListItemForModel(rootElement)(option);
+                    if(componentController.getSelectedOptionModel(option)){
+                        componentController.clearOptionSelection();
+                    }
+                }
+            });
+    });
+    componentController.onSelectedCategoryOptionsModelRemove((removeModel) => {
+        rootElement.querySelectorAll(`[data-column="${removeModel.getColumn()}"].category-option-item.selected`).forEach(element => {
+            element.classList.remove('selected');
+        });
+        componentController
+            .getAllOptions()
+            .filter((o) => o.getColumn() < removeModel.getColumn())
+            .forEach((option) => {
+                if (!option.getCategories().includes(removeModel.getLabel())) {
+                    renderRow(option);
+                }
+            });
+        // sort options as in ops list // todo later think about sorting
+        const pos = (element) =>
+            componentController
+                .getAllOptions()
+                .map((option) => option.getLabel())
+                .indexOf(element.getAttribute("data-value"));
+        [...Array(removeModel.getColumn()).keys()].forEach((col) => {
+            const container = rootElement.querySelector(`[data-column="${col}"]`);
+            const content = [...container.childNodes].sort((a, b) =>
+                (pos(a) < pos(b) ? -1 : (pos(a) > pos(b) ? 1 : 0))
+            );
+            container.innerHTML = "";
+            container.append(...content);
+        });
+    });
 
     return [rootElement];
 };
@@ -76,6 +121,7 @@ const projectDetailView = (componentController, masterListElement) => {
     detailElement.id = "detailContainer";
 
     componentController.clearOptionSelection();
+    componentController.clearSelectedCategoryOptionsSelection();
 
     // bindings
     componentController.onOptionModelSelected((selectedOptionModel) => {

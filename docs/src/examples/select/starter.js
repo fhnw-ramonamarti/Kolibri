@@ -15,15 +15,15 @@ document.querySelector("head style").textContent += pageCss;
 
 // add selection data // todo move to projector / conteroller
 [
-    {value: "Option 1"},
-    {value: "Option 2"},
-    {value: "Option 3"},
-    {value: "Option 4"},
-    {value: "Option 5"},
-    {value: "Option 6"},
-    {value: "Option 7"},
-    {value: "Option 8"},
-    {value: "Option 9"},
+    {value: "Option 1", categoryLabels: ["Label 1", "Label 2"]},
+    {value: "Option 2", categoryLabels: ["Label 1", "label 2"]},
+    {value: "Option 3", categoryLabels: ["Label 1", "Label 3"]},
+    {value: "Option 4", categoryLabels: ["Label 1"]},
+    {value: "Option 5", categoryLabels: ["Label 2"]},
+    {value: "Option 6", categoryLabels: ["Label 3"]},
+    {value: "Option 7", categoryLabels: ["Label 2"]},
+    {value: "Option 8", categoryLabels: ["Label 1"]},
+    {value: "Option 9", categoryLabels: ["Label 2"]},
     {value: "Option 10"},
     {value: "Option 11"},
     {value: "Option 12"},
@@ -33,12 +33,10 @@ document.querySelector("head style").textContent += pageCss;
 ].forEach((e) => {
     componentController.addValueOptionsModel(e);
 });
-// [
-//     {label: "Label 1", column: 1},
-//     {label: "Label 2", column: 1},
-//     {label: "Label 3", column: 1},
-//     {label: "Label 4", column: 2},
-//     {label: "Label 5", column: 2},
-// ].forEach((e) => {
-//     componentController.addCategoryOptionsModel(e);
-// });
+[
+    {label: "Label 1", column: 1, categoryLabels: ["Label 3"]},
+    {label: "Label 2", column: 1},
+    // {label: "Label 3", column: 2},
+].forEach((e) => {
+    componentController.addCategoryOptionsModel(e);
+});
