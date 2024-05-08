@@ -1,5 +1,5 @@
 import { TestSuite }                                from "../../util/test.js";
-import { OptionsModel, Option, reset, noSelection } from "./optionsModel.js";
+import { OptionsModel, reset, noSelection, ValueOption, CategoryOption } from "./optionsModel.js";
 
 const optionsModelSuite = TestSuite("projector/simpleForm/optionsModel");
 
@@ -22,14 +22,7 @@ optionsModelSuite.add("full", assert => {
     assert.is(model.getList().length, 1);
 });
 
-optionsModelSuite.add("Option", assert => {
-    const option = Option("value", "label")();
-    const option2 = Option("value2", "label2")(1);
-    assert.is(option.getValue()  , "value");
-    assert.is(option.getLabel()  , "label");
-    assert.is(option.getColumn() , 0);
-    assert.is(option2.getColumn(), 1);
-    assert.is(option.getId() !== option2.getId(), true);
+optionsModelSuite.add("Empty options", assert => {
     
     // reset
     const resetOption = reset();
@@ -42,6 +35,18 @@ optionsModelSuite.add("Option", assert => {
     assert.is(noSelection.getValue(), resetOption.getValue());
     assert.is(noSelection.getLabel(), resetOption.getLabel());
     assert.is(noSelection.getColumn(), resetOption.getColumn());
+});
+
+optionsModelSuite.add("Option types", assert => {
+    const valueOption = ValueOption("value", "label");
+    assert.is(valueOption.getValue()  , "value");
+    assert.is(valueOption.getLabel()  , "label");
+    assert.is(valueOption.getColumn() , 0);
+
+    const categoryOption = CategoryOption("label", 1);
+    assert.is(categoryOption.getValue()  , "");
+    assert.is(categoryOption.getLabel()  , "label");
+    assert.is(categoryOption.getColumn() , 1);
 });
 
 optionsModelSuite.run();

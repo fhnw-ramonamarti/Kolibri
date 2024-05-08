@@ -1,7 +1,7 @@
 import { ObservableList } from "../../observable.js";
 
-export { OptionsModel, Option, reset, noSelection, selectionMold }
-
+export { OptionsModel, CategoryOption, ValueOption, reset, noSelection, selectionMold }
+// todo new type category
 /**
  * @typedef OptionType
  * @property { () => !String } getValue  - selectable value of the input
@@ -20,7 +20,7 @@ let idCounter = 0;
 /**
  * todo think about rename id to qualifier ??
  * @param { String } value 
- * @param { ?String } label 
+ * @param { ?String } label - same as value if not defined
  * @constructor
  * column - 0 contains values to send in forms, other columns are filters or categories
  * @returns { (column: Number, isEmpty: Boolean) => OptionType }
@@ -44,6 +44,26 @@ const Option = (value, label) => (column = 0, isEmpty = false) => {
         }
     }
 }
+
+/**
+ * for the moment value options are only in the column 0
+ * @param { String } value 
+ * @param { ?String } label
+ * @returns { OptionType }
+ */
+const ValueOption = (value, label) => {
+    return Option(value, label)(0);
+};
+
+/**
+ * 
+ * @param { String } label 
+ * @param { ?Number } column - default 1
+ * @returns { OptionType }
+ */
+const CategoryOption = (label, column = 1) => {
+    return Option("", label)(column);
+};
 
 /**
  * @typedef OptionsModelType
@@ -76,7 +96,7 @@ const OptionsModel = () => {
  * @returns { OptionType }
  */
 const reset = () => {
-    return Option("")(0,true);
+    return Option("")(0, true);
 };
 
 

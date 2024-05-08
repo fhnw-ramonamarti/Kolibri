@@ -6,9 +6,9 @@
  */
 
 import { Observable }                                       from "../../kolibri/observable.js";
-import { Option, OptionsModel, noSelection, selectionMold } from "../../kolibri/projector/simpleForm/optionsModel.js";
+import { CategoryOption, OptionsModel, ValueOption, noSelection, selectionMold } from "../../kolibri/projector/simpleForm/optionsModel.js";
 
-export { ListAndSelectionController }
+export { MasterSelectionController }
 
 /**
  * @typedef ListControllerType<Option>
@@ -70,28 +70,28 @@ const SelectionController = model => {
 
 
 /**
- * @typedef MasterDetailSelectionControllerType<_T_>
+ * @typedef MasterSelectionControllerType<_T_>
  * @template _T_
- * @property { () => Boolean        }       isMasterVisible
- * @property { () => void           }       setMasterVisibility
- * @property { (cb: ConsumerType<Boolean>) => void       }       onMasterVisibilityChange
- * @property { ()  => Array<Option> }       getMasterListsInOne
+ * @property { () => Boolean        }       isOptionsVisible
+ * @property { () => void           }       setOptionsVisibility
+ * @property { (cb: ConsumerType<Boolean>) => void       }       onOptionsVisibilityChange
+ * @property { ()  => Array<Option> }       getAllOptions
  
- * @property { ()  => Array<Option> }       getMasterOptionsList
- * @property { (Option) => void     }       addMasterOptionModel
- * @property { (Option) => void     }       removeMasterOptionModel
- * @property { (cb: ConsumerType<Option>) => void        }       onMasterOptionModelAdd
- * @property { (cb: ConsumerType<Option>) => void        }       onMasterOptionModelRemove
+ * @property { ()  => Array<Option> }       getValueOptions
+ * @property { (Option) => void     }       addValueOptionsModel 
+ * @property { (Option) => void     }       removeValueOptionsModel
+ * @property { (cb: ConsumerType<Option>) => void        }       onValueOptionsModelAdd
+ * @property { (cb: ConsumerType<Option>) => void        }       onValueOptionsModelRemove
 
- * @property { ()  => Array<Option> }       getMasterCategoriesList
- * @property { (Option) => void     }       addMasterCategoryModel
- * @property { (Option) => void     }       removeMasterCategoryModel
- * @property { (cb: ConsumerType<Option>) => void        }       onMasterCategoryModelAdd
- * @property { (cb: ConsumerType<Option>) => void        }       onMasterCategoryModelRemove
+ * @property { ()  => Array<Option> }       getCategoryOptions
+ * @property { (Option) => void     }       addCategoryOptionsModel
+ * @property { (Option) => void     }       removeCategoryOptionsModel
+ * @property { (cb: ConsumerType<Option>) => void        }       onCategoryOptionsModelAdd
+ * @property { (cb: ConsumerType<Option>) => void        }       onCategoryOptionsModelRemove
 
- * @property { () => Boolean        }       isDetailVisible
- * @property { () => void           }       setDetailVisibility
- * @property { (cb: ConsumerType<Boolean>) => void       }       onDetailVisibilityChange
+ * @property { () => Boolean        }       isSelectedOptionVisible
+ * @property { () => void           }       setSelectedOptionVisibility
+ * @property { (cb: ConsumerType<Boolean>) => void       }       onSelectedOptionVisibilityChange
 
  * @property { (Option) => void     }       setSelectedOptionModel
  * @property { ()  => Option        }       getSelectedOptionModel
@@ -100,18 +100,18 @@ const SelectionController = model => {
  */
 
 /**
- * ListAndSelectionController maintains a list and a selection controller.
+ * MasterSelectionController maintains a list and a selection controller.
  * It also mantains observable states like the visibility.
- * @returns { MasterDetailSelectionControllerType }
+ * @returns { MasterSelectionControllerType }
  * @constructor
  */
-const ListAndSelectionController = () => {
-    const masterOptionController     = ListController();
-    const masterCategoriesController = ListController();
-    const detailController           = SelectionController(selectionMold);
+const MasterSelectionController = () => {
+    const valueOptionsController    = ListController(); // todo list of column controller
+    const categoryOptionsController = ListController();
+    const selectedOptionController  = SelectionController(selectionMold);
 
-    const detailVisibility = Observable(true);
-    const masterVisibility = Observable(true); // todo change after development to false
+    const selectedOptionVisibility  = Observable(true);
+    const optionsVisibility         = Observable(true); // todo change after development to false
 
     // todo add parameter to choose between jump/ search and filter with categories
     // todo maybe with observable of highlighted option
@@ -123,28 +123,28 @@ const ListAndSelectionController = () => {
 
     /**
      * 
-     * @param { {value: String, label: ?String} } option 
+     * @param { ValueOptionDataType } option 
      */
-    const addOptionModel = (option) => {
-        const listOfValues = masterOptionController.getList().map(o => o.getValue());
+    const addValueOptionsModel = (option) => {
+        const listOfValues = valueOptionsController.getList().map(o => o.getValue());
         // values should be unique in the options
         if (!listOfValues.includes(option.value)) {
-            masterOptionController.addModel(Option(option.value, option.label)());
+            valueOptionsController.addModel(ValueOption(option.value, option.label));
         }
     }
 
     /**
      * 
-     * @param { {label: String, column: Number} } category 
+     * @param { CategoryOptionDataType } category 
      */
-    const addCategoryModel = (category) => {
-        const listOfLabels = masterOptionController
+    const addCategoryOptionsModel = (category) => {
+        const listOfLabels = valueOptionsController
             .getList()
             .filter((c) => c.getColumn() === category.column)
             .map((c) => c.label());
         // labels should be unique in the column category
         if (!listOfLabels.includes(category.label)) {
-            masterCategoriesController.addModel(Option(category.label)(category.column))
+            categoryOptionsController.addModel(CategoryOption(category.label, category.column))
         }
     }
 
@@ -153,45 +153,57 @@ const ListAndSelectionController = () => {
      * @returns { Array<Option> }
      */
     const getCategoriesAndOptions = () => {
-        return [...masterCategoriesController.getList(),...masterOptionController.getList()];
+        return [...categoryOptionsController.getList(),...valueOptionsController.getList()];
     }
 
     // reset selection on remove selected option
-    masterOptionController.onModelRemove((model) => {
-        if(model === detailController.getSelectedModel()){
-            detailController.clearSelection();
+    valueOptionsController.onModelRemove((model) => {
+        if(model === selectedOptionController.getSelectedModel()){
+            selectedOptionController.clearSelection();
         }
     });
 
     return {
         // master funtionality
-        isMasterVisible             : masterVisibility.getValue,
-        setMasterVisibility         : masterVisibility.setValue,
-        onMasterVisibilityChange    : masterVisibility.onChange,
-        getMasterListsInOne         : getCategoriesAndOptions,
+        isOptionsVisible             : optionsVisibility.getValue,
+        setOptionsVisibility         : optionsVisibility.setValue,
+        onOptionsVisibilityChange    : optionsVisibility.onChange,
+        getAllOptions                : getCategoriesAndOptions,
         
         // master  funtionality
-        getMasterOptionsList        : masterOptionController.getList,
-        addMasterOptionModel        : addOptionModel,
-        removeMasterOptionModel     : masterOptionController.removeModel,
-        onMasterOptionModelAdd      : masterOptionController.onModelAdd,
-        onMasterOptionModelRemove   : masterOptionController.onModelRemove,
+        getValueOptions             : valueOptionsController.getList,
+        addValueOptionsModel        : addValueOptionsModel,
+        removeValueOptionsModel     : valueOptionsController.removeModel,
+        onValueOptionsModelAdd      : valueOptionsController.onModelAdd,
+        onValueOptionsModelRemove   : valueOptionsController.onModelRemove,
         
         // master categories funtionality
-        getMasterCategoriesList     : masterCategoriesController.getList,
-        addMasterCategoryModel      : addCategoryModel,
-        removeMasterCategoryModel   : masterCategoriesController.removeModel,
-        onMasterCategoryModelAdd    : masterCategoriesController.onModelAdd,
-        onMasterCategoryModelRemove : masterCategoriesController.onModelRemove,
+        getCategoryOptions           : categoryOptionsController.getList,
+        addCategoryOptionsModel      : addCategoryOptionsModel,
+        removeCategoryOptionsModel   : categoryOptionsController.removeModel,
+        onCategoryOptionsModelAdd    : categoryOptionsController.onModelAdd,
+        onCategoryOptionsModelRemove : categoryOptionsController.onModelRemove,
 
         // detail funtionality
-        isDetailVisible          : detailVisibility.getValue,
-        setDetailVisibility      : detailVisibility.setValue,
-        onDetailVisibilityChange : detailVisibility.onChange,
+        isSelectedOptionVisible          : selectedOptionVisibility.getValue,
+        setSelectedOptionVisibility      : selectedOptionVisibility.setValue,
+        onSelectedOptionVisibilityChange : selectedOptionVisibility.onChange,
         
-        setSelectedOptionModel   : detailController.setSelectedModel,
-        getSelectedOptionModel   : detailController.getSelectedModel,
-        onOptionModelSelected    : detailController.onModelSelected,
-        clearOptionSelection     : detailController.clearSelection,
+        setSelectedOptionModel   : selectedOptionController.setSelectedModel,
+        getSelectedOptionModel   : selectedOptionController.getSelectedModel,
+        onOptionModelSelected    : selectedOptionController.onModelSelected,
+        clearOptionSelection     : selectedOptionController.clearSelection,
     };
 };
+
+/**
+ * @typedef CategoryOptionDataType
+ * @property { String } label
+ * @property { ?Number } column
+ */
+
+/**
+ * @typedef ValueOptionDataType
+ * @property { String } value
+ * @property { ?String } label
+ */

@@ -83,7 +83,7 @@ const removeListItemForModel = (root) => model => {
 /**
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
  * @template _T_
- * @param { MasterDetailSelectionControllerType<_T_> }  componentController
+ * @param { MasterSelectionControllerType<_T_> }  componentController
  * @param { _T_ }                                       model
  * @return { HTMLElement[] }
  */
@@ -91,9 +91,9 @@ const projectListItem = (componentController, model) => {
 
     const deleteAction = (_) => {
         if(model.getColumn() === 0){
-            componentController.removeMasterOptionModel(model);
+            componentController.removeValueOptionsModel(model);
         } else {
-            componentController.removeMasterCategoryModel(model);
+            componentController.removeCategoryOptionsModel(model);
         }
     };
 
@@ -113,7 +113,7 @@ const projectListItem = (componentController, model) => {
     item.innerHTML = model.getLabel();
     item.id = elementId(model);
     item.onclick = e => {
-        const option = componentController.getMasterOptionsList().filter(i => elementId(i) === e.target.id)[0];
+        const option = componentController.getValueOptions().filter(i => elementId(i) === e.target.id)[0];
         if(model.getColumn() == 0){
             componentController.setSelectedOptionModel(option);
         } else {

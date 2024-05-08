@@ -13,7 +13,7 @@ export { projectMasterView, projectDetailView }
  * Create the master view, bind against the controller, and return the view.
  * @impure - since we change the state of the controller. The DOM remains unchanged.
  * @template _T_
- * @param { MasterDetailSelectionControllerType<_T_> } componentController
+ * @param { MasterSelectionControllerType<_T_> } componentController
  * @return { [HTMLDivElement] } - master view
  */
 const projectMasterView = (componentController) => {
@@ -46,13 +46,13 @@ const projectMasterView = (componentController) => {
     rootElement.classList.add(masterClassName);
 
     // binding
-    componentController.onMasterCategoryModelAdd(renderRow);
-    componentController.onMasterCategoryModelRemove( removedModel => {
+    componentController.onCategoryOptionsModelAdd(renderRow);
+    componentController.onCategoryOptionsModelRemove( removedModel => {
         removeListItemForModel(rootElement)(removedModel);
         componentController.clearOptionSelection();
     });
-    componentController.onMasterOptionModelAdd(renderRow);
-    componentController.onMasterOptionModelRemove( removedModel => {
+    componentController.onValueOptionsModelAdd(renderRow);
+    componentController.onValueOptionsModelRemove( removedModel => {
         removeListItemForModel(rootElement)(removedModel);
         componentController.clearOptionSelection();
     });
@@ -66,7 +66,7 @@ const projectMasterView = (componentController) => {
  * Create the detail view, bind against the controller, and return the view.
  * @template _T_
  * @impure - since we change the state of the controller. The DOM remains unchanged.
- * @param  { MasterDetailSelectionControllerType<_T_> } componentController
+ * @param  { MasterSelectionControllerType<_T_> } componentController
  * @param  { HTMLElement }                              masterListElement - master container element to toggle in view
  * @return { [HTMLDivElement] } - detail view
  */
@@ -82,11 +82,11 @@ const projectDetailView = (componentController, masterListElement) => {
         detailElement[0].querySelector("input").value = selectedOptionModel.getValue();
         // todo find better way
     });
-    componentController.onMasterVisibilityChange(value => {
+    componentController.onOptionsVisibilityChange(value => {
         masterListElement.classList.toggle("hidden", !value);
     });
     detailElement[0].querySelector("span[data-id]").onclick = _ => {
-        componentController.setMasterVisibility(!componentController.isMasterVisible());
+        componentController.setOptionsVisibility(!componentController.isOptionsVisible());
     };
 
     return detailElement;
