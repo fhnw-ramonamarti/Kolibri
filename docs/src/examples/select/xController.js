@@ -5,8 +5,15 @@
  * views only ever know the controller API, not the model directly.
  */
 
-import { Observable, ObservableList }                                       from "../../kolibri/observable.js";
-import { CategoryOption, OptionsModel, ValueOption, noSelection, selectionMold } from "../../kolibri/projector/simpleForm/optionsModel.js";
+import { Observable }       from "../../kolibri/observable.js";
+import {
+    CategoryOption,
+    OptionsModel,
+    ValueOption,
+    highlightMold,
+    noSelection,
+    selectionMold,
+}                           from "../../kolibri/projector/simpleForm/optionsModel.js";
 
 export { MasterSelectionController }
 
@@ -101,7 +108,8 @@ const SelectionController = model => {
  * @property { ()  => Array<Option> }       getSelectedCategoryOptions
  * @property { (Option) => void     }       toggleSelectedCategoryOptionsModel
  * @property { ()  => void          }       clearSelectedCategoryOptions
- * @property { (cb: ValueChangeCallback<Option>) => void }       onSelectedCategoryOptionsModelToggle
+ * @property { (cb: ConsumerType<Option>) => void        }       onSelectedCategoryOptionsModelAdd
+ * @property { (cb: ConsumerType<Option>) => void        }       onSelectedCategoryOptionsModelRemove
  */
 
 /**
@@ -118,6 +126,7 @@ const MasterSelectionController = () => {
     const optionControllerList     = [ListController()];
     const selectedOptionController = SelectionController(selectionMold);
     const selectedCategoryOptions  = ListController(); // todo add sel cat tests also for model
+    const highlightOptionController = SelectionController(highlightMold); // todo add tests
 
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(true); // todo change after development to false
@@ -270,6 +279,11 @@ const MasterSelectionController = () => {
         clearSelectedCategoryOptionsSelection : clearSelectedCategoryOptions,
         onSelectedCategoryOptionsModelAdd     : selectedCategoryOptions.onModelAdd,
         onSelectedCategoryOptionsModelRemove  : selectedCategoryOptions.onModelRemove,
+
+        setHighlightOptionModel  : highlightOptionController.setSelectedModel,
+        getHighlightOptionModel  : highlightOptionController.getSelectedModel,
+        onOptionModelHighlighted : highlightOptionController.onModelSelected,
+        clearOptionHighlight     : highlightOptionController.clearSelection,
     };
 };
 

@@ -56,8 +56,18 @@ const projectMasterView = (componentController) => {
         removeListItemForModel(rootElement)(removedModel);
         componentController.clearOptionSelection();
     });
-    componentController.onOptionModelSelected(selectListItemForModel(rootElement));
+    componentController.onOptionModelHighlighted((highlightOption) => {
+        if(!highlightOption.getId().includes("none")){
+            rootElement.querySelector(`.highlighted`)?.classList?.remove("highlighted");
+            rootElement.querySelector(`[id*="${highlightOption.getId().replace(".","-")}"]`).classList.add("highlighted");
+        }
+    });
+    componentController.onOptionModelSelected((newSelectedModel, oldSelectedModel) => {
+        selectListItemForModel(rootElement)(newSelectedModel, oldSelectedModel);
+        componentController.setHighlightOptionModel(newSelectedModel);
+    });
     componentController.onSelectedCategoryOptionsModelAdd(addModel => {
+        componentController.setHighlightOptionModel(addModel);
         rootElement.querySelectorAll(`[data-column="${addModel.getColumn()}"].category-option-item`).forEach(element => {
             if(element.innerHTML.includes(addModel.getLabel())){
                 element.classList.add('selected');
@@ -76,6 +86,7 @@ const projectMasterView = (componentController) => {
             });
     });
     componentController.onSelectedCategoryOptionsModelRemove((removeModel) => {
+        componentController.setHighlightOptionModel(removeModel);
         rootElement.querySelectorAll(`[data-column="${removeModel.getColumn()}"].category-option-item.selected`).forEach(element => {
             element.classList.remove('selected');
         });

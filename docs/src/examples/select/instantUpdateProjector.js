@@ -213,6 +213,9 @@ const pageCss = `
     .selected {
         background-color:   var(--kolibri-color-select);
     }
+    .highlighted {
+        border-left: var(--kolibri-color-accent) solid 2px;
+    }
     .clear {
         background-color:   transparent;
         position:           absolute;
