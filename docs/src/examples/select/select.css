@@ -24,7 +24,6 @@ h1 {
     margin: auto;
 
     > div {
-        border: 1px solid #ccc;
         margin: 0;
     }
 }

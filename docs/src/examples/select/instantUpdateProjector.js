@@ -140,7 +140,7 @@ const projectListItem = (componentController, model) => {
  * @return { HTMLDivElement[] }
  */
 const projectSelectedValueOption = (componentController, model) => {
-
+    // todo make input hidden (think about aria) and show content in some container due for imgs
     // create view
     const elements = dom(`
         <div class="${detailClassName}"> </div>
@@ -148,9 +148,9 @@ const projectSelectedValueOption = (componentController, model) => {
     /** @type { HTMLDivElement } */ const div = elements[0];
 
     const simpleInputModel = SimpleInputModel({
-        label: model.getLabel(),
+        label: componentController.getLabel(),
         value: model.getValue(),
-        name: "testTodo",
+        name: componentController.getName(),
     });
     const inputController = SimpleAttributeInputController(simpleInputModel);
     div.append(...InputProjector.projectInstantInput(inputController, detailClassName));
@@ -162,7 +162,7 @@ const projectSelectedValueOption = (componentController, model) => {
         componentController.clearOptionSelection();
         componentController.clearSelectedCategoryOptionsSelection();
     };
-    div.append(clearButton);
+    div.querySelector("div > span").append(clearButton);
 
     return [ div ];
 };
@@ -178,7 +178,7 @@ const boxHeight = 240;
  * @type { String }
  * @example
  * document.querySelector("head style").textContent += pageCss;
- */
+ */ // todo style border
 const pageCss = `
     .${masterClassName} {
         display:        flex;
@@ -187,13 +187,17 @@ const pageCss = `
         margin-bottom:  0.5em;
         width:          100%;
         max-height:     ${boxHeight}px;
-        overflow:       scroll;
+        border:         1px solid #ccc; /* todo */
     }
     .${detailClassName} {
         position:       relative;
         display:        block;
         margin-bottom:  0.5em;
         width:          100%;
+
+        > span {
+            border:    1px solid #ccc; /* todo */
+        }
 
         input,
         > span {
@@ -204,7 +208,9 @@ const pageCss = `
         }
     }
     .select-column {
-        width:          100%;
+        width:          max-content;
+        overflow:       scroll;
+        height:         ${boxHeight}px;
     }
     .select-item {
         width:          100%;

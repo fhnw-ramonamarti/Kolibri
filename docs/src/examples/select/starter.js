@@ -4,23 +4,34 @@ import { projectSelectedValueOptionView, projectOptionsView } from "./xProjector
 import { pageCss }                                            from "./instantUpdateProjector.js";
 
 const masterSelectionAttributes = {
-    name : "",
-    label: "",
+    name : "menu",
+    label: "Menu",
     value: "",
 };
 const options = {
     values: [
-        {value: "val1", label: "Label 1", categoryLabels: ["Cat 1", "Cat 2"]},
-        {value: "val2", label: "Label 2", categoryLabels: ["Cat 1", "Cat 3"]},
-        {value: "val3", label: "Label 3", categoryLabels: ["Cat 2"]},
-        {value: "val4", label: "Label 4", categoryLabels: ["Cat 2"]},
-        {value: "val5", label: "Label 5", categoryLabels: ["Cat 3"]},
-        {value: "val6", label: "Label 6"},
+        {value: "green salad", categoryLabels: ["salad","vegetarian","vegan","glutenfree",]},
+        {value: "mixed salad", categoryLabels: ["salad","vegetarian","glutenfree",]},
+        {value: "noodles bolognese", categoryLabels: ["pasta",]},
+        {value: "spaghetti pesto", categoryLabels: ["pasta","vegetarian",]},
+        {value: "spaghetti napoli", categoryLabels: ["pasta","vegetarian",]},
+        {value: "penne carbonarra", categoryLabels: ["pasta",]},
+        {value: "pizza margarita", categoryLabels: ["pizza","vegetarian",]},
+        {value: "pizza salami", categoryLabels: ["pizza",]},
+        {value: "pizza funghi", categoryLabels: ["pizza","vegetarian",]},
+        {value: "pizza quatro formagi", categoryLabels: ["pizza","vegetarian",]},
+        {value: "french fries", categoryLabels: ["vegetarian","vegan",]},
+        {value: "egg sandwich", categoryLabels: ["vegetarian",]},
+        {value: "ham sandwich"},
+        {value: "salami sandwich"},
     ],
     categories: [
-        {label: "Cat 1", column: 1},
-        {label: "Cat 2", column: 1},
-        {label: "Cat 3", column: 1},
+        {label: "salad", column: 1},
+        {label: "pizza", column: 1},
+        {label: "pasta", column: 1},
+        {label: "vegetarian", column: 1},
+        {label: "vegan", column: 1},
+        {label: "glutenfree", column: 1},
     ],
 }
 const componentController = MasterSelectionController(masterSelectionAttributes, options);

@@ -136,7 +136,7 @@ const MasterSelectionController = (
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(true); // todo change after development to false
 
-    const nameObs  = Observable(name);
+    const nameObs  = Observable(name); // todo test name , label
     const labelObs = Observable(label);
 
     // at the moment fixed to these values
@@ -145,10 +145,8 @@ const MasterSelectionController = (
     const categoryOptionsSorted        = Observable(true);
 
     // todo maybe add navigation controller
-    // todo add observable for label
     // todo maybe add observable for placeholder
     // todo add observable for vadilitiy
-    // todo add observable for name of input in detail
 
     /**
      *
@@ -265,27 +263,36 @@ const MasterSelectionController = (
     }
 
     return {
-          // master funtionality
+        // properies funtionality // todo naming ok ?
+        getLabel     : labelObs.getValue,
+        setLabel     : labelObs.setValue,
+        onLabelChange: labelObs.onChange,
+
+        getName     : nameObs.getValue,
+        setName     : nameObs.setValue,
+        onNameChange: nameObs.onChange,
+
+        // master funtionality
         isOptionsVisible         : optionsVisibility.getValue,
         setOptionsVisibility     : optionsVisibility.setValue,
         onOptionsVisibilityChange: optionsVisibility.onChange,
         getAllOptions            : getAllOptions,
 
-          // master  funtionality
+        // master  funtionality
         getValueOptions          : optionControllerList[0].getList,
         addValueOptionsModel     : addValueOptionsModel,
         removeValueOptionsModel  : optionControllerList[0].removeModel,
         onValueOptionsModelAdd   : optionControllerList[0].onModelAdd,
         onValueOptionsModelRemove: optionControllerList[0].onModelRemove,
 
-          // master categories funtionality
+        // master categories funtionality
         getCategoryOptions          : (col) => optionControllerList[col]?.getList() ?? null,
         addCategoryOptionsModel     : addCategoryOptionsModel,
         removeCategoryOptionsModel  : (o) => optionControllerList[o.getColumn()]?.removeModel(o),
         onCategoryOptionsModelAdd   : onCategoryOptionsModelAdd,
         onCategoryOptionsModelRemove: onCategoryOptionsModelRemove,
 
-          // detail funtionality
+        // detail funtionality
         isSelectedOptionVisible         : selectedOptionVisibility.getValue,
         setSelectedOptionVisibility     : selectedOptionVisibility.setValue,
         onSelectedOptionVisibilityChange: selectedOptionVisibility.onChange,
