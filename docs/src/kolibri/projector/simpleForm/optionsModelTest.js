@@ -1,4 +1,4 @@
-import { TestSuite }                                from "../../util/test.js";
+import { TestSuite }                                                     from "../../util/test.js";
 import { OptionsModel, reset, noSelection, ValueOption, CategoryOption } from "./optionsModel.js";
 
 const optionsModelSuite = TestSuite("projector/simpleForm/optionsModel");

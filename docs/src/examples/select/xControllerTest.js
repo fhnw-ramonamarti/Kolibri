@@ -1,6 +1,6 @@
-import { TestSuite }                  from "../../kolibri/util/test.js";
+import { TestSuite }                 from "../../kolibri/util/test.js";
+import { noSelection }               from "../../kolibri/projector/simpleForm/optionsModel.js";
 import { MasterSelectionController } from "./xController.js";
-import { noSelection }                from "../../kolibri/projector/simpleForm/optionsModel.js";
 
 const xControllerSuite = TestSuite("examples/select/xController");
 
