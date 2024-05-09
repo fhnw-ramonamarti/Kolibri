@@ -84,7 +84,7 @@ const removeListItemForModel = (root) => model => {
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
  * @template _T_
  * @param { MasterSelectionControllerType<_T_> }  componentController
- * @param { _T_ }                                       model
+ * @param { _T_ }                                 model
  * @return { HTMLElement[] }
  */
 const projectListItem = (componentController, model) => {

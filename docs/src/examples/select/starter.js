@@ -1,11 +1,10 @@
 
-import { MasterSelectionController } from "./xController.js";
-
-import { pageCss }                              from "./instantUpdateProjector.js";
+import { MasterSelectionController }                          from "./xController.js";
 import { projectSelectedValueOptionView, projectOptionsView } from "./xProjector.js";
+import { pageCss }                                            from "./instantUpdateProjector.js";
 
 const masterSelectionAttributes = {
-    name: "",
+    name : "",
     label: "",
     value: "",
 };
@@ -27,8 +26,8 @@ const options = {
 const componentController = MasterSelectionController(masterSelectionAttributes, options);
 
 // create the sub-views, incl. binding
-const master = projectOptionsView(componentController);
-const detail = projectSelectedValueOptionView(componentController, master[0]);
-document.getElementById('component').append(...detail,...master);
+const allOptions     = projectOptionsView(componentController);
+const selectedOption = projectSelectedValueOptionView(componentController, allOptions[0]);
+document.getElementById('component').append(...selectedOption,...allOptions);
 
 document.querySelector("head style").textContent += pageCss;

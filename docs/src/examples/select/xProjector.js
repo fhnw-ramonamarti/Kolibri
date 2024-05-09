@@ -20,24 +20,28 @@ const projectOptionsView = (componentController) => {
 
     /** @type HTMLDivElement */ const rootElement = document.createElement("div");
     rootElement.id = "masterContainer";
-    
-    const renderRow = (option) => {
-        const column = option.getColumn();
-        if (null == rootElement.querySelector(`[data-column="${option.getColumn()}"]`)) {
-            // create new column if not existing
-            const columnContainer = document.createElement("div");
-            columnContainer.classList.add("master-column");
-            columnContainer.classList.add("master-column-" + column);
-            columnContainer.setAttribute("data-column", column);
-            columnContainer.classList.add("select-column");
-            rootElement.append(columnContainer);
 
-            // order columns descending in DOM
-            const sortedChildren = [...rootElement.children].sort(
-                (a, b) => b.getAttribute("data-column") - a.getAttribute("data-column")
-            )
-            rootElement.replaceChildren(...sortedChildren);
+    const renderColumn = (column) => {
+        
+        // create new column if not existing
+        const columnContainer = document.createElement("div");
+        columnContainer.classList.add("master-column-" + column);
+        columnContainer.classList.add("select-column");
+        columnContainer.setAttribute("data-column", column);
+        rootElement.append(columnContainer);
+
+        // order columns descending in DOM
+        const sortedChildren = [...rootElement.children].sort(
+            (a, b) => b.getAttribute("data-column") - a.getAttribute("data-column")
+        );
+        rootElement.replaceChildren(...sortedChildren);
+    }
+
+    const renderRow = (option) => {
+        if (null == rootElement.querySelector(`[data-column="${option.getColumn()}"]`)) {
+            renderColumn(option.getColumn());
         }
+        
         // INFO: delete buttton / first element not in use yet
         const [_, rowElement] = projectListItem(componentController, option);
         rootElement.querySelector(`[data-column="${option.getColumn()}"]`).append(rowElement);
@@ -51,11 +55,13 @@ const projectOptionsView = (componentController) => {
         removeListItemForModel(rootElement)(removedModel);
         componentController.clearOptionSelection();
     });
+
     componentController.onValueOptionsModelAdd(renderRow);
     componentController.onValueOptionsModelRemove( removedModel => {
         removeListItemForModel(rootElement)(removedModel);
         componentController.clearOptionSelection();
     });
+
     componentController.onOptionModelHighlighted((highlightOption) => {
         if(!highlightOption.getId().includes("none")){
             rootElement.querySelector(`.highlighted`)?.classList?.remove("highlighted");
@@ -66,6 +72,7 @@ const projectOptionsView = (componentController) => {
         selectListItemForModel(rootElement)(newSelectedModel, oldSelectedModel);
         componentController.setHighlightOptionModel(newSelectedModel);
     });
+
     componentController.onSelectedCategoryOptionsModelAdd(addModel => {
         componentController.setHighlightOptionModel(addModel);
         rootElement.querySelectorAll(`[data-column="${addModel.getColumn()}"].category-option-item`).forEach(element => {
@@ -128,7 +135,7 @@ const projectOptionsView = (componentController) => {
  * @template _T_
  * @impure - since we change the state of the controller. The DOM remains unchanged.
  * @param  { MasterSelectionControllerType<_T_> } componentController
- * @param  { HTMLElement }                              masterListElement - master container element to toggle in view
+ * @param  { HTMLElement }                        masterListElement - master container element to toggle in view
  * @return { [HTMLDivElement] } - detail view
  */
 const projectSelectedValueOptionView = (componentController, masterListElement) => {
