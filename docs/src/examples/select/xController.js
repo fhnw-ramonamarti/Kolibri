@@ -79,7 +79,15 @@ const SelectionController = model => {
 /**
  * @typedef MasterSelectionControllerType<_T_>
  * @template _T_
- * @property { () => Boolean        }       isOptionsVisible
+ * @property { () => String         }       getLabel
+ * @property { () => void           }       setLabel
+ * @property { (cb: ConsumerType<String>) => void        }       onLabelChange
+
+ * @property { () => String         }       getName
+ * @property { () => void           }       setName
+ * @property { (cb: ConsumerType<String>) => void        }       onNameChange
+
+* @property { () => Boolean        }       isOptionsVisible
  * @property { () => void           }       setOptionsVisibility
  * @property { (cb: ConsumerType<Boolean>) => void       }       onOptionsVisibilityChange
  * @property { ()  => Array<Option> }       getAllOptions
@@ -147,6 +155,7 @@ const MasterSelectionController = (
     // todo maybe add navigation controller
     // todo maybe add observable for placeholder
     // todo add observable for vadilitiy
+    // todo maybe possibility for multi select
 
     /**
      *
