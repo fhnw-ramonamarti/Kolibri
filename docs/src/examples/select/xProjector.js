@@ -1,13 +1,13 @@
 import { selectionMold }       from "../../kolibri/projector/simpleForm/optionsModel.js";
 import {
-    projectDetail,
+    projectSelectedValueOption,
     projectListItem,
     masterClassName,
     removeListItemForModel,
     selectListItemForModel
 }                              from "./instantUpdateProjector.js";
 
-export { projectMasterView, projectDetailView }
+export { projectOptionsView, projectSelectedValueOptionView }
 
 /**
  * Create the master view, bind against the controller, and return the view.
@@ -16,7 +16,7 @@ export { projectMasterView, projectDetailView }
  * @param { MasterSelectionControllerType<_T_> } componentController
  * @return { [HTMLDivElement] } - master view
  */
-const projectMasterView = (componentController) => {
+const projectOptionsView = (componentController) => {
 
     /** @type HTMLDivElement */ const rootElement = document.createElement("div");
     rootElement.id = "masterContainer";
@@ -79,7 +79,7 @@ const projectMasterView = (componentController) => {
             .forEach((option) => {
                 if (!option.getCategories().includes(addModel.getLabel())) {
                     removeListItemForModel(rootElement)(option);
-                    if(componentController.getSelectedOptionModel(option)){
+                    if(componentController.getSelectedOptionModel() === option){
                         componentController.clearOptionSelection();
                     }
                 }
@@ -103,7 +103,7 @@ const projectMasterView = (componentController) => {
             componentController
                 .getAllOptions()
                 .map((option) => option.getLabel())
-                .indexOf(element.getAttribute("data-value"));
+                .indexOf(element.innerHTML);
         [...Array(removeModel.getColumn()).keys()].forEach((col) => {
             const container = rootElement.querySelector(`[data-column="${col}"]`);
             const content = [...container.childNodes].sort((a, b) =>
@@ -112,6 +112,11 @@ const projectMasterView = (componentController) => {
             container.innerHTML = "";
             container.append(...content);
         });
+    });
+
+    // project init 
+    componentController.getAllOptions().forEach((option) => {
+        renderRow(option);
     });
 
     return [rootElement];
@@ -126,9 +131,9 @@ const projectMasterView = (componentController) => {
  * @param  { HTMLElement }                              masterListElement - master container element to toggle in view
  * @return { [HTMLDivElement] } - detail view
  */
-const projectDetailView = (componentController, masterListElement) => {
+const projectSelectedValueOptionView = (componentController, masterListElement) => {
     
-    const detailElement = projectDetail(componentController, selectionMold); // only once, view is stable, binding is stable
+    const detailElement = projectSelectedValueOption(componentController, selectionMold); // only once, view is stable, binding is stable
     detailElement.id = "detailContainer";
 
     componentController.clearOptionSelection();

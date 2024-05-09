@@ -14,7 +14,7 @@ xControllerSuite.add("full", assert => {
         value: "selected value", 
         label: "selected label",
     };
-    const controller = MasterSelectionController();
+    const controller = MasterSelectionController({});
 
     // init values
     // assert.is(controller.isOptionsVisible()              , false); // todo comment after developement

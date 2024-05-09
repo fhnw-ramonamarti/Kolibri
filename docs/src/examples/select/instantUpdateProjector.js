@@ -3,7 +3,7 @@ import { InputProjector }                   from "../../kolibri/projector/simple
 import { SimpleAttributeInputController }   from "../../kolibri/projector/simpleForm/simpleInputController.js";
 import { SimpleInputModel }                 from "../../kolibri/projector/simpleForm/simpleInputModel.js";
 
-export { projectListItem, selectListItemForModel, removeListItemForModel, projectDetail,  masterClassName, pageCss }
+export { projectListItem, selectListItemForModel, removeListItemForModel, projectSelectedValueOption,  masterClassName, pageCss }
 
 /**
  * A name that serves multiple purposes as it allows setting up specific css styling by using a consistent
@@ -139,7 +139,7 @@ const projectListItem = (componentController, model) => {
  * @param { _T_ }                           model
  * @return { HTMLDivElement[] }
  */
-const projectDetail = (componentController, model) => {
+const projectSelectedValueOption = (componentController, model) => {
 
     // create view
     const elements = dom(`

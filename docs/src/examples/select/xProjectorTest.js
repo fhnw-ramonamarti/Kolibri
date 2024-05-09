@@ -1,5 +1,5 @@
 import { TestSuite }                            from "../../kolibri/util/test.js";
-import { projectDetailView, projectMasterView } from "./xProjector.js";
+import { projectSelectedValueOptionView, projectOptionsView } from "./xProjector.js";
 import { MasterSelectionController }           from "./xController.js";
 import { noSelection }                          from "../../kolibri/projector/simpleForm/optionsModel.js";
 
@@ -20,14 +20,14 @@ xProjectorSuite.add("binding-master", (assert) => {
         value: "selected value",
         label: "selected label"
     };
-    const controller = MasterSelectionController();
+    const controller = MasterSelectionController({});
     
-    const [masterContainer] = projectMasterView(controller);
+    const [masterContainer] = projectOptionsView(controller);
     controller.addValueOptionsModel(selectedOption);
     controller.addCategoryOptionsModel(option);
     const optionElement = masterContainer.querySelector(`[data-value="${selectedOption.value}"]`);
 
-    const [viewContainer] = projectDetailView(controller, masterContainer);
+    const [viewContainer] = projectSelectedValueOptionView(controller, masterContainer);
     const labelElement    = viewContainer.querySelector("label");
     const inputElement    = viewContainer.querySelector("input");
 

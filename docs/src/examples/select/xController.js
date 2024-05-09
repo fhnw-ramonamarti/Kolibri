@@ -115,62 +115,69 @@ const SelectionController = model => {
 /**
  * MasterSelectionController maintains a list and a selection controller.
  * It also mantains observable states like the visibility.
+ * @param { MasterSelectionAttribut } masterSelectionAttribut
+ * @param { OptionDataType          } initOptions
  * @returns { MasterSelectionControllerType }
  * @constructor
  */
-const MasterSelectionController = () => {
+const MasterSelectionController = (
+    { value = "", label = "", name = "" },
+    initOptions = { values: [], categories: [] }
+) => {
     const categoryCallbacks = {
         add: [],
         remove: [],
     };
-    const optionControllerList     = [ListController()];
+    const optionControllerList = [ListController()];
     const selectedOptionController = SelectionController(selectionMold);
-    const selectedCategoryOptions  = ListController(); // todo add sel cat tests also for model
+    const selectedCategoryOptions = ListController(); // todo add sel cat tests also for model
     const highlightOptionController = SelectionController(highlightMold); // todo add tests
 
-    const selectedOptionVisibility  = Observable(true);
-    const optionsVisibility         = Observable(true); // todo change after development to false
+    const selectedOptionVisibility = Observable(true);
+    const optionsVisibility = Observable(true); // todo change after development to false
+
+    const nameObs = Observable(name);
+    const labelObs = Observable(label);
 
     // at the moment fixed to these values
     const supportTypeOfCategroyOptions = Observable(FILTER); // todo add funtionality
     const valueOptionsSorted = Observable(true);
     const categoryOptionsSorted = Observable(true);
 
-    // todo maybe with observable of highlighted option
-    // todo maybe add navigation controller 
+    // todo maybe add navigation controller
     // todo add observable for label
     // todo maybe add observable for placeholder
     // todo add observable for vadilitiy
-    // todo add observable for name of input in detail 
+    // todo add observable for name of input in detail
 
     /**
-     * 
-     * @param { ValueOptionDataType } option 
+     *
+     * @param { ValueOptionDataType } option
      */
     const addValueOptionsModel = (option) => {
         const valueOptionsController = optionControllerList[0];
-        const listOfValues = valueOptionsController.getList().map(o => o.getValue());
+        const listOfValues = valueOptionsController.getList().map((o) => o.getValue());
         // values should be unique in the options
         if (!listOfValues.includes(option.value)) {
             valueOptionsController.addModel(
                 ValueOption(option.value, option.label, option.categoryLabels)
             );
         }
-    }
+    };
 
     /**
-     * 
-     * @param { CategoryOptionDataType } category 
+     *
+     * @param { CategoryOptionDataType } category
      */
     const addCategoryOptionsModel = (category) => {
-        if(category.column < 1){
+        if (category.column < 1) {
             console.log("CategoryOption column has to be >= 1", category);
             return; // todo not allowed maybe error msg
         }
-        if(!optionControllerList[category.column]){
+        if (!optionControllerList[category.column]) {
             const listController = ListController();
-            categoryCallbacks.add.forEach(cb => listController.onModelAdd(cb));
-            categoryCallbacks.remove.forEach(cb => listController.onModelRemove(cb));
+            categoryCallbacks.add.forEach((cb) => listController.onModelAdd(cb));
+            categoryCallbacks.remove.forEach((cb) => listController.onModelRemove(cb));
             optionControllerList.push(
                 ...Array(category.column - optionControllerList.length + 1).fill(listController)
             );
@@ -183,41 +190,37 @@ const MasterSelectionController = () => {
                 CategoryOption(category.label, category.column, category.categoryLabels)
             );
         }
-    }
+    };
 
     const onCategoryOptionsModelAdd = (cb) => {
         categoryCallbacks.add.push(cb);
-        optionControllerList
-            .slice(1)
-            .forEach((controller) => controller.onCategoryOptionsModelAdd(cb));
+        optionControllerList.slice(1).forEach((controller) => controller.onModelAdd(cb));
     };
 
     const onCategoryOptionsModelRemove = (cb) => {
         categoryCallbacks.remove.push(cb);
-        optionControllerList
-            .slice(1)
-            .forEach((controller) => controller.onCategoryOptionsModelRemove(cb));
+        optionControllerList.slice(1).forEach((controller) => controller.onModelRemove(cb));
     };
 
     /**
-     * 
+     *
      * @returns { Array<Option> }
      */
     const getAllOptions = () => {
         const nestedOptions = optionControllerList.map((option) => option.getList());
-        return nestedOptions.flatMap(option => option);
-    }
+        return nestedOptions.flatMap((option) => option);
+    };
 
     // reset selection on remove selected option
     optionControllerList[0].onModelRemove((model) => {
-        if(model === selectedOptionController.getSelectedModel()){
+        if (model === selectedOptionController.getSelectedModel()) {
             selectedOptionController.clearSelection();
         }
     });
 
     /**
-     * 
-     * @param { Option } toggleModel 
+     *
+     * @param { Option } toggleModel
      */
     const toggleSelectedCategoryOptionsModel = (toggleModel) => {
         selectedCategoryOptions.getList().forEach((option) => {
@@ -225,11 +228,13 @@ const MasterSelectionController = () => {
                 selectedCategoryOptions.removeModel(option);
             }
         });
-        if(selectedCategoryOptions.getList().includes(toggleModel)){
+        if (selectedCategoryOptions.getList().includes(toggleModel)) {
             selectedCategoryOptions.removeModel(toggleModel);
         } else {
-            const otherCategory = selectedCategoryOptions.getList().filter(o => o.getColumn() === toggleModel.getColumn());
-            if(otherCategory.length > 0){
+            const otherCategory = selectedCategoryOptions
+                .getList()
+                .filter((o) => o.getColumn() === toggleModel.getColumn());
+            if (otherCategory.length > 0) {
                 // only one category is selected per column
                 selectedCategoryOptions.removeModel(otherCategory[0]);
             }
@@ -238,54 +243,83 @@ const MasterSelectionController = () => {
     };
 
     const clearSelectedCategoryOptions = () => {
-        selectedCategoryOptions.getList().forEach(option => {
+        selectedCategoryOptions.getList().forEach((option) => {
             selectedCategoryOptions.removeModel(option);
         });
     };
 
+    // fill initial options
+    initOptions?.categories?.forEach((option) => {
+        addCategoryOptionsModel(option);
+    });
+    initOptions.values.forEach((option) => {
+        addValueOptionsModel(option);
+    });
+
+    // prepare selected value option
+    const selectedOption = optionControllerList[0]
+        .getList()
+        .filter((option) => option.getValue() === value)[0];
+    if (value !== "" && null != selectedOption) {
+        selectedOptionController.setModel(selectedOption);
+    }
+
     return {
         // master funtionality
-        isOptionsVisible             : optionsVisibility.getValue,
-        setOptionsVisibility         : optionsVisibility.setValue,
-        onOptionsVisibilityChange    : optionsVisibility.onChange,
-        getAllOptions                : getAllOptions,
-        
+        isOptionsVisible: optionsVisibility.getValue,
+        setOptionsVisibility: optionsVisibility.setValue,
+        onOptionsVisibilityChange: optionsVisibility.onChange,
+        getAllOptions: getAllOptions,
+
         // master  funtionality
-        getValueOptions             : optionControllerList[0].getList,
-        addValueOptionsModel        : addValueOptionsModel,
-        removeValueOptionsModel     : optionControllerList[0].removeModel,
-        onValueOptionsModelAdd      : optionControllerList[0].onModelAdd,
-        onValueOptionsModelRemove   : optionControllerList[0].onModelRemove,
-        
+        getValueOptions: optionControllerList[0].getList,
+        addValueOptionsModel: addValueOptionsModel,
+        removeValueOptionsModel: optionControllerList[0].removeModel,
+        onValueOptionsModelAdd: optionControllerList[0].onModelAdd,
+        onValueOptionsModelRemove: optionControllerList[0].onModelRemove,
+
         // master categories funtionality
-        getCategoryOptions           : (col) => optionControllerList[col]?.getList() ?? null,
-        addCategoryOptionsModel      : addCategoryOptionsModel,
-        removeCategoryOptionsModel   : (o) => optionControllerList[o.getColumn()]?.removeModel(o),
-        onCategoryOptionsModelAdd    : onCategoryOptionsModelAdd,
-        onCategoryOptionsModelRemove : onCategoryOptionsModelRemove,
+        getCategoryOptions: (col) => optionControllerList[col]?.getList() ?? null,
+        addCategoryOptionsModel: addCategoryOptionsModel,
+        removeCategoryOptionsModel: (o) => optionControllerList[o.getColumn()]?.removeModel(o),
+        onCategoryOptionsModelAdd: onCategoryOptionsModelAdd,
+        onCategoryOptionsModelRemove: onCategoryOptionsModelRemove,
 
         // detail funtionality
-        isSelectedOptionVisible          : selectedOptionVisibility.getValue,
-        setSelectedOptionVisibility      : selectedOptionVisibility.setValue,
-        onSelectedOptionVisibilityChange : selectedOptionVisibility.onChange,
-        
-        setSelectedOptionModel   : selectedOptionController.setSelectedModel,
-        getSelectedOptionModel   : selectedOptionController.getSelectedModel,
-        onOptionModelSelected    : selectedOptionController.onModelSelected,
-        clearOptionSelection     : selectedOptionController.clearSelection,
-        
-        getSelectedCategoryOptions            : selectedCategoryOptions.getList,        
-        toggleSelectedCategoryOptionsModel    : toggleSelectedCategoryOptionsModel,
-        clearSelectedCategoryOptionsSelection : clearSelectedCategoryOptions,
-        onSelectedCategoryOptionsModelAdd     : selectedCategoryOptions.onModelAdd,
-        onSelectedCategoryOptionsModelRemove  : selectedCategoryOptions.onModelRemove,
+        isSelectedOptionVisible: selectedOptionVisibility.getValue,
+        setSelectedOptionVisibility: selectedOptionVisibility.setValue,
+        onSelectedOptionVisibilityChange: selectedOptionVisibility.onChange,
 
-        setHighlightOptionModel  : highlightOptionController.setSelectedModel,
-        getHighlightOptionModel  : highlightOptionController.getSelectedModel,
-        onOptionModelHighlighted : highlightOptionController.onModelSelected,
-        clearOptionHighlight     : highlightOptionController.clearSelection,
+        setSelectedOptionModel: selectedOptionController.setSelectedModel,
+        getSelectedOptionModel: selectedOptionController.getSelectedModel,
+        onOptionModelSelected: selectedOptionController.onModelSelected,
+        clearOptionSelection: selectedOptionController.clearSelection,
+
+        getSelectedCategoryOptions: selectedCategoryOptions.getList,
+        toggleSelectedCategoryOptionsModel: toggleSelectedCategoryOptionsModel,
+        clearSelectedCategoryOptionsSelection: clearSelectedCategoryOptions,
+        onSelectedCategoryOptionsModelAdd: selectedCategoryOptions.onModelAdd,
+        onSelectedCategoryOptionsModelRemove: selectedCategoryOptions.onModelRemove,
+
+        setHighlightOptionModel: highlightOptionController.setSelectedModel,
+        getHighlightOptionModel: highlightOptionController.getSelectedModel,
+        onOptionModelHighlighted: highlightOptionController.onModelSelected,
+        clearOptionHighlight: highlightOptionController.clearSelection,
     };
 };
+
+/**
+ * @typedef OptionDataType
+ * @property { Array<ValueOptionDataType> } values
+ * @property { ?Array<CategoryOptionDataType> } categories
+ */
+
+/**
+ * @typedef CatOptionDataType
+ * @property { String } label
+ * @property { ?Number } column
+ * @property { ?Array<CatOptionDataType> } categories
+ */
 
 /**
  * @typedef CategoryOptionDataType
@@ -299,6 +333,14 @@ const MasterSelectionController = () => {
  * @property { String } value
  * @property { ?String } label
  * @property { Array<String> } categoryLabels
+ */
+
+/**
+ * @typedef MasterSelectionAttribut
+ * @property { ?String } value
+ * @property { ?String } label
+ * @property { ?String } name
+ * // @property { Array<*> } options 
  */
 
 /**
