@@ -49,6 +49,11 @@ const projectOptionsView = (componentController) => {
 
     rootElement.classList.add(masterClassName);
 
+    // project init 
+    componentController.getAllOptions().forEach((option) => {
+        renderRow(option);
+    });
+
     // binding
     componentController.onCategoryOptionsModelAdd(renderRow);
     componentController.onCategoryOptionsModelRemove( removedModel => {
@@ -64,8 +69,8 @@ const projectOptionsView = (componentController) => {
 
     componentController.onOptionModelHighlighted((highlightOption) => {
         if(!highlightOption.getId().includes("none")){
-            rootElement.querySelector(`.highlighted`)?.classList?.remove("highlighted");
-            rootElement.querySelector(`[id*="${highlightOption.getId().replace(".","-")}"]`).classList.add("highlighted");
+            rootElement.querySelector(`.highlighted`)?.classList.remove("highlighted");
+            rootElement.querySelector(`[id*="${highlightOption.getId().replace(".","-")}"]`)?.classList.add("highlighted");
         }
     });
     componentController.onOptionModelSelected((newSelectedModel, oldSelectedModel) => {
@@ -121,11 +126,6 @@ const projectOptionsView = (componentController) => {
         });
     });
 
-    // project init 
-    componentController.getAllOptions().forEach((option) => {
-        renderRow(option);
-    });
-
     return [rootElement];
 };
 
@@ -142,9 +142,6 @@ const projectSelectedValueOptionView = (componentController, masterListElement) 
     
     const detailElement = projectSelectedValueOption(componentController, selectionMold); // only once, view is stable, binding is stable
     detailElement.id = "detailContainer";
-
-    componentController.clearOptionSelection();
-    componentController.clearSelectedCategoryOptionsSelection();
 
     // bindings
     componentController.onOptionModelSelected((selectedOptionModel) => {

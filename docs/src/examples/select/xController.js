@@ -268,7 +268,7 @@ const MasterSelectionController = (
         .getList()
         .filter((option) => option.getValue() === value)[0];
     if (value !== "" && null != selectedOption) {
-        selectedOptionController.setModel(selectedOption);
+        selectedOptionController.setSelectedModel(selectedOption);
     }
 
     return {
