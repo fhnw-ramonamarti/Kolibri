@@ -19,3 +19,4 @@ document.querySelector("head style").textContent += pageCss;
 // binding of the main view
 
 document.getElementById('plus').onclick    = _ => listController.addModel();
+

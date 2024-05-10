@@ -124,6 +124,7 @@ const projectListItem = (componentController, model) => {
         } else {
             componentController.toggleSelectedCategoryOptionsModel(option);
         }
+        //on mouse over hole options und dann options aufs highlighted setze setHighlightedOptionModel(option)
     };
     elements.push(item);
     
@@ -178,16 +179,17 @@ const boxHeight = 240;
  * @type { String }
  * @example
  * document.querySelector("head style").textContent += pageCss;
- */ // todo style border
+ */ /* todo style border*/
 const pageCss = `
     .${masterClassName} {
         display:        flex;
-        gap:            1rem;
+        gap:            5px;
         align-items:    baseline;
         margin-bottom:  0.5em;
         width:          100%;
         max-height:     ${boxHeight}px;
         border:         1px solid #ccc; /* todo */
+        border-radius: 4px;
     }
     .${detailClassName} {
         position:       relative;
@@ -197,6 +199,7 @@ const pageCss = `
 
         > span {
             border:    1px solid #ccc; /* todo */
+            border-radius: 4px;
         }
 
         input,
@@ -220,7 +223,7 @@ const pageCss = `
         background-color:   var(--kolibri-color-select);
     }
     .highlighted {
-        border-left: var(--kolibri-color-accent) solid 2px;
+        /*border-left: var(--kolibri-color-accent) solid 2px;*/
     }
     .clear {
         background-color:   transparent;
@@ -235,18 +238,86 @@ const pageCss = `
         font-family:        var(--font-sans-serif);
         margin-top:         0;
     }
+    
     button.selected {
         position:           relative;
     }    
-    button.selected::before {
-        content:            '';
-        position:           absolute;        
-        inset:              0 0 0 0;       
-        background:         var(--kolibri-color-select);
-        transform:          translateX(-100%);
-        clip-path:          polygon(0 0, 100% 50%, 0 100%);
-    }
+   
     .hidden {
         display: none;
     }
+    .dropdown {
+    position: relative;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.dropdown .selected {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.dropdown .selected:hover {
+    background-color: #f9f9f9;
+}
+
+.dropdown .options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 4px solid #ccc;
+    border-top: none;
+    z-index: 2;
+    display: none;
+}
+
+.dropdown.active .options-container {
+    display: block;
+}
+
+.dropdown .option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown .option.selected {
+    background-color: #ddd;
+}
+
+.select-item{
+    position: relative;
+}
+
+.select-item.selected {
+    background-color: #FFDB8E;
+    border-radius: 4px;
+}
+.select-item.category-option-item:last-child {
+    border-bottom: none;
+}
+
+.select-item:hover::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    top: 10px;
+    transform: translateX(-50%);
+    width: 2.5px;
+    /*height: 20px;*/
+    background-color: #E11161;
+    border-radius: 1px;
+}
+.select-item{
+    padding: 10px 20px;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
 `;
