@@ -10,6 +10,7 @@ import {
     CategoryOption,
     OptionsModel,
     ValueOption,
+    cursorPositionMold,
     highlightMold,
     noSelection,
     selectionMold,
@@ -119,6 +120,11 @@ const SelectionController = model => {
  * @property { (OptionType) => void }           setHighlightOptionModel
  * @property { ()  => void }                    clearOptionHighlight
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionModelHighlighted
+
+ * @property { ()  => OptionType }              getCursorPositionOptionModel
+ * @property { (OptionType) => void }           setCursorPositionOptionModel
+ * @property { ()  => void }                    clearOptionCursorPosition
+ * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionModelRepositioned
  */
 
 /**
@@ -137,10 +143,11 @@ const MasterSelectionController = (
         add: [],
         remove: [],
     };
-    const optionControllerList      = [ListController()];
-    const selectedOptionController  = SelectionController(selectionMold);
-    const selectedCategoryOptions   = ListController(); // todo add sel cat tests also for model
-    const highlightOptionController = SelectionController(highlightMold); // todo add tests
+    const optionControllerList           = [ListController()];
+    const selectedOptionController       = SelectionController(selectionMold);
+    const selectedCategoryOptions        = ListController(); // todo add sel cat tests also for model
+    const highlightOptionController      = SelectionController(highlightMold); // todo add tests
+    const cursorPositionOptionController = SelectionController(cursorPositionMold); // todo add tests
 
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(true); // todo change after development to false
@@ -332,6 +339,11 @@ const MasterSelectionController = (
         setHighlightOptionModel : highlightOptionController.setSelectedModel,
         clearOptionHighlight    : highlightOptionController.clearSelection,
         onOptionModelHighlighted: highlightOptionController.onModelSelected,
+
+        getCursorPositionOptionModel: cursorPositionOptionController.getSelectedModel, 
+        setCursorPositionOptionModel: cursorPositionOptionController.setSelectedModel, 
+        clearOptionCursorPosition   : cursorPositionOptionController.clearSelection, 
+        onOptionModelRepositioned   : cursorPositionOptionController.onModelSelected, 
     };
 };
 

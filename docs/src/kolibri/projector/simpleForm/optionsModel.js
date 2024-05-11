@@ -1,6 +1,15 @@
 import { ObservableList } from "../../observable.js";
 
-export { OptionsModel, CategoryOption, ValueOption, reset, noSelection, selectionMold, highlightMold }
+export {
+    OptionsModel,
+    CategoryOption,
+    ValueOption,
+    reset,
+    noSelection,
+    selectionMold,
+    highlightMold,
+    cursorPositionMold,
+};
 // todo new type category
 /**
  * @typedef OptionType
@@ -32,19 +41,19 @@ const Option = (value, label, categoryLabels = []) => (column = 0, isEmpty = fal
     if(isEmpty){ // todo change id when adding name to component
         const id = "Option.none" ;
         return {
-            getValue: () => "",
-            getLabel: () => "",
-            getId: () => id,
-            getColumn: () => 0,
+            getValue         : () => "",
+            getLabel         : () => "",
+            getId            : () => id,
+            getColumn        : () => 0,
             getCategoryLabels: () => [],
         }
     } else {
         const id = "Option.value" + idCounter++; // todo optimize identifier
         return {
-            getValue: () => value,
-            getLabel: () => (!label || label === "" ? value : label),
-            getId: () => id,
-            getColumn: () => column,
+            getValue         : () => value,
+            getLabel         : () => (!label || label === "" ? value : label),
+            getId            : () => id,
+            getColumn        : () => column,
             getCategoryLabels: () => categoryLabels,
         }
     }
@@ -134,3 +143,8 @@ const selectionMold = reset();
  * Used for highlight of a single option
  */
 const highlightMold = reset();
+
+/**
+ * Used for current cursor position of a single option
+ */
+const cursorPositionMold = reset();
