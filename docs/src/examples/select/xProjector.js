@@ -67,6 +67,12 @@ const projectOptionsView = (componentController) => {
         componentController.clearOptionSelection();
     });
 
+    componentController.onOptionModelRepositioned(highlightOption => {
+        if(!highlightOption.getId().includes("none")){
+            rootElement.querySelector(`.currentPosition`)?.classList.remove("currentPosition");
+            rootElement.querySelector(`[id*="${highlightOption.getId().replace(".","-")}"]`)?.classList.add("currentPosition");
+        }
+    });
     componentController.onOptionModelHighlighted(highlightOption => {
         if(!highlightOption.getId().includes("none")){
             rootElement.querySelector(`.highlighted`)?.classList.remove("highlighted");
