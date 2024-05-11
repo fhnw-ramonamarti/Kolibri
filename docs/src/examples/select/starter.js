@@ -3,11 +3,13 @@ import { MasterSelectionController }                          from "./xControlle
 import { projectSelectedValueOptionView, projectOptionsView } from "./xProjector.js";
 import { pageCss }                                            from "./instantUpdateProjector.js";
 
+/** @type { MasterSelectionAttribut } */
 const masterSelectionAttributes = {
     name : "menu",
     label: "Menu",
     value: "",
 };
+/** @type { OptionDataType } */
 const options = {
     values: [
         {value: "green salad", categoryLabels: ["salad","vegetarian","vegan","glutenfree",]},
@@ -18,8 +20,8 @@ const options = {
         {value: "penne carbonarra", categoryLabels: ["pasta",]},
         {value: "pizza margarita", categoryLabels: ["pizza","vegetarian",]},
         {value: "pizza salami", categoryLabels: ["pizza",]},
-        {value: "pizza funghi", categoryLabels: ["pizza","vegetarian",]},
-        {value: "pizza quatro formagi", categoryLabels: ["pizza","vegetarian",]},
+        {value: "pizza fungi", categoryLabels: ["pizza","vegetarian",]},
+        {value: "pizza quarto formagi", categoryLabels: ["pizza","vegetarian",]},
         {value: "french fries", categoryLabels: ["vegetarian","vegan",]},
         {value: "egg sandwich", categoryLabels: ["vegetarian",]},
         {value: "ham sandwich"},

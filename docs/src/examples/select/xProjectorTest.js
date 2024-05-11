@@ -36,8 +36,8 @@ xProjectorSuite.add("binding-master", (assert) => {
     // assert.is(spanElement .getAttribute("data-id"), inputElement.getAttribute("id"));
 
     // test the binding
-    assert.is(controller.getSelectedOptionModel(), noSelection);
-    assert.is(inputElement.value                 , noSelection.getValue());
+    assert.is(controller.getSelectedOptionModel().getId(), noSelection.getId());
+    assert.is(inputElement.value                         , noSelection.getValue());
     optionElement.click();
     assert.is(controller.getSelectedOptionModel().getValue(), selectedOption.value);
     assert.is(inputElement.value                            , selectedOption.value);

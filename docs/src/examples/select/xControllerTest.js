@@ -17,7 +17,7 @@ xControllerSuite.add("full", assert => {
     const controller = MasterSelectionController({});
 
     // init values
-    // assert.is(controller.isOptionsVisible()              , false); // todo comment after developement
+    // assert.is(controller.isOptionsVisible()              , false); // todo comment after development
     assert.is(controller.getValueOptions().length        , 0);
     assert.is(controller.getCategoryOptions(1) == null   , true);
     assert.is(controller.isSelectedOptionVisible()       , true);
@@ -25,13 +25,13 @@ xControllerSuite.add("full", assert => {
 
     // example bindings to check if activated
     let clicked = false;
-    controller.onOptionsVisibilityChange       ((_) => { clicked = true; });
-    controller.onCategoryOptionsModelAdd       ((_) => { clicked = true; });
-    controller.onCategoryOptionsModelRemove    ((_) => { clicked = true; });
-    controller.onValueOptionsModelAdd          ((_) => { clicked = true; });
-    controller.onValueOptionsModelRemove       ((_) => { clicked = true; });
-    controller.onSelectedOptionVisibilityChange((_) => { clicked = true; });
-    controller.onOptionModelSelected           ((_) => { clicked = true; });
+    controller.onOptionsVisibilityChange       (_ => { clicked = true; });
+    controller.onCategoryOptionsModelAdd       (_ => { clicked = true; });
+    controller.onCategoryOptionsModelRemove    (_ => { clicked = true; });
+    controller.onValueOptionsModelAdd          (_ => { clicked = true; });
+    controller.onValueOptionsModelRemove       (_ => { clicked = true; });
+    controller.onSelectedOptionVisibilityChange(_ => { clicked = true; });
+    controller.onOptionModelSelected           (_ => { clicked = true; });
     
     // assert the effect of the binding
     clicked = false;
@@ -71,7 +71,7 @@ xControllerSuite.add("full", assert => {
     // assert the effect of the binding for detail part
     clicked = false;
     const optionToSelect =
-        controller.getValueOptions().filter((e) => e.getValue() === selectedOption.value)[0];
+        controller.getValueOptions().filter(option => option.getValue() === selectedOption.value)[0];
     controller.setSelectedOptionModel(optionToSelect);
     assert.is(controller.getSelectedOptionModel().getValue(), selectedOption.value);
     assert.is(controller.getSelectedOptionModel().getLabel(), selectedOption.label);
@@ -98,7 +98,7 @@ xControllerSuite.add("full", assert => {
 
     clicked = false;
     const categoryToSelect =
-        controller.getCategoryOptions(1).filter((e) => e.getLabel() === option.label)[0];
+        controller.getCategoryOptions(1).filter(cat => cat.getLabel() === option.label)[0];
     controller.removeCategoryOptionsModel(categoryToSelect);
     mappedCategories = controller.getCategoryOptions(1)
         .map(e => ({ label: e.getLabel(), column: e.getColumn() }));

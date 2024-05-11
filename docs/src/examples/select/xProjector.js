@@ -13,7 +13,7 @@ export { projectOptionsView, projectSelectedValueOptionView }
  * Create the master view, bind against the controller, and return the view.
  * @impure - since we change the state of the controller. The DOM remains unchanged.
  * @template _T_
- * @param { MasterSelectionControllerType<_T_> } componentController
+ * @param { MasterSelectionControllerType } componentController
  * @return { [HTMLDivElement] } - master view
  */
 const projectOptionsView = (componentController) => {
@@ -37,12 +37,12 @@ const projectOptionsView = (componentController) => {
         rootElement.replaceChildren(...sortedChildren);
     }
 
-    const renderRow = (option) => {
+    const renderRow = option => {
         if (null == rootElement.querySelector(`[data-column="${option.getColumn()}"]`)) {
             renderColumn(option.getColumn());
         }
         
-        // INFO: delete buttton / first element not in use yet
+        // INFO: delete button / first element not in use yet
         const [_, rowElement] = projectListItem(componentController, option);
         rootElement.querySelector(`[data-column="${option.getColumn()}"]`).append(rowElement);
     };
@@ -50,24 +50,24 @@ const projectOptionsView = (componentController) => {
     rootElement.classList.add(masterClassName);
 
     // project init 
-    componentController.getAllOptions().forEach((option) => {
+    componentController.getAllOptions().forEach(option => {
         renderRow(option);
     });
 
     // binding
     componentController.onCategoryOptionsModelAdd(renderRow);
-    componentController.onCategoryOptionsModelRemove( removedModel => {
+    componentController.onCategoryOptionsModelRemove(removedModel => {
         removeListItemForModel(rootElement)(removedModel);
         componentController.clearOptionSelection();
     });
 
     componentController.onValueOptionsModelAdd(renderRow);
-    componentController.onValueOptionsModelRemove( removedModel => {
+    componentController.onValueOptionsModelRemove(removedModel => {
         removeListItemForModel(rootElement)(removedModel);
         componentController.clearOptionSelection();
     });
 
-    componentController.onOptionModelHighlighted((highlightOption) => {
+    componentController.onOptionModelHighlighted(highlightOption => {
         if(!highlightOption.getId().includes("none")){
             rootElement.querySelector(`.highlighted`)?.classList.remove("highlighted");
             rootElement.querySelector(`[id*="${highlightOption.getId().replace(".","-")}"]`)?.classList.add("highlighted");
@@ -87,9 +87,9 @@ const projectOptionsView = (componentController) => {
         });
         componentController
             .getAllOptions()
-            .filter((o) => o.getColumn() < addModel.getColumn())
-            .forEach((option) => {
-                if (!option.getCategories().includes(addModel.getLabel())) {
+            .filter(option => option.getColumn() < addModel.getColumn())
+            .forEach(option => {
+                if (!option.getCategoryLabels().includes(addModel.getLabel())) {
                     removeListItemForModel(rootElement)(option);
                     if(componentController.getSelectedOptionModel() === option){
                         componentController.clearOptionSelection();
@@ -97,26 +97,26 @@ const projectOptionsView = (componentController) => {
                 }
             });
     });
-    componentController.onSelectedCategoryOptionsModelRemove((removeModel) => {
+    componentController.onSelectedCategoryOptionsModelRemove(removeModel => {
         componentController.setHighlightOptionModel(removeModel);
         rootElement.querySelectorAll(`[data-column="${removeModel.getColumn()}"].category-option-item.selected`).forEach(element => {
             element.classList.remove('selected');
         });
         componentController
             .getAllOptions()
-            .filter((o) => o.getColumn() < removeModel.getColumn())
-            .forEach((option) => {
-                if (!option.getCategories().includes(removeModel.getLabel())) {
+            .filter(option => option.getColumn() < removeModel.getColumn())
+            .forEach(option => {
+                if (!option.getCategoryLabels().includes(removeModel.getLabel())) {
                     renderRow(option);
                 }
             });
         // sort options as in ops list // todo later think about sorting
-        const pos = (element) =>
+        const pos = element =>
             componentController
                 .getAllOptions()
-                .map((option) => option.getLabel())
+                .map(option => option.getLabel())
                 .indexOf(element.innerHTML);
-        [...Array(removeModel.getColumn()).keys()].forEach((col) => {
+        [...Array(removeModel.getColumn()).keys()].forEach(col => {
             const container = rootElement.querySelector(`[data-column="${col}"]`);
             const content = [...container.childNodes].sort((a, b) =>
                 (pos(a) < pos(b) ? -1 : (pos(a) > pos(b) ? 1 : 0))
@@ -134,8 +134,8 @@ const projectOptionsView = (componentController) => {
  * Create the detail view, bind against the controller, and return the view.
  * @template _T_
  * @impure - since we change the state of the controller. The DOM remains unchanged.
- * @param  { MasterSelectionControllerType<_T_> } componentController
- * @param  { HTMLElement }                        masterListElement - master container element to toggle in view
+ * @param  { MasterSelectionControllerType } componentController
+ * @param  { HTMLElement }                   masterListElement - master container element to toggle in view
  * @return { [HTMLDivElement] } - detail view
  */
 const projectSelectedValueOptionView = (componentController, masterListElement) => {
@@ -144,7 +144,7 @@ const projectSelectedValueOptionView = (componentController, masterListElement) 
     detailElement.id = "detailContainer";
 
     // bindings
-    componentController.onOptionModelSelected((selectedOptionModel) => {
+    componentController.onOptionModelSelected(selectedOptionModel => {
         detailElement[0].querySelector("input").value = selectedOptionModel.getValue();
         // todo find better way
     });

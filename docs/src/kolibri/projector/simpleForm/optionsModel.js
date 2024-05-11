@@ -8,7 +8,7 @@ export { OptionsModel, CategoryOption, ValueOption, reset, noSelection, selectio
  * @property { () => ?String } getLabel  - visible label of the input
  * @property { () => !String } getId     - unique identifier of the option 
  * @property { () => !Number } getColumn - column of the option in the input
- * @property { () => Array<CategoryOption> } getCategories - categories the option belongs to
+ * @property { () => Array<String> } getCategoryLabels - labels of the categories the option belongs to
  */
 
 /**
@@ -20,10 +20,11 @@ let idCounter = 0;
 
 /**
  * todo think about rename id to qualifier ??
- * @param { String } value 
- * @param { ?String } label - same as value if not defined
- * @param { Array<CategoryOption> } categories 
+ * @private
  * @constructor
+ * @param { String }  value 
+ * @param { ?String } label - same as value if not defined
+ * @param { Array<String> } categoryLabels 
  * column - 0 contains values to send in forms, other columns are filters or categories
  * @returns { (column: Number, isEmpty: Boolean) => OptionType }
  */
@@ -51,21 +52,26 @@ const Option = (value, label, categories = []) => (column = 0, isEmpty = false) 
 
 /**
  * for the moment value options are only in the column 0
- * @param { String } value 
+ * @constructor
+ * @param { String }  value 
  * @param { ?String } label
- * @param { Array<CategoryOption> } categories 
+ * @param { Array<String> } categoryLabels 
  * @returns { OptionType }
+ * @example
+ *      const model = ValueOption("pizza_fungi","Pizza Fungi", ["pizza"]);
  */
 const ValueOption = (value, label, categories) => {
     return Option(value, label, categories)(0);
 };
 
 /**
- * 
- * @param { String } label 
+ * @constructor
+ * @param { String }  label 
  * @param { ?Number } column - default 1
- * @param { Array<CategoryOption> } categories 
+ * @param { Array<String> } categoryLabels 
  * @returns { OptionType }
+ * @example
+ *      const model = CategroyOption("pizza", 1);
  */
 const CategoryOption = (label, column = 1, categories = []) => {
     return Option("", label, categories)(column);

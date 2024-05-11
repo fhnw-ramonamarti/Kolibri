@@ -82,9 +82,8 @@ const removeListItemForModel = (root) => model => {
 
 /**
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
- * @template _T_
- * @param { MasterSelectionControllerType<_T_> }  componentController
- * @param { _T_ }                                 model
+ * @param { MasterSelectionControllerType } componentController
+ * @param { OptionType }                    model
  * @return { HTMLElement[] }
  */
 const projectListItem = (componentController, model) => {
@@ -119,7 +118,7 @@ const projectListItem = (componentController, model) => {
     item.id = elementId(model);
     item.onclick = e => {
         const option = componentController.getAllOptions().filter(i => elementId(i) === e.target.id)[0];
-        if(model.getColumn() == 0){
+        if(model.getColumn() === 0){
             componentController.setSelectedOptionModel(option);
         } else {
             componentController.toggleSelectedCategoryOptionsModel(option);
@@ -136,8 +135,8 @@ const projectListItem = (componentController, model) => {
 /**
  * Creating the views and bindings for an item in the detail view, binding for instant value updates.
  * @template _T_
- * @param {SelectionControllerType<_T_>}    componentController
- * @param { _T_ }                           model
+ * @param { SelectionControllerType } componentController
+ * @param { OptionType }              model
  * @return { HTMLDivElement[] }
  */
 const projectSelectedValueOption = (componentController, model) => {
@@ -211,7 +210,7 @@ const pageCss = `
         }
     }
     .select-column {
-        width:          max-content;
+        width:          fit-content;
         overflow:       scroll;
         height:         ${boxHeight}px;
     }
