@@ -89,7 +89,7 @@ const projectOptionsView = (componentController) => {
             .getAllOptions()
             .filter(option => option.getColumn() < addModel.getColumn())
             .forEach(option => {
-                if (!option.getCategoryLabels().includes(addModel.getLabel())) {
+                if (!option.getCategoryLabels()?.includes(addModel.getLabel())) {
                     removeListItemForModel(rootElement)(option);
                     if(componentController.getSelectedOptionModel() === option){
                         componentController.clearOptionSelection();
@@ -106,7 +106,7 @@ const projectOptionsView = (componentController) => {
             .getAllOptions()
             .filter(option => option.getColumn() < removeModel.getColumn())
             .forEach(option => {
-                if (!option.getCategoryLabels().includes(removeModel.getLabel())) {
+                if (!option.getCategoryLabels()?.includes(removeModel.getLabel())) {
                     renderRow(option);
                 }
             });

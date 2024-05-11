@@ -25,10 +25,10 @@ let idCounter = 0;
  * @param { String }  value 
  * @param { ?String } label - same as value if not defined
  * @param { Array<String> } categoryLabels 
- * column - 0 contains values to send in forms, other columns are filters or categories
+ * column - 0 contains values to send in forms, other columns are categories
  * @returns { (column: Number, isEmpty: Boolean) => OptionType }
  */
-const Option = (value, label, categories = []) => (column = 0, isEmpty = false) => {
+const Option = (value, label, categoryLabels = []) => (column = 0, isEmpty = false) => {
     if(isEmpty){ // todo change id when adding name to component
         const id = "Option.none" ;
         return {
@@ -36,16 +36,16 @@ const Option = (value, label, categories = []) => (column = 0, isEmpty = false) 
             getLabel: () => "",
             getId: () => id,
             getColumn: () => 0,
-            getCategories: () => [],
+            getCategoryLabels: () => [],
         }
     } else {
-        const id = "Option.value" + idCounter++; // todo optimize idenitier 
+        const id = "Option.value" + idCounter++; // todo optimize identifier
         return {
             getValue: () => value,
             getLabel: () => (!label || label === "" ? value : label),
             getId: () => id,
             getColumn: () => column,
-            getCategories: () => categories,
+            getCategoryLabels: () => categoryLabels,
         }
     }
 }
@@ -55,13 +55,13 @@ const Option = (value, label, categories = []) => (column = 0, isEmpty = false) 
  * @constructor
  * @param { String }  value 
  * @param { ?String } label
- * @param { Array<String> } categoryLabels 
+ * @param { ?Array<String> } categoryLabels
  * @returns { OptionType }
  * @example
  *      const model = ValueOption("pizza_fungi","Pizza Fungi", ["pizza"]);
  */
-const ValueOption = (value, label, categories) => {
-    return Option(value, label, categories)(0);
+const ValueOption = (value, label, categoryLabels = []) => {
+    return Option(value, label, categoryLabels)(0);
 };
 
 /**
@@ -71,16 +71,17 @@ const ValueOption = (value, label, categories) => {
  * @param { Array<String> } categoryLabels 
  * @returns { OptionType }
  * @example
- *      const model = CategroyOption("pizza", 1);
+ *      const model = CategoryOption("pizza", 1);
  */
-const CategoryOption = (label, column = 1, categories = []) => {
-    return Option("", label, categories)(column);
+const CategoryOption = (label, column = 1, categoryLabels = []) => {
+    return Option("", label, categoryLabels)(column);
 };
 
 /**
  * @typedef OptionsModelType
- * @property { () => Array<OptionType>          } getList    - copy of inner list with all the options
- * @property { () => ObservableList<OptionType> } getObsList - observable list with all the options
+ * @template _T_
+ * @property { () => Array<_T_>           } getList    - copy of inner list with all the options
+ * @property { () => IObservableList<_T_> } getObsList - observable list with all the options
  */
 
 /**
@@ -88,7 +89,8 @@ const CategoryOption = (label, column = 1, categories = []) => {
  * a single HTML Selection or Datalist Input.
  * For a single input, it does not need any parameters.
  * @constructor
- * @return { OptionsModelType }
+ * @template _T_
+ * @return { OptionsModelType<_T_> }
  * @example
  *      const model = OptionsModel();
  */
@@ -104,31 +106,31 @@ const OptionsModel = () => {
 
 
 /**
- * Creates a signle empty option
+ * Creates a single empty option
  * @returns { OptionType }
  */
 const reset = () => {
-    return Option("")(0, true);
+    return Option("", "")(0, true);
 };
 
 
 /**
  * Representing a selection when no option selected.
  * @private
+ * @return { OptionType }
  */
 const createNoSelection = () => {
-    const result = reset();
-    return result
+    return reset()
 };
 const noSelection = createNoSelection(); // the value to pass around, its id might get changed
 
 
 /**
- * Used for selection of a signle option
+ * Used for selection of a single option
  */
 const selectionMold = reset();
 
 /**
- * Used for highlight of a signle option
+ * Used for highlight of a single option
  */
 const highlightMold = reset();

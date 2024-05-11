@@ -76,33 +76,33 @@ const SelectionController = model => {
 /**
  * @typedef MasterSelectionControllerType
  * @property { () => String }                   getLabel
- * @property { () => void }                     setLabel
- * @property { (cb: ConsumerType<String>) => void }            onLabelChange
+ * @property { (String) => void }               setLabel
+ * @property { (cb: ValueChangeCallback<String>) => void }     onLabelChange
 
  * @property { () => String }                   getName
- * @property { () => void }                     setName
- * @property { (cb: ConsumerType<String>) => void }            onNameChange
+ * @property { (String) => void }               setName
+ * @property { (cb: ValueChangeCallback<String>) => void }     onNameChange
 
  * @property { () => Boolean }                  isOptionsVisible
- * @property { () => void }                     setOptionsVisibility
- * @property { (cb: ConsumerType<Boolean>) => void }           onOptionsVisibilityChange
+ * @property { (Boolean) => void }              setOptionsVisibility
+ * @property { (cb: ValueChangeCallback<Boolean>) => void }    onOptionsVisibilityChange
  * @property { ()  => Array<OptionType> }       getAllOptions
 
  * @property { ()  => Array<OptionType> }       getValueOptions
- * @property { (OptionType) => void }           addValueOptionsModel
+ * @property { (ValueOptionDataType) => void }  addValueOptionsModel
  * @property { (OptionType) => void }           removeValueOptionsModel
  * @property { (cb: ConsumerType<OptionType>) => void }        onValueOptionsModelAdd
  * @property { (cb: ConsumerType<OptionType>) => void }        onValueOptionsModelRemove
 
  * @property { (col: Number)  => Array<OptionType> }           getCategoryOptions
- * @property { (OptionType) => void }           addCategoryOptionsModel
+ * @property { (CategoryOptionDataType) => void }              addCategoryOptionsModel
  * @property { (OptionType) => void }           removeCategoryOptionsModel
  * @property { (cb: ConsumerType<OptionType>) => void }        onCategoryOptionsModelAdd
  * @property { (cb: ConsumerType<OptionType>) => void }        onCategoryOptionsModelRemove
 
  * @property { () => Boolean }                  isSelectedOptionVisible
- * @property { () => void }                     setSelectedOptionVisibility
- * @property { (cb: ConsumerType<Boolean>) => void }           onSelectedOptionVisibilityChange
+ * @property { (Boolean) => void }              setSelectedOptionVisibility
+ * @property { (cb: ValueChangeCallback<Boolean>) => void }    onSelectedOptionVisibilityChange
 
  * @property { ()  => OptionType }              getSelectedOptionModel
  * @property { (OptionType) => void }           setSelectedOptionModel
@@ -111,9 +111,14 @@ const SelectionController = model => {
 
  * @property { ()  => Array<OptionType> }       getSelectedCategoryOptions
  * @property { (OptionType) => void }           toggleSelectedCategoryOptionsModel
- * @property { ()  => void }                    clearSelectedCategoryOptions
+ * @property { ()  => void }                    clearCategoryOptionsSelection
  * @property { (cb: ConsumerType<OptionType>) => void }        onSelectedCategoryOptionsModelAdd
  * @property { (cb: ConsumerType<OptionType>) => void }        onSelectedCategoryOptionsModelRemove
+
+ * @property { ()  => OptionType }              getHighlightOptionModel
+ * @property { (OptionType) => void }           setHighlightOptionModel
+ * @property { ()  => void }                    clearOptionHighlight
+ * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionModelHighlighted
  */
 
 /**
@@ -140,8 +145,8 @@ const MasterSelectionController = (
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(true); // todo change after development to false
 
-    const nameObs  = Observable(name); // todo test name , label
-    const labelObs = Observable(label);
+    const nameObs  = Observable(name ?? ""); // todo test name , label
+    const labelObs = Observable(label ?? "");
 
     // at the moment fixed to these values
     const supportTypeOfCategoryOptions = Observable(FILTER); // todo add functionality
@@ -195,11 +200,19 @@ const MasterSelectionController = (
         }
     };
 
+    /**
+     *
+     * @param { ConsumerType<OptionType> } cb
+     */
     const onCategoryOptionsModelAdd = (cb) => {
         categoryCallbacks.add.push(cb);
         optionControllerList.slice(1).forEach(controller => controller.onModelAdd(cb));
     };
 
+    /**
+     *
+     * @param { ConsumerType<OptionType> } cb
+     */
     const onCategoryOptionsModelRemove = (cb) => {
         categoryCallbacks.remove.push(cb);
         optionControllerList.slice(1).forEach(controller => controller.onModelRemove(cb));
@@ -245,7 +258,7 @@ const MasterSelectionController = (
         }
     };
 
-    const clearSelectedCategoryOptions = () => {
+    const clearCategoryOptionsSelection = () => {
         selectedCategoryOptions.getList().forEach(option => {
             selectedCategoryOptions.removeModel(option);
         });
@@ -303,21 +316,22 @@ const MasterSelectionController = (
         setSelectedOptionVisibility     : selectedOptionVisibility.setValue,
         onSelectedOptionVisibilityChange: selectedOptionVisibility.onChange,
 
-        setSelectedOptionModel: selectedOptionController.setSelectedModel,
         getSelectedOptionModel: selectedOptionController.getSelectedModel,
-        onOptionModelSelected : selectedOptionController.onModelSelected,
+        setSelectedOptionModel: selectedOptionController.setSelectedModel,
         clearOptionSelection  : selectedOptionController.clearSelection,
+        onOptionModelSelected : selectedOptionController.onModelSelected,
 
-        getSelectedCategoryOptions           : selectedCategoryOptions.getList,
-        toggleSelectedCategoryOptionsModel   : toggleSelectedCategoryOptionsModel,
-        clearSelectedCategoryOptionsSelection: clearSelectedCategoryOptions,
-        onSelectedCategoryOptionsModelAdd    : selectedCategoryOptions.onModelAdd,
-        onSelectedCategoryOptionsModelRemove : selectedCategoryOptions.onModelRemove,
+        // special master functionality
+        getSelectedCategoryOptions          : selectedCategoryOptions.getList,
+        toggleSelectedCategoryOptionsModel  : toggleSelectedCategoryOptionsModel,
+        clearCategoryOptionsSelection       : clearCategoryOptionsSelection,
+        onSelectedCategoryOptionsModelAdd   : selectedCategoryOptions.onModelAdd,
+        onSelectedCategoryOptionsModelRemove: selectedCategoryOptions.onModelRemove,
 
-        setHighlightOptionModel : highlightOptionController.setSelectedModel,
         getHighlightOptionModel : highlightOptionController.getSelectedModel,
-        onOptionModelHighlighted: highlightOptionController.onModelSelected,
+        setHighlightOptionModel : highlightOptionController.setSelectedModel,
         clearOptionHighlight    : highlightOptionController.clearSelection,
+        onOptionModelHighlighted: highlightOptionController.onModelSelected,
     };
 };
 

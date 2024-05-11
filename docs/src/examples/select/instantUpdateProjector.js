@@ -107,7 +107,7 @@ const projectListItem = (componentController, model) => {
     const item = document.createElement("div");
     item.setAttribute("data-id",elementId(model));
     item.setAttribute("data-value",model.getValue());
-    item.setAttribute("data-column",model.getColumn());
+    item.setAttribute("data-column", `${model.getColumn()}`);
     item.classList.add("select-item"); // todo better name
     if (model.getColumn() > 0) {
         item.classList.add("category-option-item"); // todo better name
@@ -135,8 +135,8 @@ const projectListItem = (componentController, model) => {
 /**
  * Creating the views and bindings for an item in the detail view, binding for instant value updates.
  * @template _T_
- * @param { SelectionControllerType } componentController
- * @param { OptionType }              model
+ * @param { MasterSelectionControllerType } componentController
+ * @param { OptionType }                    model
  * @return { HTMLDivElement[] }
  */
 const projectSelectedValueOption = (componentController, model) => {
@@ -160,7 +160,7 @@ const projectSelectedValueOption = (componentController, model) => {
     clearButton.innerHTML  = "&times;";
     clearButton.onclick = () => {
         componentController.clearOptionSelection();
-        componentController.clearSelectedCategoryOptionsSelection();
+        componentController.clearCategoryOptionsSelection();
     };
     div.querySelector("div > span").append(clearButton);
 
