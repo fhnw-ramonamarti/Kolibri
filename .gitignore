@@ -1,5 +1,6 @@
 # IntelliJ
 **/.idea
+**/workspace.xml
 
 # General
 .DS_Store
