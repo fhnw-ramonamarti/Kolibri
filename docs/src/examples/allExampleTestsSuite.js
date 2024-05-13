@@ -6,6 +6,7 @@ import "./workweek/simpleWeekProjectorTest.js"
 import "./person/personTest.js"
 import "./select-new/optionsModelTest.js"
 import "./select-new/optionsControllerTest.js"
+import "./select-new/columnOptionsProjectorTest.js"
 
 import "./sequence/generators/generatorTest.js"
 import "./sequence/tictactoe/tictactoeTest.js"
