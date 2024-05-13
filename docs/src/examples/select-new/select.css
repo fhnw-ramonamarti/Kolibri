@@ -1,0 +1,35 @@
+@import "../../../css/kolibri-base.css";
+
+body {
+    perspective: 100vw;
+}
+
+.card {
+    transition: all ease-in-out 0.5s;
+    max-width:  40em;
+    margin:     1em auto 2em auto;
+    padding:    2em;
+    box-shadow: var(--kolibri-box-shadow);
+}
+
+h1 {
+    text-align:  center;
+    font-family: var(--font-sans-serif);
+    margin-top:  0;
+}
+
+.holder {
+    margin: 0 3em;
+    border: 1px solid #ccc;
+}
+
+#component {
+    min-width:  120px;
+    width:      fit-content;
+    margin:     auto;
+
+    > div {
+        margin: 0;
+        width:  100%;
+    }
+}

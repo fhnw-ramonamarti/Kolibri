@@ -10,9 +10,9 @@ export {
 
 /**
  * @typedef OptionType
- * @property { () => !String } getValue  - selectable value of the input
- * @property { () => ?String } getLabel  - visible label of the input
- * @property { () => !String } getId     - unique identifier of the option 
+ * @property { () => String } getValue  - selectable value of the input
+ * @property { () => String } getLabel  - visible label of the input
+ * @property { () => String } getId     - unique identifier of the option 
  */
 
 
