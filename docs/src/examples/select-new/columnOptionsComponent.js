@@ -1,12 +1,18 @@
-import { OptionsController, SelectedOptionController } from "./optionsController";
+import { projectColumnOptionsView }                    from "./columnOptionsProjector.js";
+import { OptionsController, SelectedOptionController } from "./optionsController.js";
+import { reset } from "./optionsModel.js";
 
 export { ColumnOptionsComponent };
 
 /**
  * @typedef ColumnOptionsComponentType
- * @property { (OptionType) => void } addOption
- * @property { (OptionType) => void } delOption
+ * @property { (OptionType) => void }        addOption
+ * @property { (OptionType) => void }        delOption
+ * @property { (Array<OptionType>) => void } replaceOptions
 
+ * @property { ()  => OptionType }                             getSelectedOption
+ * @property { (OptionType)  => void }                         setSelectedOption
+ * @property { ()  => void }                                   clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
 
  * @property { () => HTMLDivElement } getColumnView
@@ -15,22 +21,41 @@ export { ColumnOptionsComponent };
 /**
  * 
  * @param { SelectedOptionControllerType } cursorPositionController 
+ * @param { ?Number }                      columnNumber 
  */
-const ColumnOptionsComponent = (cursorPositionController) => {
+const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const optionsController        = OptionsController();
     const selectedOptionController = SelectedOptionController();
     
     const columnView = projectColumnOptionsView(
         optionsController,
         selectedOptionController,
-        cursorPositionController
+        cursorPositionController,
+        columnNumber
     );
 
-    return {
-        addOption       : optionsController.addOptions,
-        delOption       : optionsController.delOptions,
+    /**
+     * 
+     * @param { Array<OptionType> } options 
+     */
+    const replaceOptions = (options) => {
+        optionsController.getOptions().forEach(option => {
+            optionsController.delOption(option);
+        });
+        options.forEach(option => {
+            optionsController.addOption(option);
+        });
+    }
 
-        onOptionSelected: selectedOptionController.onOptionSelected,
+    return {
+        addOption     : optionsController.addOption,
+        delOption     : optionsController.delOption,
+        replaceOptions: replaceOptions,
+
+        getSelectedOption  : selectedOptionController.getSelectedOption,
+        setSelectedOption  : selectedOptionController.setSelectedOption,
+        clearSelectedOption: selectedOptionController.clearSelectedOption,
+        onOptionSelected   : selectedOptionController.onOptionSelected,
         
         getColumnView   : () => columnView,
     }
