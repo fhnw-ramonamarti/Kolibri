@@ -41,7 +41,7 @@ const OptionsController = () => {
  * @property { ()  => OptionType }                             getSelectedOption
  * @property { (OptionType) => void }                          setSelectedOption
  * @property { () => void }                                    clearSelectedOption
- * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelection
+ * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
  */
 
 /**
@@ -58,6 +58,6 @@ const SelectedOptionController = () => {
         getSelectedOption  : selectedOptionModel.getSelectedOption,
         setSelectedOption  : selectedOptionModel.setSelectedOption,
         clearSelectedOption: selectedOptionModel.clearSelectedOption,
-        onOptionSelection  : selectedOptionModel.onOptionSelected,
+        onOptionSelected   : selectedOptionModel.onOptionSelected,
     }
 };

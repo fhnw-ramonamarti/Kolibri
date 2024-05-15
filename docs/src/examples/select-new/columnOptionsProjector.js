@@ -53,8 +53,8 @@ const projectColumnOptionsView = (
 
     optionsController.onOptionAdd(renderRow);
     optionsController.onOptionDel(removeOptionItem(columnContainer));
-    selectedOptionController.onOptionSelection(selectOptionItem(columnContainer));
-    cursorPositionController?.onOptionSelection(cursorPositionItem(columnContainer));
+    selectedOptionController.onOptionSelected(selectOptionItem(columnContainer));
+    cursorPositionController?.onOptionSelected(cursorPositionItem(columnContainer));
 
     return [columnContainer];
 };
