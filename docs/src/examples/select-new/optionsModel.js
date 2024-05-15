@@ -17,7 +17,7 @@ export {
 
 
 /**
- * Internal, mutable, singleton state to make Option id unique.
+ * Internal, mutable, singleton state to make option id unique.
  * @private
  */
 let idCounter = 0;
@@ -109,9 +109,9 @@ const reset = () => {
 
 /**
  * @typedef SelectedOptionModelType
- * @property { ()  => OptionType }              getSelectedOption
- * @property { (OptionType) => void }           setSelectedOption
- * @property { ()  => void }                    clearSelectedOption
+ * @property { ()  => OptionType }                             getSelectedOption
+ * @property { (OptionType) => void }                          setSelectedOption
+ * @property { ()  => void }                                   clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
  */
 

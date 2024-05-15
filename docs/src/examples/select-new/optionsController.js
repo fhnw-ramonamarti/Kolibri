@@ -4,11 +4,11 @@ export { OptionsController, SelectedOptionController };
 
 /**
  * @typedef OptionsControllerType
- * @property { () => Array<OptionType> }               getOptions
- * @property { (model:OptionType) => void }            addOption
- * @property { (model:OptionType) => void }            delOption
- * @property { (cb:ConsumerType<OptionType>) => void } onOptionAdd
- * @property { (cb:ConsumerType<OptionType>) => void } onOptionDel
+ * @property { () => Array<OptionType> }                getOptions
+ * @property { (OptionType) => void }                   addOption
+ * @property { (OptionType) => void }                   delOption
+ * @property { (cb: ConsumerType<OptionType>) => void } onOptionAdd
+ * @property { (cb: ConsumerType<OptionType>) => void } onOptionDel
  */
 
 /**
@@ -38,16 +38,15 @@ const OptionsController = () => {
 
 /**
  * @typedef SelectedOptionControllerType
- * @property { ()  => OptionType }        getSelectedOption
- * @property { (OptionType) => void }     setSelectedOption
- * @property { () => void }               clearSelectedOption
+ * @property { ()  => OptionType }                             getSelectedOption
+ * @property { (OptionType) => void }                          setSelectedOption
+ * @property { () => void }                                    clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelection
  */
 
 /**
  * SelectedOptionController takes a {@link SelectedOptionModel} that will serve 
  * as a representation of a selection.
- * Listeners to selection changes will react by synchronizing with the selection.
  * @return { SelectedOptionControllerType }
  * @constructor
  */

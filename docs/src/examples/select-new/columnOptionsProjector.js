@@ -20,15 +20,17 @@ const elementId = (option) =>
 
 
 /**
- * Create the master view, bind against the controller, and return the view.
+ * Create the column view, bind against the controllers, and return the view.
  * @param { OptionsController }        optionsController
  * @param { SelectedOptionController } selectedOptionController
+ * @param { SelectedOptionController } cursorPositionController
  * @param { ?Number }                  columnNumber
  * @return { [HTMLDivElement] } - column view
  */
 const projectColumnOptionsView = (
     optionsController,
     selectedOptionController,
+    cursorPositionController,
     columnNumber = 0
 ) => {
     const columnContainer = document.createElement("div");
@@ -52,6 +54,7 @@ const projectColumnOptionsView = (
     optionsController.onOptionAdd(renderRow);
     optionsController.onOptionDel(removeOptionItem(columnContainer));
     selectedOptionController.onOptionSelection(selectOptionItem(columnContainer));
+    cursorPositionController?.onOptionSelection(cursorPositionItem(columnContainer));
 
     return [columnContainer];
 };
@@ -80,12 +83,33 @@ const projectOption = (selectedOptionController, option, optionType) => {
 };
 
 /**
- * When a selection changes, the change must become visible in the master view.
- * The old selected model must be deselected, the new one selected.
+ * When the cursor position changes, the change must become visible in the column view.
+ * The old cursor position must be deselected, the new one selected.
  * @param { HTMLElement } root
- * @return { (newModel: OptionType, oldModel: OptionType) => void}
+ * @return { (newOption: OptionType, oldOption: OptionType) => void}
+ */
+const cursorPositionItem = (root) => (newOption, oldOption) => {
+    const oldId = elementId(oldOption);
+    const oldItem = root.querySelector(`[data-id=${oldId}]`);
+    if (oldItem) {
+        oldItem.classList.remove("cursor-position");
+    }
+    const newId = elementId(newOption);
+    const newItem = root.querySelector(`[data-id=${newId}]`);
+    if (newItem) {
+        newItem.classList.add("cursor-position");
+    }
+};
+
+/**
+ * When a selection changes, the change must become visible in the column view.
+ * The old selected option must be deselected, the new one selected.
+ * The cursor position is updated too.
+ * @param { HTMLElement } root
+ * @return { (newOption: OptionType, oldOption: OptionType) => void}
  */
 const selectOptionItem = (root) => (newOption, oldOption) => {
+    cursorPositionItem(root)(newOption, oldOption);
     const oldId = elementId(oldOption);
     const oldItem = root.querySelector(`[data-id=${oldId}]`);
     if (oldItem) {
@@ -99,9 +123,9 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
 };
 
 /**
- * When a model is removed from the master view, the respective view elements must be removed as well.
+ * When a model is removed from the column view, the respective view elements must be removed as well.
  * @param { HTMLElement } root
- * @return { (model: OptionType) => void }
+ * @return { (option: OptionType) => void }
  */
 const removeOptionItem = (root) => option => {
     const id = elementId(option);
@@ -112,7 +136,7 @@ const removeOptionItem = (root) => option => {
 };
 
 /** 
- * Height of the master list box
+ * Height of the column box
  * @private
  */
 const boxHeight = 240;

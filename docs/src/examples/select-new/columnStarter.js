@@ -4,8 +4,13 @@ import { ValueOption }                                 from "./optionsModel.js";
 
 const optionsController = OptionsController();
 const selectedOptionController = SelectedOptionController();
+const cursorPositionController = SelectedOptionController();
 
-const columnView = projectColumnOptionsView(optionsController, selectedOptionController);
+const columnView = projectColumnOptionsView(
+    optionsController,
+    selectedOptionController,
+    cursorPositionController
+);
 document.getElementById("component").append(...columnView);
 
 const selectedValue = ValueOption("selected");

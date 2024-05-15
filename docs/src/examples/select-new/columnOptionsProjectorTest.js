@@ -3,20 +3,25 @@ import { projectColumnOptionsView } from "./columnOptionsProjector.js";
 import { OptionsController, SelectedOptionController } from "./optionsController.js";
 import { ValueOption, reset } from "./optionsModel.js";
 
-const xProjectorSuite = TestSuite("projector/simpleForm/columnOptionsProjector");
+const columnOptionsProjectorSuite = TestSuite("projector/simpleForm/columnOptionsProjector");
 
 /**
  * The purpose of this binding spike is not to test all possible user interactions and their outcome but rather
  * making sure that the view construction and the binding is properly set up.
  * Complex logic is to be tested against the controller (incl. model).
  */
-xProjectorSuite.add("binding-column-selection", (assert) => {
+columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     // prepare
     const selectedOption = ValueOption("selected value", "selected label");
     const option = ValueOption("option");
     const optionsController = OptionsController();
     const selectedOptionController = SelectedOptionController();
-    const [columnView] = projectColumnOptionsView(optionsController, selectedOptionController);
+    const cursorPositionController = SelectedOptionController();
+    const [columnView] = projectColumnOptionsView(
+        optionsController,
+        selectedOptionController,
+        cursorPositionController
+    );
 
     // add options
     optionsController.addOption(selectedOption);
@@ -36,4 +41,4 @@ xProjectorSuite.add("binding-column-selection", (assert) => {
     assert.is(selectedElement.getAttribute("data-value")    , selectedOption.getValue());
 });
 
-xProjectorSuite.run();
+columnOptionsProjectorSuite.run();
