@@ -20,15 +20,16 @@ h1 {
 
 .holder {
     margin: 0 3em;
-}
-
-#component {
     min-width:  150px;
     width:      fit-content;
-    margin:     auto;
+    margin:     1rem auto;
 
     > div {
         margin: 0;
         width:  100%;
     }
+}
+
+#componentCountry {
+    min-width:  300px;
 }

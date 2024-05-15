@@ -49,6 +49,7 @@ const projectColumnOptionsView = (
         const optionType = columnNumber === 0 ? "value" : "category";
         const [rowElement] = projectOption(selectedOptionController, option, optionType);
         columnContainer.append(rowElement);
+        console.log(columnContainer, rowElement, );
         if(selectedOptionController.getSelectedOption().getLabel() === option.getLabel() &&
             selectedOptionController.getSelectedOption().getValue() === option.getValue()) {
             selectOptionItem(columnContainer)(option, option);

@@ -25,9 +25,13 @@ const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
     optionsContainer.id = selectController.getId() + "-options";
     optionsContainer.classList.add(optionsClassName);
+    optionsContainer.setAttribute(
+        "style",
+        "z-index:" + Math.max(50, 90 - Number(selectController.getId().replace(/\D*/, "")))
+    );
 
-    [...Array(selectController.getNumberColumns()).keys()].reverse().forEach((colIndex) => {
-        const column = selectController.getColumnOptionsComponent(colIndex).getColumnView();
+    [...Array(selectController.getNumberColumns()).keys()].reverse().forEach((col) => {
+        const column = selectController.getColumnOptionsComponent(col).getColumnView();
         optionsContainer.append(...column);
     });
 
@@ -42,9 +46,9 @@ const projectOptionsView = (selectController) => {
 const projectSelectedValueOptionView = (selectController) => {
     const rootElement = document.createElement("div");
     rootElement.classList.add(selectedOptionClassName);
+    rootElement.id = selectController.getId() + "-selected-option";
     
     const selectedOptionContainer = document.createElement("div");
-    selectedOptionContainer.id = selectController.getId() + "-selected-option";
     selectedOptionContainer.classList.add("toggleButton");
     selectedOptionContainer.classList.add("selected-value");
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
@@ -103,7 +107,7 @@ const projectSelectViews = (selectController) => {
         inputController,
         selectedOptionClassName
     );
-    const inputElement = inputSpan.firstChild;
+    const inputElement = inputSpan.querySelector("input");
     rootElement.append(labelElement);
     rootElement.append(inputElement);
     rootElement.append(componentContainer);
@@ -143,6 +147,8 @@ const pageCss = `
         position:       absolute;
         left:           0;
         background:     #fff;
+        z-index:        50;
+        overflow:       hidden;
     }
     .${selectedOptionClassName} {
         position:       relative;

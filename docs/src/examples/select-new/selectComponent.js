@@ -20,20 +20,23 @@ const SelectComponent = (selectAttribute, columnCbs) => {
     const [component, selectionElement] = projectSelectViews(selectController);
 
     columnCbs.forEach((cb, col) => {
+        console.log(cb(), col);
         cb().forEach(e => {
-            const option = col ? mapToCategoryOption(e) : mapToValueOption(e, e);
+            const option = col !== 0 ? mapToCategoryOption(e) : mapToValueOption(e, e);
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
     });
 
     selectController.getColumnOptionsComponent(0).onOptionSelected(option => {
         selectionElement.innerHTML = option.getLabel();
+        component.querySelector("[type='hidden']").value = option.getValue();
         component.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
-    selectController.getColumnOptionsComponent(1).onOptionSelected(option => {
+    selectController.getColumnOptionsComponent(1)?.onOptionSelected(option => {
         const selectedOption = selectController.getColumnOptionsComponent(0).getSelectedOption();
-        const options = columnCbs[0](option.getLabel()).map(value => mapToValueOption(value));
+        const searchCategory = option.getLabel() === "" ? null : option.getLabel();
+        const options = columnCbs[0](searchCategory).map(value => mapToValueOption(value));
         selectController.getColumnOptionsComponent(0).replaceOptions(options);
         if (!options.map(o => o.getValue()).includes(selectedOption.getValue())) {
             selectController.clearSelectedValueOption();
