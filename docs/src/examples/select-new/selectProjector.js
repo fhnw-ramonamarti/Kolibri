@@ -37,14 +37,40 @@ const projectOptionsView = (selectController) => {
 /**
  *
  * @param { SelectControllerType } selectController
- * @return { [HTMLDivElement] } - selected option view
+ * @return { [HTMLDivElement, HTMLDivElement, HTMLButtonElement] } - selected option view
  */
 const projectSelectedValueOptionView = (selectController) => {
+    const rootElement = document.createElement("div");
+    rootElement.classList.add(selectedOptionClassName);
+    
     const selectedOptionContainer = document.createElement("div");
     selectedOptionContainer.id = selectController.getId() + "-selected-option";
-    selectedOptionContainer.classList.add(selectedOptionClassName);
+    selectedOptionContainer.classList.add("toggleButton");
+    selectedOptionContainer.classList.add("selected-value");
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
-    return [selectedOptionContainer];
+    selectedOptionContainer.onclick = (_) => {
+        selectController.setOptionsVisibility(!selectController.isOptionsVisible());
+    };
+    rootElement.append(selectedOptionContainer);
+
+    const clearButton = document.createElement("button");
+    clearButton.classList.add("clearButton");
+    clearButton.classList.add("clear");
+    clearButton.innerHTML  = "&times;";
+    clearButton.onclick = () => {
+        selectController.clearSelectedValueOption();
+    };
+    rootElement.append(clearButton);
+
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("toggleButton");
+    toggleButton.innerHTML  = "&varr;";
+    toggleButton.onclick = (_) => {
+        selectController.setOptionsVisibility(!selectController.isOptionsVisible());
+    };
+    rootElement.append(toggleButton);
+
+    return [rootElement, selectedOptionContainer, toggleButton];
 };
 
 /**
@@ -53,16 +79,17 @@ const projectSelectedValueOptionView = (selectController) => {
  * @return { [HTMLDivElement, HTMLDivElement] } - combined views
  */
 const projectSelectViews = (selectController) => {
-    const allOptions       = projectOptionsView(selectController);
-    const selectedOption   = projectSelectedValueOptionView(selectController);
+    const allOptionsElement = projectOptionsView(selectController);
+    const [selectedOptionElement, selectedOptionLabelElement, toggleButton] =
+        projectSelectedValueOptionView(selectController);
 
     const rootElement = document.createElement('div');
     rootElement.classList.add(selectClassName);
 
     const componentContainer = document.createElement('div');
     componentContainer.classList.add(inputComponentClassName);
-    componentContainer.append(...selectedOption);
-    componentContainer.append(...allOptions);
+    componentContainer.append(selectedOptionElement);
+    componentContainer.append(...allOptionsElement);
 
     // input and label
     const simpleInputStructure = SimpleInputModel({
@@ -81,7 +108,13 @@ const projectSelectViews = (selectController) => {
     rootElement.append(inputElement);
     rootElement.append(componentContainer);
 
-    return [rootElement, selectedOption];
+    selectController.onOptionsVisibilityChange(value => {
+        allOptionsElement[0].classList.toggle("hidden", !value);
+        selectedOptionElement.classList.toggle("opened", value);
+        // toggleButton.innerHTML = value ? "^" : "v";
+    });
+
+    return [rootElement, selectedOptionLabelElement];
 };
 
 
@@ -106,7 +139,10 @@ const pageCss = `
         width:          100%;
         max-height:     ${boxHeight}px;
         border-radius:  0 0 4px 4px;
-        border-top:     1px solid #ccc; /* todo */
+        border:         1px solid #ccc; /* todo */
+        position:       absolute;
+        left:           0;
+        background:     #fff;
     }
     .${selectedOptionClassName} {
         position:       relative;
@@ -115,8 +151,38 @@ const pageCss = `
         padding:        0.5em;
         width:          100%;
         height:         2rem;
+
+        .selected-value {
+            width:      100%;
+        }
+
+        .clear {
+            color:              var(--kolibri-color-accent);
+        }
+        
+        button.toggleButton, 
+        .clear {
+            background-color:   transparent;
+            border:             none;
+            font-size:          1.3em;
+        } 
     }
     .${inputComponentClassName} {
         border:         1px solid #ccc; /* todo */
+        border-radius:  4px;
+        
+        &.opened {
+            border-radius: 4px 4px 0 0;
+        }
+
+        .selected-value {
+            height:     100%;
+        }
+    }
+    .${selectClassName} {
+        position:       relative;
+    }
+    .hidden {
+        display:        none;
     }
 `;

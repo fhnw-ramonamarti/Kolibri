@@ -27,7 +27,8 @@ const SelectComponent = (selectAttribute, columnCbs) => {
     });
 
     selectController.getColumnOptionsComponent(0).onOptionSelected(option => {
-        selectionElement[0].innerHTML = option.getLabel();
+        selectionElement.innerHTML = option.getLabel();
+        component.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
     selectController.getColumnOptionsComponent(1).onOptionSelected(option => {

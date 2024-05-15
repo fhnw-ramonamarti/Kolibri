@@ -33,6 +33,14 @@ let idCounter = 0;
  * @property { (String) => void }               setName
  * @property { (cb: ValueChangeCallback<String>) => void }     onNameChange
 
+ * @property { () => Boolean }                  isOptionsVisible
+ * @property { (Boolean) => void }              setOptionsVisibility
+ * @property { (cb: ValueChangeCallback<Boolean>) => void }    onOptionsVisibilityChange
+
+ * @property { () => Boolean }                  isSelectedOptionVisible
+ * @property { (Boolean) => void }              setSelectedOptionVisibility
+ * @property { (cb: ValueChangeCallback<Boolean>) => void }    onSelectedOptionVisibilityChange
+
  * @property { ()  => OptionType }              getCursorPosition
  * @property { (OptionType) => void }           setCursorPosition
  * @property { () => void }                     clearCursorPosition
@@ -57,6 +65,9 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
     const cursorPositionController = SelectedOptionController(reset());
     const columns = Array(numberColumns).fill("").map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
 
+    const selectedOptionVisibility  = Observable(true);
+    const optionsVisibility         = Observable(true); // todo change after development to false
+
     const nameObs  = Observable(name);
     const labelObs = Observable(label);
 
@@ -71,11 +82,19 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
         getName     : nameObs.getValue,
         setName     : nameObs.setValue,
         onNameChange: nameObs.onChange,
+
+        isOptionsVisible         : optionsVisibility.getValue,
+        setOptionsVisibility     : optionsVisibility.setValue,
+        onOptionsVisibilityChange: optionsVisibility.onChange,
+
+        isSelectedOptionVisible         : selectedOptionVisibility.getValue,
+        setSelectedOptionVisibility     : selectedOptionVisibility.setValue,
+        onSelectedOptionVisibilityChange: selectedOptionVisibility.onChange,
         
-        getCursorPosition        : cursorPositionController.getSelectedOption,
-        setCursorPosition        : cursorPositionController.setSelectedOption,
-        clearCursorPosition      : cursorPositionController.clearSelectedOption,
-        onCursorPositionChanged  : cursorPositionController.onOptionSelected,
+        getCursorPosition      : cursorPositionController.getSelectedOption,
+        setCursorPosition      : cursorPositionController.setSelectedOption,
+        clearCursorPosition    : cursorPositionController.clearSelectedOption,
+        onCursorPositionChanged: cursorPositionController.onOptionSelected,
 
         getSelectedValueOption   : columns[0].getSelectedOption,
         setSelectedValueOption   : columns[0].setSelectedOption,

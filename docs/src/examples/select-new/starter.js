@@ -6,7 +6,7 @@ import { SelectComponent, pageCss }                      from "./selectComponent
  */
 const selectAttribute = {
     name: "name",
-    label: "Label",
+    label: "Years",
     numberColumns: 2
 };
 /**
