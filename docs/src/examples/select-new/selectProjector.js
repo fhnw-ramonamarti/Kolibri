@@ -1,4 +1,14 @@
-export { projectOptionsView, projectSelectedValueOptionView, pageCss };
+import { SimpleAttributeInputController } from "../../kolibri/projector/simpleForm/simpleInputController.js";
+import { SimpleInputModel }               from "../../kolibri/projector/simpleForm/simpleInputModel.js";
+import { InputProjector }                 from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
+
+export { projectOptionsView, projectSelectedValueOptionView, projectSelectViews, pageCss };
+
+/** @private */
+const selectClassName = "select-component";
+
+/** @private */
+const inputComponentClassName = "select-input-component";
 
 /** @private */
 const optionsClassName = "options-component";
@@ -37,6 +47,44 @@ const projectSelectedValueOptionView = (selectController) => {
     return [selectedOptionContainer];
 };
 
+/**
+ *
+ * @param { SelectControllerType } selectController
+ * @return { [HTMLDivElement, HTMLDivElement] } - combined views
+ */
+const projectSelectViews = (selectController) => {
+    const allOptions       = projectOptionsView(selectController);
+    const selectedOption   = projectSelectedValueOptionView(selectController);
+
+    const rootElement = document.createElement('div');
+    rootElement.classList.add(selectClassName);
+
+    const componentContainer = document.createElement('div');
+    componentContainer.classList.add(inputComponentClassName);
+    componentContainer.append(...selectedOption);
+    componentContainer.append(...allOptions);
+
+    // input and label
+    const simpleInputStructure = SimpleInputModel({
+        label: selectController.getLabel(),
+        value: selectController.getSelectedValueOption().getValue(),
+        name: selectController.getName(),
+        type: "hidden",
+    });
+    const inputController = SimpleAttributeInputController(simpleInputStructure);
+    const [labelElement, inputSpan] = InputProjector.projectInstantInput(
+        inputController,
+        selectedOptionClassName
+    );
+    const inputElement = inputSpan.firstChild;
+    rootElement.append(labelElement);
+    rootElement.append(inputElement);
+    rootElement.append(componentContainer);
+
+    return [rootElement, selectedOption];
+};
+
+
 /** 
  * Height of the master list box
  * @private
@@ -67,5 +115,8 @@ const pageCss = `
         padding:        0.5em;
         width:          100%;
         height:         2rem;
+    }
+    .${inputComponentClassName} {
+        border:         1px solid #ccc; /* todo */
     }
 `;

@@ -1,8 +1,7 @@
-import { CategoryOption, ValueOption }                        from "./optionsModel.js";
-import { SelectController }                                   from "./selectController.js";
-import { projectOptionsView, projectSelectedValueOptionView } from "./selectProjector.js";
-import { pageCss as pageCssColumn }                           from "./columnOptionsProjector.js";
-import { pageCss as pageComponentCss }                        from "./selectProjector.js";
+import { CategoryOption, ValueOption }                     from "./optionsModel.js";
+import { SelectController }                                from "./selectController.js";
+import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
+import { pageCss as pageCssColumn }                        from "./columnOptionsProjector.js";
 
 export { SelectComponent, pageCss };
 
@@ -11,28 +10,24 @@ export { SelectComponent, pageCss };
 
 /**
  * at the moment max 2 columns
- * @param { SelectAttribute } selectAttribute
+ * @param { SelectAttribute }                  selectAttribute
  * @param { Array<(String) => Array<String>> } columnCbs
- * @return { SelectControllerType }
+ * @return { [HTMLElement] }
  * @constructor
  */
 const SelectComponent = (selectAttribute, columnCbs) => {
-    const selectController = SelectController(selectAttribute);
-    const allOptions       = projectOptionsView(selectController);
-    const selectedOption   = projectSelectedValueOptionView(selectController);
-    document.getElementById("component").append(...selectedOption, ...allOptions);
+    const selectController              = SelectController(selectAttribute);
+    const [component, selectionElement] = projectSelectViews(selectController);
 
     columnCbs.forEach((cb, col) => {
         cb().forEach(e => {
-            console.log(e, cb(), col);
             const option = col ? mapToCategoryOption(e) : mapToValueOption(e, e);
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
-        console.log();
     });
 
     selectController.getColumnOptionsComponent(0).onOptionSelected(option => {
-        selectedOption[0].innerHTML = option.getLabel();
+        selectionElement[0].innerHTML = option.getLabel();
     });
 
     selectController.getColumnOptionsComponent(1).onOptionSelected(option => {
@@ -43,12 +38,25 @@ const SelectComponent = (selectAttribute, columnCbs) => {
             selectController.clearSelectedValueOption();
         }
     });
+
+    return [component];
 }
 
+/**
+ * 
+ * @param { String } value 
+ * @param { String } label 
+ * @returns { OptionType }
+ */
 const mapToValueOption = (value, label) => {
     return ValueOption(value, label);
 }
 
+/**
+ * 
+ * @param { String } label 
+ * @returns { OptionType }
+ */
 const mapToCategoryOption = (label) => {
     return CategoryOption(label);
 }
