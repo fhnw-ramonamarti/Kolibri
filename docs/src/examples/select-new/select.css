@@ -14,12 +14,11 @@ body {
 
 h1 {
     text-align:  center;
-    font-family: var(--font-sans-serif);
+    font-family: var(--font-sans-serif), sans-serif;
     margin-top:  0;
 }
 
 .holder {
-    margin: 0 3em;
     min-width:  150px;
     width:      fit-content;
     margin:     1rem auto;

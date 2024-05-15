@@ -1,6 +1,5 @@
 import { projectColumnOptionsView }                    from "./columnOptionsProjector.js";
 import { OptionsController, SelectedOptionController } from "./optionsController.js";
-import { reset } from "./optionsModel.js";
 
 export { ColumnOptionsComponent };
 
@@ -8,7 +7,7 @@ export { ColumnOptionsComponent };
  * @typedef ColumnOptionsComponentType
  * @property { (OptionType) => void }        addOption
  * @property { (OptionType) => void }        delOption
- * @property { (Array<OptionType>) => void } replaceOptions
+ * @property { (ops: Array<OptionType>) => void } replaceOptions
 
  * @property { ()  => OptionType }                             getSelectedOption
  * @property { (OptionType)  => void }                         setSelectedOption

@@ -1,7 +1,6 @@
 import { Observable }               from "../../kolibri/observable.js";
 import { ColumnOptionsComponent }   from "./columnOptionsComponent.js";
 import { SelectedOptionController } from "./optionsController.js";
-import { reset }                    from "./optionsModel.js";
 
 export { SelectController };
 
@@ -17,7 +16,7 @@ let idCounter = 0;
  * @typedef SelectAttribute
  * @property { ?String } label
  * @property { ?String } name
- * @property { ?Number } numberColumns - defaul 1
+ * @property { ?Number } numberColumns - default 1
  */
 
 /**
@@ -49,24 +48,25 @@ let idCounter = 0;
  * @property { () => OptionType }               getSelectedValueOption
  * @property { (OptionType) => void }           setSelectedValueOption
  * @property { () => void }                     clearSelectedValueOption
- * @property { (Number) => ColumnOptionsComponent }            getColumnOptionsComponent
+ * @property { (Number) => ColumnOptionsComponentType }        getColumnOptionsComponent
  */
 
 /**
- * @param { SelectAttribute } numberColumns
+ * @param { SelectAttribute }
  * @return { SelectControllerType }
  * @constructor
  */
 const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
     const id = "select-component-" + idCounter++;
 
+    // beware of negative numbers
     numberColumns = Math.max(numberColumns, 1);
 
-    const cursorPositionController = SelectedOptionController(reset());
+    const cursorPositionController = SelectedOptionController();
     const columns = Array(numberColumns).fill("").map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
 
     const selectedOptionVisibility  = Observable(true);
-    const optionsVisibility         = Observable(true); // todo change after development to false
+    const optionsVisibility         = Observable(false);
 
     const nameObs  = Observable(name);
     const labelObs = Observable(label);

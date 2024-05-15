@@ -20,6 +20,10 @@ const OptionsController = () => {
 
     const optionsModel = OptionsModel();
 
+    /**
+     *
+     * @param { OptionType } option
+     */
     const addOption = (option) => {
         if(!optionsModel.getList().includes(option)){
             optionsModel.getObsList().add(option);

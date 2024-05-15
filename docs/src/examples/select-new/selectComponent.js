@@ -6,7 +6,7 @@ import { pageCss as pageCssColumn }                        from "./columnOptions
 export { SelectComponent, pageCss };
 
 
-// todo type for service cb retrun string or object
+// todo type for service cb rerun string or object
 
 /**
  * at the moment max 2 columns
@@ -20,7 +20,6 @@ const SelectComponent = (selectAttribute, columnCbs) => {
     const [component, selectionElement] = projectSelectViews(selectController);
 
     columnCbs.forEach((cb, col) => {
-        console.log(cb(), col);
         cb().forEach(e => {
             const option = col !== 0 ? mapToCategoryOption(e) : mapToValueOption(e, e);
             selectController.getColumnOptionsComponent(col).addOption(option);

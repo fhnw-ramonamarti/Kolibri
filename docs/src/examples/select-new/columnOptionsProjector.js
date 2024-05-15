@@ -21,10 +21,10 @@ const elementId = (option) =>
 
 /**
  * Create the column view, bind against the controllers, and return the view.
- * @param { OptionsController }        optionsController
- * @param { SelectedOptionController } selectedOptionController
- * @param { SelectedOptionController } cursorPositionController
- * @param { ?Number }                  columnNumber
+ * @param {OptionsControllerType}        optionsController
+ * @param { SelectedOptionControllerType } selectedOptionController
+ * @param { SelectedOptionControllerType } cursorPositionController
+ * @param { Number }                       columnNumber
  * @return { [HTMLDivElement] } - column view
  */
 const projectColumnOptionsView = (
@@ -36,7 +36,7 @@ const projectColumnOptionsView = (
     const columnContainer = document.createElement("div");
     columnContainer.classList.add(columnClassName);
     columnContainer.classList.add(columnClassName + "-" + columnNumber);
-    columnContainer.setAttribute("data-column", columnNumber);
+    columnContainer.setAttribute("data-column", `${columnNumber}`);
 
     if (columnNumber === 0) {
         columnContainer.classList.add("value-" + columnClassName);
@@ -49,7 +49,6 @@ const projectColumnOptionsView = (
         const optionType = columnNumber === 0 ? "value" : "category";
         const [rowElement] = projectOption(selectedOptionController, option, optionType);
         columnContainer.append(rowElement);
-        console.log(columnContainer, rowElement, );
         if(selectedOptionController.getSelectedOption().getLabel() === option.getLabel() &&
             selectedOptionController.getSelectedOption().getValue() === option.getValue()) {
             selectOptionItem(columnContainer)(option, option);
@@ -67,9 +66,9 @@ const projectColumnOptionsView = (
 
 /**
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
- * @param { SelectedOptionController } selectedOptionController
- * @param { OptionType }               option
- * @param { String }                   optionType
+ * @param { SelectedOptionControllerType } selectedOptionController
+ * @param { OptionType }                   option
+ * @param { String }                       optionType
  * @return { Array<HTMLElement> }
  */
 const projectOption = (selectedOptionController, option, optionType) => {
@@ -97,7 +96,7 @@ const projectOption = (selectedOptionController, option, optionType) => {
  * When the cursor position changes, the change must become visible in the column view.
  * The old cursor position must be deselected, the new one selected.
  * @param { HTMLElement } root
- * @return { (newOption: OptionType, oldOption: OptionType) => void}
+ * @return { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const cursorPositionItem = (root) => (newOption, oldOption) => {
     const oldId = elementId(oldOption);
@@ -117,7 +116,7 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
  * The old selected option must be deselected, the new one selected.
  * The cursor position is updated too.
  * @param { HTMLElement } root
- * @return { (newOption: OptionType, oldOption: OptionType) => void}
+ * @return { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const selectOptionItem = (root) => (newOption, oldOption) => {
     cursorPositionItem(root)(newOption, oldOption);
@@ -163,7 +162,7 @@ const pageCss = `
         display: none;
     }
     .${columnClassName} {
-        width:          fit-content;
+        width:          100%;
         overflow:       scroll;
         height:         ${boxHeight}px;
 

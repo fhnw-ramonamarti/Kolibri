@@ -36,6 +36,7 @@ columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     selectedElement.click();
     assert.is(selectedOptionController.getSelectedOption().getValue(), selectedOption.getValue());
 
+    // noinspection PointlessBooleanExpressionJS
     assert.is(selectedElement != null                       , true);
     assert.is(selectedElement.innerHTML                     , selectedOption.getLabel());
     assert.is(selectedElement.getAttribute("data-value")    , selectedOption.getValue());

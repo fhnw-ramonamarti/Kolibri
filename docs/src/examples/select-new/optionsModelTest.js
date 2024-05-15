@@ -14,7 +14,7 @@ optionsModelSuite.add("Value option", (assert) => {
     assert.is(valueOption.getValue(), "value");
     assert.is(valueOption.getLabel(), "label");
 
-    // check undefines label
+    // check undefined label
     const valueOption2 = ValueOption("value");
     assert.is(valueOption2.getValue(), "value");
     assert.is(valueOption2.getLabel(), "value");

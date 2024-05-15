@@ -26,7 +26,7 @@ const getCitiesByCountry = (country) => {
     const data = [
         {country: 'United States',city: "L.A." },
         {country: 'United States',city: "New York" },
-        {country: 'United States',city: "Washinton DC" },
+        {country: 'United States',city: "Washington DC" },
         {country: 'Canada',city: "Ottawa" },
         {country: 'Swiss',city: "Bern" },
         {country: 'Swiss',city: "Zurich" },

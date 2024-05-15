@@ -25,8 +25,8 @@ let idCounter = 0;
 /**
  * @private
  * @constructor
- * @param { String }  value 
- * @param { ?String } label
+ * @param { String } value
+ * @param { String } label
  * @returns { OptionType }
  */
 const Option = (value, label) => {
@@ -50,13 +50,13 @@ const Option = (value, label) => {
 
 /**
  * @constructor
- * @param { String }  value 
- * @param { ?String } label - same as value if not defined
+ * @param { String } value
+ * @param { String } label - same as value if not defined
  * @returns { OptionType }
  * @example
  *      const model = ValueOption("pizza_fungi","Pizza Fungi");
  */
-const ValueOption = (value, label) => {
+const ValueOption = (value, label = "") => {
     return Option(value, !label || label === "" ? value : label);
 };
 
@@ -103,7 +103,7 @@ const OptionsModel = () => {
  * @returns { OptionType }
  */
 const reset = () => {
-    return Option();
+    return Option(null, null);
 };
 
 
