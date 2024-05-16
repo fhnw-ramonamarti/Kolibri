@@ -20,7 +20,7 @@ export { ColumnOptionsComponent };
 /**
  * 
  * @param { SelectedOptionControllerType } cursorPositionController 
- * @param { ?Number }                      columnNumber 
+ * @param { Number }                       columnNumber 
  */
 const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const optionsController        = OptionsController();

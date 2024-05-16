@@ -1,9 +1,7 @@
-import { TestSuite }                                   from "../../kolibri/util/test.js";
-import { projectColumnOptionsView }                    from "./columnOptionsProjector.js";
-import { OptionsController, SelectedOptionController } from "./optionsController.js";
-import { CategoryOption, ValueOption, reset }                          from "./optionsModel.js";
-import { SelectController } from "./selectController.js";
-import { projectSelectViews } from "./selectProjector.js";
+import { TestSuite }                          from "../../kolibri/util/test.js";
+import { CategoryOption, ValueOption, reset } from "./optionsModel.js";
+import { SelectController }                   from "./selectController.js";
+import { projectSelectViews }                 from "./selectProjector.js";
 
 const selectProjectorSuite = TestSuite("projector/simpleForm/selectProjector");
 
@@ -12,7 +10,7 @@ const selectProjectorSuite = TestSuite("projector/simpleForm/selectProjector");
  * making sure that the view construction and the binding is properly set up.
  * Complex logic is to be tested against the controller (incl. model).
  */
-selectProjectorSuite.add("binding-column-selection", (assert) => { // todo
+selectProjectorSuite.add("binding-column-selection", (assert) => {
     // prepare
     const selectAttribute = {name: "Name", label: "Label", numberColumns: 2};
     const selectController = SelectController(selectAttribute);

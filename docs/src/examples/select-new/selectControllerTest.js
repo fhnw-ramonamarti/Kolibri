@@ -4,11 +4,11 @@ import {
     CategoryOption,
     reset
 }                               from "./optionsModel.js";
-import { SelectController } from "./selectController.js";
+import { SelectController }     from "./selectController.js";
 
 const selectControllerSuite = TestSuite("projector/simpleForm/selectController");
 
-selectControllerSuite.add("Select controller - 1 column", (assert) => { // todo
+selectControllerSuite.add("Select controller - 1 column", (assert) => {
     const noSelectionId = reset().getId();
     const selectAttribute = {name: "Name", label: "Label"}
     const controller = SelectController(selectAttribute);
