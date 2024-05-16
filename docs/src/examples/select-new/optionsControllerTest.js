@@ -8,9 +8,9 @@ import {
     reset
 }                               from "./optionsModel.js";
 
-const optionsModelSuite = TestSuite("projector/simpleForm/optionsController");
+const optionsControllerSuite = TestSuite("projector/simpleForm/optionsController");
 
-optionsModelSuite.add("Options controller", (assert) => {
+optionsControllerSuite.add("Options controller", (assert) => {
     const controller = OptionsController();
     assert.is(controller.getOptions().length, 0);
 
@@ -29,7 +29,7 @@ optionsModelSuite.add("Options controller", (assert) => {
     assert.is(controller.getOptions().length, 0);
 });
 
-optionsModelSuite.add("Selected option controller", (assert) => {
+optionsControllerSuite.add("Selected option controller", (assert) => {
     const noSelectionId = reset().getId();
     const controller = SelectedOptionController();
     assert.is(controller.getSelectedOption().getId(), noSelectionId);
@@ -44,4 +44,4 @@ optionsModelSuite.add("Selected option controller", (assert) => {
     assert.is(controller.getSelectedOption().getId(), noSelectionId);
 });
 
-optionsModelSuite.run();
+optionsControllerSuite.run();

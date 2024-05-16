@@ -7,6 +7,8 @@ import "./person/personTest.js"
 import "./select-new/optionsModelTest.js"
 import "./select-new/optionsControllerTest.js"
 import "./select-new/columnOptionsProjectorTest.js"
+import "./select-new/selectControllerTest.js"
+import "./select-new/selectProjectorTest.js"
 
 import "./sequence/generators/generatorTest.js"
 import "./sequence/tictactoe/tictactoeTest.js"

@@ -1,7 +1,7 @@
-import { TestSuite }                                          from "../../kolibri/util/test.js";
-import { projectColumnOptionsView } from "./columnOptionsProjector.js";
+import { TestSuite }                                   from "../../kolibri/util/test.js";
+import { projectColumnOptionsView }                    from "./columnOptionsProjector.js";
 import { OptionsController, SelectedOptionController } from "./optionsController.js";
-import { ValueOption, reset } from "./optionsModel.js";
+import { ValueOption, reset }                          from "./optionsModel.js";
 
 const columnOptionsProjectorSuite = TestSuite("projector/simpleForm/columnOptionsProjector");
 
