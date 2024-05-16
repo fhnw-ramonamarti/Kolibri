@@ -3,6 +3,8 @@ import {
     getContinents,
     getCountriesByContinent,
     getDecades,
+    getMoneyByContinent,
+    getMoneyContinents,
     getYearsByDecade,
 }                                   from "./DataService.js";
 import { SelectComponent, pageCss } from "./selectComponent.js";
@@ -58,5 +60,23 @@ const columnServiceCb3 = [
 ];
 const selectComponent3 = SelectComponent(selectAttribute3, columnServiceCb3);
 document.getElementById("componentContinent").append(...selectComponent3);
+
+/**
+ * @type { SelectAttribute }
+ */
+const selectAttribute4 = {
+    name: "money",
+    label: "Money Img",
+    numberColumns: 2,
+};
+/**
+ * @type { Array<(String) => Array<String|{label: String, value: String}>> }
+ */
+const columnServiceCb4 = [
+    getMoneyByContinent,
+    getMoneyContinents,
+];
+const selectComponent4 = SelectComponent(selectAttribute4, columnServiceCb4);
+document.getElementById("componentImg").append(...selectComponent4);
 
 document.querySelector("head style").textContent += pageCss;

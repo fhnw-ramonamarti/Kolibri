@@ -11,7 +11,7 @@ export { SelectComponent, pageCss };
 /**
  * at the moment max 2 columns
  * @param { SelectAttribute }                  selectAttribute
- * @param { Array<(String) => Array<String>> } columnCbs
+ * @param { Array<(String) => Array<String|{label: String, value: String}>> } columnCbs
  * @return { [HTMLElement] }
  * @constructor
  */
@@ -21,7 +21,7 @@ const SelectComponent = (selectAttribute, columnCbs) => {
 
     columnCbs.forEach((cb, col) => {
         cb().forEach(e => {
-            const option = col !== 0 ? mapToCategoryOption(e) : mapToValueOption(e, e);
+            const option = col !== 0 ? mapToCategoryOption(e) : mapToValueOption(e?.value ?? e, e?.label ?? e);
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
     });
@@ -35,7 +35,7 @@ const SelectComponent = (selectAttribute, columnCbs) => {
     selectController.getColumnOptionsComponent(1)?.onOptionSelected(option => {
         const selectedOption = selectController.getColumnOptionsComponent(0).getSelectedOption();
         const searchCategory = option.getLabel() === "" ? null : option.getLabel();
-        const options = columnCbs[0](searchCategory).map(value => mapToValueOption(value));
+        const options = columnCbs[0](searchCategory).map(e => mapToValueOption(e?.value ?? e, e?.label ?? e));
         selectController.getColumnOptionsComponent(0).replaceOptions(options);
         if (!options.map(o => o.getValue()).includes(selectedOption.getValue())) {
             selectController.clearSelectedValueOption();

@@ -165,6 +165,7 @@ const pageCss = `
         width:          100%;
         overflow:       scroll;
         height:         ${boxHeight}px;
+        min-height:     100%;
 
         &:not(:last-child) {
             border-right: 1px solid #ccc; /* todo */
@@ -180,6 +181,12 @@ const pageCss = `
         padding:        0.2em 1em;
         display:        flex;
         align-items:    center;
+
+        img {
+            height:     2rem;
+            margin:     0 .5rem;
+            rotate:     90deg;
+        }
     }
     .${optionClassName}.selected {
         background:     #FFDB8E;

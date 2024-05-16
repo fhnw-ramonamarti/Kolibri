@@ -29,6 +29,7 @@ h1 {
     }
 }
 
+#componentImg,
 #componentCountry {
     min-width:  300px;
 }
