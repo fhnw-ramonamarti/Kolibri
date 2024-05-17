@@ -166,6 +166,7 @@ const pageCss = `
         overflow:       scroll;
         height:         ${boxHeight}px;
         min-height:     100%;
+        scrollbar-visible: always;
 
         &:not(:last-child) {
             border-right: 1px solid #ccc; /* todo */

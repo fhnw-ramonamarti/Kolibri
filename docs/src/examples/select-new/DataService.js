@@ -75,11 +75,12 @@ const getContinents = () => [
     "Asia",
 ];
 
-const imgUrl = "https://source.unsplash.com/3tYZjGSBwbk";
+const imgUrl = "https://unsplash.it/32/32";
 
 /**
  * Create example data for currencies on a given continent.
  * @param { String } continent
+ * @param { Boolean } withNoImg - default false
  * @returns { Array<{label: String, value: String}> }
  */
 const getMoneyByContinent = (continent, withNoImg = false) => {
@@ -91,12 +92,13 @@ const getMoneyByContinent = (continent, withNoImg = false) => {
         {money: 'Pound'        , continent: "Europe" },
         {money: 'Yen'          , continent: "Asia" },
     ];
-    return !withNoImg
-        ? data
-              .filter((e) => null == continent || e.continent === continent)
-              .map((e) => ({ value: e.money, label: `<img src="${imgUrl}" alt="${e.money}">
-                ${e.money}` }))
-        : data.filter((e) => null == continent || e.continent === continent).map((e) => e.money);
+    const returnData = data.filter((e) => null == continent || e.continent === continent)
+    return withNoImg
+            ? returnData.map((e) => e.money)
+            : returnData.map((e) => ({ 
+                value: e.money, 
+                label: `<img src="${imgUrl}" alt="${e.money}"> ${e.money}` 
+            }));
 };
 
 /**

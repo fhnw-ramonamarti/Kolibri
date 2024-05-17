@@ -88,7 +88,7 @@ const projectSelectViews = (selectController) => {
     const [selectedOptionElement, selectedOptionLabelElement, toggleButton] =
         projectSelectedValueOptionView(selectController);
 
-    const rootElement = document.createElement('div');
+    const rootElement = document.createElement('div'); // baseline 2024 popover api (dialog show-modal element)
     rootElement.classList.add(selectClassName);
 
     const componentContainer = document.createElement('div');

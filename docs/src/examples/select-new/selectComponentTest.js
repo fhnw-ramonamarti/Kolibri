@@ -29,8 +29,8 @@ selectComponentSuite.add("Select component - 1 column", (assert) => {
 selectComponentSuite.add("Select component - 2 column", (assert) => {
     const selectAttribute    = {name: "Name", label: "Label", numberColumns: 2};
     const getTestValue       = (category) =>
-        ["Test 1", "Test 2", "Test 11"].filter(
-            (e) => e.endsWith(category) || category == null
+        ["Test 1", "Test 2", "Test 11"].filter(e => 
+            null == category || e.endsWith(category)
         );
     const getTestCategory    = () => ["1", "2"];
     const valueDataSize      = (category) => getTestValue(category).length;
