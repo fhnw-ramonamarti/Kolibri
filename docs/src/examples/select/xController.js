@@ -130,7 +130,7 @@ const SelectionController = model => {
 /**
  * MasterSelectionController maintains a list and a selection controller.
  * It also maintains observable states like the visibility.
- * @param { MasterSelectionAttribut } masterSelectionAttribut
+ * @param { MasterSelectionAttribute } masterSelectionAttribute
  * @param { OptionDataType }          initOptions
  * @returns { MasterSelectionControllerType }
  * @constructor
@@ -368,7 +368,7 @@ const MasterSelectionController = (
  */
 
 /**
- * @typedef MasterSelectionAttribut
+ * @typedef MasterSelectionAttribute
  * @property { ?String } value
  * @property { ?String } label
  * @property { ?String } name
