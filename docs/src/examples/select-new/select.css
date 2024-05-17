@@ -33,3 +33,9 @@ h1 {
 #componentCountry {
     min-width:  300px;
 }
+
+#componentImg img {
+    rotate:     90deg;
+    max-width:  2rem;
+    margin:     0.5rem;
+}

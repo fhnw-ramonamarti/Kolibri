@@ -13,6 +13,7 @@ export { OptionsController, SelectedOptionController };
 
 /**
  * OptionsController maintains an {@link OptionsModel}.
+ * It only adds options which are not already contained.
  * @return { OptionsControllerType }
  * @constructor
  */
@@ -21,7 +22,6 @@ const OptionsController = () => {
     const optionsModel = OptionsModel();
 
     /**
-     *
      * @param { OptionType } option
      */
     const addOption = (option) => {

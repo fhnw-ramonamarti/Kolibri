@@ -9,7 +9,7 @@ export {
 };
 
 /**
- *
+ * Create example data for years in a given decade.
  * @param { String } decade
  * @returns { Array<String> }
  */
@@ -20,13 +20,13 @@ const getYearsByDecade = (decade) => {
 };
 
 /**
- * 
+ * Create example data of decades.
  * @returns { Array<String> }
  */
 const getDecades = () => [...Array(7).keys()].map((e) => e * 10 + 1940 + "'s");
 
 /**
- *
+ * Create example data for cities in a given country.
  * @param { String } country
  * @returns { Array<String> }
  */
@@ -49,7 +49,7 @@ const getCitiesByCountry = (country) => {
 };
 
 /**
- *
+ * Create example data for countries in a given continent.
  * @param { String } continent
  * @returns { Array<String> }
  */
@@ -66,7 +66,7 @@ const getCountriesByContinent = (continent) => {
 };
 
 /**
- * 
+ * Create example data of continents.
  * @returns { Array<String> }
  */
 const getContinents = () => [
@@ -78,7 +78,7 @@ const getContinents = () => [
 const imgUrl = "https://source.unsplash.com/3tYZjGSBwbk";
 
 /**
- *
+ * Create example data for currencies on a given continent.
  * @param { String } continent
  * @returns { Array<{label: String, value: String}> }
  */
@@ -100,7 +100,7 @@ const getMoneyByContinent = (continent, withNoImg = false) => {
 };
 
 /**
- * 
+ * Create example data of continents for currencies.
  * @returns { Array<String> }
  */
 const getMoneyContinents = () => [

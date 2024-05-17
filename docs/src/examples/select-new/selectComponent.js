@@ -9,8 +9,10 @@ export { SelectComponent, pageCss };
 // todo type for service cb rerun string or object
 
 /**
- * at the moment max 2 columns
- * @param { SelectAttribute }                  selectAttribute
+ * todo at the moment max 2 columns
+ * SelectComponent maintains a {@link SelectController} and it creates the view.
+ * It fills and filters the options columns with the callback functions.
+ * @param { SelectAttribute }                                                 selectAttribute
  * @param { Array<(String) => Array<String|{label: String, value: String}>> } columnCbs
  * @return { [HTMLElement] }
  * @constructor
@@ -46,7 +48,6 @@ const SelectComponent = (selectAttribute, columnCbs) => {
 }
 
 /**
- * 
  * @param { String } value 
  * @param { String } label 
  * @returns { OptionType }
@@ -56,7 +57,6 @@ const mapToValueOption = (value, label) => {
 }
 
 /**
- * 
  * @param { String } label 
  * @returns { OptionType }
  */
@@ -65,7 +65,7 @@ const mapToCategoryOption = (label) => {
 }
 
 /**
- * CSS snippet to append to the head style when using the instant update projector.
+ * CSS snippet to append to the head style when using the select component.
  * @type { String }
  * @example
  * document.querySelector("head style").textContent += pageCss;

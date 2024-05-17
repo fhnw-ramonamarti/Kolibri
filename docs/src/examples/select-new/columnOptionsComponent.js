@@ -5,20 +5,22 @@ export { ColumnOptionsComponent };
 
 /**
  * @typedef ColumnOptionsComponentType
- * @property { (OptionType) => void }        addOption
- * @property { (OptionType) => void }        delOption
+ * @property { (OptionType) => void }             addOption
+ * @property { (OptionType) => void }             delOption
  * @property { (ops: Array<OptionType>) => void } replaceOptions
 
- * @property { ()  => OptionType }                             getSelectedOption
- * @property { (OptionType)  => void }                         setSelectedOption
- * @property { ()  => void }                                   clearSelectedOption
+ * @property { ()  => OptionType }                getSelectedOption
+ * @property { (OptionType)  => void }            setSelectedOption
+ * @property { ()  => void }                      clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
 
- * @property { () => HTMLDivElement } getColumnView
+ * @property { () => HTMLDivElement }              getColumnView
  */
 
 /**
- * 
+ * ColumnOptionsComponent maintains a {@link OptionsController} and 
+ * a {@link SelectedOptionController} as well it creates the view.
+ * It supports replacing all current options by new passed options.
  * @param { SelectedOptionControllerType } cursorPositionController 
  * @param { Number }                       columnNumber 
  */

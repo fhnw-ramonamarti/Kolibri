@@ -17,7 +17,7 @@ const optionsClassName = "options-component";
 const selectedOptionClassName = "selected-option-component";
 
 /**
- *
+ * Create the options view of the select, bind against the controller, and return the view.
  * @param { SelectControllerType } selectController
  * @return { [HTMLDivElement] } - options view
  */
@@ -39,7 +39,7 @@ const projectOptionsView = (selectController) => {
 };
 
 /**
- *
+ * Create the selected option view of the select, bind against the controller, and return the view.
  * @param { SelectControllerType } selectController
  * @return { [HTMLDivElement, HTMLDivElement, HTMLButtonElement] } - selected option view
  */
@@ -78,7 +78,8 @@ const projectSelectedValueOptionView = (selectController) => {
 };
 
 /**
- *
+ * Combine the options view and selected option view, and return the combined view.
+ * For the html form a hidden input element is added to the combined view.
  * @param { SelectControllerType } selectController
  * @return { [HTMLDivElement, HTMLDivElement] } - combined views
  */
@@ -95,7 +96,7 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(selectedOptionElement);
     componentContainer.append(...allOptionsElement);
 
-    // input and label
+    // input and label - // todo think about moving input controller to component or select controller
     const simpleInputStructure = SimpleInputModel({
         label: selectController.getLabel(),
         value: selectController.getSelectedValueOption().getValue(),
@@ -129,7 +130,7 @@ const projectSelectViews = (selectController) => {
 const boxHeight = 240;
 
 /**
- * CSS snippet to append to the head style when using the instant update projector.
+ * CSS snippet to append to the head style when using the select component.
  * @type { String }
  * @example
  * document.querySelector("head style").textContent += pageCss;
@@ -171,7 +172,13 @@ const pageCss = `
             background-color:   transparent;
             border:             none;
             font-size:          1.3em;
-        } 
+        }
+
+        img {
+            max-height: 100%;
+            max-width:  100%;
+            object-fit: contain;
+        }
     }
     .${inputComponentClassName} {
         border:         1px solid #ccc; /* todo */
@@ -180,13 +187,16 @@ const pageCss = `
         &.opened {
             border-radius: 4px 4px 0 0;
         }
-
-        .selected-value {
-            height:     100%;
-        }
     }
     .${selectClassName} {
         position:       relative;
+        
+        .selected-value {
+            min-height: 2rem;
+            display:    flex;
+            gap:        0.5em;
+            align-items:center;
+        }
     }
     .hidden {
         display:        none;

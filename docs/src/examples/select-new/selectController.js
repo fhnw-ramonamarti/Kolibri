@@ -6,7 +6,7 @@ export { SelectController };
 
 
 /**
- * Internal, mutable, singleton state to make option id unique.
+ * Internal, mutable, singleton state to make select id unique.
  * @private
  */
 let idCounter = 0;
@@ -52,6 +52,9 @@ let idCounter = 0;
  */
 
 /**
+ * SelectController maintains a number given of {@link ColumnOptionsComponent}.
+ * The visibility of both - options and selected option - views are held by observables.
+ * The name and label used for the html input element are as well managed here.
  * @param { SelectAttribute }
  * @return { SelectControllerType }
  * @constructor

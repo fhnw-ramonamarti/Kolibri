@@ -81,7 +81,7 @@ const CategoryOption = (label) => {
 /**
  * Create a presentation model for the purpose of being used to bind against 
  * a single HTML Selection or Datalist Input.
- * It is also used for the selection component // todo name here
+ * It is also used for the select component // todo name here
  * @constructor
  * @return { OptionsModelType }
  * @example

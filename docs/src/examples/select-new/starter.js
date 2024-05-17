@@ -9,6 +9,7 @@ import {
 }                                   from "./DataService.js";
 import { SelectComponent, pageCss } from "./selectComponent.js";
 
+// ----- decade selection --------------------------------
 /**
  * @type { SelectAttribute }
  */
@@ -25,6 +26,7 @@ const columnServiceCb = [getYearsByDecade, getDecades];
 const selectComponent = SelectComponent(selectAttribute, columnServiceCb);
 document.getElementById("componentYear").append(...selectComponent);
 
+// ----- city selection --------------------------------
 /**
  * @type { SelectAttribute }
  */
@@ -44,6 +46,7 @@ const columnServiceCb2 = [
 const selectComponent2 = SelectComponent(selectAttribute2, columnServiceCb2);
 document.getElementById("componentCountry").append(...selectComponent2);
 
+// ----- continent selection --------------------------------
 /**
  * @type { SelectAttribute }
  */
@@ -61,6 +64,7 @@ const columnServiceCb3 = [
 const selectComponent3 = SelectComponent(selectAttribute3, columnServiceCb3);
 document.getElementById("componentContinent").append(...selectComponent3);
 
+// ----- currency selection with images --------------------------------
 /**
  * @type { SelectAttribute }
  */

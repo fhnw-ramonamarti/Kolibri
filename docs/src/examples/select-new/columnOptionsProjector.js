@@ -20,8 +20,8 @@ const elementId = (option) =>
 
 
 /**
- * Create the column view, bind against the controllers, and return the view.
- * @param {OptionsControllerType}        optionsController
+ * Create the column view, bind against the controller, and return the view.
+ * @param { OptionsControllerType }        optionsController
  * @param { SelectedOptionControllerType } selectedOptionController
  * @param { SelectedOptionControllerType } cursorPositionController
  * @param { Number }                       columnNumber
@@ -69,7 +69,7 @@ const projectColumnOptionsView = (
  * @param { SelectedOptionControllerType } selectedOptionController
  * @param { OptionType }                   option
  * @param { String }                       optionType
- * @return { Array<HTMLElement> }
+ * @return { Array<HTMLElement> } - single option item view
  */
 const projectOption = (selectedOptionController, option, optionType) => {
 
@@ -152,7 +152,7 @@ const removeOptionItem = (root) => option => {
 const boxHeight = 240;
 
 /**
- * CSS snippet to append to the head style when using the instant update projector.
+ * CSS snippet to append to the head style when using the component.
  * @type { String }
  * @example
  *      document.querySelector("head style").textContent += pageCss;
@@ -185,7 +185,6 @@ const pageCss = `
         img {
             height:     2rem;
             margin:     0 .5rem;
-            rotate:     90deg;
         }
     }
     .${optionClassName}.selected {
