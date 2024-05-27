@@ -1,4 +1,6 @@
 import { Observable }               from "../../kolibri/observable.js";
+import { SimpleAttributeInputController } from "../../kolibri/projector/simpleForm/simpleInputController.js";
+import { SimpleInputModel } from "../../kolibri/projector/simpleForm/simpleInputModel.js";
 import { ColumnOptionsComponent }   from "./columnOptionsComponent.js";
 import { SelectedOptionController } from "./optionsController.js";
 
@@ -21,33 +23,32 @@ let idCounter = 0;
 
 /**
  * @typedef SelectControllerType
- * @property { () => String }                   getId
- * @property { () => Number }                   getNumberColumns
+ * @property { () => String }                    getId
+ * @property { () => Number }                    getNumberColumns
 
- * @property { () => String }                   getLabel
- * @property { (String) => void }               setLabel
- * @property { (cb: ValueChangeCallback<String>) => void }     onLabelChange
+ * @property { () => SimpleInputControllerType } getInputController
+ * @property { () => String }                    getInputValue
+ * @property { (String) => void }                setInputValid
+ * @property { (cb: ValueChangeCallback<String>) => void }     onInputValueChanged
+ * @property { (cb: ValueChangeCallback<String>) => void }     onInputLabelChanged
+ * @property { (cb: ValueChangeCallback<String>) => void }     onInputNameChanged
 
- * @property { () => String }                   getName
- * @property { (String) => void }               setName
- * @property { (cb: ValueChangeCallback<String>) => void }     onNameChange
-
- * @property { () => Boolean }                  isOptionsVisible
- * @property { (Boolean) => void }              setOptionsVisibility
+ * @property { () => Boolean }                   isOptionsVisible
+ * @property { (Boolean) => void }               setOptionsVisibility
  * @property { (cb: ValueChangeCallback<Boolean>) => void }    onOptionsVisibilityChange
 
- * @property { () => Boolean }                  isSelectedOptionVisible
- * @property { (Boolean) => void }              setSelectedOptionVisibility
+ * @property { () => Boolean }                   isSelectedOptionVisible
+ * @property { (Boolean) => void }               setSelectedOptionVisibility
  * @property { (cb: ValueChangeCallback<Boolean>) => void }    onSelectedOptionVisibilityChange
 
- * @property { ()  => OptionType }              getCursorPosition
- * @property { (OptionType) => void }           setCursorPosition
- * @property { () => void }                     clearCursorPosition
+ * @property { ()  => OptionType }               getCursorPosition
+ * @property { (OptionType) => void }            setCursorPosition
+ * @property { () => void }                      clearCursorPosition
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onCursorPositionChanged
 
- * @property { () => OptionType }               getSelectedValueOption
- * @property { (OptionType) => void }           setSelectedValueOption
- * @property { () => void }                     clearSelectedValueOption
+ * @property { () => OptionType }                getSelectedValueOption
+ * @property { (OptionType) => void }            setSelectedValueOption
+ * @property { () => void }                      clearSelectedValueOption
  * @property { (Number) => ColumnOptionsComponentType }        getColumnOptionsComponent
  */
 
@@ -71,20 +72,24 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);
 
-    const nameObs  = Observable(name);
-    const labelObs = Observable(label);
+    const simpleInputStructure = SimpleInputModel({
+        label: label,
+        value: columns[0].getSelectedOption().getValue(),
+        name: name,
+        type: "hidden",
+    });
+    const inputController = SimpleAttributeInputController(simpleInputStructure);
 
     return {
         getId           : () => id,
         getNumberColumns: () => numberColumns,
 
-        getLabel     : labelObs.getValue,
-        setLabel     : labelObs.setValue,
-        onLabelChange: labelObs.onChange,
-
-        getName     : nameObs.getValue,
-        setName     : nameObs.setValue,
-        onNameChange: nameObs.onChange,
+        getInputController : () => inputController,
+        getInputValue      : inputController.getValue,
+        setInputValid      : inputController.setValid,
+        onInputValueChanged: inputController.onValueChanged,
+        onInputLabelChanged: inputController.onLabelChanged,
+        onInputNameChanged : inputController.onNameChanged,
 
         isOptionsVisible         : optionsVisibility.getValue,
         setOptionsVisibility     : optionsVisibility.setValue,

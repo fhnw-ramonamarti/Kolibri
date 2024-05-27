@@ -96,16 +96,9 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(selectedOptionElement);
     componentContainer.append(...allOptionsElement);
 
-    // input and label - // todo think about moving input controller to component or select controller
-    const simpleInputStructure = SimpleInputModel({
-        label: selectController.getLabel(),
-        value: selectController.getSelectedValueOption().getValue(),
-        name: selectController.getName(),
-        type: "hidden",
-    });
-    const inputController = SimpleAttributeInputController(simpleInputStructure);
+    // label & input element
     const [labelElement, inputSpan] = InputProjector.projectInstantInput(
-        inputController,
+        selectController.getInputController(),
         selectedOptionClassName
     );
     const inputElement = inputSpan.querySelector("input");

@@ -17,11 +17,7 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
     assert.is(controller.isOptionsVisible()              , false);
     assert.is(controller.isSelectedOptionVisible()       , true);
     assert.is(controller.getSelectedValueOption().getId(), noSelectionId);
-    assert.is(controller.getLabel()                      , "Label");
-    assert.is(controller.getName()                       , "Name");
     assert.is(controller.getId() !== controller2.getId() , true);
-    assert.is(controller2.getLabel()                     , "");
-    assert.is(controller2.getName()                      , "");
 
     const val = ValueOption("test");
     controller.getColumnOptionsComponent(0).addOption(val);
@@ -38,7 +34,7 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
     assert.is(controller.getSelectedValueOption().getId(), val.getId());
 });
 
-selectControllerSuite.add("Select controller - 2 column", (assert) => { // todo
+selectControllerSuite.add("Select controller - 2 column", (assert) => {
     const noSelectionId = reset().getId();
     const selectAttribute = {name: "Name", label: "Label", numberColumns: 2}
     const controller = SelectController(selectAttribute);
