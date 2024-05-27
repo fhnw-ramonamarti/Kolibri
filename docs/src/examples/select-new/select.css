@@ -29,6 +29,10 @@ h1 {
     }
 }
 
+#componentCity3 {
+    min-width: 400px;
+}
+
 #componentImg,
 #componentCountry {
     min-width:  300px;

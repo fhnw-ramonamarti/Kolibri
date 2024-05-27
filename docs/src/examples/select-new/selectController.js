@@ -1,8 +1,8 @@
-import { Observable }               from "../../kolibri/observable.js";
+import { Observable }                     from "../../kolibri/observable.js";
 import { SimpleAttributeInputController } from "../../kolibri/projector/simpleForm/simpleInputController.js";
-import { SimpleInputModel } from "../../kolibri/projector/simpleForm/simpleInputModel.js";
-import { ColumnOptionsComponent }   from "./columnOptionsComponent.js";
-import { SelectedOptionController } from "./optionsController.js";
+import { SimpleInputModel }               from "../../kolibri/projector/simpleForm/simpleInputModel.js";
+import { ColumnOptionsComponent }         from "./columnOptionsComponent.js";
+import { SelectedOptionController }       from "./optionsController.js";
 
 export { SelectController };
 
@@ -80,6 +80,17 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
     });
     const inputController = SimpleAttributeInputController(simpleInputStructure);
 
+    /**
+     * @param { Number } maxCol - max column number to delete the options from until column 0
+     */
+    const clearColumnOptions = (maxCol) => {
+        if (maxCol < 0) {
+            return;
+        }
+        columns[maxCol].replaceOptions([]);
+        clearColumnOptions(maxCol - 1);
+    };
+
     return {
         getId           : () => id,
         getNumberColumns: () => numberColumns,
@@ -107,6 +118,7 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
         getSelectedValueOption   : columns[0].getSelectedOption,
         setSelectedValueOption   : columns[0].setSelectedOption,
         clearSelectedValueOption : columns[0].clearSelectedOption,
+        clearColumnOptions       : clearColumnOptions,
         getColumnOptionsComponent: (col) => columns[col],
     }
 };

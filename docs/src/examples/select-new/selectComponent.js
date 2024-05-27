@@ -6,14 +6,15 @@ import { pageCss as pageCssColumn }                        from "./columnOptions
 export { SelectComponent, pageCss };
 
 
-// todo type for service cb rerun string or object
+/**
+ * @typedef { String | { label: String, value: String } } CalbackReturnType
+ */
 
 /**
- * todo at the moment max 2 columns
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * @param { SelectAttribute }                                                 selectAttribute
- * @param { Array<(String) => Array<String|{label: String, value: String}>> } columnCbs
+ * @param { SelectAttribute }                             selectAttribute
+ * @param { Array<(String) => Array<CalbackReturnType>> } columnCbs
  * @return { [HTMLElement] }
  * @constructor
  */
@@ -34,14 +35,38 @@ const SelectComponent = (selectAttribute, columnCbs) => {
         component.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
-    selectController.getColumnOptionsComponent(1)?.onOptionSelected(option => {
-        const selectedOption = selectController.getColumnOptionsComponent(0).getSelectedOption();
+    /**
+     * @param { Number }     col 
+     * @param { OptionType } option 
+     */
+    const filterOptions = (col, option) => {
+        const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
         const searchCategory = option.getLabel() === "" ? null : option.getLabel();
-        const options = columnCbs[0](searchCategory).map(e => mapToValueOption(e?.value ?? e, e?.label ?? e));
-        selectController.getColumnOptionsComponent(0).replaceOptions(options);
-        if (!options.map(o => o.getValue()).includes(selectedOption.getValue())) {
-            selectController.clearSelectedValueOption();
+        const mapping = (e) => col !== 0 ? mapToCategoryOption(e) 
+                                         : mapToValueOption(e?.value ?? e, e?.label ?? e);
+        const options = columnCbs[col](searchCategory).map(mapping);
+        options.forEach((option) =>
+            selectController.getColumnOptionsComponent(col).addOption(option)
+        );
+        if (col === 0) {
+            if (!options.map((o) => o.getValue()).includes(selectedOption.getValue())) {
+                selectController.clearSelectedValueOption();
+            }
+        } else {
+            options.forEach((option) => {
+                filterOptions(col - 1, option);
+            });
         }
+    };
+
+    columnCbs.forEach((_, col) => {
+        if (col === 0) {
+            return;
+        }
+        selectController.getColumnOptionsComponent(col)?.onOptionSelected((option) => {
+            selectController.clearColumnOptions(col - 1);
+            filterOptions(col - 1, option);
+        });
     });
 
     return [component];
