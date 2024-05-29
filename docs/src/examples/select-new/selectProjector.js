@@ -83,12 +83,12 @@ const projectSelectedValueOptionView = (selectController) => {
  * @param { SelectControllerType } selectController
  * @return { [HTMLDivElement, HTMLDivElement] } - combined views
  */
-const projectSelectViews = (selectController) => {
+const projectSelectViews = (selectController) => { 
     const allOptionsElement = projectOptionsView(selectController);
     const [selectedOptionElement, selectedOptionLabelElement, toggleButton] =
         projectSelectedValueOptionView(selectController);
 
-    const rootElement = document.createElement('div'); // baseline 2024 popover api (dialog show-modal element)
+    const rootElement = document.createElement('div'); // todo baseline 2024 popover api (dialog show-modal element)
     rootElement.classList.add(selectClassName);
 
     const componentContainer = document.createElement('div');

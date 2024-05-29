@@ -1,4 +1,4 @@
-import { CategoryOption, ValueOption }                     from "./optionsModel.js";
+import { CategoryOption, ValueOption, reset }                     from "./optionsModel.js";
 import { SelectController }                                from "./selectController.js";
 import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
 import { pageCss as pageCssColumn }                        from "./columnOptionsProjector.js";
@@ -31,7 +31,6 @@ const SelectComponent = (selectAttribute, columnCbs) => {
 
     selectController.getColumnOptionsComponent(0).onOptionSelected(option => {
         selectionElement.innerHTML = option.getLabel();
-        component.querySelector("[type='hidden']").value = option.getValue();
         component.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
@@ -45,17 +44,25 @@ const SelectComponent = (selectAttribute, columnCbs) => {
         const mapping = (e) => col !== 0 ? mapToCategoryOption(e) 
                                          : mapToValueOption(e?.value ?? e, e?.label ?? e);
         const options = columnCbs[col](searchCategory).map(mapping);
+
         options.forEach((option) =>
             selectController.getColumnOptionsComponent(col).addOption(option)
         );
         if (col === 0) {
-            if (!options.map((o) => o.getValue()).includes(selectedOption.getValue())) {
-                selectController.clearSelectedValueOption();
+            selectController.clearSelectedValueOption();
+            if (options.map((o) => o.getValue()).includes(selectedOption.getValue())) {
+                selectController.setSelectedValueOption(selectedOption);
             }
         } else {
-            options.forEach((option) => {
-                filterOptions(col - 1, option);
-            });
+            if(selectedOption.getId() !== reset().getId()){
+                selectController.getColumnOptionsComponent(col).clearSelectedOption();
+                filterOptions(col - 1, selectedOption);
+                selectController.getColumnOptionsComponent(col).setSelectedOption(selectedOption);
+            } else {
+                options.forEach((option) => {
+                    filterOptions(col - 1, option);
+                });
+            }
         }
     };
 
@@ -64,8 +71,21 @@ const SelectComponent = (selectAttribute, columnCbs) => {
             return;
         }
         selectController.getColumnOptionsComponent(col)?.onOptionSelected((option) => {
-            selectController.clearColumnOptions(col - 1);
-            filterOptions(col - 1, option);
+            if(option.getId() === reset().getId()){
+                if(columnCbs.length <= col + 1){
+                    selectController.clearColumnOptions(col - 1);
+                    filterOptions(col - 1, option);
+                    return;
+                }
+                const selectedCategory = selectController
+                    .getColumnOptionsComponent(col + 1)
+                    .getSelectedOption();
+                selectController.clearColumnOptions(col);
+                filterOptions(col, selectedCategory);
+            } else {
+                selectController.clearColumnOptions(col - 1);
+                filterOptions(col - 1, option);
+            }
         });
     });
 

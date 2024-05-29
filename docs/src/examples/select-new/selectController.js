@@ -29,9 +29,6 @@ let idCounter = 0;
  * @property { () => SimpleInputControllerType } getInputController
  * @property { () => String }                    getInputValue
  * @property { (String) => void }                setInputValid
- * @property { (cb: ValueChangeCallback<String>) => void }     onInputValueChanged
- * @property { (cb: ValueChangeCallback<String>) => void }     onInputLabelChanged
- * @property { (cb: ValueChangeCallback<String>) => void }     onInputNameChanged
 
  * @property { () => Boolean }                   isOptionsVisible
  * @property { (Boolean) => void }               setOptionsVisibility
@@ -75,10 +72,14 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
     const simpleInputStructure = SimpleInputModel({
         label: label,
         value: columns[0].getSelectedOption().getValue(),
-        name: name,
-        type: "hidden",
+        name : name,
+        type : "hidden",
     });
     const inputController = SimpleAttributeInputController(simpleInputStructure);
+
+    columns[0].onOptionSelected((option) => {
+        inputController.setValue(option.getValue());
+    });
 
     /**
      * @param { Number } maxCol - max column number to delete the options from until column 0
@@ -98,9 +99,6 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
         getInputController : () => inputController,
         getInputValue      : inputController.getValue,
         setInputValid      : inputController.setValid,
-        onInputValueChanged: inputController.onValueChanged,
-        onInputLabelChanged: inputController.onLabelChanged,
-        onInputNameChanged : inputController.onNameChanged,
 
         isOptionsVisible         : optionsVisibility.getValue,
         setOptionsVisibility     : optionsVisibility.setValue,
