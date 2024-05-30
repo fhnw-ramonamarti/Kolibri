@@ -1,4 +1,4 @@
-import { CategoryOption, ValueOption, reset }                     from "./optionsModel.js";
+import { CategoryOption, ValueOption, reset }              from "./optionsModel.js";
 import { SelectController }                                from "./selectController.js";
 import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
 import { pageCss as pageCssColumn }                        from "./columnOptionsProjector.js";

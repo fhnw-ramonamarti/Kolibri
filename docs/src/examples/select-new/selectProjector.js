@@ -1,6 +1,4 @@
-import { SimpleAttributeInputController } from "../../kolibri/projector/simpleForm/simpleInputController.js";
-import { SimpleInputModel }               from "../../kolibri/projector/simpleForm/simpleInputModel.js";
-import { InputProjector }                 from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
+import { InputProjector } from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
 
 export { projectOptionsView, projectSelectedValueOptionView, projectSelectViews, pageCss };
 
@@ -25,6 +23,7 @@ const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
     optionsContainer.id = selectController.getId() + "-options";
     optionsContainer.classList.add(optionsClassName);
+    optionsContainer.setAttribute("popover", "on");
     optionsContainer.setAttribute(
         "style",
         "z-index:" + Math.max(50, 90 - Number(selectController.getId().replace(/\D*/, "")))
@@ -47,20 +46,49 @@ const projectSelectedValueOptionView = (selectController) => {
     const rootElement = document.createElement("div");
     rootElement.classList.add(selectedOptionClassName);
     rootElement.id = selectController.getId() + "-selected-option";
+
+    const togglePopover = (event) => {
+        selectController.setOptionsVisibility(!selectController.isOptionsVisible());
+
+        // popover preparings
+        const selectElement = event.target.closest("#" + selectController.getId());
+        const popoverElement = selectElement.querySelector("[popover]");
+        const openPopover = document.querySelector("[popover]:popover-open");
+        if (openPopover?.id !== popoverElement.id) {
+            openPopover?.hidePopover();
+        }
+        const { top, left, height, width } = selectElement.getBoundingClientRect();
+        const styleElement = document.createElement("style");
+        styleElement.textContent = `
+            #${popoverElement.id} {
+                top: ${top + height}px;
+                left: ${left}px; 
+                width: ${width}px;
+            }
+        `;
+        document.querySelector("head").append(styleElement);
+        popoverElement.togglePopover();
+    };
     
+    document.onclick = (event) => {
+        if (null == event.target.closest("." + selectClassName)?.querySelector( " [popover]")) {
+            document.querySelectorAll("." + selectClassName + " [popover]").forEach((popover) => {
+                popover.hidePopover();
+            });
+        }
+    };
+
     const selectedOptionContainer = document.createElement("div");
     selectedOptionContainer.classList.add("toggleButton");
     selectedOptionContainer.classList.add("selected-value");
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
-    selectedOptionContainer.onclick = (_) => {
-        selectController.setOptionsVisibility(!selectController.isOptionsVisible());
-    };
+    selectedOptionContainer.onclick = togglePopover;
     rootElement.append(selectedOptionContainer);
 
     const clearButton = document.createElement("button");
     clearButton.classList.add("clearButton");
     clearButton.classList.add("clear");
-    clearButton.innerHTML  = "&times;";
+    clearButton.innerHTML = "&times;";
     clearButton.onclick = () => {
         selectController.clearSelectedValueOption();
     };
@@ -68,10 +96,8 @@ const projectSelectedValueOptionView = (selectController) => {
 
     const toggleButton = document.createElement("button");
     toggleButton.classList.add("toggleButton");
-    toggleButton.innerHTML  = "&varr;";
-    toggleButton.onclick = (_) => {
-        selectController.setOptionsVisibility(!selectController.isOptionsVisible());
-    };
+    toggleButton.innerHTML = "&varr;";
+    toggleButton.onclick = togglePopover;
     rootElement.append(toggleButton);
 
     return [rootElement, selectedOptionContainer, toggleButton];
@@ -83,15 +109,16 @@ const projectSelectedValueOptionView = (selectController) => {
  * @param { SelectControllerType } selectController
  * @return { [HTMLDivElement, HTMLDivElement] } - combined views
  */
-const projectSelectViews = (selectController) => { 
+const projectSelectViews = (selectController) => {
     const allOptionsElement = projectOptionsView(selectController);
     const [selectedOptionElement, selectedOptionLabelElement, toggleButton] =
         projectSelectedValueOptionView(selectController);
 
-    const rootElement = document.createElement('div'); // todo baseline 2024 popover api (dialog show-modal element)
+    const rootElement = document.createElement("div");
     rootElement.classList.add(selectClassName);
+    rootElement.id = selectController.getId();
 
-    const componentContainer = document.createElement('div');
+    const componentContainer = document.createElement("div");
     componentContainer.classList.add(inputComponentClassName);
     componentContainer.append(selectedOptionElement);
     componentContainer.append(...allOptionsElement);
@@ -106,7 +133,7 @@ const projectSelectViews = (selectController) => {
     rootElement.append(inputElement);
     rootElement.append(componentContainer);
 
-    selectController.onOptionsVisibilityChange(value => {
+    selectController.onOptionsVisibilityChange((value) => {
         allOptionsElement[0].classList.toggle("hidden", !value);
         selectedOptionElement.classList.toggle("opened", value);
         // toggleButton.innerHTML = value ? "^" : "v";
@@ -115,12 +142,51 @@ const projectSelectViews = (selectController) => {
     return [rootElement, selectedOptionLabelElement];
 };
 
-
-/** 
+/**
  * Height of the master list box
  * @private
  */
 const boxHeight = 240;
+
+/**
+ * Styles popover depending properties
+ * @private
+ */
+const popoverStyle = `
+    .${optionsClassName}[popover] {
+        position:       absolute;
+        left:           0;
+        z-index:        50;
+        margin-bottom:  0.5em;
+        gap:            5px;
+        align-items:    baseline;
+        max-height:     ${boxHeight}px;
+        border-radius:  0 0 4px 4px;
+        border:         1px solid #ccc; /* todo */
+        background:     #fff;
+        overflow:       hidden;
+
+        display:        none;
+        height:         0;
+        padding:        0;
+        margin:         0;
+
+        transition:     translate 0.7s ease-out, display 0.7s ease-out allow-discrete;
+    }
+
+    /*   IS-OPEN STATE   */
+    .${optionsClassName}[popover]:popover-open {
+        display:        flex;
+        height:         auto;
+    }
+
+    /*   BEFORE-OPEN STATE   */
+    @starting-style {
+        .${optionsClassName}[popover]:popover-open {
+ 
+        }
+    }
+`;
 
 /**
  * CSS snippet to append to the head style when using the select component.
@@ -129,21 +195,7 @@ const boxHeight = 240;
  * document.querySelector("head style").textContent += pageCss;
  */
 const pageCss = `
-    .${optionsClassName} {
-        display:        flex;
-        gap:            5px;
-        align-items:    baseline;
-        margin-bottom:  0.5em;
-        width:          100%;
-        max-height:     ${boxHeight}px;
-        border-radius:  0 0 4px 4px;
-        border:         1px solid #ccc; /* todo */
-        position:       absolute;
-        left:           0;
-        background:     #fff;
-        z-index:        50;
-        overflow:       hidden;
-    }
+    ${popoverStyle}
     .${selectedOptionClassName} {
         position:       relative;
         display:        flex;
