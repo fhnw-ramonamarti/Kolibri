@@ -95,7 +95,9 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         });
     });
 
-    return [component];
+    const [labelElement, inputElement] = component.children;
+
+    return [component, labelElement, inputElement];
 }
 
 /**

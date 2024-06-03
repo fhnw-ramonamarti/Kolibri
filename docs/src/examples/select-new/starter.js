@@ -23,8 +23,8 @@ const selectAttribute = {
  */
 const columnServiceCb = [getYearsByDecade, getDecades];
 
-const selectComponent = SelectComponent(selectAttribute, columnServiceCb);
-document.getElementById("componentYear").append(...selectComponent);
+const [selectComponent] = SelectComponent(selectAttribute, columnServiceCb);
+document.getElementById("componentYear").append(selectComponent);
 
 // ----- city selection --------------------------------
 /**
@@ -41,10 +41,9 @@ const selectAttribute2 = {
 const columnServiceCb2 = [
     getCitiesByCountry,
     getCountriesByContinent,
-    // getContinents,
 ];
-const selectComponent2 = SelectComponent(selectAttribute2, columnServiceCb2);
-document.getElementById("componentCountry").append(...selectComponent2);
+const [selectComponent2] = SelectComponent(selectAttribute2, columnServiceCb2);
+document.getElementById("componentCountry").append(selectComponent2);
 
 // ----- continent selection --------------------------------
 /**
@@ -61,8 +60,8 @@ const selectAttribute3 = {
 const columnServiceCb3 = [
     getContinents,
 ];
-const selectComponent3 = SelectComponent(selectAttribute3, columnServiceCb3);
-document.getElementById("componentContinent").append(...selectComponent3);
+const [selectComponent3] = SelectComponent(selectAttribute3, columnServiceCb3);
+document.getElementById("componentContinent").append(selectComponent3);
 
 // ----- city selection 3 columns --------------------------------
 /**
@@ -81,8 +80,8 @@ const columnServiceCb4 = [
     getCountriesByContinent,
     getContinents,
 ];
-const selectComponent4 = SelectComponent(selectAttribute4, columnServiceCb4);
-document.getElementById("componentCity3").append(...selectComponent4);
+const [selectComponent4] = SelectComponent(selectAttribute4, columnServiceCb4);
+document.getElementById("componentCity3").append(selectComponent4);
 
 
 // ----- currency selection with images --------------------------------
@@ -101,7 +100,7 @@ const columnServiceCb5 = [
     getMoneyByContinent,
     getMoneyContinents,
 ];
-const selectComponent5 = SelectComponent(selectAttribute5, columnServiceCb5);
-document.getElementById("componentImg").append(...selectComponent5);
+const [selectComponent5] = SelectComponent(selectAttribute5, columnServiceCb5);
+document.getElementById("componentImg").append(selectComponent5);
 
 document.querySelector("head style").textContent += pageCss;

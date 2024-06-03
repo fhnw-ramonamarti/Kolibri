@@ -135,8 +135,8 @@ const projectSelectViews = (selectController) => {
     );
     const inputElement = inputSpan.querySelector("input");
     rootElement.append(labelElement);
-    rootElement.append(inputElement);
     rootElement.append(componentContainer);
+    componentContainer.append(inputElement);
 
     selectController.onOptionsVisibilityChange((value) => {
         allOptionsElement[0].classList.toggle("hidden", !value);
