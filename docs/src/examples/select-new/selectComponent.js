@@ -15,7 +15,7 @@ export { SelectComponent, pageCss };
  * It fills and filters the options columns with the callback functions.
  * @param { SelectAttribute }                              selectAttributes
  * @param { Array<(String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
- * @return { [HTMLElement] } - component view
+ * @return { [HTMLElement, HTMLElement, HTMLElement] } - component view
  * @constructor
  * @example 
         const selectAttributes = { name: 'city', label: 'City', numberOfColumns: 2 };

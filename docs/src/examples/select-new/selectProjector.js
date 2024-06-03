@@ -61,11 +61,12 @@ const projectSelectedValueOptionView = (selectController) => {
         const styleElement = document.createElement("style");
         styleElement.textContent = `
             #${popoverElement.id} {
-                top: ${top + height}px;
+                top: ${top + height - 1}px;
                 left: ${left}px; 
                 width: ${width}px;
             }
         `;
+        selectElement.classList.toggle("opened", selectController.isOptionsVisible());
         document.querySelector("head").append(styleElement);
         popoverElement.togglePopover();
     };
@@ -96,7 +97,7 @@ const projectSelectedValueOptionView = (selectController) => {
 
     const toggleButton = document.createElement("button");
     toggleButton.classList.add("toggleButton");
-    toggleButton.innerHTML = "&varr;";
+    toggleButton.innerHTML = selectController.isOptionsVisible() ? openedIcon : closedIcon;
     toggleButton.onclick = togglePopover;
     rootElement.append(toggleButton);
 
@@ -116,7 +117,7 @@ const projectSelectedValueOptionView = (selectController) => {
 */
 const projectSelectViews = (selectController) => {
     const allOptionsElement = projectOptionsView(selectController);
-    const [selectedOptionElement, selectedOptionLabelElement, _] =
+    const [selectedOptionElement, selectedOptionLabelElement, toggleButton] =
         projectSelectedValueOptionView(selectController);
 
     const rootElement = document.createElement("div");
@@ -141,11 +142,32 @@ const projectSelectViews = (selectController) => {
     selectController.onOptionsVisibilityChange((value) => {
         allOptionsElement[0].classList.toggle("hidden", !value);
         selectedOptionElement.classList.toggle("opened", value);
-        // toggleButton.innerHTML = value ? "^" : "v";
+        toggleButton.innerHTML = value ? openedIcon : closedIcon;
     });
 
     return [rootElement, selectedOptionLabelElement];
 };
+
+/**
+ * Svg of opened status of the select component
+ * @private
+ */
+const openedIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+        <path d="M 5 16  L 12 9  L 19 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+`;
+
+/**
+ * Svg of closed status of the select component
+ * @private
+ */
+const closedIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+        <path d="M 5 9  L 12 16  L 19 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+`;
+
 
 /**
  * Height of the master list box
@@ -234,8 +256,20 @@ const pageCss = `
         border:         1px solid #ccc; /* todo */
         border-radius:  4px;
         
-        &.opened {
+        .opened & {
             border-radius: 4px 4px 0 0;
+        }
+
+        .toggleButton {
+            height:      100%;
+            display:     flex;
+            align-items: center;
+            padding:     0;
+
+            svg {
+                height:       100%;
+                aspect-ratio: 1;
+            }
         }
     }
     .${selectClassName} {
