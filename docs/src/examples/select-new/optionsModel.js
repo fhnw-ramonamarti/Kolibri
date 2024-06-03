@@ -54,7 +54,7 @@ const Option = (value, label) => {
  * @param { String } label - same as value if not defined
  * @returns { OptionType }
  * @example
- *      const model = ValueOption("pizza_fungi","Pizza Fungi");
+        const model = ValueOption("pizza_fungi","Pizza Fungi");
  */
 const ValueOption = (value, label = "") => {
     return Option(value, !label || label === "" ? value : label);
@@ -65,7 +65,7 @@ const ValueOption = (value, label = "") => {
  * @param { String }  label 
  * @returns { OptionType }
  * @example
- *      const model = CategoryOption("Pizza");
+        const model = CategoryOption("Pizza");
  */
 const CategoryOption = (label) => {
     return Option("", label);
@@ -85,7 +85,7 @@ const CategoryOption = (label) => {
  * @constructor
  * @return { OptionsModelType }
  * @example
- *      const model = OptionsModel();
+        const model = OptionsModel();
  */
 const OptionsModel = () => {
     const list = [];
@@ -101,6 +101,8 @@ const OptionsModel = () => {
 /**
  * Creates a single empty option
  * @returns { OptionType }
+ * @example
+        const emptyOption = reset();
  */
 const reset = () => {
     return Option(null, null);
@@ -121,7 +123,7 @@ const reset = () => {
  * @constructor
  * @return { SelectedOptionModelType }
  * @example
- *      const model = SelectedOptionModel();
+        const model = SelectedOptionModel();
  */
 const SelectedOptionModel = () => {
     const selectedOption = Observable(reset());

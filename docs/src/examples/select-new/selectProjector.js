@@ -1,6 +1,6 @@
 import { InputProjector } from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
 
-export { projectOptionsView, projectSelectedValueOptionView, projectSelectViews, pageCss };
+export { projectSelectViews, pageCss };
 
 /** @private */
 const selectClassName = "select-component";
@@ -108,7 +108,12 @@ const projectSelectedValueOptionView = (selectController) => {
  * For the html form a hidden input element is added to the combined view.
  * @param { SelectControllerType } selectController
  * @return { [HTMLDivElement, HTMLDivElement] } - combined views
- */
+ * @example
+        const selectController = SelectController({});
+        const selectView = projectSelectViews(
+            selectController
+        );
+*/
 const projectSelectViews = (selectController) => {
     const allOptionsElement = projectOptionsView(selectController);
     const [selectedOptionElement, selectedOptionLabelElement, _] =
@@ -192,7 +197,7 @@ const popoverStyle = `
  * CSS snippet to append to the head style when using the select component.
  * @type { String }
  * @example
- * document.querySelector("head style").textContent += pageCss;
+        document.querySelector("head style").textContent += pageCss;
  */
 const pageCss = `
     ${popoverStyle}

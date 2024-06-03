@@ -24,6 +24,12 @@ export { ColumnOptionsComponent };
  * @param { SelectedOptionControllerType } cursorPositionController 
  * @param { Number }                       columnNumber
  * @return { ColumnOptionsComponentType }
+ * @example
+        const cursorPositionController = SelectedOptionController();
+        const columnOptionsComponent = ColumnOptionsComponent(
+            cursorPositionController,
+            1
+        );
  */
 const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const optionsController        = OptionsController();

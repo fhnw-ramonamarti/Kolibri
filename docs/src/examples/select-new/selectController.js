@@ -57,6 +57,12 @@ let idCounter = 0;
  * @param { SelectAttribute }
  * @return { SelectControllerType }
  * @constructor
+ * @example
+        const selectController = SelectController({
+            label: 'City',
+            name:  'city',
+            numberOfColumns: 2
+        });
  */
 const SelectController = ({ label = "", name = "", numberOfColumns = 1}) => {
     const id = "select-component-" + idCounter++;

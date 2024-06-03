@@ -13,18 +13,19 @@ export { SelectComponent, pageCss };
 /**
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * @param { SelectAttribute }                              selectAttribute
+ * @param { SelectAttribute }                              selectAttributes
  * @param { Array<(String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
  * @return { [HTMLElement] } - component view
  * @constructor
  * @example 
+        const selectAttributes = { name: 'city', label: 'City', numberOfColumns: 2 };
         const componentView = SelectComponent(
-            { name: 'city', label: 'City', numberOfColumns: 2 },
+            selectAttributes,
             [ getCitiesForCountry, getCountries ]
-        )
+        );
  */
-const SelectComponent = (selectAttribute, serviceCallbacks) => {
-    const selectController              = SelectController(selectAttribute);
+const SelectComponent = (selectAttributes, serviceCallbacks) => {
+    const selectController              = SelectController(selectAttributes);
     const [component, selectionElement] = projectSelectViews(selectController);
 
     serviceCallbacks.forEach((cb, col) => {

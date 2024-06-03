@@ -16,6 +16,8 @@ export { OptionsController, SelectedOptionController };
  * It only adds options which are not already contained.
  * @return { OptionsControllerType }
  * @constructor
+ * @example
+        const optionsController = OptionsController();
  */
 const OptionsController = () => {
 
@@ -53,6 +55,8 @@ const OptionsController = () => {
  * as a representation of a selection.
  * @return { SelectedOptionControllerType }
  * @constructor
+ * @example
+        const selectedOptionController = SelectedOptionController();
  */
 const SelectedOptionController = () => {
 

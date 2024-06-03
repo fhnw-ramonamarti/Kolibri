@@ -26,6 +26,15 @@ const elementId = (option) =>
  * @param { SelectedOptionControllerType } cursorPositionController
  * @param { Number }                       columnNumber
  * @return { [HTMLDivElement] } - column view
+ * @example
+        const optionsController = OptionsController();
+        const selectedOptionController = SelectedOptionController();
+        const cursorPositionController = SelectedOptionController();
+        const columnView = projectColumnOptionsView(
+            optionsController,
+            selectedOptionController,
+            cursorPositionController
+        );
  */
 const projectColumnOptionsView = (
     optionsController,
@@ -155,7 +164,7 @@ const boxHeight = 240;
  * CSS snippet to append to the head style when using the component.
  * @type { String }
  * @example
- *      document.querySelector("head style").textContent += pageCss;
+        document.querySelector("head style").textContent += pageCss;
  */
 const pageCss = `
     .hidden {
