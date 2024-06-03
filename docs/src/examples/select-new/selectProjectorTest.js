@@ -12,7 +12,7 @@ const selectProjectorSuite = TestSuite("projector/simpleForm/selectProjector");
  */
 selectProjectorSuite.add("binding-column-selection", (assert) => {
     // prepare
-    const selectAttribute = {name: "Name", label: "Label", numberColumns: 2};
+    const selectAttribute = {name: "Name", label: "Label", numberOfColumns: 2};
     const selectController = SelectController(selectAttribute);
     const [componentView] = projectSelectViews(selectController);
 
@@ -32,7 +32,7 @@ selectProjectorSuite.add("binding-column-selection", (assert) => {
     const selectedValueElement    = componentView.querySelector(`[data-id*="${selectedValueId}"]`);
     const selectedCategoryElement = componentView.querySelector(`[data-id*="${selectedCategoryId}"]`);
     
-    // test the binding value optoin
+    // test the binding value option
     assert.is(selectController.getSelectedValueOption().getId()   , reset().getId());
     selectedValueElement.click();
     assert.is(selectController.getSelectedValueOption().getValue(), selectedOption.getValue());

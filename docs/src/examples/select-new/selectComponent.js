@@ -7,22 +7,27 @@ export { SelectComponent, pageCss };
 
 
 /**
- * @typedef { String | { label: String, value: String } } CalbackReturnType
+ * @typedef { String | { label: String, value: String } } CallbackReturnType
  */
 
 /**
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * @param { SelectAttribute }                             selectAttribute
- * @param { Array<(String) => Array<CalbackReturnType>> } columnCbs
- * @return { [HTMLElement] }
+ * @param { SelectAttribute }                              selectAttribute
+ * @param { Array<(String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
+ * @return { [HTMLElement] } - component view
  * @constructor
+ * @example 
+        const componentView = SelectComponent(
+            { name: 'city', label: 'City', numberOfColumns: 2 },
+            [ getCitiesForCountry, getCountries ]
+        )
  */
-const SelectComponent = (selectAttribute, columnCbs) => {
+const SelectComponent = (selectAttribute, serviceCallbacks) => {
     const selectController              = SelectController(selectAttribute);
     const [component, selectionElement] = projectSelectViews(selectController);
 
-    columnCbs.forEach((cb, col) => {
+    serviceCallbacks.forEach((cb, col) => {
         cb().forEach(e => {
             const option = col !== 0 ? mapToCategoryOption(e) : mapToValueOption(e?.value ?? e, e?.label ?? e);
             selectController.getColumnOptionsComponent(col).addOption(option);
@@ -43,7 +48,7 @@ const SelectComponent = (selectAttribute, columnCbs) => {
         const searchCategory = option.getLabel() === "" ? null : option.getLabel();
         const mapping = (e) => col !== 0 ? mapToCategoryOption(e) 
                                          : mapToValueOption(e?.value ?? e, e?.label ?? e);
-        const options = columnCbs[col](searchCategory).map(mapping);
+        const options = serviceCallbacks[col](searchCategory).map(mapping);
 
         options.forEach((option) =>
             selectController.getColumnOptionsComponent(col).addOption(option)
@@ -66,13 +71,13 @@ const SelectComponent = (selectAttribute, columnCbs) => {
         }
     };
 
-    columnCbs.forEach((_, col) => {
+    serviceCallbacks.forEach((_, col) => {
         if (col === 0) {
             return;
         }
         selectController.getColumnOptionsComponent(col)?.onOptionSelected((option) => {
             if(option.getId() === reset().getId()){
-                if(columnCbs.length <= col + 1){
+                if(serviceCallbacks.length <= col + 1){
                     selectController.clearColumnOptions(col - 1);
                     filterOptions(col - 1, option);
                     return;
@@ -113,6 +118,6 @@ const mapToCategoryOption = (label) => {
  * CSS snippet to append to the head style when using the select component.
  * @type { String }
  * @example
- * document.querySelector("head style").textContent += pageCss;
+        document.querySelector("head style").textContent += pageCss;
  */
 const pageCss = pageCssColumn + "\n" + pageComponentCss;

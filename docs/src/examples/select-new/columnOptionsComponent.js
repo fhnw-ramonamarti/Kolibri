@@ -22,7 +22,8 @@ export { ColumnOptionsComponent };
  * a {@link SelectedOptionController} as well it creates the view.
  * It supports replacing all current options by new passed options.
  * @param { SelectedOptionControllerType } cursorPositionController 
- * @param { Number }                       columnNumber 
+ * @param { Number }                       columnNumber
+ * @return { ColumnOptionsComponentType }
  */
 const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const optionsController        = OptionsController();

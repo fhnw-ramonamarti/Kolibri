@@ -18,13 +18,13 @@ let idCounter = 0;
  * @typedef SelectAttribute
  * @property { ?String } label
  * @property { ?String } name
- * @property { ?Number } numberColumns - default 1
+ * @property { ?Number } numberOfColumns - default 1
  */
 
 /**
  * @typedef SelectControllerType
  * @property { () => String }                    getId
- * @property { () => Number }                    getNumberColumns
+ * @property { () => Number }                    getNumberOfColumns
 
  * @property { () => SimpleInputControllerType } getInputController
  * @property { () => String }                    getInputValue
@@ -46,6 +46,7 @@ let idCounter = 0;
  * @property { () => OptionType }                getSelectedValueOption
  * @property { (OptionType) => void }            setSelectedValueOption
  * @property { () => void }                      clearSelectedValueOption
+ * @property { (Number) => void }                clearColumnOptions
  * @property { (Number) => ColumnOptionsComponentType }        getColumnOptionsComponent
  */
 
@@ -57,14 +58,14 @@ let idCounter = 0;
  * @return { SelectControllerType }
  * @constructor
  */
-const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
+const SelectController = ({ label = "", name = "", numberOfColumns = 1}) => {
     const id = "select-component-" + idCounter++;
 
     // beware of negative numbers
-    numberColumns = Math.max(numberColumns, 1);
+    numberOfColumns = Math.max(numberOfColumns, 1);
 
     const cursorPositionController = SelectedOptionController();
-    const columns = Array(numberColumns).fill("").map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
+    const columns = Array(numberOfColumns).fill("").map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
 
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);
@@ -94,7 +95,7 @@ const SelectController = ({ label = "", name = "", numberColumns = 1}) => {
 
     return {
         getId           : () => id,
-        getNumberColumns: () => numberColumns,
+        getNumberOfColumns: () => numberOfColumns,
 
         getInputController : () => inputController,
         getInputValue      : inputController.getValue,

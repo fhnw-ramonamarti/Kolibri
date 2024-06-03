@@ -29,7 +29,7 @@ const projectOptionsView = (selectController) => {
         "z-index:" + Math.max(50, 90 - Number(selectController.getId().replace(/\D*/, "")))
     );
 
-    [...Array(selectController.getNumberColumns()).keys()].reverse().forEach((col) => {
+    [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         const column = selectController.getColumnOptionsComponent(col).getColumnView();
         optionsContainer.append(...column);
     });
@@ -50,7 +50,7 @@ const projectSelectedValueOptionView = (selectController) => {
     const togglePopover = (event) => {
         selectController.setOptionsVisibility(!selectController.isOptionsVisible());
 
-        // popover preparings
+        // popover preparing
         const selectElement = event.target.closest("#" + selectController.getId());
         const popoverElement = selectElement.querySelector("[popover]");
         const openPopover = document.querySelector("[popover]:popover-open");
@@ -111,7 +111,7 @@ const projectSelectedValueOptionView = (selectController) => {
  */
 const projectSelectViews = (selectController) => {
     const allOptionsElement = projectOptionsView(selectController);
-    const [selectedOptionElement, selectedOptionLabelElement, toggleButton] =
+    const [selectedOptionElement, selectedOptionLabelElement, _] =
         projectSelectedValueOptionView(selectController);
 
     const rootElement = document.createElement("div");

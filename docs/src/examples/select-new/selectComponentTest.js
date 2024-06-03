@@ -4,7 +4,7 @@ import { SelectComponent } from "./selectComponent.js";
 const selectComponentSuite = TestSuite("projector/simpleForm/selectComponent");
 
 selectComponentSuite.add("Select component - 1 column", (assert) => {
-    const selectAttribute    = {name: "Name", label: "Label", numberColumns: 1};
+    const selectAttribute    = {name: "Name", label: "Label", numberOfColumns: 1};
     const getTestData        = () => ["Test 1", "Test 2", "Test 3"];
     const dataSize           = getTestData().length;
     const [componentElement] = SelectComponent(selectAttribute, [getTestData]);
@@ -27,7 +27,7 @@ selectComponentSuite.add("Select component - 1 column", (assert) => {
 });
 
 selectComponentSuite.add("Select component - 2 column", (assert) => {
-    const selectAttribute    = {name: "Name", label: "Label", numberColumns: 2};
+    const selectAttribute    = {name: "Name", label: "Label", numberOfColumns: 2};
     const getTestValue       = (category) =>
         ["Test 1", "Test 2", "Test 11"].filter(e => 
             null == category || e.endsWith(category)
@@ -45,7 +45,7 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
     assert.is(categoryColumnContainer.childElementCount, categoryDataSize);
     
     const valueToSelect     = componentElement.querySelector(`[data-value*="Test 1"]`);
-    const categroyToSelect  = componentElement.querySelector(`.category-options-column :first-child`);
+    const categoryToSelect  = componentElement.querySelector(`.category-options-column :first-child`);
     // value to select not in category 2
     const categoryToSelect2 = componentElement.querySelector(`.category-options-column :last-child`);
     let selectedElementBefore, selectedElementAfter;
@@ -60,15 +60,15 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
     // click on category option with value option in it
     selectedElementBefore = componentElement.querySelector('.category-options-column .selected');
     assert.is(selectedElementBefore == null            , true);
-    categroyToSelect.click();
+    categoryToSelect.click();
     selectedElementAfter  = componentElement.querySelector('.category-options-column .selected');
-    assert.is(selectedElementAfter.innerHTML           , categroyToSelect.innerHTML);
+    assert.is(selectedElementAfter.innerHTML           , categoryToSelect.innerHTML);
     selectedElementAfter  = componentElement.querySelector('.value-options-column .selected');
     assert.is(selectedElementAfter.innerHTML           , valueToSelect.innerHTML);
-    assert.is(valueColumnContainer.childElementCount   , valueDataSize(categroyToSelect.innerHTML));
+    assert.is(valueColumnContainer.childElementCount   , valueDataSize(categoryToSelect.innerHTML));
 
     // click on category option selected
-    categroyToSelect.click();
+    categoryToSelect.click();
     selectedElementAfter  = componentElement.querySelector('.category-options-column .selected');
     assert.is(selectedElementAfter == null             , true);
     selectedElementAfter  = componentElement.querySelector('.value-options-column .selected');

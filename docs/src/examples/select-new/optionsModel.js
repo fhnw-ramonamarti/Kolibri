@@ -8,19 +8,19 @@ export {
     reset,
 };
 
-/**
- * @typedef OptionType
- * @property { () => String } getValue  - selectable value of the input
- * @property { () => String } getLabel  - visible label of the input
- * @property { () => String } getId     - unique identifier of the option 
- */
-
 
 /**
  * Internal, mutable, singleton state to make option id unique.
  * @private
  */
 let idCounter = 0;
+
+/**
+ * @typedef OptionType
+ * @property { () => String } getValue  - selectable value of the input
+ * @property { () => String } getLabel  - visible label of the input
+ * @property { () => String } getId     - unique identifier of the option 
+ */
 
 /**
  * @private
@@ -65,7 +65,7 @@ const ValueOption = (value, label = "") => {
  * @param { String }  label 
  * @returns { OptionType }
  * @example
- *      const model = CategoryOption("pizza");
+ *      const model = CategoryOption("Pizza");
  */
 const CategoryOption = (label) => {
     return Option("", label);

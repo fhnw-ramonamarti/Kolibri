@@ -16,10 +16,10 @@ import { SelectComponent, pageCss } from "./selectComponent.js";
 const selectAttribute = {
     name: "year",
     label: "Year",
-    numberColumns: 2,
+    numberOfColumns: 2,
 };
 /**
- * @type { Array<(String) => Array<CalbackReturnType>> }
+ * @type { Array<(String) => Array<CallbackReturnType>> }
  */
 const columnServiceCb = [getYearsByDecade, getDecades];
 
@@ -33,10 +33,10 @@ document.getElementById("componentYear").append(...selectComponent);
 const selectAttribute2 = {
     name: "city",
     label: "City",
-    numberColumns: 2,
+    numberOfColumns: 2,
 };
 /**
- * @type { Array<(String) => Array<CalbackReturnType>> }
+ * @type { Array<(String) => Array<CallbackReturnType>> }
  */
 const columnServiceCb2 = [
     getCitiesByCountry,
@@ -53,10 +53,10 @@ document.getElementById("componentCountry").append(...selectComponent2);
 const selectAttribute3 = {
     name: "continent",
     label: "Continent independent",
-    numberColumns: 1,
+    numberOfColumns: 1,
 };
 /**
- * @type { Array<(String) => Array<CalbackReturnType>> }
+ * @type { Array<(String) => Array<CallbackReturnType>> }
  */
 const columnServiceCb3 = [
     getContinents,
@@ -71,10 +71,10 @@ document.getElementById("componentContinent").append(...selectComponent3);
 const selectAttribute4 = {
     name: "city",
     label: "Continent to City",
-    numberColumns: 3,
+    numberOfColumns: 3,
 };
 /**
- * @type { Array<(String) => Array<CalbackReturnType>> }
+ * @type { Array<(String) => Array<CallbackReturnType>> }
  */
 const columnServiceCb4 = [
     getCitiesByCountry,
@@ -92,10 +92,10 @@ document.getElementById("componentCity3").append(...selectComponent4);
 const selectAttribute5 = {
     name: "money",
     label: "Money Img",
-    numberColumns: 2,
+    numberOfColumns: 2,
 };
 /**
- * @type { Array<(String) => Array<CalbackReturnType>> }
+ * @type { Array<(String) => Array<CallbackReturnType>> }
  */
 const columnServiceCb5 = [
     getMoneyByContinent,

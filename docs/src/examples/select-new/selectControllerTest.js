@@ -13,7 +13,7 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
     const selectAttribute = {name: "Name", label: "Label"}
     const controller = SelectController(selectAttribute);
     const controller2 = SelectController({});
-    assert.is(controller.getNumberColumns()              , 1);
+    assert.is(controller.getNumberOfColumns()              , 1);
     assert.is(controller.isOptionsVisible()              , false);
     assert.is(controller.isSelectedOptionVisible()       , true);
     assert.is(controller.getSelectedValueOption().getId(), noSelectionId);
@@ -36,9 +36,9 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
 
 selectControllerSuite.add("Select controller - 2 column", (assert) => {
     const noSelectionId = reset().getId();
-    const selectAttribute = {name: "Name", label: "Label", numberColumns: 2}
+    const selectAttribute = {name: "Name", label: "Label", numberOfColumns: 2}
     const controller = SelectController(selectAttribute);
-    assert.is(controller.getNumberColumns(), 2);
+    assert.is(controller.getNumberOfColumns(), 2);
 
     // check select not existing/ contained option
     const val = ValueOption("test");
