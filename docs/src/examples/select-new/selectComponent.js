@@ -27,6 +27,7 @@ export { SelectComponent, pageCss };
 const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const selectController              = SelectController(selectAttributes);
     const [component, selectionElement] = projectSelectViews(selectController);
+    const [labelElement, inputElement]  = component.children;
 
     serviceCallbacks.forEach((cb, col) => {
         cb().forEach(e => {
@@ -37,7 +38,7 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
 
     selectController.getColumnOptionsComponent(0).onOptionSelected(option => {
         selectionElement.innerHTML = option.getLabel();
-        component.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
+        inputElement.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
     /**
@@ -94,8 +95,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             }
         });
     });
-
-    const [labelElement, inputElement] = component.children;
 
     return [component, labelElement, inputElement];
 }

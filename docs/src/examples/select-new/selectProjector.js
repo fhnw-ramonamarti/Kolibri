@@ -46,47 +46,72 @@ const projectSelectedValueOptionView = (selectController) => {
     const rootElement = document.createElement("div");
     rootElement.classList.add(selectedOptionClassName);
     rootElement.id = selectController.getId() + "-selected-option";
+    rootElement.setAttribute("data-id", selectController.getId());
 
-    const togglePopover = (event) => {
+    const selectedOptionContainer = document.createElement("div");
+    const clearButton             = document.createElement("button");
+    const toggleButton            = document.createElement("button");
+
+    const togglePopover = (_) => {
         selectController.setOptionsVisibility(!selectController.isOptionsVisible());
 
         // popover preparing
-        const selectElement = event.target.closest("#" + selectController.getId());
-        const popoverElement = selectElement.querySelector("[popover]");
+        const selectElement = document.querySelector("#" + rootElement.id);
+        const popoverElement = document.querySelector(
+            `[id*="${selectController.getId()}"][popover]`
+        );
         const openPopover = document.querySelector("[popover]:popover-open");
         if (openPopover?.id !== popoverElement.id) {
             openPopover?.hidePopover();
+            document.querySelectorAll("button.toggleButton").forEach((toggle) => {
+                toggle.innerHTML = closedIcon(selectController.getId() + "-closed-button");
+            });
         }
+        toggleButton.innerHTML = selectController.isOptionsVisible()
+            ? openedIcon(selectController.getId() + "-opened-button")
+            : closedIcon(selectController.getId() + "-closed-button");
+
         const { top, left, height, width } = selectElement.getBoundingClientRect();
+        const { scrollTop, scrollLeft } = document.documentElement;
         const styleElement = document.createElement("style");
         styleElement.textContent = `
             #${popoverElement.id} {
-                top: ${top + height - 1}px;
-                left: ${left}px; 
+                top: ${top + height + scrollTop - 1}px;
+                left: ${left + scrollLeft}px; 
                 width: ${width}px;
+                flex-wrap: nowrap;
+
+                .options-column {
+                    flex: 1 1 auto;
+                }
             }
-        `;
+            `;
+            // flex-basis: ${100 / selectController.getNumberOfColumns()}%;
         selectElement.classList.toggle("opened", selectController.isOptionsVisible());
+        popoverElement.classList.toggle("opened", selectController.isOptionsVisible());
         document.querySelector("head").append(styleElement);
         popoverElement.togglePopover();
     };
     
     document.onclick = (event) => {
-        if (null == event.target.closest("." + selectClassName)?.querySelector( " [popover]")) {
-            document.querySelectorAll("." + selectClassName + " [popover]").forEach((popover) => {
+        const input = event.target.closest("." + inputComponentClassName);
+        if (null == input) {
+            document.querySelectorAll("." + optionsClassName + "[popover]").forEach((popover) => {
                 popover.hidePopover();
+                document.querySelectorAll("button.toggleButton").forEach((toggle) => {
+                    toggle.innerHTML = closedIcon(selectController.getId() + "-closed-button");
+                });
             });
         }
     };
 
-    const selectedOptionContainer = document.createElement("div");
     selectedOptionContainer.classList.add("toggleButton");
     selectedOptionContainer.classList.add("selected-value");
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
     selectedOptionContainer.onclick = togglePopover;
     rootElement.append(selectedOptionContainer);
 
-    const clearButton = document.createElement("button");
+    clearButton.setAttribute("type", "button");
     clearButton.classList.add("clearButton");
     clearButton.classList.add("clear");
     clearButton.innerHTML = "&times;";
@@ -95,9 +120,11 @@ const projectSelectedValueOptionView = (selectController) => {
     };
     rootElement.append(clearButton);
 
-    const toggleButton = document.createElement("button");
+    toggleButton.setAttribute("type", "button");
     toggleButton.classList.add("toggleButton");
-    toggleButton.innerHTML = selectController.isOptionsVisible() ? openedIcon : closedIcon;
+    toggleButton.innerHTML = selectController.isOptionsVisible()
+        ? openedIcon(selectController.getId() + "-opened-button")
+        : closedIcon(selectController.getId() + "-closed-button");
     toggleButton.onclick = togglePopover;
     rootElement.append(toggleButton);
 
@@ -142,7 +169,9 @@ const projectSelectViews = (selectController) => {
     selectController.onOptionsVisibilityChange((value) => {
         allOptionsElement[0].classList.toggle("hidden", !value);
         selectedOptionElement.classList.toggle("opened", value);
-        toggleButton.innerHTML = value ? openedIcon : closedIcon;
+        toggleButton.innerHTML = value
+            ? openedIcon(selectController.getId() + "-opened-button")
+            : closedIcon(selectController.getId() + "-closed-button");
     });
 
     return [rootElement, selectedOptionLabelElement];
@@ -152,8 +181,8 @@ const projectSelectViews = (selectController) => {
  * Svg of opened status of the select component
  * @private
  */
-const openedIcon = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+const openedIcon = (id = "") => `
+    <svg xmlns="http://www.w3.org/2000/svg" id="${id}" viewBox="0 0 24 24" fill="none" class="opened-button">
         <path d="M 5 16  L 12 9  L 19 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 `;
@@ -162,8 +191,8 @@ const openedIcon = `
  * Svg of closed status of the select component
  * @private
  */
-const closedIcon = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+const closedIcon = (id = "") => `
+    <svg xmlns="http://www.w3.org/2000/svg" id="${id}" viewBox="0 0 24 24" fill="none" class="closed-button">
         <path d="M 5 9  L 12 16  L 19 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 `;
@@ -192,26 +221,24 @@ const popoverStyle = `
         border:         1px solid #ccc; /* todo */
         background:     #fff;
         overflow:       hidden;
-
+        align-items:    stretch;
+      
         display:        none;
-        height:         0;
         padding:        0;
         margin:         0;
-
-        transition:     translate 0.7s ease-out, display 0.7s ease-out allow-discrete;
-    }
-
-    /*   IS-OPEN STATE   */
-    .${optionsClassName}[popover]:popover-open {
-        display:        flex;
-        height:         auto;
     }
 
     /*   BEFORE-OPEN STATE   */
     @starting-style {
         .${optionsClassName}[popover]:popover-open {
- 
+            height:     0;
         }
+    }
+
+    /*   IS-OPEN STATE   */
+    .${optionsClassName}[popover]:popover-open {
+        display:        flex;
+        height:         fit-content;
     }
 `;
 
@@ -231,12 +258,19 @@ const pageCss = `
         width:          100%;
         height:         2rem;
 
+        border:         1px solid #ccc; /* todo */
+        border-radius:  4px;
+
+        &.opened {
+            border-radius: 4px 4px 0 0;
+        }
+
         .selected-value {
             width:      100%;
         }
 
         .clear {
-            color:              var(--kolibri-color-accent);
+            color:      var(--kolibri-color-accent);
         }
         
         button.toggleButton, 
@@ -253,13 +287,6 @@ const pageCss = `
         }
     }
     .${inputComponentClassName} {
-        border:         1px solid #ccc; /* todo */
-        border-radius:  4px;
-        
-        .opened & {
-            border-radius: 4px 4px 0 0;
-        }
-
         .toggleButton {
             height:      100%;
             display:     flex;
@@ -271,17 +298,18 @@ const pageCss = `
                 aspect-ratio: 1;
             }
         }
+
+        .selected-value {
+            min-height:  2rem;
+            display:     flex;
+            gap:         0.5em;
+            align-items: center;
+        }
     }
     .${selectClassName} {
         position:       relative;
-        
-        .selected-value {
-            min-height: 2rem;
-            display:    flex;
-            gap:        0.5em;
-            align-items:center;
-        }
     }
+    
     .hidden {
         display:        none;
     }

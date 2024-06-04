@@ -172,13 +172,28 @@ const pageCss = `
     }
     .${columnClassName} {
         width:          100%;
-        overflow:       scroll;
-        height:         ${boxHeight}px;
+        overflow-y:     scroll;
+        overflow-x:     hidden;
+        max-height:     ${boxHeight}px;
         min-height:     100%;
-        scrollbar-visible: always;
 
         &:not(:last-child) {
             border-right: 1px solid #ccc; /* todo */
+        }
+
+        /* styling for scroll bar */
+        scrollbar-color: #ccc #fff;
+        scrollbar-width: thin;
+        
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: #ccc; /* todo */
         }
     }
     .${optionClassName} {
