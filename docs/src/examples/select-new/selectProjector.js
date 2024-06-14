@@ -214,11 +214,8 @@ const popoverStyle = `
 
     .${optionsClassName}[popover] {
         position:       absolute;
-        left:           0;
         z-index:        50;
-        margin-bottom:  0.5em;
         gap:            5px;
-        align-items:    baseline;
         max-height:     ${boxHeight}px;
         border-radius:  0 0 4px 4px;
         border:         1px solid #ccc; /* todo */
@@ -231,12 +228,7 @@ const popoverStyle = `
         padding:        0;
         margin:         0;
 
-        inset: unset;
-        width: auto;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        pointer-events: none;
+        box-shadow: 0px 5px 15px #0002;
 
         animation:        open 300ms ease-in-out;
         transform-origin: top center;
