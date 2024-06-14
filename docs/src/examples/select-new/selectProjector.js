@@ -23,11 +23,17 @@ const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
     optionsContainer.id = selectController.getId() + "-options";
     optionsContainer.classList.add(optionsClassName);
-    optionsContainer.setAttribute("popover", "on");
-    optionsContainer.setAttribute(
-        "style",
-        "z-index:" + Math.max(50, 90 - Number(selectController.getId().replace(/\D*/, "")))
-    );
+    optionsContainer.setAttribute("popover", "auto");
+
+    optionsContainer.addEventListener("toggle", (event) => {
+        if (event.newState === "open") {
+            optionsContainer.classList.toggle("opened", true);
+            selectController.setOptionsVisibility(true);
+        } else {
+            optionsContainer.classList.toggle("opened", false);
+            selectController.setOptionsVisibility(false);
+        }
+    });
 
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         const column = selectController.getColumnOptionsComponent(col).getColumnView();
@@ -40,12 +46,12 @@ const projectOptionsView = (selectController) => {
 /**
  * Create the selected option view of the select, bind against the controller, and return the view.
  * @param { SelectControllerType } selectController
- * @return { [HTMLDivElement, HTMLDivElement, HTMLButtonElement] } - selected option view
+ * @return { [HTMLDivElement, HTMLDivElement] } - selected option view
  */
 const projectSelectedValueOptionView = (selectController) => {
     const rootElement = document.createElement("div");
+    rootElement.id    = selectController.getId() + "-selected-option";
     rootElement.classList.add(selectedOptionClassName);
-    rootElement.id = selectController.getId() + "-selected-option";
     rootElement.setAttribute("data-id", selectController.getId());
 
     const selectedOptionContainer = document.createElement("div");
@@ -53,23 +59,14 @@ const projectSelectedValueOptionView = (selectController) => {
     const toggleButton            = document.createElement("button");
 
     const togglePopover = (_) => {
-        selectController.setOptionsVisibility(!selectController.isOptionsVisible());
 
         // popover preparing
-        const selectElement = document.querySelector("#" + rootElement.id);
-        const popoverElement = document.querySelector(
+        const selectElement  = document.querySelector("#" + selectController.getId());
+        const popoverElement = selectElement.querySelector(
             `[id*="${selectController.getId()}"][popover]`
         );
-        const openPopover = document.querySelector("[popover]:popover-open");
-        if (openPopover?.id !== popoverElement.id) {
-            openPopover?.hidePopover();
-            document.querySelectorAll("button.toggleButton").forEach((toggle) => {
-                toggle.innerHTML = closedIcon(selectController.getId() + "-closed-button");
-            });
-        }
-        toggleButton.innerHTML = selectController.isOptionsVisible()
-            ? openedIcon(selectController.getId() + "-opened-button")
-            : closedIcon(selectController.getId() + "-closed-button");
+        selectElement.classList.toggle("opened", selectController.isOptionsVisible());
+        rootElement.classList.toggle("opened", selectController.isOptionsVisible());
 
         const { top, left, height, width } = selectElement.getBoundingClientRect();
         const { scrollTop, scrollLeft } = document.documentElement;
@@ -86,24 +83,16 @@ const projectSelectedValueOptionView = (selectController) => {
                 }
             }
             `;
-            // flex-basis: ${100 / selectController.getNumberOfColumns()}%;
-        selectElement.classList.toggle("opened", selectController.isOptionsVisible());
-        popoverElement.classList.toggle("opened", selectController.isOptionsVisible());
         document.querySelector("head").append(styleElement);
-        popoverElement.togglePopover();
-    };
-    
-    document.onclick = (event) => {
-        const input = event.target.closest("." + inputComponentClassName);
-        if (null == input) {
-            document.querySelectorAll("." + optionsClassName + "[popover]").forEach((popover) => {
-                popover.hidePopover();
-                document.querySelectorAll("button.toggleButton").forEach((toggle) => {
-                    toggle.innerHTML = closedIcon(selectController.getId() + "-closed-button");
-                });
-            });
+        
+        if(selectController.isOptionsVisible()){
+            popoverElement.hidePopover();
+        } else {
+            popoverElement.showPopover();
         }
     };
+
+    // todo on resize for positioning popover on view port, on zoom ?, pos to absolute  
 
     selectedOptionContainer.classList.add("toggleButton");
     selectedOptionContainer.classList.add("selected-value");
@@ -122,13 +111,10 @@ const projectSelectedValueOptionView = (selectController) => {
 
     toggleButton.setAttribute("type", "button");
     toggleButton.classList.add("toggleButton");
-    toggleButton.innerHTML = selectController.isOptionsVisible()
-        ? openedIcon(selectController.getId() + "-opened-button")
-        : closedIcon(selectController.getId() + "-closed-button");
     toggleButton.onclick = togglePopover;
     rootElement.append(toggleButton);
 
-    return [rootElement, selectedOptionContainer, toggleButton];
+    return [rootElement, selectedOptionContainer];
 };
 
 /**
@@ -144,12 +130,12 @@ const projectSelectedValueOptionView = (selectController) => {
 */
 const projectSelectViews = (selectController) => {
     const allOptionsElement = projectOptionsView(selectController);
-    const [selectedOptionElement, selectedOptionLabelElement, toggleButton] =
+    const [selectedOptionElement, selectedOptionLabelElement] =
         projectSelectedValueOptionView(selectController);
 
     const rootElement = document.createElement("div");
+    rootElement.id    = selectController.getId();
     rootElement.classList.add(selectClassName);
-    rootElement.id = selectController.getId();
 
     const componentContainer = document.createElement("div");
     componentContainer.classList.add(inputComponentClassName);
@@ -169,34 +155,10 @@ const projectSelectViews = (selectController) => {
     selectController.onOptionsVisibilityChange((value) => {
         allOptionsElement[0].classList.toggle("hidden", !value);
         selectedOptionElement.classList.toggle("opened", value);
-        toggleButton.innerHTML = value
-            ? openedIcon(selectController.getId() + "-opened-button")
-            : closedIcon(selectController.getId() + "-closed-button");
     });
 
     return [rootElement, selectedOptionLabelElement];
 };
-
-/**
- * Svg of opened status of the select component
- * @private
- */
-const openedIcon = (id = "") => `
-    <svg xmlns="http://www.w3.org/2000/svg" id="${id}" viewBox="0 0 24 24" fill="none" class="opened-button">
-        <path d="M 5 16  L 12 9  L 19 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-`;
-
-/**
- * Svg of closed status of the select component
- * @private
- */
-const closedIcon = (id = "") => `
-    <svg xmlns="http://www.w3.org/2000/svg" id="${id}" viewBox="0 0 24 24" fill="none" class="closed-button">
-        <path d="M 5 9  L 12 16  L 19 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-`;
-
 
 /**
  * Height of the master list box
@@ -209,6 +171,24 @@ const boxHeight = 240;
  * @private
  */
 const popoverStyle = `
+    @keyframes open {
+        0% {
+            transform: scaleY(0);
+        }
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
+    @keyframes close {
+        0% {
+            transform: scaleY(1);
+        }
+        100% {
+            transform: scaleY(0);
+        }
+    }
+
     .${optionsClassName}[popover] {
         position:       absolute;
         left:           0;
@@ -226,7 +206,9 @@ const popoverStyle = `
         display:        none;
         padding:        0;
         margin:         0;
-    }
+        animation:      open 300ms ease-in-out;
+        transform-origin: top center;
+    }        
 
     /*   BEFORE-OPEN STATE   */
     @starting-style {
@@ -287,15 +269,20 @@ const pageCss = `
         }
     }
     .${inputComponentClassName} {
+        position:       relative;
+
         .toggleButton {
             height:      100%;
             display:     flex;
             align-items: center;
             padding:     0;
 
-            svg {
+            button& {
                 height:       100%;
                 aspect-ratio: 1;
+                background-image: url("../../../img/icons/kolibri-select-closed.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
             }
         }
 
@@ -308,6 +295,10 @@ const pageCss = `
     }
     .${selectClassName} {
         position:       relative;
+
+        &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
+            background-image: url("../../../img/icons/kolibri-select-opened.svg");
+        }
     }
     
     .hidden {
