@@ -58,6 +58,24 @@ const projectSelectedValueOptionView = (selectController) => {
     const clearButton             = document.createElement("button");
     const toggleButton            = document.createElement("button");
 
+    const positionPopover = (selectElement, popoverElementId) => {
+        const popoverStyle = selectController.getId() + "-style-popover";
+        const { top, left, height, width } = selectElement.getBoundingClientRect();
+        const styleElement =
+            document.querySelector("#" + popoverStyle) ?? document.createElement("style");
+        if(styleElement.textContent === ""){
+            styleElement.id = popoverStyle;
+            document.querySelector("head").append(styleElement);
+        }
+        styleElement.textContent = `
+            #${popoverElementId} {
+                top: ${top + height - 1}px;
+                left: ${left}px; 
+                width: ${width}px;
+            }
+        `;
+    };
+
     const togglePopover = (_) => {
 
         // popover preparing
@@ -68,22 +86,7 @@ const projectSelectedValueOptionView = (selectController) => {
         selectElement.classList.toggle("opened", selectController.isOptionsVisible());
         rootElement.classList.toggle("opened", selectController.isOptionsVisible());
 
-        const { top, left, height, width } = selectElement.getBoundingClientRect();
-        const { scrollTop, scrollLeft } = document.documentElement;
-        const styleElement = document.createElement("style");
-        styleElement.textContent = `
-            #${popoverElement.id} {
-                top: ${top + height + scrollTop - 1}px;
-                left: ${left + scrollLeft}px; 
-                width: ${width}px;
-                flex-wrap: nowrap;
-
-                .options-column {
-                    flex: 1 1 auto;
-                }
-            }
-            `;
-        document.querySelector("head").append(styleElement);
+        positionPopover(selectElement, popoverElement.id);
         
         if(selectController.isOptionsVisible()){
             popoverElement.hidePopover();
@@ -92,7 +95,27 @@ const projectSelectedValueOptionView = (selectController) => {
         }
     };
 
-    // todo on resize for positioning popover on view port, on zoom ?, pos to absolute  
+    window.addEventListener("resize",() => {
+        const popoverElement = document.querySelector(
+            `[id*="${selectController.getId()}"][popover]:popover-open`
+        );
+        if(null != popoverElement){
+            const selectElement  = popoverElement.closest("#" + selectController.getId());
+            positionPopover(selectElement, popoverElement.id);
+        }
+    });
+
+    window.addEventListener("scroll",() => {
+        const popoverElement = document.querySelector(
+            `[id*="${selectController.getId()}"][popover]:popover-open`
+        );
+        if(null != popoverElement){
+            // popoverElement.hidePopover();
+            // hide or move and leave opened
+            const selectElement  = popoverElement.closest("#" + selectController.getId());
+            positionPopover(selectElement, popoverElement.id);
+        }
+    });
 
     selectedOptionContainer.classList.add("toggleButton");
     selectedOptionContainer.classList.add("selected-value");
@@ -202,12 +225,25 @@ const popoverStyle = `
         background:     #fff;
         overflow:       hidden;
         align-items:    stretch;
+        flex-wrap:      nowrap;
       
         display:        none;
         padding:        0;
         margin:         0;
-        animation:      open 300ms ease-in-out;
+
+        inset: unset;
+        width: auto;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        pointer-events: none;
+
+        animation:        open 300ms ease-in-out;
         transform-origin: top center;
+
+        .options-column {
+            flex: 1 1 auto;
+        }
     }        
 
     /*   BEFORE-OPEN STATE   */

@@ -229,6 +229,7 @@ const pageCss = `
         width:          2.5px;
         background:     #E11161;
         border-radius:  1px;
-        height:         1em;
+        top:            0.5em;
+        bottom:         0.4em;
     }
 `;
