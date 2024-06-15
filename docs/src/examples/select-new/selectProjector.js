@@ -190,6 +190,13 @@ const projectSelectViews = (selectController) => {
 const boxHeight = 240;
 
 /**
+ * Link to the folder with the svg icons 
+ * @private
+ */
+// const iconFolderUrl = "../../../img/icons/";
+const iconFolderUrl = "https://fhnw-ramonamarti.github.io/Kolibri/img/icons/";
+
+/**
  * Styles popover depending properties
  * @private
  */
@@ -308,7 +315,7 @@ const pageCss = `
             button& {
                 height:       100%;
                 aspect-ratio: 1;
-                background-image: url("../../../img/icons/kolibri-select-closed.svg");
+                background-image: url("${iconFolderUrl}kolibri-select-closed.svg");
                 background-size: contain;
                 background-repeat: no-repeat;
             }
@@ -325,7 +332,7 @@ const pageCss = `
         position:       relative;
 
         &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
-            background-image: url("../../../img/icons/kolibri-select-opened.svg");
+            background-image: url("${iconFolderUrl}kolibri-select-opened.svg");
         }
     }
     
