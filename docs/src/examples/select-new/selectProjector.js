@@ -61,6 +61,7 @@ const projectSelectedValueOptionView = (selectController) => {
     const positionPopover = (selectElement, popoverElementId) => {
         const popoverStyle = selectController.getId() + "-style-popover";
         const { top, left, height, width } = selectElement.getBoundingClientRect();
+        const { scrollTop, scrollLeft } = document.documentElement;
         const styleElement =
             document.querySelector("#" + popoverStyle) ?? document.createElement("style");
         if(styleElement.textContent === ""){
@@ -69,8 +70,8 @@ const projectSelectedValueOptionView = (selectController) => {
         }
         styleElement.textContent = `
             #${popoverElementId} {
-                top: ${top + height - 1}px;
-                left: ${left}px; 
+                top: ${top + height + scrollTop - 1}px;
+                left: ${left + scrollLeft}px; 
                 width: ${width}px;
             }
         `;
@@ -79,8 +80,10 @@ const projectSelectedValueOptionView = (selectController) => {
     const togglePopover = (_) => {
 
         // popover preparing
-        const selectElement  = document.querySelector("#" + selectController.getId());
-        const popoverElement = selectElement.querySelector(
+        const selectElement = document.querySelector(
+            "#" + rootElement.id
+        );
+        const popoverElement = document.querySelector(
             `[id*="${selectController.getId()}"][popover]`
         );
         selectElement.classList.toggle("opened", selectController.isOptionsVisible());
@@ -99,8 +102,10 @@ const projectSelectedValueOptionView = (selectController) => {
         const popoverElement = document.querySelector(
             `[id*="${selectController.getId()}"][popover]:popover-open`
         );
-        if(null != popoverElement){
-            const selectElement  = popoverElement.closest("#" + selectController.getId());
+        const selectElement = document.querySelector(
+            "#" + rootElement.id
+        );
+        if(null != popoverElement && null != selectElement){
             positionPopover(selectElement, popoverElement.id);
         }
     });
@@ -109,10 +114,12 @@ const projectSelectedValueOptionView = (selectController) => {
         const popoverElement = document.querySelector(
             `[id*="${selectController.getId()}"][popover]:popover-open`
         );
-        if(null != popoverElement){
+        const selectElement = document.querySelector(
+            "#" + rootElement.id
+        );
+        if(null != popoverElement && null != selectElement){
             // popoverElement.hidePopover();
             // hide or move and leave opened
-            const selectElement  = popoverElement.closest("#" + selectController.getId());
             positionPopover(selectElement, popoverElement.id);
         }
     });
