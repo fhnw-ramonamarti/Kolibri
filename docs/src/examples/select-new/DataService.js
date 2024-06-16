@@ -45,7 +45,7 @@ const getCitiesByCountry = (country) => {
         {country: 'France'       , city: "Marseille" },
         {country: 'Japan'        , city: "Tokio" },
     ];
-    return data.filter((e) => null == country || e.country === country).map((e) => e.city).sort();
+    return data.filter((e) => null == country || e.country === country).map((e) => e.city);
 };
 
 /**
@@ -64,8 +64,7 @@ const getCountriesByContinent = (continent) => {
     ];
     return data
         .filter((e) => null == continent || e.continent === continent)
-        .map((e) => e.country)
-        .sort();
+        .map((e) => e.country);
 };
 
 /**

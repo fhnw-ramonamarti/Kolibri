@@ -54,11 +54,35 @@ const projectColumnOptionsView = (
         columnContainer.classList.add("category-" + columnClassName);
     }
 
+    /**
+     * @param { OptionType } option 
+     * @returns { Number } - position to insert the element before
+     */
+    const findPosition = (option) => {
+        const sortedOptions = optionsController
+            .getOptions()
+            .sort((a, b) => a.getLabel().localeCompare(b.getLabel()));
+        const position = sortedOptions.findIndex((o) => option.getLabel() === o.getLabel());
+        return position === optionsController.getOptions().length - 1 ? -1 : position;
+    };
+
+    /**
+     * @param { OptionType } option 
+     */
     const renderRow = (option) => {
         const optionType = columnNumber === 0 ? "value" : "category";
         const [rowElement] = projectOption(selectedOptionController, option, optionType);
-        columnContainer.append(rowElement);
-        if(selectedOptionController.isSelectedOption(option)) {
+        if (optionsController.areOptionsSorted()) {
+            const position = findPosition(option);
+            if (position === -1) {
+                columnContainer.append(rowElement);
+            } else {
+                columnContainer.insertBefore(rowElement, columnContainer.children[position]);
+            }
+        } else {
+            columnContainer.append(rowElement);
+        }
+        if (selectedOptionController.isSelectedOption(option)) {
             selectOptionItem(columnContainer)(option, option);
         }
     };

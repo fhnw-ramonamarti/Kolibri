@@ -13,8 +13,9 @@ export { SelectComponent, pageCss };
 /**
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * More than 2 columns is experimental and can contain filtering bugs.
- * A selection of a category leads to the disselection of all sub categories expect the selected value.
+ * More than 2 columns is experimental and can contain unexpected filtering reactions.
+ * A selection of a category leads to the disselection of all sub categories 
+ * expect the selected value. This component slows down for over 1_000 options in a column.
  * @param { SelectAttribute }                                      selectAttributes
  * @param { Array<(filter: String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
  * @returns { [HTMLDivElement, HTMLLabelElement, HTMLDivElement] }   - [component container (all in one container), 
@@ -40,13 +41,14 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const mapping = (col) => (e) => col !== 0 ? CategoryOption(e?.label ?? e?.value ?? e) 
                                               : ValueOption(e?.value ?? e, e?.label ?? e);
 
-
     // initial fill of options
     serviceCallbacks.forEach((cb, col) => {
         cb().forEach(e => {
             const option = mapping(col)(e);
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
+        // due to performance issues, rm: find a better solution
+        selectController.getColumnOptionsComponent(col).setOptionsSorted(cb().length <= 1_000);
     });
 
     // define value options selection change
@@ -55,57 +57,17 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         inputElement.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
-    /**
-     * sort option elements by order of service return
-     * @param { HTMLDivElement } col
-     */
-    // const sortOptionElements = (col) => {
-    //     const allColumnOptions = serviceCallbacks[col](null).map(mapping(col));
-    //     const sorting = (a, b) => {
-    //         const indexA = allColumnOptions.findIndex(
-    //             (option) =>
-    //                 a.innerHTML === option.getLabel() &&
-    //                 a.getAttribute("data-value") === option.getValue()
-    //         );
-    //         const indexB = allColumnOptions.findIndex(
-    //             (option) =>
-    //                 b.innerHTML === option.getLabel() &&
-    //                 b.getAttribute("data-value") === option.getValue()
-    //         );
-    //         return indexA - indexB;
-    //     };
-    //     const columnElement = inputElement.querySelector(`[data-column="${col}"]`);
-    //     const columnOptionsElements = [...columnElement.children].sort(sorting);
-    //     columnElement.innerHTML = "";
-    //     columnElement.append(...columnOptionsElements);
-    // }
-
     const nullOptionId = nullOption.getId();
 
     /**
      * @param { Number }     col 
      * @param { OptionType } filterCategory 
-     * @param { Number }     selectedColumn 
+     * @param { Number }     selectedColumn - biggest found column with selected option smaller than current col
      * @returns { Boolean } - true if the value option is contained in selected categories
      */
     const filterOptions = (col, filterCategory, selectedColumn = 0) => {        
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
         const searchCategory = filterCategory.getLabel() === "" ? null : filterCategory.getLabel();
-        
-        // const allColumnOptions = serviceCallbacks[col](null).map(mapping(col));
-        // const sorting = (a, b) => {
-        //     const indexA = allColumnOptions.findIndex(
-        //         (option) =>
-        //             a.getLabel() === option.getLabel() &&
-        //             a.getValue() === option.getValue()
-        //     );
-        //     const indexB = allColumnOptions.findIndex(
-        //         (option) =>
-        //             b.getLabel() === option.getLabel() &&
-        //             b.getValue() === option.getValue()
-        //     );
-        //     return indexA - indexB;
-        // };
 
         const options = serviceCallbacks[col](searchCategory).map(mapping(col));
         options.forEach((option) => {
@@ -121,7 +83,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
                 const valueContained = options.map((option) => 
                     filterOptions(col - 1, option, selectedColumn)
                 ).reduce((acc, option) => acc || option, false);
-                // sortOptionElements(col - 1);
                 return valueContained;
             }
         }

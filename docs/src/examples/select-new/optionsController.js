@@ -4,6 +4,8 @@ export { OptionsController, SelectedOptionController };
 
 /**
  * @typedef OptionsControllerType
+ * @property { () => Boolean }                          areOptionsSorted
+ * @property { (Boolean) => void }                      setOptionsSorted
  * @property { () => Array<OptionType> }                getOptions
  * @property { (OptionType) => Boolean }                containsOption
  * @property { (OptionType) => void }                   addOption
@@ -23,6 +25,7 @@ export { OptionsController, SelectedOptionController };
 const OptionsController = () => {
 
     const optionsModel = OptionsModel();
+    let   sortOptions  = true;
 
     /**
     * @param { OptionType } option 
@@ -42,12 +45,14 @@ const OptionsController = () => {
     };
 
     return {
-        getOptions    : optionsModel.getList,
-        containsOption: containsOption,
-        addOption     : addOption,
-        delOption     : optionsModel.getObsList().del,
-        onOptionAdd   : optionsModel.getObsList().onAdd,
-        onOptionDel   : optionsModel.getObsList().onDel,
+        areOptionsSorted: () => sortOptions,
+        setOptionsSorted: (newVal) => sortOptions = newVal,
+        getOptions      : optionsModel.getList,
+        containsOption  : containsOption,
+        addOption       : addOption,
+        delOption       : optionsModel.getObsList().del,
+        onOptionAdd     : optionsModel.getObsList().onAdd,
+        onOptionDel     : optionsModel.getObsList().onDel,
     }
 };
 
