@@ -45,23 +45,51 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         inputElement.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
+    /**
+     * @param { Number } col
+     * @returns { (e: OptionType) => OptionType }
+     */
+    const mapping = (col) => (e) => col !== 0 ? mapToCategoryOption(e?.label ?? e?.value ?? e) 
+                                              : mapToValueOption(e?.value ?? e, e?.label ?? e);
+
+    /**
+     * sort option elements by order of service return
+     * @param { HTMLDivElement } col
+     */
+    const sortOptionElements = (col) => {
+        const sorting = (a, b) => {
+            const allColumnOptions = serviceCallbacks[col](null).map(mapping(col));
+            const indexA = allColumnOptions.findIndex(
+                (option) => a.innerHTML === option.getLabel() && a.getAttribute("data-value") === option.getValue()
+            );
+            const indexB = allColumnOptions.findIndex(
+                (option) => b.innerHTML === option.getLabel() && b.getAttribute("data-value") === option.getValue()
+            );
+            return indexA - indexB;
+        };
+        const columnElement = inputElement.querySelector(`[data-column="${col}"]`);
+        const columnOptionsElements = [...columnElement.children].sort(sorting);
+        columnElement.innerHTML = "";
+        columnElement.append(...columnOptionsElements);
+    }
+
     const nullOptionId = reset().getId();
 
     /**
      * @param { Number }     col 
      * @param { OptionType } filterCategory 
      * @param { Number }     selectedColumn 
+     * @returns { Boolean } - true if the value option is contained in selected categories
      */
     const filterOptions = (col, filterCategory, selectedColumn = 0) => {        
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
         const searchCategory = filterCategory.getLabel() === "" ? null : filterCategory.getLabel();
-        const mapping = (e) => col !== 0 ? mapToCategoryOption(e) 
-                                         : mapToValueOption(e?.value ?? e, e?.label ?? e);
-
-        const options = serviceCallbacks[col](searchCategory).map(mapping);
+        
+        const options = serviceCallbacks[col](searchCategory).map(mapping(col));
         options.forEach((option) => {
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
+        sortOptionElements(col);
         
         if (col === 0) {
             return options.map((o) => o.getValue()).includes(selectedOption.getValue());
