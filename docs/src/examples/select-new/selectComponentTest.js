@@ -47,7 +47,6 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
     const valueToSelect     = componentElement.querySelector(`[data-value*="Test 1"]`);
     const categoryToSelect  = componentElement.querySelector(`.category-options-column :first-child`);
     // value to select not in category 2
-    const categoryToSelect2 = componentElement.querySelector(`.category-options-column :last-child`);
     let selectedElementBefore, selectedElementAfter;
 
     // click on value option
@@ -74,20 +73,15 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
     selectedElementAfter  = componentElement.querySelector('.value-options-column .selected');
     assert.is(selectedElementAfter.innerHTML           , valueToSelect.innerHTML);
     assert.is(valueColumnContainer.childElementCount   , valueDataSize());
-
+    
     // click on category option with value option not in it
+    const categoryToSelect2 = componentElement.querySelector(`.category-options-column :last-child`);
     categoryToSelect2.click();
-    // console.log(componentElement.innerHTML);
     selectedElementAfter  = componentElement.querySelector('.category-options-column .selected');
-    // assert.is(selectedElementAfter.innerHTML           , categoryToSelect2.innerHTML);
+    assert.is(selectedElementAfter.innerHTML           , categoryToSelect2.innerHTML);
     selectedElementAfter  = componentElement.querySelector('.value-options-column .selected');
     assert.is(selectedElementAfter == null             , true);
     assert.is(valueColumnContainer.childElementCount   , valueDataSize(categoryToSelect2.innerHTML));
 });
 
 selectComponentSuite.run();
-
-/*
-<div id="select-component-5-options" class="options-component hidden" popover="auto"><div class="options-column options-column-1 category-options-column" data-column="1"><div data-id="options-column-Option-value36" data-value="" class="options-column-item category-options-column-item">1</div><div data-id="options-column-Option-value37" data-value="" class="options-column-item category-options-column-item">2</div></div><div class="options-column options-column-0 value-options-column" data-column="0"><div data-id="options-column-Option-value38" data-value="Test 1__" class="options-column-item value-options-column-item cursor-position selected">Test 1</div><div data-id="options-column-Option-value39" data-value="Test 11" class="options-column-item value-options-column-item">Test 11</div><div data-id="options-column-Option-value40" data-value="Test 2" class="options-column-item value-options-column-item">Test 2</div></div></div><input type="hidden" id="selected-option-component-id-68" value="Test 1" title="Label" name="Name"></div> 
-<div id="select-component-5-options" class="options-component hidden" popover="auto"><div class="options-column options-column-1 category-options-column" data-column="1"><div data-id="options-column-Option-value36" data-value="" class="options-column-item category-options-column-item">1</div><div data-id="options-column-Option-value37" data-value="" class="options-column-item category-options-column-item">2</div></div><div class="options-column options-column-0 value-options-column" data-column="0"><div data-id="options-column-Option-value41" data-value="Test 2__" class="options-column-item value-options-column-item">Test 2</div> ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</div></div><input type="hidden" id="selected-option-component-id-68" value="______" title="Label" name="Name"></div>
- */
