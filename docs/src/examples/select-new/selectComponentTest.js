@@ -44,9 +44,8 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
     assert.is(valueColumnContainer.childElementCount   , valueDataSize(null));
     assert.is(categoryColumnContainer.childElementCount, categoryDataSize);
     
-    const valueToSelect     = componentElement.querySelector(`[data-value*="Test 1"]`);
-    const categoryToSelect  = componentElement.querySelector(`.category-options-column :first-child`);
-    // value to select not in category 2
+    const valueToSelect    = componentElement.querySelector(`[data-value*="Test 1"]`);
+    const categoryToSelect = componentElement.querySelector(`.category-options-column :first-child`);
     let selectedElementBefore, selectedElementAfter;
 
     // click on value option
@@ -77,9 +76,9 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
     // click on category option with value option not in it
     const categoryToSelect2 = componentElement.querySelector(`.category-options-column :last-child`);
     categoryToSelect2.click();
-    selectedElementAfter  = componentElement.querySelector('.category-options-column .selected');
+    selectedElementAfter    = componentElement.querySelector('.category-options-column .selected');
     assert.is(selectedElementAfter.innerHTML           , categoryToSelect2.innerHTML);
-    selectedElementAfter  = componentElement.querySelector('.value-options-column .selected');
+    selectedElementAfter    = componentElement.querySelector('.value-options-column .selected');
     assert.is(selectedElementAfter == null             , true);
     assert.is(valueColumnContainer.childElementCount   , valueDataSize(categoryToSelect2.innerHTML));
 });

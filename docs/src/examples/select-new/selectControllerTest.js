@@ -2,14 +2,14 @@ import { TestSuite }            from "../../kolibri/util/test.js";
 import { 
     ValueOption,
     CategoryOption,
-    reset
+    nullOption
 }                               from "./optionsModel.js";
 import { SelectController }     from "./selectController.js";
 
 const selectControllerSuite = TestSuite("projector/simpleForm/selectController");
 
 selectControllerSuite.add("Select controller - 1 column", (assert) => {
-    const noSelectionId = reset().getId();
+    const noSelectionId = nullOption.getId();
     const selectAttribute = {name: "Name", label: "Label"}
     const controller = SelectController(selectAttribute);
     const controller2 = SelectController({});
@@ -35,7 +35,7 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
 });
 
 selectControllerSuite.add("Select controller - 2 column", (assert) => {
-    const noSelectionId = reset().getId();
+    const noSelectionId = nullOption.getId();
     const selectAttribute = {name: "Name", label: "Label", numberOfColumns: 2}
     const controller = SelectController(selectAttribute);
     assert.is(controller.getNumberOfColumns(), 2);

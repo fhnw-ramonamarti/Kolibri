@@ -8,12 +8,12 @@ const optionClassName = columnClassName + '-item';
 
 
 /**
- * Returns a unique id for the html element that is to represent the attribute such that we can create the
- * element in a way that allows later retrieval when it needs to be removed.
- * The resulting String should follow the constraints for properly formatted html ids, i.e. not dots allowed.
+ * Returns a unique id for the html element that is to represent the attribute such that 
+ * we can create the element in a way that allows later retrieval when it needs to be removed.
+ * The resulting String should follow the constraints for properly formatted html ids, i.e. no dots.
  * @private
  * @param  { OptionType } option
- * @return { String }
+ * @returns { String }
  */
 const elementId = (option) =>
     (columnClassName + "-" + option.getId()).replaceAll("\.","-");
@@ -25,7 +25,7 @@ const elementId = (option) =>
  * @param { SelectedOptionControllerType } selectedOptionController
  * @param { SelectedOptionControllerType } cursorPositionController
  * @param { Number }                       columnNumber
- * @return { [HTMLDivElement] } - column view
+ * @returns { [HTMLDivElement] } - column view
  * @example
         const optionsController = OptionsController();
         const selectedOptionController = SelectedOptionController();
@@ -77,7 +77,7 @@ const projectColumnOptionsView = (
  * @param { SelectedOptionControllerType } selectedOptionController
  * @param { OptionType }                   option
  * @param { String }                       optionType
- * @return { Array<HTMLElement> } - single option item view
+ * @returns { Array<HTMLElement> } - single option item view
  */
 const projectOption = (selectedOptionController, option, optionType) => {
 
@@ -103,7 +103,7 @@ const projectOption = (selectedOptionController, option, optionType) => {
  * When the cursor position changes, the change must become visible in the column view.
  * The old cursor position must be deselected, the new one selected.
  * @param { HTMLElement } root
- * @return { (newOption: OptionType, oldOption: OptionType) => void }
+ * @returns { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const cursorPositionItem = (root) => (newOption, oldOption) => {
     const oldId = elementId(oldOption);
@@ -123,7 +123,7 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
  * The old selected option must be deselected, the new one selected.
  * The cursor position is updated too.
  * @param { HTMLElement } root
- * @return { (newOption: OptionType, oldOption: OptionType) => void }
+ * @returns { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const selectOptionItem = (root) => (newOption, oldOption) => {
     cursorPositionItem(root)(newOption, oldOption);
@@ -140,9 +140,9 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
 };
 
 /**
- * When a model is removed from the column view, the respective view elements must be removed as well.
+ * When a model is removed from the column view, the respective view elements must also be removed.
  * @param { HTMLElement } root
- * @return { (option: OptionType) => void }
+ * @returns { (option: OptionType) => void }
  */
 const removeOptionItem = (root) => option => {
     const id = elementId(option);

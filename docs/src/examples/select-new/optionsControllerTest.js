@@ -1,12 +1,9 @@
-import { TestSuite }            from "../../kolibri/util/test.js";
+import { TestSuite }               from "../../kolibri/util/test.js";
 import {
     OptionsController,
     SelectedOptionController
-}                               from "./optionsController.js";
-import { 
-    ValueOption,
-    reset
-}                               from "./optionsModel.js";
+}                                  from "./optionsController.js";
+import { ValueOption, nullOption } from "./optionsModel.js";
 
 const optionsControllerSuite = TestSuite("projector/simpleForm/optionsController");
 
@@ -30,7 +27,7 @@ optionsControllerSuite.add("Options controller", (assert) => {
 });
 
 optionsControllerSuite.add("Selected option controller", (assert) => {
-    const noSelectionId = reset().getId();
+    const noSelectionId = nullOption.getId();
     const controller = SelectedOptionController();
     assert.is(controller.getSelectedOption().getId(), noSelectionId);
 

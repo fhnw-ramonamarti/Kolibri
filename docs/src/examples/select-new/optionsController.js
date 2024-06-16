@@ -15,7 +15,7 @@ export { OptionsController, SelectedOptionController };
 /**
  * OptionsController maintains an {@link OptionsModel}.
  * It only adds options which are not already contained.
- * @return { OptionsControllerType }
+ * @returns { OptionsControllerType }
  * @constructor
  * @example
         const optionsController = OptionsController();
@@ -64,7 +64,7 @@ const OptionsController = () => {
 /**
  * SelectedOptionController takes a {@link SelectedOptionModel} that will serve 
  * as a representation of a selection.
- * @return { SelectedOptionControllerType }
+ * @returns { SelectedOptionControllerType }
  * @constructor
  * @example
         const selectedOptionController = SelectedOptionController();
@@ -90,6 +90,7 @@ const SelectedOptionController = () => {
 };
 
 /**
+ * Compares two options by value and label instead of their id.
  * @private
  * @param { OptionType } a 
  * @param { OptionType } b 

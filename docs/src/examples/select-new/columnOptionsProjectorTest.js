@@ -1,13 +1,13 @@
 import { TestSuite }                                   from "../../kolibri/util/test.js";
 import { projectColumnOptionsView }                    from "./columnOptionsProjector.js";
 import { OptionsController, SelectedOptionController } from "./optionsController.js";
-import { ValueOption, reset }                          from "./optionsModel.js";
+import { ValueOption, nullOption }                     from "./optionsModel.js";
 
 const columnOptionsProjectorSuite = TestSuite("projector/simpleForm/columnOptionsProjector");
 
 /**
- * The purpose of this binding spike is not to test all possible user interactions and their outcome but rather
- * making sure that the view construction and the binding is properly set up.
+ * The purpose of this binding spike is not to test all possible user interactions and their outcome 
+ * but rather making sure that the view construction and the binding is properly set up.
  * Complex logic is to be tested against the controller (incl. model).
  */
 columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
@@ -32,7 +32,7 @@ columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     const selectedElement = columnView.querySelector(`[data-id*="${selectedId}"]`);
     
     // test the binding
-    assert.is(selectedOptionController.getSelectedOption().getId()   , reset().getId());
+    assert.is(selectedOptionController.getSelectedOption().getId()   , nullOption.getId());
     selectedElement.click();
     assert.is(selectedOptionController.getSelectedOption().getValue(), selectedOption.getValue());
 

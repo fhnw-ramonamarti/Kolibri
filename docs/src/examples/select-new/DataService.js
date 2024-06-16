@@ -62,7 +62,10 @@ const getCountriesByContinent = (continent) => {
         {country: 'France'       , continent: "Europe" },
         {country: 'Japan'        , continent: "Asia" },
     ];
-    return data.filter((e) => null == continent || e.continent === continent).map((e) => e.country).sort();
+    return data
+        .filter((e) => null == continent || e.continent === continent)
+        .map((e) => e.country)
+        .sort();
 };
 
 /**

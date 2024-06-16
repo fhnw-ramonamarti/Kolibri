@@ -25,7 +25,7 @@ export { ColumnOptionsComponent };
  * It supports replacing all current options by new passed options.
  * @param { SelectedOptionControllerType } cursorPositionController 
  * @param { Number }                       columnNumber
- * @return { ColumnOptionsComponentType }
+ * @returns { ColumnOptionsComponentType }
  * @example
         const cursorPositionController = SelectedOptionController();
         const columnOptionsComponent = ColumnOptionsComponent(

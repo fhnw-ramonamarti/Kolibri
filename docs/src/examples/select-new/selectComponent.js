@@ -1,4 +1,4 @@
-import { CategoryOption, ValueOption, reset }              from "./optionsModel.js";
+import { CategoryOption, ValueOption, nullOption }         from "./optionsModel.js";
 import { SelectController }                                from "./selectController.js";
 import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
 import { pageCss as pageCssColumn }                        from "./columnOptionsProjector.js";
@@ -15,9 +15,11 @@ export { SelectComponent, pageCss };
  * It fills and filters the options columns with the callback functions.
  * More than 2 columns is experimental and can contain filtering bugs.
  * A selection of a category leads to the disselection of all sub categories expect the selected value.
- * @param { SelectAttribute }                              selectAttributes
- * @param { Array<(String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
- * @return { [HTMLElement, HTMLElement, HTMLElement] } - component view
+ * @param { SelectAttribute }                                      selectAttributes
+ * @param { Array<(filter: String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
+ * @returns { [HTMLDivElement, HTMLLabelElement, HTMLDivElement] }   - [component container (all in one container), 
+ *                                                                     label part of component, 
+ *                                                                     selection input part of component]
  * @constructor
  * @example 
         const selectAttributes = { name: 'city', label: 'City', numberOfColumns: 2 };
@@ -31,10 +33,18 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const [component, selectionElement] = projectSelectViews(selectController);
     const [labelElement, inputElement]  = component.children;
 
+    /**
+     * @param { Number } col
+     * @returns { (e: OptionType) => OptionType }
+     */
+    const mapping = (col) => (e) => col !== 0 ? CategoryOption(e?.label ?? e?.value ?? e) 
+                                              : ValueOption(e?.value ?? e, e?.label ?? e);
+
+
     // initial fill of options
     serviceCallbacks.forEach((cb, col) => {
         cb().forEach(e => {
-            const option = col !== 0 ? mapToCategoryOption(e) : mapToValueOption(e?.value ?? e, e?.label ?? e);
+            const option = mapping(col)(e);
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
     });
@@ -46,34 +56,31 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     });
 
     /**
-     * @param { Number } col
-     * @returns { (e: OptionType) => OptionType }
-     */
-    const mapping = (col) => (e) => col !== 0 ? mapToCategoryOption(e?.label ?? e?.value ?? e) 
-                                              : mapToValueOption(e?.value ?? e, e?.label ?? e);
-
-    /**
      * sort option elements by order of service return
      * @param { HTMLDivElement } col
      */
-    const sortOptionElements = (col) => {
-        const sorting = (a, b) => {
-            const allColumnOptions = serviceCallbacks[col](null).map(mapping(col));
-            const indexA = allColumnOptions.findIndex(
-                (option) => a.innerHTML === option.getLabel() && a.getAttribute("data-value") === option.getValue()
-            );
-            const indexB = allColumnOptions.findIndex(
-                (option) => b.innerHTML === option.getLabel() && b.getAttribute("data-value") === option.getValue()
-            );
-            return indexA - indexB;
-        };
-        const columnElement = inputElement.querySelector(`[data-column="${col}"]`);
-        const columnOptionsElements = [...columnElement.children].sort(sorting);
-        columnElement.innerHTML = "";
-        columnElement.append(...columnOptionsElements);
-    }
+    // const sortOptionElements = (col) => {
+    //     const allColumnOptions = serviceCallbacks[col](null).map(mapping(col));
+    //     const sorting = (a, b) => {
+    //         const indexA = allColumnOptions.findIndex(
+    //             (option) =>
+    //                 a.innerHTML === option.getLabel() &&
+    //                 a.getAttribute("data-value") === option.getValue()
+    //         );
+    //         const indexB = allColumnOptions.findIndex(
+    //             (option) =>
+    //                 b.innerHTML === option.getLabel() &&
+    //                 b.getAttribute("data-value") === option.getValue()
+    //         );
+    //         return indexA - indexB;
+    //     };
+    //     const columnElement = inputElement.querySelector(`[data-column="${col}"]`);
+    //     const columnOptionsElements = [...columnElement.children].sort(sorting);
+    //     columnElement.innerHTML = "";
+    //     columnElement.append(...columnOptionsElements);
+    // }
 
-    const nullOptionId = reset().getId();
+    const nullOptionId = nullOption.getId();
 
     /**
      * @param { Number }     col 
@@ -85,11 +92,27 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
         const searchCategory = filterCategory.getLabel() === "" ? null : filterCategory.getLabel();
         
+        // const allColumnOptions = serviceCallbacks[col](null).map(mapping(col));
+        // const sorting = (a, b) => {
+        //     const indexA = allColumnOptions.findIndex(
+        //         (option) =>
+        //             a.getLabel() === option.getLabel() &&
+        //             a.getValue() === option.getValue()
+        //     );
+        //     const indexB = allColumnOptions.findIndex(
+        //         (option) =>
+        //             b.getLabel() === option.getLabel() &&
+        //             b.getValue() === option.getValue()
+        //     );
+        //     return indexA - indexB;
+        // };
+
         const options = serviceCallbacks[col](searchCategory).map(mapping(col));
         options.forEach((option) => {
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
-        sortOptionElements(col);
+        // asycn sorting
+        // setTimeout(() => sortOptionElements(col));
         
         if (col === 0) {
             return options.map((o) => o.getValue()).includes(selectedOption.getValue());
@@ -97,9 +120,11 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             if(selectedOption.getId() !== nullOptionId){
                 return filterOptions(col - 1, selectedOption, selectedColumn);
             } else {
-                return options.map((option) => 
+                const valueContained = options.map((option) => 
                     filterOptions(col - 1, option, selectedColumn)
                 ).reduce((acc, option) => acc || option, false);
+                // sortOptionElements(col - 1);
+                return valueContained;
             }
         }
     };
@@ -142,23 +167,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     });
 
     return [component, labelElement, inputElement];
-}
-
-/**
- * @param { String } value 
- * @param { String } label 
- * @returns { OptionType }
- */
-const mapToValueOption = (value, label) => {
-    return ValueOption(value, label);
-}
-
-/**
- * @param { String } label 
- * @returns { OptionType }
- */
-const mapToCategoryOption = (label) => {
-    return CategoryOption(label);
 }
 
 /**

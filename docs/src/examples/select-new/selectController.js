@@ -57,7 +57,7 @@ let idCounter = 0;
  * The visibility of both - options and selected option - views are held by observables.
  * The name and label used for the html input element are as well managed here.
  * @param { SelectAttribute }
- * @return { SelectControllerType }
+ * @returns { SelectControllerType }
  * @constructor
  * @example
         const selectController = SelectController({
@@ -73,7 +73,9 @@ const SelectController = ({ label = "", name = "", numberOfColumns = 1}) => {
     numberOfColumns = Math.max(numberOfColumns, 1);
 
     const cursorPositionController = SelectedOptionController();
-    const columns = Array(numberOfColumns).fill("").map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
+    const columns = Array(numberOfColumns)
+        .fill("")
+        .map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
 
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);

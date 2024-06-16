@@ -1,12 +1,12 @@
 import { TestSuite }                from "../../kolibri/util/test.js";
 import { ColumnOptionsComponent }   from "./columnOptionsComponent.js";
 import { SelectedOptionController } from "./optionsController.js";
-import { ValueOption, reset }       from "./optionsModel.js";
+import { ValueOption, nullOption }  from "./optionsModel.js";
 
 const columnOptionsComponentSuite = TestSuite("projector/simpleForm/columnOptionsComponent");
 
 columnOptionsComponentSuite.add("Column options component", (assert) => {
-    const noSelectionId = reset().getId();
+    const noSelectionId = nullOption.getId();
     const cursorPosition = SelectedOptionController();
     const component = ColumnOptionsComponent(cursorPosition);
     assert.is(component.getSelectedOption().getId(), noSelectionId);

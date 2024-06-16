@@ -17,7 +17,7 @@ const selectedOptionClassName = "selected-option-component";
 /**
  * Create the options view of the select, bind against the controller, and return the view.
  * @param { SelectControllerType } selectController
- * @return { [HTMLDivElement] } - options view
+ * @returns { [HTMLDivElement] } - [options view as a popover div]
  */
 const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
@@ -47,7 +47,8 @@ const projectOptionsView = (selectController) => {
  * Create the selected option view of the select, bind against the controller, and return the view.
  * @param { SelectControllerType } selectController
  * @param { HTMLDivElement }       popoverElement
- * @return { [HTMLDivElement, HTMLDivElement] } - selected option view
+ * @returns { [HTMLDivElement, HTMLDivElement] } - [selected option view,
+ *                                                 element with the selected option as content]
  */
 const projectSelectedValueOptionView = (selectController, popoverElement) => {
     const rootElement = document.createElement("div");
@@ -76,7 +77,6 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     };
 
     const togglePopover = (_) => {
-
         // popover preparing
         const selectElement = rootElement;
         selectElement.classList.toggle("opened", selectController.isOptionsVisible());
@@ -134,7 +134,8 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
  * Combine the options view and selected option view, and return the combined view.
  * For the html form a hidden input element is added to the combined view.
  * @param { SelectControllerType } selectController
- * @return { [HTMLDivElement, HTMLDivElement] } - combined views
+ * @returns { [HTMLDivElement, HTMLDivElement] } - [whole selected option element,
+ *                                                 text content container element]
  * @example
         const selectController = SelectController({});
         const selectView = projectSelectViews(
@@ -143,7 +144,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 */
 const projectSelectViews = (selectController) => {
     const [allOptionsElement] = projectOptionsView(selectController);
-    const [selectedOptionElement, selectedOptionLabelElement] =
+    const [selectedOptionElement, selectionTextContentContainer] =
         projectSelectedValueOptionView(selectController, allOptionsElement);
 
     const rootElement = document.createElement("div");
@@ -170,7 +171,7 @@ const projectSelectViews = (selectController) => {
         selectedOptionElement.classList.toggle("opened", value);
     });
 
-    return [rootElement, selectedOptionLabelElement];
+    return [rootElement, selectionTextContentContainer];
 };
 
 /**

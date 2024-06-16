@@ -4,7 +4,7 @@ import {
     SelectedOptionModel,
     ValueOption,
     CategoryOption,
-    reset,
+    nullOption,
 }                           from "./optionsModel.js";
 
 const optionsModelSuite = TestSuite("projector/simpleForm/optionsModel");
@@ -34,13 +34,13 @@ optionsModelSuite.add("Category option", (assert) => {
 });
 
 optionsModelSuite.add("Empty option", (assert) => {
-    const resetOption = reset();
+    const resetOption = nullOption;
     assert.is(resetOption.getValue(), "");
     assert.is(resetOption.getLabel(), "");
     assert.is(resetOption.getId().includes("none"), true);
     
     // reset creates same null object option
-    const resetOption2 = reset();
+    const resetOption2 = nullOption;
     assert.is(resetOption.getId() === resetOption2.getId(), true);
 });
 
@@ -69,7 +69,7 @@ optionsModelSuite.add("Options model", (assert) => {
 });
 
 optionsModelSuite.add("Selected option model", (assert) => {
-    const noSelectionId = reset().getId();
+    const noSelectionId = nullOption.getId();
     const model = SelectedOptionModel();
     assert.is(model.getSelectedOption().getId(), noSelectionId);
 

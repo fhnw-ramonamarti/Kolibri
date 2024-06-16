@@ -5,7 +5,7 @@ export {
     SelectedOptionModel,
     CategoryOption,
     ValueOption,
-    reset,
+    nullOption,
 };
 
 
@@ -57,7 +57,8 @@ const Option = (value, label) => {
         const model = ValueOption("pizza_fungi","Pizza Fungi");
  */
 const ValueOption = (value, label = "") => {
-    return Option(value, !label || label === "" ? value : label);
+    const optionLabel = !label || label === "" ? value : label
+    return Option(value, optionLabel);
 };
 
 /**
@@ -74,21 +75,21 @@ const CategoryOption = (label) => {
 
 /**
  * @typedef OptionsModelType
- * @property { () => Array<OptionType> }           getList    - copy of inner list with all the options
+ * @property { () => Array<OptionType> }           getList    - copy of inner list with all options
  * @property { () => IObservableList<OptionType> } getObsList - observable list with all the options
  */
 
 /**
  * Create a presentation model for the purpose of being used to bind against 
  * a single HTML Selection or Datalist Input.
- * It is also used for the select component // todo name here
+ * It is also used for the {@link ColumnOptionsComponent}.
  * @constructor
- * @return { OptionsModelType }
+ * @returns { OptionsModelType }
  * @example
         const model = OptionsModel();
  */
 const OptionsModel = () => {
-    const list = [];
+    const list    = [];
     const listObs = ObservableList(list);
 
     return {
@@ -100,13 +101,14 @@ const OptionsModel = () => {
 
 /**
  * Creates a single empty option
+ * @private
  * @returns { OptionType }
- * @example
-        const emptyOption = reset();
  */
 const reset = () => {
     return Option(null, null);
 };
+/** @type { OptionType } */
+const nullOption = reset();
 
 
 /**
@@ -121,7 +123,7 @@ const reset = () => {
  * Create a presentation model for the purpose of being used to bind against 
  * a selection of an option.
  * @constructor
- * @return { SelectedOptionModelType }
+ * @returns { SelectedOptionModelType }
  * @example
         const model = SelectedOptionModel();
  */
