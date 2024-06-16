@@ -111,8 +111,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         options.forEach((option) => {
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
-        // asycn sorting
-        // setTimeout(() => sortOptionElements(col));
         
         if (col === 0) {
             return options.map((o) => o.getValue()).includes(selectedOption.getValue());

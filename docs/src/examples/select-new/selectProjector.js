@@ -55,6 +55,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     rootElement.id    = selectController.getId() + "-selected-option";
     rootElement.classList.add(selectedOptionClassName);
     rootElement.setAttribute("data-id", selectController.getId());
+    rootElement.setAttribute("tabindex", "0"); // focusable element
 
     const selectedOptionContainer = document.createElement("div");
     const clearButton             = document.createElement("button");
