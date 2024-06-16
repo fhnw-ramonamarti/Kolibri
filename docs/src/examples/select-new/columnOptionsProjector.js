@@ -58,8 +58,7 @@ const projectColumnOptionsView = (
         const optionType = columnNumber === 0 ? "value" : "category";
         const [rowElement] = projectOption(selectedOptionController, option, optionType);
         columnContainer.append(rowElement);
-        if(selectedOptionController.getSelectedOption().getLabel() === option.getLabel() &&
-            selectedOptionController.getSelectedOption().getValue() === option.getValue()) {
+        if(selectedOptionController.isSelectedOption(option)) {
             selectOptionItem(columnContainer)(option, option);
         }
     };
@@ -89,9 +88,8 @@ const projectOption = (selectedOptionController, option, optionType) => {
     item.classList.add(optionType + "-" + optionClassName);
     item.innerHTML = option.getLabel();
     item.onclick = (_) => {
-        if ("value" !== optionType &&
-            option.getId() === selectedOptionController.getSelectedOption().getId()
-        ) {
+        if ("value" !== optionType && selectedOptionController.isSelectedOption(option)) {
+            // disselect categories
             selectedOptionController.clearSelectedOption();
             return;
         }

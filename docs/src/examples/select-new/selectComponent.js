@@ -13,6 +13,8 @@ export { SelectComponent, pageCss };
 /**
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
+ * More than 2 columns is experimental and can contain filtering bugs.
+ * A selection of a category leads to the disselection of all sub categories expect the selected value.
  * @param { SelectAttribute }                              selectAttributes
  * @param { Array<(String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
  * @return { [HTMLElement, HTMLElement, HTMLElement] } - component view
@@ -29,6 +31,7 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const [component, selectionElement] = projectSelectViews(selectController);
     const [labelElement, inputElement]  = component.children;
 
+    // initial fill of options
     serviceCallbacks.forEach((cb, col) => {
         cb().forEach(e => {
             const option = col !== 0 ? mapToCategoryOption(e) : mapToValueOption(e?.value ?? e, e?.label ?? e);
@@ -36,62 +39,76 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         });
     });
 
+    // define value options selection change
     selectController.getColumnOptionsComponent(0).onOptionSelected(option => {
         selectionElement.innerHTML = option.getLabel();
         inputElement.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
     });
 
+    const nullOptionId = reset().getId();
+
     /**
      * @param { Number }     col 
-     * @param { OptionType } option 
+     * @param { OptionType } filterCategory 
+     * @param { Number }     selectedColumn 
      */
-    const filterOptions = (col, option) => {
+    const filterOptions = (col, filterCategory, selectedColumn = 0) => {        
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
-        const searchCategory = option.getLabel() === "" ? null : option.getLabel();
+        const searchCategory = filterCategory.getLabel() === "" ? null : filterCategory.getLabel();
         const mapping = (e) => col !== 0 ? mapToCategoryOption(e) 
                                          : mapToValueOption(e?.value ?? e, e?.label ?? e);
-        const options = serviceCallbacks[col](searchCategory).map(mapping);
 
-        options.forEach((option) =>
-            selectController.getColumnOptionsComponent(col).addOption(option)
-        );
+        const options = serviceCallbacks[col](searchCategory).map(mapping);
+        options.forEach((option) => {
+            selectController.getColumnOptionsComponent(col).addOption(option);
+        });
+        
         if (col === 0) {
-            selectController.clearSelectedValueOption();
-            if (options.map((o) => o.getValue()).includes(selectedOption.getValue())) {
-                selectController.setSelectedValueOption(selectedOption);
-            }
+            return options.map((o) => o.getValue()).includes(selectedOption.getValue());
         } else {
-            if(selectedOption.getId() !== reset().getId()){
-                selectController.getColumnOptionsComponent(col).clearSelectedOption();
-                filterOptions(col - 1, selectedOption);
-                selectController.getColumnOptionsComponent(col).setSelectedOption(selectedOption);
+            if(selectedOption.getId() !== nullOptionId){
+                return filterOptions(col - 1, selectedOption, selectedColumn);
             } else {
-                options.forEach((option) => {
-                    filterOptions(col - 1, option);
-                });
+                return options.map((option) => 
+                    filterOptions(col - 1, option, selectedColumn)
+                ).reduce((acc, option) => acc || option, false);
             }
         }
     };
 
+    // define category option selection changes
     serviceCallbacks.forEach((_, col) => {
         if (col === 0) {
             return;
         }
         selectController.getColumnOptionsComponent(col)?.onOptionSelected((option) => {
-            if(option.getId() === reset().getId()){
+            let isValueOptionSelected = false;
+            const selectedColumn = selectController
+                .getSelectedOptionOfColumns()
+                .findIndex((option) => option.getId() !== nullOptionId);
+            if(option.getId() === nullOptionId){
                 if(serviceCallbacks.length <= col + 1){
-                    selectController.clearColumnOptions(col - 1);
-                    filterOptions(col - 1, option);
+                    // disselect most general category
+                    selectController.clearColumnOptions(col);
+                    filterOptions(col, option);
                     return;
                 }
+
+                // disselect category
                 const selectedCategory = selectController
-                    .getColumnOptionsComponent(col + 1)
+                    .getColumnOptionsComponent(col + 1, selectedColumn)
                     .getSelectedOption();
                 selectController.clearColumnOptions(col);
                 filterOptions(col, selectedCategory);
             } else {
-                selectController.clearColumnOptions(col - 1);
-                filterOptions(col - 1, option);
+                // select category
+                const minCol = (selectedColumn <= col - 1) ? selectedColumn: 0;
+                selectController.clearSelectedOptions(col - 1);
+                selectController.clearColumnOptions(col - 1, minCol);
+                isValueOptionSelected = filterOptions(col - 1, option, minCol);
+                if(!isValueOptionSelected){
+                    selectController.clearSelectedValueOption();
+                }
             }
         });
     });

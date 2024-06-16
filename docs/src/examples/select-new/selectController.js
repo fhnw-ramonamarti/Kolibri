@@ -46,7 +46,9 @@ let idCounter = 0;
  * @property { () => OptionType }                getSelectedValueOption
  * @property { (OptionType) => void }            setSelectedValueOption
  * @property { () => void }                      clearSelectedValueOption
- * @property { (Number) => void }                clearColumnOptions
+ 
+ * @property { (Number) => void }                getSelectedOptionOfColumns
+ * @property { (Number) => Array<OptionType> }   clearColumnOptions
  * @property { (Number) => ColumnOptionsComponentType }        getColumnOptionsComponent
  */
 
@@ -91,12 +93,37 @@ const SelectController = ({ label = "", name = "", numberOfColumns = 1}) => {
     /**
      * @param { Number } maxCol - max column number to delete the options from until column 0
      */
-    const clearColumnOptions = (maxCol) => {
-        if (maxCol < 0) {
+    const clearSelectedOptions = (maxCol) => {
+        if (maxCol <= 0) {
             return;
         }
-        columns[maxCol].replaceOptions([]);
-        clearColumnOptions(maxCol - 1);
+        columns[maxCol].clearSelectedOption();
+        clearSelectedOptions(maxCol - 1);
+    };
+
+    /**
+     * @param { Number } maxCol - max column number to delete the options from until column 0
+     * @param { Number } minCol - min column number to delete the options to
+     */
+    const clearColumnOptions = (maxCol, minCol = 0) => {
+        minCol = Math.max(0, minCol);
+        if (maxCol < minCol) {
+            return;
+        }
+        columns[maxCol].clearOptions();
+        clearColumnOptions(maxCol - 1, minCol);
+    };
+
+    /**
+     * @param { Number } maxCol  - max column number to delete the options from until column 0
+     * @returns { Array<OptionType> }
+     */
+    const getSelectedOptionOfColumns = (maxCol = numberOfColumns - 1) => {
+        const selectedOption = columns[maxCol].getSelectedOption();
+        if(maxCol <= 0){
+            return [selectedOption];
+        }
+        return [...getSelectedOptionOfColumns(maxCol - 1), selectedOption];
     };
 
     return {
@@ -123,7 +150,10 @@ const SelectController = ({ label = "", name = "", numberOfColumns = 1}) => {
         getSelectedValueOption   : columns[0].getSelectedOption,
         setSelectedValueOption   : columns[0].setSelectedOption,
         clearSelectedValueOption : columns[0].clearSelectedOption,
-        clearColumnOptions       : clearColumnOptions,
-        getColumnOptionsComponent: (col) => columns[col],
+        
+        getSelectedOptionOfColumns: getSelectedOptionOfColumns,
+        clearColumnOptions        : clearColumnOptions,
+        clearSelectedOptions      : clearSelectedOptions,
+        getColumnOptionsComponent : (col) => columns[col],
     }
 };

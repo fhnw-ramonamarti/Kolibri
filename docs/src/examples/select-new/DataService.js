@@ -45,7 +45,7 @@ const getCitiesByCountry = (country) => {
         {country: 'France'       , city: "Marseille" },
         {country: 'Japan'        , city: "Tokio" },
     ];
-    return data.filter((e) => null == country || e.country === country).map((e) => e.city);
+    return data.filter((e) => null == country || e.country === country).map((e) => e.city).sort();
 };
 
 /**
@@ -62,7 +62,7 @@ const getCountriesByContinent = (continent) => {
         {country: 'France'       , continent: "Europe" },
         {country: 'Japan'        , continent: "Asia" },
     ];
-    return data.filter((e) => null == continent || e.continent === continent).map((e) => e.country);
+    return data.filter((e) => null == continent || e.continent === continent).map((e) => e.country).sort();
 };
 
 /**
@@ -73,7 +73,7 @@ const getContinents = () => [
     "Europe",
     "North America",
     "Asia",
-];
+].sort();
 
 const imgUrl = "https://unsplash.it/32/32";
 

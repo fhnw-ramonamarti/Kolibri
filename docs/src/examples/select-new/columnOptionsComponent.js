@@ -5,16 +5,18 @@ export { ColumnOptionsComponent };
 
 /**
  * @typedef ColumnOptionsComponentType
+ * @property { (OptionType) => Boolean }          containsOption
  * @property { (OptionType) => void }             addOption
  * @property { (OptionType) => void }             delOption
- * @property { (ops: Array<OptionType>) => void } replaceOptions
+ * @property { () => void }                       clearOptions
 
  * @property { ()  => OptionType }                getSelectedOption
  * @property { (OptionType)  => void }            setSelectedOption
+ * @property { (OptionType)  => Boolean }         isSelectedOption
  * @property { ()  => void }                      clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
 
- * @property { () => HTMLDivElement }              getColumnView
+ * @property { () => HTMLDivElement }             getColumnView
  */
 
 /**
@@ -42,26 +44,21 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
         columnNumber
     );
 
-    /**
-     * 
-     * @param { Array<OptionType> } options 
-     */
-    const replaceOptions = (options) => {
+    const clearOptions = () => {
         optionsController.getOptions().forEach(option => {
             optionsController.delOption(option);
-        });
-        options.forEach(option => {
-            optionsController.addOption(option);
         });
     }
 
     return {
+        containsOption: optionsController.containsOption,
         addOption     : optionsController.addOption,
         delOption     : optionsController.delOption,
-        replaceOptions: replaceOptions,
+        clearOptions  : clearOptions,
 
         getSelectedOption  : selectedOptionController.getSelectedOption,
         setSelectedOption  : selectedOptionController.setSelectedOption,
+        isSelectedOption   : selectedOptionController.isSelectedOption,
         clearSelectedOption: selectedOptionController.clearSelectedOption,
         onOptionSelected   : selectedOptionController.onOptionSelected,
         

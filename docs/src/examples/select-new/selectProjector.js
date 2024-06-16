@@ -46,9 +46,10 @@ const projectOptionsView = (selectController) => {
 /**
  * Create the selected option view of the select, bind against the controller, and return the view.
  * @param { SelectControllerType } selectController
+ * @param { HTMLDivElement }       popoverElement
  * @return { [HTMLDivElement, HTMLDivElement] } - selected option view
  */
-const projectSelectedValueOptionView = (selectController) => {
+const projectSelectedValueOptionView = (selectController, popoverElement) => {
     const rootElement = document.createElement("div");
     rootElement.id    = selectController.getId() + "-selected-option";
     rootElement.classList.add(selectedOptionClassName);
@@ -58,16 +59,13 @@ const projectSelectedValueOptionView = (selectController) => {
     const clearButton             = document.createElement("button");
     const toggleButton            = document.createElement("button");
 
+    const styleElement = document.createElement("style");
+    styleElement.id = popoverStyle;
+    document.querySelector("head").append(styleElement);
+
     const positionPopover = (selectElement, popoverElementId) => {
-        const popoverStyle = selectController.getId() + "-style-popover";
         const { top, left, height, width } = selectElement.getBoundingClientRect();
         const { scrollTop, scrollLeft } = document.documentElement;
-        const styleElement =
-            document.querySelector("#" + popoverStyle) ?? document.createElement("style");
-        if(styleElement.textContent === ""){
-            styleElement.id = popoverStyle;
-            document.querySelector("head").append(styleElement);
-        }
         styleElement.textContent = `
             #${popoverElementId} {
                 top: ${top + height + scrollTop - 1}px;
@@ -80,12 +78,7 @@ const projectSelectedValueOptionView = (selectController) => {
     const togglePopover = (_) => {
 
         // popover preparing
-        const selectElement = document.querySelector(
-            "#" + rootElement.id
-        );
-        const popoverElement = document.querySelector(
-            `[id*="${selectController.getId()}"][popover]`
-        );
+        const selectElement = rootElement;
         selectElement.classList.toggle("opened", selectController.isOptionsVisible());
         rootElement.classList.toggle("opened", selectController.isOptionsVisible());
 
@@ -99,24 +92,14 @@ const projectSelectedValueOptionView = (selectController) => {
     };
 
     window.addEventListener("resize",() => {
-        const popoverElement = document.querySelector(
-            `[id*="${selectController.getId()}"][popover]:popover-open`
-        );
-        const selectElement = document.querySelector(
-            "#" + rootElement.id
-        );
+        const selectElement = rootElement;
         if(null != popoverElement && null != selectElement){
             positionPopover(selectElement, popoverElement.id);
         }
     });
 
     window.addEventListener("scroll",() => {
-        const popoverElement = document.querySelector(
-            `[id*="${selectController.getId()}"][popover]:popover-open`
-        );
-        const selectElement = document.querySelector(
-            "#" + rootElement.id
-        );
+        const selectElement = rootElement;
         if(null != popoverElement && null != selectElement){
             // popoverElement.hidePopover();
             // hide or move and leave opened
@@ -159,9 +142,9 @@ const projectSelectedValueOptionView = (selectController) => {
         );
 */
 const projectSelectViews = (selectController) => {
-    const allOptionsElement = projectOptionsView(selectController);
+    const [allOptionsElement] = projectOptionsView(selectController);
     const [selectedOptionElement, selectedOptionLabelElement] =
-        projectSelectedValueOptionView(selectController);
+        projectSelectedValueOptionView(selectController, allOptionsElement);
 
     const rootElement = document.createElement("div");
     rootElement.id    = selectController.getId();
@@ -170,7 +153,7 @@ const projectSelectViews = (selectController) => {
     const componentContainer = document.createElement("div");
     componentContainer.classList.add(inputComponentClassName);
     componentContainer.append(selectedOptionElement);
-    componentContainer.append(...allOptionsElement);
+    componentContainer.append(allOptionsElement);
 
     // label & input element
     const [labelElement, inputSpan] = InputProjector.projectInstantInput(
@@ -183,7 +166,7 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(inputElement);
 
     selectController.onOptionsVisibilityChange((value) => {
-        allOptionsElement[0].classList.toggle("hidden", !value);
+        allOptionsElement.classList.toggle("hidden", !value);
         selectedOptionElement.classList.toggle("opened", value);
     });
 

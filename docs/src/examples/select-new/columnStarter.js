@@ -1,6 +1,6 @@
 import { OptionsController, SelectedOptionController } from "./optionsController.js";
 import { projectColumnOptionsView, pageCss }           from "./columnOptionsProjector.js";
-import { ValueOption }                                 from "./optionsModel.js";
+import { CategoryOption, ValueOption }                 from "./optionsModel.js";
 
 const optionsController = OptionsController();
 const selectedOptionController = SelectedOptionController();
@@ -26,5 +26,24 @@ optionsController.addOption(ValueOption("val 8"));
 optionsController.addOption(ValueOption("val 9"));
 
 selectedOptionController.setSelectedOption(selectedValue);
+
+const optionsController2 = OptionsController();
+const selectedOptionController2 = SelectedOptionController();
+const cursorPositionController2 = SelectedOptionController();
+
+const columnCatView = projectColumnOptionsView(
+    optionsController2,
+    selectedOptionController2,
+    cursorPositionController2
+);
+document.getElementById("componentCat").append(...columnCatView);
+
+const selectedCat = CategoryOption("selected");
+optionsController2.addOption(selectedCat);
+optionsController2.addOption(CategoryOption("cat 1"));
+optionsController2.addOption(CategoryOption("cat 2"));
+optionsController2.addOption(CategoryOption("cat 3"));
+
+selectedOptionController2.setSelectedOption(selectedCat);
 
 document.querySelector("head style").textContent += pageCss;

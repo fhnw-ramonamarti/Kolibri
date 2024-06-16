@@ -22,6 +22,10 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
     component.addOption(val2);
     component.addOption(val3);
     assert.is(component.getColumnView()[0].childElementCount, 3);
+
+    const valCopy = ValueOption("test");
+    component.addOption(valCopy);
+    assert.is(component.getColumnView()[0].childElementCount, 3);
     
     const selectedElementBefore = component.getColumnView()[0].querySelector('.selected');
     assert.is(selectedElementBefore == null                 , true);
@@ -45,14 +49,8 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
     const selectedElementCleared = component.getColumnView()[0].querySelector('.selected');
     assert.is(selectedElementCleared == null                 , true);
 
-    const valReplace = ValueOption("replace");
-    component.replaceOptions([valReplace]);
-    const selectedReplaceId = valReplace.getId().replace("\.", "-");
-    const replaceElement    = component
-        .getColumnView()[0]
-        .querySelector(`[data-id*="${selectedReplaceId}"]`);
-    assert.is(component.getColumnView()[0].childElementCount, 1);
-    assert.is(replaceElement != null                        , true);
+    component.clearOptions();
+    assert.is(component.getColumnView()[0].childElementCount, 0);
 });
 
 columnOptionsComponentSuite.run();
