@@ -1,6 +1,6 @@
 import { InputProjector } from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
-//import { iController } from "./iController.js";
-import { iProjector } from "./iProjector.js";
+import { iProjector }     from "./iProjector.js";
+import { nullOption }     from "./optionsModel.js";
 
 export { projectSelectViews, pageCss };
 
@@ -37,12 +37,17 @@ const projectOptionsView = (selectController) => {
         }
     });
 
-
-
+    // map over columns from max colum to column 0
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         const column = selectController.getColumnOptionsComponent(col).getColumnView();
         optionsContainer.append(...column);
-        selectController.getColumnOptionsComponent(col).onOptionSelected(option => selectController.setCursorPosition(option));
+        selectController.getColumnOptionsComponent(col).onOptionSelected((newOption, oldOption) => {
+            if (nullOption.getId() !== newOption.getId()) {
+                selectController.setCursorPosition(newOption);
+            } else if (nullOption.getId() !== oldOption.getId()) {
+                selectController.setCursorPosition(newOption);
+            }
+        });
     });
 
     return [optionsContainer];
@@ -60,7 +65,6 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     rootElement.id    = selectController.getId() + "-selected-option";
     rootElement.classList.add(selectedOptionClassName);
     rootElement.setAttribute("data-id", selectController.getId());
-    rootElement.setAttribute("tabindex", "0"); // focusable element
 
     const selectedOptionContainer = document.createElement("div");
     const clearButton             = document.createElement("button");
@@ -150,15 +154,18 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 */
 const projectSelectViews = (selectController) => {
     const [allOptionsElement] = projectOptionsView(selectController);
-    const [selectedOptionElement, selectionTextContentContainer] =
-        projectSelectedValueOptionView(selectController, allOptionsElement);
+    const [selectedOptionElement, selectionTextContentContainer] = projectSelectedValueOptionView(
+        selectController,
+        allOptionsElement
+    );
 
     const rootElement = document.createElement("div");
-    rootElement.id    = selectController.getId();
+    rootElement.id = selectController.getId();
     rootElement.classList.add(selectClassName);
 
     const componentContainer = document.createElement("div");
     componentContainer.classList.add(inputComponentClassName);
+    componentContainer.setAttribute("tabindex", "0"); // focusable element
     componentContainer.append(selectedOptionElement);
     componentContainer.append(allOptionsElement);
 
@@ -174,14 +181,23 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(inputElement);
 
     selectController.onOptionsVisibilityChange((value) => {
+        if(value){
+            allOptionsElement.showPopover();
+        } else {
+            allOptionsElement.hidePopover();
+        }
         allOptionsElement.classList.toggle("hidden", !value);
         selectedOptionElement.classList.toggle("opened", value);
     });
 
-//const interactionController = iController(selectController);
-iProjector(rootElement, selectController);
+    selectedOptionElement.addEventListener("mousedown", (_) => {
+        componentContainer.focus();
+    });
 
-return [rootElement, selectionTextContentContainer];
+
+    iProjector(rootElement, selectController);
+
+    return [rootElement, selectionTextContentContainer];
 };
 
 
@@ -284,6 +300,10 @@ const pageCss = `
             border-radius: 4px 4px 0 0;
         }
 
+        :focus & {
+            border-color: var(--kolibri-color-accent);
+        }
+
         .selected-value {
             width:      100%;
         }
@@ -307,6 +327,10 @@ const pageCss = `
     }
     .${inputComponentClassName} {
         position:       relative;
+
+        &:focus {
+            outline:    none;
+        }
 
         .toggleButton {
             height:      100%;

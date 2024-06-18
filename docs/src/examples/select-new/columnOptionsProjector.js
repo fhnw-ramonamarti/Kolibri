@@ -108,6 +108,7 @@ const projectOption = (selectedOptionController, option, optionType) => {
     const item = document.createElement("div");
     item.setAttribute("data-id", elementId(option));
     item.setAttribute("data-value", option.getValue());
+    item.setAttribute("data-label", option.getLabel());
     item.classList.add(optionClassName);
     item.classList.add(optionType + "-" + optionClassName);
     item.innerHTML = option.getLabel();
@@ -130,15 +131,21 @@ const projectOption = (selectedOptionController, option, optionType) => {
  * @returns { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const cursorPositionItem = (root) => (newOption, oldOption) => {
-    const oldId = elementId(oldOption);
-    const oldItem = root.querySelector(`[data-id=${oldId}]`);
-    if (oldItem) {
-        oldItem.classList.remove("cursor-position");
+    if(null != oldOption){
+        const oldItem = root.querySelector(
+            `[data-value="${oldOption.getValue()}"][data-label="${oldOption.getLabel()}"]`
+        );
+        if (oldItem) {
+            oldItem.classList.remove("cursor-position");
+        }
     }
-    const newId = elementId(newOption);
-    const newItem = root.querySelector(`[data-id=${newId}]`);
-    if (newItem) {
-        newItem.classList.add("cursor-position");
+    if(null != newOption){
+        const newItem = root.querySelector(
+            `[data-value="${newOption.getValue()}"][data-label="${newOption.getLabel()}"]`
+        );
+        if (newItem) {
+            newItem.classList.add("cursor-position");
+        }
     }
 };
 
@@ -151,15 +158,21 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
  */
 const selectOptionItem = (root) => (newOption, oldOption) => {
     cursorPositionItem(root)(newOption, oldOption);
-    const oldId = elementId(oldOption);
-    const oldItem = root.querySelector(`[data-id=${oldId}]`);
-    if (oldItem) {
-        oldItem.classList.remove("selected");
+    if (null != oldOption) {
+        const oldItem = root.querySelector(
+            `[data-value="${oldOption.getValue()}"][data-label="${oldOption.getLabel()}"]`
+        );
+        if (oldItem) {
+            oldItem.classList.remove("selected");
+        }
     }
-    const newId = elementId(newOption);
-    const newItem = root.querySelector(`[data-id=${newId}]`);
-    if (newItem) {
-        newItem.classList.add("selected");
+    if (null != newOption) {
+        const newItem = root.querySelector(
+            `[data-value="${newOption.getValue()}"][data-label="${newOption.getLabel()}"]`
+        );
+        if (newItem) {
+            newItem.classList.add("selected");
+        }
     }
 };
 
@@ -170,7 +183,7 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
  */
 const removeOptionItem = (root) => option => {
     const id = elementId(option);
-    const optionElement = root.querySelector(`[data-id=${id}]`);
+    const optionElement = root.querySelector(`[data-id="${id}"]`);
     if (optionElement) {
         optionElement.parentElement.removeChild(optionElement);
     }

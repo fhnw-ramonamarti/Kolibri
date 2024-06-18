@@ -101,13 +101,13 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
                 .findIndex((option) => option.getId() !== nullOptionId);
             if(option.getId() === nullOptionId){
                 if(serviceCallbacks.length <= col + 1){
-                    // disselect most general category
+                    // unselect most general category
                     selectController.clearColumnOptions(col);
                     filterOptions(col, option);
                     return;
                 }
 
-                // disselect category
+                // unselect category
                 const selectedCategory = selectController
                     .getColumnOptionsComponent(col + 1, selectedColumn)
                     .getSelectedOption();
