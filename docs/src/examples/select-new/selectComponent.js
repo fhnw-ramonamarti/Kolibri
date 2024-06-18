@@ -2,6 +2,7 @@ import { CategoryOption, ValueOption, nullOption }         from "./optionsModel.
 import { SelectController }                                from "./selectController.js";
 import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
 import { pageCss as pageCssColumn }                        from "./columnOptionsProjector.js";
+import {iProjector}                                        from "./iProjector.js";
 
 export { SelectComponent, pageCss };
 
@@ -124,6 +125,8 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             }
         });
     });
+
+    iProjector(component, selectController);
 
     return [component, labelElement, inputElement];
 }

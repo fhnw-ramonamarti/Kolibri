@@ -17,7 +17,7 @@ const setupSelectComponent = (selectAttribute, columnServiceCb, elementId) => {
 
     // Setup interaction controller and projector
     //const interactionController = iController(componentController);
-    iProjector(selectComponent, interactionController, componentController); //maybe not here but in component
+    iProjector(selectComponent, componentController); //maybe not here but in component
 };
 
 // ----- decade selection --------------------------------
