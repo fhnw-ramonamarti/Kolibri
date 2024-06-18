@@ -7,6 +7,7 @@ export { ColumnOptionsComponent };
  * @typedef ColumnOptionsComponentType
  * @property { (Boolean) => void }                setOptionsSorted
  * @property { (OptionType) => Boolean }          containsOption
+ * @property { () => Array<OptionType> }          getOptions
  * @property { (OptionType) => void }             addOption
  * @property { (OptionType) => void }             delOption
  * @property { () => void }                       clearOptions
@@ -54,6 +55,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     return {
         setOptionsSorted: optionsController.setOptionsSorted,
         containsOption  : optionsController.containsOption,
+        getOptions      :optionsController.getOptions,
         addOption       : optionsController.addOption,
         delOption       : optionsController.delOption,
         clearOptions    : clearOptions,
