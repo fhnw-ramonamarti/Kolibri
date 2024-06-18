@@ -1,4 +1,6 @@
 import { InputProjector } from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
+//import { iController } from "./iController.js";
+import { iProjector } from "./iProjector.js";
 
 export { projectSelectViews, pageCss };
 
@@ -35,9 +37,12 @@ const projectOptionsView = (selectController) => {
         }
     });
 
+
+
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         const column = selectController.getColumnOptionsComponent(col).getColumnView();
         optionsContainer.append(...column);
+        selectController.getColumnOptionsComponent(col).onOptionSelected(option => selectController.setCursorPosition(option));
     });
 
     return [optionsContainer];
@@ -162,6 +167,7 @@ const projectSelectViews = (selectController) => {
         selectController.getInputController(),
         selectedOptionClassName
     );
+
     const inputElement = inputSpan.querySelector("input");
     rootElement.append(labelElement);
     rootElement.append(componentContainer);
@@ -172,8 +178,12 @@ const projectSelectViews = (selectController) => {
         selectedOptionElement.classList.toggle("opened", value);
     });
 
-    return [rootElement, selectionTextContentContainer];
+//const interactionController = iController(selectController);
+iProjector(rootElement, selectController);
+
+return [rootElement, selectionTextContentContainer];
 };
+
 
 /**
  * Height of the master list box

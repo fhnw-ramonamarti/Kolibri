@@ -113,7 +113,7 @@ const projectOption = (selectedOptionController, option, optionType) => {
     item.innerHTML = option.getLabel();
     item.onclick = (_) => {
         if ("value" !== optionType && selectedOptionController.isSelectedOption(option)) {
-            // disselect categories
+            // unselect categories
             selectedOptionController.clearSelectedOption();
             return;
         }
@@ -254,4 +254,8 @@ const pageCss = `
         top:            0.5em;
         bottom:         0.4em;
     }
+    .cursor-position{
+    background-color: red !important;
+    }
+    
 `;

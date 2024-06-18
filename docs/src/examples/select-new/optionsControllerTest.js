@@ -1,4 +1,4 @@
-import { TestSuite }               from "../../kolibri/util/test.js";
+import { TestSuite }            from "../../kolibri/util/test.js";
 import {
     OptionsController,
     SelectedOptionController

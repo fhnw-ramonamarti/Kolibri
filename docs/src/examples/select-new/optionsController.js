@@ -20,17 +20,17 @@ export { OptionsController, SelectedOptionController };
  * @returns { OptionsControllerType }
  * @constructor
  * @example
-        const optionsController = OptionsController();
+ const optionsController = OptionsController();
  */
 const OptionsController = () => {
 
     const optionsModel = OptionsModel();
-    let   sortOptions  = true;
+    let sortOptions = true;
 
     /**
-    * @param { OptionType } option 
-    * @returns { Boolean } - option with value and label already in options list
-    */
+     * @param { OptionType } option
+     * @returns { Boolean } - option with value and label already in options list
+     */
     const containsOption = (option) => {
         return optionsModel.getList().findIndex(o => optionEquals(o, option)) >= 0;
     };
@@ -39,7 +39,7 @@ const OptionsController = () => {
      * @param { OptionType } option
      */
     const addOption = (option) => {
-        if(!containsOption(option)) {
+        if (!containsOption(option)) {
             optionsModel.getObsList().add(option);
         }
     };
@@ -47,12 +47,12 @@ const OptionsController = () => {
     return {
         areOptionsSorted: () => sortOptions,
         setOptionsSorted: (newVal) => sortOptions = newVal,
-        getOptions      : optionsModel.getList,
-        containsOption  : containsOption,
-        addOption       : addOption,
-        delOption       : optionsModel.getObsList().del,
-        onOptionAdd     : optionsModel.getObsList().onAdd,
-        onOptionDel     : optionsModel.getObsList().onDel,
+        getOptions: optionsModel.getList,
+        containsOption: containsOption,
+        addOption: addOption,
+        delOption: optionsModel.getObsList().del,
+        onOptionAdd: optionsModel.getObsList().onAdd,
+        onOptionDel: optionsModel.getObsList().onDel,
     }
 };
 
@@ -67,38 +67,38 @@ const OptionsController = () => {
  */
 
 /**
- * SelectedOptionController takes a {@link SelectedOptionModel} that will serve 
+ * SelectedOptionController takes a {@link SelectedOptionModel} that will serve
  * as a representation of a selection.
  * @returns { SelectedOptionControllerType }
  * @constructor
  * @example
-        const selectedOptionController = SelectedOptionController();
+ const selectedOptionController = SelectedOptionController();
  */
 const SelectedOptionController = () => {
 
     const selectedOptionModel = SelectedOptionModel();
 
     /**
-     * @param { OptionType } option 
+     * @param { OptionType } option
      * @returns { Boolean } - selected option is same as parameter
      */
     const isSelectedOption = (option) =>
         optionEquals(selectedOptionModel.getSelectedOption(), option);
 
     return {
-        getSelectedOption  : selectedOptionModel.getSelectedOption,
-        setSelectedOption  : selectedOptionModel.setSelectedOption,
-        isSelectedOption   : isSelectedOption,
+        getSelectedOption: selectedOptionModel.getSelectedOption,
+        setSelectedOption: selectedOptionModel.setSelectedOption,
+        isSelectedOption: isSelectedOption,
         clearSelectedOption: selectedOptionModel.clearSelectedOption,
-        onOptionSelected   : selectedOptionModel.onOptionSelected,
+        onOptionSelected: selectedOptionModel.onOptionSelected,
     }
 };
 
 /**
  * Compares two options by value and label instead of their id.
  * @private
- * @param { OptionType } a 
- * @param { OptionType } b 
+ * @param { OptionType } a
+ * @param { OptionType } b
  * @returns { Boolean } - option with value and label are equal
  */
 const optionEquals = (a, b) => a.getLabel() === b.getLabel() && a.getValue() === b.getValue();

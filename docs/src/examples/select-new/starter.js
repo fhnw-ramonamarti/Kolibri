@@ -8,6 +8,17 @@ import {
     getYearsByDecade,
 }                                   from "./DataService.js";
 import { SelectComponent, pageCss } from "./selectComponent.js";
+//import { iController } from "./iController.js";
+import { iProjector } from "./iProjector.js";
+// Function to initialize and setup select components with interaction handling
+const setupSelectComponent = (selectAttribute, columnServiceCb, elementId) => {
+    const [selectComponent, componentController] = SelectComponent(selectAttribute, columnServiceCb);
+    document.getElementById(elementId).append(selectComponent);
+
+    // Setup interaction controller and projector
+    //const interactionController = iController(componentController);
+    iProjector(selectComponent, interactionController, componentController); //maybe not here but in component
+};
 
 // ----- decade selection --------------------------------
 /**
