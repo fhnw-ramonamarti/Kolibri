@@ -1,89 +1,126 @@
+import { nullOption } from "./optionsModel.js";
+
 export { iProjector };
 
 let currentColumn = 0;
 const iProjector = (rootElement, componentController) => {
 
-    componentController.onCursorPositionChanged( newOption=> componentController.getColumnOptionsComponent(currentColumn).setSelectedOption(newOption) )
+    componentController.onCursorPositionChanged((newOption) =>
+        componentController.getColumnOptionsComponent(currentColumn).setSelectedOption(newOption)
+    );
+
     const handleKeyDown = (e) => {
-        switch (e.code || e.key || e.keyCode) {
-            case "ArrowUp":
-            case 38:
-                moveCursorUp();
-                break;
-            case "ArrowDown":
-            case 40:
-                moveCursorDown();
-                break;
-            case "ArrowLeft":
-            case 37:
-                moveCursorLeft();
-                break;
-            case "ArrowRight":
-            case 39:
-                moveCursorRight();
-                break;
-            case "Enter":
-            case 13:
-            case " ":
-            case 32:
-                selectCursorPos();
-                break;
-            case "Escape":
-            case 27:
-                componentController.setOptionsVisibility(false);
-                break;
-            default:
-                break;
+        if (componentController.isOptionsVisible()) {
+            // initial no cursor position
+            if (
+                nullOption.getId() === componentController.getCursorPosition().getId() &&
+                ![e.code, e.key].includes("Tab")
+            ) {
+                const columnOptions = componentController
+                    .getColumnOptionsComponent(currentColumn)
+                    .getOptions();
+                componentController
+                    .getColumnOptionsComponent(currentColumn)
+                    .setSelectedOption(columnOptions[0]);
+                return;
+            }
+            switch (e.code || e.key || e.keyCode) {
+                case "ArrowUp":
+                case 38:
+                    moveCursorUp();
+                    break;
+                case "ArrowDown":
+                case 40:
+                    moveCursorDown();
+                    break;
+                case "ArrowLeft":
+                case 37:
+                    moveCursorLeft();
+                    break;
+                case "ArrowRight":
+                case 39:
+                    moveCursorRight();
+                    break;
+                case "Enter":
+                case 13:
+                case " ":
+                case "Space":
+                case 32:
+                    selectCursorPos();
+                    break;
+                case "Tab":
+                case 9:
+                case "Escape":
+                case 27:
+                    componentController.setOptionsVisibility(false);
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            switch (e.code || e.key || e.keyCode) {
+                case " ":
+                case "Space":
+                case 32:
+                case "ArrowDown":
+                case 40:
+                    componentController.setOptionsVisibility(true);
+                    break;
+            }
         }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-
-    /*const highlightItem = (cursorModel, previousCursorModel) => {
-        if (previousCursorModel) {
-            const oldItem = rootElement.querySelector(`[data-id="${previousCursorModel.getId().replaceAll('.', '-')}"]`);
-            if (oldItem) {
-                oldItem.classList.remove("highlighted");
-            }
+    rootElement.addEventListener('keydown', handleKeyDown);
+    
+    // prevent scrolling with key while popover opened
+    window.addEventListener("keydown", (e) => {
+        if (
+            [
+                32,
+                "Space",
+                37,
+                "ArrowLeft",
+                38,
+                "ArrowUp",
+                39,
+                "ArrowRight",
+                40,
+                "ArrowDown",
+            ].indexOf(e.code) > -1 &&
+            document.querySelector("[popover]:popover-open") != null
+        ) {
+            e.preventDefault();
         }
+    });
 
-        if (cursorModel) {
-            const newItem = rootElement.querySelector(`[data-id="${cursorModel.getId().replaceAll('.', '-')}"]`);
-            if (newItem) {
-                newItem.classList.add("highlighted");
-            }
-        }
+    const findModelByElement = (element) => {
+        const optionValue = element.getAttribute("data-value");
+        const optionLabel = element.getAttribute("data-label");
+        const columnOptions = componentController
+            .getColumnOptionsComponent(currentColumn)
+            .getOptions();
+        return columnOptions.find(
+            (option) => option.getLabel() === optionLabel && option.getValue() === optionValue
+        );
     };
-
-    componentController.onCursorPositionChanged((newCursorModel, oldCursorModel) => {
-        highlightItem(newCursorModel, oldCursorModel);
-    });*/
-
-     const findModelByElement = (element) => {
-         const optionID = element.getAttribute("data-id").replaceAll('-', '.');
-         return componentController
-             .getColumnOptionsComponent(currentColumn).getOptions().find( option => option.getId() === optionID);
-     };
 
     const moveCursorUp = () => {
         const currentModel = componentController.getCursorPosition();
-        const currentElement = rootElement.querySelector(`[date-id="${currentModel.getId().replaceAll('.','-')}"]`);
-        const previousElement = currentElement?.previousElementSibling;
-        if (previousElement){
-            const siblingModel = findModelByElement(previousElement);
-            componentController.setCursorPosition(siblingModel)
+        const currentElement = rootElement.querySelector(
+            `[data-value="${currentModel.getValue()}"][data-label="${currentModel.getLabel()}"]`
+        );
+        const siblingElement = currentElement?.previousElementSibling;
+        if (siblingElement){
+            const siblingModel = findModelByElement(siblingElement);
+            componentController.setCursorPosition(siblingModel);
         }
-        /*const currentColumn = currentModel ? currentModel.getColumn() : 0;
-        const allOptions = componentController.getCategoryOptions(currentColumn);
-        const currentIndex = allOptions.indexOf(currentModel);
-        if (currentIndex > 0) {
-            componentController.setCursorPosition(allOptions[currentIndex - 1]);
-        }*/
     };
 
     const moveCursorDown = () => {
         const currentModel = componentController.getCursorPosition();
-        const currentElement = rootElement.querySelector(`[date-id="${currentModel.getId().replaceAll('.','-')}"]`);
+        const currentElement = rootElement.querySelector(
+            `[data-value="${currentModel.getValue()}"][data-label="${currentModel.getLabel()}"]`
+        );
         const nextElement = currentElement?.nextElementSibling;
         if (nextElement){
             const siblingModel = findModelByElement(nextElement);
@@ -123,10 +160,5 @@ const iProjector = (rootElement, componentController) => {
                 componentController.toggleSelectedCategoryOptionsModel(cursorModel);
             }
         }
-    };
-
-    return {
-        //highlightItem,
-        handleKeyDown,
     };
 };
