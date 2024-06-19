@@ -47,7 +47,10 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
         // due to performance issues, rm: find a better solution
-        selectController.getColumnOptionsComponent(col).setOptionsSorted(cb().length <= 1_000);
+        const areOptionsSorted = selectAttributes.sortOptionsAlphabetically ?? true;
+        selectController
+            .getColumnOptionsComponent(col)
+            .setOptionsSorted(areOptionsSorted && cb().length <= 1_000);
     });
 
     // define value options selection change
@@ -94,11 +97,11 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         }
         selectController.getColumnOptionsComponent(col)?.onOptionSelected((option) => {
             let isValueOptionSelected = false;
-            const selectedColumn = selectController
+            const selectedColumn      = selectController
                 .getSelectedOptionOfColumns()
                 .findIndex((option) => option.getId() !== nullOptionId);
-            if(option.getId() === nullOptionId){
-                if(serviceCallbacks.length <= col + 1){
+            if (option.getId() === nullOptionId) {
+                if (serviceCallbacks.length <= col + 1) {
                     // unselect most general category
                     selectController.clearColumnOptions(col);
                     filterOptions(col, option);
@@ -113,11 +116,11 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
                 filterOptions(col, selectedCategory);
             } else {
                 // select category
-                const minCol = (selectedColumn <= col - 1) ? selectedColumn: 0;
+                const minCol = selectedColumn <= col - 1 ? selectedColumn : 0;
                 selectController.clearSelectedOptions(col - 1);
                 selectController.clearColumnOptions(col - 1, minCol);
                 isValueOptionSelected = filterOptions(col - 1, option, minCol);
-                if(!isValueOptionSelected){
+                if (!isValueOptionSelected) {
                     selectController.clearSelectedValueOption();
                 }
             }

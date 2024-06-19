@@ -14,7 +14,6 @@ export { ColumnOptionsComponent };
 
  * @property { ()  => OptionType }                getSelectedOption
  * @property { (OptionType)  => void }            setSelectedOption
- * @property { (OptionType)  => Boolean }         isSelectedOption
  * @property { ()  => void }                      clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
 
@@ -62,7 +61,6 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
 
         getSelectedOption  : selectedOptionController.getSelectedOption,
         setSelectedOption  : selectedOptionController.setSelectedOption,
-        isSelectedOption   : selectedOptionController.isSelectedOption,
         clearSelectedOption: selectedOptionController.clearSelectedOption,
         onOptionSelected   : selectedOptionController.onOptionSelected,
         

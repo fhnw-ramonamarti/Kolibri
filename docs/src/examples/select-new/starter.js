@@ -53,6 +53,7 @@ const selectAttribute3 = {
     name: "continent",
     label: "Continent independent",
     numberOfColumns: 1,
+    sortOptionsAlphabetically: false,
 };
 /**
  * @type { Array<(String) => Array<CallbackReturnType>> }

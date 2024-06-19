@@ -70,8 +70,9 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     const clearButton             = document.createElement("button");
     const toggleButton            = document.createElement("button");
 
+    // specific positioning styles for popover
     const styleElement = document.createElement("style");
-    styleElement.id = popoverStyle;
+    styleElement.id    = "popoverStyle";
     document.querySelector("head").append(styleElement);
 
     const positionPopover = (selectElement, popoverElementId) => {
@@ -93,26 +94,24 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
         rootElement.classList.toggle("opened", selectController.isOptionsVisible());
 
         positionPopover(selectElement, popoverElement.id);
-        
-        if(selectController.isOptionsVisible()){
+
+        if (selectController.isOptionsVisible()) {
             popoverElement.hidePopover();
         } else {
             popoverElement.showPopover();
         }
     };
 
-    window.addEventListener("resize",() => {
+    window.addEventListener("resize", () => {
         const selectElement = rootElement;
-        if(null != popoverElement && null != selectElement){
+        if (null != popoverElement && null != selectElement) {
             positionPopover(selectElement, popoverElement.id);
         }
     });
 
-    window.addEventListener("scroll",() => {
+    window.addEventListener("scroll", () => {
         const selectElement = rootElement;
-        if(null != popoverElement && null != selectElement){
-            // popoverElement.hidePopover();
-            // hide or move and leave opened
+        if (null != popoverElement && null != selectElement) {
             positionPopover(selectElement, popoverElement.id);
         }
     });
@@ -160,7 +159,7 @@ const projectSelectViews = (selectController) => {
     );
 
     const rootElement = document.createElement("div");
-    rootElement.id = selectController.getId();
+    rootElement.id    = selectController.getId();
     rootElement.classList.add(selectClassName);
 
     const componentContainer = document.createElement("div");
@@ -181,7 +180,7 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(inputElement);
 
     selectController.onOptionsVisibilityChange((value) => {
-        if(value){
+        if (value) {
             allOptionsElement.showPopover();
         } else {
             allOptionsElement.hidePopover();
@@ -299,7 +298,7 @@ const pageCss = `
         }
 
         :focus & {
-            border-color: var(--kolibri-color-accent);
+            border-color: var(--kolibri-color-output);
         }
 
         .selected-value {

@@ -1,4 +1,4 @@
-export { projectColumnOptionsView, pageCss };
+export { projectColumnOptionsView, pageCss, getHtmlElementByOption };
 
 /** @private */
 const columnClassName = 'options-column';
@@ -17,6 +17,27 @@ const optionClassName = columnClassName + '-item';
  */
 const elementId = (option) =>
     (columnClassName + "-" + option.getId()).replaceAll("\.","-");
+
+/**
+ * Returns an option html element fitting to the option. If no elemement exists null is returned.
+ * @param { OptionType }     option 
+ * @param { HTMLDivElement } rootElement 
+ * @returns { HTMLDivElement? }
+ * @example
+        const option = ValueOption("Switzerland");
+        const selectContainer = document.querySelector(".select-container");
+        const optionElement = getHtmlElementByOption(option, selectContainer);
+ */
+const getHtmlElementByOption = (option, rootElement) => {
+    const id = elementId(option);
+    const optionQuery = `[data-id="${id}"]`;
+    const queryAlternative = `[data-value="${option?.getValue()}"][data-label="${option?.getLabel()}"]`;
+    return (
+        rootElement.querySelector(optionQuery) ??
+        rootElement.querySelector(queryAlternative) ??
+        null
+    );
+};
 
 
 /**
@@ -82,7 +103,7 @@ const projectColumnOptionsView = (
         } else {
             columnContainer.append(rowElement);
         }
-        if (selectedOptionController.isSelectedOption(option)) {
+        if (selectedOptionController.getSelectedOption().equals(option)) {
             selectOptionItem(columnContainer)(option, option);
         }
     };
@@ -98,6 +119,7 @@ const projectColumnOptionsView = (
 
 /**
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
+ * @private
  * @param { SelectedOptionControllerType } selectedOptionController
  * @param { OptionType }                   option
  * @param { String }                       optionType
@@ -113,7 +135,7 @@ const projectOption = (selectedOptionController, option, optionType) => {
     item.classList.add(optionType + "-" + optionClassName);
     item.innerHTML = option.getLabel();
     item.onclick = (_) => {
-        if ("value" !== optionType && selectedOptionController.isSelectedOption(option)) {
+        if ("value" !== optionType && selectedOptionController.getSelectedOption().equals(option)) {
             // unselect categories
             selectedOptionController.clearSelectedOption();
             return;
@@ -127,25 +149,18 @@ const projectOption = (selectedOptionController, option, optionType) => {
 /**
  * When the cursor position changes, the change must become visible in the column view.
  * The old cursor position must be deselected, the new one selected.
+ * @private
  * @param { HTMLElement } root
  * @returns { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const cursorPositionItem = (root) => (newOption, oldOption) => {
-    if(null != oldOption){
-        const oldItem = root.querySelector(
-            `[data-value="${oldOption.getValue()}"][data-label="${oldOption.getLabel()}"]`
-        );
-        if (oldItem) {
-            oldItem.classList.remove("cursor-position");
-        }
+    const oldItem = getHtmlElementByOption(oldOption, root);
+    if (oldItem) {
+        oldItem.classList.remove("cursor-position");
     }
-    if(null != newOption){
-        const newItem = root.querySelector(
-            `[data-value="${newOption.getValue()}"][data-label="${newOption.getLabel()}"]`
-        );
-        if (newItem) {
-            newItem.classList.add("cursor-position");
-        }
+    const newItem = getHtmlElementByOption(newOption, root);
+    if (newItem) {
+        newItem.classList.add("cursor-position");
     }
 };
 
@@ -153,37 +168,30 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
  * When a selection changes, the change must become visible in the column view.
  * The old selected option must be deselected, the new one selected.
  * The cursor position is updated too.
+ * @private
  * @param { HTMLElement } root
  * @returns { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const selectOptionItem = (root) => (newOption, oldOption) => {
     cursorPositionItem(root)(newOption, oldOption);
-    if (null != oldOption) {
-        const oldItem = root.querySelector(
-            `[data-value="${oldOption.getValue()}"][data-label="${oldOption.getLabel()}"]`
-        );
-        if (oldItem) {
-            oldItem.classList.remove("selected");
-        }
+    const oldItem = getHtmlElementByOption(oldOption, root);
+    if (oldItem) {
+        oldItem.classList.remove("selected");
     }
-    if (null != newOption) {
-        const newItem = root.querySelector(
-            `[data-value="${newOption.getValue()}"][data-label="${newOption.getLabel()}"]`
-        );
-        if (newItem) {
-            newItem.classList.add("selected");
-        }
+    const newItem = getHtmlElementByOption(newOption, root);
+    if (newItem) {
+        newItem.classList.add("selected");
     }
 };
 
 /**
  * When a model is removed from the column view, the respective view elements must also be removed.
+ * @private
  * @param { HTMLElement } root
  * @returns { (option: OptionType) => void }
  */
 const removeOptionItem = (root) => option => {
-    const id = elementId(option);
-    const optionElement = root.querySelector(`[data-id="${id}"]`);
+    const optionElement = getHtmlElementByOption(option, root);
     if (optionElement) {
         optionElement.parentElement.removeChild(optionElement);
     }

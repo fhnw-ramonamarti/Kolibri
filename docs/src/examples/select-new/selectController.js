@@ -16,9 +16,10 @@ let idCounter = 0;
 
 /**
  * @typedef SelectAttribute
- * @property { ?String } label
- * @property { ?String } name
- * @property { ?Number } numberOfColumns - default 1
+ * @property { ?String }  label
+ * @property { ?String }  name
+ * @property { ?Number }  numberOfColumns - default 1
+ * @property { ?Boolean } sortOptionsAlphabetically - sort the values of each column, default true
  */
 
 /**
@@ -66,7 +67,12 @@ let idCounter = 0;
             numberOfColumns: 2
         });
  */
-const SelectController = ({ label = "", name = "", numberOfColumns = 1}) => {
+const SelectController = ({ 
+    label = "", 
+    name = "", 
+    numberOfColumns = 1, 
+    sortOptionsAlphabetically = true 
+}) => {
     const id = "select-component-" + idCounter++;
 
     // beware of negative numbers
@@ -76,6 +82,10 @@ const SelectController = ({ label = "", name = "", numberOfColumns = 1}) => {
     const columns = Array(numberOfColumns)
         .fill("")
         .map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
+
+    columns.forEach((column) => {
+        column.setOptionsSorted(sortOptionsAlphabetically);
+    });
 
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);

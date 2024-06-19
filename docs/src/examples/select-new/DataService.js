@@ -75,7 +75,7 @@ const getContinents = () => [
     "Europe",
     "North America",
     "Asia",
-].sort();
+];
 
 const imgUrl = "https://unsplash.it/32/32";
 

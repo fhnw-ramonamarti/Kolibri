@@ -2,7 +2,9 @@ import { OptionsController, SelectedOptionController } from "./optionsController
 import { projectColumnOptionsView, pageCss }           from "./columnOptionsProjector.js";
 import { CategoryOption, ValueOption }                 from "./optionsModel.js";
 
-const optionsController = OptionsController();
+
+// value option example
+const optionsController        = OptionsController();
 const selectedOptionController = SelectedOptionController();
 const cursorPositionController = SelectedOptionController();
 
@@ -27,7 +29,9 @@ optionsController.addOption(ValueOption("val 9"));
 
 selectedOptionController.setSelectedOption(selectedValue);
 
-const optionsController2 = OptionsController();
+
+// category option example
+const optionsController2        = OptionsController();
 const selectedOptionController2 = SelectedOptionController();
 const cursorPositionController2 = SelectedOptionController();
 

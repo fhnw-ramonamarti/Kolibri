@@ -20,7 +20,7 @@ export { OptionsController, SelectedOptionController };
  * @returns { OptionsControllerType }
  * @constructor
  * @example
- const optionsController = OptionsController();
+        const optionsController = OptionsController();
  */
 const OptionsController = () => {
 
@@ -32,7 +32,7 @@ const OptionsController = () => {
      * @returns { Boolean } - option with value and label already in options list
      */
     const containsOption = (option) => {
-        return optionsModel.getList().findIndex(o => optionEquals(o, option)) >= 0;
+        return optionsModel.getList().findIndex(o => o.equals(option)) >= 0;
     };
 
     /**
@@ -47,12 +47,12 @@ const OptionsController = () => {
     return {
         areOptionsSorted: () => sortOptions,
         setOptionsSorted: (newVal) => sortOptions = newVal,
-        getOptions: optionsModel.getList,
-        containsOption: containsOption,
-        addOption: addOption,
-        delOption: optionsModel.getObsList().del,
-        onOptionAdd: optionsModel.getObsList().onAdd,
-        onOptionDel: optionsModel.getObsList().onDel,
+        getOptions      : optionsModel.getList,
+        containsOption  : containsOption,
+        addOption       : addOption,
+        delOption       : optionsModel.getObsList().del,
+        onOptionAdd     : optionsModel.getObsList().onAdd,
+        onOptionDel     : optionsModel.getObsList().onDel,
     }
 };
 
@@ -61,7 +61,6 @@ const OptionsController = () => {
  * @typedef SelectedOptionControllerType
  * @property { ()  => OptionType }                             getSelectedOption
  * @property { (OptionType) => void }                          setSelectedOption
- * @property { (OptionType) => Boolean }                       isSelectedOption
  * @property { () => void }                                    clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
  */
@@ -72,33 +71,16 @@ const OptionsController = () => {
  * @returns { SelectedOptionControllerType }
  * @constructor
  * @example
- const selectedOptionController = SelectedOptionController();
+        const selectedOptionController = SelectedOptionController();
  */
 const SelectedOptionController = () => {
 
     const selectedOptionModel = SelectedOptionModel();
 
-    /**
-     * @param { OptionType } option
-     * @returns { Boolean } - selected option is same as parameter
-     */
-    const isSelectedOption = (option) =>
-        optionEquals(selectedOptionModel.getSelectedOption(), option);
-
     return {
-        getSelectedOption: selectedOptionModel.getSelectedOption,
-        setSelectedOption: selectedOptionModel.setSelectedOption,
-        isSelectedOption: isSelectedOption,
+        getSelectedOption  : selectedOptionModel.getSelectedOption,
+        setSelectedOption  : selectedOptionModel.setSelectedOption,
         clearSelectedOption: selectedOptionModel.clearSelectedOption,
-        onOptionSelected: selectedOptionModel.onOptionSelected,
+        onOptionSelected   : selectedOptionModel.onOptionSelected,
     }
 };
-
-/**
- * Compares two options by value and label instead of their id.
- * @private
- * @param { OptionType } a
- * @param { OptionType } b
- * @returns { Boolean } - option with value and label are equal
- */
-const optionEquals = (a, b) => a.getLabel() === b.getLabel() && a.getValue() === b.getValue();

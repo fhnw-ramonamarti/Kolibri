@@ -1,4 +1,5 @@
-import { nullOption } from "./optionsModel.js";
+import { getHtmlElementByOption } from "./columnOptionsProjector.js";
+import { nullOption }             from "./optionsModel.js";
 
 export { iProjector };
 
@@ -94,7 +95,7 @@ const iProjector = (rootElement, componentController) => {
                 40,
                 "ArrowDown",
             ].indexOf(e.code) > -1 &&
-            document.querySelector("[popover]:popover-open") != null
+            null != document.querySelector("[popover]:popover-open")
         ) {
             e.preventDefault();
         }
@@ -121,9 +122,7 @@ const iProjector = (rootElement, componentController) => {
 
     const moveCursorUp = () => {
         const currentModel = componentController.getCursorPosition();
-        const currentElement = rootElement.querySelector(
-            `[data-value="${currentModel.getValue()}"][data-label="${currentModel.getLabel()}"]`
-        );
+        const currentElement = getHtmlElementByOption(currentModel, rootElement);
         const siblingElement = currentElement?.previousElementSibling;
         if (siblingElement) {
             if (!isItemVisible(siblingElement)) {
@@ -136,9 +135,7 @@ const iProjector = (rootElement, componentController) => {
 
     const moveCursorDown = () => {
         const currentModel = componentController.getCursorPosition();
-        const currentElement = rootElement.querySelector(
-            `[data-value="${currentModel.getValue()}"][data-label="${currentModel.getLabel()}"]`
-        );
+        const currentElement = getHtmlElementByOption(currentModel, rootElement);
         const siblingElement = currentElement?.nextElementSibling;
         if (siblingElement) {
             if (!isItemVisible(siblingElement)) {
