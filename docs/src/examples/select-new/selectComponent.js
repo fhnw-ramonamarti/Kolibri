@@ -79,12 +79,12 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         if (col === 0) {
             return options.map((o) => o.getValue()).includes(selectedOption.getValue());
         } else {
-            if(selectedOption.getId() !== nullOptionId){
+            if (selectedOption.getId() !== nullOptionId) {
                 return filterOptions(col - 1, selectedOption, selectedColumn);
             } else {
-                const valueContained = options.map((option) => 
-                    filterOptions(col - 1, option, selectedColumn)
-                ).reduce((acc, option) => acc || option, false);
+                const valueContained = options
+                    .map((option) => filterOptions(col - 1, option, selectedColumn))
+                    .reduce((acc, option) => acc || option, false);
                 return valueContained;
             }
         }

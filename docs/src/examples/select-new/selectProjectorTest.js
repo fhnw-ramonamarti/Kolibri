@@ -51,12 +51,12 @@ selectProjectorSuite.add("binding-column-selection", (assert) => {
     );
 
     // noinspection PointlessBooleanExpressionJS
-    assert.is(selectedValueElement != null                       , true);
+    assert.is(null != selectedValueElement                       , true);
     assert.is(selectedValueElement.innerHTML                     , selectedOption.getLabel());
     assert.is(selectedValueElement.getAttribute("data-value")    , selectedOption.getValue());
 
     // noinspection PointlessBooleanExpressionJS
-    assert.is(selectedCategoryElement != null                       , true);
+    assert.is(null != selectedCategoryElement                       , true);
     assert.is(selectedCategoryElement.innerHTML                     , selectedCategory.getLabel());
     assert.is(selectedCategoryElement.getAttribute("data-value")    , selectedCategory.getValue());
 });

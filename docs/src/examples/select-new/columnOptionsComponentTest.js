@@ -28,7 +28,7 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
     assert.is(component.getColumnView()[0].childElementCount, 3);
     
     const selectedElementBefore = component.getColumnView()[0].querySelector('.selected');
-    assert.is(selectedElementBefore == null                 , true);
+    assert.is(null == selectedElementBefore                 , true);
     
     flagSelected = false;
     component.setSelectedOption(val);
@@ -37,7 +37,7 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
         .getColumnView()[0]
         .querySelector(`[data-id*="${selectedId}"]`);
     const selectedElementAfter = component.getColumnView()[0].querySelector('.selected');
-    assert.is(selectedElementAfter != null                 , true);
+    assert.is(null != selectedElementAfter                 , true);
     assert.is(selectedElementById === selectedElementAfter , true);
     assert.is(flagSelected                                 , true);
     
@@ -47,7 +47,7 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
 
     component.clearSelectedOption();
     const selectedElementCleared = component.getColumnView()[0].querySelector('.selected');
-    assert.is(selectedElementCleared == null                 , true);
+    assert.is(null == selectedElementCleared                , true);
 
     component.clearOptions();
     assert.is(component.getColumnView()[0].childElementCount, 0);

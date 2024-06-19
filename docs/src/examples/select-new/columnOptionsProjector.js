@@ -146,15 +146,15 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
     item.innerHTML = option.getLabel();
     item.onclick = (_) => {
         if ("value" !== optionType && selectedOptionController.getSelectedOption().equals(option)) {
+            // unselect categories & select cursor position
             cursorPositionController?.setSelectedOption(option);
-            // unselect categories
             selectedOptionController.clearSelectedOption();
-            console.log(2,selectedOptionController.getSelectedOption().getLabel(), option.getLabel(),selectedOptionController.getSelectedOption().equals(option),optionType);
             return;
         }
-        cursorPositionController?.setSelectedOption(option);
+        if ("value" === optionType) {
+            cursorPositionController?.setSelectedOption(option);
+        }
         selectedOptionController.setSelectedOption(option);
-        console.log(selectedOptionController.getSelectedOption().getLabel(), option.getLabel(),selectedOptionController.getSelectedOption().equals(option),optionType);
     };
     
     return [item];

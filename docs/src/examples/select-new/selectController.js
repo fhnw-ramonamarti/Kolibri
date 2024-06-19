@@ -132,7 +132,7 @@ const SelectController = ({
      */
     const getSelectedOptionOfColumns = (maxCol = numberOfColumns - 1) => {
         const selectedOption = columns[maxCol].getSelectedOption();
-        if(maxCol <= 0){
+        if (maxCol <= 0) {
             return [selectedOption];
         }
         return [...getSelectedOptionOfColumns(maxCol - 1), selectedOption];

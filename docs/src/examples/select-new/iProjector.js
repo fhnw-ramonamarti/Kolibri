@@ -6,9 +6,12 @@ export { iProjector };
 const iProjector = (rootElement, componentController) => {
     let currentColumn = 0;
 
-    componentController.onCursorPositionChanged((newOption) =>
-        componentController.getColumnOptionsComponent(currentColumn).setSelectedOption(newOption)
-    );
+    componentController.onCursorPositionChanged((newOption) => {
+        const columnComponent = componentController.getColumnOptionsComponent(currentColumn);
+        if (columnComponent.getOptions().findIndex((option) => option.equals(newOption)) >= 0) {
+            columnComponent.setSelectedOption(newOption);
+        }
+    });
 
     // over all columns to listen for click
     [...Array(componentController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
