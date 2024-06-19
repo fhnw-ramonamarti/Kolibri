@@ -80,7 +80,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
         const { scrollTop, scrollLeft } = document.documentElement;
         styleElement.textContent = `
             #${popoverElementId} {
-                top: ${top + height + scrollTop - 1}px;
+                top: ${top + height + scrollTop}px;
                 left: ${left + scrollLeft}px; 
                 width: ${width}px;
             }
@@ -237,10 +237,11 @@ const popoverStyle = `
 
     .${optionsClassName}[popover] {
         position:       absolute;
-        z-index:        50;
+        z-index:        20;
         max-height:     ${boxHeight}px;
         border-radius:  0 0 4px 4px;
         border:         1px solid #ccc; /* todo */
+        border-top:     none;
         background:     #fff;
         overflow:       hidden;
         align-items:    stretch;
@@ -254,10 +255,6 @@ const popoverStyle = `
 
         animation:        open 300ms ease-in-out;
         transform-origin: top center;
-
-        .options-column {
-            flex: 1 1 auto;
-        }
     }        
 
     /*   BEFORE-OPEN STATE   */
@@ -334,6 +331,7 @@ const pageCss = `
     }
     .${inputComponentClassName} {
         position:       relative;
+        width:          200px;
 
         &:focus {
             outline:    none;
@@ -361,6 +359,12 @@ const pageCss = `
     }
     .${selectClassName} {
         position:       relative;
+        display:        flex;
+        gap:            2em;
+
+        label {
+            min-width:  100px;
+        }
 
         &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
             background-image: url("${iconFolderUrl}kolibri-select-opened.svg");

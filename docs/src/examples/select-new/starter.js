@@ -96,7 +96,7 @@ document.querySelector("head style").textContent += pageCss;
  */
 const selectAttribute5 = {
     name: "city",
-    label: "Continent to City",
+    label: "City",
     numberOfColumns: 3,
 };
 /**

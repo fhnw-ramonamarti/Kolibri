@@ -239,7 +239,7 @@ const pageCss = `
         display: none;
     }
     .${columnClassName} {
-        width:          100%;
+        /* width:          100%; */
         max-width:      100%;
         overflow-y:     scroll;
         overflow-x:     hidden;
