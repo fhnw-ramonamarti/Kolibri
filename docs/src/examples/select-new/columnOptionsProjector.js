@@ -1,3 +1,4 @@
+
 export { projectColumnOptionsView, pageCss, getHtmlElementByOption };
 
 /** @private */
@@ -106,6 +107,9 @@ const projectColumnOptionsView = (
         if (selectedOptionController.getSelectedOption().equals(option)) {
             selectOptionItem(columnContainer)(option, option);
         }
+        if (cursorPositionController?.getSelectedOption().equals(option)) {
+            cursorPositionItem(columnContainer)(option, option);
+        }
     };
 
     optionsController.onOptionAdd(renderRow);
@@ -173,7 +177,6 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
  * @returns { (newOption: OptionType, oldOption: OptionType) => void }
  */
 const selectOptionItem = (root) => (newOption, oldOption) => {
-    cursorPositionItem(root)(newOption, oldOption);
     const oldItem = getHtmlElementByOption(oldOption, root);
     if (oldItem) {
         oldItem.classList.remove("selected");

@@ -113,13 +113,11 @@ const OptionsModel = () => {
             option.createId();
             listObs.add(option);
             allEverAddedOptions.push(option);
-            console.log(1);
             return;
         }
         const filteredCurrentOptions = list.filter((o) => o.equals(option));
         if (filteredCurrentOptions.length === 0) {
             listObs.add(filteredAllOptions[0]);
-            console.log(2);
         } 
     };
 

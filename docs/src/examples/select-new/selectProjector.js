@@ -45,7 +45,7 @@ const projectOptionsView = (selectController) => {
             if (nullOption.getId() !== newOption.getId()) {
                 selectController.setCursorPosition(newOption);
             } else if (nullOption.getId() !== oldOption.getId()) {
-                selectController.setCursorPosition(newOption);
+                selectController.setCursorPosition(oldOption);
             }
         });
     });
