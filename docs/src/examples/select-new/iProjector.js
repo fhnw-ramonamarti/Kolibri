@@ -2,8 +2,8 @@ import { nullOption } from "./optionsModel.js";
 
 export { iProjector };
 
-let currentColumn = 0;
 const iProjector = (rootElement, componentController) => {
+    let currentColumn = 0;
 
     componentController.onCursorPositionChanged((newOption) =>
         componentController.getColumnOptionsComponent(currentColumn).setSelectedOption(newOption)
@@ -111,13 +111,24 @@ const iProjector = (rootElement, componentController) => {
         );
     };
 
+    const isItemVisible = (element) => {
+        const { y, height } = element.getBoundingClientRect();
+        const { parentY, parentHeight } = [element.parentElement.getBoundingClientRect()].map(
+            (parent) => ({ parentY: parent.y, parentHeight: parent.height })
+        )[0];
+        return parentY <= y && parentY + parentHeight >= y + height;
+    }
+
     const moveCursorUp = () => {
         const currentModel = componentController.getCursorPosition();
         const currentElement = rootElement.querySelector(
             `[data-value="${currentModel.getValue()}"][data-label="${currentModel.getLabel()}"]`
         );
         const siblingElement = currentElement?.previousElementSibling;
-        if (siblingElement){
+        if (siblingElement) {
+            if (!isItemVisible(siblingElement)) {
+                siblingElement.scrollIntoView(true);
+            }
             const siblingModel = findModelByElement(siblingElement);
             componentController.setCursorPosition(siblingModel);
         }
@@ -128,10 +139,13 @@ const iProjector = (rootElement, componentController) => {
         const currentElement = rootElement.querySelector(
             `[data-value="${currentModel.getValue()}"][data-label="${currentModel.getLabel()}"]`
         );
-        const nextElement = currentElement?.nextElementSibling;
-        if (nextElement){
-            const siblingModel = findModelByElement(nextElement);
-            componentController.setCursorPosition(siblingModel)
+        const siblingElement = currentElement?.nextElementSibling;
+        if (siblingElement) {
+            if (!isItemVisible(siblingElement)) {
+                siblingElement.scrollIntoView(false);
+            }
+            const siblingModel = findModelByElement(siblingElement);
+            componentController.setCursorPosition(siblingModel);
         }
     };
 
