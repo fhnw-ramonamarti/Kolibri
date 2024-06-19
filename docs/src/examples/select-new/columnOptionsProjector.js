@@ -276,7 +276,8 @@ const pageCss = `
         padding:        0.2em 1em;
         display:        flex;
         align-items:    center;
-
+        /* word-break:     break-word; */
+        
         img {
             height:     2rem;
             margin:     0 .5rem;
