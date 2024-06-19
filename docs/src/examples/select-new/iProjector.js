@@ -1,5 +1,5 @@
-import { getHtmlElementByOption } from "./columnOptionsProjector.js";
-import { nullOption }             from "./optionsModel.js";
+import { elementDataLabel, getHtmlElementByOption } from "./columnOptionsProjector.js";
+import { nullOption }                               from "./optionsModel.js";
 
 export { iProjector };
 
@@ -105,13 +105,15 @@ const iProjector = (rootElement, componentController) => {
     });
 
     const findModelByElement = (element) => {
-        const optionValue = element.getAttribute("data-value");
-        const optionLabel = element.getAttribute("data-label");
+        const optionValue   = element.getAttribute("data-value");
+        const optionLabel   = element.getAttribute("data-label");
         const columnOptions = componentController
             .getColumnOptionsComponent(currentColumn)
             .getOptions();
         return columnOptions.find(
-            (option) => option.getLabel() === optionLabel && option.getValue() === optionValue
+            (option) =>
+                elementDataLabel(option.getLabel()) === optionLabel &&
+                option.getValue() === optionValue
         );
     };
 
@@ -124,7 +126,7 @@ const iProjector = (rootElement, componentController) => {
     }
 
     const moveCursorUp = () => {
-        const currentModel = componentController.getCursorPosition();
+        const currentModel   = componentController.getCursorPosition();
         const currentElement = getHtmlElementByOption(currentModel, rootElement);
         const siblingElement = currentElement?.previousElementSibling;
         if (siblingElement) {
@@ -137,7 +139,7 @@ const iProjector = (rootElement, componentController) => {
     };
 
     const moveCursorDown = () => {
-        const currentModel = componentController.getCursorPosition();
+        const currentModel   = componentController.getCursorPosition();
         const currentElement = getHtmlElementByOption(currentModel, rootElement);
         const siblingElement = currentElement?.nextElementSibling;
         if (siblingElement) {

@@ -1,5 +1,5 @@
 
-export { projectColumnOptionsView, pageCss, getHtmlElementByOption };
+export { projectColumnOptionsView, pageCss, getHtmlElementByOption, elementDataLabel };
 
 /** @private */
 const columnClassName = 'options-column';
@@ -20,6 +20,15 @@ const elementId = (option) =>
     (columnClassName + "-" + option.getId()).replaceAll("\.","-");
 
 /**
+ * Returns a data label for the html element that is to represent the attribute such that 
+ * we can create the element in a way that allows later retrieval.
+ * The resulting String should follow the constraints for properly formatted html data attribute.
+ * @param  { OptionType } option
+ * @returns { String }
+ */
+const elementDataLabel = (option) => option?.getLabel().replaceAll(/[^a-zA-Z\d-_]/g, "_");
+
+/**
  * Returns an option html element fitting to the option. If no elemement exists null is returned.
  * @param { OptionType }     option 
  * @param { HTMLDivElement } rootElement 
@@ -30,9 +39,12 @@ const elementId = (option) =>
         const optionElement = getHtmlElementByOption(option, selectContainer);
  */
 const getHtmlElementByOption = (option, rootElement) => {
-    const id = elementId(option);
-    const optionQuery = `[data-id="${id}"]`;
-    const queryAlternative = `[data-value="${option?.getValue()}"][data-label="${option?.getLabel()}"]`;
+    const id    = elementId(option);
+    const label = elementDataLabel(option);
+
+    const optionQuery      = `[data-id="${id}"]`;
+    const queryAlternative = `[data-value="${option?.getValue()}"][data-label="${label}"]`;
+    
     return (
         rootElement.querySelector(optionQuery) ??
         rootElement.querySelector(queryAlternative) ??
@@ -140,7 +152,7 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
     const item = document.createElement("div");
     item.setAttribute("data-id", elementId(option));
     item.setAttribute("data-value", option.getValue());
-    item.setAttribute("data-label", option.getLabel());
+    item.setAttribute("data-label", elementDataLabel(option));
     item.classList.add(optionClassName);
     item.classList.add(optionType + "-" + optionClassName);
     item.innerHTML = option.getLabel();
@@ -228,6 +240,7 @@ const pageCss = `
     }
     .${columnClassName} {
         width:          100%;
+        max-width:      100%;
         overflow-y:     scroll;
         overflow-x:     hidden;
         max-height:     ${boxHeight}px;

@@ -84,16 +84,3 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
 });
 
 selectComponentSuite.run();
-
-
-/**
-
-[Log] <div data-id="options-column-OptionItem26" data-value="Test 1" data-label="Test 1" class="options-column-item value-options-column-item cursor-position selected">Test 1</div><div data-id="options-column-OptionItem28" data-value="Test 11" data-label="Test 11" class="options-column-item value-options-column-item">Test 11</div><div data-id="options-column-OptionItem27" data-value="Test 2" data-label="Test 2" class="options-column-item value-options-column-item">Test 2</div> (selectComponentTest.js, line 58)
-[Log] <div data-id="options-column-OptionItem26" data-value="Test 1" data-label="Test 1" class="options-column-item value-options-column-item                         ">Test 1</div><div data-id="options-column-OptionItem28" data-value="Test 11" data-label="Test 11" class="options-column-item value-options-column-item">Test 11</div> (selectComponentTest.js, line 72)
-[Log] <div data-id="options-column-OptionItem26" data-value="Test 1" data-label="Test 1" class="options-column-item value-options-column-item                         ">Test 1</div><div data-id="options-column-OptionItem28" data-value="Test 11" data-label="Test 11" class="options-column-item value-options-column-item">Test 11</div><div data-id="options-column-OptionItem27" data-value="Test 2" data-label="Test 2" class="options-column-item value-options-column-item">Test 2</div> (selectComponentTest.js, line 84)
-
-[Log] <div data-id="options-column-OptionItem29" data-value="" data-label="1" class="options-column-item category-options-column-item                         ">1</div><div data-id="options-column-OptionItem30" data-value="" data-label="2" class="options-column-item category-options-column-item">2</div> (selectComponentTest.js, line 59)
-[Log] <div data-id="options-column-OptionItem29" data-value="" data-label="1" class="options-column-item category-options-column-item cursor-position selected">1</div><div data-id="options-column-OptionItem30" data-value="" data-label="2" class="options-column-item category-options-column-item">2</div> (selectComponentTest.js, line 73)
-[Log] <div data-id="options-column-OptionItem29" data-value="" data-label="1" class="options-column-item category-options-column-item cursor-position         ">1</div><div data-id="options-column-OptionItem30" data-value="" data-label="2" class="options-column-item category-options-column-item">2</div> (selectComponentTest.js, line 85)
-
-*/
