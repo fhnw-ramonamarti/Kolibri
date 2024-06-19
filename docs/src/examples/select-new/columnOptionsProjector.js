@@ -93,7 +93,12 @@ const projectColumnOptionsView = (
      */
     const renderRow = (option) => {
         const optionType = columnNumber === 0 ? "value" : "category";
-        const [rowElement] = projectOption(selectedOptionController, option, optionType);
+        const [rowElement] = projectOption(
+            selectedOptionController,
+            option,
+            optionType,
+            cursorPositionController
+        );
         if (optionsController.areOptionsSorted()) {
             const position = findPosition(option);
             if (position === -1) {
@@ -125,11 +130,12 @@ const projectColumnOptionsView = (
  * Creating the views and bindings for an item in the list view, binding for instant value updates.
  * @private
  * @param { SelectedOptionControllerType } selectedOptionController
+ * @param { SelectedOptionControllerType } cursorPositionController
  * @param { OptionType }                   option
  * @param { String }                       optionType
  * @returns { Array<HTMLElement> } - single option item view
  */
-const projectOption = (selectedOptionController, option, optionType) => {
+const projectOption = (selectedOptionController, option, optionType, cursorPositionController) => {
 
     const item = document.createElement("div");
     item.setAttribute("data-id", elementId(option));
@@ -140,11 +146,15 @@ const projectOption = (selectedOptionController, option, optionType) => {
     item.innerHTML = option.getLabel();
     item.onclick = (_) => {
         if ("value" !== optionType && selectedOptionController.getSelectedOption().equals(option)) {
+            cursorPositionController?.setSelectedOption(option);
             // unselect categories
             selectedOptionController.clearSelectedOption();
+            console.log(2,selectedOptionController.getSelectedOption().getLabel(), option.getLabel(),selectedOptionController.getSelectedOption().equals(option),optionType);
             return;
         }
+        cursorPositionController?.setSelectedOption(option);
         selectedOptionController.setSelectedOption(option);
+        console.log(selectedOptionController.getSelectedOption().getLabel(), option.getLabel(),selectedOptionController.getSelectedOption().equals(option),optionType);
     };
     
     return [item];
