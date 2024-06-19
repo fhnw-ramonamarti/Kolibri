@@ -211,6 +211,7 @@ const pageCss = `
         overflow-x:     hidden;
         max-height:     ${boxHeight}px;
         min-height:     100%;
+        padding:        5px;
 
         &:not(:last-child) {
             border-right: 1px solid #ccc; /* todo */
@@ -221,7 +222,7 @@ const pageCss = `
         scrollbar-width: thin;
         
         &::-webkit-scrollbar {
-            width: 8px;
+            /* width:      4px; */
         }
 
         &::-webkit-scrollbar-track {

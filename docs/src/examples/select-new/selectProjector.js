@@ -239,7 +239,6 @@ const popoverStyle = `
     .${optionsClassName}[popover] {
         position:       absolute;
         z-index:        50;
-        gap:            5px;
         max-height:     ${boxHeight}px;
         border-radius:  0 0 4px 4px;
         border:         1px solid #ccc; /* todo */
@@ -308,14 +307,24 @@ const pageCss = `
         }
 
         .clear {
-            color:      var(--kolibri-color-accent);
+            color:        var(--kolibri-color-accent);
+            font-size:    0.8em;
+            margin-right: 0.3em
         }
         
         button.toggleButton, 
         .clear {
             background-color:   transparent;
             border:             none;
-            font-size:          1.3em;
+            font-size:          1.1em;
+            height:             100%;
+            aspect-ratio:       10 / 9;
+            padding:            0;
+            line-height:        0.8;
+            overflow:           hidden;
+            display:            flex;
+            align-items:        center;
+            justify-content:    center;
         }
 
         img {
@@ -335,14 +344,12 @@ const pageCss = `
             height:      100%;
             display:     flex;
             align-items: center;
-            padding:     0;
 
             button& {
-                height:       100%;
-                aspect-ratio: 1;
-                background-image: url("${iconFolderUrl}kolibri-select-closed.svg");
-                background-size: contain;
-                background-repeat: no-repeat;
+                background-image:    url("${iconFolderUrl}kolibri-select-closed.svg");
+                background-size:     1em;
+                background-repeat:   no-repeat;
+                background-position: center center;
             }
         }
 
@@ -361,7 +368,7 @@ const pageCss = `
         }
     }
     
-    .hidden {
+    .hidden.hidden {
         display:        none;
     }
 `;

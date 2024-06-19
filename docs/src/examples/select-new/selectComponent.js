@@ -13,7 +13,6 @@ export { SelectComponent, pageCss };
 /**
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * More than 2 columns is experimental and can contain unexpected filtering reactions.
  * A selection of a category leads to the disselection of all sub categories 
  * expect the selected value. This component slows down for over 1_000 options in a column.
  * @param { SelectAttribute }                                      selectAttributes
