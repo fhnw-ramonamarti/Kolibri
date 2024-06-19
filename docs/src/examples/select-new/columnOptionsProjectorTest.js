@@ -1,7 +1,7 @@
-import { TestSuite }                                   from "../../kolibri/util/test.js";
-import { projectColumnOptionsView }                    from "./columnOptionsProjector.js";
-import { OptionsController, SelectedOptionController } from "./optionsController.js";
-import { ValueOption, nullOption }                     from "./optionsModel.js";
+import { TestSuite }                                        from "../../kolibri/util/test.js";
+import { projectColumnOptionsView, getHtmlElementByOption } from "./columnOptionsProjector.js";
+import { OptionsController, SelectedOptionController }      from "./optionsController.js";
+import { ValueOption, nullOption }                          from "./optionsModel.js";
 
 const columnOptionsProjectorSuite = TestSuite("projector/simpleForm/columnOptionsProjector");
 
@@ -40,6 +40,10 @@ columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     assert.is(null != selectedElement                       , true);
     assert.is(selectedElement.innerHTML                     , selectedOption.getLabel());
     assert.is(selectedElement.getAttribute("data-value")    , selectedOption.getValue());
+    
+    const optionWithId = optionsController.getOptions()[0];
+    const optionElement = getHtmlElementByOption(optionWithId, columnView);
+    assert.is(optionElement?.getAttribute("data-value")     , optionWithId.getValue());
 });
 
 columnOptionsProjectorSuite.run();
