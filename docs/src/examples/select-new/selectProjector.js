@@ -194,7 +194,6 @@ const projectSelectViews = (selectController) => {
         componentContainer.focus();
     });
 
-
     iProjector(rootElement, selectController);
 
     return [rootElement, selectionTextContentContainer];

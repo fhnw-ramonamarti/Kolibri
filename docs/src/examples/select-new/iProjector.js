@@ -9,6 +9,13 @@ const iProjector = (rootElement, componentController) => {
         componentController.getColumnOptionsComponent(currentColumn).setSelectedOption(newOption)
     );
 
+    // over all columns to listen for click
+    [...Array(componentController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
+        rootElement.querySelector(`[data-column="${col}"]`).addEventListener("mousedown", (_) => {
+            currentColumn = col;
+        });
+    });
+
     const handleKeyDown = (e) => {
         if (componentController.isOptionsVisible()) {
             // initial no cursor position

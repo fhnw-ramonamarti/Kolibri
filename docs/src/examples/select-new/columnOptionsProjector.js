@@ -262,13 +262,23 @@ const pageCss = `
         left:           10px;
         transform:      translateX(-50%);
         width:          2.5px;
-        background:     #E11161;
+        background:     var(--kolibri-color-accent);
         border-radius:  1px;
         top:            0.5em;
         bottom:         0.4em;
     }
-    .cursor-position{
-    background-color: red !important;
+    .cursor-position {
+        color:          var(--kb-hsla-warning-dark);
     }
-    
+    .cursor-position::before {
+        content:        '';
+        position:       absolute;
+        left:           7px;
+        transform:      translateX(-50%);
+        width:          2.5px;
+        background:     var(--kb-hsla-warning-dark);
+        border-radius:  1px;
+        top:            0.5em;
+        bottom:         0.4em;
+    }
 `;

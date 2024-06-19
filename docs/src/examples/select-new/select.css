@@ -1,4 +1,5 @@
 @import "../../../css/kolibri-base.css";
+@import "../../../css/kolibri-light-colors.css";
 
 body {
     perspective: 100vw;
