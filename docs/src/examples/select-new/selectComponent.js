@@ -13,7 +13,7 @@ export { SelectComponent, pageCss };
 /**
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * A selection of a category leads to the disselection of all sub categories 
+ * A selection of a category leads to unselecting all sub categories
  * expect the selected value. This component slows down for over 1_000 options in a column.
  * @param { SelectAttribute }                                      selectAttributes
  * @param { Array<(filter: String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
@@ -34,11 +34,20 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const [labelElement, inputElement]  = component.children;
 
     /**
-     * @param { Number } col
-     * @returns { (e: OptionType) => OptionType }
+     * @param { Number } col - defines if column is value or category type, 0 is value
+     * @returns { (CallbackReturnType) => OptionType }
      */
-    const mapping = (col) => (e) => col !== 0 ? CategoryOption(e?.label ?? e?.value ?? e) 
-                                              : ValueOption(e?.value ?? e, e?.label ?? e);
+    const mapping = (col) => (e) => {
+        if(null != e?.label || null != e?.value ){
+            // callback returns object
+            return col !== 0 ? CategoryOption(e?.label ?? e?.value)
+                : ValueOption(e?.value ?? e, e?.label)
+        } else {
+            // callback returns string
+            return col !== 0 ? CategoryOption( e)
+                : ValueOption(e)
+        }
+    };
 
     // initial fill of options
     serviceCallbacks.forEach((cb, col) => {
@@ -82,10 +91,9 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             if (selectedOption.getId() !== nullOptionId) {
                 return filterOptions(col - 1, selectedOption, selectedColumn);
             } else {
-                const valueContained = options
+                return options
                     .map((option) => filterOptions(col - 1, option, selectedColumn))
                     .reduce((acc, option) => acc || option, false);
-                return valueContained;
             }
         }
     };
@@ -110,7 +118,7 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
 
                 // unselect category
                 const selectedCategory = selectController
-                    .getColumnOptionsComponent(col + 1, selectedColumn)
+                    .getColumnOptionsComponent(col + 1)
                     .getSelectedOption();
                 selectController.clearColumnOptions(col);
                 filterOptions(col, selectedCategory);
@@ -127,7 +135,11 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         });
     });
 
-    return [component, labelElement, inputElement];
+    return [
+        component,
+        /** @type { HTMLLabelElement } */ labelElement,
+        /** @type { HTMLDivElement } */ inputElement,
+    ];
 }
 
 /**

@@ -6,7 +6,6 @@ export { ColumnOptionsComponent };
 /**
  * @typedef ColumnOptionsComponentType
  * @property { (Boolean) => void }                setOptionsSorted
- * @property { (OptionType) => Boolean }          containsOption
  * @property { () => Array<OptionType> }          getOptions
  * @property { (OptionType) => void }             addOption
  * @property { (OptionType) => void }             delOption
@@ -38,7 +37,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const optionsController        = OptionsController();
     const selectedOptionController = SelectedOptionController();
     
-    const columnView = projectColumnOptionsView(
+    const [columnView] = projectColumnOptionsView(
         optionsController,
         selectedOptionController,
         cursorPositionController,
@@ -53,7 +52,6 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
 
     return {
         setOptionsSorted: optionsController.setOptionsSorted,
-        containsOption  : optionsController.containsOption,
         getOptions      :optionsController.getOptions,
         addOption       : optionsController.addOption,
         delOption       : optionsController.delOption,

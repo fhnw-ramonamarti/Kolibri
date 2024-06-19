@@ -7,7 +7,7 @@ export { OptionsController, SelectedOptionController };
  * @property { () => Boolean }                          areOptionsSorted
  * @property { (Boolean) => void }                      setOptionsSorted
  * @property { () => Array<OptionType> }                getOptions
- * @property { (OptionType) => Boolean }                containsOption
+
  * @property { (OptionType) => void }                   addOption
  * @property { (OptionType) => void }                   delOption
  * @property { (cb: ConsumerType<OptionType>) => void } onOptionAdd
@@ -25,31 +25,15 @@ export { OptionsController, SelectedOptionController };
 const OptionsController = () => {
 
     const optionsModel = OptionsModel();
+    /** @type { Boolean } */
     let sortOptions = true;
-
-    /**
-     * @param { OptionType } option
-     * @returns { Boolean } - option with value and label already in options list
-     */
-    const containsOption = (option) => {
-        return optionsModel.getList().findIndex(o => o.equals(option)) >= 0;
-    };
-
-    /**
-     * @param { OptionType } option
-     */
-    const addOption = (option) => {
-        if (!containsOption(option)) {
-            optionsModel.getObsList().add(option);
-        }
-    };
 
     return {
         areOptionsSorted: () => sortOptions,
         setOptionsSorted: (newVal) => sortOptions = newVal,
         getOptions      : optionsModel.getList,
-        containsOption  : containsOption,
-        addOption       : addOption,
+
+        addOption       : optionsModel.getObsList().add,
         delOption       : optionsModel.getObsList().del,
         onOptionAdd     : optionsModel.getObsList().onAdd,
         onOptionDel     : optionsModel.getObsList().onDel,

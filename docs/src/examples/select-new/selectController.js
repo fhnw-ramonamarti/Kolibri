@@ -16,10 +16,10 @@ let idCounter = 0;
 
 /**
  * @typedef SelectAttribute
- * @property { ?String }  label
- * @property { ?String }  name
- * @property { ?Number }  numberOfColumns - default 1
- * @property { ?Boolean } sortOptionsAlphabetically - sort the values of each column, default true
+ * @property { String? }  label
+ * @property { String? }  name
+ * @property { Number? }  numberOfColumns - default 1
+ * @property { Boolean? } sortOptionsAlphabetically - sort the values of each column, default true
  */
 
 /**
@@ -49,7 +49,8 @@ let idCounter = 0;
  * @property { () => void }                      clearSelectedValueOption
  
  * @property { (Number) => void }                getSelectedOptionOfColumns
- * @property { (Number) => Array<OptionType> }   clearColumnOptions
+ * @property { (max:Number,min:Number) => void } clearColumnOptions
+ * @property { (Number) => void }                clearSelectedOptions
  * @property { (Number) => ColumnOptionsComponentType }        getColumnOptionsComponent
  */
 

@@ -25,14 +25,17 @@ const elementId = (option) =>
  * The resulting String should follow the constraints for properly formatted html data attribute.
  * @param  { OptionType } option
  * @returns { String }
+ * @example
+        const option = ValueOption("Switzerland");
+        const dataLabel = elementDataLabel(option);
  */
-const elementDataLabel = (option) => option?.getLabel().replaceAll(/[^a-zA-Z\d-_]/g, "_");
+const elementDataLabel = (option) => option?.getLabel().replaceAll(/[^a-zA-Z\d-_]/g, "_") ?? "";
 
 /**
- * Returns an option html element fitting to the option. If no elemement exists null is returned.
+ * Returns an option html element fitting to the option. If no element exists null is returned.
  * @param { OptionType }     option 
  * @param { HTMLDivElement } rootElement 
- * @returns { HTMLDivElement? }
+ * @returns { HTMLDivElement | null }
  * @example
         const option = ValueOption("Switzerland");
         const selectContainer = document.querySelector(".select-container");
@@ -240,12 +243,14 @@ const pageCss = `
     }
     .${columnClassName} {
         /* width:          100%; */
-        max-width:      100%;
+       /*  max-width:      100%; */
         overflow-y:     scroll;
         overflow-x:     hidden;
         max-height:     ${boxHeight}px;
         min-height:     100%;
         padding:        5px;
+        flex-grow:      1;
+        flex-shrink:    1;
 
         &:not(:last-child) {
             border-right: 1px solid #ccc; /* todo */
@@ -273,10 +278,12 @@ const pageCss = `
         cursor:         pointer;
         position:       relative;
         width:          100%;
-        padding:        0.2em 1em;
+        padding:        0.3em 1em;
         display:        flex;
         align-items:    center;
-        /* word-break:     break-word; */
+        overflow:       hidden;
+        /* overflow-wrap:  anywhere; */
+        line-height:    1.2;
         
         img {
             height:     2rem;

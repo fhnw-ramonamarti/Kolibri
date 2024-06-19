@@ -21,36 +21,36 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
     component.addOption(val);
     component.addOption(val2);
     component.addOption(val3);
-    assert.is(component.getColumnView()[0].childElementCount, 3);
+    assert.is(component.getColumnView().childElementCount, 3);
 
     const valCopy = ValueOption("test");
     component.addOption(valCopy);
-    assert.is(component.getColumnView()[0].childElementCount, 3);
+    assert.is(component.getColumnView().childElementCount, 3);
     
-    const selectedElementBefore = component.getColumnView()[0].querySelector('.selected');
+    const selectedElementBefore = component.getColumnView().querySelector('.selected');
     assert.is(null == selectedElementBefore                 , true);
     
     flagSelected = false;
     component.setSelectedOption(val);
     const selectedId          = val.getId().replace("\.", "-");
     const selectedElementById = component
-        .getColumnView()[0]
+        .getColumnView()
         .querySelector(`[data-id*="${selectedId}"]`);
-    const selectedElementAfter = component.getColumnView()[0].querySelector('.selected');
+    const selectedElementAfter = component.getColumnView().querySelector('.selected');
     assert.is(null != selectedElementAfter                 , true);
     assert.is(selectedElementById === selectedElementAfter , true);
     assert.is(flagSelected                                 , true);
     
     component.delOption(val);
-    assert.is(component.getColumnView()[0].childElementCount, 2);
+    assert.is(component.getColumnView().childElementCount, 2);
     assert.is(component.getSelectedOption().getId(), val.getId());
 
     component.clearSelectedOption();
-    const selectedElementCleared = component.getColumnView()[0].querySelector('.selected');
+    const selectedElementCleared = component.getColumnView().querySelector('.selected');
     assert.is(null == selectedElementCleared                , true);
 
     component.clearOptions();
-    assert.is(component.getColumnView()[0].childElementCount, 0);
+    assert.is(component.getColumnView().childElementCount   , 0);
 });
 
 columnOptionsComponentSuite.run();

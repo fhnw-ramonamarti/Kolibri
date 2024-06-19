@@ -100,7 +100,7 @@ const OptionsModel = () => {
     const allEverAddedOptions = []; // no options ever removed
 
     /**
-     * `allEverAddedOptions`is used to preserve the id if the value-label pair was added erlier.
+     * `allEverAddedOptions`is used to preserve the id if the value-label pair was added earlier.
      * Only options with unique value-label pairs can be added.
      * @param { OptionType } option - option to add with created id
      */
@@ -110,6 +110,7 @@ const OptionsModel = () => {
         }
         const filteredAllOptions = allEverAddedOptions.filter((o) => o.equals(option));
         if (filteredAllOptions.length === 0) {
+            // noinspection
             option.createId();
             listObs.add(option);
             allEverAddedOptions.push(option);

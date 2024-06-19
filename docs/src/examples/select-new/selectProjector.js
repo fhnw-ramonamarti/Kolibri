@@ -40,7 +40,7 @@ const projectOptionsView = (selectController) => {
     // map over columns from max colum to column 0
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         const column = selectController.getColumnOptionsComponent(col).getColumnView();
-        optionsContainer.append(...column);
+        optionsContainer.append(column);
         selectController.getColumnOptionsComponent(col).onOptionSelected((newOption, oldOption) => {
             if (nullOption.getId() !== newOption.getId()) {
                 selectController.setCursorPosition(newOption);

@@ -112,7 +112,7 @@ const iProjector = (rootElement, componentController) => {
             .getOptions();
         return columnOptions.find(
             (option) =>
-                elementDataLabel(option.getLabel()) === optionLabel &&
+                elementDataLabel(option) === optionLabel &&
                 option.getValue() === optionValue
         );
     };

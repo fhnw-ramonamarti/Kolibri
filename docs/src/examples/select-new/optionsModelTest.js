@@ -33,8 +33,7 @@ optionsModelSuite.add("Empty option", (assert) => {
     assert.is(resetOption.getId().includes("Null"), true);
     
     // reset creates same null object option
-    const resetOption2 = nullOption;
-    assert.is(resetOption.getId() === resetOption2.getId(), true);
+    assert.is(resetOption.getId() === nullOption.getId(), true);
 });
 
 optionsModelSuite.add("Options model", (assert) => {
