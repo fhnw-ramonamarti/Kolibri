@@ -21,10 +21,10 @@ selectProjectorSuite.add("binding-column-selection", (assert) => {
     const option = ValueOption("option");
     const selectedCategory = CategoryOption("selected category");
     const category = CategoryOption("category");
-    selectController.getColumnOptionsComponent(0).addOption(option);
-    selectController.getColumnOptionsComponent(0).addOption(selectedOption);
-    selectController.getColumnOptionsComponent(1).addOption(category);
-    selectController.getColumnOptionsComponent(1).addOption(selectedCategory);
+    selectController.getColumnOptionsComponent(0).addOption(/** @type { OptionType } */ option);
+    selectController.getColumnOptionsComponent(0).addOption(/** @type { OptionType } */ selectedOption);
+    selectController.getColumnOptionsComponent(1).addOption(/** @type { OptionType } */ category);
+    selectController.getColumnOptionsComponent(1).addOption(/** @type { OptionType } */ selectedCategory);
 
     // get ui elements
     const selectedValueId         = selectedOption.getId().replace("\.", "-");

@@ -4,7 +4,7 @@ import { CategoryOption, ValueOption }                 from "./optionsModel.js";
 
 
 // value option example
-const optionsController        = OptionsController();
+const optionsController        = /** @type { OptionsControllerType } */ OptionsController();
 const selectedOptionController = SelectedOptionController();
 const cursorPositionController = SelectedOptionController();
 
@@ -15,23 +15,23 @@ const columnView = projectColumnOptionsView(
 );
 document.getElementById("component").append(...columnView);
 
-const selectedValue = ValueOption("selected");
+const selectedValue = /** @type { OptionType } */ ValueOption("selected");
 optionsController.addOption(selectedValue);
-optionsController.addOption(ValueOption("val 1"));
-optionsController.addOption(ValueOption("val 2"));
-optionsController.addOption(ValueOption("val 3"));
-optionsController.addOption(ValueOption("val 4"));
-optionsController.addOption(ValueOption("val 5"));
-optionsController.addOption(ValueOption("val 6"));
-optionsController.addOption(ValueOption("val 7"));
-optionsController.addOption(ValueOption("val 8"));
-optionsController.addOption(ValueOption("val 9"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 1"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 2"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 3"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 4"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 5"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 6"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 7"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 8"));
+optionsController.addOption(/** @type { OptionType } */ ValueOption("val 9"));
 
 selectedOptionController.setSelectedOption(selectedValue);
 
 
 // category option example
-const optionsController2        = OptionsController();
+const optionsController2        = /** @type { OptionsControllerType } */ OptionsController();
 const selectedOptionController2 = SelectedOptionController();
 const cursorPositionController2 = SelectedOptionController();
 
@@ -43,11 +43,11 @@ const columnCatView = projectColumnOptionsView(
 document.getElementById("componentCat").append(...columnCatView);
 
 const selectedCat = CategoryOption("selected");
-optionsController2.addOption(selectedCat);
-optionsController2.addOption(CategoryOption("cat 1"));
-optionsController2.addOption(CategoryOption("cat 2"));
-optionsController2.addOption(CategoryOption("cat 3"));
+optionsController2.addOption(/** @type { OptionType } */ selectedCat);
+optionsController2.addOption(/** @type { OptionType } */ CategoryOption("cat 1"));
+optionsController2.addOption(/** @type { OptionType } */ CategoryOption("cat 2"));
+optionsController2.addOption(/** @type { OptionType } */ CategoryOption("cat 3"));
 
-selectedOptionController2.setSelectedOption(selectedCat);
+selectedOptionController2.setSelectedOption(/** @type { OptionType } */ selectedCat);
 
 document.querySelector("head style").textContent += pageCss;

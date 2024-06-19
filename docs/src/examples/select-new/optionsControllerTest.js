@@ -12,7 +12,7 @@ optionsControllerSuite.add("Options controller", (assert) => {
     assert.is(controller.getOptions().length, 0);
 
     // check observable add
-    const val = ValueOption("test");
+    const val = /** @type { OptionType } */ ValueOption("test");
     controller.addOption(val);
     assert.is(controller.getOptions().length, 1);
     assert.is(controller.getOptions()[0]    , val);
@@ -32,7 +32,7 @@ optionsControllerSuite.add("Selected option controller", (assert) => {
     assert.is(controller.getSelectedOption().getId(), noSelectionId);
 
     // check setting new selection
-    const val = ValueOption("value");
+    const val = /** @type { OptionType } */ ValueOption("value");
     controller.setSelectedOption(val);
     assert.is(controller.getSelectedOption()        , val);
 

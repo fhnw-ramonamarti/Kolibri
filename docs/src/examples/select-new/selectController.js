@@ -49,7 +49,7 @@ let idCounter = 0;
  * @property { () => void }                      clearSelectedValueOption
  
  * @property { (Number) => void }                getSelectedOptionOfColumns
- * @property { (max:Number,min:Number) => void } clearColumnOptions
+ * @property { (max: Number, min: Number) => void }            clearColumnOptions
  * @property { (Number) => void }                clearSelectedOptions
  * @property { (Number) => ColumnOptionsComponentType }        getColumnOptionsComponent
  */
@@ -91,7 +91,7 @@ const SelectController = ({
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);
 
-    const simpleInputStructure = SimpleInputModel({
+    const simpleInputStructure = SimpleInputModel(/** @type { AttributeType<String> } */ {
         label: label,
         value: columns[0].getSelectedOption().getValue(),
         name : name,

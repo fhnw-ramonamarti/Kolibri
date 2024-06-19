@@ -60,7 +60,7 @@ const Option = (value, label) => {
  * @param { String } label - same as value if not defined
  * @returns { OptionType }
  * @example
-        const model = ValueOption("pizza_fungi","Pizza Fungi");
+        const model = ValueOption("pizza_fungi", "Pizza Fungi");
  */
 const ValueOption = (value, label = "") => {
     const optionLabel = !label || label === "" ? value : label

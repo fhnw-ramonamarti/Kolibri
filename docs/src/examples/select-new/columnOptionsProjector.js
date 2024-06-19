@@ -243,17 +243,18 @@ const pageCss = `
     }
     .${columnClassName} {
         /* width:          100%; */
-       /*  max-width:      100%; */
+        /* max-width:      100%; */
         overflow-y:     scroll;
         overflow-x:     hidden;
         max-height:     ${boxHeight}px;
         min-height:     100%;
         padding:        5px;
-        flex-grow:      1;
+        flex-grow:      2;
         flex-shrink:    1;
 
         &:not(:last-child) {
             border-right: 1px solid #ccc; /* todo */
+            flex-grow:      1;
         }
 
         /* styling for scroll bar */
@@ -281,10 +282,11 @@ const pageCss = `
         padding:        0.3em 1em;
         display:        flex;
         align-items:    center;
-        overflow:       hidden;
-        /* overflow-wrap:  anywhere; */
         line-height:    1.2;
-        
+        /* overflow-wrap:  anywhere; */
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+
         img {
             height:     2rem;
             margin:     0 .5rem;

@@ -14,7 +14,7 @@ columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     // prepare
     const selectedOption = ValueOption("selected value", "selected label");
     const option = ValueOption("option");
-    const optionsController = OptionsController();
+    const optionsController = /** @type { OptionsControllerType } */ OptionsController();
     const selectedOptionController = SelectedOptionController();
     const cursorPositionController = SelectedOptionController();
     const [columnView] = projectColumnOptionsView(
@@ -24,8 +24,8 @@ columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     );
 
     // add options
-    optionsController.addOption(selectedOption);
-    optionsController.addOption(option);
+    optionsController.addOption(/** @type { OptionType } */ selectedOption);
+    optionsController.addOption(/** @type { OptionType } */ option);
 
     // get ui elements
     const selectedId      = selectedOption.getId().replace("\.", "-");

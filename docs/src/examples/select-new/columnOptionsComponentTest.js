@@ -15,15 +15,15 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
     component.onOptionSelected((_) => flagSelected = true);
 
     // check select not existing/ contained option
-    const val = ValueOption("test");
-    const val2 = ValueOption("test2");
-    const val3 = ValueOption("test3");
+    const val = /** @type { OptionType } */ ValueOption("test");
+    const val2 = /** @type { OptionType } */ ValueOption("test2");
+    const val3 = /** @type { OptionType } */ ValueOption("test3");
     component.addOption(val);
     component.addOption(val2);
     component.addOption(val3);
     assert.is(component.getColumnView().childElementCount, 3);
 
-    const valCopy = ValueOption("test");
+    const valCopy = /** @type { OptionType } */ ValueOption("test");
     component.addOption(valCopy);
     assert.is(component.getColumnView().childElementCount, 3);
     

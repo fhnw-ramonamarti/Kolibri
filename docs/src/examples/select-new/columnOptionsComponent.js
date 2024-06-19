@@ -34,7 +34,7 @@ export { ColumnOptionsComponent };
         );
  */
 const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
-    const optionsController        = OptionsController();
+    const optionsController        = /** @type { OptionsControllerType } */ OptionsController();
     const selectedOptionController = SelectedOptionController();
     
     const [columnView] = projectColumnOptionsView(

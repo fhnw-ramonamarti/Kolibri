@@ -106,12 +106,12 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         selectController.getColumnOptionsComponent(col)?.onOptionSelected((option) => {
             let isValueOptionSelected = false;
             const selectedColumn      = selectController
-                .getSelectedOptionOfColumns()
+                .getSelectedOptionOfColumns(col)
                 .findIndex((option) => option.getId() !== nullOptionId);
             if (option.getId() === nullOptionId) {
                 if (serviceCallbacks.length <= col + 1) {
                     // unselect most general category
-                    selectController.clearColumnOptions(col);
+                    selectController.clearColumnOptions(col, 0);
                     filterOptions(col, option);
                     return;
                 }
@@ -120,7 +120,7 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
                 const selectedCategory = selectController
                     .getColumnOptionsComponent(col + 1)
                     .getSelectedOption();
-                selectController.clearColumnOptions(col);
+                selectController.clearColumnOptions(col, 0);
                 filterOptions(col, selectedCategory);
             } else {
                 // select category

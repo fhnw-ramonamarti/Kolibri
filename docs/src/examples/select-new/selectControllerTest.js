@@ -19,7 +19,7 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
     assert.is(controller.getSelectedValueOption().getId(), noSelectionId);
     assert.is(controller.getId() !== controller2.getId() , true);
 
-    const val = ValueOption("test");
+    const val = /** @type { OptionType } */ ValueOption("test");
     controller.getColumnOptionsComponent(0).addOption(val);
     assert.is(controller.getSelectedValueOption().getId(), noSelectionId);
     
@@ -41,8 +41,8 @@ selectControllerSuite.add("Select controller - 2 column", (assert) => {
     assert.is(controller.getNumberOfColumns(), 2);
 
     // check select not existing/ contained option
-    const val = ValueOption("test");
-    const cat = CategoryOption("test");
+    const val = /** @type { OptionType } */ ValueOption("test");
+    const cat = /** @type { OptionType } */ CategoryOption("test");
     controller.getColumnOptionsComponent(0).addOption(val);
     controller.getColumnOptionsComponent(1).addOption(cat);
     controller.getColumnOptionsComponent(1).setSelectedOption(cat);
