@@ -219,7 +219,6 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(inputElement);
 
     selectController.onDisabledChanged((disabled) => {
-        console.log(disabled);
         componentContainer.classList.toggle("disabled", disabled);
         if (disabled) {
             selectController.setOptionsVisibility(false);
