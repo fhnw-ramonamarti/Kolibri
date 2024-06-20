@@ -173,8 +173,18 @@ const projectSelectViews = (selectController) => {
         selectController.getInputController(),
         selectedOptionClassName
     );
+    labelElement.addEventListener("mousedown", (_) => {
+        // move focus from hidden input to select component
+        setTimeout(() => {
+            componentContainer.focus();
+        }, 5);
+    });
 
     const inputElement = inputSpan.querySelector("input");
+    inputElement.setAttribute("readonly", "true");
+    inputElement.setAttribute("style", "display: none;");
+    inputElement.classList.add("hidden");
+
     rootElement.append(labelElement);
     rootElement.append(componentContainer);
     componentContainer.append(inputElement);

@@ -95,7 +95,7 @@ const SelectController = ({
         label: label,
         value: columns[0].getSelectedOption().getValue(),
         name : name,
-        type : "hidden",
+        type : "text",
     });
     const inputController = SimpleAttributeInputController(simpleInputStructure);
 
