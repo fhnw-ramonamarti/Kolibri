@@ -116,6 +116,13 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
         }
     });
 
+    selectController.onOptionsVisibilityChange((newValue) => {
+        if (newValue) {
+            const selectElement = rootElement;
+            positionPopover(selectElement, popoverElement.id);
+        }
+    });
+
     selectedOptionContainer.classList.add("toggleButton");
     selectedOptionContainer.classList.add("selected-value");
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
