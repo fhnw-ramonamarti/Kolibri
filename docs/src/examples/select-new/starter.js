@@ -9,6 +9,7 @@ import {
 }                                   from "./DataService.js";
 import { SelectComponent, pageCss } from "./selectComponent.js";
 
+document.querySelector("head style").textContent += pageCss;
 
 // ----- continent selection --------------------------------
 /**
@@ -26,9 +27,32 @@ const selectAttribute = {
 const columnServiceCb = [
     getContinents,
 ];
-const [selectComponent] = SelectComponent(selectAttribute, columnServiceCb);
+const [selectComponent]  = SelectComponent(selectAttribute, columnServiceCb);
 const componentContinent = document.getElementById("componentContinent");
 componentContinent.append(selectComponent);
+
+// ----- city selection form --------------------------------
+/**
+ * @type { SelectAttribute }
+ */
+const selectAttribute1_2 = {
+    name: "city",
+    label: "City*",
+    isRequired: true,
+};
+/**
+ * @type { Array<(String) => Array<CallbackReturnType>> }
+ */
+const columnServiceCb1_2 = [
+    getCitiesByCountry,
+];
+const [selectComponent1_2] = SelectComponent(selectAttribute1_2, columnServiceCb1_2);
+const componentForm        = document.getElementById("formComponent");
+componentForm.append(selectComponent1_2);
+
+const submit     = document.createElement("button");
+submit.innerHTML = "Submit";
+componentForm.append(submit);
 
 // ----- city selection --------------------------------
 /**
@@ -47,7 +71,7 @@ const columnServiceCb2 = [
     getCountriesByContinent,
 ];
 const [selectComponent2] = SelectComponent(selectAttribute2, columnServiceCb2);
-const componentCountry = document.getElementById("componentCountry");
+const componentCountry   = document.getElementById("componentCountry");
 componentCountry.append(selectComponent2);
 
 // ----- decade selection --------------------------------
@@ -65,7 +89,7 @@ const selectAttribute3 = {
 const columnServiceCb3 = [getYearsByDecade, getDecades];
 
 const [selectComponent3] = SelectComponent(selectAttribute3, columnServiceCb3);
-const componentYear = document.getElementById("componentYear");
+const componentYear      = document.getElementById("componentYear");
 componentYear.append(selectComponent3);
 
 // ----- currency selection with images --------------------------------
@@ -85,10 +109,8 @@ const columnServiceCb4 = [
     getMoneyContinents,
 ];
 const [selectComponent4] = SelectComponent(selectAttribute4, columnServiceCb4);
-const componentImg = document.getElementById("componentImg");
+const componentImg       = document.getElementById("componentImg");
 componentImg.append(selectComponent4);
-
-document.querySelector("head style").textContent += pageCss;
 
 // ----- city selection 3 columns --------------------------------
 /**
@@ -108,5 +130,5 @@ const columnServiceCb5 = [
     getContinents,
 ];
 const [selectComponent5] = SelectComponent(selectAttribute5, columnServiceCb5);
-const componentCity = document.getElementById("componentCity");
+const componentCity      = document.getElementById("componentCity");
 componentCity.append(selectComponent5);

@@ -188,9 +188,29 @@ const projectSelectViews = (selectController) => {
     });
 
     const inputElement = inputSpan.querySelector("input");
-    inputElement.setAttribute("readonly", "true");
-    inputElement.setAttribute("style", "display: none;");
-    inputElement.classList.add("hidden");
+    inputElement.setAttribute("required", selectController.isRequired());
+    inputElement.setAttribute("tabindex", "-1");
+    inputElement.setAttribute(
+        "style",
+        "all: unset; " +
+            "z-index: -1 !important; " +
+            "position: absolute !important;" +
+            "inset: 5px !important;" +
+            "color: transparent;"
+    );
+    inputElement.addEventListener("keydown paste focus mousedown", (e) => {
+        // read-only on input not working with required
+        // used for read-only functionality on input
+        e.preventDefault();
+    });
+    inputElement.addEventListener("focus", (_) => {
+        // move focus from hidden input to select component
+        componentContainer.focus();
+    });
+
+    selectController.getInputController().onValidChanged((valid) => {
+        selectedOptionElement.classList.toggle("invalid", !valid);
+    });
 
     rootElement.append(labelElement);
     rootElement.append(componentContainer);
@@ -312,7 +332,11 @@ const pageCss = `
         }
 
         :focus & {
-            border-color: var(--kolibri-color-output);
+            outline:    var(--kolibri-color-output) solid 2px;
+        }
+
+        &.invalid {
+            border:     var(--kb-rgb-danger-accent) 2px solid;
         }
 
         .selected-value {
@@ -372,6 +396,13 @@ const pageCss = `
             display:     flex;
             gap:         0.5em;
             align-items: center;
+        }
+
+        /* for invisibility and not clickable */
+        input {
+            pointer-events: none;
+            all:            unset;
+            color:          transparent;
         }
     }
     .${selectClassName} {

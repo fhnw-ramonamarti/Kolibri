@@ -3,6 +3,7 @@ import { SimpleAttributeInputController } from "../../kolibri/projector/simpleFo
 import { SimpleInputModel }               from "../../kolibri/projector/simpleForm/simpleInputModel.js";
 import { ColumnOptionsComponent }         from "./columnOptionsComponent.js";
 import { SelectedOptionController }       from "./optionsController.js";
+import { nullOption }                     from "./optionsModel.js";
 
 export { SelectController };
 
@@ -18,7 +19,8 @@ let idCounter = 0;
  * @typedef SelectAttribute
  * @property { String? }  label
  * @property { String? }  name
- * @property { Number? }  numberOfColumns - default 1
+ * @property { Number? }  numberOfColumns           - default 1
+ * @property { Boolean? } isRequired                - select need to have value selected in form, default false
  * @property { Boolean? } sortOptionsAlphabetically - sort the values of each column, default true
  */
 
@@ -28,8 +30,10 @@ let idCounter = 0;
  * @property { () => Number }                    getNumberOfColumns
 
  * @property { () => SimpleInputControllerType } getInputController
- * @property { () => String }                    getInputValue
- * @property { (String) => void }                setInputValid
+
+ * @property { () => Boolean }                   isRequired
+ * @property { (Boolean) => void }               setRequired
+ * @property { (cb: ValueChangeCallback<Boolean>) => void }    onRequiredChanged
 
  * @property { () => Boolean }                   isOptionsVisible
  * @property { (Boolean) => void }               setOptionsVisibility
@@ -68,10 +72,11 @@ let idCounter = 0;
             numberOfColumns: 2
         });
  */
-const SelectController = ({ 
-    label = "", 
-    name = "", 
-    numberOfColumns = 1, 
+const SelectController = ({
+    label = "",
+    name = "",
+    numberOfColumns = 1,
+    isRequired = false,
     sortOptionsAlphabetically = true 
 }) => {
     const id = "select-component-" + idCounter++;
@@ -90,6 +95,7 @@ const SelectController = ({
 
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);
+    const required                  = Observable(isRequired);
 
     const simpleInputStructure = SimpleInputModel(/** @type { AttributeType<String> } */ {
         label: label,
@@ -101,6 +107,9 @@ const SelectController = ({
 
     columns[0].onOptionSelected((option) => {
         inputController.setValue(option.getValue());
+        inputController.setValid(
+            !required.getValue() || (option.getId() !== nullOption.getId() && required.getValue())
+        );
     });
 
     /**
@@ -140,12 +149,13 @@ const SelectController = ({
     };
 
     return {
-        getId           : () => id,
+        getId             : () => id,
         getNumberOfColumns: () => numberOfColumns,
+        getInputController: () => inputController,
 
-        getInputController : () => inputController,
-        getInputValue      : inputController.getValue,
-        setInputValid      : inputController.setValid,
+        isRequired       : required.getValue,
+        setRequired      : required.setValue,
+        onRequiredChanged: required.onChange,
 
         isOptionsVisible         : optionsVisibility.getValue,
         setOptionsVisibility     : optionsVisibility.setValue,
