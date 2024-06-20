@@ -130,6 +130,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     rootElement.append(selectedOptionContainer);
 
     clearButton.setAttribute("type", "button");
+    clearButton.setAttribute("tabindex", "-1");
     clearButton.classList.add("clearButton");
     clearButton.classList.add("clear");
     clearButton.innerHTML = "&times;";
@@ -139,6 +140,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     rootElement.append(clearButton);
 
     toggleButton.setAttribute("type", "button");
+    toggleButton.setAttribute("tabindex", "-1");
     toggleButton.classList.add("toggleButton");
     toggleButton.onclick = togglePopover;
     rootElement.append(toggleButton);
@@ -216,14 +218,26 @@ const projectSelectViews = (selectController) => {
     rootElement.append(componentContainer);
     componentContainer.append(inputElement);
 
-    selectController.onOptionsVisibilityChange((value) => {
-        if (value) {
+    selectController.onDisabledChanged((disabled) => {
+        console.log(disabled);
+        componentContainer.classList.toggle("disabled", disabled);
+        if (disabled) {
+            selectController.setOptionsVisibility(false);
+            componentContainer.removeAttribute("tabindex");
+        } else {
+            componentContainer.setAttribute("tabindex", "0");
+        }
+    });
+
+    selectController.onOptionsVisibilityChange((visible) => {
+        const isVisible = visible && !selectController.isDisabled();
+        if (isVisible) {
             allOptionsElement.showPopover();
         } else {
             allOptionsElement.hidePopover();
         }
-        allOptionsElement.classList.toggle("hidden", !value);
-        selectedOptionElement.classList.toggle("opened", value);
+        allOptionsElement.classList.toggle("hidden", !isVisible);
+        selectedOptionElement.classList.toggle("opened", isVisible);
     });
 
     selectedOptionElement.addEventListener("mousedown", (_) => {
@@ -376,6 +390,10 @@ const pageCss = `
 
         &:focus {
             outline:    none;
+        }
+
+        &.disabled {
+            background: #eee;
         }
 
         .toggleButton {

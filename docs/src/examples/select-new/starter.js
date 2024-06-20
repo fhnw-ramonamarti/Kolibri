@@ -54,6 +54,19 @@ const submit     = document.createElement("button");
 submit.innerHTML = "Submit";
 componentForm.append(submit);
 
+// ----- city selection form --------------------------------
+/**
+ * @type { SelectAttribute }
+ */
+const selectAttribute1_3 = {
+    name: "city",
+    label: "City",
+    isDisabled: true,
+};
+const [selectComponent1_3] = SelectComponent(selectAttribute1_3, columnServiceCb1_2);
+const disabledComponent    = document.getElementById("disabledComponent");
+disabledComponent.append(selectComponent1_3);
+
 // ----- city selection --------------------------------
 /**
  * @type { SelectAttribute }

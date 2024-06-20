@@ -21,6 +21,7 @@ let idCounter = 0;
  * @property { String? }  name
  * @property { Number? }  numberOfColumns           - default 1
  * @property { Boolean? } isRequired                - select need to have value selected in form, default false
+ * @property { Boolean? } isDisabled                - selected value can not be changed, default false
  * @property { Boolean? } sortOptionsAlphabetically - sort the values of each column, default true
  */
 
@@ -34,6 +35,10 @@ let idCounter = 0;
  * @property { () => Boolean }                   isRequired
  * @property { (Boolean) => void }               setRequired
  * @property { (cb: ValueChangeCallback<Boolean>) => void }    onRequiredChanged
+
+ * @property { () => Boolean }                   isDisabled
+ * @property { (Boolean) => void }               setDisabled
+ * @property { (cb: ValueChangeCallback<Boolean>) => void }    onDisabledChanged
 
  * @property { () => Boolean }                   isOptionsVisible
  * @property { (Boolean) => void }               setOptionsVisibility
@@ -77,6 +82,7 @@ const SelectController = ({
     name = "",
     numberOfColumns = 1,
     isRequired = false,
+    isDisabled = false,
     sortOptionsAlphabetically = true 
 }) => {
     const id = "select-component-" + idCounter++;
@@ -96,6 +102,7 @@ const SelectController = ({
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);
     const required                  = Observable(isRequired);
+    const disabled                  = Observable(isDisabled);
 
     const simpleInputStructure = SimpleInputModel(/** @type { AttributeType<String> } */ {
         label: label,
@@ -106,10 +113,13 @@ const SelectController = ({
     const inputController = SimpleAttributeInputController(simpleInputStructure);
 
     columns[0].onOptionSelected((option) => {
-        inputController.setValue(option.getValue());
-        inputController.setValid(
-            !required.getValue() || (option.getId() !== nullOption.getId() && required.getValue())
-        );
+        if (!disabled.getValue()) {
+            inputController.setValue(option.getValue());
+            inputController.setValid(
+                !required.getValue() ||
+                    (option.getId() !== nullOption.getId() && required.getValue())
+            );
+        }
     });
 
     /**
@@ -156,6 +166,10 @@ const SelectController = ({
         isRequired       : required.getValue,
         setRequired      : required.setValue,
         onRequiredChanged: required.onChange,
+
+        isDisabled       : disabled.getValue,
+        setDisabled      : disabled.setValue,
+        onDisabledChanged: disabled.onChange,
 
         isOptionsVisible         : optionsVisibility.getValue,
         setOptionsVisibility     : optionsVisibility.setValue,

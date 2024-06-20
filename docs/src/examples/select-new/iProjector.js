@@ -21,6 +21,9 @@ const iProjector = (rootElement, componentController) => {
     });
 
     const handleKeyDown = (e) => {
+        if (componentController.isDisabled()) {
+            return;
+        }
         if (componentController.isOptionsVisible()) {
             // initial no cursor position
             if (
