@@ -42,6 +42,9 @@ const projectOptionsView = (selectController) => {
         const column = selectController.getColumnOptionsComponent(col).getColumnView();
         optionsContainer.append(column);
         selectController.getColumnOptionsComponent(col).onOptionSelected((newOption, oldOption) => {
+            if (selectController.isDisabled()) {
+                return;
+            }
             if (nullOption.getId() !== newOption.getId()) {
                 selectController.setCursorPosition(newOption);
             } else if (nullOption.getId() !== oldOption.getId()) {
@@ -222,8 +225,10 @@ const projectSelectViews = (selectController) => {
         componentContainer.classList.toggle("disabled", disabled);
         if (disabled) {
             selectController.setOptionsVisibility(false);
+            inputElement.setAttribute("disabled", "true");
             componentContainer.removeAttribute("tabindex");
         } else {
+            inputElement.remove("disabled");
             componentContainer.setAttribute("tabindex", "0");
         }
     });

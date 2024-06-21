@@ -64,8 +64,12 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
 
     // define value options selection change
     selectController.getColumnOptionsComponent(0).onOptionSelected(option => {
-        selectionElement.innerHTML = option.getLabel();
-        inputElement.querySelector(".clear").classList.toggle("hidden", "" === option.getLabel());
+        if (!selectController.isDisabled()) {
+            selectionElement.innerHTML = option.getLabel();
+            inputElement
+                .querySelector(".clear")
+                .classList.toggle("hidden", "" === option.getLabel());
+        }
     });
 
     const nullOptionId = nullOption.getId();
