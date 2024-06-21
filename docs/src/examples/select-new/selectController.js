@@ -122,6 +122,12 @@ const SelectController = ({
         }
     });
 
+    disabled.onChange((newValue) => {
+        columns.forEach((column) => {
+            column.setSelectedOptionDisabled(newValue);
+        });
+    });
+
     /**
      * @param { Number } maxCol - max column number to delete the options from until column 0
      */

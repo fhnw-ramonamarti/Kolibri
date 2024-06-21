@@ -12,12 +12,12 @@ const columnOptionsProjectorSuite = TestSuite("projector/simpleForm/columnOption
  */
 columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     // prepare
-    const selectedOption = ValueOption("selected value", "selected label");
-    const option = ValueOption("option");
-    const optionsController = /** @type { OptionsControllerType } */ OptionsController();
+    const selectedOption           = ValueOption("selected value", "selected label");
+    const option                   = ValueOption("option");
+    const optionsController        = /** @type { OptionsControllerType } */ OptionsController();
     const selectedOptionController = SelectedOptionController();
     const cursorPositionController = SelectedOptionController();
-    const [columnView] = projectColumnOptionsView(
+    const [columnView]             = projectColumnOptionsView(
         optionsController,
         selectedOptionController,
         cursorPositionController
@@ -41,7 +41,7 @@ columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     assert.is(selectedElement.innerHTML                     , selectedOption.getLabel());
     assert.is(selectedElement.getAttribute("data-value")    , selectedOption.getValue());
     
-    const optionWithId = optionsController.getOptions()[0];
+    const optionWithId  = optionsController.getOptions()[0];
     const optionElement = getHtmlElementByOption(optionWithId, columnView);
     assert.is(optionElement?.getAttribute("data-value")     , optionWithId.getValue());
 });

@@ -12,15 +12,15 @@ const selectProjectorSuite = TestSuite("projector/simpleForm/selectProjector");
  */
 selectProjectorSuite.add("binding-column-selection", (assert) => {
     // prepare
-    const selectAttribute = {name: "Name", label: "Label", numberOfColumns: 2};
+    const selectAttribute  = { name: "Name", label: "Label", numberOfColumns: 2 };
     const selectController = SelectController(selectAttribute);
-    const [componentView] = projectSelectViews(selectController);
+    const [componentView]  = projectSelectViews(selectController);
 
     // add options
-    const selectedOption = ValueOption("selected value", "selected label");
-    const option = ValueOption("option");
+    const selectedOption   = ValueOption("selected value", "selected label");
+    const option           = ValueOption("option");
     const selectedCategory = CategoryOption("selected category");
-    const category = CategoryOption("category");
+    const category         = CategoryOption("category");
     selectController.getColumnOptionsComponent(0).addOption(/** @type { OptionType } */ option);
     selectController.getColumnOptionsComponent(0).addOption(/** @type { OptionType } */ selectedOption);
     selectController.getColumnOptionsComponent(1).addOption(/** @type { OptionType } */ category);
@@ -33,7 +33,9 @@ selectProjectorSuite.add("binding-column-selection", (assert) => {
     const selectedCategoryElement = componentView.querySelector(
         `[data-id*="${selectedCategoryId}"]`
     );
-    
+
+    assert.is(componentView.querySelector('input') != null        , true);
+
     // test the binding value option
     assert.is(selectController.getSelectedValueOption().getId()   , nullOption.getId());
     selectedValueElement.click();
@@ -51,14 +53,14 @@ selectProjectorSuite.add("binding-column-selection", (assert) => {
     );
 
     // noinspection PointlessBooleanExpressionJS
-    assert.is(null != selectedValueElement                       , true);
-    assert.is(selectedValueElement.innerHTML                     , selectedOption.getLabel());
-    assert.is(selectedValueElement.getAttribute("data-value")    , selectedOption.getValue());
+    assert.is(null != selectedValueElement                      , true);
+    assert.is(selectedValueElement.innerHTML                    , selectedOption.getLabel());
+    assert.is(selectedValueElement.getAttribute("data-value")   , selectedOption.getValue());
 
     // noinspection PointlessBooleanExpressionJS
-    assert.is(null != selectedCategoryElement                       , true);
-    assert.is(selectedCategoryElement.innerHTML                     , selectedCategory.getLabel());
-    assert.is(selectedCategoryElement.getAttribute("data-value")    , selectedCategory.getValue());
+    assert.is(null != selectedCategoryElement                   , true);
+    assert.is(selectedCategoryElement.innerHTML                 , selectedCategory.getLabel());
+    assert.is(selectedCategoryElement.getAttribute("data-value"), selectedCategory.getValue());
 });
 
 selectProjectorSuite.run();

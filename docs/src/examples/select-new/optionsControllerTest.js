@@ -1,4 +1,4 @@
-import { TestSuite }            from "../../kolibri/util/test.js";
+import { TestSuite }               from "../../kolibri/util/test.js";
 import {
     OptionsController,
     SelectedOptionController
@@ -35,9 +35,14 @@ optionsControllerSuite.add("Selected option controller", (assert) => {
     const val = /** @type { OptionType } */ ValueOption("value");
     controller.setSelectedOption(val);
     assert.is(controller.getSelectedOption()        , val);
-
+    
     // check clearing selection
     controller.clearSelectedOption();
+    assert.is(controller.getSelectedOption().getId(), noSelectionId);
+        
+    // check disabling selection
+    controller.setDisabled(true);
+    controller.setSelectedOption(val);
     assert.is(controller.getSelectedOption().getId(), noSelectionId);
 });
 

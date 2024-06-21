@@ -15,6 +15,9 @@ export { ColumnOptionsComponent };
  * @property { (OptionType)  => void }            setSelectedOption
  * @property { ()  => void }                      clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
+ * @property { ()  => Boolean }                   isSelectedOptionDisabled
+ * @property { (Boolean) => void }                setSelectedOptionDisabled
+ * @property { (cb: ValueChangeCallback<Boolean>) => void }    onSelectedOptionDisabledChanged
 
  * @property { () => HTMLDivElement }             getColumnView
  */
@@ -52,7 +55,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
 
     return {
         setOptionsSorted: optionsController.setOptionsSorted,
-        getOptions      :optionsController.getOptions,
+        getOptions      : optionsController.getOptions,
         addOption       : optionsController.addOption,
         delOption       : optionsController.delOption,
         clearOptions    : clearOptions,
@@ -61,6 +64,9 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
         setSelectedOption  : selectedOptionController.setSelectedOption,
         clearSelectedOption: selectedOptionController.clearSelectedOption,
         onOptionSelected   : selectedOptionController.onOptionSelected,
+        isSelectedOptionDisabled       : selectedOptionController.isDisabled,
+        setSelectedOptionDisabled      : selectedOptionController.setDisabled,
+        onSelectedOptionDisabledChanged: selectedOptionController.onDisabledChanged,
         
         getColumnView   : () => columnView,
     }

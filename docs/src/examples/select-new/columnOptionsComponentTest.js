@@ -6,16 +6,16 @@ import { ValueOption, nullOption }  from "./optionsModel.js";
 const columnOptionsComponentSuite = TestSuite("projector/simpleForm/columnOptionsComponent");
 
 columnOptionsComponentSuite.add("Column options component", (assert) => {
-    const noSelectionId = nullOption.getId();
+    const noSelectionId  = nullOption.getId();
     const cursorPosition = SelectedOptionController();
-    const component = ColumnOptionsComponent(cursorPosition);
+    const component      = ColumnOptionsComponent(cursorPosition);
     assert.is(component.getSelectedOption().getId(), noSelectionId);
     
     let flagSelected = false;
     component.onOptionSelected((_) => flagSelected = true);
 
     // check select not existing/ contained option
-    const val = /** @type { OptionType } */ ValueOption("test");
+    const val  = /** @type { OptionType } */ ValueOption("test");
     const val2 = /** @type { OptionType } */ ValueOption("test2");
     const val3 = /** @type { OptionType } */ ValueOption("test3");
     component.addOption(val);
@@ -47,10 +47,10 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
 
     component.clearSelectedOption();
     const selectedElementCleared = component.getColumnView().querySelector('.selected');
-    assert.is(null == selectedElementCleared                , true);
+    assert.is(null == selectedElementCleared               , true);
 
     component.clearOptions();
-    assert.is(component.getColumnView().childElementCount   , 0);
+    assert.is(component.getColumnView().childElementCount  , 0);
 });
 
 columnOptionsComponentSuite.run();

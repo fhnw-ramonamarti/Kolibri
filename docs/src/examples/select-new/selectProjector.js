@@ -228,7 +228,7 @@ const projectSelectViews = (selectController) => {
             inputElement.setAttribute("disabled", "true");
             componentContainer.removeAttribute("tabindex");
         } else {
-            inputElement.remove("disabled");
+            inputElement.removeAttribute("disabled");
             componentContainer.setAttribute("tabindex", "0");
         }
     });
@@ -398,6 +398,7 @@ const pageCss = `
 
         &.disabled {
             background: #eee;
+            filter:     grayscale(0.9);
         }
 
         .toggleButton {
