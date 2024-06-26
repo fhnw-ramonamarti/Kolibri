@@ -10,13 +10,13 @@ export {
 
 /**
  * Create example data for years in a given decade.
- * @param { String } decade
+ * @param { ...String } decades
  * @returns { Array<String> }
  */
-const getYearsByDecade = (decade) => {
-    const decadeStart = decade?.slice(0, 3);
+const getYearsByDecade = (...decades) => {
+    const decadeStarts = decades.map(decade => decade.slice(0, 3));
     const data = [...Array(70).keys()].map((e) => e + 1940 + "");
-    return data.filter((e) => null == decade || e.startsWith(decadeStart));
+    return data.filter((e) => decadeStarts.length === 0 || decadeStarts.includes(e.slice(0, 3)));
 };
 
 /**
@@ -27,14 +27,14 @@ const getDecades = () => [...Array(7).keys()].map((e) => e * 10 + 1940 + "'s");
 
 /**
  * Create example data for cities in a given country.
- * @param { String } country
+ * @param { ...String } countries
  * @returns { Array<String> }
  */
-const getCitiesByCountry = (country) => {
+const getCitiesByCountry = (...countries) => {
     const data = [
         {country: 'Swiss'        , city: "Bern" },
-        {country: 'Swiss'        , city: "Zurich" },
         {country: 'Swiss'        , city: "Brugg" },
+        {country: 'Swiss'        , city: "Zurich" },
         {country: 'Germany'      , city: "Berlin" },
         {country: 'Germany'      , city: "Hamburg" },
         {country: 'France'       , city: "Paris" },
@@ -45,26 +45,26 @@ const getCitiesByCountry = (country) => {
         {country: 'Canada'       , city: "Ottawa" },
         {country: 'Japan'        , city: "Tokio" },
     ];
-    return data.filter((e) => null == country || e.country === country).map((e) => e.city);
+    return data.filter((e) => countries.length === 0 || countries.includes(e.country)).map((e) => e.city).sort();
 };
 
 /**
  * Create example data for countries in a given continent.
- * @param { String } continent
+ * @param { ...String } continents
  * @returns { Array<String> }
  */
-const getCountriesByContinent = (continent) => {
+const getCountriesByContinent = (...continents) => {
     const data = [
         {country: 'Swiss'        , continent: "Europe" },
         {country: 'Germany'      , continent: "Europe" },
-        {country: 'France'       , continent: "Europe" },
         {country: 'United States', continent: "North America" },
         {country: 'Canada'       , continent: "North America" },
+        {country: 'France'       , continent: "Europe" },
         {country: 'Japan'        , continent: "Asia" },
     ];
     return data
-        .filter((e) => null == continent || e.continent === continent)
-        .map((e) => e.country);
+        .filter((e) => continents.length === 0 || continents.includes(e.continent))
+        .map((e) => e.country).sort();
 };
 
 /**
@@ -79,21 +79,20 @@ const getContinents = () => [
 
 /**
  * Create example data for currencies on a given continent.
- * @param { String } continent
- * @param { Boolean } withNoImg - default false
+ * @param { ...String } continents
  * @returns { Array<{label: String, value: String}> }
  */
-const getMoneyByContinent = (continent, withNoImg = false) => {
+const getMoneyByContinent = (...continents) => {
     const data = [
         {money: 'CHF'          , continent: "Europe" , img: "https://www.countryflags.com/wp-content/uploads/switzerland-flag-png-large.png"},
         {money: 'Euro'         , continent: "Europe" , img: "https://www.countryflags.com/wp-content/uploads/europe-flag-jpg-xl.jpg"},
-        {money: 'Pound'        , continent: "Europe" , img: "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png"},
         {money: 'US Dollar'    , continent: "America", img: "https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png"},
         {money: 'Canada Dollar', continent: "America", img: "https://www.countryflags.com/wp-content/uploads/canada-flag-png-large.png"}, //thumbs/canada/flag-800.png
+        {money: 'Pound'        , continent: "Europe" , img: "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png"},
         {money: 'Yen'          , continent: "Asia"   , img: "https://www.countryflags.com/wp-content/uploads/japan-flag-png-large.png"},
     ];
-    const returnData = data.filter((e) => null == continent || e.continent === continent)
-    return withNoImg
+    const returnData = data.filter((e) => continents.length === 0 || continents.includes(e.continent))
+    return false
             ? returnData.map((e) => e.money)
             : returnData.map((e) => ({ 
                 value: e.money, 

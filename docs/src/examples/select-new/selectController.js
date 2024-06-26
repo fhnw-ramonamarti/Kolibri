@@ -95,10 +95,6 @@ const SelectController = ({
         .fill("")
         .map((_, col) => ColumnOptionsComponent(cursorPositionController, col));
 
-    columns.forEach((column) => {
-        column.setOptionsSorted(sortOptionsAlphabetically);
-    });
-
     const selectedOptionVisibility  = Observable(true);
     const optionsVisibility         = Observable(false);
     const required                  = Observable(isRequired);

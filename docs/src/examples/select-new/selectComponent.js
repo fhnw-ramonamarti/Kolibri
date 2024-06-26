@@ -14,9 +14,11 @@ export { SelectComponent, pageCss };
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
  * A selection of a category leads to unselecting all sub categories
- * expect the selected value. This component slows down for over 1_000 options in a column.
- * @param { SelectAttribute }                                      selectAttributes
- * @param { Array<(filter: String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
+ * expect the selected value if it is contained in the selected category. 
+ * This component supports up to 3 columns where one contains the input values 
+ * and the other two may contain categories to filter the values or subcategories.
+ * @param { SelectAttribute }                                             selectAttributes
+ * @param { Array<(categories: ...String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
  * @returns { [HTMLDivElement, HTMLLabelElement, HTMLDivElement] }   - [component container (all in one container), 
  *                                                                     label part of component, 
  *                                                                     selection input part of component]
@@ -38,16 +40,15 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
      * @returns { (CallbackReturnType) => OptionType }
      */
     const mapping = (col) => (e) => {
-        if(null != e?.label || null != e?.value ){
+        if (null != e?.label || null != e?.value) {
             // callback returns object
-            return col !== 0 ? CategoryOption(e?.label ?? e?.value)
-                : ValueOption(e?.value ?? e, e?.label)
-        } else {
-            // callback returns string
-            return col !== 0 ? CategoryOption( e)
-                : ValueOption(e)
+            return col !== 0
+                ? CategoryOption(e?.label ?? e?.value)
+                : ValueOption(e?.value ?? e, e?.label);
         }
-    };
+        // callback returns string
+        return col !== 0 ? CategoryOption(e) : ValueOption(e);
+    }; // callbacks with array of categories
 
     // initial fill of options
     serviceCallbacks.forEach((cb, col) => {
@@ -55,11 +56,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             const option = mapping(col)(e);
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
-        // due to performance issues, rm: find a better solution
-        const areOptionsSorted = selectAttributes.sortOptionsAlphabetically ?? true;
-        selectController
-            .getColumnOptionsComponent(col)
-            .setOptionsSorted(areOptionsSorted && cb().length <= 1_000);
     });
 
     // define value options selection change
@@ -75,30 +71,24 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const nullOptionId = nullOption.getId();
 
     /**
-     * @param { Number }     col 
-     * @param { OptionType } filterCategory 
-     * @param { Number }     selectedColumn - biggest found column with selected option smaller than current col
+     * @param { Number }            col 
+     * @param { Array<OptionType> } filterCategories 
      * @returns { Boolean } - true if the value option is contained in selected categories
      */
-    const filterOptions = (col, filterCategory, selectedColumn = 0) => {        
+    const filterOptions = (col, filterCategories) => {        
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
-        const searchCategory = filterCategory.getLabel() === "" ? null : filterCategory.getLabel();
+        const searchCategories = filterCategories?.map(option => option.getLabel()) ?? [];
 
-        const options = serviceCallbacks[col](searchCategory).map(mapping(col));
+        const options = serviceCallbacks[col](...searchCategories).map(mapping(col));
         options.forEach((option) => {
             selectController.getColumnOptionsComponent(col).addOption(option);
         });
         
         if (col === 0) {
-            return options.map((o) => o.getValue()).includes(selectedOption.getValue());
+            return options.map((option) => option.getValue()).includes(selectedOption.getValue());
         } else {
-            if (selectedOption.getId() !== nullOptionId) {
-                return filterOptions(col - 1, selectedOption, selectedColumn);
-            } else {
-                return options
-                    .map((option) => filterOptions(col - 1, option, selectedColumn))
-                    .reduce((acc, option) => acc || option, false);
-            }
+            const categories = selectedOption.getId() !== nullOptionId ? [selectedOption] : options;
+            return filterOptions(col - 1, categories);
         }
     };
 
@@ -115,23 +105,29 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             if (option.getId() === nullOptionId) {
                 if (serviceCallbacks.length <= col + 1) {
                     // unselect most general category
-                    selectController.clearColumnOptions(col, 0);
-                    filterOptions(col, option);
+                    selectController.clearColumnOptions(col - 1, 0);
+                    filterOptions(col, []);
                     return;
                 }
 
                 // unselect category
-                const selectedCategory = selectController
+                const selectedSuperCategory = selectController
                     .getColumnOptionsComponent(col + 1)
                     .getSelectedOption();
+                const allSuperCategories = selectController
+                    .getColumnOptionsComponent(col + 1)
+                    .getOptions();
+                const superCategories = selectedSuperCategory.getId() !== nullOptionId
+                    ? [selectedSuperCategory]
+                    : allSuperCategories;
                 selectController.clearColumnOptions(col, 0);
-                filterOptions(col, selectedCategory);
+                filterOptions(col, superCategories);
             } else {
                 // select category
                 const minCol = selectedColumn <= col - 1 ? selectedColumn : 0;
                 selectController.clearSelectedOptions(col - 1);
                 selectController.clearColumnOptions(col - 1, minCol);
-                isValueOptionSelected = filterOptions(col - 1, option, minCol);
+                isValueOptionSelected = filterOptions(col - 1, [option]);
                 if (!isValueOptionSelected) {
                     selectController.clearSelectedValueOption();
                 }

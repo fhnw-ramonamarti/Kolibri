@@ -93,18 +93,6 @@ const projectColumnOptionsView = (
 
     /**
      * @param { OptionType } option 
-     * @returns { Number } - position to insert the element before
-     */
-    const findPosition = (option) => {
-        const sortedOptions = optionsController
-            .getOptions()
-            .sort((a, b) => a.getLabel().localeCompare(b.getLabel()));
-        const position = sortedOptions.findIndex((o) => option.getLabel() === o.getLabel());
-        return position === optionsController.getOptions().length - 1 ? -1 : position;
-    };
-
-    /**
-     * @param { OptionType } option 
      */
     const renderRow = (option) => {
         const optionType = columnNumber === 0 ? "value" : "category";
@@ -114,16 +102,8 @@ const projectColumnOptionsView = (
             optionType,
             cursorPositionController
         );
-        if (optionsController.areOptionsSorted()) {
-            const position = findPosition(option);
-            if (position === -1) {
-                columnContainer.append(rowElement);
-            } else {
-                columnContainer.insertBefore(rowElement, columnContainer.children[position]);
-            }
-        } else {
-            columnContainer.append(rowElement);
-        }
+        // sort with append is problem// operate on shadow dom no rendering
+        columnContainer.append(rowElement);
         if (selectedOptionController.getSelectedOption().equals(option)) {
             selectOptionItem(columnContainer)(option, option);
         }

@@ -222,6 +222,7 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(inputElement);
 
     selectController.onDisabledChanged((disabled) => {
+        // aria-disabled
         componentContainer.classList.toggle("disabled", disabled);
         if (disabled) {
             selectController.setOptionsVisibility(false);
@@ -350,7 +351,7 @@ const pageCss = `
         }
 
         :focus & {
-            outline:    var(--kolibri-color-output) solid 2px;
+            outline:    var(--kolibri-color-select) solid 2px;
         }
 
         &.invalid {
