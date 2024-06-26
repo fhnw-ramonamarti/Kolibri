@@ -77,7 +77,8 @@ const projectColumnOptionsView = (
     optionsController,
     selectedOptionController,
     cursorPositionController,
-    columnNumber = 0
+    columnNumber = 0,
+    isShadow = false
 ) => {
     const columnContainer = document.createElement("div");
     columnContainer.classList.add(columnClassName);
@@ -102,7 +103,6 @@ const projectColumnOptionsView = (
             optionType,
             cursorPositionController
         );
-        // sort with append is problem// operate on shadow dom no rendering
         columnContainer.append(rowElement);
         if (selectedOptionController.getSelectedOption().equals(option)) {
             selectOptionItem(columnContainer)(option, option);
@@ -112,8 +112,10 @@ const projectColumnOptionsView = (
         }
     };
 
-    optionsController.onOptionAdd(renderRow);
-    optionsController.onOptionDel(removeOptionItem(columnContainer));
+    if (isShadow){
+        optionsController.onOptionAdd(renderRow);
+        optionsController.onOptionDel(removeOptionItem(columnContainer));
+    }
     selectedOptionController.onOptionSelected(selectOptionItem(columnContainer));
     cursorPositionController?.onOptionSelected(cursorPositionItem(columnContainer));
 
@@ -229,7 +231,7 @@ const pageCss = `
         display: none;
     }
     .${columnClassName} {
-        /* width:          100%; */
+        width:          100%;
         /* max-width:      100%; */
         overflow-y:     scroll;
         overflow-x:     hidden;

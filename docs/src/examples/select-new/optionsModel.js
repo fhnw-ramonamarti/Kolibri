@@ -110,10 +110,9 @@ const OptionsModel = () => {
         }
         const filteredAllOptions = allEverAddedOptions.filter((o) => o.equals(option));
         if (filteredAllOptions.length === 0) {
-            // noinspection
             option.createId();
             listObs.add(option);
-            allEverAddedOptions.push(option);
+            // allEverAddedOptions.push(option); // todo problem with performance
             return;
         }
         const filteredCurrentOptions = list.filter((o) => o.equals(option));

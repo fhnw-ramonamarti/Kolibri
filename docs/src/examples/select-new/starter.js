@@ -36,15 +36,15 @@ componentContinent.append(selectComponent);
  * @type { SelectAttribute }
  */
 const selectAttribute1_2 = {
-    name: "city",
-    label: "City*",
+    name: "country",
+    label: "Country*",
     isRequired: true,
 };
 /**
  * @type { Array<(String) => Array<CallbackReturnType>> }
  */
 const columnServiceCb1_2 = [
-    getCitiesByCountry,
+    getCountriesByContinent,
 ];
 const [selectComponent1_2] = SelectComponent(selectAttribute1_2, columnServiceCb1_2);
 const componentForm        = document.getElementById("formComponent");
@@ -59,8 +59,8 @@ componentForm.append(submit);
  * @type { SelectAttribute }
  */
 const selectAttribute1_3 = {
-    name: "city",
-    label: "City",
+    name: "country",
+    label: "Country",
     isDisabled: true,
 };
 const [selectComponent1_3] = SelectComponent(selectAttribute1_3, columnServiceCb1_2);

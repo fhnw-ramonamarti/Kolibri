@@ -6,8 +6,8 @@ export { ColumnOptionsComponent };
 /**
  * @typedef ColumnOptionsComponentType
  * @property { () => Array<OptionType> }          getOptions
- * @property { (OptionType) => void }             addOption
- * @property { (OptionType) => void }             delOption
+ * @property { (Array<OptionType>) => void }      addOptions
+ * @property { (Array<OptionType>) => void }      delOptions
  * @property { () => void }                       clearOptions
 
  * @property { ()  => OptionType }                getSelectedOption
@@ -46,17 +46,46 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
         columnNumber
     );
 
+    const [columnViewShadow] = projectColumnOptionsView(
+        optionsController,
+        selectedOptionController,
+        cursorPositionController,
+        columnNumber,
+        true
+    );
+
+    /**
+     * @param { Array<OptionType> } options 
+     */
+    const addAllOptions = (options) => {
+        options.forEach((option) => {
+            optionsController.addOption(option);
+        });
+        columnView.replaceChildren(...columnViewShadow.children);
+    };
+
+    /**
+     * @param { Array<OptionType> } options 
+     */
+    const delOptions = (options) => {
+        options.forEach((option) => {
+            optionsController.delOption(option);
+        });
+        columnView.replaceChildren(...columnViewShadow.children);
+    };
+
     const clearOptions = () => {
         optionsController.getOptions().forEach(option => {
             optionsController.delOption(option);
         });
+        columnView.replaceChildren();
     }
 
     return {
-        getOptions      : optionsController.getOptions,
-        addOption       : optionsController.addOption,
-        delOption       : optionsController.delOption,
-        clearOptions    : clearOptions,
+        getOptions  : optionsController.getOptions,
+        addOptions  : addAllOptions,
+        delOptions  : delOptions,
+        clearOptions: clearOptions,
 
         getSelectedOption  : selectedOptionController.getSelectedOption,
         setSelectedOption  : selectedOptionController.setSelectedOption,
