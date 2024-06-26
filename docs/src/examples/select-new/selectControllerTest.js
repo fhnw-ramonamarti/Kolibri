@@ -20,7 +20,7 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
     assert.is(controller.getId() !== controller2.getId() , true);
 
     const val = /** @type { OptionType } */ ValueOption("test");
-    controller.getColumnOptionsComponent(0).addOption(val);
+    controller.getColumnOptionsComponent(0).addOptions([val]);
     assert.is(controller.getSelectedValueOption().getId(), noSelectionId);
     
     controller.setSelectedValueOption(val);
@@ -30,7 +30,7 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
     assert.is(controller.getSelectedValueOption().getId(), noSelectionId);
 
     controller.setSelectedValueOption(val);
-    controller.getColumnOptionsComponent(0).delOption(val);
+    controller.getColumnOptionsComponent(0).delOptions([val]);
     assert.is(controller.getSelectedValueOption().getId(), val.getId());
 });
 
@@ -43,8 +43,8 @@ selectControllerSuite.add("Select controller - 2 column", (assert) => {
     // check select not existing/ contained option
     const val = /** @type { OptionType } */ ValueOption("test");
     const cat = /** @type { OptionType } */ CategoryOption("test");
-    controller.getColumnOptionsComponent(0).addOption(val);
-    controller.getColumnOptionsComponent(1).addOption(cat);
+    controller.getColumnOptionsComponent(0).addOptions([val]);
+    controller.getColumnOptionsComponent(1).addOptions([cat]);
     controller.getColumnOptionsComponent(1).setSelectedOption(cat);
     assert.is(controller.getSelectedValueOption().getId()                        , noSelectionId);
     assert.is(controller.getColumnOptionsComponent(1).getSelectedOption().getId(), cat.getId());
@@ -60,7 +60,7 @@ selectControllerSuite.add("Select controller - 2 column", (assert) => {
     assert.is(controller.getColumnOptionsComponent(1).getSelectedOption().getId(), cat.getId());
 
     controller.setSelectedValueOption(cat);
-    controller.getColumnOptionsComponent(1).delOption(cat);
+    controller.getColumnOptionsComponent(1).delOptions([cat]);
     assert.is(controller.getColumnOptionsComponent(1).getSelectedOption().getId(), cat.getId());
 });
 
@@ -80,7 +80,7 @@ selectControllerSuite.add("Select controller - required", (assert) => {
 
     // prepare column with option
     const val = /** @type { OptionType } */ ValueOption("test");
-    controller.getColumnOptionsComponent(0).addOption(val);
+    controller.getColumnOptionsComponent(0).addOptions([val]);
     
     // set valid option
     controller.getColumnOptionsComponent(0).setSelectedOption(val);
@@ -103,8 +103,7 @@ selectControllerSuite.add("Select controller - disabled", (assert) => {
     // prepare column with option
     const val  = /** @type { OptionType } */ ValueOption("test");
     const val2 = /** @type { OptionType } */ ValueOption("test2");
-    controller.getColumnOptionsComponent(0).addOption(val);
-    controller.getColumnOptionsComponent(0).addOption(val2);
+    controller.getColumnOptionsComponent(0).addOptions([val, val2]);
 
     // set value over controller still works
     controller.getColumnOptionsComponent(0).setSelectedOption(val);

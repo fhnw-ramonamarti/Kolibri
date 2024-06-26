@@ -18,13 +18,11 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
     const val  = /** @type { OptionType } */ ValueOption("test");
     const val2 = /** @type { OptionType } */ ValueOption("test2");
     const val3 = /** @type { OptionType } */ ValueOption("test3");
-    component.addOption(val);
-    component.addOption(val2);
-    component.addOption(val3);
+    component.addOptions([val, val2, val3]);
     assert.is(component.getColumnView().childElementCount, 3);
 
     const valCopy = /** @type { OptionType } */ ValueOption("test");
-    component.addOption(valCopy);
+    component.addOptions([valCopy]);
     assert.is(component.getColumnView().childElementCount, 3);
     
     const selectedElementBefore = component.getColumnView().querySelector('.selected');
@@ -41,7 +39,7 @@ columnOptionsComponentSuite.add("Column options component", (assert) => {
     assert.is(selectedElementById === selectedElementAfter , true);
     assert.is(flagSelected                                 , true);
     
-    component.delOption(val);
+    component.delOptions([val]);
     assert.is(component.getColumnView().childElementCount, 2);
     assert.is(component.getSelectedOption().getId(), val.getId());
 

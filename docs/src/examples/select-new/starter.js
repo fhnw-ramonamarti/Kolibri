@@ -7,6 +7,12 @@ import {
     getMoneyContinents,
     getYearsByDecade,
 }                                   from "./DataService.js";
+import {
+    getAllContinents as getContinents,
+    getCountries as getCountriesByContinent,
+    getRegionsByCountry as getCitiesByCountry,
+
+}                                   from "http://127.0.0.1:5501/ip6/userTest/dataService.js";
 import { SelectComponent, pageCss } from "./selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
