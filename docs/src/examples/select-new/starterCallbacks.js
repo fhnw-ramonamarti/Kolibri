@@ -6,8 +6,8 @@ import {
     getMoneyByContinent,
     getMoneyContinents,
     getYearsByDecade,
-}                                   from "./DataService.js";
-import { SelectComponent, pageCss } from "./selectComponent.js";
+}                                              from "./DataService.js";
+import { SelectComponentByCallbacks, pageCss } from "./selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * big size demo data to test performance
+ * Big size demo data to test performance
  * @param  { ...String } elem - filter categories
  * @returns { Array<String> }
  */
@@ -36,13 +36,16 @@ const selectAttribute = {
     label: "Continent",
 };
 /**
- * @type { Array<(String) => Array<CallbackReturnType>> }
+ * @type { Array<CallbackType> }
  */
 const columnServiceCb = [
     getContinents,
     // testData
 ];
-const selectComponent    = SelectComponent(selectAttribute, columnServiceCb).getComponentView();
+const selectComponent = SelectComponentByCallbacks(
+    selectAttribute,
+    columnServiceCb
+).getComponentView();
 const componentContinent = document.getElementById("componentContinent");
 componentContinent.append(selectComponent);
 
@@ -56,12 +59,12 @@ const selectAttribute1_2 = {
     isRequired: true,
 };
 /**
- * @type { Array<(String) => Array<CallbackReturnType>> }
+ * @type { Array<CallbackType> }
  */
 const columnServiceCb1_2 = [
     getCountriesByContinent,
 ];
-const selectComponent1_2 = SelectComponent(
+const selectComponent1_2 = SelectComponentByCallbacks(
     selectAttribute1_2,
     columnServiceCb1_2
 ).getComponentView();
@@ -81,7 +84,7 @@ const selectAttribute1_3 = {
     label: "Country",
     isDisabled: true,
 };
-const selectComponent1_3 = SelectComponent(
+const selectComponent1_3 = SelectComponentByCallbacks(
     selectAttribute1_3,
     columnServiceCb1_2
 ).getComponentView();
@@ -97,13 +100,16 @@ const selectAttribute2 = {
     label: "City",
 };
 /**
- * @type { Array<(String) => Array<CallbackReturnType>> }
+ * @type { Array<CallbackType> }
  */
 const columnServiceCb2 = [
     getCitiesByCountry,
     getCountriesByContinent,
 ];
-const selectComponent2 = SelectComponent(selectAttribute2, columnServiceCb2).getComponentView();
+const selectComponent2 = SelectComponentByCallbacks(
+    selectAttribute2,
+    columnServiceCb2
+).getComponentView();
 const componentCountry = document.getElementById("componentCountry");
 componentCountry.append(selectComponent2);
 
@@ -116,7 +122,7 @@ const selectAttribute3 = {
     label: "Year",
 };
 /**
- * @type { Array<(String) => Array<CallbackReturnType>> }
+ * @type { Array<CallbackType> }
  */
 const columnServiceCb3 = [
     getYearsByDecade, 
@@ -125,7 +131,10 @@ const columnServiceCb3 = [
     // testData
 ];
 
-const selectComponent3 = SelectComponent(selectAttribute3, columnServiceCb3).getComponentView();
+const selectComponent3 = SelectComponentByCallbacks(
+    selectAttribute3,
+    columnServiceCb3
+).getComponentView();
 const componentYear    = document.getElementById("componentYear");
 componentYear.append(selectComponent3);
 
@@ -138,13 +147,16 @@ const selectAttribute4 = {
     label: "Money Img",
 };
 /**
- * @type { Array<(String) => Array<CallbackReturnType>> }
+ * @type { Array<CallbackType> }
  */
 const columnServiceCb4 = [
     getMoneyByContinent,
     getMoneyContinents,
 ];
-const selectComponent4 = SelectComponent(selectAttribute4, columnServiceCb4).getComponentView();
+const selectComponent4 = SelectComponentByCallbacks(
+    selectAttribute4,
+    columnServiceCb4
+).getComponentView();
 const componentImg     = document.getElementById("componentImg");
 componentImg.append(selectComponent4);
 
@@ -157,13 +169,16 @@ const selectAttribute5 = {
     label: "City",
 };
 /**
- * @type { Array<(String) => Array<CallbackReturnType>> }
+ * @type { Array<CallbackType> }
  */
 const columnServiceCb5 = [
     getCitiesByCountry,
     getCountriesByContinent,
     getContinents,
 ];
-const selectComponent5 = SelectComponent(selectAttribute5, columnServiceCb5).getComponentView();
+const selectComponent5 = SelectComponentByCallbacks(
+    selectAttribute5,
+    columnServiceCb5
+).getComponentView();
 const componentCity    = document.getElementById("componentCity");
 componentCity.append(selectComponent5);

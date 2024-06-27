@@ -3,15 +3,19 @@ import { SelectController }                                from "./selectControl
 import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
 import { pageCss as pageCssColumn }                        from "./columnOptionsProjector.js";
 
-export { SelectComponent, pageCss };
+export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
 
 
 /**
- * @typedef { String | { label: String, value: String } } CallbackReturnType
+ * @typedef { String | { label: String, value: String } } OptionDataType
  */
 
 /**
- * @typedef { (categories: ...String) => Array<CallbackReturnType>>} CallbackType
+ * @typedef { (categories: ...String) => Array<OptionDataType>>} CallbackType
+ */
+
+/**
+ * @typedef { Array<Array<OptionDataType>> } OptionsTable
  */
 
 
@@ -34,7 +38,7 @@ export { SelectComponent, pageCss };
  * For a usefull performance the callback return array should not contain > 5_000 entries.
  * While the column values are loading a circular loader appears in the column.
  *
- * @param { SelectAttribute }                                             selectAttributes
+ * @param { SelectAttributes }    selectAttributes
  * @param { Array<CallbackType> } serviceCallbacks - list of callbacks to support data for the columns
  * @returns { SelectComponentType } 
  * @constructor
@@ -45,7 +49,7 @@ export { SelectComponent, pageCss };
             [ getCitiesForCountry, getCountries ]
         );
  */
-const SelectComponent = (selectAttributes, serviceCallbacks) => {
+const SelectComponentByCallbacks = (selectAttributes, serviceCallbacks) => {
     const selectController              = SelectController(selectAttributes, serviceCallbacks.length);
     const [componentView, selectionElement] = projectSelectViews(selectController);
     const [labelElement, inputElement]  = componentView.children;
@@ -155,6 +159,28 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         getInputViewPartOfComponent: () => inputElement
     };
 };
+
+/**
+ * 
+ * @param { SelectAttributes } selectAttributes 
+ * @param { OptionsTable } valueTable 
+ * @returns { SelectComponentType }
+ * @constructor
+ * @example 
+        const selectAttributes = { name: 'city', label: 'City' };
+        const component = SelectComponent(
+            selectAttributes,
+            [ getCitiesForCountry, getCountries ]
+        );
+ */
+const SelectComponentByTableValues = (selectAttributes, optionsTable) => {
+    // TODO: callbacks
+    const callbacks = [];
+    const component = SelectComponentByCallbacks(selectAttributes, callbacks);
+    return {
+        ...component,
+    };
+}
 
 /**
  * CSS snippet to append to the head style when using the select component.

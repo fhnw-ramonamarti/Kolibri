@@ -16,7 +16,7 @@ let idCounter = 0;
 
 
 /**
- * @typedef SelectAttribute
+ * @typedef SelectAttributes
  * @property { String? }  label
  * @property { String? }  name
  * @property { Boolean? } isRequired                - select need to have value selected in form, default false
@@ -66,7 +66,7 @@ let idCounter = 0;
  * SelectController maintains a number given of {@link ColumnOptionsComponent}.
  * The visibility of both - options and selected option - views are held by observables.
  * The name and label used for the html input element are as well managed here.
- * @param { SelectAttribute }
+ * @param { SelectAttributes }
  * @param { Number }          numberOfColumns
  * @returns { SelectControllerType }
  * @constructor
