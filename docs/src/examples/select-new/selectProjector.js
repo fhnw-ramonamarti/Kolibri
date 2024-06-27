@@ -222,15 +222,16 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(inputElement);
 
     selectController.onDisabledChanged((disabled) => {
-        // aria-disabled
         componentContainer.classList.toggle("disabled", disabled);
         if (disabled) {
             selectController.setOptionsVisibility(false);
             inputElement.setAttribute("disabled", "true");
             componentContainer.removeAttribute("tabindex");
+            componentContainer.setAttribute("aria-disabled", "true");
         } else {
             inputElement.removeAttribute("disabled");
             componentContainer.setAttribute("tabindex", "0");
+            componentContainer.removeAttribute("aria-disabled");
         }
     });
 
@@ -398,8 +399,13 @@ const pageCss = `
         }
 
         &.disabled {
-            background: #eee;
-            filter:     grayscale(0.9);
+            background:     #eee;
+            filter:         grayscale(0.9);
+            pointer-events: none;
+
+            * {
+                pointer-events:     none;
+            }
         }
 
         .toggleButton {
