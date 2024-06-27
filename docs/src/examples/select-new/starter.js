@@ -11,10 +11,16 @@ import { SelectComponent, pageCss } from "./selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 
-const testData = () =>
+/**
+ * big size demo data to test performance
+ * @param  { ...String } elem - filter categories
+ * @returns { Array<String> }
+ */
+const testData = (...elem) =>
     Array(10_000)
         .fill("a")
-        .map((e, i) => e + i);
+        .map((e, i) => e + i)
+        .filter(e => elem.length === 0 || elem.includes(e));
 
 
 // ----- continent selection --------------------------------
@@ -24,8 +30,6 @@ const testData = () =>
 const selectAttribute = {
     name: "continent",
     label: "Continent",
-    numberOfColumns: 1,
-    sortOptionsAlphabetically: false,
 };
 /**
  * @type { Array<(String) => Array<CallbackReturnType>> }
@@ -81,7 +85,6 @@ disabledComponent.append(selectComponent1_3);
 const selectAttribute2 = {
     name: "city",
     label: "City",
-    numberOfColumns: 2,
 };
 /**
  * @type { Array<(String) => Array<CallbackReturnType>> }
@@ -101,12 +104,16 @@ componentCountry.append(selectComponent2);
 const selectAttribute3 = {
     name: "year",
     label: "Year",
-    numberOfColumns: 2,
 };
 /**
  * @type { Array<(String) => Array<CallbackReturnType>> }
  */
-const columnServiceCb3 = [getYearsByDecade, getDecades];
+const columnServiceCb3 = [
+    getYearsByDecade, 
+    getDecades
+    // testData,
+    // testData
+];
 
 const [selectComponent3] = SelectComponent(selectAttribute3, columnServiceCb3);
 const componentYear      = document.getElementById("componentYear");
@@ -119,7 +126,6 @@ componentYear.append(selectComponent3);
 const selectAttribute4 = {
     name: "money",
     label: "Money Img",
-    numberOfColumns: 2,
 };
 /**
  * @type { Array<(String) => Array<CallbackReturnType>> }
@@ -139,7 +145,6 @@ componentImg.append(selectComponent4);
 const selectAttribute5 = {
     name: "city",
     label: "City",
-    numberOfColumns: 3,
 };
 /**
  * @type { Array<(String) => Array<CallbackReturnType>> }

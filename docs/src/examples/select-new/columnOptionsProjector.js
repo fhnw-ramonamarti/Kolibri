@@ -227,6 +227,32 @@ const pageCss = `
     .hidden {
         display: none;
     }
+    
+    .column-holder {
+        display:         flex;
+        justify-content: center;
+        align-items:     center
+    }
+
+    .column-loader {
+        border: 4px solid transparent;
+        border-left: 4px solid #ccc;
+        border-top: 4px solid #ccc;
+        border-radius: 50%;
+        width: 40px;
+        aspect-ratio: 1 / 1;
+        animation: spin 1.5s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
     .${columnClassName} {
         width:          100%;
         /* max-width:      100%; */
@@ -258,6 +284,7 @@ const pageCss = `
             background-color: #ccc; /* todo */
         }
     }
+    
     .${optionClassName} {
         position:       relative;
         padding:        10px 20px;

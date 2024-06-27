@@ -19,7 +19,6 @@ let idCounter = 0;
  * @typedef SelectAttribute
  * @property { String? }  label
  * @property { String? }  name
- * @property { Number? }  numberOfColumns           - default 1
  * @property { Boolean? } isRequired                - select need to have value selected in form, default false
  * @property { Boolean? } isDisabled                - selected value can not be changed, default false
  * @property { Boolean? } sortOptionsAlphabetically - sort the values of each column, default true
@@ -68,23 +67,22 @@ let idCounter = 0;
  * The visibility of both - options and selected option - views are held by observables.
  * The name and label used for the html input element are as well managed here.
  * @param { SelectAttribute }
+ * @param { Number }          numberOfColumns
  * @returns { SelectControllerType }
  * @constructor
  * @example
         const selectController = SelectController({
             label: 'City',
-            name:  'city',
-            numberOfColumns: 2
-        });
+            name:  'city'
+        }, numberOfColumns: 2);
  */
 const SelectController = ({
     label = "",
     name = "",
-    numberOfColumns = 1,
     isRequired = false,
     isDisabled = false,
-    sortOptionsAlphabetically = true 
-}) => {
+}, numberOfColumns = 1
+) => {
     const id = "select-component-" + idCounter++;
 
     // beware of negative numbers

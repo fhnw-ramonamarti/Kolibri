@@ -32,7 +32,7 @@ export { SelectComponent, pageCss };
         );
  */
 const SelectComponent = (selectAttributes, serviceCallbacks) => {
-    const selectController              = SelectController(selectAttributes);
+    const selectController              = SelectController(selectAttributes, serviceCallbacks.length);
     const [component, selectionElement] = projectSelectViews(selectController);
     const [labelElement, inputElement]  = component.children;
 
@@ -71,7 +71,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     /**
      * @param { Number }            col 
      * @param { Array<OptionType> } filterCategories 
-     * @returns { Boolean } - true if the value option is contained in selected categories
      */
     const filterOptions = (col, filterCategories) => {        
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
@@ -88,16 +87,22 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             oldOptions.map((opt, inx) => opt.equals(newOptions[inx])).filter((eq) => !eq) == 0;
 
         if (areOptionsSame(selectController.getColumnOptionsComponent(col).getOptions(), options)) {
-            return true;
+            return;
         }
-        selectController.clearColumnOptions(col, col);
+        if (!options.some((option) => option.equals(selectedOption))) {
+            selectController.getColumnOptionsComponent(col).clearSelectedOption();
+        }
+        selectController.getColumnOptionsComponent(col).clearOptions();
         selectController.getColumnOptionsComponent(col).addOptions(options);
         
         if (col === 0) {
-            return options.map((option) => option.getValue()).includes(selectedOption.getValue());
+            options.some((option) => option.equals(selectedOption));
         } else {
+            const selectedOption = selectController
+                .getColumnOptionsComponent(col)
+                .getSelectedOption();
             const categories = selectedOption.getId() !== nullOptionId ? [selectedOption] : options;
-            return filterOptions(col - 1, categories);
+            filterOptions(col - 1, categories);
         }
     };
 
@@ -107,7 +112,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
             return;
         }
         selectController.getColumnOptionsComponent(col)?.onOptionSelected((option) => {
-            let isValueOptionSelected = false;
             if (option.getId() === nullOptionId) {
                 if (serviceCallbacks.length <= col + 1) {
                     // unselect most general category
@@ -124,14 +128,10 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
                     ? [selectedSuperCategory]
                     : allSuperCategories;
                 filterOptions(col - 1, superCategories);
-            } else {
-                // select category
-                selectController.clearSelectedOptions(col - 1);
-                isValueOptionSelected = filterOptions(col - 1, [option]);
-                if (!isValueOptionSelected) {
-                    selectController.clearSelectedValueOption();
-                }
-            }
+                return;
+            } 
+            // select category
+            filterOptions(col - 1, [option]);
         });
     });
 

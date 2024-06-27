@@ -14,6 +14,7 @@ export { ColumnOptionsComponent };
  * @property { (OptionType)  => void }            setSelectedOption
  * @property { ()  => void }                      clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
+ 
  * @property { ()  => Boolean }                   isSelectedOptionDisabled
  * @property { (Boolean) => void }                setSelectedOptionDisabled
  * @property { (cb: ValueChangeCallback<Boolean>) => void }    onSelectedOptionDisabledChanged
@@ -47,10 +48,23 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     );
 
     /**
+     * @returns { HTMLDivElement } - placeholder while loading
+     */
+    const createHolder = () => {
+        const placeHolder = document.createElement('div');
+        placeHolder.classList.add('column-holder');
+        placeHolder.classList.add('options-column');
+        const loader = document.createElement('div');
+        loader.classList.add('column-loader');
+        placeHolder.appendChild(loader);
+        return placeHolder;
+    };
+
+    /**
      * @param { Array<OptionType> } options 
      */
     const addAllOptions = (options) => {
-        const placeHolder = document.createElement('div');
+        const placeHolder = createHolder();
         columnView.replaceWith(placeHolder);
         options.forEach((option) => {
             optionsController.addOption(option);
@@ -62,7 +76,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
      * @param { Array<OptionType> } options 
      */
     const delOptions = (options) => {
-        const placeHolder = document.createElement("div");
+        const placeHolder = createHolder();
         columnView.replaceWith(placeHolder);
         options.forEach((option) => {
             optionsController.delOption(option);
@@ -71,7 +85,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     };
 
     const clearOptions = () => {
-        const placeHolder = document.createElement("div");
+        const placeHolder = createHolder();
         columnView.replaceWith(placeHolder);
         optionsController.getOptions().forEach((option) => {
             optionsController.delOption(option);
@@ -89,6 +103,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
         setSelectedOption  : selectedOptionController.setSelectedOption,
         clearSelectedOption: selectedOptionController.clearSelectedOption,
         onOptionSelected   : selectedOptionController.onOptionSelected,
+        
         isSelectedOptionDisabled       : selectedOptionController.isDisabled,
         setSelectedOptionDisabled      : selectedOptionController.setDisabled,
         onSelectedOptionDisabledChanged: selectedOptionController.onDisabledChanged,

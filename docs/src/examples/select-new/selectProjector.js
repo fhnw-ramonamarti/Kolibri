@@ -312,7 +312,7 @@ const popoverStyle = `
 
         animation:        open 300ms ease-in-out;
         transform-origin: top center;
-    }        
+    }
 
     /*   BEFORE-OPEN STATE   */
     @starting-style {
