@@ -77,8 +77,7 @@ const projectColumnOptionsView = (
     optionsController,
     selectedOptionController,
     cursorPositionController,
-    columnNumber = 0,
-    isShadow = false
+    columnNumber = 0
 ) => {
     const columnContainer = document.createElement("div");
     columnContainer.classList.add(columnClassName);
@@ -112,10 +111,8 @@ const projectColumnOptionsView = (
         }
     };
 
-    if (isShadow){
-        optionsController.onOptionAdd(renderRow);
-        optionsController.onOptionDel(removeOptionItem(columnContainer));
-    }
+    optionsController.onOptionAdd(renderRow);
+    optionsController.onOptionDel(removeOptionItem(columnContainer));
     selectedOptionController.onOptionSelected(selectOptionItem(columnContainer));
     cursorPositionController?.onOptionSelected(cursorPositionItem(columnContainer));
 

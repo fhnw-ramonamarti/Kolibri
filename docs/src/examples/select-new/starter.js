@@ -1,7 +1,7 @@
 import {
-    getCitiesByCountry,
-    getContinents,
-    getCountriesByContinent,
+    // getCitiesByCountry,
+    // getContinents,
+    // getCountriesByContinent,
     getDecades,
     getMoneyByContinent,
     getMoneyContinents,
@@ -11,11 +11,16 @@ import {
     getAllContinents as getContinents,
     getCountries as getCountriesByContinent,
     getRegionsByCountry as getCitiesByCountry,
-
 }                                   from "http://127.0.0.1:5501/ip6/userTest/dataService.js";
 import { SelectComponent, pageCss } from "./selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
+
+const testData = () =>
+    Array(10_000)
+        .fill("a")
+        .map((e, i) => e + i);
+
 
 // ----- continent selection --------------------------------
 /**
@@ -23,7 +28,7 @@ document.querySelector("head style").textContent += pageCss;
  */
 const selectAttribute = {
     name: "continent",
-    label: "Continent independent",
+    label: "Continent",
     numberOfColumns: 1,
     sortOptionsAlphabetically: false,
 };
@@ -31,7 +36,8 @@ const selectAttribute = {
  * @type { Array<(String) => Array<CallbackReturnType>> }
  */
 const columnServiceCb = [
-    getContinents,
+    // getContinents,
+    testData
 ];
 const [selectComponent]  = SelectComponent(selectAttribute, columnServiceCb);
 const componentContinent = document.getElementById("componentContinent");

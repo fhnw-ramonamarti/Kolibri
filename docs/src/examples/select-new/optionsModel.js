@@ -97,7 +97,7 @@ const CategoryOption = (label) => {
 const OptionsModel = () => {
     const list    = [];
     const listObs = ObservableList(list);
-    const allEverAddedOptions = []; // no options ever removed
+    const allEverAddedOptions = {}; // no options ever removed
 
     /**
      * `allEverAddedOptions`is used to preserve the id if the value-label pair was added earlier.
@@ -108,22 +108,23 @@ const OptionsModel = () => {
         if (null == option) {
             return;
         }
-        const filteredAllOptions = allEverAddedOptions.filter((o) => o.equals(option));
-        if (filteredAllOptions.length === 0) {
+        const stringOption = JSON.stringify({ value: option.getValue(), label: option.getLabel() });
+        const filteredAllOptions = allEverAddedOptions[stringOption];
+        if (null == filteredAllOptions) {
             option.createId();
             listObs.add(option);
-            // allEverAddedOptions.push(option); // todo problem with performance
+            allEverAddedOptions[stringOption] = option;
             return;
         }
         const filteredCurrentOptions = list.filter((o) => o.equals(option));
         if (filteredCurrentOptions.length === 0) {
-            listObs.add(filteredAllOptions[0]);
-        } 
+            listObs.add(filteredAllOptions);
+        }
     };
 
     return {
-        getList                : () => [...list],
-        getObsList             : () => ({ ...listObs, add: addOption, }),
+        getList   : () => [...list],
+        getObsList: () => ({ ...listObs, add: addOption, }),
     };
 };
 

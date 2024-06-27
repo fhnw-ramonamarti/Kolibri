@@ -46,39 +46,37 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
         columnNumber
     );
 
-    const [columnViewShadow] = projectColumnOptionsView(
-        optionsController,
-        selectedOptionController,
-        cursorPositionController,
-        columnNumber,
-        true
-    );
-
     /**
      * @param { Array<OptionType> } options 
      */
     const addAllOptions = (options) => {
+        const placeHolder = document.createElement('div');
+        columnView.replaceWith(placeHolder);
         options.forEach((option) => {
             optionsController.addOption(option);
         });
-        columnView.replaceChildren(...columnViewShadow.children);
+        placeHolder.replaceWith(columnView);
     };
 
     /**
      * @param { Array<OptionType> } options 
      */
     const delOptions = (options) => {
+        const placeHolder = document.createElement("div");
+        columnView.replaceWith(placeHolder);
         options.forEach((option) => {
             optionsController.delOption(option);
         });
-        columnView.replaceChildren(...columnViewShadow.children);
+        placeHolder.replaceWith(columnView);
     };
 
     const clearOptions = () => {
-        optionsController.getOptions().forEach(option => {
+        const placeHolder = document.createElement("div");
+        columnView.replaceWith(placeHolder);
+        optionsController.getOptions().forEach((option) => {
             optionsController.delOption(option);
         });
-        columnView.replaceChildren();
+        placeHolder.replaceWith(columnView);
     }
 
     return {
