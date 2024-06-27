@@ -75,7 +75,6 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const filterOptions = (col, filterCategories) => {        
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
         const searchCategories = filterCategories?.map(option => option.getLabel()) ?? [];
-
         const options = serviceCallbacks[col](...searchCategories).map(mapping(col));
 
         /**
@@ -84,20 +83,20 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
          * @returns { Boolean }
          */
         const areOptionsSame = (oldOptions, newOptions) =>
-            oldOptions.map((opt, inx) => opt.equals(newOptions[inx])).filter((eq) => !eq) == 0;
+            oldOptions.map((opt, inx) => opt.equals(newOptions[inx])).filter((eq) => !eq) == 0 &&
+            newOptions.map((opt, inx) => opt.equals(oldOptions[inx])).filter((eq) => !eq) == 0;
 
         if (areOptionsSame(selectController.getColumnOptionsComponent(col).getOptions(), options)) {
             return;
         }
+        
         if (!options.some((option) => option.equals(selectedOption))) {
             selectController.getColumnOptionsComponent(col).clearSelectedOption();
         }
         selectController.getColumnOptionsComponent(col).clearOptions();
         selectController.getColumnOptionsComponent(col).addOptions(options);
         
-        if (col === 0) {
-            options.some((option) => option.equals(selectedOption));
-        } else {
+        if (col !== 0) {
             const selectedOption = selectController
                 .getColumnOptionsComponent(col)
                 .getSelectedOption();

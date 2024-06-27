@@ -11,13 +11,17 @@ import { SelectComponent, pageCss } from "./selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("finished loading page");
+});
+
 /**
  * big size demo data to test performance
  * @param  { ...String } elem - filter categories
  * @returns { Array<String> }
  */
 const testData = (...elem) =>
-    Array(10_000)
+    Array(5_000)
         .fill("a")
         .map((e, i) => e + i)
         .filter(e => elem.length === 0 || elem.includes(e));
@@ -62,7 +66,7 @@ const componentForm        = document.getElementById("formComponent");
 componentForm.append(selectComponent1_2);
 
 const submit     = document.createElement("button");
-submit.innerHTML = "Submit";
+submit.innerText = "Submit";
 componentForm.append(submit);
 
 // ----- city selection form --------------------------------

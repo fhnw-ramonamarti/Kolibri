@@ -91,6 +91,8 @@ const projectColumnOptionsView = (
         columnContainer.classList.add("category-" + columnClassName);
     }
 
+    const notVisibleClass = "invisible";
+
     /**
      * @param { OptionType } option 
      */
@@ -102,6 +104,10 @@ const projectColumnOptionsView = (
             optionType,
             cursorPositionController
         );
+        // hide options initially not visible in column
+        if (optionsController.getOptions().length > 200) {
+            rowElement.classList.toggle(notVisibleClass, true);
+        }
         columnContainer.append(rowElement);
         if (selectedOptionController.getSelectedOption().equals(option)) {
             selectOptionItem(columnContainer)(option, option);
@@ -110,6 +116,36 @@ const projectColumnOptionsView = (
             cursorPositionItem(columnContainer)(option, option);
         }
     };
+
+    let oldScrollPosition = 0;
+
+    // show options on scroll
+    const scroll = (_) => {
+        const newScrollPosition = columnContainer.scrollTop;
+        for (let i = 0; i < 20; i++) {
+            if (newScrollPosition > oldScrollPosition) {
+                // scrolling down
+                const nextItem = columnContainer.querySelector(
+                    `:not(.${notVisibleClass}) + .${notVisibleClass}`
+                );
+                if (null != nextItem) {
+                    nextItem.classList.toggle(notVisibleClass, false);
+                }
+            } else if (newScrollPosition < oldScrollPosition) {
+                // scrolling up
+                const prevItem = columnContainer.querySelector(
+                    `.${notVisibleClass}:has(+ :not(.${notVisibleClass})`
+                );
+                if (null != prevItem) {
+                    prevItem.classList.toggle(notVisibleClass, false);
+                }
+            }
+        }
+        
+        oldScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
+    }
+    columnContainer.addEventListener("mousewheel", scroll);
+    columnContainer.addEventListener("DOMMouseScroll", scroll); // firefox
 
     optionsController.onOptionAdd(renderRow);
     optionsController.onOptionDel(removeOptionItem(columnContainer));
@@ -223,11 +259,7 @@ const boxHeight = 240;
  * @example
         document.querySelector("head style").textContent += pageCss;
  */
-const pageCss = `
-    .hidden {
-        display: none;
-    }
-    
+const pageCss = `    
     .column-holder {
         display:         flex;
         justify-content: center;
@@ -299,6 +331,10 @@ const pageCss = `
         /* overflow-wrap:  anywhere; */
         overflow:       hidden;
         text-overflow:  ellipsis;
+
+        &.invisible {
+            display:    none;
+        }
 
         img {
             height:     2rem;

@@ -78,6 +78,10 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     styleElement.id    = "popoverStyle";
     document.querySelector("head").append(styleElement);
 
+    /**
+     * @param { HTMLDivElement } selectElement 
+     * @param { String }         popoverElementId 
+     */
     const positionPopover = (selectElement, popoverElementId) => {
         const { top, left, height, width } = selectElement.getBoundingClientRect();
         const { scrollTop, scrollLeft } = document.documentElement;
@@ -102,7 +106,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
             popoverElement.hidePopover();
         } else {
             popoverElement.showPopover();
-        }
+        }            
     };
 
     window.addEventListener("resize", () => {
@@ -197,11 +201,11 @@ const projectSelectViews = (selectController) => {
     inputElement.setAttribute("tabindex", "-1");
     inputElement.setAttribute(
         "style",
-        "all: unset; " +
-            "z-index: -1 !important; " +
+        "all: unset !important;" +
+            "z-index: -1 !important;" +
             "position: absolute !important;" +
             "inset: 5px !important;" +
-            "color: transparent;"
+            "color: transparent !important;"
     );
     inputElement.addEventListener("keydown paste focus mousedown", (e) => {
         // read-only on input not working with required
@@ -242,7 +246,6 @@ const projectSelectViews = (selectController) => {
         } else {
             allOptionsElement.hidePopover();
         }
-        allOptionsElement.classList.toggle("hidden", !isVisible);
         selectedOptionElement.classList.toggle("opened", isVisible);
     });
 
@@ -303,8 +306,7 @@ const popoverStyle = `
         overflow:       hidden;
         align-items:    stretch;
         flex-wrap:      nowrap;
-      
-        display:        none;
+
         padding:        0;
         margin:         0;
 
@@ -428,6 +430,10 @@ const pageCss = `
             align-items: center;
         }
 
+        &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
+            background-image: url("${iconFolderUrl}kolibri-select-opened.svg");
+        }
+
         /* for invisibility and not clickable */
         input {
             pointer-events: none;
@@ -442,10 +448,6 @@ const pageCss = `
 
         label {
             min-width:  100px;
-        }
-
-        &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
-            background-image: url("${iconFolderUrl}kolibri-select-opened.svg");
         }
     }
     

@@ -11,7 +11,7 @@ const selectControllerSuite = TestSuite("projector/simpleForm/selectController")
 selectControllerSuite.add("Select controller - 1 column", (assert) => {
     const noSelectionId   = nullOption.getId();
     const selectAttribute = { name: "Name", label: "Label" };
-    const controller      = SelectController(selectAttribute);
+    const controller      = SelectController(selectAttribute, 1);
     const controller2     = SelectController({});
     assert.is(controller.getNumberOfColumns()            , 1);
     assert.is(controller.isOptionsVisible()              , false);
@@ -36,8 +36,8 @@ selectControllerSuite.add("Select controller - 1 column", (assert) => {
 
 selectControllerSuite.add("Select controller - 2 column", (assert) => {
     const noSelectionId   = nullOption.getId();
-    const selectAttribute = { name: "Name", label: "Label", numberOfColumns: 2 };
-    const controller      = SelectController(selectAttribute);
+    const selectAttribute = { name: "Name", label: "Label" };
+    const controller      = SelectController(selectAttribute, 2);
     assert.is(controller.getNumberOfColumns(), 2);
 
     // check select not existing/ contained option

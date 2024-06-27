@@ -116,8 +116,8 @@ const OptionsModel = () => {
             allEverAddedOptions[stringOption] = option;
             return;
         }
-        const filteredCurrentOptions = list.filter((o) => o.equals(option));
-        if (filteredCurrentOptions.length === 0) {
+        const optionExistsInList = list.some((o) => o.equals(option));
+        if (!optionExistsInList) {
             listObs.add(filteredAllOptions);
         }
     };

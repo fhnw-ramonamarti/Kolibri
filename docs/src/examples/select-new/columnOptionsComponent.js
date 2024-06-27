@@ -66,10 +66,21 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const addAllOptions = (options) => {
         const placeHolder = createHolder();
         columnView.replaceWith(placeHolder);
-        options.forEach((option) => {
-            optionsController.addOption(option);
-        });
-        placeHolder.replaceWith(columnView);
+        if(options.length > 200){
+            setTimeout(
+                () => {
+                    options.forEach((option) => {
+                        optionsController.addOption(option);
+                    });
+                    placeHolder.replaceWith(columnView);
+                }, 80
+            );
+        } else {
+            options.forEach((option) => {
+                optionsController.addOption(option);
+            });
+            placeHolder.replaceWith(columnView);
+        }
     };
 
     /**
@@ -108,6 +119,6 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
         setSelectedOptionDisabled      : selectedOptionController.setDisabled,
         onSelectedOptionDisabledChanged: selectedOptionController.onDisabledChanged,
         
-        getColumnView   : () => columnView,
+        getColumnView: () => columnView,
     }
 }

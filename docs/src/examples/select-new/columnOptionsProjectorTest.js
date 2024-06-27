@@ -20,10 +20,8 @@ columnOptionsProjectorSuite.add("binding-column-selection", (assert) => {
     const [columnView]             = projectColumnOptionsView(
         optionsController,
         selectedOptionController,
-        cursorPositionController,
-        true
+        cursorPositionController
     );
-    // console.log(columnView.innerHTML, columnView);
 
     // add options
     optionsController.addOption(/** @type { OptionType } */ selectedOption);

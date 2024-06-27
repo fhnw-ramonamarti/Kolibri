@@ -12,8 +12,8 @@ const selectProjectorSuite = TestSuite("projector/simpleForm/selectProjector");
  */
 selectProjectorSuite.add("binding-column-selection", (assert) => {
     // prepare
-    const selectAttribute  = { name: "Name", label: "Label", numberOfColumns: 2 };
-    const selectController = SelectController(selectAttribute);
+    const selectAttribute  = { name: "Name", label: "Label" };
+    const selectController = SelectController(selectAttribute, 2);
     const [componentView]  = projectSelectViews(selectController);
 
     // add options
