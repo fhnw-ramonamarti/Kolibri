@@ -11,30 +11,44 @@ export { SelectComponent, pageCss };
  */
 
 /**
+ * @typedef { (categories: ...String) => Array<CallbackReturnType>>} CallbackType
+ */
+
+
+/**
+ * @typedef SelectComponentType
+ * @property { () => SelectComponentType } getSelectController
+ * @property { () => HTMLDivElement }      getComponentView
+ * @property { () => HTMLDivElement }      getLabelViewPartOfComponent
+ * @property { () => HTMLDivElement }      getInputViewPartOfComponent
+ */
+
+/**
  * SelectComponent maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * A selection of a category leads to unselecting all sub categories
- * expect the selected value if it is contained in the selected category. 
+ * The number of the functions in the {@link serviceCallbacks} define the number of columns.
+ * A selection of a category leads to unselecting all sub categories and value
+ * if they are not contained in the selected category. 
  * This component supports up to 3 columns where one contains the input values 
- * and the other two may contain categories to filter the values or subcategories.
+ * and the others may contain categories to filter the values or subcategories.
  * For a usefull performance the callback return array should not contain > 5_000 entries.
+ * While the column values are loading a circular loader appears in the column.
+ *
  * @param { SelectAttribute }                                             selectAttributes
- * @param { Array<(categories: ...String) => Array<CallbackReturnType>> } serviceCallbacks - list of functions to get the data for each column
- * @returns { [HTMLDivElement, HTMLLabelElement, HTMLDivElement] }   - [component container (all in one container), 
- *                                                                     label part of component, 
- *                                                                     selection input part of component]
+ * @param { Array<CallbackType> } serviceCallbacks - list of callbacks to support data for the columns
+ * @returns { SelectComponentType } 
  * @constructor
  * @example 
-        const selectAttributes = { name: 'city', label: 'City', numberOfColumns: 2 };
-        const componentView = SelectComponent(
+        const selectAttributes = { name: 'city', label: 'City' };
+        const component = SelectComponent(
             selectAttributes,
             [ getCitiesForCountry, getCountries ]
         );
  */
 const SelectComponent = (selectAttributes, serviceCallbacks) => {
     const selectController              = SelectController(selectAttributes, serviceCallbacks.length);
-    const [component, selectionElement] = projectSelectViews(selectController);
-    const [labelElement, inputElement]  = component.children;
+    const [componentView, selectionElement] = projectSelectViews(selectController);
+    const [labelElement, inputElement]  = componentView.children;
 
     /**
      * @param { Number } col - defines if column is value or category type, 0 is value
@@ -89,7 +103,7 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         if (areOptionsSame(selectController.getColumnOptionsComponent(col).getOptions(), options)) {
             return;
         }
-        
+
         if (!options.some((option) => option.equals(selectedOption))) {
             selectController.getColumnOptionsComponent(col).clearSelectedOption();
         }
@@ -134,12 +148,13 @@ const SelectComponent = (selectAttributes, serviceCallbacks) => {
         });
     });
 
-    return [
-        component,
-        /** @type { HTMLLabelElement } */ labelElement,
-        /** @type { HTMLDivElement } */ inputElement,
-    ];
-}
+    return {
+        getSelectController        : () => selectController,
+        getComponentView           : () => componentView,
+        getLabelViewPartOfComponent: () => labelElement,
+        getInputViewPartOfComponent: () => inputElement
+    };
+};
 
 /**
  * CSS snippet to append to the head style when using the select component.

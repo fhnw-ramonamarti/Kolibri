@@ -42,7 +42,7 @@ const columnServiceCb = [
     getContinents,
     // testData
 ];
-const [selectComponent]  = SelectComponent(selectAttribute, columnServiceCb);
+const selectComponent    = SelectComponent(selectAttribute, columnServiceCb).getComponentView();
 const componentContinent = document.getElementById("componentContinent");
 componentContinent.append(selectComponent);
 
@@ -61,8 +61,11 @@ const selectAttribute1_2 = {
 const columnServiceCb1_2 = [
     getCountriesByContinent,
 ];
-const [selectComponent1_2] = SelectComponent(selectAttribute1_2, columnServiceCb1_2);
-const componentForm        = document.getElementById("formComponent");
+const selectComponent1_2 = SelectComponent(
+    selectAttribute1_2,
+    columnServiceCb1_2
+).getComponentView();
+const componentForm      = document.getElementById("formComponent");
 componentForm.append(selectComponent1_2);
 
 const submit     = document.createElement("button");
@@ -78,8 +81,11 @@ const selectAttribute1_3 = {
     label: "Country",
     isDisabled: true,
 };
-const [selectComponent1_3] = SelectComponent(selectAttribute1_3, columnServiceCb1_2);
-const disabledComponent    = document.getElementById("disabledComponent");
+const selectComponent1_3 = SelectComponent(
+    selectAttribute1_3,
+    columnServiceCb1_2
+).getComponentView();
+const disabledComponent  = document.getElementById("disabledComponent");
 disabledComponent.append(selectComponent1_3);
 
 // ----- city selection --------------------------------
@@ -97,8 +103,8 @@ const columnServiceCb2 = [
     getCitiesByCountry,
     getCountriesByContinent,
 ];
-const [selectComponent2] = SelectComponent(selectAttribute2, columnServiceCb2);
-const componentCountry   = document.getElementById("componentCountry");
+const selectComponent2 = SelectComponent(selectAttribute2, columnServiceCb2).getComponentView();
+const componentCountry = document.getElementById("componentCountry");
 componentCountry.append(selectComponent2);
 
 // ----- decade selection --------------------------------
@@ -119,8 +125,8 @@ const columnServiceCb3 = [
     // testData
 ];
 
-const [selectComponent3] = SelectComponent(selectAttribute3, columnServiceCb3);
-const componentYear      = document.getElementById("componentYear");
+const selectComponent3 = SelectComponent(selectAttribute3, columnServiceCb3).getComponentView();
+const componentYear    = document.getElementById("componentYear");
 componentYear.append(selectComponent3);
 
 // ----- currency selection with images --------------------------------
@@ -138,8 +144,8 @@ const columnServiceCb4 = [
     getMoneyByContinent,
     getMoneyContinents,
 ];
-const [selectComponent4] = SelectComponent(selectAttribute4, columnServiceCb4);
-const componentImg       = document.getElementById("componentImg");
+const selectComponent4 = SelectComponent(selectAttribute4, columnServiceCb4).getComponentView();
+const componentImg     = document.getElementById("componentImg");
 componentImg.append(selectComponent4);
 
 // ----- city selection 3 columns --------------------------------
@@ -158,6 +164,6 @@ const columnServiceCb5 = [
     getCountriesByContinent,
     getContinents,
 ];
-const [selectComponent5] = SelectComponent(selectAttribute5, columnServiceCb5);
-const componentCity      = document.getElementById("componentCity");
+const selectComponent5 = SelectComponent(selectAttribute5, columnServiceCb5).getComponentView();
+const componentCity    = document.getElementById("componentCity");
 componentCity.append(selectComponent5);

@@ -4,10 +4,10 @@ import { SelectComponent } from "./selectComponent.js";
 const selectComponentSuite = TestSuite("projector/simpleForm/selectComponent");
 
 selectComponentSuite.add("Select component - 1 column", (assert) => {
-    const selectAttribute    = { name: "Name", label: "Label", numberOfColumns: 1 };
-    const getTestData        = () => ["Test 1", "Test 2", "Test 3"];
-    const dataSize           = getTestData().length;
-    const [componentElement] = SelectComponent(selectAttribute, [getTestData]);
+    const selectAttribute  = { name: "Name", label: "Label", numberOfColumns: 1 };
+    const getTestData      = () => ["Test 1", "Test 2", "Test 3"];
+    const dataSize         = getTestData().length;
+    const componentElement = SelectComponent(selectAttribute, [getTestData]).getComponentView();
     
     const columnsContainer     = componentElement.querySelector(".options-component");
     const valueColumnContainer = columnsContainer.firstChild;
@@ -32,10 +32,10 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
         ["Test 1", "Test 2", "Test 11"].filter(e => 
             null == category || e.endsWith(category)
         );
-    const getTestCategory    = () => ["1", "2"];
-    const valueDataSize      = (category) => getTestValue(category).length;
-    const categoryDataSize   = getTestCategory().length;
-    const [componentElement] = SelectComponent(selectAttribute, [getTestValue, getTestCategory]);
+    const getTestCategory  = () => ["1", "2"];
+    const valueDataSize    = (category) => getTestValue(category).length;
+    const categoryDataSize = getTestCategory().length;
+    const componentElement = SelectComponent(selectAttribute, [getTestValue, getTestCategory]).getComponentView();
     
     const columnsContainer        = componentElement.querySelector(".options-component");
     const valueColumnContainer    = columnsContainer.lastChild;
@@ -84,9 +84,9 @@ selectComponentSuite.add("Select component - 2 column", (assert) => {
 });
 
 selectComponentSuite.add("Select component - disabled", (assert) => {
-    const selectAttribute    = { name: "Name", label: "Label", isDisabled: true };
-    const getTestData        = () => ["Test 1", "Test 2", "Test 3"];
-    const [componentElement] = SelectComponent(selectAttribute, [getTestData]);
+    const selectAttribute  = { name: "Name", label: "Label", isDisabled: true };
+    const getTestData      = () => ["Test 1", "Test 2", "Test 3"];
+    const componentElement = SelectComponent(selectAttribute, [getTestData]).getComponentView();
     
     const elementToSelect       = componentElement.querySelector(".options-column-item");
     const selectedElementBefore = componentElement.querySelector('.selected');
