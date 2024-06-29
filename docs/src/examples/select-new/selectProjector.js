@@ -39,12 +39,9 @@ const projectOptionsView = (selectController) => {
 
     // map over columns from max colum to column 0
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
-        const column = selectController.getColumnOptionsComponent(col).getColumnView();
-        optionsContainer.append(column);
+        const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
+        optionsContainer.append(columnView);
         selectController.getColumnOptionsComponent(col).onOptionSelected((newOption, oldOption) => {
-            if (selectController.isDisabled()) {
-                return;
-            }
             if (nullOption.getId() !== newOption.getId()) {
                 selectController.setCursorPosition(newOption);
             } else if (nullOption.getId() !== oldOption.getId()) {

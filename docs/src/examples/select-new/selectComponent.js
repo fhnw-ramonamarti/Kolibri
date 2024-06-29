@@ -236,6 +236,7 @@ const SelectComponentByTableValues = (selectAttributes, optionsTable) => {
         .fill("a")
         .map((_, i) => getColumnOptions(i));
     const component = SelectComponentByCallbacks(selectAttributes, callbacks);
+
     return {
         ...component,
     };
