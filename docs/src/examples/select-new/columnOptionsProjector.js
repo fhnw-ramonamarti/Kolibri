@@ -100,7 +100,6 @@ const updateScrollbar = (columnContainer) => {
         `;
         return;
     }
-    console.log(containerHeight , completeHeight, barHeight);
 
     const top = Math.min(
         completeHeight - barHeight,
