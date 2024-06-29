@@ -36,6 +36,12 @@ const projectOptionsView = (selectController) => {
             optionsContainer.classList.toggle("opened", false);
             selectController.setOptionsVisibility(false);
         }
+        for (let col = 0; col < selectController.getNumberOfColumns(); col++) {
+            setTimeout(() => {
+                const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
+                updateScrollbar(columnView);
+            }, 301); // due to animation
+        }
     });
 
     // map over columns from max colum to column 0
@@ -49,8 +55,12 @@ const projectOptionsView = (selectController) => {
                 selectController.setCursorPosition(oldOption);
             }
             for (var i = col; i >= 0; i--) {
-                const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
-                updateScrollbar(columnView);
+                setTimeout(() => {
+                    const columnView = selectController
+                        .getColumnOptionsComponent(col)
+                        .getColumnView();
+                    updateScrollbar(columnView);
+                }, 100);
             }
         });
     });

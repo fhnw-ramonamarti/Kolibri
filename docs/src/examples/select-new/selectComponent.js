@@ -1,7 +1,7 @@
 import { CategoryOption, ValueOption, nullOption }         from "./optionsModel.js";
 import { SelectController }                                from "./selectController.js";
 import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
-import { pageCss as pageCssColumn }                        from "./columnOptionsProjector.js";
+import { pageCss as pageCssColumn, updateScrollbar }       from "./columnOptionsProjector.js";
 
 export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
 
@@ -108,6 +108,8 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
             newOptions.map((opt, inx) => opt.equals(oldOptions[inx])).filter((eq) => !eq) == 0;
 
         if (areOptionsSame(selectController.getColumnOptionsComponent(col).getOptions(), options)) {
+            const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
+            updateScrollbar(columnView);
             return;
         }
 
@@ -117,6 +119,9 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
         selectController.getColumnOptionsComponent(col).clearOptions();
         selectController.getColumnOptionsComponent(col).addOptions(options);
         
+        const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
+        updateScrollbar(columnView);
+
         if (col !== 0) {
             const selectedOption = selectController
                 .getColumnOptionsComponent(col)

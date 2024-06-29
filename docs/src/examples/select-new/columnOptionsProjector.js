@@ -77,23 +77,21 @@ const updateScrollbar = (columnContainer) => {
     const styleId         = "columnStyle-" + columnContainer.getAttribute("data-id");
     const scrollTop       = columnContainer.scrollTop;
     const containerHeight =
-        columnContainer.getBoundingClientRect().height === 0
-            ? boxHeight - 10
-            : columnContainer.getBoundingClientRect().height - 10;
+        (columnContainer.getBoundingClientRect().height === 0
+            ? boxHeight
+            : columnContainer.getBoundingClientRect().height) - 10;
     const completeHeight = [...columnContainer.children]
         .map((child) =>
-            child.getBoundingClientRect().height === 0
-                ? 16
-                : child.getBoundingClientRect().height
+            child.getBoundingClientRect().height === 0 ? 0 : child.getBoundingClientRect().height
         )
         .reduce((a, b) => a + b, 0);
 
     const styleElement = document?.getElementById(styleId) ?? document.createElement("style");
-    if(null == styleElement){
+    if(null == styleElement || completeHeight <= 0){
         return;
     }
-    const barHeight = containerHeight / (completeHeight / containerHeight);
-    if (containerHeight > completeHeight) {
+    const barHeight = containerHeight / (completeHeight / containerHeight) + 10;
+    if (containerHeight > completeHeight - 10) {
         styleElement.textContent = `
             #${columnContainer.id}::after {
                 height: ${0}px;
@@ -102,6 +100,7 @@ const updateScrollbar = (columnContainer) => {
         `;
         return;
     }
+    console.log(containerHeight , completeHeight, barHeight);
 
     const top = Math.min(
         completeHeight - barHeight,
