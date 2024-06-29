@@ -103,8 +103,8 @@ const selectAttribute2 = {
  * @type { Array<CallbackType> }
  */
 const columnServiceCb2 = [
-    getCitiesByCountry,
     getCountriesByContinent,
+    getCitiesByCountry,
 ];
 const selectComponent2 = SelectComponentByCallbacks(
     selectAttribute2,
@@ -125,8 +125,8 @@ const selectAttribute3 = {
  * @type { Array<CallbackType> }
  */
 const columnServiceCb3 = [
-    getYearsByDecade, 
-    getDecades
+    getDecades,
+    getYearsByDecade,
     // testData,
     // testData
 ];
@@ -150,8 +150,8 @@ const selectAttribute4 = {
  * @type { Array<CallbackType> }
  */
 const columnServiceCb4 = [
-    getMoneyByContinent,
     getMoneyContinents,
+    getMoneyByContinent,
 ];
 const selectComponent4 = SelectComponentByCallbacks(
     selectAttribute4,
@@ -172,9 +172,9 @@ const selectAttribute5 = {
  * @type { Array<CallbackType> }
  */
 const columnServiceCb5 = [
-    getCitiesByCountry,
-    getCountriesByContinent,
     getContinents,
+    getCountriesByContinent,
+    getCitiesByCountry,
 ];
 const selectComponent5 = SelectComponentByCallbacks(
     selectAttribute5,

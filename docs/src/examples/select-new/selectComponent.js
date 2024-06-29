@@ -28,31 +28,34 @@ export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
  */
 
 /**
- * SelectComponent maintains a {@link SelectController} and it creates the view.
+ * SelectComponentByCallbacks maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * The number of the functions in the {@link serviceCallbacks} define the number of columns.
- * A selection of a category leads to unselecting all sub categories and value
+ * The number of the functions in the {@link serviceCallbacks} defines the number of columns.
+ * The order of the callbacks starts with the most general going to the specific service.
+ * A selection of a category leads to unselecting all sub categories and values
  * if they are not contained in the selected category. 
  * This component supports up to 3 columns where one contains the input values 
  * and the others may contain categories to filter the values or subcategories.
  * For a usefull performance the callback return array should not contain > 5_000 entries.
- * While the column values are loading a circular loader appears in the column.
+ * While the column values are loading a circular loader in the loadung column is provieded.
  *
  * @param { SelectAttributes }    selectAttributes
- * @param { Array<CallbackType> } serviceCallbacks - list of callbacks to support data for the columns
- * @returns { SelectComponentType } 
+ * @param { Array<CallbackType> } serviceCallbacks - list of callbacks to support the column data
+ * @returns { SelectComponentType }
  * @constructor
  * @example 
         const selectAttributes = { name: 'city', label: 'City' };
-        const component = SelectComponent(
+        const component = SelectComponentByCallbacks(
             selectAttributes,
-            [ getCitiesForCountry, getCountries ]
+            [ getCountries, getCitiesForCountry ]
         );
  */
-const SelectComponentByCallbacks = (selectAttributes, serviceCallbacks) => {
-    const selectController              = SelectController(selectAttributes, serviceCallbacks.length);
+const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToSpecific) => {
+    const serviceCallbacks = serviceCallbacksGeneralToSpecific.reverse();
+    const selectController = SelectController(selectAttributes, serviceCallbacks.length);
+
     const [componentView, selectionElement] = projectSelectViews(selectController);
-    const [labelElement, inputElement]  = componentView.children;
+    const [labelElement, inputElement]      = componentView.children;
 
     /**
      * @param { Number } col - defines if column is value or category type, 0 is value
@@ -66,7 +69,7 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacks) => {
                 : ValueOption(e?.value ?? e, e?.label);
         }
         // callback returns string
-        return col !== 0 ? CategoryOption(e) : ValueOption(e);
+        return col !== 0 ? CategoryOption(String(e)) : ValueOption(String(e));
     };
 
     // initial fill of options
@@ -161,21 +164,77 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacks) => {
 };
 
 /**
- * 
+ * SelectComponentByTableValues maintains a {@link SelectController} and it creates the view.
+ * It fills and filters the options columns by the given options table.
+ * The min number of entries each row in the {@link optionsTable} has defines the number of columns.
+ * The order of the row entries starts with the most general category going to the specific values.
+ * A selection of a category leads to unselecting all sub categories and values
+ * if they do not contain a table row with the selected category. 
+ * This component supports up to 3 columns where the most left entry of each row contains the 
+ * input values and the others contain categories to filter the values or subcategories.
+ * If a value does not have any categories, the spots must be filled with null.
+ * For a usefull performance the callback return array should not contain > 5_000 entries.
+ * While the column values are loading a circular loader in the loadung column is provieded.
+ *
  * @param { SelectAttributes } selectAttributes 
- * @param { OptionsTable } valueTable 
+ * @param { OptionsTable }     optionsTable
  * @returns { SelectComponentType }
  * @constructor
  * @example 
-        const selectAttributes = { name: 'city', label: 'City' };
-        const component = SelectComponent(
+        const selectAttributes = { name: 'region', label: 'Region' };
+        const component = SelectComponentByTableValues(
             selectAttributes,
-            [ getCitiesForCountry, getCountries ]
+            [
+                ["Switzerland", "Aargau"],
+                ["Switzerland", "Appenzell Ausserrhoden"],
+                ["Switzerland", "Appenzell Innerhoden"],
+                ["Switzerland", "Basel-Landschaft"],
+                ["Switzerland", "Basel-Stadt"],
+                ["Switzerland", "Bern"],
+                ["Switzerland", "Fribourg"],
+                ["Switzerland", "Genève"],
+                ["Switzerland", "Glarus"],
+                ["Switzerland", "Graubünden"],
+                ["Switzerland", "Jura"],
+                ["Switzerland", "Luzern"],
+                ["Switzerland", "Neuchâtel"],
+                ["Switzerland", "Nidwalden"],
+                ["Switzerland", "Obwalden"],
+                ["Switzerland", "Sankt Gallen"],
+                ["Switzerland", "Schaffhausen"],
+                ["Switzerland", "Schwyz"],
+                ["Switzerland", "Solothurn"],
+                ["Switzerland", "Thurgau"],
+                ["Switzerland", "Ticino"],
+                ["Switzerland", "Uri"],
+                ["Switzerland", "Valais"],
+                ["Switzerland", "Vaud"],
+                ["Switzerland", "Zug"],
+                ["Switzerland", "Zürich"],
+            ]
         );
  */
 const SelectComponentByTableValues = (selectAttributes, optionsTable) => {
-    // TODO: callbacks
-    const callbacks = [];
+    /**
+     * @param { Number } col 
+     * @returns { (categories: ...String) => Array<OptionDataType> } - callback to get option data 
+     */
+    const getColumnOptions =
+        (col) =>
+        (...categories) =>
+            optionsTable
+                .filter(
+                    (optionRow) =>
+                        (0 === categories.length ||
+                            0 === col ||
+                            categories.includes(optionRow[col - 1])) &&
+                        optionRow[col] != null
+                )
+                .map((optionRow) => optionRow[col]);
+
+    const callbacks = Array(Math.min(...optionsTable.map((optionsRow) => optionsRow.length)))
+        .fill("a")
+        .map((_, i) => getColumnOptions(i));
     const component = SelectComponentByCallbacks(selectAttributes, callbacks);
     return {
         ...component,

@@ -10,6 +10,7 @@ body {
     margin:     1em auto 2em auto;
     padding:    2em 4em;
     box-shadow: var(--kolibri-box-shadow);
+    min-width:  620px;
 }
 
 h1 {

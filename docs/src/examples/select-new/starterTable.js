@@ -1,3 +1,4 @@
+import { tableContinentToCity,tableCountry }     from "./DataService.js";
 import { SelectComponentByTableValues, pageCss } from "./selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
@@ -5,17 +6,6 @@ document.querySelector("head style").textContent += pageCss;
 document.addEventListener("DOMContentLoaded", () => {
     console.log("finished loading page");
 });
-
-/**
- * Big size demo data to test performance
- * @param  { ...String } elem - filter categories
- * @returns { Array<String> }
- */
-const testData = (...elem) =>
-    Array(5_000)
-        .fill("a")
-        .map((e, i) => e + i)
-        .filter(e => elem.length === 0 || elem.includes(e));
 
 
 // ----- country selection with images --------------------------------
@@ -29,9 +19,7 @@ const selectAttribute = {
 /**
  * @type { OptionsTable }
  */
-const valueTable = [
-    [], // todo
-];
+const valueTable = tableCountry;
 const selectComponent = SelectComponentByTableValues(
     selectAttribute,
     valueTable
@@ -44,16 +32,15 @@ componentImg.append(selectComponent);
  * @type { SelectAttribute }
  */
 const selectAttribute2 = {
-    name: "test",
+    name: "bigData",
     label: "Big Data",
 };
 /**
  * @type { OptionsTable }
  */
-const valueTable2 = [
-    testData(),
-    testData()
-];
+const valueTable2 = Array(5_000)
+    .fill("a")
+    .map((_, i) => [i + 1 < 10 ? null : String(i + 1).substring(0, 2) + "...", i + 1]);
 
 const selectComponent2 = SelectComponentByTableValues(
     selectAttribute2,
@@ -73,11 +60,7 @@ const selectAttribute3 = {
 /**
  * @type { OptionsTable }
  */
-const valueTable3 = [
-    [],
-    [],
-    [],
-];
+const valueTable3 = tableContinentToCity;
 const selectComponent3 = SelectComponentByTableValues(
     selectAttribute3,
     valueTable3
