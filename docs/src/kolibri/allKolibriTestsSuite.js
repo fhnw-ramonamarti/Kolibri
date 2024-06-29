@@ -20,6 +20,13 @@ import "./projector/simpleForm/simpleInputControllerTest.js"
 import "./projector/simpleForm/simpleFormControllerTest.js"
 import "./projector/simpleForm/simpleInputProjectorTest.js"
 import "./projector/simpleForm/simpleFormProjectorTest.js"
+import "./projector/selectComponent/optionsModelTest.js"
+import "./projector/selectComponent/optionsControllerTest.js"
+import "./projector/selectComponent/columnOptionsProjectorTest.js"
+import "./projector/selectComponent/columnOptionsComponentTest.js"
+import "./projector/selectComponent/selectControllerTest.js"
+import "./projector/selectComponent/selectProjectorTest.js"
+import "./projector/selectComponent/selectComponentTest.js"
 import "./sequence/sequenceTestSuite.js"
 
 // note: logger tests that need to write to the console are moved to the manual test suite.

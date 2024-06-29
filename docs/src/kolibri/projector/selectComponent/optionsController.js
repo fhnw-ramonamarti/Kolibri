@@ -1,4 +1,4 @@
-import { Observable } from "../../kolibri/observable.js";
+import { Observable }                        from "../../observable.js";
 import { OptionsModel, SelectedOptionModel } from "./optionsModel.js";
 
 export { OptionsController, SelectedOptionController };

@@ -1,4 +1,4 @@
-import { InputProjector }  from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
+import { InputProjector }  from "../simpleForm/simpleInputProjector.js";
 import { updateScrollbar } from "./columnOptionsProjector.js";
 import { iProjector }      from "./iProjector.js";
 import { nullOption }      from "./optionsModel.js";

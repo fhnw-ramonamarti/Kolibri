@@ -1,4 +1,4 @@
-import { TestSuite }        from "../../kolibri/util/test.js";
+import { TestSuite }        from "../../util/test.js";
 import {
     OptionsModel,
     SelectedOptionModel,
@@ -7,7 +7,7 @@ import {
     nullOption,
 }                           from "./optionsModel.js";
 
-const optionsModelSuite = TestSuite("projector/simpleForm/optionsModel");
+const optionsModelSuite = TestSuite("projector/selectComponent/optionsModel");
 
 optionsModelSuite.add("Value option", (assert) => {
     const valueOption = ValueOption("value", "label");

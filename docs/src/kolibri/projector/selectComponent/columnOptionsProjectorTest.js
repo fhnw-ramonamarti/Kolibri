@@ -1,9 +1,9 @@
-import { TestSuite }                                        from "../../kolibri/util/test.js";
+import { TestSuite }                                        from "../../util/test.js";
 import { projectColumnOptionsView, getHtmlElementByOption } from "./columnOptionsProjector.js";
 import { OptionsController, SelectedOptionController }      from "./optionsController.js";
 import { ValueOption, nullOption }                          from "./optionsModel.js";
 
-const columnOptionsProjectorSuite = TestSuite("projector/simpleForm/columnOptionsProjector");
+const columnOptionsProjectorSuite = TestSuite("projector/selectComponent/columnOptionsProjector");
 
 /**
  * The purpose of this binding spike is not to test all possible user interactions and their outcome 

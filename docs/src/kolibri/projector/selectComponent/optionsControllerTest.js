@@ -1,11 +1,11 @@
-import { TestSuite }               from "../../kolibri/util/test.js";
+import { TestSuite }               from "../../util/test.js";
 import {
     OptionsController,
     SelectedOptionController
 }                                  from "./optionsController.js";
 import { ValueOption, nullOption } from "./optionsModel.js";
 
-const optionsControllerSuite = TestSuite("projector/simpleForm/optionsController");
+const optionsControllerSuite = TestSuite("projector/selectComponent/optionsController");
 
 optionsControllerSuite.add("Options controller", (assert) => {
     const controller = OptionsController();

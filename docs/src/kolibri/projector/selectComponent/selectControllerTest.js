@@ -1,4 +1,4 @@
-import { TestSuite }            from "../../kolibri/util/test.js";
+import { TestSuite }            from "../../util/test.js";
 import { 
     ValueOption,
     CategoryOption,
@@ -6,7 +6,7 @@ import {
 }                               from "./optionsModel.js";
 import { SelectController }     from "./selectController.js";
 
-const selectControllerSuite = TestSuite("projector/simpleForm/selectController");
+const selectControllerSuite = TestSuite("projector/selectComponent/selectController");
 
 selectControllerSuite.add("Select controller - 1 column", (assert) => {
     const noSelectionId   = nullOption.getId();

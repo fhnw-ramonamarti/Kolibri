@@ -1,6 +1,6 @@
-import { Observable }                     from "../../kolibri/observable.js";
-import { SimpleAttributeInputController } from "../../kolibri/projector/simpleForm/simpleInputController.js";
-import { SimpleInputModel }               from "../../kolibri/projector/simpleForm/simpleInputModel.js";
+import { Observable }                     from "../../observable.js";
+import { SimpleAttributeInputController } from "../simpleForm/simpleInputController.js";
+import { SimpleInputModel }               from "../simpleForm/simpleInputModel.js";
 import { ColumnOptionsComponent }         from "./columnOptionsComponent.js";
 import { SelectedOptionController }       from "./optionsController.js";
 import { nullOption }                     from "./optionsModel.js";

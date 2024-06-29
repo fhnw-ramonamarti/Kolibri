@@ -1,7 +1,7 @@
-import { TestSuite }                                                from "../../kolibri/util/test.js";
+import { TestSuite }                                                from "../../util/test.js";
 import { SelectComponentByCallbacks, SelectComponentByTableValues } from "./selectComponent.js";
 
-const selectComponentSuite = TestSuite("projector/simpleForm/selectComponent");
+const selectComponentSuite = TestSuite("projector/selectComponent/selectComponent");
 
 const test2ColumnUiClicks = (componentElement, assert, valueDataSize, categoryDataSize) => {
     const columnsContainer        = componentElement.querySelector(".options-component");

@@ -1,7 +1,7 @@
-import { ColumnOptionsComponent }      from "./columnOptionsComponent.js";
-import { SelectedOptionController }    from "./optionsController.js";
-import { pageCss }                     from "./columnOptionsProjector.js";
-import { CategoryOption, ValueOption } from "./optionsModel.js";
+import { ColumnOptionsComponent }      from "../../kolibri/projector/selectComponent/columnOptionsComponent.js";
+import { SelectedOptionController }    from "../../kolibri/projector/selectComponent/optionsController.js";
+import { pageCss }                     from "../../kolibri/projector/selectComponent/columnOptionsProjector.js";
+import { CategoryOption, ValueOption } from "../../kolibri/projector/selectComponent/optionsModel.js";
 
 
 // value option example

@@ -7,7 +7,10 @@ import {
     getMoneyContinents,
     getYearsByDecade,
 }                                              from "./DataService.js";
-import { SelectComponentByCallbacks, pageCss } from "./selectComponent.js";
+import {
+    SelectComponentByCallbacks,
+    pageCss,
+} from "../../kolibri/projector/selectComponent/selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 

@@ -1,5 +1,8 @@
 import { tableContinentToCity,tableCountry }     from "./DataService.js";
-import { SelectComponentByTableValues, pageCss } from "./selectComponent.js";
+import {
+    SelectComponentByTableValues,
+    pageCss,
+} from "../../kolibri/projector/selectComponent/selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 
