@@ -178,6 +178,7 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
  *
  * @param { SelectAttributes } selectAttributes 
  * @param { OptionsTable }     optionsTable
+ * @param { Boolean }          sortColumnOptionsAlphabetical
  * @returns { SelectComponentType }
  * @constructor
  * @example 
@@ -211,18 +212,23 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
                 ["Switzerland", "Vaud"],
                 ["Switzerland", "Zug"],
                 ["Switzerland", "Zürich"],
-            ]
+            ],
+            true
         );
  */
-const SelectComponentByTableValues = (selectAttributes, optionsTable) => {
+const SelectComponentByTableValues = (
+    selectAttributes,
+    optionsTable,
+    sortColumnOptionsAlphabetical = false
+) => {
     /**
-     * @param { Number } col 
-     * @returns { (categories: ...String) => Array<OptionDataType> } - callback to get option data 
+     * @param { Number } col
+     * @returns { (categories: ...String) => Array<OptionDataType> } - callback to get option data
      */
     const getColumnOptions =
         (col) =>
-        (...categories) =>
-            optionsTable
+        (...categories) => {
+            const options = optionsTable
                 .filter(
                     (optionRow) =>
                         (0 === categories.length ||
@@ -231,6 +237,10 @@ const SelectComponentByTableValues = (selectAttributes, optionsTable) => {
                         optionRow[col] != null
                 )
                 .map((optionRow) => optionRow[col]);
+            return sortColumnOptionsAlphabetical
+                ? options.sort((a, b) => a.localeCompare(b))
+                : options;
+        };
 
     const callbacks = Array(Math.min(...optionsTable.map((optionsRow) => optionsRow.length)))
         .fill("a")
@@ -240,7 +250,7 @@ const SelectComponentByTableValues = (selectAttributes, optionsTable) => {
     return {
         ...component,
     };
-}
+};
 
 /**
  * CSS snippet to append to the head style when using the select component.

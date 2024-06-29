@@ -1,11 +1,26 @@
 
-export { projectColumnOptionsView, pageCss, getHtmlElementByOption, elementDataLabel };
+export {
+    projectColumnOptionsView,
+    pageCss,
+    getHtmlElementByOption,
+    elementDataLabel,
+    updateScrollbar,
+};
 
 /** @private */
 const columnClassName = 'options-column';
 
 /** @private */
 const optionClassName = columnClassName + '-item';
+
+/** 
+ * Height of the column box
+ * @private
+ */
+const boxHeight = 240;
+
+/** @private */
+let id = 0;
 
 
 /**
@@ -55,6 +70,54 @@ const getHtmlElementByOption = (option, rootElement) => {
     );
 };
 
+/**
+ * @param { HTMLDivElement } columnContainer - container to update scrollbar style
+ */
+const updateScrollbar = (columnContainer) => {
+    const styleId         = "columnStyle-" + columnContainer.getAttribute("data-id");
+    const scrollTop       = columnContainer.scrollTop;
+    const containerHeight =
+        columnContainer.getBoundingClientRect().height === 0
+            ? boxHeight - 10
+            : columnContainer.getBoundingClientRect().height - 10;
+    const completeHeight = [...columnContainer.children]
+        .map((child) =>
+            child.getBoundingClientRect().height === 0
+                ? 16
+                : child.getBoundingClientRect().height
+        )
+        .reduce((a, b) => a + b, 0);
+
+    const styleElement = document?.getElementById(styleId) ?? document.createElement("style");
+    if(null == styleElement){
+        return;
+    }
+    const barHeight = containerHeight / (completeHeight / containerHeight);
+    if (containerHeight > completeHeight) {
+        styleElement.textContent = `
+            #${columnContainer.id}::after {
+                height: ${0}px;
+                top: ${5}px;
+            }
+        `;
+        return;
+    }
+
+    const top = Math.min(
+        completeHeight - barHeight,
+        scrollTop + (scrollTop / completeHeight) * containerHeight
+    );
+    styleElement.textContent = `
+        #${columnContainer.id}::after {
+            height: ${Math.floor(barHeight)}px;
+            top: ${5 + Math.floor(top)}px;
+        }
+        #${columnContainer.id} {
+            padding-right: 10px;
+        }
+    `;
+}
+
 
 /**
  * Create the column view, bind against the controller, and return the view.
@@ -79,10 +142,13 @@ const projectColumnOptionsView = (
     cursorPositionController,
     columnNumber = 0
 ) => {
+    const columnId        = id++;
     const columnContainer = document.createElement("div");
+    columnContainer.id    = columnClassName + "-" + columnId;
     columnContainer.classList.add(columnClassName);
     columnContainer.classList.add(columnClassName + "-" + columnNumber);
     columnContainer.setAttribute("data-column", `${columnNumber}`);
+    columnContainer.setAttribute("data-id", `${columnId}`);
 
     if (columnNumber === 0) {
         columnContainer.classList.add("value-" + columnClassName);
@@ -105,7 +171,7 @@ const projectColumnOptionsView = (
             cursorPositionController
         );
         // hide options initially not visible in column
-        if (optionsController.getOptions().length > 200) {
+        if (optionsController.getOptions().length > 150) {
             rowElement.classList.toggle(notVisibleClass, true);
         }
         columnContainer.append(rowElement);
@@ -117,11 +183,20 @@ const projectColumnOptionsView = (
         }
     };
 
+    // specific positioning styles for scrollbar
+    const styleElement = document.createElement("style");
+    styleElement.id    = "columnStyle-" + columnId;
+    document.querySelector("head").append(styleElement);
+    updateScrollbar(columnContainer);
+
     let oldScrollPosition = 0;
 
     // show options on scroll
     const scroll = (_) => {
         const newScrollPosition = columnContainer.scrollTop;
+
+        updateScrollbar(columnContainer);
+
         for (let i = 0; i < 20; i++) {
             if (newScrollPosition > oldScrollPosition) {
                 // scrolling down
@@ -247,11 +322,6 @@ const removeOptionItem = (root) => option => {
     }
 };
 
-/** 
- * Height of the column box
- * @private
- */
-const boxHeight = 240;
 
 /**
  * CSS snippet to append to the head style when using the component.
@@ -286,6 +356,7 @@ const pageCss = `
     }
 
     .${columnClassName} {
+        position:       relative;
         width:          100%;
         /* max-width:      100%; */
         overflow-y:     scroll;
@@ -297,23 +368,36 @@ const pageCss = `
         flex-shrink:    1;
 
         &:not(:last-child) {
-            border-right: 1px solid #ccc; /* todo */
+            border-right: 1px solid #ccc;
             flex-grow:      1;
+        }
+        
+        &::after {
+            content:             " ";
+            width:              5px;
+            right:              2px;
+            background-color:   #ccc;
+            border-radius:      5px;
+            position:           absolute;
+            z-index:            3;
         }
 
         /* styling for scroll bar */
-        scrollbar-color: #ccc #fff;
+        /* scrollbar-color: #ccc #fff; */
+        scrollbar-color: transparent transparent;
         scrollbar-width: thin;
         
         &::-webkit-scrollbar {
             /* width:      4px; */
+            width:      0;
         }
 
         &::-webkit-scrollbar-track {
         }
     
         &::-webkit-scrollbar-thumb {
-            background-color: #ccc; /* todo */
+            /* background-color: #ccc; */
+            background-color: transparent;
         }
     }
     

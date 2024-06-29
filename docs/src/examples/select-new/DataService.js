@@ -321,7 +321,6 @@ const tableContinentToCity = [
     ["North America", "Anguilla", "South Cay"],
     ["North America", "Anguilla", "South Wager Island"],
     ["North America", "Anguilla", "West Cay"],
-    ["Antarctica", "Antarctica", "Antarctica"],
     ["North America", "Antigua and Barbuda", "Antigua Island"],
     ["North America", "Antigua and Barbuda", "Barbuda Island"],
     ["North America", "Antigua and Barbuda", "Bird Island"],

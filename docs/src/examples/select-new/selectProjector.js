@@ -1,6 +1,7 @@
-import { InputProjector } from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
-import { iProjector }     from "./iProjector.js";
-import { nullOption }     from "./optionsModel.js";
+import { InputProjector }  from "../../kolibri/projector/simpleForm/simpleInputProjector.js";
+import { updateScrollbar } from "./columnOptionsProjector.js";
+import { iProjector }      from "./iProjector.js";
+import { nullOption }      from "./optionsModel.js";
 
 export { projectSelectViews, pageCss };
 
@@ -47,6 +48,10 @@ const projectOptionsView = (selectController) => {
             } else if (nullOption.getId() !== oldOption.getId()) {
                 selectController.setCursorPosition(oldOption);
             }
+            for (var i = col; i >= 0; i--) {
+                const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
+                updateScrollbar(columnView);
+            }
         });
     });
 
@@ -72,7 +77,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 
     // specific positioning styles for popover
     const styleElement = document.createElement("style");
-    styleElement.id    = "popoverStyle";
+    styleElement.id    = selectController.getId() + "-popoverStyle";
     document.querySelector("head").append(styleElement);
 
     /**
@@ -266,7 +271,6 @@ const boxHeight = 240;
  * Link to the folder with the svg icons 
  * @private
  */
-// const iconFolderUrl = "../../../img/icons/";
 const iconFolderUrl = "https://fhnw-ramonamarti.github.io/Kolibri/img/icons/";
 
 /**
@@ -297,7 +301,7 @@ const popoverStyle = `
         z-index:        20;
         max-height:     ${boxHeight}px;
         border-radius:  0 0 4px 4px;
-        border:         1px solid #ccc; /* todo */
+        border:         1px solid #ccc; 
         border-top:     none;
         background:     #fff;
         overflow:       hidden;
@@ -343,7 +347,7 @@ const pageCss = `
         width:          100%;
         height:         2rem;
 
-        border:         1px solid #ccc; /* todo */
+        border:         1px solid #ccc; 
         border-radius:  4px;
 
         &.opened {
@@ -414,6 +418,7 @@ const pageCss = `
 
             button& {
                 background-image:    url("${iconFolderUrl}kolibri-select-closed.svg");
+                /* background-image:    url("${iconFolderUrl}kolibri-select-arrow-down.svg"); */
                 background-size:     1em;
                 background-repeat:   no-repeat;
                 background-position: center center;
@@ -429,6 +434,7 @@ const pageCss = `
 
         &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
             background-image: url("${iconFolderUrl}kolibri-select-opened.svg");
+            /* background-image: url("${iconFolderUrl}kolibri-select-arrow-up.svg"); */
         }
 
         /* for invisibility and not clickable */

@@ -1,4 +1,4 @@
-import { projectColumnOptionsView }                    from "./columnOptionsProjector.js";
+import { projectColumnOptionsView, updateScrollbar }   from "./columnOptionsProjector.js";
 import { OptionsController, SelectedOptionController } from "./optionsController.js";
 
 export { ColumnOptionsComponent };
@@ -66,12 +66,13 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const addAllOptions = (options) => {
         const placeHolder = createHolder();
         columnView.replaceWith(placeHolder);
-        if(options.length > 200){
+        if(options.length > 50){
             setTimeout(
                 () => {
                     options.forEach((option) => {
                         optionsController.addOption(option);
                     });
+                    updateScrollbar(columnView);
                     placeHolder.replaceWith(columnView);
                 }, 80
             );
@@ -80,6 +81,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
                 optionsController.addOption(option);
             });
             placeHolder.replaceWith(columnView);
+            updateScrollbar(columnView);
         }
     };
 
@@ -93,6 +95,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
             optionsController.delOption(option);
         });
         placeHolder.replaceWith(columnView);
+        updateScrollbar(columnView);
     };
 
     const clearOptions = () => {
@@ -102,6 +105,7 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
             optionsController.delOption(option);
         });
         placeHolder.replaceWith(columnView);
+        updateScrollbar(columnView);
     }
 
     return {

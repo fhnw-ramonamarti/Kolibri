@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("finished loading page");
 });
 
+/** @type { Number } */
+const bigDataSize = 5_000;
+
 
 // ----- country selection with images --------------------------------
 /**
@@ -14,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
  */
 const selectAttribute = {
     name: "country",
-    label: "Country Img",
+    label: "Country",
 };
 /**
  * @type { OptionsTable }
@@ -38,7 +41,7 @@ const selectAttribute2 = {
 /**
  * @type { OptionsTable }
  */
-const valueTable2 = Array(5_000)
+const valueTable2 = Array(bigDataSize)
     .fill("a")
     .map((_, i) => [i + 1 < 10 ? null : String(i + 1).substring(0, 2) + "...", i + 1]);
 
@@ -60,10 +63,11 @@ const selectAttribute3 = {
 /**
  * @type { OptionsTable }
  */
-const valueTable3 = tableContinentToCity;
+const valueTable3 = tableContinentToCity.slice(200, 700);
 const selectComponent3 = SelectComponentByTableValues(
     selectAttribute3,
-    valueTable3
+    valueTable3,
+    true
 ).getComponentView();
 const componentCity    = document.getElementById("componentCity");
 componentCity.append(selectComponent3);
