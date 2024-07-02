@@ -108,8 +108,8 @@ selectComponentSuite.add("Select component callbacks - disabled", (assert) => {
     const selectionValue        = componentElement.querySelector('.selected-value')?.innerHTML;
     const inputValue            = componentElement.querySelector('input')?.value;
     assert.is(null == selectedElementAfter , true);
-    assert.is("" == selectionValue         , true);
-    assert.is("" == inputValue             , true);
+    assert.is("" === selectionValue         , true);
+    assert.is("" === inputValue             , true);
 });
 
 selectComponentSuite.add("Select component table - 2 column", (assert) => {
@@ -123,9 +123,9 @@ selectComponentSuite.add("Select component table - 2 column", (assert) => {
         [null        , "Value 31"],
     ];
     const valueDataSize = (category) =>
-        category == null ? table.length : table.filter((row) => row[0] == category).length;
+        category == null ? table.length : table.filter((row) => row[0] === category).length;
     const categoryDataSize = [
-        ...new Set(table.map((row) => row[0]).filter((cateory) => null != cateory)),
+        ...new Set(table.map((row) => row[0]).filter((category) => null != category)),
     ].length;
     const componentElement = SelectComponentByTableValues(
         selectAttribute,

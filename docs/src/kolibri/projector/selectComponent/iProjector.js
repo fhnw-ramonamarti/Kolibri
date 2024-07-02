@@ -175,7 +175,7 @@ const iProjector = (rootElement, componentController) => {
                 componentController.setCursorPosition(newOptions[0]);
             }
         }
-    }; //mitn column variable arbeitn 1 erhöhen oder tiefen und dann columncomponent holen und schauen ob getselected exisitert als curserpos setzen und wenn keins gefungen wird first child nehmen von column column als element holen mit col 0 und 1 siehe im UI dann umwandeln zum damit arbeiten
+    }; //mitn column variable arbeitn 1 erhöhen oder tiefen und dann columncomponent holen und schauen ob getselected exisitert als curserpos setzen und wenn keins gefungen wird first child nehmen von column, column als element holen mit col 0 und 1 siehe im UI dann umwandeln zum damit arbeiten
 
     const selectCursorPos = () => {
         const cursorModel = componentController.getCursorPosition();

@@ -1,8 +1,5 @@
-import { tableContinentToCity,tableCountry }     from "./DataService.js";
-import {
-    SelectComponentByTableValues,
-    pageCss,
-} from "../../kolibri/projector/selectComponent/selectComponent.js";
+import {tableContinentToCity, tableCountry} from "./DataService.js";
+import {pageCss, SelectComponentByTableValues,} from "../../kolibri/projector/selectComponent/selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 
@@ -16,35 +13,29 @@ const bigDataSize = 5_000;
 
 // ----- country selection with images --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute = {
     name: "country",
     label: "Country",
 };
-/**
- * @type { OptionsTable }
- */
-const valueTable = tableCountry;
+
 const selectComponent = SelectComponentByTableValues(
     selectAttribute,
-    valueTable
+    tableCountry
 ).getComponentView();
 const componentImg    = document.getElementById("componentImg");
 componentImg.append(selectComponent);
 
 // ----- big test data selection 2 column --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute2 = {
     name: "bigData",
     label: "Big Data",
 };
-/**
- * @type { OptionsTable }
- */
-const valueTable2 = Array(bigDataSize)
+const valueTable2 = /** @type { OptionsTable } */ Array(bigDataSize)
     .fill("a")
     .map((_, i) => [i + 1 < 10 ? null : String(i + 1).substring(0, 2) + "...", i + 1]);
 
@@ -57,16 +48,14 @@ componentYear.append(selectComponent2);
 
 // ----- city selection 3 columns --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute3 = {
-    name: "city",
-    label: "City",
+    name: "region",
+    label: "Region (demo slice)",
 };
-/**
- * @type { OptionsTable }
- */
-const valueTable3 = tableContinentToCity.slice(200, 700);
+const valueTable3 = tableContinentToCity.slice(0, 500);
+
 const selectComponent3 = SelectComponentByTableValues(
     selectAttribute3,
     valueTable3,

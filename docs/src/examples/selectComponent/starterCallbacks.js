@@ -18,21 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("finished loading page");
 });
 
-/**
- * Big size demo data to test performance
- * @param  { ...String } elem - filter categories
- * @returns { Array<String> }
- */
-const testData = (...elem) =>
-    Array(5_000)
-        .fill("a")
-        .map((e, i) => e + i)
-        .filter(e => elem.length === 0 || elem.includes(e));
-
 
 // ----- continent selection --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute = {
     name: "continent",
@@ -43,7 +32,6 @@ const selectAttribute = {
  */
 const columnServiceCb = [
     getContinents,
-    // testData
 ];
 const selectComponent = SelectComponentByCallbacks(
     selectAttribute,
@@ -54,7 +42,7 @@ componentContinent.append(selectComponent);
 
 // ----- city selection form --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute1_2 = {
     name: "country",
@@ -80,7 +68,7 @@ componentForm.append(submit);
 
 // ----- city selection form --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute1_3 = {
     name: "country",
@@ -96,7 +84,7 @@ disabledComponent.append(selectComponent1_3);
 
 // ----- city selection --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute2 = {
     name: "city",
@@ -118,7 +106,7 @@ componentCountry.append(selectComponent2);
 
 // ----- decade selection --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute3 = {
     name: "year",
@@ -143,7 +131,7 @@ componentYear.append(selectComponent3);
 
 // ----- currency selection with images --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute4 = {
     name: "money",
@@ -165,7 +153,7 @@ componentImg.append(selectComponent4);
 
 // ----- city selection 3 columns --------------------------------
 /**
- * @type { SelectAttribute }
+ * @type { SelectAttributes }
  */
 const selectAttribute5 = {
     name: "city",

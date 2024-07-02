@@ -11,7 +11,7 @@ export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
  */
 
 /**
- * @typedef { (categories: ...String) => Array<OptionDataType>>} CallbackType
+ * @typedef { (...String) => Array<OptionDataType> } CallbackType
  */
 
 /**
@@ -21,26 +21,26 @@ export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
 
 /**
  * @typedef SelectComponentType
- * @property { () => SelectComponentType } getSelectController
- * @property { () => HTMLDivElement }      getComponentView
- * @property { () => HTMLDivElement }      getLabelViewPartOfComponent
- * @property { () => HTMLDivElement }      getInputViewPartOfComponent
+ * @property { () => SelectControllerType } getSelectController
+ * @property { () => HTMLDivElement }       getComponentView
+ * @property { () => HTMLLabelElement }     getLabelViewPartOfComponent
+ * @property { () => HTMLDivElement }       getInputViewPartOfComponent
  */
 
 /**
  * SelectComponentByCallbacks maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns with the callback functions.
- * The number of the functions in the {@link serviceCallbacks} defines the number of columns.
+ * The number of the functions in the `serviceCallbacksGeneralToSpecific` defines the number of columns.
  * The order of the callbacks starts with the most general going to the specific service.
  * A selection of a category leads to unselecting all sub categories and values
  * if they are not contained in the selected category. 
  * This component supports up to 3 columns where one contains the input values 
  * and the others may contain categories to filter the values or subcategories.
- * For a usefull performance the callback return array should not contain > 5_000 entries.
- * While the column values are loading a circular loader in the loadung column is provieded.
+ * For a good performance the callback return array should not contain > 5_000 entries.
+ * While the column values are loading a circular loader in the loading column is provided.
  *
  * @param { SelectAttributes }    selectAttributes
- * @param { Array<CallbackType> } serviceCallbacks - list of callbacks to support the column data
+ * @param { Array<CallbackType> } serviceCallbacksGeneralToSpecific - list of callbacks to support the column data
  * @returns { SelectComponentType }
  * @constructor
  * @example 
@@ -59,7 +59,7 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
 
     /**
      * @param { Number } col - defines if column is value or category type, 0 is value
-     * @returns { (CallbackReturnType) => OptionType }
+     * @returns { (OptionDataType) => OptionType }
      */
     const mapping = (col) => (e) => {
         if (null != e?.label || null != e?.value) {
@@ -93,19 +93,22 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
      * @param { Number }            col 
      * @param { Array<OptionType> } filterCategories 
      */
-    const filterOptions = (col, filterCategories) => {        
+    const filterOptions = (col, filterCategories) => {
+        if(col >= serviceCallbacks.length){
+            return;
+        }
         const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
         const searchCategories = filterCategories?.map(option => option.getLabel()) ?? [];
         const options = serviceCallbacks[col](...searchCategories).map(mapping(col));
 
         /**
-         * @param { Array<OptionType> } oldOptions 
-         * @param { Array<OptionType> } newOptions 
+         * @param { Array<OptionType> } oldOpts 
+         * @param { Array<OptionType> } newOpts 
          * @returns { Boolean }
          */
-        const areOptionsSame = (oldOptions, newOptions) =>
-            oldOptions.map((opt, inx) => opt.equals(newOptions[inx])).filter((eq) => !eq) == 0 &&
-            newOptions.map((opt, inx) => opt.equals(oldOptions[inx])).filter((eq) => !eq) == 0;
+        const areOptionsSame = (oldOpts, newOpts) =>
+            oldOpts.map((opt, inx) => opt.equals(newOpts[inx])).filter((eq) => !eq).length === 0 &&
+            newOpts.map((opt, inx) => opt.equals(oldOpts[inx])).filter((eq) => !eq).length === 0;
 
         if (areOptionsSame(selectController.getColumnOptionsComponent(col).getOptions(), options)) {
             const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
@@ -163,23 +166,23 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
     return {
         getSelectController        : () => selectController,
         getComponentView           : () => componentView,
-        getLabelViewPartOfComponent: () => labelElement,
-        getInputViewPartOfComponent: () => inputElement
+        getLabelViewPartOfComponent: () => /** @type { HTMLLabelElement } */ labelElement,
+        getInputViewPartOfComponent: () => /** @type { HTMLDivElement } */ inputElement
     };
 };
 
 /**
  * SelectComponentByTableValues maintains a {@link SelectController} and it creates the view.
  * It fills and filters the options columns by the given options table.
- * The min number of entries each row in the {@link optionsTable} has defines the number of columns.
+ * The min number of entries each row in the `optionsTable` has defines the number of columns.
  * The order of the row entries starts with the most general category going to the specific values.
  * A selection of a category leads to unselecting all sub categories and values
  * if they do not contain a table row with the selected category. 
  * This component supports up to 3 columns where the most left entry of each row contains the 
  * input values and the others contain categories to filter the values or subcategories.
  * If a value does not have any categories, the spots must be filled with null.
- * For a usefull performance the callback return array should not contain > 5_000 entries.
- * While the column values are loading a circular loader in the loadung column is provieded.
+ * For a good performance the callback return array should not contain > 5_000 entries.
+ * While the column values are loading a circular loader in the loading column is provided.
  *
  * @param { SelectAttributes } selectAttributes 
  * @param { OptionsTable }     optionsTable
@@ -192,30 +195,11 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
             selectAttributes,
             [
                 ["Switzerland", "Aargau"],
-                ["Switzerland", "Appenzell Ausserrhoden"],
-                ["Switzerland", "Appenzell Innerhoden"],
                 ["Switzerland", "Basel-Landschaft"],
                 ["Switzerland", "Basel-Stadt"],
                 ["Switzerland", "Bern"],
-                ["Switzerland", "Fribourg"],
-                ["Switzerland", "Genève"],
-                ["Switzerland", "Glarus"],
-                ["Switzerland", "Graubünden"],
                 ["Switzerland", "Jura"],
-                ["Switzerland", "Luzern"],
-                ["Switzerland", "Neuchâtel"],
-                ["Switzerland", "Nidwalden"],
-                ["Switzerland", "Obwalden"],
-                ["Switzerland", "Sankt Gallen"],
-                ["Switzerland", "Schaffhausen"],
-                ["Switzerland", "Schwyz"],
                 ["Switzerland", "Solothurn"],
-                ["Switzerland", "Thurgau"],
-                ["Switzerland", "Ticino"],
-                ["Switzerland", "Uri"],
-                ["Switzerland", "Valais"],
-                ["Switzerland", "Vaud"],
-                ["Switzerland", "Zug"],
                 ["Switzerland", "Zürich"],
             ],
             true
@@ -228,7 +212,7 @@ const SelectComponentByTableValues = (
 ) => {
     /**
      * @param { Number } col
-     * @returns { (categories: ...String) => Array<OptionDataType> } - callback to get option data
+     * @returns { (...String) => Array<OptionDataType> } - callback to get option data
      */
     const getColumnOptions =
         (col) =>

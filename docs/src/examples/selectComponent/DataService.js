@@ -94,12 +94,10 @@ const getMoneyByContinent = (...continents) => {
         { money: 'Yen'          , continent: "Asia"   , img: "https://www.countryflags.com/wp-content/uploads/japan-flag-png-large.png" },
     ];
     const returnData = data.filter((e) => continents.length === 0 || continents.includes(e.continent))
-    return false
-            ? returnData.map((e) => e.money)
-            : returnData.map((e) => ({ 
-                value: e.money, 
-                label: `<img src="${e.img}" alt="${e.money}"> ${e.money}` 
-            }));
+    return returnData.map((e) => ({
+        value: e.money,
+        label: `<img src="${e.img}" alt="${e.money}"> ${e.money}`,
+    }));
 };
 
 /**

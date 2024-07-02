@@ -1,7 +1,7 @@
-import { InputProjector }  from "../simpleForm/simpleInputProjector.js";
-import { updateScrollbar } from "./columnOptionsProjector.js";
-import { iProjector }      from "./iProjector.js";
-import { nullOption }      from "./optionsModel.js";
+import {InputProjector} from "../simpleForm/simpleInputProjector.js";
+import {updateScrollbar} from "./columnOptionsProjector.js";
+import {iProjector} from "./iProjector.js";
+import {nullOption} from "./optionsModel.js";
 
 export { projectSelectViews, pageCss };
 
@@ -54,7 +54,7 @@ const projectOptionsView = (selectController) => {
             } else if (nullOption.getId() !== oldOption.getId()) {
                 selectController.setCursorPosition(oldOption);
             }
-            for (var i = col; i >= 0; i--) {
+            for (let i = col; i >= 0; i--) {
                 setTimeout(() => {
                     const columnView = selectController
                         .getColumnOptionsComponent(col)
@@ -137,8 +137,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 
     selectController.onOptionsVisibilityChange((newValue) => {
         if (newValue) {
-            const selectElement = rootElement;
-            positionPopover(selectElement, popoverElement.id);
+            positionPopover(rootElement, popoverElement.id);
         }
     });
 
@@ -209,7 +208,7 @@ const projectSelectViews = (selectController) => {
     });
 
     const inputElement = inputSpan.querySelector("input");
-    inputElement.setAttribute("required", selectController.isRequired());
+    inputElement.setAttribute("required", "" + selectController.isRequired());
     inputElement.setAttribute("tabindex", "-1");
     inputElement.setAttribute(
         "style",
@@ -221,7 +220,7 @@ const projectSelectViews = (selectController) => {
     );
     inputElement.addEventListener("keydown paste focus mousedown", (e) => {
         // read-only on input not working with required
-        // used for read-only functionality on input
+        // for read-only functionality on input
         e.preventDefault();
     });
     inputElement.addEventListener("focus", (_) => {

@@ -25,13 +25,13 @@ const OptionsController = () => {
 
     const optionsModel = OptionsModel();
 
-    return {
-        getOptions      : optionsModel.getList,
+    return /** @type { OptionsControllerType } */ {
+        getOptions : optionsModel.getList,
 
-        addOption       : optionsModel.getObsList().add,
-        delOption       : optionsModel.getObsList().del,
-        onOptionAdd     : optionsModel.getObsList().onAdd,
-        onOptionDel     : optionsModel.getObsList().onDel,
+        addOption  : optionsModel.getObsList().add,
+        delOption  : optionsModel.getObsList().del,
+        onOptionAdd: optionsModel.getObsList().onAdd,
+        onOptionDel: optionsModel.getObsList().onDel,
     }
 };
 
@@ -73,7 +73,7 @@ const SelectedOptionController = () => {
         }
     };
 
-    return {
+    return /** @type { SelectedOptionControllerType } */ {
         getSelectedOption  : selectedOptionModel.getSelectedOption,
         setSelectedOption  : setSelectedOption,
         clearSelectedOption: clearSelectedOption,

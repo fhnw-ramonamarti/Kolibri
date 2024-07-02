@@ -5,21 +5,21 @@ export { ColumnOptionsComponent };
 
 /**
  * @typedef ColumnOptionsComponentType
- * @property { () => Array<OptionType> }          getOptions
- * @property { (Array<OptionType>) => void }      addOptions
- * @property { (Array<OptionType>) => void }      delOptions
- * @property { () => void }                       clearOptions
+ * @property { () => Array<OptionType> }           getOptions
+ * @property { (opts: Array<OptionType>) => void } addOptions
+ * @property { (opts: Array<OptionType>) => void } delOptions
+ * @property { () => void }                        clearOptions
 
- * @property { ()  => OptionType }                getSelectedOption
- * @property { (OptionType)  => void }            setSelectedOption
- * @property { ()  => void }                      clearSelectedOption
+ * @property { ()  => OptionType }                 getSelectedOption
+ * @property { (OptionType)  => void }             setSelectedOption
+ * @property { ()  => void }                       clearSelectedOption
  * @property { (cb: ValueChangeCallback<OptionType>) => void } onOptionSelected
  
- * @property { ()  => Boolean }                   isSelectedOptionDisabled
- * @property { (Boolean) => void }                setSelectedOptionDisabled
+ * @property { ()  => Boolean }                    isSelectedOptionDisabled
+ * @property { (Boolean) => void }                 setSelectedOptionDisabled
  * @property { (cb: ValueChangeCallback<Boolean>) => void }    onSelectedOptionDisabledChanged
 
- * @property { () => HTMLDivElement }             getColumnView
+ * @property { () => HTMLDivElement }              getColumnView
  */
 
 /**

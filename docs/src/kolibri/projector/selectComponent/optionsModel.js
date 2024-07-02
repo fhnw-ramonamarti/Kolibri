@@ -18,10 +18,23 @@ let idCounter = 0;
 
 /**
  * @typedef OptionType
- * @property { () => String } getValue                 - selectable value of the input
- * @property { () => String } getLabel                 - visible label of the input
- * @property { () => String } getId                    - unique identifier of the option 
- * @property { (other: OptionType) => Boolean } equals - true if label and value are the same
+ * @property { () => String } getValue          - selectable value of the input
+ * @property { () => String } getLabel          - visible label of the input
+ * @property { () => String } getId             - unique identifier of the option
+ * @property { ({ Object }) => Boolean } equals - true if label and value are the same
+ * Initial the OptionType has no unique id
+ */
+
+/**
+ * @private
+ * @typedef OptionTypeCreateId
+ * @property { () => void } createId - creates a unique id for the option
+ * This function only creates the id once and does not do anything afterwords.
+ */
+
+/**
+ * @private
+ * @typedef { OptionType & OptionTypeCreateId } OptionTypeWithCreateId
  */
 
 /**
@@ -33,7 +46,9 @@ let idCounter = 0;
  * @returns { OptionType }
  */
 const Option = (value, label) => {
+    /** @type { (OptionType) => Boolean } */
     const equals = (other) => label === other?.getLabel() && value === other?.getValue();
+
     if (null == value) {
         const id = "OptionNull";
         return {
@@ -43,6 +58,7 @@ const Option = (value, label) => {
             equals  : equals,
         }
     }
+
     let id = "";
     return {
         getValue: () => value,
@@ -100,9 +116,9 @@ const OptionsModel = () => {
     const allEverAddedOptions = {}; // no options ever removed
 
     /**
-     * `allEverAddedOptions`is used to preserve the id if the value-label pair was added earlier.
+     * `allEverAddedOptions` is used to preserve the id if the value-label pair was added earlier.
      * Only options with unique value-label pairs can be added.
-     * @param { OptionType } option - option to add with created id
+     * @param { OptionTypeWithCreateId } option - option to add with created id
      */
     const addOption = (option) => {
         if (null == option) {
