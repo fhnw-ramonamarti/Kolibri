@@ -66,22 +66,20 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
     const addAllOptions = (options) => {
         const placeHolder = createHolder();
         columnView.replaceWith(placeHolder);
-        if(options.length > 50){
-            setTimeout(
-                () => {
-                    options.forEach((option) => {
-                        optionsController.addOption(option);
-                    });
-                    updateScrollbar(columnView);
-                    placeHolder.replaceWith(columnView);
-                }, 80
-            );
+        if (options.length > 50) {
+            setTimeout(() => {
+                options.forEach((option) => {
+                    optionsController.addOption(option);
+                });
+                updateScrollbar(columnView);
+                placeHolder.replaceWith(columnView);
+            }, 80);
         } else {
             options.forEach((option) => {
                 optionsController.addOption(option);
             });
-            placeHolder.replaceWith(columnView);
             updateScrollbar(columnView);
+            placeHolder.replaceWith(columnView);
         }
     };
 
