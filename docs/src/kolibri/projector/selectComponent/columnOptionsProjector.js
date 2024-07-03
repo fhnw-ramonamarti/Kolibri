@@ -416,6 +416,7 @@ const pageCss = `
 
         &.invisible {
             display:    none;
+            content-visibility: auto;
         }
 
         img {
