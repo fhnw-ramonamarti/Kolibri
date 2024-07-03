@@ -1,7 +1,7 @@
-import {InputProjector} from "../simpleForm/simpleInputProjector.js";
-import {updateScrollbar} from "./columnOptionsProjector.js";
-import {iProjector} from "./iProjector.js";
-import {nullOption} from "./optionsModel.js";
+import { InputProjector }  from "../simpleForm/simpleInputProjector.js";
+import { updateScrollbar } from "./columnOptionsProjector.js";
+import { iProjector }      from "./iProjector.js";
+import { nullOption }      from "./optionsModel.js";
 
 export { projectSelectViews, pageCss };
 
@@ -54,7 +54,7 @@ const projectOptionsView = (selectController) => {
             } else if (nullOption.getId() !== oldOption.getId()) {
                 selectController.setCursorPosition(oldOption);
             }
-            for (let i = col; i >= 0; i--) {
+            for (var i = col; i >= 0; i--) {
                 setTimeout(() => {
                     const columnView = selectController
                         .getColumnOptionsComponent(col)
@@ -137,7 +137,8 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 
     selectController.onOptionsVisibilityChange((newValue) => {
         if (newValue) {
-            positionPopover(rootElement, popoverElement.id);
+            const selectElement = rootElement;
+            positionPopover(selectElement, popoverElement.id);
         }
     });
 
@@ -271,16 +272,36 @@ const projectSelectViews = (selectController) => {
 
 
 /**
+ * Svg of opened status of the select component
+ * @private
+ */
+const arrowUpIcon =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">?` +
+    `<path d="M 5 16  L 12 9  L 19 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />` +
+    `</svg>`;
+
+/**
+ * Svg of closed status of the select component
+ * @private
+ */
+const arrowDownIcon =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">` +
+    `<path d="M 5 9  L 12 16  L 19 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />` +
+    `</svg>`;
+
+/**
+ * Helper to create background url for svg element
+ * @private
+ * @param { String } svg
+ * @returns { String }
+ */
+const svgToUrl = (svg) => `url('data:image/svg+xml,${svg}')`;
+
+/**
  * Height of the master list box
  * @private
  */
 const boxHeight = 240;
-
-/**
- * Link to the folder with the svg icons 
- * @private
- */
-const iconFolderUrl = "https://fhnw-ramonamarti.github.io/Kolibri/img/icons/";
 
 /**
  * Styles popover depending properties
@@ -426,8 +447,7 @@ const pageCss = `
             align-items: center;
 
             button& {
-                background-image:    url("${iconFolderUrl}kolibri-select-closed.svg");
-                /* background-image:    url("${iconFolderUrl}kolibri-select-arrow-down.svg"); */
+                background-image:    ${svgToUrl(arrowDownIcon)};
                 background-size:     1em;
                 background-repeat:   no-repeat;
                 background-position: center center;
@@ -442,8 +462,7 @@ const pageCss = `
         }
 
         &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
-            background-image: url("${iconFolderUrl}kolibri-select-opened.svg");
-            /* background-image: url("${iconFolderUrl}kolibri-select-arrow-up.svg"); */
+            background-image: ${svgToUrl(arrowUpIcon)};
         }
 
         /* for invisibility and not clickable */
