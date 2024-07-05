@@ -216,7 +216,8 @@ const projectSelectViews = (selectController) => {
             "z-index: -1 !important;" +
             "position: absolute !important;" +
             "inset: 5px !important;" +
-            "color: transparent !important;"
+            "color: transparent !important;" +
+            "pointer-events: none !important;"
     );
     inputElement.addEventListener("keydown paste focus mousedown", (e) => {
         // read-only on input not working with required
@@ -462,13 +463,6 @@ const pageCss = `
 
         &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
             background-image: ${svgToUrl(arrowUpIcon)};
-        }
-
-        /* for invisibility and not clickable */
-        input {
-            pointer-events: none;
-            all:            unset;
-            color:          transparent;
         }
     }
     .${selectClassName} {
