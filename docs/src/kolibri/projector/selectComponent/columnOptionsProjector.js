@@ -259,10 +259,8 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
             selectedOptionController.clearSelectedOption();
             return;
         }
-        if ("value" === optionType) {
-            cursorPositionController?.setSelectedOption(option);
-        }
         selectedOptionController.setSelectedOption(option);
+        cursorPositionController?.setSelectedOption(option);
     };
 
     selectedOptionController.onDisabledChanged(disabled => {
