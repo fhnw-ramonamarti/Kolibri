@@ -13,6 +13,9 @@ const columnClassName = 'options-column';
 /** @private */
 const optionClassName = columnClassName + '-item';
 
+/** @private */
+const notVisibleClass = "invisible";
+
 /** 
  * Height of the column box
  * @private
@@ -155,8 +158,6 @@ const projectColumnOptionsView = (
         columnContainer.classList.add("category-" + columnClassName);
     }
 
-    const notVisibleClass = "invisible";
-
     /**
      * @param { OptionType } option 
      */
@@ -217,6 +218,7 @@ const projectColumnOptionsView = (
         
         oldScrollPosition = newScrollPosition <= 0 ? 0 : newScrollPosition;
     }
+    columnContainer.addEventListener("scroll", scroll);
     columnContainer.addEventListener("mousewheel", scroll);
     columnContainer.addEventListener("DOMMouseScroll", scroll); // firefox
 
@@ -285,6 +287,20 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
     const newItem = getHtmlElementByOption(newOption, root);
     if (newItem) {
         newItem.classList.add("cursor-position");
+        if (newItem.classList.contains(notVisibleClass)) {
+            newItem.classList.remove(notVisibleClass);
+            let prevElement = newItem, nextElement = newItem;
+            for (let i = 0; i < 50; i++) {
+                if (prevElement) {
+                    prevElement = prevElement.previousElementSibling;
+                    prevElement?.classList.remove(notVisibleClass);
+                }
+                if (nextElement) {
+                    nextElement = nextElement.nextElementSibling;
+                    nextElement?.classList.remove(notVisibleClass);
+                }
+            }
+        }
     }
 };
 

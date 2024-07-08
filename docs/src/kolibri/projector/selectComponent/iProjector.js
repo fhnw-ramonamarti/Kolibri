@@ -3,7 +3,7 @@ import { nullOption }                               from "./optionsModel.js";
 
 export { iProjector };
 
-const iProjector = (rootElement, componentController) => {
+const iProjector = (rootElement, componentController, pageSize = 10) => {
     let currentColumn = 0;
 
     componentController.onCursorPositionChanged((newOption) => {
@@ -68,7 +68,25 @@ const iProjector = (rootElement, componentController) => {
                 case 27:
                     componentController.setOptionsVisibility(false);
                     break;
-                default:
+                case "Home":
+                case 36:
+                    moveCursorToFirstUp();
+                    break;
+                case "End":
+                case 35:
+                    moveCursorLastDown();
+                    break;
+                case "PageUp":
+                case 33:
+                    for (let i = 0; i < pageSize; i++) {
+                        moveCursorUp();
+                    }
+                    break;
+                case "PageDown":
+                case 34:
+                    for (let i = 0; i < pageSize; i++) {
+                        moveCursorDown();
+                    }
                     break;
             }
         } else {
@@ -127,6 +145,40 @@ const iProjector = (rootElement, componentController) => {
         )[0];
         return parentY <= y && parentY + parentHeight >= y + height;
     }
+
+    const moveCursorToFirstUp = () => {
+        const currentModel   = componentController.getCursorPosition();
+        const currentElement = getHtmlElementByOption(currentModel, rootElement);
+        const siblingElement = currentElement?.parentElement.firstChild.nextElementSibling;
+        if (siblingElement) {
+            if (!isItemVisible(siblingElement)) {
+                siblingElement.scrollIntoView(true);
+            }
+            const siblingModel = findModelByElement(siblingElement);
+            componentController.setCursorPosition(siblingModel);
+            // wait for ui
+            setTimeout(() => {
+            }, 81);
+            moveCursorUp();
+        }
+    };
+
+    const moveCursorLastDown = () => {
+        const currentModel   = componentController.getCursorPosition();
+        const currentElement = getHtmlElementByOption(currentModel, rootElement);
+        const siblingElement = currentElement?.parentElement.lastChild.previousElementSibling;
+        if (siblingElement) {
+            if (!isItemVisible(siblingElement)) {
+                siblingElement.scrollIntoView(false);
+            }
+            const siblingModel = findModelByElement(siblingElement);
+            componentController.setCursorPosition(siblingModel);
+            // wait for ui
+            setTimeout(() => {
+            }, 81);
+            moveCursorDown();
+        }
+    };
 
     const moveCursorUp = () => {
         const currentModel   = componentController.getCursorPosition();
