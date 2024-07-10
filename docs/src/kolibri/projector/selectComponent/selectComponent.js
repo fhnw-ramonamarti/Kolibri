@@ -23,8 +23,7 @@ export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
  * @typedef SelectComponentType
  * @property { () => SelectControllerType } getSelectController
  * @property { () => HTMLDivElement }       getComponentView
- * @property { () => HTMLLabelElement }     getLabelViewPartOfComponent
- * @property { () => HTMLDivElement }       getInputViewPartOfComponent
+ * @property { () => HTMLLabelElement }     getLabelElement
  */
 
 /**
@@ -164,10 +163,9 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
     });
 
     return {
-        getSelectController        : () => selectController,
-        getComponentView           : () => componentView,
-        getLabelViewPartOfComponent: () => /** @type { HTMLLabelElement } */ labelElement,
-        getInputViewPartOfComponent: () => /** @type { HTMLDivElement } */ inputElement
+        getSelectController: () => selectController,
+        getComponentView   : () => componentView,
+        getLabelElement    : () => /** @type { HTMLLabelElement } */ labelElement,
     };
 };
 
