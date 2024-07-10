@@ -190,9 +190,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
             }
             const siblingModel = findModelByElement(siblingElement);
             componentController.setCursorPosition(siblingModel);
-            // wait for ui
-            setTimeout(() => {
-            }, 81);
+            // to update view
             moveCursorUp();
         }
     };
@@ -207,9 +205,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
             }
             const siblingModel = findModelByElement(siblingElement);
             componentController.setCursorPosition(siblingModel);
-            // wait for ui
-            setTimeout(() => {
-            }, 81);
+            // to update view
             moveCursorDown();
         }
     };
@@ -484,6 +480,11 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
             }
             const letterModel = findModelByElement(letterChild);
             componentController.setCursorPosition(letterModel);
+            // to update view
+            moveCursorUp();
+            if (letterChild.previousElementSibling) {
+                moveCursorDown();
+            }
             return true;
         }
         return false;
