@@ -1,5 +1,8 @@
-import {tableContinentToCity, tableCountry} from "./DataService.js";
-import {pageCss, SelectComponentByTableValues,} from "../../kolibri/projector/selectComponent/selectComponent.js";
+import { tableContinentToCity, tableCountry, tableWithImageLinks } from "./DataService.js";
+import {
+    pageCss,
+    SelectComponentByTableValues,
+} from "../../kolibri/projector/selectComponent/selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 
@@ -24,8 +27,8 @@ const selectComponent = SelectComponentByTableValues(
     selectAttribute,
     tableCountry
 ).getComponentView();
-const componentImg    = document.getElementById("componentImg");
-componentImg.append(selectComponent);
+const componentCountry    = document.getElementById("componentCountry");
+componentCountry.append(selectComponent);
 
 // ----- big test data selection 2 column --------------------------------
 /**
@@ -43,8 +46,29 @@ const selectComponent2 = SelectComponentByTableValues(
     selectAttribute2,
     valueTable2
 ).getComponentView();
-const componentYear    = document.getElementById("componentTest");
-componentYear.append(selectComponent2);
+const componentBigData = document.getElementById("componentTest");
+componentBigData.append(selectComponent2);
+
+// ----- image selection 2 column --------------------------------
+/**
+ * @type { SelectAttributes }
+ */
+const selectAttribute2_2 = {
+    name: "img",
+    label: "Country Img",
+};
+const valueTable2_2 = tableWithImageLinks
+    .map((e) => [e.continent, {
+        value: e.country,
+        label: `<img src="${e.img}" alt="${e.country}"> ${e.country}`,
+    }]);
+
+const selectComponent2_2 = SelectComponentByTableValues(
+    selectAttribute2_2,
+    valueTable2_2
+).getComponentView();
+const componentImg       = document.getElementById("componentImg");
+componentImg.append(selectComponent2_2);
 
 // ----- city selection 3 columns --------------------------------
 /**

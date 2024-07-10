@@ -6,6 +6,7 @@ export {
     getCitiesByCountry,
     getMoneyByContinent,
     getMoneyContinents,
+    tableWithImageLinks,
     tableContinentToCity,
     tableCountry
 };
@@ -108,6 +109,15 @@ const getMoneyContinents = () => [
     "Europe",
     "America",
     "Asia",
+];
+
+/**
+ * @type { OptionsTable }
+ */
+const tableWithImageLinks = [
+    { country: 'CH', continent: "Europe" , img: "https://www.countryflags.com/wp-content/uploads/switzerland-flag-png-large.png" },
+    { country: 'EU', continent: "Europe" , img: "https://www.countryflags.com/wp-content/uploads/europe-flag-jpg-xl.jpg" },
+    { country: 'US', continent: "America", img: "https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png" },
 ];
 
 /**
