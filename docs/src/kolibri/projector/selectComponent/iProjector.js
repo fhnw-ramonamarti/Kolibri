@@ -20,15 +20,15 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
         });
     });
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (event) => {
         if (componentController.isDisabled()) {
             return;
         }
-        if (initCursor(e)) {
+        if (initCursor(event)) {
             return;
         }
         if (componentController.isOptionsVisible()) {
-            switch (e.code || e.key || e.keyCode) {
+            switch (event.key || event.code || event.keyCode) {
                 case "ArrowUp":
                 case 38:
                     moveCursorUp();
@@ -80,10 +80,10 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
                     break;
             }
         } else {
-            if (resetCursor(e)) {
+            if (resetCursor(event)) {
                 return;
             }
-            switch (e.code || e.key || e.keyCode) {
+            switch (event.key || event.code || event.keyCode) {
                 case " ":
                 case "Space":
                 case 32:
@@ -107,36 +107,35 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
                     break;
             }
         }
-        handleLetters(e);
+        handleLetters(event);
     };
 
     rootElement.addEventListener('keydown', handleKeyDown);
     
     // prevent scrolling with key while popover opened
-    window.addEventListener("keydown", (e) => {
+    window.addEventListener("keydown", (event) => {
         if (
             [
-                32,
                 "Space",
-                37,
                 "ArrowLeft",
-                38,
                 "ArrowUp",
-                39,
                 "ArrowRight",
-                40,
                 "ArrowDown",
-            ].indexOf(e.code) > -1 &&
+                "PageUp",
+                "PageDown",
+                "Home",
+                "End",
+            ].indexOf(event.key) > -1 &&
             null != document.querySelector("[popover]:popover-open")
         ) {
-            e.preventDefault();
+            event.preventDefault();
         }
     });
 
-    const initCursor = (e) => {
+    const initCursor = (event) => {
         if (
             nullOption.getId() === componentController.getCursorPosition().getId() &&
-            ![e.code, e.key].includes("Tab")
+            ![event.code, event.key].includes("Tab")
         ) {
             const columnOptions = componentController
                 .getColumnOptionsComponent(currentColumn)
@@ -149,13 +148,13 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
         return false;
     };
 
-    const resetCursor = (e) => {
+    const resetCursor = (event) => {
         if (currentColumn === 0) {
             return false;
         }
         currentColumn = 0;
         componentController.setCursorPosition(nullOption);
-        initCursor(e);
+        initCursor(event);
         return true;
     };
 
@@ -270,8 +269,8 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
         }
     };
 
-    const handleLetters = (e) => {
-        switch (e.key || e.keyCode) {
+    const handleLetters = (event) => {
+        switch (event.key || event.keyCode) {
             case "0":
             case 48:
                 if (moveToLetter("0")) {
