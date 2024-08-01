@@ -186,8 +186,10 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 /**
  * Combine the options view and selected option view, and return the combined view.
  * For the html form a hidden input element is added to the combined view.
- * This projector supports browser with popover api and nestered css support.
+ *
+ * This projector supports browser with popover api and nested css support.
  * Browsers: Chrome ≥ 114, Firefox ≥ 125, Safari ≥ 17 (for lower versions an alert infobox appears)
+ *
  * @param { SelectControllerType } selectController
  * @returns { [HTMLDivElement, HTMLDivElement] } - [whole selected option element,
  *                                                 text content container element]

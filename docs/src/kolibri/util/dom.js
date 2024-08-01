@@ -6,7 +6,7 @@
  */
 export {
     dom, fireEvent, fireChangeEvent,
-    CLICK, INPUT, CHANGE,
+    CLICK, INPUT, CHANGE, MOUSE_DOWN,
     TEXT, TIME, DATE, CHECKBOX, NUMBER, COLOR, CHOICE, COMBOBOX
 }
 
@@ -28,13 +28,14 @@ const dom = innerString => {
 };
 
 /**
- * @typedef {'change'|'input'|'click'} EventTypeString
+ * @typedef {'change'|'input'|'click'|'mousedown'} EventTypeString
  * Feel free to extend this type with new unique type strings as needed for other DOM events.
  */
 
-/** @type EventTypeString */ const CHANGE  = "change";
-/** @type EventTypeString */ const INPUT   = "input";
-/** @type EventTypeString */ const CLICK   = "click";
+/** @type EventTypeString */ const CHANGE     = "change";
+/** @type EventTypeString */ const INPUT      = "input";
+/** @type EventTypeString */ const CLICK      = "click";
+/** @type EventTypeString */ const MOUSE_DOWN = "mousedown";
 
 /**
  * When a user interacts with an HTML element in the browser, various events might be fired. For example, typing text

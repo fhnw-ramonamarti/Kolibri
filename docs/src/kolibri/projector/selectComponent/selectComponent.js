@@ -41,7 +41,7 @@ export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
  * For a good performance the callback return array should not contain > 5_000 entries.
  * While the column values are loading a circular loader in the loading column is provided.
  *
- * The used projector supports browser with popover api and nestered css support.
+ * The used projector supports browser with popover api and nested css support.
  * Browsers: Chrome ≥ 114, Firefox ≥ 125, Safari ≥ 17 (for lower versions an alert infobox appears)
  *
  * @param { SelectAttributes }    selectAttributes
@@ -198,7 +198,7 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
  * For a good performance the callback return array should not contain > 5_000 entries.
  * While the column values are loading a circular loader in the loading column is provided.
  *
- * The used projector supports browser with popover api and nestered css support.
+ * The used projector supports browser with popover api and nested css support.
  * Browsers: Chrome ≥ 114, Firefox ≥ 125, Safari ≥ 17 (for lower versions an alert infobox appears)
  *
  * @param { SelectAttributes } selectAttributes

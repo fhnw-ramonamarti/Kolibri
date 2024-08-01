@@ -1,7 +1,7 @@
-import { fireEvent }          from "../../util/dom.js";
-import { asyncTest }          from "../../util/test.js";
-import { SelectController }   from "./selectController.js";
-import { projectSelectViews } from "./selectProjector.js";
+import { fireEvent, MOUSE_DOWN } from "../../util/dom.js";
+import { asyncTest }             from "../../util/test.js";
+import { SelectController }      from "./selectController.js";
+import { projectSelectViews }    from "./selectProjector.js";
 
 
 asyncTest("projector/selectComponent/selectProjector label (async)", async assert => { // promise must be set at most once
@@ -14,7 +14,7 @@ asyncTest("projector/selectComponent/selectProjector label (async)", async asser
     // test the binding label input
     return new Promise(resolve => {
         document.body.appendChild(componentView); // needed for focus
-        fireEvent(label, "mousedown");
+        fireEvent(label, MOUSE_DOWN);
 
         setTimeout(() => {
             assert.is(document.activeElement             , inputElement);
@@ -39,7 +39,7 @@ asyncTest("projector/selectComponent/selectProjector popover (async)", async ass
         
         setTimeout(() => {
             assert.is(selectController.isOptionsVisible()    , true);
-            // close with tobble button
+            // close with toggle button
             fireEvent(componentView.querySelector("button.toggleButton"), "click");
  
             setTimeout(() => {

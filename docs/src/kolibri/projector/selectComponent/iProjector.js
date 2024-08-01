@@ -291,10 +291,10 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
     };
 
     /**
-     * @param { KeyboardEvent } event - event of an keydown event
+     * @param { KeyboardEvent } event - event of a keydown event
      */
     const handleLetters = (event) => {
-        switch (event.key || event.keyCode) {
+        switch (event.key) {
             case "0":
                 if (moveToLetter("0")) {
                     break;
