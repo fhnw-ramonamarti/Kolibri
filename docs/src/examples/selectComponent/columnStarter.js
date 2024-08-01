@@ -12,7 +12,7 @@ const columnView = component.getColumnView();
 document.getElementById("component").append(columnView);
 
 const selectedValue = /** @type { OptionType } */ ValueOption("selected");
-const options = /** @type { Array<OptionType> } */ [
+const options       = /** @type { Array<OptionType> } */ [
     selectedValue,
     ValueOption("val 1"),
     ValueOption("val 2"),
@@ -29,13 +29,13 @@ component.setSelectedOption(selectedValue);
 
 // category option example
 const cursorPositionController2 = SelectedOptionController();
-const component2               = ColumnOptionsComponent(cursorPositionController2);
+const component2                = ColumnOptionsComponent(cursorPositionController2);
 
 const columnCatView = component2.getColumnView();
 document.getElementById("componentCat").append(columnCatView);
 
 const selectedCat = CategoryOption("selected");
-const catOptions = /** @type { Array<OptionType> } */ [
+const catOptions  = /** @type { Array<OptionType> } */ [
     selectedCat,
     CategoryOption("cat 1"),
     CategoryOption("cat 2"),

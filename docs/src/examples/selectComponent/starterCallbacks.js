@@ -6,11 +6,11 @@ import {
     getMoneyByContinent,
     getMoneyContinents,
     getYearsByDecade,
-}                                              from "./DataService.js";
+}                               from "./DataService.js";
 import {
     SelectComponentByCallbacks,
     pageCss,
-} from "../../kolibri/projector/selectComponent/selectComponent.js";
+}                               from "../../kolibri/projector/selectComponent/selectComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
  * @type { SelectAttributes }
  */
 const selectAttribute = {
-    name: "continent",
+    name : "continent",
     label: "Continent",
 };
 /**
@@ -37,6 +37,7 @@ const selectComponent = SelectComponentByCallbacks(
     selectAttribute,
     columnServiceCb
 ).getComponentView();
+
 const componentContinent = document.getElementById("componentContinent");
 componentContinent.append(selectComponent);
 
@@ -45,8 +46,8 @@ componentContinent.append(selectComponent);
  * @type { SelectAttributes }
  */
 const selectAttribute1_2 = {
-    name: "country",
-    label: "Country*",
+    name      : "countryR",
+    label     : "Country*",
     isRequired: true,
 };
 /**
@@ -59,6 +60,7 @@ const selectComponent1_2 = SelectComponentByCallbacks(
     selectAttribute1_2,
     columnServiceCb1_2
 ).getComponentView();
+
 const componentForm      = document.getElementById("formComponent");
 componentForm.append(selectComponent1_2);
 
@@ -71,14 +73,15 @@ componentForm.append(submit);
  * @type { SelectAttributes }
  */
 const selectAttribute1_3 = {
-    name: "country",
-    label: "Country",
+    name      : "countryD",
+    label     : "Country",
     isDisabled: true,
 };
 const selectComponent1_3 = SelectComponentByCallbacks(
     selectAttribute1_3,
     columnServiceCb1_2
 ).getComponentView();
+
 const disabledComponent  = document.getElementById("disabledComponent");
 disabledComponent.append(selectComponent1_3);
 
@@ -87,7 +90,7 @@ disabledComponent.append(selectComponent1_3);
  * @type { SelectAttributes }
  */
 const selectAttribute2 = {
-    name: "city",
+    name : "city",
     label: "City",
 };
 /**
@@ -101,15 +104,33 @@ const selectComponent2 = SelectComponentByCallbacks(
     selectAttribute2,
     columnServiceCb2
 ).getComponentView();
+
 const componentCountry = document.getElementById("componentCountry");
 componentCountry.append(selectComponent2);
+
+// ----- city selection with selection change on key action -
+/**
+ * @type { SelectAttributes }
+ */
+const selectAttribute2_2 = {
+    name                         : "cityA",
+    label                        : "City",
+    isCursorPositionWithSelection: true,
+};
+const selectComponent2_2 = SelectComponentByCallbacks(
+    selectAttribute2_2,
+    columnServiceCb2
+).getComponentView();
+
+const actionComponent  = document.getElementById("actionComponent");
+actionComponent.append(selectComponent2_2);
 
 // ----- decade selection --------------------------------
 /**
  * @type { SelectAttributes }
  */
 const selectAttribute3 = {
-    name: "year",
+    name : "year",
     label: "Year",
 };
 /**
@@ -126,6 +147,7 @@ const selectComponent3 = SelectComponentByCallbacks(
     selectAttribute3,
     columnServiceCb3
 ).getComponentView();
+
 const componentYear    = document.getElementById("componentYear");
 componentYear.append(selectComponent3);
 
@@ -134,7 +156,7 @@ componentYear.append(selectComponent3);
  * @type { SelectAttributes }
  */
 const selectAttribute4 = {
-    name: "money",
+    name : "money",
     label: "Money Img",
 };
 /**
@@ -148,6 +170,7 @@ const selectComponent4 = SelectComponentByCallbacks(
     selectAttribute4,
     columnServiceCb4
 ).getComponentView();
+
 const componentImg     = document.getElementById("componentImg");
 componentImg.append(selectComponent4);
 
@@ -156,7 +179,7 @@ componentImg.append(selectComponent4);
  * @type { SelectAttributes }
  */
 const selectAttribute5 = {
-    name: "city",
+    name : "city",
     label: "City",
 };
 /**
@@ -171,5 +194,6 @@ const selectComponent5 = SelectComponentByCallbacks(
     selectAttribute5,
     columnServiceCb5
 ).getComponentView();
+
 const componentCity    = document.getElementById("componentCity");
 componentCity.append(selectComponent5);

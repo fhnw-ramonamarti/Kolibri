@@ -18,7 +18,7 @@ export {
  */
 const getYearsByDecade = (...decades) => {
     const decadeStarts = decades.map(decade => decade.slice(0, 3));
-    const data = [...Array(70).keys()].map((e) => e + 1940 + "");
+    const data         = [...Array(70).keys()].map((e) => e + 1940 + "");
     return data.filter((e) => decadeStarts.length === 0 || decadeStarts.includes(e.slice(0, 3)));
 };
 
@@ -48,7 +48,10 @@ const getCitiesByCountry = (...countries) => {
         { country: 'Canada'       , city: "Ottawa" },
         { country: 'Japan'        , city: "Tokio" },
     ];
-    return data.filter((e) => countries.length === 0 || countries.includes(e.country)).map((e) => e.city).sort();
+    return data
+        .filter((e) => countries.length === 0 || countries.includes(e.country))
+        .map((e) => e.city)
+        .sort();
 };
 
 /**
@@ -94,7 +97,9 @@ const getMoneyByContinent = (...continents) => {
         { money: 'Pound'        , continent: "Europe" , img: "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png" },
         { money: 'Yen'          , continent: "Asia"   , img: "https://www.countryflags.com/wp-content/uploads/japan-flag-png-large.png" },
     ];
-    const returnData = data.filter((e) => continents.length === 0 || continents.includes(e.continent))
+    const returnData = data.filter(
+        (e) => continents.length === 0 || continents.includes(e.continent)
+    );
     return returnData.map((e) => ({
         value: e.money,
         label: `<img src="${e.img}" alt="${e.money}"> ${e.money}`,
@@ -124,58 +129,58 @@ const tableWithImageLinks = [
  * @type { OptionsTable }
  */
 const tableCountry = [
-    [{ label: "Albania", value: "AL" }],
-    [{ label: "Andorra", value: "AD" }],
-    [{ label: "Austria", value: "AT" }],
-    [{ label: "Belarus", value: "BY" }],
-    [{ label: "Belgium", value: "BE" }],
+    [{ label: "Albania",        value: "AL" }],
+    [{ label: "Andorra",        value: "AD" }],
+    [{ label: "Austria",        value: "AT" }],
+    [{ label: "Belarus",        value: "BY" }],
+    [{ label: "Belgium",        value: "BE" }],
     [{ label: "Bosnia and Herzegovina", value: "BA" }],
-    [{ label: "Bulgaria", value: "BG" }],
-    [{ label: "Croatia", value: "HR" }],
-    [{ label: "Cyprus", value: "CY" }],
+    [{ label: "Bulgaria",       value: "BG" }],
+    [{ label: "Croatia",        value: "HR" }],
+    [{ label: "Cyprus",         value: "CY" }],
     [{ label: "Czech Republic", value: "CZ" }],
-    [{ label: "Denmark", value: "DK" }],
-    [{ label: "Estonia", value: "EE" }],
-    [{ label: "Faroe Islands", value: "FO" }],
-    [{ label: "Finland", value: "FI" }],
-    [{ label: "France", value: "FR" }],
-    [{ label: "Germany", value: "DE" }],
-    [{ label: "Gibraltar", value: "GI" }],
-    [{ label: "Greece", value: "GR" }],
-    [{ label: "Guernsey", value: "GG" }],
-    [{ label: "Hungary", value: "HU" }],
-    [{ label: "Iceland", value: "IS" }],
-    [{ label: "Ireland", value: "IE" }],
-    [{ label: "Isle of Man", value: "IM" }],
-    [{ label: "Italy", value: "IT" }],
-    [{ label: "Jersey", value: "JE" }],
-    [{ label: "Kosovo", value: "XK" }],
-    [{ label: "Latvia", value: "LV" }],
-    [{ label: "Liechtenstein", value: "LI" }],
-    [{ label: "Lithuania", value: "LT" }],
-    [{ label: "Luxembourg", value: "LU" }],
-    [{ label: "Macedonia", value: "MK" }],
-    [{ label: "Malta", value: "MT" }],
-    [{ label: "Moldova", value: "MD" }],
-    [{ label: "Monaco", value: "MC" }],
-    [{ label: "Montenegro", value: "ME" }],
-    [{ label: "Netherlands", value: "NL" }],
-    [{ label: "Norway", value: "NO" }],
-    [{ label: "Poland", value: "PL" }],
-    [{ label: "Portugal", value: "PT" }],
-    [{ label: "Romania", value: "RO" }],
-    [{ label: "Russia", value: "RU" }],
-    [{ label: "San Marino", value: "SM" }],
-    [{ label: "Serbia", value: "RS" }],
-    [{ label: "Slovakia", value: "SK" }],
-    [{ label: "Slovenia", value: "SI" }],
-    [{ label: "Spain", value: "ES" }],
+    [{ label: "Denmark",        value: "DK" }],
+    [{ label: "Estonia",        value: "EE" }],
+    [{ label: "Faroe Islands",  value: "FO" }],
+    [{ label: "Finland",        value: "FI" }],
+    [{ label: "France",         value: "FR" }],
+    [{ label: "Germany",        value: "DE" }],
+    [{ label: "Gibraltar",      value: "GI" }],
+    [{ label: "Greece",         value: "GR" }],
+    [{ label: "Guernsey",       value: "GG" }],
+    [{ label: "Hungary",        value: "HU" }],
+    [{ label: "Iceland",        value: "IS" }],
+    [{ label: "Ireland",        value: "IE" }],
+    [{ label: "Isle of Man",    value: "IM" }],
+    [{ label: "Italy",          value: "IT" }],
+    [{ label: "Jersey",         value: "JE" }],
+    [{ label: "Kosovo",         value: "XK" }],
+    [{ label: "Latvia",         value: "LV" }],
+    [{ label: "Liechtenstein",  value: "LI" }],
+    [{ label: "Lithuania",      value: "LT" }],
+    [{ label: "Luxembourg",     value: "LU" }],
+    [{ label: "Macedonia",      value: "MK" }],
+    [{ label: "Malta",          value: "MT" }],
+    [{ label: "Moldova",        value: "MD" }],
+    [{ label: "Monaco",         value: "MC" }],
+    [{ label: "Montenegro",     value: "ME" }],
+    [{ label: "Netherlands",    value: "NL" }],
+    [{ label: "Norway",         value: "NO" }],
+    [{ label: "Poland",         value: "PL" }],
+    [{ label: "Portugal",       value: "PT" }],
+    [{ label: "Romania",        value: "RO" }],
+    [{ label: "Russia",         value: "RU" }],
+    [{ label: "San Marino",     value: "SM" }],
+    [{ label: "Serbia",         value: "RS" }],
+    [{ label: "Slovakia",       value: "SK" }],
+    [{ label: "Slovenia",       value: "SI" }],
+    [{ label: "Spain",          value: "ES" }],
     [{ label: "Svalbard and Jan Mayen", value: "SJ" }],
-    [{ label: "Sweden", value: "SE" }],
-    [{ label: "Switzerland", value: "CH" }],
-    [{ label: "Ukraine", value: "UA" }],
+    [{ label: "Sweden",         value: "SE" }],
+    [{ label: "Switzerland",    value: "CH" }],
+    [{ label: "Ukraine",        value: "UA" }],
     [{ label: "United Kingdom", value: "GB" }],
-    [{ label: "Vatican", value: "VA" }],
+    [{ label: "Vatican",        value: "VA" }],
 ];
 
 /**
