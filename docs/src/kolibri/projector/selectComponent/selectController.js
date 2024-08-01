@@ -19,17 +19,18 @@ let idCounter = 0;
  * @typedef SelectAttributes
  * @property { String? }  label
  * @property { String? }  name
- * @property { Boolean? } isRequired                - select need to have value selected in form, default false
- * @property { Boolean? } isDisabled                - selected value can not be changed, default false
- * @property { Boolean? } sortOptionsAlphabetically - sort the values of each column, default true
+ * @property { Boolean? } isRequired                    - select need to have value selected in form, default false
+ * @property { Boolean? } isDisabled                    - selected value can not be changed, default false
+ * @property { Boolean? } sortOptionsAlphabetically     - sort the values of each column, default true
+ * @property { Boolean? } isCursorPositionWithSelection - the keyboard action also effects the selection change, default false
  */
 
 /**
  * @typedef SelectControllerType
  * @property { () => String }                    getId
  * @property { () => Number }                    getNumberOfColumns
-
  * @property { () => SimpleInputControllerType } getInputController
+ * @property { () => Boolean }                   isCursorPositionWithSelection
 
  * @property { () => Boolean }                   isRequired
  * @property { (Boolean) => void }               setRequired
@@ -81,6 +82,7 @@ const SelectController = ({
     name = "",
     isRequired = false,
     isDisabled = false,
+    isCursorPositionWithSelection = false,
 }, numberOfColumns = 1
 ) => {
     const id = "select-component-" + idCounter++;
@@ -159,9 +161,10 @@ const SelectController = ({
     };
 
     return {
-        getId             : () => id,
-        getNumberOfColumns: () => numberOfColumns,
-        getInputController: () => inputController,
+        getId                         : () => id,
+        getNumberOfColumns            : () => numberOfColumns,
+        getInputController            : () => inputController,
+        isCursorPositionWithSelection : () => isCursorPositionWithSelection,
 
         isRequired       : required.getValue,
         setRequired      : required.setValue,
