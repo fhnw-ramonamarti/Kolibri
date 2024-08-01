@@ -13,7 +13,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
         }
     });
 
-    // over all columns to listen for click
+    // over all columns to listen for click for focus
     [...Array(componentController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         rootElement.querySelector(`[data-column="${col}"]`).addEventListener("mousedown", (_) => {
             currentColumn = col;
@@ -22,12 +22,17 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
 
     const handleKeyDown = (event) => {
         if (componentController.isDisabled()) {
-            return;
+            return; // no events allowed
         }
         if (initCursor(event)) {
-            return;
+            // first key pressed in the component
+            if (!["Enter", "Tab", "Escape", "Space", " "].includes(event.key)) {
+                return;
+            }
         }
+
         if (componentController.isOptionsVisible()) {
+            // key actions for opened popover
             switch (event.key || event.code || event.keyCode) {
                 case "ArrowUp":
                 case 38:
@@ -51,6 +56,12 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
                 case "Space":
                 case 32:
                     selectCursorPos();
+                    break;
+                case "Backspace":
+                case 8:
+                case "Delete":
+                case 46:
+                    componentController.clearSelectedValueOption();
                     break;
                 case "Tab":
                 case 9:
@@ -80,8 +91,9 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
                     break;
             }
         } else {
+            // key actions for closed popover
             if (resetCursor(event)) {
-                return;
+                return; // first key pressed in the closed component
             }
             switch (event.key || event.code || event.keyCode) {
                 case " ":
@@ -96,6 +108,12 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
                 case "ArrowDown":
                 case 40:
                     moveCursorDown();
+                    break;
+                case "Backspace":
+                case 8:
+                case "Delete":
+                case 46:
+                    componentController.clearSelectedValueOption();
                     break;
                 case "Home":
                 case 36:
@@ -126,7 +144,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
                 "Home",
                 "End",
             ].indexOf(event.key) > -1 &&
-            null != document.querySelector("[popover]:popover-open")
+            null != document.querySelector("[popover]:popover-open, [class*=select][class*=input]:focus")
         ) {
             event.preventDefault();
         }
@@ -182,7 +200,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
     const moveCursorToFirstUp = () => {
         const currentModel   = componentController.getCursorPosition();
         const currentElement = getHtmlElementByOption(currentModel, rootElement);
-        const siblingElement = currentElement?.parentElement.firstChild.nextElementSibling;
+        const siblingElement = currentElement?.parentElement.firstChild;
         if (siblingElement) {
             if (!isItemVisible(siblingElement)) {
                 siblingElement.scrollIntoView(true);
@@ -190,6 +208,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
             const siblingModel = findModelByElement(siblingElement);
             componentController.setCursorPosition(siblingModel);
             // to update view
+            moveCursorDown();
             moveCursorUp();
         }
     };
@@ -197,7 +216,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
     const moveCursorLastDown = () => {
         const currentModel   = componentController.getCursorPosition();
         const currentElement = getHtmlElementByOption(currentModel, rootElement);
-        const siblingElement = currentElement?.parentElement.lastChild.previousElementSibling;
+        const siblingElement = currentElement?.parentElement.lastChild;
         if (siblingElement) {
             if (!isItemVisible(siblingElement)) {
                 siblingElement.scrollIntoView(false);
@@ -205,6 +224,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
             const siblingModel = findModelByElement(siblingElement);
             componentController.setCursorPosition(siblingModel);
             // to update view
+            moveCursorUp();
             moveCursorDown();
         }
     };
@@ -256,7 +276,7 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
                 componentController.setCursorPosition(newOptions[0]);
             }
         }
-    }; //mitn column variable arbeitn 1 erhöhen oder tiefen und dann columncomponent holen und schauen ob getselected exisitert als curserpos setzen und wenn keins gefungen wird first child nehmen von column, column als element holen mit col 0 und 1 siehe im UI dann umwandeln zum damit arbeiten
+    };
 
     const selectCursorPos = () => {
         const cursorModel = componentController.getCursorPosition();
@@ -269,55 +289,48 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
         }
     };
 
+    /**
+     * @param { KeyboardEvent } event - event of an keydown event
+     */
     const handleLetters = (event) => {
         switch (event.key || event.keyCode) {
             case "0":
-            case 48:
                 if (moveToLetter("0")) {
                     break;
                 }
             case "1":
-            case 49:
                 if (moveToLetter("1")) {
                     break;
                 }
             case "2":
-            case 50:
                 if (moveToLetter("2")) {
                     break;
                 }
             case "3":
-            case 51:
                 if (moveToLetter("3")) {
                     break;
                 }
             case "4":
-            case 52:
                 if (moveToLetter("4")) {
                     break;
                 }
             case "5":
-            case 53:
                 if (moveToLetter("5")) {
                     break;
                 }
             case "6":
-            case 54:
                 if (moveToLetter("6")) {
                     break;
                 }
             case "7":
-            case 55:
                 if (moveToLetter("7")) {
                     break;
                 }
             case "8":
-            case 56:
                 if (moveToLetter("8")) {
                     break;
                 }
             case "9":
-            case 57:
                 if (moveToLetter("9")) {
                     break;
                 }
