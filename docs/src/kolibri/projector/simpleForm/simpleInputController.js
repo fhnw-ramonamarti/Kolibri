@@ -1,5 +1,5 @@
 import { SimpleInputModel }                          from "./simpleInputModel.js";
-import { OptionsModel }                              from "./optionsModel.js";
+import { OptionsModel }                              from "./simpleOptionsModel.js";
 import { EDITABLE, LABEL, NAME, TYPE, VALID, VALUE } from "../../presentationModel.js";
 import { CHOICE, COMBOBOX }                          from "../../util/dom.js";
 
@@ -73,7 +73,6 @@ const SimpleAttributeInputController = (inputAttribute) => {
             delOption:         optionsModel.getObsList().del,
             onAddOption:       optionsModel.getObsList().onAdd,
             onDelOption:       optionsModel.getObsList().onDel,
-            //setOptions:        (v) => optionsModel.getObsList(), // todo do we need this
         };
     }
     return {
