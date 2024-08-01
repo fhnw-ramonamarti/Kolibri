@@ -50,7 +50,7 @@ const projectOptionsView = (selectController) => {
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
         optionsContainer.append(columnView);
-        selectController.getColumnOptionsComponent(col).onOptionSelected((newOption, oldOption) => {
+        selectController.getColumnOptionsComponent(col).onOptionSelected((newOption) => {
             if (nullOption.getId() !== newOption.getId()) {
                 selectController.setCursorPosition(newOption);
             }
