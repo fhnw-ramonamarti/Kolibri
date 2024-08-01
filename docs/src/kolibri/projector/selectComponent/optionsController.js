@@ -61,7 +61,7 @@ const SelectedOptionController = () => {
     const selectedOptionModel = SelectedOptionModel();
     const disabled            = Observable(false);
 
-    const setSelectedOption = (option) => {
+    const setSelectedOption   = (option) => {
         if (!disabled.getValue()) {
             selectedOptionModel.setSelectedOption(option);
         }

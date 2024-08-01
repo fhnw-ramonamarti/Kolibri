@@ -47,7 +47,8 @@ let idCounter = 0;
  */
 const Option = (value, label) => {
     /** @type { (OptionType) => Boolean } */
-    const equals = (other) => label === other?.getLabel() && value === other?.getValue();
+    const equals = (other) => label === other?.getLabel()
+                           && value === other?.getValue();
 
     if (null == value) {
         const id = "OptionNull";
@@ -125,6 +126,7 @@ const OptionsModel = () => {
             return;
         }
         const stringOption = JSON.stringify({ value: option.getValue(), label: option.getLabel() });
+
         const filteredAllOptions = allEverAddedOptions[stringOption];
         if (null == filteredAllOptions) {
             option.createId();
@@ -132,6 +134,7 @@ const OptionsModel = () => {
             allEverAddedOptions[stringOption] = option;
             return;
         }
+
         const optionExistsInList = list.some((o) => o.equals(option));
         if (!optionExistsInList) {
             listObs.add(filteredAllOptions);

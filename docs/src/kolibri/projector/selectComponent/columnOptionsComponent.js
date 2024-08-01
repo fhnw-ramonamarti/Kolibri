@@ -51,11 +51,12 @@ const ColumnOptionsComponent = (cursorPositionController, columnNumber = 0) => {
      * @returns { HTMLDivElement } - placeholder while loading
      */
     const createHolder = () => {
+        const loader = document.createElement('div');
+        loader.classList.add('column-loader');
+
         const placeHolder = document.createElement('div');
         placeHolder.classList.add('column-holder');
         placeHolder.classList.add('options-column');
-        const loader = document.createElement('div');
-        loader.classList.add('column-loader');
         placeHolder.appendChild(loader);
         return placeHolder;
     };

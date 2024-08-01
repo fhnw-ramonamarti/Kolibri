@@ -16,14 +16,14 @@ const optionClassName = columnClassName + '-item';
 /** @private */
 const notVisibleClass = "invisible";
 
-/** 
+/** @private */
+let id = 0;
+
+/**
  * Height of the column box
  * @private
  */
 const boxHeight = 240;
-
-/** @private */
-let id = 0;
 
 
 /**
@@ -93,6 +93,7 @@ const updateScrollbar = (columnContainer) => {
     if(null == styleElement || completeHeight <= 0){
         return;
     }
+
     const barHeight = containerHeight / (completeHeight / containerHeight) + 10;
     if (containerHeight > completeHeight - 10) {
         styleElement.textContent = `
@@ -131,6 +132,7 @@ const updateScrollbar = (columnContainer) => {
         const optionsController = OptionsController();
         const selectedOptionController = SelectedOptionController();
         const cursorPositionController = SelectedOptionController();
+
         const columnView = projectColumnOptionsView(
             optionsController,
             selectedOptionController,
@@ -255,8 +257,8 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
         }
         if ("value" !== optionType && selectedOptionController.getSelectedOption().equals(option)) {
             // unselect categories & select cursor position
-            cursorPositionController?.setSelectedOption(option);
             selectedOptionController.clearSelectedOption();
+            cursorPositionController?.setSelectedOption(option);
             return;
         }
         selectedOptionController.setSelectedOption(option);
@@ -282,9 +284,11 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
     if (oldItem) {
         oldItem.classList.remove("cursor-position");
     }
+
     const newItem = getHtmlElementByOption(newOption, root);
     if (newItem) {
         newItem.classList.add("cursor-position");
+
         if (newItem.classList.contains(notVisibleClass)) {
             newItem.classList.remove(notVisibleClass);
             let prevElement = newItem, nextElement = newItem;
@@ -315,6 +319,7 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
     if (oldItem) {
         oldItem.classList.remove("selected");
     }
+
     const newItem = getHtmlElementByOption(newOption, root);
     if (newItem) {
         newItem.classList.add("selected");
@@ -370,7 +375,6 @@ const pageCss = `
     .${columnClassName} {
         position:       relative;
         width:          100%;
-        /* max-width:      100%; */
         overflow-y:     scroll;
         overflow-x:     hidden;
         max-height:     ${boxHeight}px;
@@ -395,12 +399,10 @@ const pageCss = `
         }
 
         /* styling for scroll bar */
-        /* scrollbar-color: #ccc #fff; */
         scrollbar-color: transparent transparent;
         scrollbar-width: thin;
         
         &::-webkit-scrollbar {
-            /* width:      4px; */
             width:      0;
         }
 
@@ -408,7 +410,6 @@ const pageCss = `
         }
     
         &::-webkit-scrollbar-thumb {
-            /* background-color: #ccc; */
             background-color: transparent;
         }
     }
@@ -424,7 +425,6 @@ const pageCss = `
         display:        flex;
         align-items:    center;
         line-height:    1.2;
-        /* overflow-wrap:  anywhere; */
         overflow:       hidden;
         text-overflow:  ellipsis;
 
