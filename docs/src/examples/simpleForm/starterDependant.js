@@ -27,7 +27,10 @@ const start = () => {
     const controller = SimpleFormController(formStructure);
     const [decadeController, yearController] = controller;
     decadeController.onValueChanged((val) => {
-        const options = years.filter((y) => val === Math.floor(y.value / 10) || val === "");
+        const options = years.filter(
+            (y) => Math.floor(val) === Math.floor(y.value / 10) // Math.floor on both sides needed
+                            || val === ""
+        );
         yearController.getOptions().forEach((option) => {
             yearController.delOption(option);
         });
