@@ -12,7 +12,7 @@ export { SimpleFormController }
  * the inputs that are specified in the inputAttributesArray.
  * Note that controllers are compositional by means of function (ctor) composition.
  * @constructor
- * @param  { Array<OptionAttributes> } inputAttributesArray - Specification of the form to create and bind.
+ * @param  { Array<ExtendedInputAttributes> } inputAttributesArray - Specification of the form to create and bind.
  * @return { SimpleFormControllerType }
  * @example
  *     const controller = SimpleFormController([
@@ -24,7 +24,10 @@ const SimpleFormController = inputAttributesArray => {
     // noinspection UnnecessaryLocalVariableJS
     const inputControllers = inputAttributesArray.map(inputAttr => {
         const ctrl = SimpleInputController(inputAttr);
-        inputAttr.list?.forEach(ctrl.addOption);
+        if (inputAttr.list) {
+            const options = /** @type { Array<SimpleOptionType> } */ inputAttr.list;
+            options.forEach(ctrl.addOption);
+        }
         return ctrl;
     });
     

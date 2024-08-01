@@ -125,7 +125,6 @@ const bindOptionValue = (viewElement, optionContainer, eventType, inputControlle
     inputController.onValueChanged((val) => (viewElement.value = /** @type { * } */ val));
 
     // redraw all options 
-    // todo optimize not delering all before adding
     inputController.onAddOption((option) => {
         if (document.getElementById(viewElement.id)) {
             const optionElement = document.createElement("option");

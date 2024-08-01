@@ -1,17 +1,25 @@
 import { ObservableList } from "../../observable.js";
 
-export { OptionsModel }
+export { SimpleOptionsModel }
 
 /**
- * @typedef OptionType
- * @property { !String } value - selectable value of the input
- * @property { ?String } label - visible label of the input
+ * @typedef SimpleOptionType
+ * @property { String } value             - selectable value of the input
+ * @property { String | undefined } label - visible label of the input
  */
 
 /**
- * @typedef OptionsModelType
- * @property { () => Array<OptionType>          } getList    - copy of inner list with all the options
- * @property { () => ObservableList<OptionType> } getObsList - observable list with all the options
+ * @typedef { InputAttributes & { list: Array<SimpleOptionType> } } OptionsAttributes
+ */
+
+/**
+ * @typedef { InputAttributes | OptionsAttributes } ExtendedInputAttributes
+ */
+
+/**
+ * @typedef SimpleOptionsModelType
+ * @property { () => Array<SimpleOptionType>          } getList     - copy of inner list with all the options
+ * @property { () => IObservableList<SimpleOptionType> } getObsList - observable list with all the options
  */
 
 /**
@@ -19,11 +27,11 @@ export { OptionsModel }
  * a single HTML Selection or Datalist Input.
  * For a single input, it does not need any parameters.
  * @constructor
- * @return { OptionsModelType }
+ * @return { SimpleOptionsModelType }
  * @example
  *      const model = OptionsModel();
  */
-const OptionsModel = () => {
+const SimpleOptionsModel = () => {
     const list = [];
     const listObs = ObservableList(list);
 

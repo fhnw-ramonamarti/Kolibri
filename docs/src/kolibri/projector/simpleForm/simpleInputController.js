@@ -1,5 +1,5 @@
 import { SimpleInputModel }                          from "./simpleInputModel.js";
-import { OptionsModel }                              from "./simpleOptionsModel.js";
+import { SimpleOptionsModel }                              from "./simpleOptionsModel.js";
 import { EDITABLE, LABEL, NAME, TYPE, VALID, VALUE } from "../../presentationModel.js";
 import { CHOICE, COMBOBOX }                          from "../../util/dom.js";
 
@@ -21,16 +21,16 @@ export { SimpleInputController, SimpleAttributeInputController };
  */
 
 /** 
-* @typedef { object } OptionsControllerType
-* @property { () => Array<OptionType> }      getOptions
-* @property { (option: OptionType) => void } addOption
-* @property { (option: OptionType) => void } delOption
-* @property { (cb: ConsumerType<OptionType>) => void } onAddOption
-* @property { (cb: ConsumerType<OptionType>) => void } onDelOption
+* @typedef { object } SimpleOptionsControllerType
+* @property { () => Array<SimpleOptionType> }      getOptions
+* @property { (option: SimpleOptionType) => void } addOption
+* @property { (option: SimpleOptionType) => void } delOption
+* @property { (cb: ConsumerType<SimpleOptionType>) => void } onAddOption
+* @property { (cb: ConsumerType<SimpleOptionType>) => void } onDelOption
 */
 
 /**
- * @typedef { SimpleInputControllerType<String> & OptionsControllerType } SimpleInputWithOptionsControllerType
+ * @typedef { SimpleInputControllerType<String> & SimpleOptionsControllerType } SimpleInputWithOptionsControllerType
  */
 
 /**
@@ -40,7 +40,7 @@ export { SimpleInputController, SimpleAttributeInputController };
  * While controllers might contain business logic, this basic controller does not contain any.
  * @constructor
  * @template _T_
- * @param  { OptionAttributes } args
+ * @param  { ExtendedInputAttributes } args
  * @return { SimpleInputControllerType<_T_> | SimpleInputWithOptionsControllerType }
  * @example
  *     const controller = SimpleInputController({
@@ -55,7 +55,7 @@ const SimpleInputController = (args) => SimpleAttributeInputController(SimpleInp
 const SimpleAttributeInputController = (inputAttribute) => {
     if (   CHOICE   === inputAttribute.getObs(TYPE).getValue() 
         || COMBOBOX === inputAttribute.getObs(TYPE).getValue()) {
-        const optionsModel = OptionsModel();
+        const optionsModel = SimpleOptionsModel();
         return {
             setValue:          inputAttribute.setConvertedValue,
             getValue:          inputAttribute.getObs(VALUE).getValue,

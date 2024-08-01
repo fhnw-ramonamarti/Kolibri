@@ -10,7 +10,7 @@ const createData = () => {
     let years = [];
     for (let i = 1950; i < 2020; i++) {
         if (i % 10 === 0) {
-            decades.push({ value: i / 10, label: `${i}s` });
+            decades.push({ value: String(i / 10), label: `${i}s` });
         }
         years.push({ value: i });
     }
@@ -27,7 +27,7 @@ const start = () => {
     const controller = SimpleFormController(formStructure);
     const [decadeController, yearController] = controller;
     decadeController.onValueChanged((val) => {
-        const options = years.filter((y) => val == Math.floor(y.value / 10) || val === "");
+        const options = years.filter((y) => val === Math.floor(y.value / 10) || val === "");
         yearController.getOptions().forEach((option) => {
             yearController.delOption(option);
         });

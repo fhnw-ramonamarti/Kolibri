@@ -1,15 +1,16 @@
 import { TestSuite }    from "../../util/test.js";
-import { OptionsModel } from "./simpleOptionsModel.js";
+import { SimpleOptionsModel } from "./simpleOptionsModel.js";
 
 const optionsModelSuite = TestSuite("projector/simpleForm/optionsModel");
 
 optionsModelSuite.add("full", assert => {
-    const model = OptionsModel();
+    const model = SimpleOptionsModel();
     assert.is(model.getList().length    , 0);
     assert.is(model.getObsList().count(), 0);
 
     // check observable functions
-    const val = "test";
+    /** @type { SimpleOptionType } */
+    const val = { value: "test" };
     model.getObsList().add(val);
     assert.is(model.getList().length    , 1);
     assert.is(model.getObsList().count(), 1);
