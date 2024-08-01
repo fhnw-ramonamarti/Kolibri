@@ -1,21 +1,21 @@
-import {InputProjector} from "../simpleForm/simpleInputProjector.js";
-import {updateScrollbar} from "./columnOptionsProjector.js";
-import {iProjector} from "./iProjector.js";
-import {nullOption} from "./optionsModel.js";
+import { InputProjector }  from "../simpleForm/simpleInputProjector.js";
+import { updateScrollbar } from "./columnOptionsProjector.js";
+import { nullOption }      from "./optionsModel.js";
 
 export { projectSelectViews, pageCss };
 
 /** @private */
-const selectClassName = "select-component";
+const selectClassName         = "select-component";
 
 /** @private */
 const inputComponentClassName = "select-input-component";
 
 /** @private */
-const optionsClassName = "options-component";
+const selectedOptionClassName = "selected-option-component";
 
 /** @private */
-const selectedOptionClassName = "selected-option-component";
+const optionsClassName        = "options-component";
+
 
 /**
  * Create the options view of the select, bind against the controller, and return the view.
@@ -24,7 +24,7 @@ const selectedOptionClassName = "selected-option-component";
  */
 const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
-    optionsContainer.id = selectController.getId() + "-options";
+    optionsContainer.id    = selectController.getId() + "-options";
     optionsContainer.classList.add(optionsClassName);
     optionsContainer.setAttribute("popover", "auto");
 
@@ -51,8 +51,6 @@ const projectOptionsView = (selectController) => {
         selectController.getColumnOptionsComponent(col).onOptionSelected((newOption, oldOption) => {
             if (nullOption.getId() !== newOption.getId()) {
                 selectController.setCursorPosition(newOption);
-            } else if (nullOption.getId() !== oldOption.getId()) {
-                selectController.setCursorPosition(oldOption);
             }
             for (let i = col; i >= 0; i--) {
                 setTimeout(() => {
@@ -96,11 +94,11 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
      */
     const positionPopover = (selectElement, popoverElementId) => {
         const { top, left, height, width } = selectElement.getBoundingClientRect();
-        const { scrollTop, scrollLeft } = document.documentElement;
+        const { scrollTop, scrollLeft }    = document.documentElement;
         styleElement.textContent = `
             #${popoverElementId} {
-                top: ${top + height + scrollTop}px;
-                left: ${left + scrollLeft}px; 
+                top:   ${top + height + scrollTop}px;
+                left:  ${left + scrollLeft}px; 
                 width: ${width}px;
             }
         `;
@@ -144,7 +142,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     selectedOptionContainer.classList.add("toggleButton");
     selectedOptionContainer.classList.add("selected-value");
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
-    selectedOptionContainer.onclick = togglePopover;
+    selectedOptionContainer.onclick   = togglePopover;
     rootElement.append(selectedOptionContainer);
 
     clearButton.setAttribute("type", "button");
@@ -152,7 +150,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     clearButton.classList.add("clearButton");
     clearButton.classList.add("clear");
     clearButton.innerHTML = "&times;";
-    clearButton.onclick = () => {
+    clearButton.onclick   = () => {
         selectController.clearSelectedValueOption();
     };
     rootElement.append(clearButton);
@@ -169,6 +167,8 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 /**
  * Combine the options view and selected option view, and return the combined view.
  * For the html form a hidden input element is added to the combined view.
+ * This projector supports browser with popover api and nestered css support.
+ * Browsers: Chrome ≥ 114, Firefox ≥ 125, Safari ≥ 17 (for lower versions an alert infobox appears)
  * @param { SelectControllerType } selectController
  * @returns { [HTMLDivElement, HTMLDivElement] } - [whole selected option element,
  *                                                 text content container element]
@@ -265,8 +265,6 @@ const projectSelectViews = (selectController) => {
         componentContainer.focus();
     });
 
-    iProjector(rootElement, selectController);
-
     return [rootElement, selectionTextContentContainer];
 };
 
@@ -341,7 +339,7 @@ const popoverStyle = `
         padding:        0;
         margin:         0;
 
-        box-shadow: 0px 5px 15px #0002;
+        box-shadow:     0px 5px 15px #0002;
 
         animation:        open 300ms ease-in-out;
         transform-origin: top center;
@@ -437,7 +435,7 @@ const pageCss = `
             pointer-events: none;
 
             * {
-                pointer-events:     none;
+                pointer-events: none;
             }
         }
 

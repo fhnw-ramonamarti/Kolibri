@@ -1,7 +1,10 @@
 import { CategoryOption, ValueOption, nullOption }         from "./optionsModel.js";
 import { SelectController }                                from "./selectController.js";
-import { projectSelectViews, pageCss as pageComponentCss } from "./selectProjector.js";
+import { pageCss as pageComponentCss, projectSelectViews } from "./selectProjector.js";
 import { pageCss as pageCssColumn, updateScrollbar }       from "./columnOptionsProjector.js";
+import {
+    iProjector,
+}                                                          from "./iProjector.js";
 
 export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
 
@@ -38,19 +41,22 @@ export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
  * For a good performance the callback return array should not contain > 5_000 entries.
  * While the column values are loading a circular loader in the loading column is provided.
  *
+ * The used projector supports browser with popover api and nestered css support.
+ * Browsers: Chrome ≥ 114, Firefox ≥ 125, Safari ≥ 17 (for lower versions an alert infobox appears)
+ *
  * @param { SelectAttributes }    selectAttributes
  * @param { Array<CallbackType> } serviceCallbacksGeneralToSpecific - list of callbacks to support the column data
  * @returns { SelectComponentType }
  * @constructor
  * @example 
         const selectAttributes = { name: 'city', label: 'City' };
-        const component = SelectComponentByCallbacks(
+        const component        = SelectComponentByCallbacks(
             selectAttributes,
             [ getCountries, getCitiesForCountry ]
         );
  */
 const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToSpecific) => {
-    const serviceCallbacks = serviceCallbacksGeneralToSpecific.reverse();
+    const serviceCallbacks = [...serviceCallbacksGeneralToSpecific].reverse();
     const selectController = SelectController(selectAttributes, serviceCallbacks.length);
 
     const [componentView, selectionElement] = projectSelectViews(selectController);
@@ -96,9 +102,9 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
         if(col >= serviceCallbacks.length){
             return;
         }
-        const selectedOption = selectController.getColumnOptionsComponent(col).getSelectedOption();
+        const selectedOption   = selectController.getColumnOptionsComponent(col).getSelectedOption();
         const searchCategories = filterCategories?.map(option => option.getLabel()) ?? [];
-        const options = serviceCallbacks[col](...searchCategories).map(mapping(col));
+        const options          = serviceCallbacks[col](...searchCategories).map(mapping(col));
 
         /**
          * @param { Array<OptionType> } oldOpts 
@@ -128,7 +134,11 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
             const selectedOption = selectController
                 .getColumnOptionsComponent(col)
                 .getSelectedOption();
-            const categories = selectedOption.getId() !== nullOptionId ? [selectedOption] : options;
+
+            const categories = selectedOption.getId() !== nullOptionId
+                             ? [selectedOption]
+                             : options;
+
             filterOptions(col - 1, categories);
         }
     };
@@ -148,7 +158,7 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
 
                 // unselect category
                 const selectedSuperCategory = option;
-                const allSuperCategories = selectController
+                const allSuperCategories    = selectController
                     .getColumnOptionsComponent(col)
                     .getOptions();
                 const superCategories = selectedSuperCategory.getId() !== nullOptionId
@@ -161,6 +171,12 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
             filterOptions(col - 1, [option]);
         });
     });
+
+    // add interaction
+    setTimeout(() => {
+        // async due to waiting for ui
+         iProjector(componentView, selectController);
+    }, 81);
 
     return {
         getSelectController: () => selectController,
@@ -182,14 +198,17 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
  * For a good performance the callback return array should not contain > 5_000 entries.
  * While the column values are loading a circular loader in the loading column is provided.
  *
- * @param { SelectAttributes } selectAttributes 
+ * The used projector supports browser with popover api and nestered css support.
+ * Browsers: Chrome ≥ 114, Firefox ≥ 125, Safari ≥ 17 (for lower versions an alert infobox appears)
+ *
+ * @param { SelectAttributes } selectAttributes
  * @param { OptionsTable }     optionsTable
  * @param { Boolean }          sortColumnOptionsAlphabetical
  * @returns { SelectComponentType }
  * @constructor
  * @example 
         const selectAttributes = { name: 'region', label: 'Region' };
-        const component = SelectComponentByTableValues(
+        const component        = SelectComponentByTableValues(
             selectAttributes,
             [
                 ["Switzerland", "Aargau"],
@@ -219,9 +238,9 @@ const SelectComponentByTableValues = (
                 .filter(
                     (optionRow) =>
                         (0 === categories.length ||
-                            0 === col ||
-                            categories.includes(optionRow[col - 1])) &&
-                        optionRow[col] != null
+                         0 === col ||
+                            categories.includes(optionRow[col - 1])
+                        ) && null != optionRow[col]
                 )
                 .map((optionRow) => optionRow[col]);
             return sortColumnOptionsAlphabetical
