@@ -6,6 +6,7 @@ export { iProjector };
 const iProjector = (rootElement, componentController, pageSize = 10) => {
     let currentColumn = 0;
 
+
     componentController.onCursorPositionChanged((newOption) => {
         const columnComponent = componentController.getColumnOptionsComponent(currentColumn);
         if (columnComponent.getOptions().findIndex((option) => option.equals(newOption)) >= 0) {
