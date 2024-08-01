@@ -26,6 +26,7 @@ import "./projector/selectComponent/columnOptionsProjectorTest.js"
 import "./projector/selectComponent/columnOptionsComponentTest.js"
 import "./projector/selectComponent/selectControllerTest.js"
 import "./projector/selectComponent/selectProjectorTest.js"
+import "./projector/selectComponent/selectProjectorTestAsync.js"
 import "./projector/selectComponent/selectComponentTest.js"
 import "./sequence/sequenceTestSuite.js"
 
