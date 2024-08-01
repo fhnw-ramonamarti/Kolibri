@@ -257,37 +257,15 @@ const iProjector = (rootElement, componentController, pageSize = 10) => {
     };
 
     const moveCursorLeft = () => {
-        const currentModel = componentController.getCursorPosition();
-        const currentColumn = currentModel ? currentModel.getColumn() : 0;
-        if (currentColumn > 0) {
-            const newOptions = componentController.getCategoryOptions(currentColumn - 1);
-            if (newOptions.length > 0) {
-                componentController.setCursorPosition(newOptions[0]);
-            }
-        }
+        // todo
     };
 
     const moveCursorRight = () => {
-        const currentModel = componentController.getCursorPosition();
-        const currentColumn = currentModel ? currentModel.getColumn() : 0;
-        const numberOfColumns = componentController.getNumberOfColumns();
-        if (currentColumn < numberOfColumns - 1) {
-            const newOptions = componentController.getCategoryOptions(currentColumn + 1);
-            if (newOptions && newOptions.length > 0) {
-                componentController.setCursorPosition(newOptions[0]);
-            }
-        }
+        // todo
     };
 
     const selectCursorPos = () => {
-        const cursorModel = componentController.getCursorPosition();
-        if (cursorModel) {
-            if (cursorModel.getColumn() === 0) {
-                componentController.setSelectedOptionModel(cursorModel);
-            } else {
-                componentController.toggleSelectedCategoryOptionsModel(cursorModel);
-            }
-        }
+        // todo
     };
 
     /**

@@ -64,7 +64,7 @@ const fireChangeEvent = element => fireEvent(element, CHANGE);
 
 /** 
  * @typedef { "text"|"number"|"checkbox"|"time"|"date"|"color"|"choice"|"combobox" } InputTypeString 
- * choice is used for an fixed amount of values
+ * choice is used for a fixed amount of values
  * combobox is used for an amount of possible values, but other values be created as well
  */
 
