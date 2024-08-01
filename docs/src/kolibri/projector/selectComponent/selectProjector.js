@@ -16,6 +16,8 @@ const selectedOptionClassName = "selected-option-component";
 /** @private */
 const optionsClassName        = "options-component";
 
+/** @private */
+let alertInfoShowed           = false;
 
 /**
  * Create the options view of the select, bind against the controller, and return the view.
@@ -102,6 +104,15 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
                 width: ${width}px;
             }
         `;
+
+        // popover not supported
+        if (alertInfoShowed) {
+            styleElement.textContent = `
+                #${popoverElementId} {
+                    width: ${width}px;
+                }
+            `;
+        }
     };
 
     const togglePopover = (_) => {
@@ -112,11 +123,19 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 
         positionPopover(selectElement, popoverElement.id);
 
-        if (selectController.isOptionsVisible()) {
-            popoverElement.hidePopover();
-        } else {
-            popoverElement.showPopover();
-        }            
+        try {
+            if (selectController.isOptionsVisible()) {
+                popoverElement.hidePopover();
+            } else {
+                popoverElement.showPopover();
+            }
+        } catch (e) {
+            // no popover support
+            console.log("Popover not supported");
+            selectController.setOptionsVisibility(!selectController.isOptionsVisible());
+            selectElement.classList.toggle("opened", selectController.isOptionsVisible());
+            popoverElement.classList.toggle("opened", selectController.isOptionsVisible());
+        }
     };
 
     window.addEventListener("resize", () => {
@@ -253,10 +272,19 @@ const projectSelectViews = (selectController) => {
 
     selectController.onOptionsVisibilityChange((visible) => {
         const isVisible = visible && !selectController.isDisabled();
-        if (isVisible) {
-            allOptionsElement.showPopover();
-        } else {
-            allOptionsElement.hidePopover();
+        try {
+            if (isVisible) {
+                allOptionsElement.showPopover();
+            } else {
+                allOptionsElement.hidePopover();
+            }
+        } catch (e) {
+            // no popover support
+            if (!alertInfoShowed) {
+                alertInfoShowed = true;
+                console.log("Popover not supported in this browser / version");
+                alert("Popover not supported in this browser \nSelect components may not work correctly");
+            }
         }
         selectedOptionElement.classList.toggle("opened", isVisible);
     });
@@ -343,6 +371,16 @@ const popoverStyle = `
 
         animation:        open 300ms ease-in-out;
         transform-origin: top center;
+
+        /* styles for popover not supporting browsers */
+        &:not(.opened) {
+            display:      none;
+        }
+
+        &.opened {
+            display:      flex;
+            height:       fit-content;
+        }
     }
 
     /*   BEFORE-OPEN STATE   */
