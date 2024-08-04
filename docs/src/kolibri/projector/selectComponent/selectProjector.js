@@ -17,7 +17,7 @@ const selectedOptionClassName = "selected-option-component";
 const optionsClassName        = "options-component";
 
 /** @private */
-let alertInfoShowed           = false;
+let alertInfoShown           = false;
 
 /**
  * Create the options view of the select, bind against the controller, and return the view.
@@ -106,7 +106,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
         `;
 
         // popover not supported
-        if (alertInfoShowed) {
+        if (alertInfoShown) {
             styleElement.textContent = `
                 #${popoverElementId} {
                     width: ${width}px;
@@ -282,8 +282,8 @@ const projectSelectViews = (selectController) => {
             }
         } catch (e) {
             // no popover support
-            if (!alertInfoShowed) {
-                alertInfoShowed = true;
+            if (!alertInfoShown) {
+                alertInfoShown = true;
                 console.log("Popover not supported in this browser / version");
                 alert("Popover not supported in this browser \nSelect components may not work correctly");
             }

@@ -10,7 +10,7 @@ export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
 
 
 /**
- * @typedef { String | { label: String, value: String } } OptionDataType
+ * @typedef { String | SimpleOptionType } OptionDataType
  */
 
 /**
