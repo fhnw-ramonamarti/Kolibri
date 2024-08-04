@@ -21,7 +21,6 @@ let idCounter = 0;
  * @property { String? }  name
  * @property { Boolean? } isRequired                    - select need to have value selected in form, default false
  * @property { Boolean? } isDisabled                    - selected value can not be changed, default false
- * @property { Boolean? } sortOptionsAlphabetically     - sort the values of each column, default true
  * @property { Boolean? } isCursorPositionWithSelection - the keyboard action also effects the selection change, default false
  */
 
