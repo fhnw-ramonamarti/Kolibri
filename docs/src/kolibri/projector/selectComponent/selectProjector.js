@@ -373,16 +373,15 @@ const popoverStyle = `
 
         animation:        open 300ms ease-in-out;
         transform-origin: top center;
+    }
 
-        /* styles for popover not supporting browsers */
-        &:not(.opened) {
-            display:      none;
-        }
-
-        &.opened {
-            display:      flex;
-            height:       fit-content;
-        }
+    /* styles for popover not supporting browsers */
+    .${optionsClassName}[popover]:not(.opened) {
+        display:        none;
+    }
+    .${optionsClassName}[popover].opened {
+        display:        flex;
+        height:         fit-content;
     }
 
     /*   BEFORE-OPEN STATE   */
@@ -407,6 +406,7 @@ const popoverStyle = `
  */
 const pageCss = `
     ${popoverStyle}
+
     .${selectedOptionClassName} {
         position:       relative;
         display:        flex;
@@ -417,102 +417,92 @@ const pageCss = `
 
         border:         1px solid #ccc; 
         border-radius:  4px;
-
-        &.opened {
-            border-radius: 4px 4px 0 0;
-        }
-
-        :focus & {
-            outline:    var(--kolibri-color-select) solid 2px;
-        }
-
-        &.invalid {
-            border:     var(--kb-rgb-danger-accent) 2px solid;
-        }
-
-        .selected-value {
-            width:      100%;
-        }
-
-        .clear {
-            color:        var(--kolibri-color-accent);
-            font-size:    0.8em;
-            margin-right: 0.3em
-        }
-        
-        button.toggleButton, 
-        .clear {
-            background-color:   transparent;
-            border:             none;
-            font-size:          1.1em;
-            height:             100%;
-            aspect-ratio:       10 / 9;
-            padding:            0;
-            line-height:        0.8;
-            overflow:           hidden;
-            display:            flex;
-            align-items:        center;
-            justify-content:    center;
-        }
-
-        img {
-            max-height: 100%;
-            max-width:  100%;
-            object-fit: contain;
-        }
     }
+    :focus .${selectedOptionClassName} {
+        outline:        var(--kolibri-color-select) solid 2px;
+    }
+
+    .${selectedOptionClassName}.opened {
+        border-radius:  4px 4px 0 0;
+    }
+    .${selectedOptionClassName}.invalid {
+        border:         var(--kb-rgb-danger-accent) 2px solid;
+    }
+    .${selectedOptionClassName} .selected-value {
+        width:          100%;
+    }
+    .${selectedOptionClassName} .clear {
+        color:          var(--kolibri-color-accent);
+        font-size:      0.8em;
+        margin-right:   0.3em
+    }
+    .${selectedOptionClassName} button.toggleButton, 
+    .${selectedOptionClassName} .clear {
+        background-color: transparent;
+        border:           none;
+        font-size:        1.1em;
+        height:           100%;
+        aspect-ratio:     10 / 9;
+        padding:          0;
+        line-height:      0.8;
+        overflow:         hidden;
+        display:          flex;
+        align-items:      center;
+        justify-content:  center;
+    }
+    .${selectedOptionClassName} img {
+        max-height:     100%;
+        max-width:      100%;
+        object-fit:     contain;
+    }
+
     .${inputComponentClassName} {
         position:       relative;
         width:          200px;
-
-        &:focus {
-            outline:    none;
-        }
-
-        &.disabled {
-            background:     #eee;
-            filter:         grayscale(0.9);
-            pointer-events: none;
-
-            * {
-                pointer-events: none;
-            }
-        }
-
-        .toggleButton {
-            height:      100%;
-            display:     flex;
-            align-items: center;
-
-            button& {
-                background-image:    ${svgToUrl(arrowDownIcon)};
-                background-size:     1em;
-                background-repeat:   no-repeat;
-                background-position: center center;
-            }
-        }
-
-        .selected-value {
-            min-height:  2rem;
-            display:     flex;
-            gap:         0.5em;
-            align-items: center;
-        }
-
-        &:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
-            background-image: ${svgToUrl(arrowUpIcon)};
-        }
     }
+    .${inputComponentClassName}:focus {
+        outline:        none;
+    }
+    .${inputComponentClassName}.disabled {
+        background:     #eee;
+        filter:         grayscale(0.9);
+        pointer-events: none;
+    }
+    .${inputComponentClassName}.disabled * {
+        pointer-events: none;
+    }
+    .${inputComponentClassName} .selected-value {
+        min-height:     2rem;
+        display:        flex;
+        gap:            0.5em;
+        align-items:    center;
+    }
+    .${inputComponentClassName} .toggleButton {
+        height:         100%;
+        display:        flex;
+        align-items:    center;
+    }
+    .${inputComponentClassName} button.toggleButton {
+        background-image:    ${svgToUrl(arrowDownIcon)};
+        background-size:     1em;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .${selectedOptionClassName}.opened button.toggleButton,
+    .${inputComponentClassName}:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
+        background-image:    ${svgToUrl(arrowUpIcon)};
+    }
+
     .${selectClassName} {
         position:       relative;
         display:        flex;
         gap:            2em;
-
-        label {
-            min-width:  100px;
-        }
     }
-    
+    .${selectClassName} label {
+        min-width:      100px;
+    }
+
     .hidden.hidden {
         display:        none;
     }

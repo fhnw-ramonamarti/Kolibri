@@ -346,23 +346,7 @@ const removeOptionItem = (root) => option => {
  * @example
         document.querySelector("head style").textContent += pageCss;
  */
-const pageCss = `    
-    .column-holder {
-        display:         flex;
-        justify-content: center;
-        align-items:     center
-    }
-
-    .column-loader {
-        border: 4px solid transparent;
-        border-left: 4px solid #ccc;
-        border-top: 4px solid #ccc;
-        border-radius: 50%;
-        width: 40px;
-        aspect-ratio: 1 / 1;
-        animation: spin 1.5s linear infinite;
-    }
-
+const pageCss = `
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -373,45 +357,56 @@ const pageCss = `
     }
 
     .${columnClassName} {
-        position:       relative;
-        width:          100%;
-        overflow-y:     scroll;
-        overflow-x:     hidden;
-        max-height:     ${boxHeight}px;
-        min-height:     100%;
-        padding:        5px;
-        flex-grow:      2;
-        flex-shrink:    1;
+        position:         relative;
+        width:            100%;
+        overflow-y:       scroll;
+        overflow-x:       hidden;
+        max-height:       ${boxHeight}px;
+        min-height:       100%;
+        padding:          5px;
+        flex-grow:        2;
+        flex-shrink:      1;
+    }
+    .${columnClassName}:not(:last-child) {
+        border-right:     1px solid #ccc;
+        flex-grow:        1;
+    }
+    .${columnClassName}::after {
+        content:          " ";
+        width:            5px;
+        right:            2px;
+        background-color: #ccc;
+        border-radius:    5px;
+        position:         absolute;
+        z-index:          3;
+    }
+    .${columnClassName} .column-holder {
+        display:          flex;
+        justify-content:  center;
+        align-items:      center
+    }
+    .${columnClassName} .column-loader {
+        border:           4px solid transparent;
+        border-left:      4px solid #ccc;
+        border-top:       4px solid #ccc;
+        border-radius:    50%;
+        width:            40px;
+        aspect-ratio:     1 / 1;
+        animation:        spin 1.5s linear infinite;
+    }
 
-        &:not(:last-child) {
-            border-right: 1px solid #ccc;
-            flex-grow:      1;
-        }
-        
-        &::after {
-            content:             " ";
-            width:              5px;
-            right:              2px;
-            background-color:   #ccc;
-            border-radius:      5px;
-            position:           absolute;
-            z-index:            3;
-        }
-
-        /* styling for scroll bar */
-        scrollbar-color: transparent transparent;
-        scrollbar-width: thin;
-        
-        &::-webkit-scrollbar {
-            width:      0;
-        }
-
-        &::-webkit-scrollbar-track {
-        }
-    
-        &::-webkit-scrollbar-thumb {
-            background-color: transparent;
-        }
+    /* styling for scroll bar */
+    .${columnClassName} {
+        scrollbar-color:  transparent transparent;
+        scrollbar-width:  thin;
+    }
+    .${columnClassName}::-webkit-scrollbar {
+        width:            0;
+    }
+    .${columnClassName}::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+    .${columnClassName}::-webkit-scrollbar-track {
     }
     
     .${optionClassName} {
@@ -427,58 +422,51 @@ const pageCss = `
         line-height:    1.2;
         overflow:       hidden;
         text-overflow:  ellipsis;
-
-        &.invisible {
-            display:    none;
-            content-visibility: auto;
-        }
-
-        img {
-            height:     2rem;
-            margin:     0 .5rem;
-        }
-
-        &.selected {
-            background:     var(--kolibri-color-select);
-            border-radius:  4px;
-        }
-
-        &.disabled {
-            filter:     grayscale(0.9);
-        }
-
-        &.category-${optionClassName}:last-child {
-            border-bottom:  none;
-        }
-
-        &:not(.disabled):hover::after {
-            content:        '';
-            position:       absolute;
-            left:           10px;
-            top:            0.5em;
-            bottom:         0.4em;
-            transform:      translateX(-50%);
-            
-            width:          2px;
-            background:     var(--kolibri-color-accent);
-            border-radius:  1px;
-        }
+    }
+    .${optionClassName} img {
+        height:         2rem;
+        margin:         0 .5rem;
+    }
+    .${optionClassName}.invisible {
+        display:            none;
+        content-visibility: auto;
+    }
+    .${optionClassName}.selected {
+        background:     var(--kolibri-color-select);
+        border-radius:  4px;
+    }
+    .${optionClassName}.disabled {
+        filter:         grayscale(0.9);
+    }
+    .${optionClassName}.category-${optionClassName}:last-child {
+        border-bottom:  none;
+    }
+    .${optionClassName}:not(.disabled):hover::after {
+        content:        '';
+        position:       absolute;
+        left:           10px;
+        top:            0.5em;
+        bottom:         0.4em;
+        transform:      translateX(-50%);
+        
+        width:          2px;
+        background:     var(--kolibri-color-accent);
+        border-radius:  1px;
     }
 
-    .cursor-position {
+    .${optionClassName}.cursor-position {
         color:          var(--kb-hsla-warning-dark);
-        
-        &:not(.disabled)::before {
-            content:        '';
-            position:       absolute;
-            left:           7px;
-            top:            0.5em;
-            bottom:         0.4em;
-            transform:      translateX(-50%);
+    }
+    .${optionClassName}.cursor-position:not(.disabled)::before {
+        content:        '';
+        position:       absolute;
+        left:           7px;
+        top:            0.5em;
+        bottom:         0.4em;
+        transform:      translateX(-50%);
 
-            width:          2px;
-            background:     var(--kb-hsla-warning-dark);
-            border-radius:  1px;
-        }
+        width:          2px;
+        background:     var(--kb-hsla-warning-dark);
+        border-radius:  1px;
     }
 `;
