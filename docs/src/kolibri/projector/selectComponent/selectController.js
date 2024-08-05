@@ -57,8 +57,6 @@ let idCounter = 0;
  * @property { () => void }                      clearSelectedValueOption
  
  * @property { (Number) => void }                getSelectedOptionOfColumns
- * @property { (max: Number, min: Number) => void }            clearColumnOptions
- * @property { (Number) => void }                clearSelectedOptions
  * @property { (Number) => ColumnOptionsComponentType }        getColumnOptionsComponent
  */
 
@@ -124,30 +122,6 @@ const SelectController = ({
     });
 
     /**
-     * @param { Number } maxCol - max column number to delete the options from until column 0
-     */
-    const clearSelectedOptions = (maxCol) => {
-        if (maxCol <= 0) {
-            return;
-        }
-        columns[maxCol].clearSelectedOption();
-        clearSelectedOptions(maxCol - 1);
-    };
-
-    /**
-     * @param { Number } maxCol - max column number to delete the options from until column 0
-     * @param { Number } minCol - min column number to delete the options to
-     */
-    const clearColumnOptions = (maxCol, minCol = 0) => {
-        minCol = Math.max(0, minCol);
-        if (maxCol < minCol) {
-            return;
-        }
-        columns[maxCol].clearOptions();
-        clearColumnOptions(maxCol - 1, minCol);
-    };
-
-    /**
      * @param { Number } maxCol  - max column number to delete the options from until column 0
      * @returns { Array<OptionType> }
      */
@@ -191,8 +165,6 @@ const SelectController = ({
         clearSelectedValueOption : columns[0].clearSelectedOption,
         
         getSelectedOptionOfColumns: getSelectedOptionOfColumns,
-        clearColumnOptions        : clearColumnOptions,
-        clearSelectedOptions      : clearSelectedOptions,
         getColumnOptionsComponent : (col) => columns[col],
     }
 };
