@@ -175,7 +175,7 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
     // add interaction
     setTimeout(() => {
         // async due to waiting for ui
-         iProjector(componentView, selectController);
+         iProjector(inputElement, selectController);
     }, 81);
 
     return {
