@@ -1,9 +1,9 @@
 import { elementDataLabel, getHtmlElementByOption } from "./columnOptionsProjector.js";
 import { nullOption }                               from "./optionsModel.js";
 
-export { iProjector };
+export { interactionProjector };
 
-const iProjector = (rootElement, componentController, pageSize = 10) => {
+const interactionProjector = (rootElement, componentController, pageSize = 10) => {
     let currentColumn = 0;
 
 
