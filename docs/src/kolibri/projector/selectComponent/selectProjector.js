@@ -345,15 +345,6 @@ const popoverStyle = `
         }
     }
 
-    @keyframes close {
-        0% {
-            transform: scaleY(1);
-        }
-        100% {
-            transform: scaleY(0);
-        }
-    }
-
     .${optionsClassName}[popover] {
         position:       absolute;
         z-index:        20;
