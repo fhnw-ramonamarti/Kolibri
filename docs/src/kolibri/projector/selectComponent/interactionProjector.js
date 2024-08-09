@@ -24,7 +24,7 @@ export { interactionProjectorWithoutSelectionChange, interactionProjectorWithSel
  * @private
  * @param { HTMLDivElement }       rootElement
  * @param { SelectControllerType } selectController
- * @param { Observable<Number> }   currentColumn    - column of the cursor position
+ * @param { IObservable<Number> }  currentColumn    - column of the cursor position
  * @param { Number }               pageSize         - number of elements for pageUp/Down - default 10
  * @param { Boolean }              autoClose        - automatically close the popover after value selection
  */
@@ -58,7 +58,7 @@ const interactionProjector = (
 
         if (selectController.isOptionsVisible()) {
             // key actions for opened popover
-            switch (event.key || event.code || event.keyCode) {
+            switch (event.key || event.code) {
                 case "ArrowUp":
                 case 38:
                     moveCursorUp();
@@ -90,6 +90,7 @@ const interactionProjector = (
                     break;
                 case "Tab":
                 case 9:
+                case "Esc":
                 case "Escape":
                 case 27:
                     selectController.setOptionsVisibility(false);
@@ -120,7 +121,7 @@ const interactionProjector = (
             if (resetCursor(event)) {
                 return; // first key pressed in the closed component
             }
-            switch (event.key || event.code || event.keyCode) {
+            switch (event.key || event.code) {
                 case " ":
                 case "Space":
                 case 32:
@@ -236,7 +237,7 @@ const interactionProjector = (
      */
     const findFirstOptionOfColumn = () => {
         const columnElement = rootElement.querySelector(`[data-column="${currentColumn.getValue()}"]`);
-        const firstChild    = columnElement.firstChild;
+        const firstChild    = /** @type { HTMLDivElement } */ columnElement.firstChild;
         return firstChild ? findOptionByElement(firstChild) : nullOption;
     };
 
@@ -255,7 +256,8 @@ const interactionProjector = (
     const moveCursorToFirstUp = () => {
         const currentModel   = selectController.getCursorPosition();
         const currentElement = getHtmlElementByOption(currentModel, rootElement);
-        const siblingElement = currentElement?.parentElement.firstChild;
+        /** @type { HTMLDivElement | null } */
+        const siblingElement = currentElement?.parentElement?.firstChild;
         if (siblingElement) {
             if (!isItemVisible(siblingElement)) {
                 siblingElement.scrollIntoView(true);
@@ -274,7 +276,8 @@ const interactionProjector = (
     const moveCursorLastDown = () => {
         const currentModel   = selectController.getCursorPosition();
         const currentElement = getHtmlElementByOption(currentModel, rootElement);
-        const siblingElement = currentElement?.parentElement.lastChild;
+        /** @type { HTMLDivElement | null } */
+        const siblingElement = currentElement?.parentElement?.lastChild;
         if (siblingElement) {
             if (!isItemVisible(siblingElement)) {
                 siblingElement.scrollIntoView(false);
@@ -322,21 +325,7 @@ const interactionProjector = (
         }
     };
 
-    const handleBackspace = () => {
-        if (currentColumn.getValue() > 0) {
-            moveCursorRight();
-        } else {
-            selectController.setCursorPosition(nullOption);
-            selectController.setOptionsVisibility(false);
-        }
-    };
-
-    const moveCursorLeft = () => {
-        if (currentColumn.getValue() + 1 >= selectController.getNumberOfColumns()) {
-            return;
-        }
-        currentColumn.setValue(currentColumn.getValue() + 1);
-
+    const moveCursorBySide = () => {
         const selectedOption = selectController
             .getColumnOptionsComponent(currentColumn.getValue())
             .getSelectedOption();
@@ -344,11 +333,20 @@ const interactionProjector = (
 
         const cursorPosition =
             selectedOption.getId() === nullOption.getId() ? firstOption : selectedOption;
-        const cursorElement  = getHtmlElementByOption(cursorPosition, rootElement);
+        const cursorElement = getHtmlElementByOption(cursorPosition, rootElement);
         if (!isItemVisible(cursorElement)) {
             cursorElement.scrollIntoView(false);
         }
         selectController.setCursorPosition(cursorPosition);
+    }
+
+    const moveCursorLeft = () => {
+        if (currentColumn.getValue() + 1 >= selectController.getNumberOfColumns()) {
+            return;
+        }
+        currentColumn.setValue(currentColumn.getValue() + 1);
+
+        moveCursorBySide();
     };
 
     const moveCursorRight = () => {
@@ -357,18 +355,16 @@ const interactionProjector = (
         }
         currentColumn.setValue(currentColumn.getValue() - 1);
 
-        const selectedOption = selectController
-            .getColumnOptionsComponent(currentColumn.getValue())
-            .getSelectedOption();
-        const firstOption = findFirstOptionOfColumn();
+        moveCursorBySide()
+    };
 
-        const cursorPosition =
-            selectedOption.getId() === nullOption.getId() ? firstOption : selectedOption;
-        const cursorElement  = getHtmlElementByOption(cursorPosition, rootElement);
-        if (!isItemVisible(cursorElement)) {
-            cursorElement.scrollIntoView(false);
+    const handleBackspace = () => {
+        if (selectController.isOptionsVisible()) {
+            selectController
+                .getColumnOptionsComponent(currentColumn.getValue())
+                .clearSelectedOption();
         }
-        selectController.setCursorPosition(cursorPosition);
+        selectController.clearSelectedValueOption();
     };
 
     const selectCursorPosition = () => {
@@ -405,7 +401,7 @@ const interactionProjector = (
      * @param { KeyboardEvent } event - event of a keydown event
      */
     const handleLetters = (event) => {
-        switch (event.key || event.keyCode) {
+        switch (event.key || event.code) {
             case "0":
                 if (moveToLetter("0")) {
                     break;
