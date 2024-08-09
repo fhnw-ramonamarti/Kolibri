@@ -353,7 +353,7 @@ const projectChoiceInput = (detailController, masterController, formCssClassName
         inputElement.value = /** @type { String } */ val;
     });
 
-    detailController.onPlaceholderChanged((val) => inputElement.setAttribute("placeholder", val ? val : ""));
+    // detailController.onPlaceholderChanged((val) => inputElement.setAttribute("placeholder", val ? val : ""));
 
     // prepare for ip6 so choice input can be edited with own values
     detailController.onEditableChanged((_) => inputElement.setAttribute("readonly", "on"));

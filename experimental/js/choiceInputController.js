@@ -7,7 +7,7 @@ import {
     VALUE,
     LABEL,
     NAME,
-    PLACEHOLDER,
+    // PLACEHOLDER,
     LIST_ELEMENTS,
     FOCUS_ELEMENT,
     DEBOUNCE_TEXT,
@@ -86,7 +86,7 @@ const ChoiceMasterController =
  * @property { (cb: ValueChangeCallback<Boolean>) => void } onValidChanged
  * @property { (cb: ValueChangeCallback<String>)  => void } onLabelChanged
  * @property { (cb: ValueChangeCallback<String>)  => void } onNameChanged
- * @property { (cb: ValueChangeCallback<String>)  => void } onPlaceholderChanged
+//  * @property { (cb: ValueChangeCallback<String>)  => void } onPlaceholderChanged
  * @property { (cb: ValueChangeCallback<Boolean>) => void } onEditableChanged
  */
 const ChoiceDetailAttributeController = (attribute) => {
@@ -95,7 +95,7 @@ const ChoiceDetailAttributeController = (attribute) => {
         setValue: attribute.setConvertedValue,
         getName: attribute.getObs(NAME).getValue,
         getLabel: attribute.getObs(LABEL).getValue,
-        getPlaceholder: attribute.getObs(PLACEHOLDER).getValue,
+        // getPlaceholder: attribute.getObs(PLACEHOLDER).getValue,
         setValid: attribute.getObs(VALID).setValue,
         setConverter: attribute.setConverter,
 
@@ -103,7 +103,7 @@ const ChoiceDetailAttributeController = (attribute) => {
         onValidChanged: attribute.getObs(VALID).onChange,
         onLabelChanged: attribute.getObs(LABEL).onChange,
         onNameChanged: attribute.getObs(NAME).onChange,
-        onPlaceholderChanged: attribute.getObs(PLACEHOLDER).onChange,
+        // onPlaceholderChanged: attribute.getObs(PLACEHOLDER).onChange,
         onEditableChanged: attribute.getObs(EDITABLE).onChange,
     };
 };

@@ -30,7 +30,7 @@ choiceInputModelSuite.add("full-detail", (assert) => {
     assert.is(model.hasObs(NAME), true);
     assert.is(model.hasObs(LABEL), true);
     assert.is(model.hasObs(VALID), true);
-    assert.is(model.hasObs(PLACEHOLDER), true);
+    // assert.is(model.hasObs(PLACEHOLDER), true);
     assert.is(model.hasObs(EDITABLE), true); // constructed with default value for later implementation
 });
 
@@ -40,7 +40,7 @@ choiceInputModelSuite.add("slim-detail", (assert) => {
     assert.is(model.hasObs(EDITABLE), true); // constructed with default value for later implementation
     assert.is(model.hasObs(NAME), false); // when name  is not given, no observable is created at construction time
     assert.is(model.hasObs(LABEL), false); // when label is not given, no observable is created at construction time
-    assert.is(model.hasObs(PLACEHOLDER), false); // when placeholder is not given, no observable is created at construction time
+    // assert.is(model.hasObs(PLACEHOLDER), false); // when placeholder is not given, no observable is created at construction time
 });
 
 // ----- detail model tests - end -----

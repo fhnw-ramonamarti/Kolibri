@@ -5,7 +5,7 @@ import {
     EDITABLE,
     LABEL,
     NAME,
-    PLACEHOLDER,
+    // PLACEHOLDER,
     LIST_ELEMENTS,
     FOCUS_ELEMENT,
     DEBOUNCE_TEXT,
@@ -26,7 +26,7 @@ export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
  * @typedef { object } ChoiceDetailAttributes
  * @template _T_
  * @property { ?_T_ }     value        - optional value, will become the value sent in the form
- * @property { ?String }  placeholder  - optional placeholder that reflects the placeholder attribute of an input
+//  * @property { ?String }  placeholder  - optional placeholder that reflects the placeholder attribute of an input
  * @property { ?String }  label        - optional label, defaults to undefined
  * @property { ?String }  name         - optional name that reflects the name attribute of an input element, used in forms
  */
@@ -61,7 +61,7 @@ const ChoiceDetailModel = ({value, placeholder, label, name}) => {
     attr.getObs(EDITABLE).setValue(false);
     attr.getObs(VALID).setValue(true);
 
-    if (null != placeholder) attr.getObs(PLACEHOLDER).setValue(placeholder);
+    // if (null != placeholder) attr.getObs(PLACEHOLDER).setValue(placeholder);
     if (null != label) attr.getObs(LABEL).setValue(label);
     if (null != name) attr.getObs(NAME).setValue(name);
 
