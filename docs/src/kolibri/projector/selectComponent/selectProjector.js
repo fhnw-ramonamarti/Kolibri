@@ -17,7 +17,7 @@ const selectedOptionClassName = "selected-option-component";
 const optionsClassName        = "options-component";
 
 /** @private */
-let alertInfoShown           = false;
+let alertInfoShown            = false;
 
 /**
  * Create the options view of the select, bind against the controller, and return the view.

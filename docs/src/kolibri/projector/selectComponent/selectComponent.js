@@ -3,7 +3,8 @@ import { SelectController }                                from "./selectControl
 import { pageCss as pageComponentCss, projectSelectViews } from "./selectProjector.js";
 import { pageCss as pageCssColumn, updateScrollbar }       from "./columnOptionsProjector.js";
 import {
-    interactionProjector,
+    interactionProjectorWithoutSelectionChange,
+    interactionProjectorWithSelectionChange,
 }                                                          from "./interactionProjector.js";
 
 export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
@@ -175,7 +176,11 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
     // add interaction
     setTimeout(() => {
         // async due to waiting for ui
-         interactionProjector(inputElement, selectController);
+        if(selectController.isCursorPositionWithSelection()){
+            interactionProjectorWithSelectionChange(componentView, selectController);
+        } else {
+            interactionProjectorWithoutSelectionChange(componentView, selectController);
+        }
     }, 81);
 
     return {
