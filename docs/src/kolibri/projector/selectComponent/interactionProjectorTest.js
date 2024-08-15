@@ -97,8 +97,8 @@ selectProjectorSuite.add("binding-interaction-without-selection", (assert) => {
 
     // simulate backspace
     fireKeyboardEvent(selectView, "Backspace");
-    assert.is(getColumnSelection(0).getId(), nullOptionId);
-    assert.is(selectController.getCursorPosition().getId(), nullOptionId);
+    assert.is(getColumnSelection(0).getId()                                      , nullOptionId);
+    assert.is(selectController.getCursorPosition().equals(getColumnOptions(0)[0]), true);
 
     // prepare to open popover
     selectController.getColumnOptionsComponent(0).setSelectedOption(nullOption);

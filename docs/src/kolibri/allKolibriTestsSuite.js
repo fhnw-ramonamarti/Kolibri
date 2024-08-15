@@ -28,6 +28,7 @@ import "./projector/selectComponent/selectControllerTest.js"
 import "./projector/selectComponent/selectProjectorTest.js"
 import "./projector/selectComponent/selectProjectorTestAsync.js"
 import "./projector/selectComponent/selectComponentTest.js"
+import "./projector/selectComponent/interactionProjectorTest.js"
 import "./sequence/sequenceTestSuite.js"
 
 // note: logger tests that need to write to the console are moved to the manual test suite.
