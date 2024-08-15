@@ -1,0 +1,253 @@
+:root {
+    --padding:                  10px 16px;
+    --padding-icon:             0 4px;
+    --thin-line:                1px;
+    --font-family:              "Rubik-Regular", sans-serif;
+    --font-family-bold:         "Rubik-SemiBold", sans-serif;
+    --font-family-dezent:       "Rubik-Light", sans-serif;
+
+    --border-radius-big:        0.3em;
+    --border-radius-small:      0.4em;
+    --border-radius-big-bottom: 0 0 8px 8px;
+
+    --font-size-dezent:         3em;
+    --font-size-default:        1em;
+    --font-bold-shadow:         -0.6px 0 0 var(--color-font-black);
+}
+
+/* Styling for elements within .dropdown */
+.dropdown * {
+    color:                      var(--color-font-body);
+    font-family:                var(--font-family);
+    font-size:                  var(--font-size-default);
+    line-height:                18px;
+    letter-spacing:             0.25px;
+}
+/* Basic styling for the HTML and body elements*/
+html,
+body {
+    width:                     auto;
+    display:                   flex;
+    justify-content:           center;
+    align-items:               start;
+    padding:                   20px;
+    overflow:                  hidden;
+    height:                    100%;
+}
+
+/* icons inside - start */
+.selectionElement {
+    min-width:                 30em;
+    position:                  relative;
+    border:                    var(--border-dark);
+    background:                white;
+    color:                     var(--color-font-body);
+    border-radius:             var(--border-radius-big);
+    padding-right:             10px;
+}
+
+.selectionElement:has(input:focus) {
+    border:                    var(--border-focused);
+}
+.selectionElement:has(input:focus:has(+ .open)) {
+    border:                    var(--border-dark);
+}
+
+/* country entered in form */
+.selectedCountry {
+    width:                     100%;
+    border:                    none;
+    padding:                   var(--padding);
+}
+/* icons inside - end */
+
+/* icons outside - start */
+/*
+.selectionElement {
+    width:                     30em;
+    border-radius:             var(--border-radius-big);
+    position:                  relative;
+}
+
+.selectedCountry {
+    border:                    var(--border-dark);
+    background:                var(--color-background);
+    color:                     var(--color-font-body);
+    padding:                   var(--padding);
+    border-radius:             var(--border-radius-big);
+    width:                     100%;
+}
+*/
+/* icons outside - end */
+
+/* Styling for .selectionDetailView within the dropdown */
+.selectionDetailView {
+    width:                  100%;
+    display:                flex;
+    align-items:            center;
+}
+/* span elements with data-id attribute inside .selectionDetailView */
+.selectionDetailView span[data-id] {
+    width:                  100%;
+}
+
+/* Styling for all input elements */
+input {
+    outline:                none;
+    border-radius:          var(--border-radius-big);
+    border:                 var(--border-dark);
+    width:                  100%;
+}
+
+/* Styling adjustments for input elements when 'open' class */
+.selectionElement:has(input.open),
+input.open {
+    border-bottom-left-radius:  0;
+    border-bottom-right-radius: 0;
+}
+
+/* icons outside - start */
+/*
+input:focus {
+    border:                 var(--border-focused);
+}
+
+input:focus:has(+.open) {
+    border:                 var(--border-dark);
+}
+*/
+/* icons outside - end */
+
+/* icons */
+.icon {
+    display:                none;
+    justify-content:        center;
+    align-items:            center;
+    background-size:        contain;
+    background-repeat:      no-repeat;
+    margin-left:            10px;
+}
+
+.icon svg {
+    width:                  1rem;
+    aspect-ratio:           1/1;
+}
+
+.icon.show {
+    display:                flex;
+    justify-content:        center;
+    align-items:            center;
+    background:             transparent;
+}
+
+
+.clear.show {
+    padding:                var(--padding-icon);
+}
+
+.clear {
+    display:                none;
+}
+
+/* for .lists when it has the 'open' class */
+.lists.open {
+    display:                grid;
+    grid-template-columns:  1fr min-content 2fr;
+    justify-content:        stretch;
+    align-items:            center;
+    position:               absolute;
+    border:                 var(--border-dark);
+    background:             var(--color-background);
+    overflow:               hidden;
+    border-radius:          var(--border-radius-big-bottom);
+
+    /* icons outside - start */
+    /* width:               100%; */
+    /* icons outside - end */
+
+    /* icons inside - start */
+    width:                  calc(100% + 2px);
+    left:                   -1px;
+    /* icons inside - end */
+}
+
+/* default for .list */
+.lists {
+    display:                none;
+}
+
+/* styling for .line of drafts */
+.line {
+    height:                 100%;
+    width:                  0;
+    border-left:            var(--border-dark);
+}
+
+/* for unordered list elements, countries in dropdown */
+ul {
+    list-style:             none;
+    overflow:               scroll;
+    margin:                 0;
+    padding:                0;
+    height:                 100%;
+    border:                 none;
+}
+/* within dropdown when open */
+li {
+    background: var(--color-background);
+    display:                flex;
+    justify-content:        space-between;
+    align-items:            center;
+    gap:                    16px;
+    width:                  100%;
+    padding:                var(--padding);
+}
+
+ul:first-child li.selected {
+    /* fix jumping bug of bold */
+    padding-right:          calc(var(--padding) - 5px);
+}
+
+.hidden {
+    display:                none;
+}
+
+.shortcut {
+    display:                flex;
+    justify-content:        center;
+    align-items:            center;
+    padding:                var(--padding-icon);
+    border-radius:          var(--border-radius-small);
+    color:                  var(--color-dezent-font);
+    font-size:              var(--font-size-dezent);
+    width:                  25px;
+
+    background:             var(--color-dezent);
+}
+
+.selected .shortcut {
+    background:             var(--color-dezent-selected);
+    font-family:            var(--font-family-dezent);
+}
+/* selected country*/
+.selected {
+    background:             var(--color-selected);
+    color:                  var(--kb-color-hsl-black);
+    font-family:            var(--font-family-bold);
+    margin-right:           -6px;
+}
+
+.selected div:first-child {
+    color:                  var(--kb-color-hsl-black);
+    font-family:            var(--font-family-bold);
+    margin-right:           -6px;
+}
+
+/* country that is focused through hover*/
+.focused {
+    color:                  var(--color-focused);
+}
+
+.focused div:first-child {
+    color:                  var(--color-focused);
+}

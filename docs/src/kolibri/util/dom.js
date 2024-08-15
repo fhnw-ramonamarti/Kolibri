@@ -6,8 +6,8 @@
  */
 export {
     dom, fireEvent, fireChangeEvent,
-    CLICK, INPUT, CHANGE,
-    TEXT, TIME, DATE, CHECKBOX, NUMBER, COLOR
+    CLICK, INPUT, CHANGE, MOUSE_DOWN,
+    TEXT, TIME, DATE, CHECKBOX, NUMBER, COLOR, CHOICE, COMBOBOX
 }
 
 /**
@@ -28,13 +28,14 @@ const dom = innerString => {
 };
 
 /**
- * @typedef {'change'|'input'|'click'} EventTypeString
+ * @typedef {'change'|'input'|'click'|'mousedown'} EventTypeString
  * Feel free to extend this type with new unique type strings as needed for other DOM events.
  */
 
-/** @type EventTypeString */ const CHANGE  = "change";
-/** @type EventTypeString */ const INPUT   = "input";
-/** @type EventTypeString */ const CLICK   = "click";
+/** @type EventTypeString */ const CHANGE     = "change";
+/** @type EventTypeString */ const INPUT      = "input";
+/** @type EventTypeString */ const CLICK      = "click";
+/** @type EventTypeString */ const MOUSE_DOWN = "mousedown";
 
 /**
  * When a user interacts with an HTML element in the browser, various events might be fired. For example, typing text
@@ -61,11 +62,17 @@ const fireEvent = (element, eventTypeString) => {
 const fireChangeEvent = element => fireEvent(element, CHANGE);
 
 
-/** @typedef { "text"|"number"|"checkbox"|"time"|"date"|"color" } InputTypeString */
+/** 
+ * @typedef { "text"|"number"|"checkbox"|"time"|"date"|"color"|"choice"|"combobox" } InputTypeString 
+ * choice is used for a fixed amount of values
+ * combobox is used for an amount of possible values, but other values be created as well
+ */
 
 /** @type InputTypeString */ const TEXT     = "text";
 /** @type InputTypeString */ const NUMBER   = "number";
-/** @type InputTypeString */ const CHECKBOX = "checkbox";
+/** @type InputTypeString */ const CHECKBOX = "checkbox"; // think about radio
 /** @type InputTypeString */ const TIME     = "time";
 /** @type InputTypeString */ const DATE     = "date";
 /** @type InputTypeString */ const COLOR    = "color";
+/** @type InputTypeString */ const CHOICE   = "choice";
+/** @type InputTypeString */ const COMBOBOX = "combobox";

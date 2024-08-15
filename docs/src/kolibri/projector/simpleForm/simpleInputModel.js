@@ -1,5 +1,5 @@
-import {Attribute, EDITABLE, LABEL, NAME, TYPE, VALID } from "../../presentationModel.js";
-import {TEXT}                                           from "../../util/dom.js";
+import { Attribute, EDITABLE, LABEL, NAME, TYPE, VALID } from "../../presentationModel.js";
+import { TEXT, CHOICE }                                  from "../../util/dom.js";
 
 export { SimpleInputModel }
 
@@ -7,7 +7,7 @@ export { SimpleInputModel }
 /**
  * @typedef { object } InputAttributes
  * @template _T_
- * @property { !_T_ } value      - mandatory value, will become the input value, defaults to undefined
+ * @property { !_T_ } value    - mandatory value, will become the input value, defaults to undefined
  * @property { ?String } label - optional label, defaults to undefined
  * @property { ?String } name  - optional name that reflects the name attribute of an input element, used in forms
  * @property { ?InputTypeString } type - optional type, allowed values are
@@ -30,14 +30,16 @@ export { SimpleInputModel }
          type:   "text",
      });
  */
-const SimpleInputModel = ({value, label, name, type= TEXT}) => {
+const SimpleInputModel = ({value, label, name, type = TEXT}) => {
     const singleAttr = Attribute(value);
-    singleAttr.getObs(TYPE)    .setValue(type);
-    singleAttr.getObs(EDITABLE).setValue(true);
-    singleAttr.getObs(VALID)   .setValue(true);
-    if (null != label) singleAttr.getObs(LABEL).setValue(label);
-    if (null != name ) singleAttr.getObs(NAME) .setValue(name);
+    singleAttr.getObs(TYPE)        .setValue(type);
+    singleAttr.getObs(VALID)       .setValue(true);
 
+    if (CHOICE !== type) singleAttr.getObs(EDITABLE).setValue(true);
+    
+    if (null != label) singleAttr  .getObs(LABEL).setValue(label);
+    if (null != name ) singleAttr  .getObs(NAME) .setValue(name);
 
     return /** AttributeType<_T_> */ singleAttr;
 };
+

@@ -50,7 +50,7 @@ const projectMasterView = (listController, selectionController) => {
  * @impure - since we change the state of the controller. The DOM remains unchanged.
  * @param  { SelectionControllerType<_T_> } selectionController
  * @param  { HTMLElement }                detailCard - element that holds the detail view and can be folded away
- * @return { [HTMLFormElement] }          - master view
+ * @return { [HTMLFormElement] }          - detail view
  */
 const projectDetailView = (selectionController, detailCard) => {
 

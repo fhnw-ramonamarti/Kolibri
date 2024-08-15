@@ -8,19 +8,37 @@ import { id }         from "./stdlib.js";
 export { Attribute, QualifiedAttribute,
          presentationModelFromAttributeNames,
          valueOf, readQualifierValue,
-         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE }
+         VALID, VALUE, EDITABLE, LABEL, NAME, TYPE, EXAMPLE_INPUT,
+         LIST_ELEMENTS,
+         SELECTION_ELEMENTS,
+         FOCUS_ELEMENT,
+         DEBOUNCE_TEXT,
+         CHOICEBOX_OPEN
+     };
 
 /**
- * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'} ObservableTypeString
+ * @typedef { 'listElements'|'selectionElements'|'focusElement'|'debounceText'|'choiceboxOpen'|'options' } ObservableListTypeString
+ */
+
+/** @type ObservableListTypeString */ const LIST_ELEMENTS      = "listElements";
+/** @type ObservableListTypeString */ const SELECTION_ELEMENTS = "selectionElements";
+/** @type ObservableListTypeString */ const FOCUS_ELEMENT      = "focusElement";
+/** @type ObservableListTypeString */ const DEBOUNCE_TEXT      = "debounceText";
+/** @type ObservableListTypeString */ const CHOICEBOX_OPEN     = "choiceboxOpen";
+
+
+/**
+ * @typedef {'value'|'valid'|'editable'|'label'|'name'|'type'|'exampleInput'| ObservableListTypeString} ObservableTypeString
  * Feel free to extend this type with new unique type strings as needed for your application.
  */
 
-/** @type ObservableTypeString */ const VALUE    = "value";
-/** @type ObservableTypeString */ const VALID    = "valid";
-/** @type ObservableTypeString */ const EDITABLE = "editable";
-/** @type ObservableTypeString */ const LABEL    = "label";
-/** @type ObservableTypeString */ const NAME     = "name";
-/** @type ObservableTypeString */ const TYPE     = "type"; // HTML input types: text, number, checkbox, etc.
+/** @type ObservableTypeString */ const VALUE          = "value";
+/** @type ObservableTypeString */ const VALID          = "valid";
+/** @type ObservableTypeString */ const EDITABLE       = "editable";
+/** @type ObservableTypeString */ const LABEL          = "label";
+/** @type ObservableTypeString */ const NAME           = "name";
+/** @type ObservableTypeString */ const TYPE           = "type";      // HTML input types: text, number, checkbox, etc.
+/** @type ObservableTypeString */ const EXAMPLE_INPUT  = "exampleInput";
 
 /**
  * Convenience function to read the current state of the attribute's VALUE observable for the given attribute.
