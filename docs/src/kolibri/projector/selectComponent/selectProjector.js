@@ -1,23 +1,28 @@
-import { InputProjector }  from "../simpleForm/simpleInputProjector.js";
-import { updateScrollbar } from "./columnOptionsProjector.js";
-import { nullOption }      from "./optionsModel.js";
+import { InputProjector }                                        from "../simpleForm/simpleInputProjector.js";
+import { nullOption }                                            from "./optionsModel.js";
+import { disabledClass as disabledOptionClass, updateScrollbar } from "./columnOptionsProjector.js";
 
-export { projectSelectViews, pageCss };
+export { 
+    selectClass, inputComponentClass, selectedOptionClass, optionsClass, 
+    selectedValueClass, toggleButtonClass, clearButtonClass, 
+    disabledClass, openedClass, invalidClass, 
+    alertInfoShown, projectSelectViews, pageCss
+};
 
-/** @private */
-const selectClassName         = "select-component";
+/** @type { String } */ const selectClass         = "select-component";
+/** @type { String } */ const inputComponentClass = "select-input-component";
+/** @type { String } */ const selectedOptionClass = "selected-option-component";
+/** @type { String } */ const optionsClass        = "options-component";
 
-/** @private */
-const inputComponentClassName = "select-input-component";
+/** @type { String } */ const selectedValueClass  = "selected-value";
+/** @type { String } */ const toggleButtonClass   = "toggle-button";
+/** @type { String } */ const clearButtonClass    = "clear-button";
 
-/** @private */
-const selectedOptionClassName = "selected-option-component";
+/** @type { String } */ const disabledClass       = disabledOptionClass;
+/** @type { String } */ const openedClass         = 'opened';
+/** @type { String } */ const invalidClass        = 'invalid';
 
-/** @private */
-const optionsClassName        = "options-component";
-
-/** @private */
-let alertInfoShown            = false;
+/** @type { Boolean } */ let alertInfoShown       = false;
 
 /**
  * Create the options view of the select, bind against the controller, and return the view.
@@ -27,15 +32,15 @@ let alertInfoShown            = false;
 const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
     optionsContainer.id    = selectController.getId() + "-options";
-    optionsContainer.classList.add(optionsClassName);
+    optionsContainer.classList.add(optionsClass);
     optionsContainer.setAttribute("popover", "auto");
 
     optionsContainer.addEventListener("toggle", (event) => {
         if (event.newState === "open") {
-            optionsContainer.classList.toggle("opened", true);
+            optionsContainer.classList.toggle(openedClass, true);
             selectController.setOptionsVisibility(true);
         } else {
-            optionsContainer.classList.toggle("opened", false);
+            optionsContainer.classList.toggle(openedClass, false);
             selectController.setOptionsVisibility(false);
         }
         for (let col = 0; col < selectController.getNumberOfColumns(); col++) {
@@ -46,7 +51,7 @@ const projectOptionsView = (selectController) => {
         }
     });
 
-    // map over columns from max colum to column 0
+    // map over columns from max column to column 0
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
         const columnView = selectController.getColumnOptionsComponent(col).getColumnView();
         optionsContainer.append(columnView);
@@ -78,7 +83,7 @@ const projectOptionsView = (selectController) => {
 const projectSelectedValueOptionView = (selectController, popoverElement) => {
     const rootElement = document.createElement("div");
     rootElement.id    = selectController.getId() + "-selected-option";
-    rootElement.classList.add(selectedOptionClassName);
+    rootElement.classList.add(selectedOptionClass);
     rootElement.setAttribute("data-id", selectController.getId());
 
     const selectedOptionContainer = document.createElement("div");
@@ -118,8 +123,8 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
     const togglePopover = (_) => {
         // popover preparing
         const selectElement = rootElement;
-        selectElement.classList.toggle("opened", selectController.isOptionsVisible());
-        rootElement.classList.toggle("opened", selectController.isOptionsVisible());
+        selectElement.classList.toggle(openedClass, selectController.isOptionsVisible());
+        rootElement.classList.toggle(openedClass, selectController.isOptionsVisible());
 
         positionPopover(selectElement, popoverElement.id);
 
@@ -133,8 +138,8 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
             // no popover support
             console.log("Popover not supported");
             selectController.setOptionsVisibility(!selectController.isOptionsVisible());
-            selectElement.classList.toggle("opened", selectController.isOptionsVisible());
-            popoverElement.classList.toggle("opened", selectController.isOptionsVisible());
+            selectElement.classList.toggle(openedClass, selectController.isOptionsVisible());
+            popoverElement.classList.toggle(openedClass, selectController.isOptionsVisible());
         }
     };
 
@@ -158,16 +163,15 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
         }
     });
 
-    selectedOptionContainer.classList.add("toggleButton");
-    selectedOptionContainer.classList.add("selected-value");
+    selectedOptionContainer.classList.add(toggleButtonClass);
+    selectedOptionContainer.classList.add(selectedValueClass);
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
     selectedOptionContainer.onclick   = togglePopover;
     rootElement.append(selectedOptionContainer);
 
     clearButton.setAttribute("type", "button");
     clearButton.setAttribute("tabindex", "-1");
-    clearButton.classList.add("clearButton");
-    clearButton.classList.add("clear");
+    clearButton.classList.add(clearButtonClass);
     clearButton.innerHTML = "&times;";
     clearButton.onclick   = () => {
         selectController.clearSelectedValueOption();
@@ -176,7 +180,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 
     toggleButton.setAttribute("type", "button");
     toggleButton.setAttribute("tabindex", "-1");
-    toggleButton.classList.add("toggleButton");
+    toggleButton.classList.add(toggleButtonClass);
     toggleButton.onclick = togglePopover;
     rootElement.append(toggleButton);
 
@@ -208,10 +212,10 @@ const projectSelectViews = (selectController) => {
 
     const rootElement = document.createElement("div");
     rootElement.id    = selectController.getId();
-    rootElement.classList.add(selectClassName);
+    rootElement.classList.add(selectClass);
 
     const componentContainer = document.createElement("div");
-    componentContainer.classList.add(inputComponentClassName);
+    componentContainer.classList.add(inputComponentClass);
     componentContainer.setAttribute("tabindex", "0"); // focusable element
     componentContainer.append(selectedOptionElement);
     componentContainer.append(allOptionsElement);
@@ -219,7 +223,7 @@ const projectSelectViews = (selectController) => {
     // label & input element
     const [labelElement, inputSpan] = InputProjector.projectInstantInput(
         selectController.getInputController(),
-        selectedOptionClassName
+        selectedOptionClass
     );
     labelElement.addEventListener("mousedown", (_) => {
         // move focus from hidden input to select component
@@ -251,7 +255,7 @@ const projectSelectViews = (selectController) => {
     });
 
     selectController.getInputController().onValidChanged((valid) => {
-        selectedOptionElement.classList.toggle("invalid", !valid);
+        selectedOptionElement.classList.toggle(invalidClass, !valid);
     });
 
     rootElement.append(labelElement);
@@ -259,7 +263,7 @@ const projectSelectViews = (selectController) => {
     componentContainer.append(inputElement);
 
     selectController.onDisabledChanged((disabled) => {
-        componentContainer.classList.toggle("disabled", disabled);
+        componentContainer.classList.toggle(disabledClass, disabled);
         if (disabled) {
             selectController.setOptionsVisibility(false);
             inputElement.setAttribute("disabled", "true");
@@ -288,7 +292,7 @@ const projectSelectViews = (selectController) => {
                 alert("Popover not supported in this browser \nSelect components may not work correctly");
             }
         }
-        selectedOptionElement.classList.toggle("opened", isVisible);
+        selectedOptionElement.classList.toggle(openedClass, isVisible);
     });
 
     selectedOptionElement.addEventListener("mousedown", (_) => {
@@ -345,7 +349,7 @@ const popoverStyle = `
         }
     }
 
-    .${optionsClassName}[popover] {
+    .${optionsClass}[popover] {
         position:       absolute;
         z-index:        20;
         max-height:     ${boxHeight}px;
@@ -367,23 +371,23 @@ const popoverStyle = `
     }
 
     /* styles for popover not supporting browsers */
-    .${optionsClassName}[popover]:not(.opened) {
+    .${optionsClass}[popover]:not(.${openedClass}) {
         display:        none;
     }
-    .${optionsClassName}[popover].opened {
+    .${optionsClass}[popover].${openedClass} {
         display:        flex;
         height:         fit-content;
     }
 
     /*   BEFORE-OPEN STATE   */
     @starting-style {
-        .${optionsClassName}[popover]:popover-open {
+        .${optionsClass}[popover]:popover-open {
             height:     0;
         }
     }
 
     /*   IS-OPEN STATE   */
-    .${optionsClassName}[popover]:popover-open {
+    .${optionsClass}[popover]:popover-open {
         display:        flex;
         height:         fit-content;
     }
@@ -398,7 +402,7 @@ const popoverStyle = `
 const pageCss = `
     ${popoverStyle}
 
-    .${selectedOptionClassName} {
+    .${selectedOptionClass} {
         position:       relative;
         display:        flex;
         align-items:    center;
@@ -409,26 +413,26 @@ const pageCss = `
         border:         1px solid #ccc; 
         border-radius:  4px;
     }
-    :focus .${selectedOptionClassName} {
+    :focus .${selectedOptionClass} {
         outline:        var(--kolibri-color-select) solid 2px;
     }
 
-    .${selectedOptionClassName}.opened {
+    .${selectedOptionClass}.${openedClass} {
         border-radius:  4px 4px 0 0;
     }
-    .${selectedOptionClassName}.invalid {
+    .${selectedOptionClass}.${invalidClass} {
         border:         var(--kb-rgb-danger-accent) 2px solid;
     }
-    .${selectedOptionClassName} .selected-value {
+    .${selectedOptionClass} .${selectedValueClass} {
         width:          100%;
     }
-    .${selectedOptionClassName} .clear {
+    .${selectedOptionClass} .${clearButtonClass} {
         color:          var(--kolibri-color-accent);
         font-size:      0.8em;
         margin-right:   0.3em
     }
-    .${selectedOptionClassName} button.toggleButton, 
-    .${selectedOptionClassName} .clear {
+    .${selectedOptionClass} button.${toggleButtonClass}, 
+    .${selectedOptionClass} .${clearButtonClass} {
         background-color: transparent;
         border:           none;
         font-size:        1.1em;
@@ -441,56 +445,56 @@ const pageCss = `
         align-items:      center;
         justify-content:  center;
     }
-    .${selectedOptionClassName} img {
+    .${selectedOptionClass} img {
         max-height:     100%;
         max-width:      100%;
         object-fit:     contain;
     }
 
-    .${inputComponentClassName} {
+    .${inputComponentClass} {
         position:       relative;
         width:          200px;
     }
-    .${inputComponentClassName}:focus {
+    .${inputComponentClass}:focus {
         outline:        none;
     }
-    .${inputComponentClassName}.disabled {
+    .${inputComponentClass}.${disabledClass} {
         background:     #eee;
         filter:         grayscale(0.9);
         pointer-events: none;
     }
-    .${inputComponentClassName}.disabled * {
+    .${inputComponentClass}.${disabledClass} * {
         pointer-events: none;
     }
-    .${inputComponentClassName} .selected-value {
+    .${inputComponentClass} .${selectedValueClass} {
         min-height:     2rem;
         display:        flex;
         gap:            0.5em;
         align-items:    center;
     }
-    .${inputComponentClassName} .toggleButton {
+    .${inputComponentClass} .${toggleButtonClass} {
         height:         100%;
         display:        flex;
         align-items:    center;
     }
-    .${inputComponentClassName} button.toggleButton {
+    .${inputComponentClass} button.${toggleButtonClass} {
         background-image:    ${svgToUrl(arrowDownIcon)};
         background-size:     1em;
         background-repeat:   no-repeat;
         background-position: center center;
     }
 
-    .${selectedOptionClassName}.opened button.toggleButton,
-    .${inputComponentClassName}:has(.${optionsClassName}[popover]:popover-open) button.toggleButton {
+    .${selectedOptionClass}.${openedClass} button.${toggleButtonClass},
+    .${inputComponentClass}:has(.${optionsClass}[popover]:popover-open) button.${toggleButtonClass} {
         background-image:    ${svgToUrl(arrowUpIcon)};
     }
 
-    .${selectClassName} {
+    .${selectClass} {
         position:       relative;
         display:        flex;
         gap:            2em;
     }
-    .${selectClassName} label {
+    .${selectClass} label {
         min-width:      100px;
     }
 

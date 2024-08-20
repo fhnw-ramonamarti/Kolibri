@@ -1,6 +1,6 @@
 import { CategoryOption, ValueOption, nullOption }         from "./optionsModel.js";
 import { SelectController }                                from "./selectController.js";
-import { pageCss as pageComponentCss, projectSelectViews } from "./selectProjector.js";
+import { clearButtonClass, pageCss as pageComponentCss, projectSelectViews } from "./selectProjector.js";
 import { pageCss as pageCssColumn, updateScrollbar }       from "./columnOptionsProjector.js";
 import {
     interactionProjectorWithoutSelectionChange,
@@ -89,7 +89,7 @@ const SelectComponentByCallbacks = (selectAttributes, serviceCallbacksGeneralToS
             selectionElement.innerHTML = option.getLabel();
         }
         inputElement
-            .querySelector(".clear")
+            .querySelector("." + clearButtonClass)
             .classList.toggle("hidden", "" === option.getLabel());
     });
 

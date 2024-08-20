@@ -1,20 +1,43 @@
 
 export {
-    projectColumnOptionsView,
-    pageCss,
-    getHtmlElementByOption,
-    elementDataLabel,
-    updateScrollbar,
+    CAT_CLASS, VALUE_CLASS, 
+    typedColumnClassName, typedOptionClassName,
+    columnClass, optionClass, 
+    cursorPositionClass, selectedClass, disabledClass, 
+    projectColumnOptionsView, pageCss, 
+    getHtmlElementByOption, elementDataLabel, updateScrollbar,
 };
 
-/** @private */
-const columnClassName = 'options-column';
+
+/**
+ * @typedef { 'category' | 'value' } OptionTypeClass
+ */
+
+/** @type { OptionTypeClass } */ const CAT_CLASS   = 'category';
+/** @type { OptionTypeClass } */ const VALUE_CLASS = 'value';
+
+
+/**
+ * @param { OptionTypeClass } type - type of options
+ * @returns { String }             - class name for column of option type
+ */
+const typedColumnClassName = (type) => type + '-' + columnClass;
+
+/**
+ * @param { OptionTypeClass } type - type of option
+ * @returns { String }             - class name for option of option type
+ */
+const typedOptionClassName = (type) => type + '-' + optionClass;
+
+/** @type { String } */ const columnClass         = 'options-column';
+/** @type { String } */ const optionClass         = columnClass + '-item';
+
+/** @type { String } */ const cursorPositionClass = 'cursor-position';
+/** @type { String } */ const selectedClass       = 'selected';
+/** @type { String } */ const disabledClass       = 'disabled';
 
 /** @private */
-const optionClassName = columnClassName + '-item';
-
-/** @private */
-const notVisibleClass = "invisible";
+const invisibleClass = 'invisible';
 
 /** @private */
 let id = 0;
@@ -35,7 +58,7 @@ const boxHeight = 240;
  * @returns { String }
  */
 const elementId = (option) =>
-    (columnClassName + "-" + option.getId()).replaceAll("\.","-");
+    (columnClass + "-" + option.getId()).replaceAll("\.","-");
 
 /**
  * Returns a data label for the html element that is to represent the attribute such that 
@@ -127,6 +150,7 @@ const updateScrollbar = (columnContainer) => {
  * @param { SelectedOptionControllerType } selectedOptionController
  * @param { SelectedOptionControllerType } cursorPositionController
  * @param { Number }                       columnNumber
+ * @param { Boolean }                      isValueColumn
  * @returns { [HTMLDivElement] } - column view
  * @example
         const optionsController = OptionsController();
@@ -143,28 +167,28 @@ const projectColumnOptionsView = (
     optionsController,
     selectedOptionController,
     cursorPositionController,
-    columnNumber = 0
+    columnNumber = 0,
+    isValueColumn = columnNumber === 0,
 ) => {
     const columnId        = id++;
     const columnContainer = document.createElement("div");
-    columnContainer.id    = columnClassName + "-" + columnId;
-    columnContainer.classList.add(columnClassName);
-    columnContainer.classList.add(columnClassName + "-" + columnNumber);
+    columnContainer.id    = columnClass + "-" + columnId;
+    columnContainer.classList.add(columnClass);
+    columnContainer.classList.add(columnClass + "-" + columnNumber);
     columnContainer.setAttribute("data-column", `${columnNumber}`);
     columnContainer.setAttribute("data-id", `${columnId}`);
 
-    if (columnNumber === 0) {
-        columnContainer.classList.add("value-" + columnClassName);
-    }
-    if (columnNumber > 0) {
-        columnContainer.classList.add("category-" + columnClassName);
+    if (isValueColumn) {
+        columnContainer.classList.add(typedColumnClassName(VALUE_CLASS));
+    } else {
+        columnContainer.classList.add(typedColumnClassName(CAT_CLASS));
     }
 
     /**
      * @param { OptionType } option 
      */
     const renderRow = (option) => {
-        const optionType = columnNumber === 0 ? "value" : "category";
+        const optionType = isValueColumn ? VALUE_CLASS : CAT_CLASS;
         const [rowElement] = projectOption(
             selectedOptionController,
             option,
@@ -173,7 +197,7 @@ const projectColumnOptionsView = (
         );
         // hide options initially not visible in column
         if (optionsController.getOptions().length > 150) {
-            rowElement.classList.toggle(notVisibleClass, true);
+            rowElement.classList.toggle(invisibleClass, true);
         }
         columnContainer.append(rowElement);
         if (selectedOptionController.getSelectedOption().equals(option)) {
@@ -202,18 +226,18 @@ const projectColumnOptionsView = (
             if (newScrollPosition > oldScrollPosition) {
                 // scrolling down
                 const nextItem = columnContainer.querySelector(
-                    `:not(.${notVisibleClass}) + .${notVisibleClass}`
+                    `:not(.${invisibleClass}) + .${invisibleClass}`
                 );
                 if (null != nextItem) {
-                    nextItem.classList.toggle(notVisibleClass, false);
+                    nextItem.classList.toggle(invisibleClass, false);
                 }
             } else if (newScrollPosition < oldScrollPosition) {
                 // scrolling up
                 const prevItem = columnContainer.querySelector(
-                    `.${notVisibleClass}:has(+ :not(.${notVisibleClass})`
+                    `.${invisibleClass}:has(+ :not(.${invisibleClass})`
                 );
                 if (null != prevItem) {
-                    prevItem.classList.toggle(notVisibleClass, false);
+                    prevItem.classList.toggle(invisibleClass, false);
                 }
             }
         }
@@ -248,14 +272,14 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
     item.setAttribute("data-id", elementId(option));
     item.setAttribute("data-value", option.getValue());
     item.setAttribute("data-label", elementDataLabel(option));
-    item.classList.add(optionClassName);
-    item.classList.add(optionType + "-" + optionClassName);
+    item.classList.add(optionClass);
+    item.classList.add(typedOptionClassName(optionType));
     item.innerHTML = option.getLabel();
     item.onclick = (_) => {
         if(selectedOptionController.isDisabled()){
             return;
         }
-        if ("value" !== optionType && selectedOptionController.getSelectedOption().equals(option)) {
+        if (VALUE_CLASS !== optionType && selectedOptionController.getSelectedOption().equals(option)) {
             // unselect categories & select cursor position
             selectedOptionController.clearSelectedOption();
             cursorPositionController?.setSelectedOption(option);
@@ -266,7 +290,7 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
     };
 
     selectedOptionController.onDisabledChanged(disabled => {
-        item.classList.toggle("disabled", disabled);
+        item.classList.toggle(disabledClass, disabled);
     });
     
     return [item];
@@ -282,24 +306,24 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
 const cursorPositionItem = (root) => (newOption, oldOption) => {
     const oldItem = getHtmlElementByOption(oldOption, root);
     if (oldItem) {
-        oldItem.classList.remove("cursor-position");
+        oldItem.classList.remove(cursorPositionClass);
     }
 
     const newItem = getHtmlElementByOption(newOption, root);
     if (newItem) {
-        newItem.classList.add("cursor-position");
+        newItem.classList.add(cursorPositionClass);
 
-        if (newItem.classList.contains(notVisibleClass)) {
-            newItem.classList.remove(notVisibleClass);
+        if (newItem.classList.contains(invisibleClass)) {
+            newItem.classList.remove(invisibleClass);
             let prevElement = newItem, nextElement = newItem;
             for (let i = 0; i < 50; i++) {
                 if (prevElement) {
                     prevElement = prevElement.previousElementSibling;
-                    prevElement?.classList.remove(notVisibleClass);
+                    prevElement?.classList.remove(invisibleClass);
                 }
                 if (nextElement) {
                     nextElement = nextElement.nextElementSibling;
-                    nextElement?.classList.remove(notVisibleClass);
+                    nextElement?.classList.remove(invisibleClass);
                 }
             }
         }
@@ -317,12 +341,12 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
 const selectOptionItem = (root) => (newOption, oldOption) => {
     const oldItem = getHtmlElementByOption(oldOption, root);
     if (oldItem) {
-        oldItem.classList.remove("selected");
+        oldItem.classList.remove(selectedClass);
     }
 
     const newItem = getHtmlElementByOption(newOption, root);
     if (newItem) {
-        newItem.classList.add("selected");
+        newItem.classList.add(selectedClass);
     }
 };
 
@@ -356,7 +380,7 @@ const pageCss = `
         }
     }
 
-    .${columnClassName} {
+    .${columnClass} {
         position:         relative;
         width:            100%;
         overflow-y:       scroll;
@@ -367,11 +391,11 @@ const pageCss = `
         flex-grow:        2;
         flex-shrink:      1;
     }
-    .${columnClassName}:not(:last-child) {
+    .${columnClass}:not(:last-child) {
         border-right:     1px solid #ccc;
         flex-grow:        1;
     }
-    .${columnClassName}::after {
+    .${columnClass}::after {
         content:          " ";
         width:            5px;
         right:            2px;
@@ -380,12 +404,12 @@ const pageCss = `
         position:         absolute;
         z-index:          3;
     }
-    .${columnClassName} .column-holder {
+    .${columnClass} .column-holder {
         display:          flex;
         justify-content:  center;
         align-items:      center
     }
-    .${columnClassName} .column-loader {
+    .${columnClass} .column-loader {
         border:           4px solid transparent;
         border-left:      4px solid #ccc;
         border-top:       4px solid #ccc;
@@ -396,20 +420,20 @@ const pageCss = `
     }
 
     /* styling for scroll bar */
-    .${columnClassName} {
+    .${columnClass} {
         scrollbar-color:  transparent transparent;
         scrollbar-width:  thin;
     }
-    .${columnClassName}::-webkit-scrollbar {
+    .${columnClass}::-webkit-scrollbar {
         width:            0;
     }
-    .${columnClassName}::-webkit-scrollbar-thumb {
+    .${columnClass}::-webkit-scrollbar-thumb {
         background-color: transparent;
     }
-    .${columnClassName}::-webkit-scrollbar-track {
+    .${columnClass}::-webkit-scrollbar-track {
     }
     
-    .${optionClassName} {
+    .${optionClass} {
         position:       relative;
         padding:        10px 20px;
         display:        block;
@@ -423,25 +447,25 @@ const pageCss = `
         overflow:       hidden;
         text-overflow:  ellipsis;
     }
-    .${optionClassName} img {
+    .${optionClass} img {
         height:         2rem;
         margin:         0 .5rem;
     }
-    .${optionClassName}.invisible {
+    .${optionClass}.${invisibleClass} {
         display:            none;
         content-visibility: auto;
     }
-    .${optionClassName}.selected {
+    .${optionClass}.${disabledClass} {
         background:     var(--kolibri-color-select);
         border-radius:  4px;
     }
-    .${optionClassName}.disabled {
+    .${optionClass}.${disabledClass} {
         filter:         grayscale(0.9);
     }
-    .${optionClassName}.category-${optionClassName}:last-child {
+    .${optionClass}.${typedOptionClassName(CAT_CLASS)}:last-child {
         border-bottom:  none;
     }
-    .${optionClassName}:not(.disabled):hover::after {
+    .${optionClass}:not(.${disabledClass}):hover::after {
         content:        '';
         position:       absolute;
         left:           10px;
@@ -454,10 +478,10 @@ const pageCss = `
         border-radius:  1px;
     }
 
-    .${optionClassName}.cursor-position {
+    .${optionClass}.${cursorPositionClass} {
         color:          var(--kb-hsla-warning-dark);
     }
-    .${optionClassName}.cursor-position:not(.disabled)::before {
+    .${optionClass}.${cursorPositionClass}:not(.${disabledClass})::before {
         content:        '';
         position:       absolute;
         left:           7px;
