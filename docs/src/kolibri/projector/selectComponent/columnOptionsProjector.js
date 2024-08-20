@@ -455,7 +455,7 @@ const pageCss = `
         display:            none;
         content-visibility: auto;
     }
-    .${optionClass}.${disabledClass} {
+    .${optionClass}.${selectedClass} {
         background:     var(--kolibri-color-select);
         border-radius:  4px;
     }
