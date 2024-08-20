@@ -1,7 +1,7 @@
 
 export {
     CAT_CLASS, VALUE_CLASS, 
-    typedColumnClassName, typedOptionClassName,
+    typedColumnClass, typedOptionClass,
     columnClass, optionClass, 
     cursorPositionClass, selectedClass, disabledClass, 
     projectColumnOptionsView, pageCss, 
@@ -21,13 +21,13 @@ export {
  * @param { OptionTypeClass } type - type of options
  * @returns { String }             - class name for column of option type
  */
-const typedColumnClassName = (type) => type + '-' + columnClass;
+const typedColumnClass = (type) => type + '-' + columnClass;
 
 /**
  * @param { OptionTypeClass } type - type of option
  * @returns { String }             - class name for option of option type
  */
-const typedOptionClassName = (type) => type + '-' + optionClass;
+const typedOptionClass = (type) => type + '-' + optionClass;
 
 /** @type { String } */ const columnClass         = 'options-column';
 /** @type { String } */ const optionClass         = columnClass + '-item';
@@ -179,9 +179,9 @@ const projectColumnOptionsView = (
     columnContainer.setAttribute("data-id", `${columnId}`);
 
     if (isValueColumn) {
-        columnContainer.classList.add(typedColumnClassName(VALUE_CLASS));
+        columnContainer.classList.add(typedColumnClass(VALUE_CLASS));
     } else {
-        columnContainer.classList.add(typedColumnClassName(CAT_CLASS));
+        columnContainer.classList.add(typedColumnClass(CAT_CLASS));
     }
 
     /**
@@ -273,7 +273,7 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
     item.setAttribute("data-value", option.getValue());
     item.setAttribute("data-label", elementDataLabel(option));
     item.classList.add(optionClass);
-    item.classList.add(typedOptionClassName(optionType));
+    item.classList.add(typedOptionClass(optionType));
     item.innerHTML = option.getLabel();
     item.onclick = (_) => {
         if(selectedOptionController.isDisabled()){
@@ -462,7 +462,7 @@ const pageCss = `
     .${optionClass}.${disabledClass} {
         filter:         grayscale(0.9);
     }
-    .${optionClass}.${typedOptionClassName(CAT_CLASS)}:last-child {
+    .${optionClass}.${typedOptionClass(CAT_CLASS)}:last-child {
         border-bottom:  none;
     }
     .${optionClass}:not(.${disabledClass}):hover::after {

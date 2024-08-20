@@ -1,11 +1,15 @@
-import { CategoryOption, ValueOption, nullOption }         from "./optionsModel.js";
-import { SelectController }                                from "./selectController.js";
-import { clearButtonClass, pageCss as pageComponentCss, projectSelectViews } from "./selectProjector.js";
-import { pageCss as pageCssColumn, updateScrollbar }       from "./columnOptionsProjector.js";
+import { CategoryOption, ValueOption, nullOption }   from "./optionsModel.js";
+import { SelectController }                          from "./selectController.js";
+import { pageCss as pageCssColumn, updateScrollbar } from "./columnOptionsProjector.js";
+import { 
+    pageCss as pageComponentCss, 
+    projectSelectViews, 
+    clearButtonClass 
+}                                                    from "./selectProjector.js";
 import {
     interactionProjectorWithoutSelectionChange,
     interactionProjectorWithSelectionChange,
-}                                                          from "./interactionProjector.js";
+}                                                    from "./interactionProjector.js";
 
 export { SelectComponentByCallbacks, SelectComponentByTableValues, pageCss };
 
