@@ -30,6 +30,7 @@
     --kolibri-color-shadow:  hsla(256, 82%, 55%, 0.2);
     --kolibri-box-shadow:    0 4px  8px 0 var(--kolibri-color-shadow),
                              0 6px 20px 0 var(--kolibri-color-shadow);
+    --kolibri-select-border: 1px solid var(--kolibri-color-neutral);
     padding:    0;
     margin:     0;
 }

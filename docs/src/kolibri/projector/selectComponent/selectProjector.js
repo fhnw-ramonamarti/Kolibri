@@ -354,7 +354,7 @@ const popoverStyle = `
         z-index:        20;
         max-height:     ${boxHeight}px;
         border-radius:  0 0 4px 4px;
-        border:         1px solid #ccc; 
+        border:         var(--kolibri-select-border); 
         border-top:     none;
         background:     #fff;
         overflow:       hidden;
@@ -410,7 +410,7 @@ const pageCss = `
         width:          100%;
         height:         2rem;
 
-        border:         1px solid #ccc; 
+        border:         var(--kolibri-select-border); 
         border-radius:  4px;
     }
     :focus .${selectedOptionClass} {

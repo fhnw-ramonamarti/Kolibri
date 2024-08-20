@@ -392,14 +392,14 @@ const pageCss = `
         flex-shrink:      1;
     }
     .${columnClass}:not(:last-child) {
-        border-right:     1px solid #ccc;
+        border-right:     var(--kolibri-select-border);
         flex-grow:        1;
     }
     .${columnClass}::after {
         content:          " ";
         width:            5px;
         right:            2px;
-        background-color: #ccc;
+        background-color: var(--kolibri-color-neutral);
         border-radius:    5px;
         position:         absolute;
         z-index:          3;
@@ -411,8 +411,8 @@ const pageCss = `
     }
     .${columnClass} .column-loader {
         border:           4px solid transparent;
-        border-left:      4px solid #ccc;
-        border-top:       4px solid #ccc;
+        border-left:      4px solid var(--kolibri-color-neutral);
+        border-top:       4px solid var(--kolibri-color-neutral);
         border-radius:    50%;
         width:            40px;
         aspect-ratio:     1 / 1;
