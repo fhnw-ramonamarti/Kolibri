@@ -1,18 +1,34 @@
-import { InputProjector }                                        from "../simpleForm/simpleInputProjector.js";
-import { CAT_CLASS, columnClass, optionClass, typedColumnClass, typedOptionClass, updateScrollbar } from "./columnOptionsProjector.js";
+import { InputProjector }                                 from "../simpleForm/simpleInputProjector.js";
 import { DAY_MONTH_YEAR, MONTH_DAY_YEAR, YEAR_MONTH_DAY } from "./dateComponent.js";
-import { openedClass, optionsClass, pageCss as selectProjectorCss,
-    selectClass, inputComponentClass, selectedOptionClass, 
-    selectedValueClass, toggleButtonClass, clearButtonClass, 
-    disabledClass, invalidClass, 
-    alertInfoShown,  } from "./selectProjector.js";
+import {
+    CAT_CLASS,
+    columnClass,
+    optionClass,
+    typedColumnClass,
+    updateScrollbar,
+}                                                         from "./columnOptionsProjector.js";
+import {
+    openedClass,
+    optionsClass,
+    pageCss as selectProjectorCss,
+    selectClass,
+    inputComponentClass,
+    selectedOptionClass,
+    selectedValueClass,
+    toggleButtonClass,
+    clearButtonClass,
+    disabledClass,
+    invalidClass,
+    alertInfoShown,
+}                                                         from "./selectProjector.js";
 
 export { dateColumnClass, dateSplitterClass, projectDateView, pageCss };
 
 
-/** @type { String } */ const dateColumnClass   = "date-column";
-/** @type { String } */ const dateSplitterClass = "date-splitter";
-/** @type { String } */ const placeholderClass  = "date-placeholder";
+/** @type { String } */ const dateComponentClass = "date-component";
+/** @type { String } */ const dateColumnClass    = "date-column";
+/** @type { String } */ const dateSplitterClass  = "date-splitter";
+/** @type { String } */ const placeholderClass   = "date-placeholder";
 
 /**
  * Create the options view of the date select, bind against the controller, and return the view.
@@ -187,8 +203,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
 
     selectedOptionContainer.classList.add(toggleButtonClass);
     selectedOptionContainer.classList.add(selectedValueClass);
-    selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
-    selectedOptionContainer.onclick   = togglePopover;
+    selectedOptionContainer.onclick = togglePopover;
     rootElement.append(selectedOptionContainer);
 
     const getLabel     = (col) => {
@@ -204,6 +219,12 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
     const splitter     = document.createElement('div');
     splitter.innerText = "/";
     splitter.classList.add(dateSplitterClass);
+    dayLabel.id   = selectController.getId() + "-day";
+    monthLabel.id = selectController.getId() + "-month";
+    yearLabel.id  = selectController.getId() + "-year";
+    dayLabel.setAttribute("data-field", "0");
+    monthLabel.setAttribute("data-field", "1");
+    yearLabel.setAttribute("data-field", "2");
     switch (dateFormat) {
         case DAY_MONTH_YEAR:
             selectedOptionContainer.append(
@@ -355,6 +376,7 @@ const projectDateView = (selectController, dateFormat) => {
 
     const componentContainer = document.createElement("div");
     componentContainer.classList.add(inputComponentClass);
+    componentContainer.classList.add(dateComponentClass);
     componentContainer.setAttribute("tabindex", "0"); // focusable element
     componentContainer.append(selectedOptionElement);
     componentContainer.append(allOptionsElement);

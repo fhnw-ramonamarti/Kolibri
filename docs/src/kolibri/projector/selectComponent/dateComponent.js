@@ -97,17 +97,37 @@ const DateComponent = (dateAttributes) => {
         selectController.getColumnOptionsComponent(3).addOptions(decaedes);
     }
 
+    /**
+     * @param { HTMLDivElement } element - html element of a single option
+     * @returns { OptionType }           - option fitting to the html element
+     */
+    const findOptionByElement = (element) => {
+        const optionValue   = element.getAttribute("data-value");
+        const optionLabel   = element.innerHTML;
+        const columnOptions = selectController
+            .getColumnOptionsComponent(2)
+            .getOptions();
+        return columnOptions.find(
+            (option) =>
+                option.getLabel() === optionLabel &&
+                option.getValue() === optionValue
+        );
+    };
+
     // define category option selection changes
     if (dateAttributes.withDecades) {
         selectController.getColumnOptionsComponent(3)?.onOptionSelected((option) => {
             if (option.getId() === nullOption.getId()) {
-                inputElement.querySelector(`[data-column="${2}"]`)?.firstChild.scrollIntoView();
                 return;
             } 
             const getYear = () => option.getLabel().substring(0, 4);
             const query   = `[data-label="${getYear()}"][data-value="${getYear()}"]`;
             const element = inputElement.querySelector(`[data-column="${2}"] ${query}`);
             element?.scrollIntoView();
+            selectController
+                .getColumnOptionsComponent(2)
+                .setSelectedOption(findOptionByElement(element));
+            selectController.getColumnOptionsComponent(3).setSelectedOption(nullOption);
         });
     }
 
