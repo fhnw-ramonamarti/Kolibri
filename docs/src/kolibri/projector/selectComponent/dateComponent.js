@@ -1,8 +1,8 @@
 import { CategoryOption, ValueOption, nullOption }      from "./optionsModel.js";
 import { SelectController }                             from "./selectController.js";
 import { pageCss as pageComponentCss, projectDateView } from "./dateProjector.js";
-import { pageCss as pageCssColumn, updateScrollbar }    from "./columnOptionsProjector.js";
-import { interactionProjectorWithSelectionChange }      from "./interactionProjector.js";
+import { pageCss as pageCssColumn }                     from "./columnOptionsProjector.js";
+import { dateInteractionProjector }                     from "./dateInteractionProjector.js";
 
 export { 
     YEAR_MONTH_DAY, DAY_MONTH_YEAR, MONTH_DAY_YEAR, 
@@ -133,7 +133,7 @@ const DateComponent = (dateAttributes) => {
 
     // add interaction
     setTimeout(() => {
-        interactionProjectorWithSelectionChange(componentView, selectController);
+        dateInteractionProjector(componentView, selectController);
     }, 81);
 
     return {
