@@ -7,18 +7,18 @@ export { dateInteractionProjector };
 
 
 /**
- * Define the interaction keys on the keyboard.
+ * Define the interaction keys on the keyboard for a date input.
  * The interaction is split between the opened and closed popover state.
  * The opened state:
  * The arrow keys move the cursor position by one element.
- * Space and Enter select the element under the cursor position.
+ * Space and Enter select the element under the cursor position an go on with the next column.
  * Tab and Esc close the popover container of the select.
  * PageUp and PageDown move the cursor position by `pageSize` number of elements in the current column.
  * Home and End move the cursor position to the Start/End of the current column.
  * A single letter or digit moves the cursor position to a specific element.
  * The closed state:
- * The arrow keys up and down move the cursor position by one element on the value column.
- * Home and End move the cursor position to the Start/End of the value column.
+ * The arrow keys up and down move the cursor position by one element in the selected column.
+ * The arrow keys left and right move the cursor position between the columns/fields.
  * Space opens the popover container of the select.
  * A single letter or digit moves the cursor position to a specific element.
  * The letters are limited to the english and german language.
