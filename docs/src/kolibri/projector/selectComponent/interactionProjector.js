@@ -170,6 +170,14 @@ const interactionProjector = (
                 "ArrowRight",
                 40,
                 "ArrowDown",
+                33,
+                "PageUp",
+                34,
+                "PageDown",
+                36,
+                "Home",
+                35,
+                "End",
             ].indexOf(e.key) > -1 &&
             null !=
                 document.querySelector(
