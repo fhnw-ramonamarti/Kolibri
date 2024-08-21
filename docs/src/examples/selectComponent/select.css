@@ -79,3 +79,7 @@ label {
     display:     flex;
     align-items: center;
 }
+
+.date-component {
+    width:       22rem;
+}

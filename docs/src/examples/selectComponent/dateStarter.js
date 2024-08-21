@@ -2,6 +2,7 @@ import {
     pageCss,
     DateComponent,
     DAY_MONTH_YEAR,
+    MONTH_DE,
 } from "../../kolibri/projector/selectComponent/dateComponent.js";
 
 document.querySelector("head style").textContent += pageCss;
@@ -10,10 +11,11 @@ document.querySelector("head style").textContent += pageCss;
  * @type { DateAttributes }
  */
 const dateAttribute  = {
-    name      : "birthday",
-    label     : "Birthday",
-    years     : [1944, 2011],
-    dateFormat: DAY_MONTH_YEAR,
+    name       : "birthday",
+    label      : "Birthday",
+    years      : [1944, 2011],
+    dateFormat : DAY_MONTH_YEAR,
+    monthFormat: MONTH_DE,
 };
 
 const dateComponent  = DateComponent(
