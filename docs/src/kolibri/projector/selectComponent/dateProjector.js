@@ -10,7 +10,6 @@ import {
 import {
     openedClass,
     optionsClass,
-    pageCss as selectProjectorCss,
     selectClass,
     inputComponentClass,
     selectedOptionClass,
@@ -20,15 +19,17 @@ import {
     disabledClass,
     invalidClass,
     alertInfoShown,
+    pageCss as selectProjectorCss,
 }                                                         from "./selectProjector.js";
 
-export { dateColumnClass, dateSplitterClass, projectDateView, pageCss };
+export { dateColumnClass, dateSplitterClass, projectDateView, positionClass, pageCss };
 
 
 /** @type { String } */ const dateComponentClass = "date-component";
 /** @type { String } */ const dateColumnClass    = "date-column";
 /** @type { String } */ const dateSplitterClass  = "date-splitter";
 /** @type { String } */ const placeholderClass   = "date-placeholder";
+/** @type { String } */ const positionClass      = "current-position";
 
 /**
  * Create the options view of the date select, bind against the controller, and return the view.
@@ -535,5 +536,13 @@ const pageCss = `
     }
     .${selectedValueClass}.${placeholderClass} .${dateSplitterClass} {
         color:            black;
+    }
+
+    .${selectedValueClass} > div:nth-child(2n-1) {
+        padding:          2px;
+    }
+
+    :focus .${positionClass} {
+        background:       var(--kolibri-color-select);
     }
 `;

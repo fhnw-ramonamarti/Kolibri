@@ -1,8 +1,10 @@
 import { Observable }                               from "../../observable.js";
 import { elementDataLabel, getHtmlElementByOption } from "./columnOptionsProjector.js";
+import { positionClass }                            from "./dateProjector.js";
 import { nullOption }                               from "./optionsModel.js";
 
 export { dateInteractionProjector };
+
 
 /**
  * Define the interaction keys on the keyboard.
@@ -38,6 +40,11 @@ const dateInteractionProjector = (
     const currentColumn = Observable(
         rootElement.querySelector("[data-column][class*=value]")?.getAttribute("data-column") ?? 0
     );
+
+    currentColumn.onChange((newColumn, oldColumn) => {
+        rootElement.querySelector(`[data-field="${oldColumn}"]`)?.classList.remove(positionClass);
+        rootElement.querySelector(`[data-field="${newColumn}"]`)?.classList.add(positionClass);
+    });
     
     // over all columns to listen for click for focus
     [...Array(selectController.getNumberOfColumns()).keys()].reverse().forEach((col) => {
