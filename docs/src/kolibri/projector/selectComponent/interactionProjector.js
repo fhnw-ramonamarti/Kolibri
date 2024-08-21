@@ -632,9 +632,9 @@ const interactionProjector = (
  * @param { SelectControllerType } selectController
  * @param { Number }               pageSize         - number of elements for pageUp/Down - default 10
  * @example
- const selectController = SelectController({});
- const selectView       = projectSelectViews(selectController);
- interactionProjectorWithSelectionChange(selectView, selectController);
+        const selectController = SelectController({});
+        const selectView       = projectSelectViews(selectController);
+        interactionProjectorWithoutSelectionChange(selectView, selectController);
  */
 const interactionProjectorWithoutSelectionChange = (
     rootElement,
@@ -654,9 +654,9 @@ const interactionProjectorWithoutSelectionChange = (
  * @param { SelectControllerType } selectController
  * @param { Number }               pageSize         - number of elements for pageUp/Down - default 10
  * @example
- const selectController = SelectController({});
- const selectView       = projectSelectViews(selectController);
- interactionProjectorWithSelectionChange(selectView, selectController);
+        const selectController = SelectController({});
+        const selectView       = projectSelectViews(selectController);
+        interactionProjectorWithSelectionChange(selectView, selectController);
  */
 const interactionProjectorWithSelectionChange = (rootElement, selectController, pageSize = 10) => {
     const currentColumn = Observable(0);
