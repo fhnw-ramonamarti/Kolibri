@@ -131,6 +131,111 @@ const DateComponent = (dateAttributes) => {
         });
     }
 
+    /**
+     * Update days due to selected year and month
+     */
+    const getDays = () => {
+        const selectedYear = selectController
+            .getColumnOptionsComponent(2)
+            .getSelectedOption()
+            .getValue();
+        const yearNumber = Number(selectedYear ?? 0);
+
+        const selectedMonth = selectController
+            .getColumnOptionsComponent(1)
+            .getSelectedOption()
+            .getValue();
+        const monthNumber = Number(
+            createMonths("all").filter(
+                (month) => Object.values(month).indexOf(selectedMonth) > -1
+            )[0]?.num ?? 0
+        );
+        const month31 = [0, 1, 3, 5, 7, 8, 10, 12];
+        const month30 = [4, 6, 9, 11];
+
+        // days29To31 with [0: 29, 1: 30, 2: 31]
+        const days29To31 = days.filter((option) => option.getLabel() > 28);
+        const biggestDay = Number(
+            selectController
+                .getColumnOptionsComponent(0)
+                .getOptions()
+                .map((option) => option.getValue())
+                .reverse()[0]
+        );
+
+        // days contain 31 values
+        if (month31.includes(monthNumber)) {
+            if (biggestDay < 31) {
+                selectController.getColumnOptionsComponent(0).addOptions(days29To31);
+            }
+        }
+
+        // days contain 30 values
+        if (month30.includes(monthNumber)) {
+            if (biggestDay < 30) {
+                selectController.getColumnOptionsComponent(0).addOptions(days29To31.slice(0, -1));
+            }
+            if (biggestDay > 30) {
+                selectController.getColumnOptionsComponent(0).delOptions(days29To31.slice(2));
+            }
+        }
+
+        /**
+         * @param { Number } year 
+         * @returns { Boolean } - year has 29th in February
+         */
+        const isLeap = (year) => {
+            if (year % 1000 === 0) {
+                return true;
+            }
+            if (year % 100 === 0) {
+                return false;
+            }
+            if (year % 4 === 0) {
+                return true;
+            }
+            return false;
+        };
+
+        // days contain 28 values (non leap year)
+        if (2 == monthNumber && (!isLeap(yearNumber) || selectedYear === "")) {
+            if (biggestDay > 28) {
+                selectController.getColumnOptionsComponent(0).delOptions(days29To31);
+            }
+        }
+
+        // days contain 29 values (leap year)
+        if (2 == monthNumber && isLeap(yearNumber) && selectedYear !== "") {
+            if (biggestDay < 29) {
+                selectController.getColumnOptionsComponent(0).addOptions(days29To31.slice(0, -2));
+            }
+            if (biggestDay > 29) {
+                selectController.getColumnOptionsComponent(0).delOptions(days29To31.slice(1));
+            }
+        }
+
+        // update day
+        const selectedDay = selectController.getColumnOptionsComponent(0).getSelectedOption();
+        if (
+            selectController
+                .getColumnOptionsComponent(0)
+                .getOptions()
+                .filter((option) => option.equals(selectedDay).length === 0)
+        ) {
+            selectController.getColumnOptionsComponent(0).setSelectedOption(nullOption);
+        }
+    };
+
+    // define date selection validation
+    selectController.getColumnOptionsComponent(2)?.onOptionSelected((_) => {
+        // year change
+        getDays();
+    });
+    selectController.getColumnOptionsComponent(1)?.onOptionSelected((_) => {
+        // month change
+        getDays();
+    });
+
     // add interaction
     setTimeout(() => {
         dateInteractionProjector(componentView, selectController);
@@ -145,17 +250,16 @@ const DateComponent = (dateAttributes) => {
 
 /**
  * @private
- * @param { Number } days     - number of days in the month, started with 1
  * @returns { Array<String> } - list of all days from 1 to number of days including end
  */
-const createDays = (days = 31) => {
-    return [...Array(days).keys()].map((e) => e + 1 + "");
+const createDays = () => {
+    return [...Array(31).keys()].map((e) => e + 1 + "");
 };
 
 /**
  * @private
- * @param { Number } language - format of the month, default shortcut english (MONTH_SHORT)
- * @returns { Array<String> } - list of all months formatted to the given format
+ * @param { MonthFormatType | 'all' } language - format of the month, default shortcut english (MONTH_SHORT)
+ * @returns { Array<String> }                  - list of all months formatted to the given format
  */
 const createMonths = (language = MONTH_SHORT) => {
     const months = [
@@ -172,6 +276,9 @@ const createMonths = (language = MONTH_SHORT) => {
         { num: '11', short: 'Nov', de: 'November',  en: 'November',  fr: 'Novembre',  it: 'Novembre'  },
         { num: '12', short: 'Dec', de: 'Dezember',  en: 'December',  fr: 'Décembre',  it: 'Dicembre'  },
     ];
+    if ("all" === language) {
+        return months;
+    }
     return months.map(month => month[language]);
 };
 

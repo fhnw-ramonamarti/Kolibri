@@ -13,7 +13,7 @@ document.querySelector("head style").textContent += pageCss;
 const dateAttribute  = {
     name       : "birthday",
     label      : "Birthday",
-    years      : [1944, 2011],
+    years      : [1844, 2011],
     dateFormat : DAY_MONTH_YEAR,
     monthFormat: MONTH_DE,
 };
