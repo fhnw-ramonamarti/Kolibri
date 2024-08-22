@@ -11,7 +11,7 @@ export { dateInteractionProjector };
  * The interaction is split between the opened and closed popover state.
  * The opened state:
  * The arrow keys move the cursor position by one element.
- * Space and Enter select the element under the cursor position an go on with the next column.
+ * Space and Enter select the element under the cursor position and go on with the next column.
  * Tab and Esc close the popover container of the select.
  * PageUp and PageDown move the cursor position by `pageSize` number of elements in the current column.
  * Home and End move the cursor position to the Start/End of the current column.
@@ -38,7 +38,7 @@ const dateInteractionProjector = (
     pageSize = 6,
 ) => {
     const currentColumn = Observable(
-        rootElement.querySelector("[data-column][class*=value]")?.getAttribute("data-column") ?? 0
+        Number(rootElement.querySelector("[data-column][class*=value]")?.getAttribute("data-column") ?? 0)
     );
 
     currentColumn.onChange((newColumn, oldColumn) => {

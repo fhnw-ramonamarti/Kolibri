@@ -15,12 +15,12 @@ export {
  * @typedef DateAttributes
  * @property { String? }  label
  * @property { String? }  name
- * @property { Boolean? } isRequired         - select need to have value selected in form, default false
- * @property { Boolean? } isDisabled         - selected value can not be changed, default false
- * @property { Boolean? } withDecades        - show the decades column extended to the year, default false
- * @property { DateFormatType? } dateFormat  - order of the date components, default YMD
- * @property { [Number, Number] } years      - range of years with start incl. and end excl., default: today-100 .. today+1
- * @property { MonthFormatType } monthFormat - format or language of the month, default MONTH_SHORT (english shortcut)
+ * @property { Boolean? } isRequired          - select need to have value selected in form, default false
+ * @property { Boolean? } isDisabled          - selected value can not be changed, default false
+ * @property { Boolean? } withDecades         - show the decades column extended to the year, default false
+ * @property { DateFormatType? } dateFormat   - order of the date components, default YMD
+ * @property { [Number, Number]? } years      - range of years with start incl. and end excl., default: today-100 .. today+1
+ * @property { MonthFormatType? } monthFormat - format or language of the month, default MONTH_SHORT (english shortcut)
  */
 
 
@@ -71,7 +71,7 @@ const DateComponent = (dateAttributes) => {
     const numberOfColumns  = dateAttributes.withDecades ? 4 : 3;
     const selectController = SelectController(selectAttributes, numberOfColumns, [0, 1, 2]);
 
-    const [componentView, selectionElement] = projectDateView(selectController, dateAttributes.dateFormat);
+    const [componentView, _] = projectDateView(selectController, dateAttributes.dateFormat);
     const [labelElement, inputElement]      = componentView.children;
 
     /**
@@ -84,7 +84,7 @@ const DateComponent = (dateAttributes) => {
 
     // prepare init data
     let [ start, end ] = dateAttributes.years;
-    const decaedes     = createDecades(start, end ?? currentYear).map(mapping(true));
+    const decades      = createDecades(start, end ?? currentYear).map(mapping(true));
     const years        = createYears(start, end ?? currentYear).map(mapping(false));
     const months       = createMonths(dateAttributes.monthFormat).map(mapping(false));
     const days         = createDays().map(mapping(false));
@@ -94,7 +94,7 @@ const DateComponent = (dateAttributes) => {
     selectController.getColumnOptionsComponent(1).addOptions(months);
     selectController.getColumnOptionsComponent(2).addOptions(years);
     if (dateAttributes.withDecades) {
-        selectController.getColumnOptionsComponent(3).addOptions(decaedes);
+        selectController.getColumnOptionsComponent(3).addOptions(decades);
     }
 
     /**
@@ -191,21 +191,19 @@ const DateComponent = (dateAttributes) => {
             if (year % 100 === 0) {
                 return false;
             }
-            if (year % 4 === 0) {
-                return true;
-            }
-            return false;
+            return year % 4 === 0;
+
         };
 
         // days contain 28 values (non leap year)
-        if (2 == monthNumber && (!isLeap(yearNumber) || selectedYear === "")) {
+        if (2 === monthNumber && (!isLeap(yearNumber) || selectedYear === "")) {
             if (biggestDay > 28) {
                 selectController.getColumnOptionsComponent(0).delOptions(days29To31);
             }
         }
 
         // days contain 29 values (leap year)
-        if (2 == monthNumber && isLeap(yearNumber) && selectedYear !== "") {
+        if (2 === monthNumber && isLeap(yearNumber) && selectedYear !== "") {
             if (biggestDay < 29) {
                 selectController.getColumnOptionsComponent(0).addOptions(days29To31.slice(0, -2));
             }
@@ -289,8 +287,8 @@ const createMonths = (language = MONTH_SHORT) => {
  * @returns { Array<String> } - list of all years including start and end year
  */
 const createYears = (start, end) => {
-    const differnece = Math.abs(end - start); 
-    const years      = [...Array(differnece).keys()].map((e) => e + Math.min(start, end) + "");
+    const difference = Math.abs(end - start);
+    const years      = [...Array(difference).keys()].map((e) => e + Math.min(start, end) + "");
     return (end > start) ? years : years.reverse();
 };
 
@@ -298,7 +296,7 @@ const createYears = (start, end) => {
  * @private
  * @param { Number } start    - first inclusive year of the year interval
  * @param { Number } end      - last inclusive year of the year interval
- * @returns { Array<String> } - list of all decaedes included in the year interval
+ * @returns { Array<String> } - list of all decades included in the year interval
  */
 const createDecades = (start, end) => {
     const startDecade = Math.ceil(start / 10);

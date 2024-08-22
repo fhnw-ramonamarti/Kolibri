@@ -340,7 +340,7 @@ selectProjectorSuite.add("binding-interaction-with-selection", (assert) => {
     ); // 25 tests done
 
     // test autoClose = false
-    interactionProjectorWithSelectionChange(selectView, selectController, pageSize, false);
+    interactionProjectorWithSelectionChange(selectView, selectController, pageSize);
     selectController.setOptionsVisibility(true);
     fireKeyboardEvent(selectView, "ArrowDown");
     fireKeyboardEvent(selectView, "Enter");
