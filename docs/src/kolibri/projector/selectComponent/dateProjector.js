@@ -1,5 +1,5 @@
 import { InputProjector }                                 from "../simpleForm/simpleInputProjector.js";
-import { DAY_MONTH_YEAR, MONTH_DAY_YEAR, YEAR_MONTH_DAY } from "./dateComponent.js";
+import { DAY_MONTH_YEAR, MONTH_DAY_YEAR, MONTH_NUMBER, YEAR_MONTH_DAY } from "./dateComponent.js";
 import {
     CAT_CLASS,
     columnClass,
@@ -212,7 +212,9 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
             .getColumnOptionsComponent(col)
             .getSelectedOption()
             .getLabel();
-        return "" === label ? "--" : label;
+        const monthLabel = dateFormat === MONTH_NUMBER ? "--" : "---";
+        const defaultLabel = ["--", monthLabel, "----"];
+        return "" === label ? defaultLabel[col] : label;
     };
     const dayLabel     = document.createElement('div');
     const monthLabel   = document.createElement('div');
@@ -276,7 +278,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
             .setValid(
                 !(
                     selectedOptionContainer.innerText.includes("-") &&
-                    "--/--/--" !== selectedOptionContainer.innerText
+                    "//" !== selectedOptionContainer.innerText.replaceAll("-", "")
                 )
             );
         selectController.getInputController().setValue(selectedOptionContainer.innerText);
