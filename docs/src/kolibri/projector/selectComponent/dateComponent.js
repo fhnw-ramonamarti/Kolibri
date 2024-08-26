@@ -19,8 +19,8 @@ export {
  * @property { Boolean? } isDisabled          - selected value can not be changed, default false
  * @property { Boolean? } withDecades         - show the decades column extended to the year, default false
  * @property { DateFormatType? } dateFormat   - order of the date components, default YMD
- * @property { [Number, Number]? } years      - range of years with start incl. and end excl., default: today-100 .. today+1
  * @property { MonthFormatType? } monthFormat - format or language of the month, default MONTH_SHORT (english shortcut)
+ * @property { [Number, Number]? } years      - range of years with start incl. and end excl., default: today-100 .. today+1
  */
 
 
@@ -63,16 +63,16 @@ const DateComponent = (dateAttributes) => {
         isDisabled : false,
         withDecades: false,
         dateFormat : YEAR_MONTH_DAY,
-        years      : [currentYear - 100, currentYear + 1],
         monthFormat: MONTH_SHORT,
+        years      : [currentYear, currentYear - 100],
         ...dateAttributes,
     };
     const selectAttributes = { ...dateAttributes, isCursorPositionWithSelection: true };
     const numberOfColumns  = dateAttributes.withDecades ? 4 : 3;
     const selectController = SelectController(selectAttributes, numberOfColumns, [0, 1, 2]);
 
-    const [componentView, _] = projectDateView(selectController, dateAttributes.dateFormat);
-    const [labelElement, inputElement]      = componentView.children;
+    const [componentView, _]           = projectDateView(selectController, dateAttributes.dateFormat);
+    const [labelElement, inputElement] = componentView.children;
 
     /**
      * @param { Boolean } isCategory - defines if column is a category type
@@ -123,7 +123,7 @@ const DateComponent = (dateAttributes) => {
             const getYear = () => option.getLabel().substring(0, 4);
             const query   = `[data-label="${getYear()}"][data-value="${getYear()}"]`;
             const element = inputElement.querySelector(`[data-column="${2}"] ${query}`);
-            element?.scrollIntoView();
+            element?.scrollIntoView(false);
             selectController
                 .getColumnOptionsComponent(2)
                 .setSelectedOption(findOptionByElement(element));
@@ -218,7 +218,7 @@ const DateComponent = (dateAttributes) => {
             selectController
                 .getColumnOptionsComponent(0)
                 .getOptions()
-                .filter((option) => option.equals(selectedDay).length === 0)
+                .filter((option) => option.equals(selectedDay)).length === 0
         ) {
             selectController.getColumnOptionsComponent(0).setSelectedOption(nullOption);
         }
@@ -287,7 +287,7 @@ const createMonths = (language = MONTH_SHORT) => {
  * @returns { Array<String> } - list of all years including start and end year
  */
 const createYears = (start, end) => {
-    const difference = Math.abs(end - start);
+    const difference = Math.abs(end - start + 1);
     const years      = [...Array(difference).keys()].map((e) => e + Math.min(start, end) + "");
     return (end > start) ? years : years.reverse();
 };

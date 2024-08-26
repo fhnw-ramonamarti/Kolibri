@@ -298,7 +298,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
             .setValid(
                 !(
                     selectedOptionContainer.innerText.includes("-") &&
-                    "--/--/--" !== selectedOptionContainer.innerText
+                    "//" !== selectedOptionContainer.innerText.replaceAll("-", "")
                 )
             );
         selectController.getInputController().setValue(selectedOptionContainer.innerText);
@@ -318,7 +318,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
             .setValid(
                 !(
                     selectedOptionContainer.innerText.includes("-") &&
-                    "--/--/--" !== selectedOptionContainer.innerText
+                    "//" !== selectedOptionContainer.innerText.replaceAll("-", "")
                 )
             );
         selectController.getInputController().setValue(selectedOptionContainer.innerText);
