@@ -1,12 +1,17 @@
-import { InputProjector }                                 from "../simpleForm/simpleInputProjector.js";
-import { DAY_MONTH_YEAR, MONTH_DAY_YEAR, MONTH_NUMBER, YEAR_MONTH_DAY } from "./dateComponent.js";
+import { InputProjector }           from "../simpleForm/simpleInputProjector.js";
+import { 
+    DAY_MONTH_YEAR, 
+    MONTH_DAY_YEAR, 
+    MONTH_NUMBER, 
+    YEAR_MONTH_DAY 
+}                                   from "./dateComponent.js";
 import {
     CAT_CLASS,
     columnClass,
     optionClass,
     typedColumnClass,
     updateScrollbar,
-}                                                         from "./columnOptionsProjector.js";
+}                                   from "./columnOptionsProjector.js";
 import {
     openedClass,
     optionsClass,
@@ -20,7 +25,7 @@ import {
     invalidClass,
     alertInfoShown,
     pageCss as selectProjectorCss,
-}                                                         from "./selectProjector.js";
+}                                   from "./selectProjector.js";
 
 export { dateColumnClass, dateSplitterClass, projectDateView, positionClass, pageCss };
 
@@ -262,66 +267,42 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
         selectedOptionContainer.innerText.includes("-")
     );
 
+    // update selection change dependencies
+    const updateAfterSelectionChange = () => {
+        selectedOptionContainer.classList.toggle(
+            placeholderClass,
+            selectedOptionContainer.innerText.includes("-")
+        );
+        clearButton.classList.toggle(
+            "hidden",
+            "//" === selectedOptionContainer.innerText.replaceAll("\n", "").replaceAll("-", "")
+        );
+        selectController
+            .getInputController()
+            .setValid(
+                !(
+                    selectedOptionContainer.innerText.includes("-") &&
+                    "//" !==
+                        selectedOptionContainer.innerText.replaceAll("\n", "").replaceAll("-", "")
+                )
+            );
+        selectController
+            .getInputController()
+            .setValue(selectedOptionContainer.innerText.replaceAll("\n", "").replaceAll("/", "."));
+    }
+
     // fill value in input & view container
     selectController.getColumnOptionsComponent(0)?.onOptionSelected((_) => {
         dayLabel.innerText = getLabel(0);
-        selectedOptionContainer.classList.toggle(
-            placeholderClass,
-            selectedOptionContainer.innerText.includes("-")
-        );
-        clearButton.classList.toggle(
-            "hidden",
-            selectedOptionContainer.innerText.includes("-")
-        );
-        selectController
-            .getInputController()
-            .setValid(
-                !(
-                    selectedOptionContainer.innerText.includes("-") &&
-                    "//" !== selectedOptionContainer.innerText.replaceAll("-", "")
-                )
-            );
-        selectController.getInputController().setValue(selectedOptionContainer.innerText);
+        updateAfterSelectionChange();
     });
     selectController.getColumnOptionsComponent(1)?.onOptionSelected((_) => {
         monthLabel.innerText = getLabel(1);
-        selectedOptionContainer.classList.toggle(
-            placeholderClass,
-            selectedOptionContainer.innerText.includes("-")
-        );
-        clearButton.classList.toggle(
-            "hidden",
-            selectedOptionContainer.innerText.includes("-")
-        );
-        selectController
-            .getInputController()
-            .setValid(
-                !(
-                    selectedOptionContainer.innerText.includes("-") &&
-                    "//" !== selectedOptionContainer.innerText.replaceAll("-", "")
-                )
-            );
-        selectController.getInputController().setValue(selectedOptionContainer.innerText);
+        updateAfterSelectionChange();
     });
     selectController.getColumnOptionsComponent(2)?.onOptionSelected((_) => {
         yearLabel.innerText = getLabel(2);
-        selectedOptionContainer.classList.toggle(
-            placeholderClass,
-            selectedOptionContainer.innerText.includes("-")
-        );
-        clearButton.classList.toggle(
-            "hidden",
-            selectedOptionContainer.innerText.includes("-")
-        );
-        selectController
-            .getInputController()
-            .setValid(
-                !(
-                    selectedOptionContainer.innerText.includes("-") &&
-                    "//" !== selectedOptionContainer.innerText.replaceAll("-", "")
-                )
-            );
-        selectController.getInputController().setValue(selectedOptionContainer.innerText);
+        updateAfterSelectionChange();
     });
 
     clearButton.setAttribute("type", "button");
@@ -335,7 +316,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
     };
     clearButton.classList.toggle(
         "hidden",
-        selectedOptionContainer.innerText.includes("-")
+        "//" === selectedOptionContainer.innerText.replaceAll("\n", "").replaceAll("-", "")
     );
     rootElement.append(clearButton);
 
