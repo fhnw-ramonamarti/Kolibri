@@ -46,13 +46,27 @@ export {
 
 
 /**
+ * DateComponent maintains a {@link SelectController} and it creates the view.
+ * It creates an input for dates with an optional column of decades for searching years.
+ * The component contains 3 or optional 4 columns.
+ * The date format and the month format can be defined in the `dateAttributes`.
+ * A selection of a decade leads to a scroll and a selection in the year column. 
+ * A selection of a year, month or day fills the date part. 
+ * The input value contains all 3 named date parts in the given format.
+ * The days are automatically updated with the correct number of days. 
+ * If an non-existing day is selected before the month change, the selection is removed.
+ * The date values are provided by default or the given format. 
+ * No own values can be passed to the component. 
+ *
+ * The used projector supports browser with popover api and nested css support.
+ * Browsers: Chrome ≥ 114, Firefox ≥ 125, Safari ≥ 17 (for lower versions an alert infobox appears)
  * 
  * @param { DateAttributes } dateAttributes 
  * @returns { SelectComponentType } 
  * @constructor
  * @example 
-        const selectAttributes = { name: 'birthday', label: 'Birthday' };
-        const component        = DateComponent(dateAttributes);
+        const dateAttributes = { name: 'birthday', label: 'Birthday' };
+        const component      = DateComponent(dateAttributes);
  */
 const DateComponent = (dateAttributes) => {
     const currentYear = new Date().getFullYear();
