@@ -281,6 +281,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement, dateFo
             .getInputController()
             .setValid(
                 !(
+                    selectController.isRequired() ||
                     selectedOptionContainer.innerText.includes("-") &&
                     "//" !==
                         selectedOptionContainer.innerText.replaceAll("\n", "").replaceAll("-", "")
