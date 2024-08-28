@@ -21,7 +21,7 @@ let idCounter = 0;
  * @property { () => String } getValue          - selectable value of the input
  * @property { () => String } getLabel          - visible label of the input
  * @property { () => String } getId             - unique identifier of the option
- * @property { ({ Object }) => Boolean } equals - true if label and value are the same
+ * @property { (OptionType) => Boolean } equals - true if label and value are the same
  * Initial the OptionType has no unique id
  */
 
@@ -68,7 +68,7 @@ const Option = (value, label) => {
         createId: () => id === "" ? id = "OptionItem" + idCounter++ : {},
         equals  : equals,
     }
-}
+};
 
 
 /**
